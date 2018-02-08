@@ -1,0 +1,100 @@
+/**
+  * reset browser style
+  */
+
+*{
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -user-select: none; //box-sizing: border-box;
+}
+
+html,
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+p,
+em,
+img,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+form,
+label,
+nav,
+footer,
+header,
+section,
+time,
+button,
+input,
+select,
+textarea {
+  border: 0 none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
+}
+
+input,
+textarea {
+  border-radius: 0;
+  outline: medium none;
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+input:disabled,
+textarea:disabled {
+  opacity: 1;
+}
+
+button,
+input,
+select,
+textarea {
+  resize: none;
+}
+
+s,
+i,
+em,
+b,
+strong {
+  font-style: normal;
+  text-decoration: none;
+}
+
+img {
+  border: none;
+}
+
+ul,
+ol {
+  list-style: outside none none;
+}
+
+li {
+  list-style: none outside none;
+}
+
+button {
+  background: transparent;
+  outline: 0;
+}

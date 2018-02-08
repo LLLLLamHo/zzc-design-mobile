@@ -1,0 +1,19 @@
+{
+  "name": "zzc-mobile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/guido build",
+    "publish": "./node_modules/.bin/guido publish"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "guido": "^3.6.6"
+  },
+  "devDependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}
