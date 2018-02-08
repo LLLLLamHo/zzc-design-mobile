@@ -64,13 +64,13 @@ module.exports = {
       path: '/zzc-design-mobile/index-cn',
       component: homeTmpl,
     }, {
-      path: '/zzc-design-mobile//docs/practice/:children',
+      path: '/zzc-design-mobile/docs/practice/:children',
       component: contentTmpl,
     }, {
-      path: '/zzc-design-mobile//docs/pattern/:children',
+      path: '/zzc-design-mobile/docs/pattern/:children',
       component: contentTmpl,
     }, {
-      path: '/zzc-design-mobile//docs/react/:children',
+      path: '/zzc-design-mobile/docs/react/:children',
       component: contentTmpl,
     }, {
       path: '/zzc-design-mobile/changelog',
