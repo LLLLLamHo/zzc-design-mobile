@@ -37,16 +37,17 @@ const prodExternals = useReact ? reactExternals : preactExternals;
 
 module.exports = {
   filePathMapper(filePath) {
-    if (filePath === '/index.html') {
-      return ['/index.html', '/index-cn.html'];
-    }
-    if (filePath.endsWith('/index.html')) {
-      return [filePath, filePath.replace(/\/index\.html$/, '-cn/index.html')];
-    }
-    if (filePath !== '/404.html' && filePath !== '/index-cn.html') {
-      return [filePath, filePath.replace(/\.html$/, '-cn.html')];
-    }
-    return filePath;
+    // if (filePath === '/index.html') {
+    //   return ['/index.html', '/index-cn.html'];
+    // }
+    // if (filePath.endsWith('/index.html')) {
+    //   return [filePath, filePath.replace(/\/index\.html$/, '-cn/index.html')];
+    // }
+    // if (filePath !== '/404.html' && filePath !== '/index-cn.html') {
+    //   return [filePath, filePath.replace(/\.html$/, '-cn.html')];
+    // }
+    // return filePath;
+    return ['/index.html', '/index-cn.html'];
   },
   webpackConfig(config) {
     // config.externals = {
