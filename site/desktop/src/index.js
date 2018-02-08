@@ -57,29 +57,29 @@ module.exports = {
     'bisheng-plugin-react?lang=__react',
   ],
   routes: {
-    path: '/',
+    path: '/zzc-design-mobile',
     component: './template/Layout/index',
     indexRoute: { component: homeTmpl },
     childRoutes: [{
-      path: 'index-cn',
+      path: '/zzc-design-mobile/index-cn',
       component: homeTmpl,
     }, {
-      path: '/docs/practice/:children',
+      path: '/zzc-design-mobile//docs/practice/:children',
       component: contentTmpl,
     }, {
-      path: '/docs/pattern/:children',
+      path: '/zzc-design-mobile//docs/pattern/:children',
       component: contentTmpl,
     }, {
-      path: '/docs/react/:children',
+      path: '/zzc-design-mobile//docs/react/:children',
       component: contentTmpl,
     }, {
-      path: 'changelog',
+      path: '/zzc-design-mobile/changelog',
       component: contentTmpl,
     }, {
-      path: 'changelog-cn',
+      path: '/zzc-design-mobile/changelog-cn',
       component: contentTmpl,
     }, {
-      path: '/components/:children',
+      path: '/zzc-design-mobile//components/:children',
       component: contentTmpl,
     }],
   },

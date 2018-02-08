@@ -55,11 +55,11 @@ module.exports = {
     // };
     // dev 环境下统一不 external
     // 因为 preact/devtools 未提供 umd
-    if (!isDev) {
-      config.externals = Object.assign(config.externals, prodExternals);
-    } else {
-      config.devtool = 'source-map';
-    }
+    // if (!isDev) {
+    //   config.externals = Object.assign(config.externals, prodExternals);
+    // } else {
+    //   config.devtool = 'source-map';
+    // }
 
     alertBabelConfig(config.module.rules);
     config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
@@ -89,6 +89,7 @@ module.exports = {
     });
     return config;
   },
+  output: './page',
   htmlTemplateExtraData: {
     isDev,
     useReact,
