@@ -6,8 +6,8 @@
   "scripts": {
     "build": "rm -rf ./lib && ZZC_ENV=build node ./config/zzc-tools.js",
     "watch": "rm -rf ./lib && ZZC_ENV=watch node ./config/zzc-tools.js",
-    "start": "cross-env NODE_ENV=development concurrently \"cross-env DEMO_ENV=react bisheng start -c ./site/bisheng.desktop.config.js\"",
-    "site": "cross-env NODE_ENV=production concurrently \"cross-env DEMO_ENV=react bisheng build -c ./site/bisheng.desktop.config.js\""
+    "start": "cross-env NODE_ENV=development concurrently \"cross-env DEMO_ENV=react bisheng start -c ./site/bisheng.config.js\"",
+    "site": "cross-env NODE_ENV=production concurrently \"cross-env DEMO_ENV=react bisheng build -c ./site/bisheng.config.js\""
   },
   "author": "",
   "license": "ISC",
@@ -52,6 +52,7 @@
     "react-dom": "^16.2.0",
     "react-github-button": "^0.1.11",
     "react-intl": "^2.4.0",
+    "react-router": "^4.2.0",
     "react-sticky": "^6.0.1",
     "rollup": "^0.55.3",
     "rollup-plugin-babel": "^3.0.3",
