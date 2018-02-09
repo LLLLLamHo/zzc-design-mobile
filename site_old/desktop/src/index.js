@@ -4,65 +4,6 @@ const cnLocale = require('./zh-CN');
 
 const homeTmpl = './template/Home/index';
 const contentTmpl = './template/Content/index';
-const isDev = process.env.NODE_ENV === 'development';
-let route = {
-  path: '/',
-  component: './template/Layout/index',
-  indexRoute: { component: homeTmpl },
-  childRoutes: [{
-    path: 'index-cn',
-    component: homeTmpl,
-  }, {
-    path: '/docs/practice/:children',
-    component: contentTmpl,
-  }, {
-    path: '/docs/pattern/:children',
-    component: contentTmpl,
-  }, {
-    path: '/docs/react/:children',
-    component: contentTmpl,
-  }, {
-    path: 'changelog',
-    component: contentTmpl,
-  }, {
-    path: 'changelog-cn',
-    component: contentTmpl,
-  }, {
-    path: '/components/:children',
-    component: contentTmpl,
-  }],
-};
-
-if ( !isDev ) { 
-  route = {
-    path: 'zzc-design-mobile/',
-    component: './template/Layout/index',
-    indexRoute: { component: homeTmpl },
-    childRoutes: [{
-      path: 'zzc-design-mobile/index-cn',
-      component: homeTmpl,
-    }, {
-      path: 'zzc-design-mobile/docs/practice/:children',
-      component: contentTmpl,
-    }, {
-      path: 'zzc-design-mobile/docs/pattern/:children',
-      component: contentTmpl,
-    }, {
-      path: 'zzc-design-mobile/docs/react/:children',
-      component: contentTmpl,
-    }, {
-      path: 'zzc-design-mobile/changelog',
-      component: contentTmpl,
-    }, {
-      path: 'zzc-design-mobile/changelog-cn',
-      component: contentTmpl,
-    }, {
-      path: 'zzc-design-mobile/components/:children',
-      component: contentTmpl,
-    }],
-  };
-}
-
 
 function pickerGenerator(module) {
   const tester = new RegExp(`^docs/${module}`);

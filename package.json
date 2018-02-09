@@ -6,8 +6,8 @@
   "scripts": {
     "build": "rm -rf ./lib && ZZC_ENV=build node ./config/zzc-tools.js",
     "watch": "rm -rf ./lib && ZZC_ENV=watch node ./config/zzc-tools.js",
-    "start": "cross-env NODE_ENV=development concurrently \"cross-env DEMO_ENV=react bisheng start -c ./site/bisheng.desktop.config.js\"",
-    "site": "cross-env NODE_ENV=production concurrently \"cross-env DEMO_ENV=react bisheng build -c ./site/bisheng.desktop.config.js\""
+    "start": "cross-env NODE_ENV=development concurrently \"cross-env DEMO_ENV=react bisheng start -c ./site/bisheng.config.js\"",
+    "site": "cross-env NODE_ENV=production concurrently \"cross-env DEMO_ENV=react bisheng build -c ./site/bisheng.config.js\""
   },
   "author": "",
   "license": "ISC",
