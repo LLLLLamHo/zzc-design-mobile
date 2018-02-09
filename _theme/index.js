@@ -1,8 +1,8 @@
 module.exports = {
     lazyLoad: false,
-    home: '/zzc-design-mobile',
+    home: 'zzc-design-mobile/',
     routes: [{
-      path: '/',
+      path: 'zzc-design-mobile/',
       component: './template/Home'
     }]
   };
