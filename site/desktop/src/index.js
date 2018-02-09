@@ -81,12 +81,12 @@ function pickerGenerator(module) {
 module.exports = {
   enLocale,
   cnLocale,
-  lazyLoad(nodePath, nodeValue) {
-    if (typeof nodeValue === 'string') {
-      return true;
-    }
-    return nodePath.endsWith('/demo');
-  },
+  // lazyLoad(nodePath, nodeValue) {
+  //   if (typeof nodeValue === 'string') {
+  //     return true;
+  //   }
+  //   return nodePath.endsWith('/demo');
+  // },
   pick: {
     components(markdownData) {
       const { filename } = markdownData.meta;
@@ -115,9 +115,10 @@ module.exports = {
     'bisheng-plugin-antd?noPreview',
     'bisheng-plugin-react?lang=__react',
   ],
-  home:'/zzc-design-mobile/',
-  routes: {
-    path: '/zzc-design-mobile/',
+  lazyLoad: false,
+  home: 'zzc-design-mobile/',
+  routes: [{
+    path: 'zzc-design-mobile/',
     component: homeTmpl
-  },
+  }]
 };
