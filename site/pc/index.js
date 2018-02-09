@@ -69,7 +69,7 @@ module.exports = {
     component: './template/Layout/index',
     indexRoute: { component: homeTmpl },
     childRoutes: [{
-      path: 'index-cn',
+      path: root+'index-cn',
       component: homeTmpl,
     }, {
       path: '/docs/practice/:children',
