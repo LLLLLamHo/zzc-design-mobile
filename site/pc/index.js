@@ -78,7 +78,7 @@ module.exports = {
       path: 'zzc-design-mobile/docs/pattern/:children',
       component: contentTmpl,
     }, {
-      path: 'zzc-design-mobile/docs/react/:children',
+      path: 'docs/react/:children',
       component: contentTmpl,
     }, {
       path: 'zzc-design-mobile/changelog',
