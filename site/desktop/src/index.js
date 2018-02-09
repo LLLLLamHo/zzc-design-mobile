@@ -115,31 +115,5 @@ module.exports = {
     'bisheng-plugin-antd?noPreview',
     'bisheng-plugin-react?lang=__react',
   ],
-  routes: {
-    path: '/',
-    component: './template/Layout/index',
-    indexRoute: { component: homeTmpl },
-    childRoutes: [{
-      path: 'index-cn',
-      component: homeTmpl,
-    }, {
-      path: '/docs/practice/:children',
-      component: contentTmpl,
-    }, {
-      path: '/docs/pattern/:children',
-      component: contentTmpl,
-    }, {
-      path: '/docs/react/:children',
-      component: contentTmpl,
-    }, {
-      path: 'changelog',
-      component: contentTmpl,
-    }, {
-      path: 'changelog-cn',
-      component: contentTmpl,
-    }, {
-      path: '/components/:children',
-      component: contentTmpl,
-    }],
-  },
+  routes: route,
 };
