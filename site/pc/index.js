@@ -64,7 +64,7 @@ module.exports = {
   ],
   // lazyLoad: false,
   home: root,
-  routes: [{
+  routes: {
     path: root,
     component: './template/Layout/index',
     indexRoute: { component: homeTmpl },
@@ -90,5 +90,5 @@ module.exports = {
       path: 'zzc-design-mobile/components/:children',
       component: contentTmpl,
     }]
-  }]
+  }
 };
