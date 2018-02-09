@@ -116,5 +116,8 @@ module.exports = {
     'bisheng-plugin-react?lang=__react',
   ],
   home:'zzc-design-mobile/',
-  routes: route,
+  routes: {
+    path: 'zzc-design-mobile/',
+    component: homeTmpl
+  },
 };
