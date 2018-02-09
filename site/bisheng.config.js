@@ -1,19 +1,18 @@
-var path = require( 'path' );
+const path = require('path');
+const commonConfig = require('./bisheng.common.config');
 
-module.exports = {
-  source: ['./components'],
-  output: './page',
-  entry: {
-    index: {
-      theme: './_theme',
-      htmlTemplate: './_theme/static/template.html'
-    }
+module.exports = Object.assign({}, commonConfig, {
+  port: 8001,
+  source: {
+    components: './components',
+    docs: './docs',
+    changelog: [
+      'CHANGELOG.zh-CN.md',
+      'CHANGELOG.en-US.md',
+    ],
   },
-  plugins: [
-    'bisheng-plugin-react?lang=__react',
-    'bisheng-plugin-antd'
-  ],
+  theme: './site/pc/index.js',
+  htmlTemplate: path.join(__dirname, './pc/static/template.html'),
   port: 9001,
-  
   root: './'
-};
+});
