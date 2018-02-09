@@ -2,7 +2,7 @@ var path = require( 'path' );
 
 module.exports = {
   source: ['./components'],
-  output: './_site',
+  output: './page',
   entry: {
     index: {
       theme: './_theme',
@@ -15,5 +15,5 @@ module.exports = {
   ],
   port: 9001,
   
-  // root: '/react-amap/'
+  root: './'
 };
