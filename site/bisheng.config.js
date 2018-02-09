@@ -3,6 +3,7 @@ const commonConfig = require('./bisheng.common.config');
 
 module.exports = Object.assign({}, commonConfig, {
   port: 8001,
+  output: './page',
   source: {
     components: './components',
     docs: './docs',

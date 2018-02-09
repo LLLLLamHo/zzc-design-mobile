@@ -7,6 +7,10 @@ const cnLocale = require( './zh-CN' );
 const homeTmpl = './template/Home';
 const contentTmpl = './template/Content/index';
 
+const isDev = process.env.NODE_ENV === 'development';
+
+let root = isDev ? '/' : 'zzc-design-mobile/';
+
 function pickerGenerator( module ) {
   const tester = new RegExp( `^docs/${module}` );
   /* eslint-disable consistent-return */
@@ -59,10 +63,32 @@ module.exports = {
     'bisheng-plugin-react?lang=__react',
   ],
   // lazyLoad: false,
-  home: 'zzc-design-mobile/',
+  home: root,
   routes: [{
-    path: 'zzc-design-mobile/',
+    path: root,
     component: './template/Layout/index',
     indexRoute: { component: homeTmpl },
+    childRoutes: [{
+      path: 'index-cn',
+      component: homeTmpl,
+    }, {
+      path: '/docs/practice/:children',
+      component: contentTmpl,
+    }, {
+      path: '/docs/pattern/:children',
+      component: contentTmpl,
+    }, {
+      path: '/docs/react/:children',
+      component: contentTmpl,
+    }, {
+      path: 'changelog',
+      component: contentTmpl,
+    }, {
+      path: 'changelog-cn',
+      component: contentTmpl,
+    }, {
+      path: '/components/:children',
+      component: contentTmpl,
+    }]
   }]
 };
