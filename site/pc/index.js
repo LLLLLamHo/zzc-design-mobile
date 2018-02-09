@@ -78,7 +78,7 @@ module.exports = {
       path: '/docs/pattern/:children',
       component: contentTmpl,
     }, {
-      path: '/docs/react/:children',
+      path: '/page/docs/react/:children',
       component: contentTmpl,
     }, {
       path: 'changelog',
