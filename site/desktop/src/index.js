@@ -115,5 +115,6 @@ module.exports = {
     'bisheng-plugin-antd?noPreview',
     'bisheng-plugin-react?lang=__react',
   ],
+  home:'zzc-design-mobile/',
   routes: route,
 };
