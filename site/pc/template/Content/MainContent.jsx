@@ -183,7 +183,6 @@ export default class MainContent extends React.Component {
     const { props } = this;
     const activeMenuItem = getActiveMenuItem(props);
     const menuItems = this.getMenuItems();
-    console.log(menuItems)
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
 
     const localizedPageData = props.localizedPageData;
