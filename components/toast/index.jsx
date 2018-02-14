@@ -17,7 +17,6 @@ let _closeTimer = null;
 let _toastElem = null;
 let _duration = 2;
 let _onClose = () => { };
-let _toggleToast = false;
 let _parentNode = null;
 
 function closeToast() {
@@ -43,25 +42,25 @@ function addAnimationEnd() {
     if ( hasClass( this, 'zzc-fade-enter' ) ) {
         removeClass( this, 'zzc-fade-enter-active' );
         removeClass( this, 'zzc-fade-enter' );
-        countdown();
+        _duration !== 0 && countdown();
     } else {
         _parentNode && _parentNode.parentNode.removeChild( _parentNode );
         _parentNode && ReactDOM.unmountComponentAtNode( _parentNode );
+        _duration !== 0 && _onClose();
         reset();
-        _onClose();
-        if ( _toggleToast ) {
-            _toggleToast = false;
-            const item = alignment.get( 'first' );
-            getToast( item.type, item.content, item.duration, item.onClose, item.mask );
-        }
     }
 }
 
-function hideToast() {
+function toggleShow() {
     if ( _closeTimer != null ) {
         clearTimeout( _closeTimer );
     }
-    closeToast();
+    _parentNode && _parentNode.parentNode.removeChild( _parentNode );
+    _parentNode && ReactDOM.unmountComponentAtNode( _parentNode );
+    reset();
+    _onClose();
+    const item = alignment.get( 'first' );
+    getToast( item.type, item.content, item.duration, item.onClose, item.mask );
 }
 
 function createParentNode() {
@@ -70,11 +69,9 @@ function createParentNode() {
     return parentNode;
 }
 
-function getToast( type, content, duration = 2, onClose = () => { }, mask = false ) {
+function getToast( type, content, duration = 2, onClose = () => { }, mask = true ) {
     // only one toast to page
     if ( _toastElem != null ) {
-        _toggleToast = true;
-        hideToast();
         alignment.save( {
             type,
             content,
@@ -82,6 +79,7 @@ function getToast( type, content, duration = 2, onClose = () => { }, mask = fals
             onClose,
             mask
         } );
+        toggleShow();
     } else {
         _duration = duration;
         _parentNode = createParentNode();
@@ -131,7 +129,7 @@ function addAnimationEvent() {
     }
 }
 
-export default class Toast extends Component  {
+export default class Toast extends Component {
     static info( ...props ) {
         getToast( 'info', props[0], props[1], props[2], props[3] );
     }
@@ -147,4 +145,5 @@ export default class Toast extends Component  {
     static loading( ...props ) {
         getToast( 'loading', props[0], props[1], props[2], props[3] );
     }
+    static hideToast() { closeToast(); }
 }
