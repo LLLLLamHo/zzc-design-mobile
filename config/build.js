@@ -2,19 +2,19 @@ const rollup = require( 'rollup' );
 const path = require( 'path' );
 const getInputOption = require( './inputOption' );
 const getOutputOption = require( './outputOption' );
-const colors = require('colors'); 
+const colors = require( 'colors' );
 
 
-async function build(moduleName) {
+async function build( moduleName, isIndex ) {
 
-    let inputOption = getInputOption( moduleName );
-    let outputOption = getOutputOption( moduleName );
+    let inputOption = getInputOption( moduleName,isIndex );
+    let outputOption = getOutputOption( moduleName,isIndex );
 
-    await console.log(`开始打包${moduleName}`.green);
+    await console.log( `开始打包${moduleName}`.green );
 
     await rollup.rollup( inputOption ).then( async ( bundle ) => {
         // generate code and a sourcemap
-
+        
         let modules = bundle.modules;
         for ( let i = 0; i < modules.length; i++ ) {
             if ( modules[i].resolvedIds ) {
@@ -30,7 +30,7 @@ async function build(moduleName) {
 
         const { code, map } = await bundle.generate( outputOption );
         await bundle.write( outputOption );
-        await console.log(`完成打包${moduleName}`.green);
+        await console.log( `完成打包${moduleName}`.green );
     } ).catch( ( err ) => {
         console.log( `打包${moduleName}失败`.red );
         console.log( `${err}`.red );

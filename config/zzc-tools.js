@@ -9,15 +9,15 @@ const ZZC_ENV = process.env.ZZC_ENV;
 
 let dirs = fs.readdirSync( COMPONENTS_PATH );
 
-let excludeDir = { _util: true, style: true };
+let excludeDir = { _util: true, style: true, '.DS_Store': true, '.babelrc': true };
 
 if ( dirs.length > 0 ) {
     for ( let i = 0; i < dirs.length; i++ ) {
         if ( !excludeDir[dirs[i]] ) {
             if ( ZZC_ENV == 'build' ) {
-                build( dirs[i] );
+                build( dirs[i], dirs[i] == 'index.js' ? true : false );
             } else {
-                watch( dirs[i] );
+                watch( dirs[i], dirs[i] == 'index.js' ? true : false );
             }
         }
     }

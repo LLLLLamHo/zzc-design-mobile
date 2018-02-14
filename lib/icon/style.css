@@ -1,0 +1,20 @@
+.zzc-icon {
+  fill: currentColor;
+  background-size: cover; }
+  .zzc-icon-md {
+    width: .8rem;
+    height: .8rem; }
+
+.zzc-icon-loading {
+  -webkit-animation: cirle-zzc 1s linear infinite;
+          animation: cirle-zzc 1s linear infinite; }
+
+@-webkit-keyframes cirle-zzc {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes cirle-zzc {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }

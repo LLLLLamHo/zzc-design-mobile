@@ -11,9 +11,9 @@ const eslint = require( 'rollup-plugin-eslint' );
 
 const CWD = process.cwd();
 
-function getInputOption( moduleName ) {
+function getInputOption( moduleName, isIndex ) {
     return {
-        input: path.join( CWD, './components/', moduleName, '/index.jsx' ),
+        input: isIndex ? path.join( CWD, './components/index.js' ) : path.join( CWD, './components/', moduleName, '/index.jsx' ),
         external: [
             'react',
             'react-dom'
@@ -24,16 +24,17 @@ function getInputOption( moduleName ) {
             eslint( {
                 throwOnError: true,
                 throwOnWarning: true,
-                exclude: ['/node_modules/**','**/*.scss']
+                exclude: ['/node_modules/**', '**/*.scss']
             } ),
             sass( {
-                output: path.join( CWD, './lib/', moduleName, 'style.css' ),
+                output: isIndex ? path.join( CWD, './lib/style.css' ) : path.join( CWD, './lib/', moduleName, 'style.css' ),
                 option: { outputStyle: 'compressed' },
                 processor: css => postcss( [autoprefixer] )
                     .process( css, { from: 'undefined' } )
                     .then( result => result.css )
             } ),
             babel( {
+                runtimeHelpers: true,
                 exclude: '**/node_modules/**'
             } )
         ]

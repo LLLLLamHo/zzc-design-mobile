@@ -1,0 +1,46 @@
+.zzc-fade-enter {
+    opacity: 0;
+    animation-duration: .2s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+    animation-play-state: paused;
+}
+
+.zzc-fade-leave {
+    opacity: 0;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+    animation-play-state: paused;
+}
+
+.zzc-fade-enter.zzc-fade-enter-active {
+    -webkit-animation-name: zzcFadeIn;
+    animation-name: zzcFadeIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.zzc-fade-leave.zzc-fade-leave-active {
+    -webkit-animation-name: zzcFadeOut;
+    animation-name: zzcFadeOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+@keyframes zzcFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes zzcFadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

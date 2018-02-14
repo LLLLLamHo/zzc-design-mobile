@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toast 1`] = `
+<div
+  class="zzc-demo"
+>
+  <div
+    class="zzc-demo-header"
+  >
+    <h1
+      class="zzc-demo-title"
+    >
+      Toast 轻提示
+    </h1>
+  </div>
+  <div
+    class="zzc-demo-body"
+  >
+    <div
+      class="btn"
+      id="noMarkInfo"
+    >
+      带有mark的info
+    </div>
+    <div
+      class="btn"
+    >
+      不带有mark的info
+    </div>
+    <div
+      class="btn"
+    >
+      success
+    </div>
+    <div
+      class="btn"
+    >
+      error
+    </div>
+    <div
+      class="btn"
+    >
+      waring
+    </div>
+    <div
+      class="btn"
+    >
+      loading
+    </div>
+  </div>
+</div>
+`;

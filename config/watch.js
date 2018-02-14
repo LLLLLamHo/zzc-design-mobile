@@ -24,8 +24,7 @@ function watch( moduleName ) {
                 break;
             case 'BUNDLE_START': console.log( `开始构建${event.input}`.blue );
                 break;
-            case 'BUNDLE_END': console.log( `构建完成${event.input}${linebreak}输出到${event.output[0]}${linebreak}耗时${event.duration}毫秒`.blue
-                                        );
+            case 'BUNDLE_END': console.log( `构建完成${event.input}${linebreak}输出到${event.output[0]}${linebreak}耗时${event.duration}毫秒`.blue);
                 break;
             case 'END': console.log( `构建完成${moduleName}模块`.green );
                 break;

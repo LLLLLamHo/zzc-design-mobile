@@ -18,7 +18,13 @@ const eslintrc = {
     ],
     rules: {
         //default
+        "no-use-before-define": 0,//声明前调用
+        "prefer-arrow-callback" : 0,
+        "space-before-function-paren": 0,//函数空格
+        "no-unneeded-ternary": 0,//关闭条件表达式
         "indent": [1, 4],//缩进4个空格
+        "no-underscore-dangle": 0,//禁止使用下滑线
+        "no-unused-expressions": [1, { "allowShortCircuit": true, "allowTernary": true }],// a() && b() a || b 
         "space-in-parens": [1, "always"],//括号内存在一个空间
         "comma-dangle": [2, "never"],//拖尾逗号
         'class-methods-use-this': 0,//强制使用类方法
@@ -28,11 +34,12 @@ const eslintrc = {
         'max-len': 0,//限制一行的最大字数
         'array-callback-return': 0,//强制数组方法的回调函数中有 return 语句
         'prefer-destructuring': 0,//需要从数组或者对象中解耦
-        'object-curly-newline': [2, {
+        'object-curly-newline': [1, {
             "ObjectExpression": "always",
             "ObjectPattern": { "multiline": true }
         }],//花括号换行
         'eol-last': 0,//要求或禁止文件末尾存在空行
+        'guard-for-in': 0,
         //react
         'react/boolean-prop-naming': 1,//强制布尔值类型一直命名 is/has
         'react/no-string-refs': 0,//强制ref = Function, ref={(c) => { this.hello = c; }}
@@ -46,10 +53,13 @@ const eslintrc = {
         'react/require-extension': 0,//扩展，文档找不到
         'react/jsx-no-comment-textnodes': 0,//防止将注释作为文本节点插入
         "react/jsx-indent": [2, 4],//react组件缩进
+        "react/jsx-indent-props": [2, 4],
+        "react/no-danger": 0,//禁用dangerouslySetInnerHTML
         //import
         'import/no-unresolved': 0,//确保导入文件可以解析
         'import/extensions': 0,//确保导入文件一定写扩展名
         'import/no-extraneous-dependencies': 0,//防止重复引入
+        'import/prefer-default-export': 0,
         //jsx-a11y
         'jsx-a11y/img-has-alt': 0,//img是否有待alt
         'jsx-a11y/anchor-has-content': 0,//强制所有的标签都有内容
@@ -61,5 +71,11 @@ const eslintrc = {
     }
 }
 
+const ZZC_ENV = process.env.ZZC_ENV;
+if ( ZZC_ENV === 'build' || ZZC_ENV === 'watch' ) {
+    eslintrc.rules['no-console'] = 0;
+    eslintrc.rules['no-alert'] = 0;
+    eslintrc.rules['no-debugger'] = 0;
+}
 
 module.exports = eslintrc;

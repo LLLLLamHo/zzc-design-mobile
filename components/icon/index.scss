@@ -1,0 +1,20 @@
+$cls: zzc-icon;
+
+.#{$cls}{
+    fill: currentColor;
+    background-size: cover;
+    &-md{
+        width: .8rem;
+        height: .8rem;
+    }
+}
+
+.#{$cls}-loading {
+    animation: cirle-zzc 1s linear infinite;
+}
+
+@keyframes cirle-zzc {
+    100% {
+        transform: rotate(360deg);
+    }
+}

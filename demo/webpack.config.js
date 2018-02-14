@@ -7,7 +7,7 @@ const ROOT_PATH = process.cwd();
 module.exports = {
     devtool: 'source-map',
     entry: {
-        'toast': './toast/src/index.jsx',
+        'toast': './src/toast/src/index.jsx',
     },
     output: {
         filename: "[name]/index.js"
@@ -26,6 +26,14 @@ module.exports = {
             callback();
         }
     ],
+    resolve: {
+        alias: {
+            "zzcDesign": path.resolve(
+                __dirname,
+                "../components/index.js"
+            )
+        }
+    },
     // resolve: {
     //     alias: {
     //         "react": require.resolve(REACT_PATH),
