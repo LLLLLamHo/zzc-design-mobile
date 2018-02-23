@@ -1,5 +1,5 @@
 function isType( s, typeString ) {
-    return Object.toString.call( s ) === `[object ${typeString}]`;
+    return Object.prototype.toString.call( s ) === `[object ${typeString}]`;
 }
 
 export function isWindow( s ) {

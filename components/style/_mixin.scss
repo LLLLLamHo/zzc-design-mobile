@@ -1,0 +1,91 @@
+//半像素边框
+@mixin halfPXBorder ($borderColor:#333, $borderRadius:0, $borderWidth:1px, $borderStyle:solid) {
+    border:none;
+    @if($borderColor=='none') {
+        &::after {
+            display: none;
+        }
+    }
+    @else {
+        position: relative;
+        &::after {
+            display: block;
+            border-radius: $borderRadius;
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200%;
+            height: 200%;
+            border: $borderWidth $borderStyle $borderColor;
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: scale(0.5, 0.5);
+            transform: scale(0.5, 0.5);
+            box-sizing: border-box;
+            background: transparent;
+        }
+    }
+}
+
+//半像素线
+@mixin halfPXLine($type,$borderColor:#333, $borderWidth:1px, $borderStyle:solid) {
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        z-index: 11;
+        @if($type == 'top'){
+            width: 100%;
+            top: 0;
+            left: 0;
+            border-top: $borderWidth $borderStyle $borderColor;
+            transform: scaleY(.5) translateY(-50%);
+        }
+        @else if($type == 'left'){
+            top: 0;
+            left: 0;
+            height: 100%;
+            border-left: $borderWidth $borderStyle $borderColor;
+            transform: scaleX(.5) translateX(-50%);
+        }
+        @else if($type == 'bottom'){
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            border-bottom: $borderWidth $borderStyle $borderColor;
+            transform: scaleY(.5) translateY(50%);
+        }
+        @else if($type == 'right'){
+            top: 0;
+            right: 0;
+            height: 100%;
+            transform: scaleX(.5) translateX(50%);
+            border-right: $borderWidth $borderStyle $borderColor;
+        }
+    }
+}
+
+//正常像素
+@mixin pxBorder($borderColor:#333, $borderRadius:0, $borderWidth:1px, $borderStyle:solid) {
+    @if($borderColor=='none') {
+        border: none;
+    }
+    @else{
+        border: $borderWidth $borderStyle $borderColor;
+    }
+}
+
+//居中
+@mixin -webkit-box($align:center, $pack:center) {
+    display: -webkit-box;
+    -webkit-box-align: $align;
+    -webkit-box-pack: $pack;
+}
+
+//设置边框圆角
+@mixin borderRadius($borderRadius:0) {
+    border-radius: $borderRadius;
+    -webkit-border-radius: $borderRadius;
+}

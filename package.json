@@ -6,6 +6,7 @@
   "scripts": {
     "svgo": "./node_modules/.bin/svgo -f ./components/icon/svg",
     "build": "rm -rf ./lib && ZZC_ENV=build node ./config/zzc-tools.js",
+    "build_demo": "rm -rf ./lib && ZZC_ENV=build node ./config/zzc-tools.js && node ./config/copy.js",
     "watch": "rm -rf ./lib && ZZC_ENV=watch node ./config/zzc-tools.js",
     "test": "./node_modules/.bin/jest -u --config .jest.js",
     "start": "cross-env NODE_ENV=development concurrently \"cross-env DEMO_ENV=react bisheng start -c ./bisheng.config.js\"",

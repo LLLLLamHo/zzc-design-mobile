@@ -196,7 +196,8 @@ button {
       margin-top: .2rem; }
   .zzc-toast .zzc-toast-notice-content {
     background: rgba(51, 51, 51, 0.8);
-    border-radius: .16rem;
+    border-radius: 0.16rem;
+    -webkit-border-radius: 0.16rem;
     text-align: center;
     padding: .3rem;
     -webkit-box-sizing: border-box;
@@ -204,5 +205,394 @@ button {
     max-width: 6.3rem; }
     .zzc-toast .zzc-toast-notice-content .zzc-toast-text {
       color: #fff;
-      font-size: .28rem;
+      font-size: 0.28rem;
       word-wrap: break-word; }
+.zzc-button {
+  cursor: pointer;
+  margin-bottom: 0;
+  font-size: 0.22rem;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 .2rem;
+  font-weight: 400;
+  display: block;
+  -webkit-transition: background .1s;
+  transition: background .1s;
+  border-radius: .08rem;
+  background: transparent;
+  color: #333;
+  border: 1px solid #ccc;
+  height: .88rem;
+  line-height: .88rem;
+  font-size: 0.32rem; }
+  .zzc-button.zzc-button-active-default {
+    background: #cccccc; }
+  .zzc-button.zzc-button-inline {
+    display: inline-block; }
+  .zzc-button.zzc-button-lg {
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.32rem; }
+  .zzc-button.zzc-button-ms {
+    height: .7rem;
+    line-height: .7rem;
+    font-size: 0.28rem; }
+  .zzc-button.zzc-button-xs {
+    height: .6rem;
+    line-height: .6rem;
+    font-size: 0.24rem;
+    border: none;
+    position: relative; }
+    .zzc-button.zzc-button-xs::after {
+      display: block;
+      border-radius: 0.16rem;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 200%;
+      height: 200%;
+      border: 1px solid #ccc;
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+      -webkit-transform: scale(0.5, 0.5);
+      transform: scale(0.5, 0.5);
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      background: transparent; }
+  .zzc-button.zzc-button-main {
+    background: #4E7CDD;
+    color: #fff;
+    border: none; }
+    .zzc-button.zzc-button-main::after {
+      display: none; }
+    .zzc-button.zzc-button-main.zzc-button-disabled {
+      opacity: .5;
+      pointer-events: none;
+      cursor: not-allowed; }
+    .zzc-button.zzc-button-main.zzc-button-active-main {
+      background: #3e63b0; }
+    .zzc-button.zzc-button-main.zzc-button-background-ghost {
+      background: transparent;
+      color: #4E7CDD;
+      border: 1px solid #4E7CDD; }
+      .zzc-button.zzc-button-main.zzc-button-background-ghost.zzc-button-active-default {
+        background: #edf1fb; }
+      .zzc-button.zzc-button-main.zzc-button-background-ghost.zzc-button-xs {
+        border: none;
+        position: relative; }
+        .zzc-button.zzc-button-main.zzc-button-background-ghost.zzc-button-xs::after {
+          display: block;
+          border-radius: 0.16rem;
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 200%;
+          height: 200%;
+          border: 1px solid #4E7CDD;
+          -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+          -webkit-transform: scale(0.5, 0.5);
+          transform: scale(0.5, 0.5);
+          -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+          background: transparent; }
+  .zzc-button.zzc-button-main-lh {
+    background: #86ABFF;
+    color: #fff;
+    border: none; }
+    .zzc-button.zzc-button-main-lh::after {
+      display: none; }
+    .zzc-button.zzc-button-main-lh.zzc-button-disabled {
+      opacity: .5;
+      pointer-events: none;
+      cursor: not-allowed; }
+    .zzc-button.zzc-button-main-lh.zzc-button-active-main-lh {
+      background: #6b88cc; }
+    .zzc-button.zzc-button-main-lh.zzc-button-background-ghost {
+      background: transparent;
+      color: #86ABFF;
+      border: 1px solid #86ABFF; }
+      .zzc-button.zzc-button-main-lh.zzc-button-background-ghost.zzc-button-active-default {
+        background: #f2f6ff; }
+      .zzc-button.zzc-button-main-lh.zzc-button-background-ghost.zzc-button-xs {
+        border: none;
+        position: relative; }
+        .zzc-button.zzc-button-main-lh.zzc-button-background-ghost.zzc-button-xs::after {
+          display: block;
+          border-radius: 0.16rem;
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 200%;
+          height: 200%;
+          border: 1px solid #86ABFF;
+          -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+          -webkit-transform: scale(0.5, 0.5);
+          transform: scale(0.5, 0.5);
+          -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+          background: transparent; }
+  .zzc-button.zzc-button-main-dk {
+    background: #254FCB;
+    color: #fff;
+    border: none; }
+    .zzc-button.zzc-button-main-dk::after {
+      display: none; }
+    .zzc-button.zzc-button-main-dk.zzc-button-disabled {
+      opacity: .5;
+      pointer-events: none;
+      cursor: not-allowed; }
+    .zzc-button.zzc-button-main-dk.zzc-button-active-main-dk {
+      background: #1d3fa2; }
+    .zzc-button.zzc-button-main-dk.zzc-button-background-ghost {
+      background: transparent;
+      color: #254FCB;
+      border: 1px solid #254FCB; }
+      .zzc-button.zzc-button-main-dk.zzc-button-background-ghost.zzc-button-active-default {
+        background: #e9edf9; }
+      .zzc-button.zzc-button-main-dk.zzc-button-background-ghost.zzc-button-xs {
+        border: none;
+        position: relative; }
+        .zzc-button.zzc-button-main-dk.zzc-button-background-ghost.zzc-button-xs::after {
+          display: block;
+          border-radius: 0.16rem;
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 200%;
+          height: 200%;
+          border: 1px solid #254FCB;
+          -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+          -webkit-transform: scale(0.5, 0.5);
+          transform: scale(0.5, 0.5);
+          -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+          background: transparent; }
+  .zzc-button.zzc-button-sub {
+    background: #F40256;
+    color: #fff;
+    border: none; }
+    .zzc-button.zzc-button-sub::after {
+      display: none; }
+    .zzc-button.zzc-button-sub.zzc-button-disabled {
+      opacity: .5;
+      pointer-events: none;
+      cursor: not-allowed; }
+    .zzc-button.zzc-button-sub.zzc-button-active-sub {
+      background: #c30144; }
+    .zzc-button.zzc-button-sub.zzc-button-background-ghost {
+      background: transparent;
+      color: #F40256;
+      border: 1px solid #F40256; }
+      .zzc-button.zzc-button-sub.zzc-button-background-ghost.zzc-button-active-default {
+        background: #fde5ee; }
+      .zzc-button.zzc-button-sub.zzc-button-background-ghost.zzc-button-xs {
+        border: none;
+        position: relative; }
+        .zzc-button.zzc-button-sub.zzc-button-background-ghost.zzc-button-xs::after {
+          display: block;
+          border-radius: 0.16rem;
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 200%;
+          height: 200%;
+          border: 1px solid #F40256;
+          -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+          -webkit-transform: scale(0.5, 0.5);
+          transform: scale(0.5, 0.5);
+          -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+          background: transparent; }
+  .zzc-button.zzc-button-sub-lh {
+    background: #FF5A82;
+    color: #fff;
+    border: none; }
+    .zzc-button.zzc-button-sub-lh::after {
+      display: none; }
+    .zzc-button.zzc-button-sub-lh.zzc-button-disabled {
+      opacity: .5;
+      pointer-events: none;
+      cursor: not-allowed; }
+    .zzc-button.zzc-button-sub-lh.zzc-button-active-sub-lh {
+      background: #cc4868; }
+    .zzc-button.zzc-button-sub-lh.zzc-button-background-ghost {
+      background: transparent;
+      color: #FF5A82;
+      border: 1px solid #FF5A82; }
+      .zzc-button.zzc-button-sub-lh.zzc-button-background-ghost.zzc-button-active-default {
+        background: #ffeef2; }
+      .zzc-button.zzc-button-sub-lh.zzc-button-background-ghost.zzc-button-xs {
+        border: none;
+        position: relative; }
+        .zzc-button.zzc-button-sub-lh.zzc-button-background-ghost.zzc-button-xs::after {
+          display: block;
+          border-radius: 0.16rem;
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 200%;
+          height: 200%;
+          border: 1px solid #FF5A82;
+          -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+          -webkit-transform: scale(0.5, 0.5);
+          transform: scale(0.5, 0.5);
+          -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+          background: transparent; }
+  .zzc-button.zzc-button-sub-dk {
+    background: #CC0033;
+    color: #fff;
+    border: none; }
+    .zzc-button.zzc-button-sub-dk::after {
+      display: none; }
+    .zzc-button.zzc-button-sub-dk.zzc-button-disabled {
+      opacity: .5;
+      pointer-events: none;
+      cursor: not-allowed; }
+    .zzc-button.zzc-button-sub-dk.zzc-button-active-sub-dk {
+      background: #a30028; }
+    .zzc-button.zzc-button-sub-dk.zzc-button-background-ghost {
+      background: transparent;
+      color: #CC0033;
+      border: 1px solid #CC0033; }
+      .zzc-button.zzc-button-sub-dk.zzc-button-background-ghost.zzc-button-active-default {
+        background: #f9e5ea; }
+      .zzc-button.zzc-button-sub-dk.zzc-button-background-ghost.zzc-button-xs {
+        border: none;
+        position: relative; }
+        .zzc-button.zzc-button-sub-dk.zzc-button-background-ghost.zzc-button-xs::after {
+          display: block;
+          border-radius: 0.16rem;
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 200%;
+          height: 200%;
+          border: 1px solid #CC0033;
+          -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+          -webkit-transform: scale(0.5, 0.5);
+          transform: scale(0.5, 0.5);
+          -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+          background: transparent; }
+  .zzc-button.zzc-button-noRadius {
+    border-radius: 0;
+    -webkit-border-radius: 0; }
+    .zzc-button.zzc-button-noRadius::after {
+      border-radius: 0;
+      -webkit-border-radius: 0; }
+  .zzc-button.zzc-button-disabled {
+    opacity: .5;
+    pointer-events: none;
+    cursor: not-allowed; }
+
+.zzc-button-full {
+  cursor: pointer;
+  margin-bottom: 0;
+  font-size: 0.22rem;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 .2rem;
+  font-weight: 400;
+  display: block;
+  -webkit-transition: background .1s;
+  transition: background .1s;
+  border-radius: .08rem;
+  background: transparent;
+  color: #333;
+  border: 1px solid #ccc;
+  width: 100%;
+  border-radius: 0;
+  display: block;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: 0.32rem; }
+  .zzc-button-full.zzc-button-active-default {
+    background: #cccccc; }
+  .zzc-button-full.zzc-button-inline {
+    display: inline-block; }
+  .zzc-button-full.zzc-button-main {
+    background: #4E7CDD;
+    color: #fff;
+    border: none; }
+    .zzc-button-full.zzc-button-main.zzc-button-active-main {
+      background: #3e63b0; }
+    .zzc-button-full.zzc-button-main::after {
+      display: none; }
+  .zzc-button-full.zzc-button-main-lh {
+    background: #86ABFF;
+    color: #fff;
+    border: none; }
+    .zzc-button-full.zzc-button-main-lh.zzc-button-active-main-lh {
+      background: #6b88cc; }
+    .zzc-button-full.zzc-button-main-lh::after {
+      display: none; }
+  .zzc-button-full.zzc-button-main-dk {
+    background: #254FCB;
+    color: #fff;
+    border: none; }
+    .zzc-button-full.zzc-button-main-dk.zzc-button-active-main-dk {
+      background: #1d3fa2; }
+    .zzc-button-full.zzc-button-main-dk::after {
+      display: none; }
+  .zzc-button-full.zzc-button-sub {
+    background: #F40256;
+    color: #fff;
+    border: none; }
+    .zzc-button-full.zzc-button-sub.zzc-button-active-sub {
+      background: #c30144; }
+    .zzc-button-full.zzc-button-sub::after {
+      display: none; }
+  .zzc-button-full.zzc-button-sub-lh {
+    background: #FF5A82;
+    color: #fff;
+    border: none; }
+    .zzc-button-full.zzc-button-sub-lh.zzc-button-active-sub-lh {
+      background: #cc4868; }
+    .zzc-button-full.zzc-button-sub-lh::after {
+      display: none; }
+  .zzc-button-full.zzc-button-sub-dk {
+    background: #CC0033;
+    color: #fff;
+    border: none; }
+    .zzc-button-full.zzc-button-sub-dk.zzc-button-active-sub-dk {
+      background: #a30028; }
+    .zzc-button-full.zzc-button-sub-dk::after {
+      display: none; }
+  .zzc-button-full.zzc-button-disabled {
+    opacity: .5;
+    pointer-events: none;
+    cursor: not-allowed; }

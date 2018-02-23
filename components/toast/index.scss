@@ -1,3 +1,5 @@
+@import '../style/base.scss';
+
 $cls: 'zzc-toast';
 .#{$cls} {
     width: 100%;
@@ -27,14 +29,14 @@ $cls: 'zzc-toast';
     }
     .#{$cls}-notice-content {
         background: rgba(51, 51, 51, 0.8);
-        border-radius: .16rem;
+        @include borderRadius(.16rem);
         text-align: center;
         padding: .3rem;
         box-sizing: border-box;
         max-width: 6.3rem;
         .#{$cls}-text {
-            color: #fff;
-            font-size: .28rem;
+            color: $c_fff;
+            font-size: $fs28rem;
             word-wrap: break-word;
         }
     }

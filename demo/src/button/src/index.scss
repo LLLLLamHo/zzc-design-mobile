@@ -1,0 +1,18 @@
+.zzc-button{
+    margin-bottom: .2rem;
+}
+.zzc-button-inline{
+    margin-right: .1rem;
+}
+.zzc-button-active-custom{
+    background: rgba(0,0,0,.2);
+    color:#fff;
+}
+.icon-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .zzc-icon{
+        margin-right: .1rem;
+    }
+}

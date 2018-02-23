@@ -2,14 +2,33 @@
 
 .zzc-demo{
     .zzc-demo-header{
-        padding: .3rem;
+        padding: .3rem .3rem 0;
         .zzc-demo-title{
             font-size: .32rem;
             color:#666;
         }
+        h2{
+            font-size: .24rem;
+            color:#666;
+            padding-top: .2rem;
+        }
     }
     .zzc-demo-body{
+        h5{
+            font-size: .28rem;
+            color:#666;
+            padding: .2rem 0;
+        }
         margin-top: .2rem;
+        padding: 0 .3rem;
+        box-sizing: border-box;
+        &.full{
+            h5{
+                padding: .2rem .3rem;
+            }
+            padding: 0;
+        }
     }
 }
+
 

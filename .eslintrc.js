@@ -34,10 +34,7 @@ const eslintrc = {
         'max-len': 0,//限制一行的最大字数
         'array-callback-return': 0,//强制数组方法的回调函数中有 return 语句
         'prefer-destructuring': 0,//需要从数组或者对象中解耦
-        'object-curly-newline': [1, {
-            "ObjectExpression": "always",
-            "ObjectPattern": { "multiline": true }
-        }],//花括号换行
+        'object-curly-newline': 0,//花括号换行
         'eol-last': 0,//要求或禁止文件末尾存在空行
         'guard-for-in': 0,
         //react

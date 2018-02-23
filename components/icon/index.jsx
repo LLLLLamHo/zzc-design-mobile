@@ -10,22 +10,26 @@ export default class Icon extends React.PureComponent {
     componentDidMount() {
         loadSprite();
     }
+
+    static defaultProps = {
+        type: undefined,
+        size: 'md',
+        className: '',
+        style: {}
+    }
+
     render() {
-        const {
-            type,
-            size = 'md',
-            className,
-            ...restProps
-        } = this.props;
+        const { type, size, className, style } = this.props;
         const cls = classnames(
             className,
             PREFIXCLS,
             `${PREFIXCLS}-${size}`,
             `${PREFIXCLS}-${type}`
         );
+
         return (
-            <svg className={cls} {...restProps}>
-                <use xlinkHref={`#${type}`} />
+            <svg className={cls} style={style}>
+                <use xlinkHref={`#${PREFIXCLS}-${type}`} />
             </svg>
         );
     }

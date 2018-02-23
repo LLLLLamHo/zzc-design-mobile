@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './index.scss';
 import '../../../style/style.scss';
-import { Toast } from 'zzcDesign';
+import { Toast, Button } from 'zzcDesign';
 
 let isClose = false;
 
@@ -38,7 +38,7 @@ export default class App extends Component {
     }
 
     error() {
-        Toast.error( '信息错误', 2 );
+        Toast.error( '信息错误', 2);
     }
 
     waring() {
@@ -57,13 +57,13 @@ export default class App extends Component {
                     <h1 className="zzc-demo-title">Toast 轻提示</h1>
                 </div>
                 <div className="zzc-demo-body">
-                    <div id="noMarkInfo" className="btn" onClick={this.markInfo}>no mark info</div>
-                    <div className="btn" onClick={this.info}>info</div>
-                    <div className="btn" onClick={this.success}>success</div>
-                    <div className="btn" onClick={this.error}>error</div>
-                    <div className="btn" onClick={this.waring}>waring</div>
-                    <div className="btn" onClick={this.loading}>loading</div>
-                    <div className="btn" onClick={this.loadingInfo}>再次点击关闭toast</div>
+                    <Button onClick={this.markInfo}>no mark info</Button>
+                    <Button onClick={this.info} type="main">info</Button>
+                    <Button onClick={this.success} type="main">success</Button>
+                    <Button onClick={this.error} type="sub">error</Button>
+                    <Button onClick={this.waring} type="sub">waring</Button>
+                    <Button onClick={this.loading} type="main">loading</Button>
+                    <Button onClick={this.loadingInfo} type="main">再次点击关闭toast</Button>
                 </div>
             </div>
 

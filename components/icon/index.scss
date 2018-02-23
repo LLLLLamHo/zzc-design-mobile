@@ -3,9 +3,21 @@ $cls: zzc-icon;
 .#{$cls}{
     fill: currentColor;
     background-size: cover;
-    &-md{
+    &-lg{
         width: .8rem;
         height: .8rem;
+    }
+    &-md{
+        width: .6rem;
+        height: .6rem;
+    }
+    &-sm{
+        width: .4rem;
+        height: .4rem;
+    }
+    &-xs{
+        width: .2rem;
+        height: .2rem;
     }
 }
 
