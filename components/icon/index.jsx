@@ -4,14 +4,13 @@ import loadSprite from './loadSprite.jsx';
 
 import './index.scss';
 
-const PREFIXCLS = 'zzc-icon';
-
 export default class Icon extends React.PureComponent {
     componentDidMount() {
         loadSprite();
     }
 
     static defaultProps = {
+        prefixCls: 'zzc-icon',
         type: undefined,
         size: 'md',
         className: '',
@@ -19,17 +18,17 @@ export default class Icon extends React.PureComponent {
     }
 
     render() {
-        const { type, size, className, style } = this.props;
+        const { prefixCls, type, size, className, style } = this.props;
         const cls = classnames(
             className,
-            PREFIXCLS,
-            `${PREFIXCLS}-${size}`,
-            `${PREFIXCLS}-${type}`
+            prefixCls,
+            `${prefixCls}-${size}`,
+            `${prefixCls}-${type}`
         );
 
         return (
             <svg className={cls} style={style}>
-                <use xlinkHref={`#${PREFIXCLS}-${type}`} />
+                <use xlinkHref={`#${prefixCls}-${type}`} />
             </svg>
         );
     }

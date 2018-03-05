@@ -1,0 +1,52 @@
+@import '../style/base.scss';
+$cls: '.zzc-alert';
+$cls_button: '.zzc-button';
+#{$cls}-box {
+    width: 6.3rem;
+    overflow: hidden;
+    @include borderRadius(.16rem);
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+        width: 315px;
+    }
+    /* ipad横屏 */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        width: 315px;
+    }
+    /* ipad竖屏 */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+        width: 315px;
+    }
+    #{$cls}-body {
+        padding: .3rem;
+        &-title {
+            color: #333;
+            font-size: .32rem;
+            text-align: center;
+            &#{$cls}-body-only-title {
+                padding: .3rem 0;
+            }
+        }
+        &-content {
+            color: #333;
+            font-size: .28rem;
+            word-wrap: break-word;
+            text-align: center;
+            margin-top: .3rem;
+        }
+    }
+    #{$cls}-footer {
+        width: 100%;
+        overflow: hidden;
+        height: 1rem;
+        @include halfPXLine('top', #DDE0E6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        #{$cls}-btn {
+            flex: 1;
+            &:not(:first-child) {
+                @include halfPXLine('left', #DDE0E6);
+            }
+        }
+    }
+}

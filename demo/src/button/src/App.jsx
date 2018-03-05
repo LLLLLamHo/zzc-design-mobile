@@ -28,6 +28,8 @@ export default class App extends Component {
                     <Button type="sub">sub</Button>
                     <Button type="sub-lh">sub-lh</Button>
                     <Button type="sub-dk">sub-dk</Button>
+                    <Button ghost type="main">空心main</Button>
+                    <Button ghost type="sub">空心sub</Button>
                     <Button disabled>disabled</Button>
                 </div>
                 <div className="zzc-demo-body">
@@ -42,6 +44,8 @@ export default class App extends Component {
                     <Button inline size='sm'>inline1</Button>
                     <Button inline size='sm' type="main">inline2</Button>
                     <Button inline size='sm' type="sub">inline3</Button>
+                    <Button ghost inline size='xs' type="main">inline2</Button>
+                    <Button ghost inline size='xs' type="sub">inline3</Button>
                 </div>
                 <div className="zzc-demo-body full">
                     <h5>占满</h5>

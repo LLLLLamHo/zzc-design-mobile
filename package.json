@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "svgo": "./node_modules/.bin/svgo -f ./components/icon/svg",
-    "build": "rm -rf ./lib && ZZC_ENV=build node ./config/zzc-tools.js",
-    "build_demo": "rm -rf ./lib && ZZC_ENV=build node ./config/zzc-tools.js && node ./config/copy.js",
-    "watch": "rm -rf ./lib && ZZC_ENV=watch node ./config/zzc-tools.js",
-    "test": "./node_modules/.bin/jest -u --config .jest.js",
+    "build": "rm -rf ./lib && BABEL_ENV=build ZZC_ENV=build node ./config/zzc-tools.js",
+    "build_demo": "rm -rf ./lib && BABEL_ENV=build ZZC_ENV=build node ./config/zzc-tools.js && node ./config/copy.js",
+    "watch": "rm -rf ./lib && BABEL_ENV=build ZZC_ENV=watch node ./config/zzc-tools.js",
+    "test": "BABEL_ENV=test ./node_modules/.bin/jest -u --config .jest.js",
     "start": "cross-env NODE_ENV=development concurrently \"cross-env DEMO_ENV=react bisheng start -c ./bisheng.config.js\"",
     "site": "cross-env NODE_ENV=production concurrently \"cross-env DEMO_ENV=react bisheng build -c ./bisheng.config.js\""
   },
@@ -40,6 +40,8 @@
     "bisheng-plugin-description": "^0.1.1",
     "bisheng-plugin-react": "^0.6.0",
     "bisheng-plugin-toc": "^0.4.0",
+    "chai": "^4.1.2",
+    "chai-enzyme": "^0.8.0",
     "colors": "^1.1.2",
     "concurrently": "^3.5.1",
     "create-react-class": "^15.6.3",

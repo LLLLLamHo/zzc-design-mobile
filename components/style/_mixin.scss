@@ -78,10 +78,10 @@
 }
 
 //居中
-@mixin -webkit-box($align:center, $pack:center) {
-    display: -webkit-box;
-    -webkit-box-align: $align;
-    -webkit-box-pack: $pack;
+@mixin flex($align:center, $pack:center) {
+    display: flex;
+    justify-content:  $pack;
+    align-items: $align;
 }
 
 //设置边框圆角

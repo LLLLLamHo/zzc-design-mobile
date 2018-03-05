@@ -1,0 +1,13 @@
+@import '../../../style/base.scss';
+
+$cls: '.zzc-card-footer';
+#{$cls}{
+    @include halfPXLine('top',$border_color);
+    &-noborder{
+        &:after{
+            display: none;
+        }
+    }
+    width: 100%;
+    box-sizing: border-box;
+}

@@ -1,0 +1,50 @@
+@import '../style/base.scss';
+$cls: '.zzc-modal';
+#{$cls}-box {
+    width: 6.3rem;
+    overflow: hidden;
+    @include borderRadius(.16rem);
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+        width: 315px;
+    }
+    /* ipad横屏 */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        width: 315px;
+    }
+    /* ipad竖屏 */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+        width: 315px;
+    }
+    #{$cls}-header {
+        height: 1rem;
+        color:#333333;
+        font-size: .32rem;
+        @include halfPXLine('bottom', #DDE0E6);
+        @include flex();        
+    }
+
+    #{$cls}-body {
+        word-wrap: break-word;
+        max-height: 7rem;
+        min-height: 5.76rem;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #{$cls}-footer{
+        width: 100%;
+        overflow: hidden;
+        height: 1rem;
+        @include halfPXLine('top', #DDE0E6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        #{$cls}-btn {
+            flex: 1;
+            &:not(:first-child) {
+                @include halfPXLine('left', #DDE0E6);
+            }
+        }
+    }
+}

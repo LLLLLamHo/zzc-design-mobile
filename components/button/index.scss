@@ -1,7 +1,5 @@
 @import '../style/base.scss';
-
 $cls: '.zzc-button';
-
 //按钮active颜色
 $main_active: #3e63b0;
 $main-lh_active: #6b88cc;
@@ -17,12 +15,10 @@ $main_dk_ghost_active: #e9edf9;
 $sub_ghost_active: #fde5ee;
 $sub_lh_ghost_active: #ffeef2;
 $sub_dk_ghost_active: #f9e5ea;
-
 //默认按钮的边框颜色
 $default_border_color: #ccc;
-
 //按钮active
-@mixin btnActive($color: #fff,$type: 'default') {
+@mixin btnActive($color: #fff, $type: 'default') {
     &#{$cls}-active-#{$type} {
         background: $color;
     }
@@ -31,7 +27,6 @@ $default_border_color: #ccc;
 //按钮基本样式
 @mixin btnBase() {
     cursor: pointer;
-    margin-bottom: 0;
     font-size: $fs22rem;
     text-align: center;
     white-space: nowrap;
@@ -52,13 +47,19 @@ $default_border_color: #ccc;
     background: transparent;
     color: $c_333;
     @include pxBorder($default_border_color, .16rem);
-    @include btnActive($default_active,'default');
+    @include btnActive($default_active, 'default');
     @include inline();
+    &#{$cls}-noborder {
+        border: none !important;
+        &:after {
+            display: none !important;
+        }
+    }
 }
 
 //inline
 @mixin inline() {
-    &#{$cls}-inline{
+    &#{$cls}-inline {
         display: inline-block;
     }
 }
@@ -103,37 +104,37 @@ $default_border_color: #ccc;
         &#{$cls}-main {
             background: $main;
             color: $c_fff;
-            @include btnActive($main_active,'main');
+            @include btnActive($main_active, 'main');
             @include halfPXBorder('none');
         }
         &#{$cls}-main-lh {
             background: $main_lh;
             color: $c_fff;
-            @include btnActive($main-lh_active,'main-lh');
+            @include btnActive($main-lh_active, 'main-lh');
             @include halfPXBorder('none');
         }
         &#{$cls}-main-dk {
             background: $main_dk;
             color: $c_fff;
-            @include btnActive($main-dk_active,'main-dk');
+            @include btnActive($main-dk_active, 'main-dk');
             @include halfPXBorder('none');
         }
         &#{$cls}-sub {
             background: $sub;
             color: $c_fff;
-            @include btnActive($sub_active,'sub');
+            @include btnActive($sub_active, 'sub');
             @include halfPXBorder('none');
         }
         &#{$cls}-sub-lh {
             background: $sub_lh;
             color: $c_fff;
-            @include btnActive($sub-lh_active,'sub-lh');
+            @include btnActive($sub-lh_active, 'sub-lh');
             @include halfPXBorder('none');
         }
         &#{$cls}-sub-dk {
             background: $sub_dk;
             color: $c_fff;
-            @include btnActive($sub-dk_active,'sub-dk');
+            @include btnActive($sub-dk_active, 'sub-dk');
             @include halfPXBorder('none');
         }
     }
@@ -145,7 +146,7 @@ $default_border_color: #ccc;
                 display: none;
             }
             @include disabled();
-            @include btnActive($main_active,'main');
+            @include btnActive($main_active, 'main');
             @include backgroundGhost($main);
             @include pxBorder('none');
         }
@@ -156,7 +157,7 @@ $default_border_color: #ccc;
             background: $main_lh;
             color: $c_fff;
             @include disabled();
-            @include btnActive($main-lh_active,'main-lh');
+            @include btnActive($main-lh_active, 'main-lh');
             @include backgroundGhost($main_lh);
             @include pxBorder('none');
         }
@@ -167,7 +168,7 @@ $default_border_color: #ccc;
             background: $main_dk;
             color: $c_fff;
             @include disabled();
-            @include btnActive($main-dk_active,'main-dk');
+            @include btnActive($main-dk_active, 'main-dk');
             @include backgroundGhost($main_dk);
             @include pxBorder('none');
         }
@@ -178,7 +179,7 @@ $default_border_color: #ccc;
             background: $sub;
             color: $c_fff;
             @include disabled();
-            @include btnActive($sub_active,'sub');
+            @include btnActive($sub_active, 'sub');
             @include backgroundGhost($sub);
             @include pxBorder('none');
         }
@@ -189,7 +190,7 @@ $default_border_color: #ccc;
             background: $sub_lh;
             color: $c_fff;
             @include disabled();
-            @include btnActive($sub-lh_active,'sub-lh');
+            @include btnActive($sub-lh_active, 'sub-lh');
             @include backgroundGhost($sub_lh);
             @include pxBorder('none');
         }
@@ -200,7 +201,7 @@ $default_border_color: #ccc;
             background: $sub_dk;
             color: $c_fff;
             @include disabled();
-            @include btnActive($sub-dk_active,'sub-dk');
+            @include btnActive($sub-dk_active, 'sub-dk');
             @include backgroundGhost($sub_dk);
             @include pxBorder('none');
         }
@@ -209,33 +210,32 @@ $default_border_color: #ccc;
 
 //空心按钮
 @mixin backgroundGhost($color) {
-    &#{$cls}-background-ghost {
+    &#{$cls}-ghost {
         background: transparent;
         color: $color;
         @if($color==$main) {
-            @include btnActive($main_ghost_active);
+            @include btnActive($main_ghost_active, 'main-ghost');
         }
-        @else if($color == $main_lh){
-            @include btnActive($main_lh_ghost_active);
+        @else if($color==$main_lh) {
+            @include btnActive($main_lh_ghost_active, 'main-lh-ghost');
         }
-        @else if($color == $main_dk){
-            @include btnActive($main_dk_ghost_active);
+        @else if($color==$main_dk) {
+            @include btnActive($main_dk_ghost_active, 'main-dk-ghost');
         }
         @else if($color==$sub) {
-            @include btnActive($sub_ghost_active);
+            @include btnActive($sub_ghost_active, 'sub-ghost');
         }
-        @else if($color == $sub_lh){
-            @include btnActive($sub_lh_ghost_active);
+        @else if($color==$sub_lh) {
+            @include btnActive($sub_lh_ghost_active, 'sub-lh-ghost');
         }
-        @else if($color == $sub_dk){
-            @include btnActive($sub_dk_ghost_active);
+        @else if($color==$sub_dk) {
+            @include btnActive($sub_dk_ghost_active, 'sub-dk-ghost');
         }
         @else {
             @include btnActive($default_active);
-        }
-        //其他按钮用1px做边框
+        } //其他按钮用1px做边框
         @include pxBorder($color, .16rem);
-        //xs尺寸用半像素做边框
+         //xs尺寸用半像素做边框
         &#{$cls}-xs {
             @include halfPXBorder($color, .16rem);
         }

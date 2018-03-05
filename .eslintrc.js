@@ -18,6 +18,8 @@ const eslintrc = {
     ],
     rules: {
         //default
+        "jsx-quotes": [2, "prefer-single"],
+        "object-shorthand" : [2, "always", { "avoidQuotes": true }],
         "no-use-before-define": 0,//声明前调用
         "prefer-arrow-callback" : 0,
         "space-before-function-paren": 0,//函数空格

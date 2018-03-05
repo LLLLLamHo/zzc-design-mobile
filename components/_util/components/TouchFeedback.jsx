@@ -1,6 +1,15 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classNames';
 
+/*
+    <TouchFeedback
+        activeStyle={disabled ? false : activeStyle}
+        activeClassName={this.setActiveClassName( activeClassName, type, ghost )}
+    >
+        <a>123</a>
+    </TouchFeedback>
+ */
+
 export default class TouchFeedback extends PureComponent {
     constructor( props ) {
         super( props );

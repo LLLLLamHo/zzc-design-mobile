@@ -13,8 +13,10 @@ export default class Button extends PureComponent {
         inline: false,
         full: false,
         disabled: false,
-        onClick: function () {  },
-        classNameProps: '',
+        noBorder: false,
+        ghost: false,
+        onClick() { },
+        className: '',
         style: {
         },
         activeStyle: {
@@ -22,10 +24,11 @@ export default class Button extends PureComponent {
         activeClassName: undefined
     };
 
-    setActiveClassName( activeClassName, type = 'default' ) {
+    setActiveClassName( activeClassName, type = 'default', ghost ) {
         const activeClassNameIsUndefined = isUndefined( activeClassName );
         const className = classNames( {
-            [`${this.props.prefixCls}-active-${type}`]: activeClassNameIsUndefined,
+            [`${this.props.prefixCls}-active-${type}`]: activeClassNameIsUndefined && !ghost,
+            [`${this.props.prefixCls}-active-${type}-ghost`]: activeClassNameIsUndefined && ghost,
             [`${this.props.prefixCls}-active-${activeClassName}`]: !activeClassNameIsUndefined
         } );
 
@@ -33,22 +36,24 @@ export default class Button extends PureComponent {
     }
 
     render() {
-        const { children, classNameProps, prefixCls, type, full, size, inline, disabled, style, activeStyle, activeClassName, onClick } = this.props;
+        const { ghost, noBorder, children, className, prefixCls, type, full, size, inline, disabled, style, activeStyle, activeClassName, onClick } = this.props;
         const btnClassNames = classNames(
             prefixCls,
-            classNameProps,
+            className,
             {
                 [`${prefixCls}-${size}`]: size,
                 [`${prefixCls}-full`]: full,
                 [`${prefixCls}-${type}`]: type,
                 [`${prefixCls}-inline`]: inline,
-                [`${prefixCls}-disabled`]: disabled
+                [`${prefixCls}-disabled`]: disabled,
+                [`${prefixCls}-ghost`]: ghost,
+                [`${prefixCls}-noborder`]: noBorder
             }
         );
         return (
             <TouchFeedback
                 activeStyle={disabled ? false : activeStyle}
-                activeClassName={this.setActiveClassName( activeClassName, type )}
+                activeClassName={this.setActiveClassName( activeClassName, type, ghost )}
             >
                 <a
                     ref={( ref ) => {

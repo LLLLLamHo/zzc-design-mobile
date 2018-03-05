@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button 1`] = `
+<div>
+  <svg
+    class="zzc-icon zzc-icon-md zzc-icon-success"
+  >
+    <use
+      href="#zzc-icon-success"
+    />
+  </svg>
+  <svg
+    class="zzc-icon zzc-icon-md zzc-icon-error"
+  >
+    <use
+      href="#zzc-icon-error"
+    />
+  </svg>
+  <svg
+    class="zzc-icon zzc-icon-md zzc-icon-waring"
+  >
+    <use
+      href="#zzc-icon-waring"
+    />
+  </svg>
+</div>
+`;

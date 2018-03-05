@@ -1,9 +1,18 @@
 .zzc-icon {
   fill: currentColor;
   background-size: cover; }
-  .zzc-icon-md {
+  .zzc-icon-lg {
     width: .8rem;
     height: .8rem; }
+  .zzc-icon-md {
+    width: .6rem;
+    height: .6rem; }
+  .zzc-icon-sm {
+    width: .4rem;
+    height: .4rem; }
+  .zzc-icon-xs {
+    width: .2rem;
+    height: .2rem; }
 
 .zzc-icon-loading {
   -webkit-animation: cirle-zzc 1s linear infinite;
@@ -118,6 +127,11 @@ button {
           animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
+  .zzc-fade-enter.zzc-fade-enter-active {
+    -webkit-animation-name: zzcFadeIn;
+    animation-name: zzcFadeIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
 
 .zzc-fade-leave {
   opacity: 0;
@@ -129,18 +143,11 @@ button {
           animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
-
-.zzc-fade-enter.zzc-fade-enter-active {
-  -webkit-animation-name: zzcFadeIn;
-  animation-name: zzcFadeIn;
-  -webkit-animation-play-state: running;
-  animation-play-state: running; }
-
-.zzc-fade-leave.zzc-fade-leave-active {
-  -webkit-animation-name: zzcFadeOut;
-  animation-name: zzcFadeOut;
-  -webkit-animation-play-state: running;
-  animation-play-state: running; }
+  .zzc-fade-leave.zzc-fade-leave-active {
+    -webkit-animation-name: zzcFadeOut;
+    animation-name: zzcFadeOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
 
 @-webkit-keyframes zzcFadeIn {
   0% {
@@ -165,11 +172,84 @@ button {
     opacity: 1; }
   100% {
     opacity: 0; } }
+
+.zzc-zoom-enter {
+  opacity: 0;
+  -webkit-transform: scale(0.3);
+          transform: scale(0.3);
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+  .zzc-zoom-enter.zzc-zoom-enter-active {
+    -webkit-animation-name: zzcZoomIn;
+    animation-name: zzcZoomIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
+
+.zzc-zoom-leave {
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+  .zzc-zoom-leave.zzc-zoom-leave-active {
+    -webkit-animation-name: zzcZoomOut;
+    animation-name: zzcZoomOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
+
+@-webkit-keyframes zzcZoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes zzcZoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@-webkit-keyframes zzcZoomOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); } }
+
+@keyframes zzcZoomOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); } }
 .zzc-toast {
   width: 100%;
   height: 100%;
   position: fixed;
-  z-index: 1999;
+  z-index: 999;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

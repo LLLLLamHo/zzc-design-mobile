@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card 1`] = `
+<div>
+  <div
+    class="zzc-card"
+  >
+    <div
+      class="zzc-card-box"
+    >
+      <div
+        class="zzc-card-header"
+      >
+        <h1
+          class="zzc-card-header-title"
+        >
+          卡片标题
+        </h1>
+        <div
+          class="zzc-card-header-extra"
+        >
+          this is extra
+        </div>
+      </div>
+      <section
+        class="zzc-card-body"
+      >
+        <div
+          class="zzc-card-body-box"
+        >
+          <div
+            class="card-box1"
+          >
+            <p>
+              文本内容
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="zzc-card-body"
+      >
+        <div
+          class="zzc-card-body-box"
+        >
+          <div
+            class="card-box1"
+          >
+            <p>
+              文本内容
+            </p>
+          </div>
+        </div>
+      </section>
+      <div
+        class="zzc-card-footer"
+      >
+        <a>
+          按钮
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="zzc-card zzc-card-full"
+  >
+    <div
+      class="zzc-card-box"
+    >
+      <div
+        class="zzc-card-header"
+      >
+        <h1
+          class="zzc-card-header-title"
+        >
+          卡片标题
+        </h1>
+        <div
+          class="zzc-card-header-extra"
+        >
+          this is extra
+        </div>
+      </div>
+      <section
+        class="zzc-card-body zzc-card-body-border-left"
+      >
+        <div
+          class="zzc-card-body-box"
+        >
+          <div
+            class="card-box2"
+          >
+            <p>
+              文本内容
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="zzc-card-body"
+      >
+        <div
+          class="zzc-card-body-box"
+        >
+          <div
+            class="card-box2"
+          >
+            <p>
+              文本内容
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+`;

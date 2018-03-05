@@ -1,0 +1,28 @@
+@import '../style/base.scss';
+$cls: '.zzc-card';
+#{$cls} {
+    background: transparent;
+    &-full{
+        #{$cls}-box{
+            margin: 0;
+            border-radius: 0;
+            box-shadow:none;
+        }
+    }
+    &-box {
+        overflow: hidden;
+        background: #fff;
+        margin: 0 .2rem;
+        border-radius: .16rem;
+        box-shadow: 0 .04rem .12rem 0 rgba(0, 0, 0, 0.15);
+        section:last-of-type {
+            color:red;
+            #{$cls}-body-box{
+                color:red;
+                &:after{
+                    display: none;
+                }
+            }
+        }
+    }
+}

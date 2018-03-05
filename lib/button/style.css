@@ -98,6 +98,11 @@ button {
           animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
+  .zzc-fade-enter.zzc-fade-enter-active {
+    -webkit-animation-name: zzcFadeIn;
+    animation-name: zzcFadeIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
 
 .zzc-fade-leave {
   opacity: 0;
@@ -109,18 +114,11 @@ button {
           animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
-
-.zzc-fade-enter.zzc-fade-enter-active {
-  -webkit-animation-name: zzcFadeIn;
-  animation-name: zzcFadeIn;
-  -webkit-animation-play-state: running;
-  animation-play-state: running; }
-
-.zzc-fade-leave.zzc-fade-leave-active {
-  -webkit-animation-name: zzcFadeOut;
-  animation-name: zzcFadeOut;
-  -webkit-animation-play-state: running;
-  animation-play-state: running; }
+  .zzc-fade-leave.zzc-fade-leave-active {
+    -webkit-animation-name: zzcFadeOut;
+    animation-name: zzcFadeOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
 
 @-webkit-keyframes zzcFadeIn {
   0% {
@@ -145,9 +143,81 @@ button {
     opacity: 1; }
   100% {
     opacity: 0; } }
+
+.zzc-zoom-enter {
+  opacity: 0;
+  -webkit-transform: scale(0.3);
+          transform: scale(0.3);
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+  .zzc-zoom-enter.zzc-zoom-enter-active {
+    -webkit-animation-name: zzcZoomIn;
+    animation-name: zzcZoomIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
+
+.zzc-zoom-leave {
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+  .zzc-zoom-leave.zzc-zoom-leave-active {
+    -webkit-animation-name: zzcZoomOut;
+    animation-name: zzcZoomOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
+
+@-webkit-keyframes zzcZoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes zzcZoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@-webkit-keyframes zzcZoomOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); } }
+
+@keyframes zzcZoomOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); } }
 .zzc-button {
   cursor: pointer;
-  margin-bottom: 0;
   font-size: 0.22rem;
   text-align: center;
   white-space: nowrap;
@@ -177,6 +247,10 @@ button {
     background: #cccccc; }
   .zzc-button.zzc-button-inline {
     display: inline-block; }
+  .zzc-button.zzc-button-noborder {
+    border: none !important; }
+    .zzc-button.zzc-button-noborder:after {
+      display: none !important; }
   .zzc-button.zzc-button-lg {
     height: 1rem;
     line-height: 1rem;
@@ -220,16 +294,16 @@ button {
       cursor: not-allowed; }
     .zzc-button.zzc-button-main.zzc-button-active-main {
       background: #3e63b0; }
-    .zzc-button.zzc-button-main.zzc-button-background-ghost {
+    .zzc-button.zzc-button-main.zzc-button-ghost {
       background: transparent;
       color: #4E7CDD;
       border: 1px solid #4E7CDD; }
-      .zzc-button.zzc-button-main.zzc-button-background-ghost.zzc-button-active-default {
+      .zzc-button.zzc-button-main.zzc-button-ghost.zzc-button-active-main-ghost {
         background: #edf1fb; }
-      .zzc-button.zzc-button-main.zzc-button-background-ghost.zzc-button-xs {
+      .zzc-button.zzc-button-main.zzc-button-ghost.zzc-button-xs {
         border: none;
         position: relative; }
-        .zzc-button.zzc-button-main.zzc-button-background-ghost.zzc-button-xs::after {
+        .zzc-button.zzc-button-main.zzc-button-ghost.zzc-button-xs::after {
           display: block;
           border-radius: 0.16rem;
           content: '';
@@ -258,16 +332,16 @@ button {
       cursor: not-allowed; }
     .zzc-button.zzc-button-main-lh.zzc-button-active-main-lh {
       background: #6b88cc; }
-    .zzc-button.zzc-button-main-lh.zzc-button-background-ghost {
+    .zzc-button.zzc-button-main-lh.zzc-button-ghost {
       background: transparent;
       color: #86ABFF;
       border: 1px solid #86ABFF; }
-      .zzc-button.zzc-button-main-lh.zzc-button-background-ghost.zzc-button-active-default {
+      .zzc-button.zzc-button-main-lh.zzc-button-ghost.zzc-button-active-main-lh-ghost {
         background: #f2f6ff; }
-      .zzc-button.zzc-button-main-lh.zzc-button-background-ghost.zzc-button-xs {
+      .zzc-button.zzc-button-main-lh.zzc-button-ghost.zzc-button-xs {
         border: none;
         position: relative; }
-        .zzc-button.zzc-button-main-lh.zzc-button-background-ghost.zzc-button-xs::after {
+        .zzc-button.zzc-button-main-lh.zzc-button-ghost.zzc-button-xs::after {
           display: block;
           border-radius: 0.16rem;
           content: '';
@@ -296,16 +370,16 @@ button {
       cursor: not-allowed; }
     .zzc-button.zzc-button-main-dk.zzc-button-active-main-dk {
       background: #1d3fa2; }
-    .zzc-button.zzc-button-main-dk.zzc-button-background-ghost {
+    .zzc-button.zzc-button-main-dk.zzc-button-ghost {
       background: transparent;
       color: #254FCB;
       border: 1px solid #254FCB; }
-      .zzc-button.zzc-button-main-dk.zzc-button-background-ghost.zzc-button-active-default {
+      .zzc-button.zzc-button-main-dk.zzc-button-ghost.zzc-button-active-main-dk-ghost {
         background: #e9edf9; }
-      .zzc-button.zzc-button-main-dk.zzc-button-background-ghost.zzc-button-xs {
+      .zzc-button.zzc-button-main-dk.zzc-button-ghost.zzc-button-xs {
         border: none;
         position: relative; }
-        .zzc-button.zzc-button-main-dk.zzc-button-background-ghost.zzc-button-xs::after {
+        .zzc-button.zzc-button-main-dk.zzc-button-ghost.zzc-button-xs::after {
           display: block;
           border-radius: 0.16rem;
           content: '';
@@ -334,16 +408,16 @@ button {
       cursor: not-allowed; }
     .zzc-button.zzc-button-sub.zzc-button-active-sub {
       background: #c30144; }
-    .zzc-button.zzc-button-sub.zzc-button-background-ghost {
+    .zzc-button.zzc-button-sub.zzc-button-ghost {
       background: transparent;
       color: #F40256;
       border: 1px solid #F40256; }
-      .zzc-button.zzc-button-sub.zzc-button-background-ghost.zzc-button-active-default {
+      .zzc-button.zzc-button-sub.zzc-button-ghost.zzc-button-active-sub-ghost {
         background: #fde5ee; }
-      .zzc-button.zzc-button-sub.zzc-button-background-ghost.zzc-button-xs {
+      .zzc-button.zzc-button-sub.zzc-button-ghost.zzc-button-xs {
         border: none;
         position: relative; }
-        .zzc-button.zzc-button-sub.zzc-button-background-ghost.zzc-button-xs::after {
+        .zzc-button.zzc-button-sub.zzc-button-ghost.zzc-button-xs::after {
           display: block;
           border-radius: 0.16rem;
           content: '';
@@ -372,16 +446,16 @@ button {
       cursor: not-allowed; }
     .zzc-button.zzc-button-sub-lh.zzc-button-active-sub-lh {
       background: #cc4868; }
-    .zzc-button.zzc-button-sub-lh.zzc-button-background-ghost {
+    .zzc-button.zzc-button-sub-lh.zzc-button-ghost {
       background: transparent;
       color: #FF5A82;
       border: 1px solid #FF5A82; }
-      .zzc-button.zzc-button-sub-lh.zzc-button-background-ghost.zzc-button-active-default {
+      .zzc-button.zzc-button-sub-lh.zzc-button-ghost.zzc-button-active-sub-lh-ghost {
         background: #ffeef2; }
-      .zzc-button.zzc-button-sub-lh.zzc-button-background-ghost.zzc-button-xs {
+      .zzc-button.zzc-button-sub-lh.zzc-button-ghost.zzc-button-xs {
         border: none;
         position: relative; }
-        .zzc-button.zzc-button-sub-lh.zzc-button-background-ghost.zzc-button-xs::after {
+        .zzc-button.zzc-button-sub-lh.zzc-button-ghost.zzc-button-xs::after {
           display: block;
           border-radius: 0.16rem;
           content: '';
@@ -410,16 +484,16 @@ button {
       cursor: not-allowed; }
     .zzc-button.zzc-button-sub-dk.zzc-button-active-sub-dk {
       background: #a30028; }
-    .zzc-button.zzc-button-sub-dk.zzc-button-background-ghost {
+    .zzc-button.zzc-button-sub-dk.zzc-button-ghost {
       background: transparent;
       color: #CC0033;
       border: 1px solid #CC0033; }
-      .zzc-button.zzc-button-sub-dk.zzc-button-background-ghost.zzc-button-active-default {
+      .zzc-button.zzc-button-sub-dk.zzc-button-ghost.zzc-button-active-sub-dk-ghost {
         background: #f9e5ea; }
-      .zzc-button.zzc-button-sub-dk.zzc-button-background-ghost.zzc-button-xs {
+      .zzc-button.zzc-button-sub-dk.zzc-button-ghost.zzc-button-xs {
         border: none;
         position: relative; }
-        .zzc-button.zzc-button-sub-dk.zzc-button-background-ghost.zzc-button-xs::after {
+        .zzc-button.zzc-button-sub-dk.zzc-button-ghost.zzc-button-xs::after {
           display: block;
           border-radius: 0.16rem;
           content: '';
@@ -449,7 +523,6 @@ button {
 
 .zzc-button-full {
   cursor: pointer;
-  margin-bottom: 0;
   font-size: 0.22rem;
   text-align: center;
   white-space: nowrap;
@@ -482,6 +555,10 @@ button {
     background: #cccccc; }
   .zzc-button-full.zzc-button-inline {
     display: inline-block; }
+  .zzc-button-full.zzc-button-noborder {
+    border: none !important; }
+    .zzc-button-full.zzc-button-noborder:after {
+      display: none !important; }
   .zzc-button-full.zzc-button-main {
     background: #4E7CDD;
     color: #fff;

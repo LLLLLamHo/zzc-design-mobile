@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal 1`] = `
+<div>
+  <div
+    class="zzc-dialog-mask zzc-fade-enter"
+  >
+    <div
+      class="zzc-dialog-box zzc-zoom-enter zzc-modal-box"
+    >
+      <div
+        class="zzc-modal-header"
+      >
+        标题
+      </div>
+      <div
+        class="zzc-modal-body"
+      >
+        <div
+          class="modal-text"
+        >
+          这是一个文案...
+        </div>
+      </div>
+      <div
+        class="zzc-modal-footer"
+      >
+        <a
+          class="zzc-button zzc-button-full zzc-button-noborder"
+        >
+          关闭
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,27 @@
+@import '../../../style/base.scss';
+
+$cls: '.zzc-card-header';
+#{$cls}{
+    @include halfPXLine('bottom',$border_color);
+    &-noborder{
+        &:after{
+            display: none;
+        }
+    }
+    width: 100%;
+    min-height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .26rem .3rem;
+    box-sizing: border-box;
+    &-title{
+        color:#333333;
+        font-size: .38rem;
+    }
+    &-extra{
+        color:#999;
+        font-size: .28rem;
+        min-width: 1rem;
+    }
+}
