@@ -8,12 +8,13 @@ const sass = require( 'rollup-plugin-sass' );
 const autoprefixer = require( 'autoprefixer' );
 const postcss = require( 'postcss' );
 const eslint = require( 'rollup-plugin-eslint' );
+const typescript = require('rollup-plugin-typescript');
 
 const CWD = process.cwd();
 
 function getInputOption( moduleName, isIndex ) {
     return {
-        input: isIndex ? path.join( CWD, './components/index.js' ) : path.join( CWD, './components/', moduleName, '/index.jsx' ),
+        input: isIndex ? path.join( CWD, './components/index.js' ) : path.join( CWD, './components/', moduleName, '/index.tsx' ),
         external: [
             'react',
             'react-dom'
@@ -33,6 +34,7 @@ function getInputOption( moduleName, isIndex ) {
                     .process( css, { from: 'undefined' } )
                     .then( result => result.css )
             } ),
+            typescript(),
             babel( {
                 runtimeHelpers: true,
                 exclude: '**/node_modules/**'
