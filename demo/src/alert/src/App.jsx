@@ -12,20 +12,6 @@ export default class App extends Component {
         super( props );
     }
 
-    // componentDidMount() {
-
-    //     setTimeout( () => {
-    //         Alert( {
-    //             title: '标题',
-    //             closable: true
-    //         } );
-    //         Alert( {
-    //             title: '标题2',
-    //             closable: true
-    //         } );
-    //     }, 100 );
-    // }
-
     defaultBtn() {
         Alert( {
             title: '标题',
@@ -155,6 +141,7 @@ export default class App extends Component {
     promiseAlert() {
         Alert( {
             title: '发起一个请求',
+            markClose: true,
             buttons: [
                 {
                     text: '确认',

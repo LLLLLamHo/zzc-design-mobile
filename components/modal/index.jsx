@@ -1,12 +1,10 @@
 import React, { PureComponent } from 'react';
+import classNames from 'classnames';
 import Dialog from '../dialog/index.jsx';
 import Button from '../button/index.jsx';
-
-import classNames from 'classnames';
 import './index.scss';
 
 export default class extends PureComponent {
-
     static defaultProps = {
         prefixCls: 'zzc-modal',
         maskTransitionName: 'fade',
@@ -14,7 +12,7 @@ export default class extends PureComponent {
         maskStyle: {},
         className: '',
         closable: false,
-        closeCallback: function () { },
+        closeCallback() { },
         visible: false,
         type: 'modal',
         title: '',
@@ -28,7 +26,7 @@ export default class extends PureComponent {
     }
 
     componentWillReceiveProps( newProps ) {
-        if ( this.state.visible != newProps.visible ) {
+        if ( this.state.visible !== newProps.visible ) {
             this.setState( {
                 visible: newProps.visible
             } );
@@ -37,54 +35,57 @@ export default class extends PureComponent {
 
     createAlertFooter( buttons, closable ) {
         if ( closable ) {
-            return ( <Button noBorder full onClick={
-                () => {
-                    this.close();
-                }
-            }>关闭</Button> );
-        } else {
             return (
-                buttons.map( ( item, key ) => {
-                    return (
-                        <div key={`${this.props.prefixCls}-btn-${new Date().getTime()}-${key}`} className={classNames( `${this.props.prefixCls}-btn` )}>
-                            {this.createBtn( item )}
-                        </div>
-                    )
-                } )
+                <Button
+                    noBorder
+                    full
+                    onClick={
+                        () => {
+                            this.close();
+                        }
+                    }
+                >
+                    关闭
+                </Button>
             );
         }
+        return (
+            buttons.map( ( item, key ) => (
+                <div key={`${this.props.prefixCls}-btn-${new Date().getTime()}-${key}`} className={classNames( `${this.props.prefixCls}-btn` )}>
+                    {this.createBtn( item )}
+                </div>
+            ) )
+        );
     }
 
     createBtn( btn ) {
         const onPress = btn.onPress ? btn.onPress : () => { };
-        const _this = this;
-        return React.cloneElement(
-            <Button noBorder full onClick={
-                () => {
-                    const res = onPress();
-                    if ( res && res.then ) {
-                        res.then( () => {
-                            this.close();
-                        } ).catch( () => { } );
-                    } else {
+        return React.cloneElement( <Button
+            noBorder
+            full
+            onClick={( event ) => {
+                event.stopPropagation();
+                const res = onPress();
+                if ( res && res.then ) {
+                    res.then( () => {
                         this.close();
-                    }
+                    } ).catch( () => { } );
+                } else {
+                    this.close();
                 }
-            }>
-                {btn.text}
-            </Button>, {
-                ...btn.props
-            } );
+            }}
+        >
+            {btn.text}
+        </Button>, { ...btn.props } );
     }
 
     close() {
         this.setState( {
             visible: false
-        });
+        } );
     }
 
     render() {
-
         const {
             children,
             markClose,
@@ -93,7 +94,6 @@ export default class extends PureComponent {
             closable,
             closeCallback,
             className,
-            type,
             style,
             maskStyle,
             title,
@@ -112,7 +112,7 @@ export default class extends PureComponent {
                     boxClassName={classNames( `${prefixCls}-box`, className )}
                     closeCallback={closeCallback}
                 >
-                    {title && title != '' && <div className={classNames( `${prefixCls}-header` )}>
+                    {title && title !== '' && <div className={classNames( `${prefixCls}-header` )}>
                         {title}
                     </div>}
                     <div className={classNames( `${prefixCls}-body` )}>
@@ -123,9 +123,8 @@ export default class extends PureComponent {
                     </div>
                 </Dialog>
             );
-        } else {
-            return null;
         }
+        return null;
     }
 }
 

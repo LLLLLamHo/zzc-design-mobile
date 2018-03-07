@@ -14,13 +14,13 @@ export default class Body extends PureComponent {
     }
 
     render() {
-        const {borderDirection, style, className, prefixCls, children, full, noBorder } = this.props;
+        const { borderDirection, style, className, prefixCls, children, full, noBorder } = this.props;
         const bodyClassName = classNames(
             prefixCls,
             className,
             { [`${prefixCls}-full`]: full },
             { [`${prefixCls}-noborder`]: noBorder },
-            { [`${prefixCls}-border-${borderDirection}`]: borderDirection == 'left' || borderDirection == 'right' }
+            { [`${prefixCls}-border-${borderDirection}`]: borderDirection === 'left' || borderDirection === 'right' }
         );
 
         return (

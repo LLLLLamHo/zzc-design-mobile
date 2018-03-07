@@ -1116,11 +1116,12 @@ button {
 .zzc-card-box section:last-of-type .zzc-card-body-box:after {
   display: none;
 }
-.zzc-dialog-mask {
+.zzc-dialog {
   position: fixed;
-  z-index: 999;
   top: 0;
   left: 0;
+  height: 100%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1130,13 +1131,20 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.zzc-dialog .zzc-dialog-mask {
   background: rgba(0, 0, 0, 0.8);
   height: 100%;
   width: 100%;
+  position: absolute;
+  z-index: 999;
 }
 
-.zzc-dialog-mask .zzc-dialog-box {
+.zzc-dialog .zzc-dialog-box {
+  position: absolute;
   background: #fff;
+  z-index: 1001;
 }
 @charset "UTF-8";
 .zzc-modal-box {

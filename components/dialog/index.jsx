@@ -2,11 +2,9 @@ import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import { addClass, removeClass, hasClass } from '../_util/class.js';
 import { animationEvents } from '../_util/Event';
-
 import './index.scss';
 
 export default class extends PureComponent {
-
     static defaultProps = {
         prefixCls: 'zzc-dialog',
         markClassName: '',
@@ -16,18 +14,18 @@ export default class extends PureComponent {
         style: {},
         maskStyle: {},
         visible: false,
-        closeCallback: function () { }
+        closeCallback() { }
     }
 
     state = {
         animationTypeList: {
-            'zoom': {
+            zoom: {
                 enter: 'zzc-zoom-enter',
                 enterActive: 'zzc-zoom-enter-active',
                 leave: 'zzc-zoom-leave',
                 leaveActive: 'zzc-zoom-leave-active'
             },
-            'fade': {
+            fade: {
                 enter: 'zzc-fade-enter',
                 enterActive: 'zzc-fade-enter-active',
                 leave: 'zzc-fade-leave',
@@ -55,7 +53,6 @@ export default class extends PureComponent {
 
             animationEvents.addEndEventListener( this.box, this.boxAddAnimationEnd, this );
             addClass( this.box, this.setAnimationClass( this.props.transitionName, 'enterActive' ) );
-
         } else {
             requestAnimationFrame( () => {
                 this.addAnimationEvent();
@@ -81,12 +78,11 @@ export default class extends PureComponent {
         if ( hasClass( this.box, this.setAnimationClass( this.props.transitionName, 'enter' ) ) ) {
             removeClass( this.box, this.setAnimationClass( this.props.transitionName, 'enterActive' ) );
             removeClass( this.box, this.setAnimationClass( this.props.transitionName, 'enter' ) );
-            //mark关闭
+            // mark关闭
             if ( this.props.markClose ) {
-                document.querySelector( `.${_this.props.prefixCls}-mask` ).onclick = function ( event ) {
-                    event.stopPropagation();
+                document.querySelector( `.${_this.props.prefixCls}-mask` ).onclick = function () {
                     _this.close();
-                }
+                };
             }
         }
     }
@@ -95,9 +91,8 @@ export default class extends PureComponent {
     setAnimationClass( transitionName, status ) {
         if ( this.state.animationTypeList[transitionName] ) {
             return this.state.animationTypeList[transitionName][status];
-        } else {
-            return '';
         }
+        return '';
     }
 
     close() {
@@ -125,8 +120,9 @@ export default class extends PureComponent {
         );
 
         return (
-            <div style={maskStyle} ref={( ref ) => { this.mask = ref }} className={newMaskClassName}>
-                <div style={style} ref={( ref ) => { this.box = ref }} className={newBoxClassName}>
+            <div className={classNames( `${prefixCls}` )}>
+                <div style={maskStyle} ref={( ref ) => { this.mask = ref; }} className={newMaskClassName} />
+                <div style={style} ref={( ref ) => { this.box = ref; }} className={newBoxClassName}>
                     {children}
                 </div>
             </div>

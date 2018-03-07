@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import { addClass, removeClass, hasClass } from '../_util/class.js';
-import { animationEvents } from '../_util/Event';
-import Button from '../button/index.jsx';
 import Modal from '../modal/index.jsx';
 import './index.scss';
 
 class Alert {
-
     constructor( opt ) {
         const defaultPorps = {
             prefixCls: 'zzc-alert',
@@ -19,33 +15,36 @@ class Alert {
             buttons: [],
             markClose: false,
             closable: false,
-            closeCallback: function () { }
+            closeCallback() { }
         };
 
         this.opt = Object.assign( defaultPorps, opt );
-        const { title, buttons, closable, content, prefixCls, style, className } = this.opt;
+        const { title, content, prefixCls, className } = this.opt;
         this.parentNode = this.createParentNode( className );
         this.closed = false;
 
         this._alert = ReactDOM.render(
             <Modal
-                type="alert"
-                transitionName="zoom"
+                type='alert'
+                transitionName='zoom'
                 visible
                 {...this.opt}
-                title=""
-                closeCallback={this.removeAlert.bind( this )}
+                title=''
+                closeCallback={() => { this.removeAlert(); }}
             >
                 <React.Fragment>
                     {
-                        title && <h1 className={
-                            classNames(
-                                `${prefixCls}-body-title`,
-                                {
-                                    [`${prefixCls}-body-only-title`]: !content
-                                }
-                            )
-                        }>
+                        title &&
+                        <h1
+                            className={
+                                classNames(
+                                    `${prefixCls}-body-title`,
+                                    {
+                                        [`${prefixCls}-body-only-title`]: !content
+                                    }
+                                )
+                            }
+                        >
                             {title}
                         </h1>
                     }
@@ -83,6 +82,6 @@ class Alert {
 }
 
 export default function ( opt ) {
-    let alert = new Alert( opt );
+    const alert = new Alert( opt );
     return alert.close.bind( alert );
 }
