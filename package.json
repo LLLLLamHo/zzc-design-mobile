@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "tsc" : "./node_modules/.bin/tsc ./components/toast/index.tsx",
     "svgo": "./node_modules/.bin/svgo -f ./components/icon/svg",
     "build": "rm -rf ./lib && BABEL_ENV=build ZZC_ENV=build node ./config/zzc-tools.js",
     "build_demo": "rm -rf ./lib && BABEL_ENV=build ZZC_ENV=build node ./config/zzc-tools.js && node ./config/copy.js",
@@ -75,7 +76,9 @@
     "rollup-plugin-node-resolve": "^3.0.2",
     "rollup-plugin-postcss": "^1.2.8",
     "rollup-plugin-sass": "^0.5.3",
+    "rollup-plugin-typescript": "^0.8.1",
     "svgo": "^1.0.4",
+    "typescript": "^2.7.2",
     "webpack": "^3.10.0"
   }
 }
