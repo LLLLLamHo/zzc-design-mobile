@@ -67,7 +67,6 @@ const eslintrc = {
         'jsx-a11y/no-static-element-interactions': 0,//强制带有事件的元素带有属性class，type等
         'jsx-a11y/click-events-have-key-events': 0,//强制可点击的元素至少有一个键盘事件
         'jsx-a11y/anchor-is-valid': 0,//强制所有锚点都是有效的
-
     }
 }
 

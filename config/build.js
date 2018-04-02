@@ -7,14 +7,17 @@ const colors = require( 'colors' );
 
 async function build( moduleName, isIndex ) {
 
-    let inputOption = getInputOption( moduleName,isIndex );
-    let outputOption = getOutputOption( moduleName,isIndex );
-
+    let inputOption = await getInputOption( moduleName, isIndex );
+    let outputOption = await getOutputOption( moduleName, isIndex );
+    if ( !inputOption ) {
+        await console.log( `${moduleName}没有找到对应index文件。请编写index.tsx、index.ts、index.jsx、index.js入口文件`.red );
+        return false;
+    }
     await console.log( `开始打包${moduleName}`.green );
 
     await rollup.rollup( inputOption ).then( async ( bundle ) => {
         // generate code and a sourcemap
-        
+
         let modules = bundle.modules;
         for ( let i = 0; i < modules.length; i++ ) {
             if ( modules[i].resolvedIds ) {
