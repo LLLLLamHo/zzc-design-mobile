@@ -14,7 +14,8 @@ const eslintrc = {
     plugins: [
         'react',
         'import',
-        'jsx-a11y'
+        'jsx-a11y',
+        'typescript'
     ],
     rules: {
         //default
@@ -43,7 +44,7 @@ const eslintrc = {
         'react/jsx-closing-tag-location' : 0,
         'react/boolean-prop-naming': 1,//强制布尔值类型一直命名 is/has
         'react/no-string-refs': 0,//强制ref = Function, ref={(c) => { this.hello = c; }}
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],//限制jsx语法在那些文件内
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx",'.tsx'] }],//限制jsx语法在那些文件内
         "react/no-array-index-key": 0,//强制循环使用key
         'react/no-find-dom-node': 0,//防止使用findDOMNode
         'react/sort-comp': 0,//组件方法顺序

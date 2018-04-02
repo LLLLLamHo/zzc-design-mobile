@@ -4,41 +4,41 @@ import classNames from 'classnames';
 
 import { addClass, removeClass, hasClass } from '../_util/class.js';
 import { animationEvents } from '../_util/Event';
-import Icon from '../icon/index.jsx';
+import Icon from '../icon';
 import Alignment from '../_util/alignment';
 
 import '../style/index';
 import './index.scss';
 
-const PREFIXCLS = 'zzc-toast';
-const alignment = new Alignment();
+const PREFIXCLS: string = 'zzc-toast';
+const alignment: any = new Alignment();
 
-let _closeTimer = null;
-let _toastElem = null;
-let _duration = 2;
-let _onClose = () => { };
-let _parentNode = null;
+let _closeTimer: any = null;
+let _toastElem: any = null;
+let _duration: number = 2;
+let _onClose: any = () => { };
+let _parentNode: any = null;
 
-function closeToast() {
+function closeToast(): void {
     addClass( _toastElem, 'zzc-fade-leave' );
     addClass( _toastElem, 'zzc-fade-leave-active' );
     _closeTimer = null;
 }
 
-function countdown() {
+function countdown(): void {
     _closeTimer = setTimeout( () => {
         closeToast();
     }, _duration * 1000 );
 }
 
-function reset() {
+function reset(): void {
     animationEvents.removeEndEventListener( _toastElem, addAnimationEnd );
     _parentNode = null;
     _toastElem = null;
     _duration = 2;
 }
 
-function addAnimationEnd() {
+function addAnimationEnd(): void {
     if ( hasClass( this, 'zzc-fade-enter' ) ) {
         removeClass( this, 'zzc-fade-enter-active' );
         removeClass( this, 'zzc-fade-enter' );
@@ -51,7 +51,7 @@ function addAnimationEnd() {
     }
 }
 
-function toggleShow() {
+function toggleShow(): void {
     if ( _closeTimer != null ) {
         clearTimeout( _closeTimer );
     }
@@ -59,17 +59,17 @@ function toggleShow() {
     _parentNode && ReactDOM.unmountComponentAtNode( _parentNode );
     reset();
     _onClose();
-    const item = alignment.get( 'first' );
+    const item: { type: string, content: any, duration: number, onClose: any, mask: boolean } = alignment.get( 'first' );
     getToast( item.type, item.content, item.duration, item.onClose, item.mask );
 }
 
-function createParentNode() {
-    const parentNode = document.createElement( 'div' );
+function createParentNode(): Element {
+    const parentNode: any = document.createElement( 'div' );
     document.body.appendChild( parentNode );
     return parentNode;
 }
 
-function getToast( type, content, duration = 2, onClose = () => { }, mask = true ) {
+function getToast( type: string, content: any, duration: number = 2, onClose: any = () => { }, mask: boolean = true ): void {
     // only one toast to page
     if ( _toastElem != null ) {
         alignment.save( {
@@ -116,7 +116,7 @@ function getToast( type, content, duration = 2, onClose = () => { }, mask = true
     }
 }
 
-function addAnimationEvent() {
+function addAnimationEvent(): void {
     _toastElem = document.querySelector( `.${PREFIXCLS}-notice-content` );
     if ( _toastElem ) {
         animationEvents.addEndEventListener( _toastElem, addAnimationEnd );
@@ -130,19 +130,19 @@ function addAnimationEvent() {
 }
 
 export default class Toast extends Component {
-    static info( ...props ) {
+    static info( ...props: Array<any> ) {
         getToast( 'info', props[0], props[1], props[2], props[3] );
     }
-    static success( ...props ) {
+    static success( ...props: Array<any> ) {
         getToast( 'success', props[0], props[1], props[2], props[3] );
     }
-    static error( ...props ) {
+    static error( ...props: Array<any> ) {
         getToast( 'error', props[0], props[1], props[2], props[3] );
     }
-    static waring( ...props ) {
+    static waring( ...props: Array<any> ) {
         getToast( 'waring', props[0], props[1], props[2], props[3] );
     }
-    static loading( ...props ) {
+    static loading( ...props: Array<any> ) {
         getToast( 'loading', props[0], props[1], props[2], props[3] );
     }
     static hideToast() { closeToast(); }

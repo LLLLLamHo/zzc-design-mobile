@@ -1,10 +1,17 @@
 import React from 'react';
 import classnames from 'classnames';
-import loadSprite from './loadSprite.jsx';
-
+import loadSprite from './loadSprite';
 import './index.scss';
 
-export default class Icon extends React.PureComponent {
+export interface IconProps {
+    prefixCls?: string,
+    type?: any,
+    size?: string,
+    className?: string,
+    style?: React.CSSProperties
+}
+
+export default class Icon extends React.PureComponent<IconProps> {
     componentDidMount() {
         loadSprite();
     }
@@ -17,7 +24,7 @@ export default class Icon extends React.PureComponent {
         style: {}
     }
 
-    render() {
+    render () {
         const { prefixCls, type, size, className, style } = this.props;
         const cls = classnames(
             className,

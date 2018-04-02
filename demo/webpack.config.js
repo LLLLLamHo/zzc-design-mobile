@@ -41,7 +41,7 @@ if ( ENV == 'development' ) {
         alias: {
             "zzcDesign": path.resolve(
                 __dirname,
-                "../components/index.js"
+                "../lib/index.js"
             )
         }
     }

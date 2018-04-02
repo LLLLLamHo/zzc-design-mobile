@@ -4,7 +4,7 @@ import Dialog from '../dialog/index.jsx';
 import Button from '../button/index.jsx';
 import './index.scss';
 
-export default class extends PureComponent {
+export default class Modal extends PureComponent {
     static defaultProps = {
         prefixCls: 'zzc-modal',
         maskTransitionName: 'fade',

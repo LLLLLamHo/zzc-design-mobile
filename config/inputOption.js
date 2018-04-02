@@ -9,18 +9,18 @@ const sass = require( 'rollup-plugin-sass' );
 const autoprefixer = require( 'autoprefixer' );
 const postcss = require( 'postcss' );
 const eslint = require( 'rollup-plugin-eslint' );
+const typescript = require( 'rollup-plugin-typescript' );
 
 const CWD = process.cwd();
 
 function getInputOption( moduleName, isIndex ) {
-
     let targePath = null;
 
     // 检查是否存在文件，可能会为ts、tsx、js、jsx
     if ( !isIndex ) {
-        let extensionList = ['tsx', 'ts', 'jsx', 'js'];
-        for ( let i = 0; i < extensionList.length; i++ ) {
-            let currPath = path.join( CWD, './components/', moduleName, `/index.${extensionList[i]}` );
+        const extensionList = ['tsx', 'ts', 'jsx', 'js'];
+        for ( let i = 0; i < extensionList.length; i += 1 ) {
+            const currPath = path.join( CWD, './components/', moduleName, `/index.${extensionList[i]}` );
             if ( fs.existsSync( currPath ) ) {
                 targePath = currPath;
                 break;
@@ -50,16 +50,16 @@ function getInputOption( moduleName, isIndex ) {
                         .process( css, { from: 'undefined' } )
                         .then( result => result.css )
                 } ),
+                typescript(),
                 babel( {
                     runtimeHelpers: true,
                     exclude: '**/node_modules/**'
                 } )
             ]
-        }
+        };
     }
 
     return null;
-
 }
 
 module.exports = getInputOption;
