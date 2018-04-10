@@ -4,7 +4,7 @@ const eslintrc = {
         browser: true,
         es6: true,
     },
-    parser: 'babel-eslint',
+    parser: 'typescript-eslint-parser',
     parserOptions: {
         ecmaVersion: 6,//支持es6
         ecmaFeatures: {
@@ -18,6 +18,7 @@ const eslintrc = {
         'typescript'
     ],
     rules: {
+        "no-undef": 0,
         //default
         "jsx-quotes": [2, "prefer-single"],
         "object-shorthand" : [2, "always", { "avoidQuotes": true }],

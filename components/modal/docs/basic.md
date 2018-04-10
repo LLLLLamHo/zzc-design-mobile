@@ -11,8 +11,8 @@
 | prefixCls          | 组件的公用className前序 | string   | zzc-modal |
 | className          | 定义Modal的body class   | string   | 无        |
 | style              | 自定义样式              | object   | {}        |
-| title              | 弹窗显示的title         | string   | 无        |
-| buttons            | 弹窗的按钮组            | array    | []        |
+| title              | model显示的title         | string   | 无        |
+| buttons            | model的按钮组            | array    | []        |
 | markClose          | 点击遮罩层关闭Modal     | boolean  | false     |
 | closable           | 是否使用默认的按钮      | boolean  | false     |
 | closeCallback      | 关闭Modal后的回调函数   | function | 无        |

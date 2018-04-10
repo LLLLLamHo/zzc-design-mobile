@@ -218,8 +218,8 @@ button {
 .zzc-zoom-enter {
   opacity: 0;
   -webkit-transform: scale(0.3);
-          -ms-transform: scale(0.3);
-      transform: scale(0.3);
+      -ms-transform: scale(0.3);
+          transform: scale(0.3);
   -webkit-animation-duration: .3s;
           animation-duration: .3s;
   -webkit-animation-fill-mode: both;
@@ -304,8 +304,8 @@ button {
           justify-content: center;
   top: 50%;
   -webkit-transform: translateY(-50%);
-          -ms-transform: translateY(-50%);
-      transform: translateY(-50%); }
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%); }
   .zzc-toast.zzc-toast-nomark {
     width: auto;
     max-width: 6.3rem;
@@ -755,8 +755,8 @@ button {
     width: 100%;
     border-bottom: 1px solid #DDE0E6;
     -webkit-transform: scaleY(0.5) translateY(50%);
-            -ms-transform: scaleY(0.5) translateY(50%);
-        transform: scaleY(0.5) translateY(50%); }
+        -ms-transform: scaleY(0.5) translateY(50%);
+            transform: scaleY(0.5) translateY(50%); }
   .zzc-card-header-noborder:after {
     display: none; }
   .zzc-card-header-title {
@@ -796,8 +796,8 @@ button {
       width: 100%;
       border-bottom: 1px solid #DDE0E6;
       -webkit-transform: scaleY(0.5) translateY(50%);
-              -ms-transform: scaleY(0.5) translateY(50%);
-          transform: scaleY(0.5) translateY(50%); }
+          -ms-transform: scaleY(0.5) translateY(50%);
+              transform: scaleY(0.5) translateY(50%); }
 .zzc-card-footer {
   position: relative;
   width: 100%;
@@ -812,8 +812,8 @@ button {
     left: 0;
     border-top: 1px solid #DDE0E6;
     -webkit-transform: scaleY(0.5) translateY(-50%);
-            -ms-transform: scaleY(0.5) translateY(-50%);
-        transform: scaleY(0.5) translateY(-50%); }
+        -ms-transform: scaleY(0.5) translateY(-50%);
+            transform: scaleY(0.5) translateY(-50%); }
   .zzc-card-footer-noborder:after {
     display: none; }
 .zzc-card {
@@ -900,8 +900,8 @@ button {
       width: 100%;
       border-bottom: 1px solid #DDE0E6;
       -webkit-transform: scaleY(0.5) translateY(50%);
-              -ms-transform: scaleY(0.5) translateY(50%);
-          transform: scaleY(0.5) translateY(50%); }
+          -ms-transform: scaleY(0.5) translateY(50%);
+              transform: scaleY(0.5) translateY(50%); }
   .zzc-modal-box .zzc-modal-body {
     word-wrap: break-word;
     max-height: 7rem;
@@ -933,8 +933,8 @@ button {
       left: 0;
       border-top: 1px solid #DDE0E6;
       -webkit-transform: scaleY(0.5) translateY(-50%);
-              -ms-transform: scaleY(0.5) translateY(-50%);
-          transform: scaleY(0.5) translateY(-50%); }
+          -ms-transform: scaleY(0.5) translateY(-50%);
+              transform: scaleY(0.5) translateY(-50%); }
     .zzc-modal-box .zzc-modal-footer .zzc-modal-btn {
       -webkit-box-flex: 1;
           -ms-flex: 1;
@@ -951,8 +951,8 @@ button {
           height: 100%;
           border-left: 1px solid #DDE0E6;
           -webkit-transform: scaleX(0.5) translateX(-50%);
-                  -ms-transform: scaleX(0.5) translateX(-50%);
-              transform: scaleX(0.5) translateX(-50%); }
+              -ms-transform: scaleX(0.5) translateX(-50%);
+                  transform: scaleX(0.5) translateX(-50%); }
 @charset "UTF-8";
 .zzc-alert-box {
   width: 6.3rem;
@@ -1008,8 +1008,8 @@ button {
       left: 0;
       border-top: 1px solid #DDE0E6;
       -webkit-transform: scaleY(0.5) translateY(-50%);
-              -ms-transform: scaleY(0.5) translateY(-50%);
-          transform: scaleY(0.5) translateY(-50%); }
+          -ms-transform: scaleY(0.5) translateY(-50%);
+              transform: scaleY(0.5) translateY(-50%); }
     .zzc-alert-box .zzc-alert-footer .zzc-alert-btn {
       -webkit-box-flex: 1;
           -ms-flex: 1;
@@ -1026,8 +1026,8 @@ button {
           height: 100%;
           border-left: 1px solid #DDE0E6;
           -webkit-transform: scaleX(0.5) translateX(-50%);
-                  -ms-transform: scaleX(0.5) translateX(-50%);
-              transform: scaleX(0.5) translateX(-50%); }
+              -ms-transform: scaleX(0.5) translateX(-50%);
+                  transform: scaleX(0.5) translateX(-50%); }
 body {
   background: #fff;
 }

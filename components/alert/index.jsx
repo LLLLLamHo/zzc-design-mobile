@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import Modal from '../modal/index.jsx';
+import Modal from '../modal';
 import './index.scss';
 
 class Alert {

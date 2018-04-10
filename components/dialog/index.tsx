@@ -4,7 +4,22 @@ import { addClass, removeClass, hasClass } from '../_util/class.js';
 import { animationEvents } from '../_util/Event';
 import './index.scss';
 
-export default class extends PureComponent {
+export interface ModalProps {
+    prefixCls?: string,
+    markClassName?: string,
+    boxClassName: string,
+    transitionName?: string,
+    maskTransitionName?: string,
+    visible: boolean,
+    markClose: boolean,
+    closeCallback?: any,
+    style?: React.CSSProperties,
+    maskStyle?: React.CSSProperties,
+    title?: JSX.Element,
+    footer?: JSX.Element,
+}
+
+export default class extends PureComponent<ModalProps, any> {
     static defaultProps = {
         prefixCls: 'zzc-dialog',
         markClassName: '',
@@ -14,7 +29,10 @@ export default class extends PureComponent {
         style: {},
         maskStyle: {},
         visible: false,
-        closeCallback() { }
+        closeCallback () { },
+        title: null,
+        footer: null,
+        markClose: false
     }
 
     state = {
@@ -34,7 +52,10 @@ export default class extends PureComponent {
         }
     }
 
-    componentDidMount() {
+    mask
+    box
+
+    componentDidMount () {
         if ( this.props.visible ) {
             this.addAnimationEvent();
         }
@@ -79,8 +100,8 @@ export default class extends PureComponent {
             removeClass( this.box, this.setAnimationClass( this.props.transitionName, 'enterActive' ) );
             removeClass( this.box, this.setAnimationClass( this.props.transitionName, 'enter' ) );
             // mark关闭
-            if ( this.props.markClose ) {
-                document.querySelector( `.${_this.props.prefixCls}-mask` ).onclick = function () {
+            if ( this.props.markClose && this.mask ) {
+                this.mask.onclick = function () {
                     _this.close();
                 };
             }
@@ -107,7 +128,7 @@ export default class extends PureComponent {
     }
 
     render() {
-        const { prefixCls, markClassName, boxClassName, maskStyle, style, transitionName, maskTransitionName, children } = this.props;
+        const { prefixCls, markClassName, boxClassName, maskStyle, style, transitionName, maskTransitionName, children, title, footer } = this.props;
         const newMaskClassName = classNames(
             `${prefixCls}-mask`,
             this.setAnimationClass( maskTransitionName, 'enter' ),
@@ -123,7 +144,9 @@ export default class extends PureComponent {
             <div className={classNames( `${prefixCls}` )}>
                 <div style={maskStyle} ref={( ref ) => { this.mask = ref; }} className={newMaskClassName} />
                 <div style={style} ref={( ref ) => { this.box = ref; }} className={newBoxClassName}>
+                    {title && title}
                     {children}
+                    {footer && footer}
                 </div>
             </div>
         );

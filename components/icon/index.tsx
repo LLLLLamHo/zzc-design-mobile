@@ -8,11 +8,12 @@ export interface IconProps {
     type?: any,
     size?: string,
     className?: string,
-    style?: React.CSSProperties
+    style?: React.CSSProperties,
+    reset?: any
+    
 }
-
-export default class Icon extends React.PureComponent<IconProps> {
-    componentDidMount() {
+export default class Icon extends React.PureComponent<IconProps,any> {
+    componentDidMount(): void {
         loadSprite();
     }
 
@@ -21,11 +22,11 @@ export default class Icon extends React.PureComponent<IconProps> {
         type: undefined,
         size: 'md',
         className: '',
-        style: {}
+        style: {},
     }
 
     render () {
-        const { prefixCls, type, size, className, style } = this.props;
+        const { prefixCls, type, size, className, style, ...reset } = this.props;
         const cls = classnames(
             className,
             prefixCls,
@@ -34,7 +35,7 @@ export default class Icon extends React.PureComponent<IconProps> {
         );
 
         return (
-            <svg className={cls} style={style}>
+            <svg className={cls} style={style} {...reset}>
                 <use xlinkHref={`#${prefixCls}-${type}`} />
             </svg>
         );

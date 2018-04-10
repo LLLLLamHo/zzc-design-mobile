@@ -33,18 +33,26 @@ let config = {
             }
             callback();
         }
-    ]
-}
-
-if ( ENV == 'development' ) { 
-    config.resolve = {
+    ],
+    resolve: {
         alias: {
             "zzcDesign": path.resolve(
                 __dirname,
-                "../lib/index.js"
+                "../es/index.js"
             )
         }
-    }
+    }    
 }
+
+// if ( ENV == 'development' ) { 
+//     config.resolve = {
+//         alias: {
+//             "zzcDesign": path.resolve(
+//                 __dirname,
+//                 "../es/index.js"
+//             )
+//         }
+//     }
+// }
 
 module.exports = config;

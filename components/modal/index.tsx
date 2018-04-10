@@ -1,10 +1,33 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
-import Dialog from '../dialog/index.jsx';
-import Button from '../button/index.jsx';
+import Dialog from '../dialog';
+import Button from '../button';
 import './index.scss';
 
-export default class Modal extends PureComponent {
+export interface ModalProps {
+    prefixCls?: string,
+    className?: string,
+    activeClassName: string,
+    maskTransitionName?: string,
+    transitionName?: string,
+    title: string,
+    inline?: boolean,
+    full?: boolean,
+    disabled?: boolean,
+    noBorder?: boolean,
+    visible: boolean,
+    closable: boolean,
+    ghost?: boolean,
+    markClose: boolean,
+    closeCallback?: any,
+    onClick?: any,
+    buttons?: Array<any>,
+    style?: React.CSSProperties,
+    maskStyle?: React.CSSProperties,
+    footer?: JSX.Element,
+}
+
+export default class Modal extends PureComponent<ModalProps, any> {
     static defaultProps = {
         prefixCls: 'zzc-modal',
         maskTransitionName: 'fade',
@@ -14,7 +37,6 @@ export default class Modal extends PureComponent {
         closable: false,
         closeCallback() { },
         visible: false,
-        type: 'modal',
         title: '',
         transitionName: 'zoom',
         buttons: [],
@@ -25,7 +47,7 @@ export default class Modal extends PureComponent {
         visible: this.props.visible
     }
 
-    componentWillReceiveProps( newProps ) {
+    componentWillReceiveProps( newProps ): void {
         if ( this.state.visible !== newProps.visible ) {
             this.setState( {
                 visible: newProps.visible
@@ -33,7 +55,7 @@ export default class Modal extends PureComponent {
         }
     }
 
-    createAlertFooter( buttons, closable ) {
+    createAlertFooter( closable: boolean, buttons?: Array<any> ): any {
         if ( closable ) {
             return (
                 <Button
@@ -48,17 +70,19 @@ export default class Modal extends PureComponent {
                     关闭
                 </Button>
             );
+        } else if ( buttons && buttons.length > 0 ) {
+            return (
+                buttons.map( ( item, key ) => (
+                    <div key={`${this.props.prefixCls}-btn-${new Date().getTime()}-${key}`} className={classNames( `${this.props.prefixCls}-btn` )}>
+                        {this.createBtn( item )}
+                    </div>
+                ) )
+            );
         }
-        return (
-            buttons.map( ( item, key ) => (
-                <div key={`${this.props.prefixCls}-btn-${new Date().getTime()}-${key}`} className={classNames( `${this.props.prefixCls}-btn` )}>
-                    {this.createBtn( item )}
-                </div>
-            ) )
-        );
+        return null;
     }
 
-    createBtn( btn ) {
+    createBtn ( btn: {text:string, onPress:any, props: any} ): JSX.Element {
         const onPress = btn.onPress ? btn.onPress : () => { };
         return React.cloneElement( <Button
             noBorder
@@ -79,10 +103,31 @@ export default class Modal extends PureComponent {
         </Button>, { ...btn.props } );
     }
 
-    close() {
+    close(): void {
         this.setState( {
             visible: false
         } );
+    }
+
+    createTitle( title: string ): any {
+        const { prefixCls } = this.props;
+        if ( title && title !== '' ) {
+            return (
+                <div className={classNames( `${prefixCls}-header` )}>
+                    {title}
+                </div>
+            );
+        }
+        return null;
+    }
+
+    createFooter() {
+        const { prefixCls, buttons, closable } = this.props;
+        return (
+            <div className={classNames( `${prefixCls}-footer` )}>
+                {this.createAlertFooter( closable, buttons )}
+            </div>
+        );
     }
 
     render() {
@@ -91,13 +136,11 @@ export default class Modal extends PureComponent {
             markClose,
             transitionName,
             prefixCls,
-            closable,
             closeCallback,
             className,
             style,
             maskStyle,
             title,
-            buttons,
             visible
         } = this.props;
 
@@ -111,15 +154,11 @@ export default class Modal extends PureComponent {
                     transitionName={transitionName}
                     boxClassName={classNames( `${prefixCls}-box`, className )}
                     closeCallback={closeCallback}
+                    title={this.createTitle( title )}
+                    footer={this.createFooter()}
                 >
-                    {title && title !== '' && <div className={classNames( `${prefixCls}-header` )}>
-                        {title}
-                    </div>}
                     <div className={classNames( `${prefixCls}-body` )}>
                         {children}
-                    </div>
-                    <div className={classNames( `${prefixCls}-footer` )}>
-                        {this.createAlertFooter( buttons, closable )}
                     </div>
                 </Dialog>
             );
