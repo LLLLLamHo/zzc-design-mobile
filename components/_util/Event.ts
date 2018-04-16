@@ -1,4 +1,4 @@
-const EVENT_NAME_MAP = {
+const EVENT_NAME_MAP: any = {
     transitionend: {
         transition: 'transitionend',
         WebkitTransition: 'webkitTransitionEnd',
@@ -16,10 +16,11 @@ const EVENT_NAME_MAP = {
     }
 };
 
-const endEventsTransitionend = [];
-const endEventsAnimationend = [];
+const endEventsTransitionend: Array<any> = [];
+const endEventsAnimationend: Array<any> = [];
 
-function detectEvents() {
+// 查看浏览器事件支持
+function detectEvents(): void {
     // 判断是否支持AnimationEvent
     if ( 'AnimationEvent' in window ) {
         delete EVENT_NAME_MAP.animationend.WebkitAnimation;
@@ -38,7 +39,8 @@ function detectEvents() {
     } );
 }
 
-function addEventListener( node, eventName, eventListener, _this ) {
+// 绑定事件
+function addEventListener( node: Element, eventName: string, eventListener: any, _this: any ): void {
     if ( _this ) {
         node.addEventListener( eventName, eventListener.bind( _this ), false );
     } else {
@@ -46,7 +48,8 @@ function addEventListener( node, eventName, eventListener, _this ) {
     }
 }
 
-function removeEventListener( node, eventName, eventListener, _this ) {
+// 删除事件
+function removeEventListener( node: Element, eventName: string, eventListener: any, _this: any ): void {
     if ( _this ) {
         node.removeEventListener( eventName, eventListener.bind( _this ), false );
     } else {
@@ -54,8 +57,9 @@ function removeEventListener( node, eventName, eventListener, _this ) {
     }
 }
 
-const transitionEvents = {
-    addEndEventListener( node, eventListener, _this ) {
+// 绑定过度事件
+const transitionEvents: any = {
+    addEndEventListener( node: Element, eventListener: any, _this: any ): void {
         if ( endEventsTransitionend.length === 0 ) {
             window.setTimeout( eventListener, 0 );
             return;
@@ -67,7 +71,7 @@ const transitionEvents = {
             addEventListener( node, endEvents, eventListener, _this );
         } );
     },
-    removeEndEventListener( node, eventListener, _this ) {
+    removeEndEventListener( node: Element, eventListener: any, _this: any ): void {
         if ( endEventsTransitionend.length === 0 ) {
             return;
         }
@@ -77,9 +81,10 @@ const transitionEvents = {
     }
 };
 
-const animationEvents = {
+// 绑定动画事件
+const animationEvents: any = {
 
-    addEndEventListener( node, eventListener, _this ) {
+    addEndEventListener( node: Element, eventListener: any, _this: any ): void {
         if ( endEventsAnimationend.length === 0 ) {
             window.setTimeout( eventListener, 0 );
             return;
@@ -90,7 +95,7 @@ const animationEvents = {
             addEventListener( node, endEvents, eventListener, _this );
         } );
     },
-    removeEndEventListener( node, eventListener, _this ) {
+    removeEndEventListener( node: Element, eventListener: any, _this: any ): void {
         if ( endEventsAnimationend.length === 0 ) {
             return;
         }

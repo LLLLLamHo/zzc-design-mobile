@@ -11,7 +11,7 @@ $cls: 'zzc-toast';
     justify-content: center;
     top: 50%;
     transform: translateY(-50%);
-    &.#{$cls}-nomark {
+    &.#{$cls}-nomask {
         width: auto;
         max-width: 6.3rem;
         height: auto;

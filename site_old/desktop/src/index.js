@@ -8,11 +8,11 @@ const contentTmpl = './template/Content/index';
 function pickerGenerator(module) {
   const tester = new RegExp(`^docs/${module}`);
   /* eslint-disable consistent-return */
-  return (markdownData) => {
-    const { filename } = markdownData.meta;
+  return (maskdownData) => {
+    const { filename } = maskdownData.meta;
     if (tester.test(filename)) {
       return {
-        meta: markdownData.meta,
+        meta: maskdownData.meta,
       };
     }
   };
@@ -29,21 +29,21 @@ module.exports = {
   //   return nodePath.endsWith('/demo');
   // },
   pick: {
-    components(markdownData) {
-      const { filename } = markdownData.meta;
+    components(maskdownData) {
+      const { filename } = maskdownData.meta;
       if (!/^components/.test(filename) ||
           /\/demo$/.test(path.dirname(filename))) return;
       /* eslint-disable consistent-return */
       return {
-        meta: markdownData.meta,
+        meta: maskdownData.meta,
       };
       /* eslint-enable consistent-return */
     },
     /* eslint-disable consistent-return */
-    changelog(markdownData) {
-      if (/CHANGELOG/.test(markdownData.meta.filename)) {
+    changelog(maskdownData) {
+      if (/CHANGELOG/.test(maskdownData.meta.filename)) {
         return {
-          meta: markdownData.meta,
+          meta: maskdownData.meta,
         };
       }
     },

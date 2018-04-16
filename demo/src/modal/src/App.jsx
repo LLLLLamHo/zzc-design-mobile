@@ -13,6 +13,10 @@ export default class App extends Component {
         this.state = {
             visible: false,
             visible2: false,
+            visible3: false,
+            visible4: false,
+            visible5: false,
+            visible6: false,
             title: '带标题区的 Modal'
         };
     }
@@ -34,9 +38,23 @@ export default class App extends Component {
             visible3: true
         } );
     }
+    openmaskCloseModal() {
+        this.setState( {
+            visible4: true
+        } );
+    }
+    openNomaskModal() {
+        this.setState( {
+            visible5: true
+        } );
+    }
+    openNoTransitionModal() {
+        this.setState( {
+            visible6: true
+        } );
+    }
 
     render() {
-
         return (
             <div className="zzc-demo">
                 <div className="zzc-demo-header">
@@ -86,7 +104,6 @@ export default class App extends Component {
                     <Modal
                         title={this.state.title}
                         visible={this.state.visible3}
-                        markClose={true}
                         buttons={[
                             {
                                 text: '确认',
@@ -102,6 +119,39 @@ export default class App extends Component {
                             }
                         ]}
                         closeCallback={() => { this.setState( { visible3: false } ); }}
+                    >
+                        <div className="modal-text">这是一个文案...</div>
+                    </Modal>
+                    <Button onClick={this.openmaskCloseModal.bind( this )}>点击mask关闭modal</Button>
+                    <Modal
+                        title={this.state.title}
+                        visible={this.state.visible4}
+                        maskClose={true}
+                        closable={true}
+                        closeCallback={() => { this.setState( { visible4: false } ); }}
+                    >
+                        <div className="modal-text">这是一个文案...</div>
+                    </Modal>
+                    <Button onClick={this.openNomaskModal.bind( this )}>无mask的modal</Button>
+                    <Modal
+                        title={this.state.title}
+                        visible={this.state.visible5}
+                        maskClose={true}
+                        closable={true}
+                        transparent={true}
+                        closeCallback={() => { this.setState( { visible5: false } ); }}
+                    >
+                        <div className="modal-text">这是一个文案...</div>
+                    </Modal>
+                    <Button type="main" onClick={this.openNoTransitionModal.bind( this )}>不带动画的modal</Button>
+                    <Modal
+                        title={this.state.title}
+                        visible={this.state.visible6}
+                        maskClose={true}
+                        closable={true}
+                        transitionName=''
+                        maskTransitionName=''
+                        closeCallback={() => { this.setState( { visible6: false } ); }}
                     >
                         <div className="modal-text">这是一个文案...</div>
                     </Modal>

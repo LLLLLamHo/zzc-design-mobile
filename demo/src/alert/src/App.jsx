@@ -87,11 +87,11 @@ export default class App extends Component {
         } );
     }
 
-    markCloseAlert() {
+    maskCloseAlert() {
         Alert( {
             title: '标题',
             content: <p>asdasdasdasd</p>,
-            markClose: true,
+            maskClose: true,
             buttons: [
                 {
                     text: '取消',
@@ -141,7 +141,7 @@ export default class App extends Component {
     promiseAlert() {
         Alert( {
             title: '发起一个请求',
-            markClose: true,
+            maskClose: true,
             buttons: [
                 {
                     text: '确认',
@@ -179,7 +179,6 @@ export default class App extends Component {
     }
 
     render() {
-
         return (
             <div className="zzc-demo">
                 <div className="zzc-demo-header">
@@ -190,7 +189,7 @@ export default class App extends Component {
                     <Button onClick={this.titleAlert}>只有标题的Alert</Button>
                     <Button onClick={this.contentAlert}>带有内容的Alert</Button>
                     <Button onClick={this.doubleBtnAlert}>双按钮Alert</Button>
-                    <Button onClick={this.markCloseAlert}>点击mark关闭Alert</Button>
+                    <Button onClick={this.maskCloseAlert}>点击mask关闭Alert</Button>
                     <Button onClick={this.autoCloseAlert}>2秒后自动关闭Alert</Button>
                     <Button onClick={this.promiseAlert}>延迟关闭Alert</Button>
                     <Button onClick={this.imgAlert}>带图片的Alert</Button>

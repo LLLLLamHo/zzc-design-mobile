@@ -16,22 +16,25 @@ $cls_button: '.zzc-button';
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
         width: 315px;
     }
-    #{$cls}-body {
+    
+    #{$cls}-header{
         padding: .3rem;
-        &-title {
+        #{$cls}-title {
             color: #333;
             font-size: .32rem;
             text-align: center;
-            &#{$cls}-body-only-title {
-                padding: .3rem 0;
+            &#{$cls}-only-title{
+                padding: .34rem 0;
             }
         }
+    }
+    #{$cls}-body {
         &-content {
+            padding-bottom: .3rem;
             color: #333;
             font-size: .28rem;
             word-wrap: break-word;
             text-align: center;
-            margin-top: .3rem;
         }
     }
     #{$cls}-footer {

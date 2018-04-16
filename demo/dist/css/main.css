@@ -334,7 +334,7 @@ button {
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%); }
-  .zzc-toast.zzc-toast-nomark {
+  .zzc-toast.zzc-toast-nomask {
     width: auto;
     max-width: 6.3rem;
     height: auto;

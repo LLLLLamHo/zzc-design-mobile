@@ -1,5 +1,5 @@
 
-export function hasClass( node, className ) {
+export function hasClass( node: Element, className: string ): boolean {
     if ( node.classList ) {
         return node.classList.contains( className );
     }
@@ -7,7 +7,7 @@ export function hasClass( node, className ) {
     return ` ${originClass} `.indexOf( ` ${className} ` ) > -1;
 }
 
-export function addClass( node, className ) {
+export function addClass( node: Element, className: string ): void {
     if ( node.classList ) {
         node.classList.add( className );
     } else if ( !hasClass( node, className ) ) {
@@ -15,7 +15,7 @@ export function addClass( node, className ) {
     }
 }
 
-export function removeClass( node, className ) {
+export function removeClass( node: Element, className: string ): void {
     if ( node.classList ) {
         node.classList.remove( className );
     } else if ( hasClass( node, className ) ) {

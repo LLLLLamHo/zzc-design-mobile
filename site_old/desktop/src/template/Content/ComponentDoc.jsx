@@ -132,7 +132,7 @@ export default class ComponentDoc extends React.Component {
     return (
       <DocumentTitle title={`${subtitle || chinese || ''} ${title || english} - Ant Design`}>
         <article>
-          <section className="markdown">
+          <section className="maskdown">
             <h1 className="section-title">
               {meta.title || meta.english} {meta.subtitle || meta.chinese}
               <Popover content={PopoverContent} placement="bottom">
@@ -140,7 +140,7 @@ export default class ComponentDoc extends React.Component {
               </Popover>
             </h1>
             {
-              props.utils.toReactComponent(['section', { className: 'markdown' }]
+              props.utils.toReactComponent(['section', { className: 'maskdown' }]
                 .concat(getChildren(content)))
             }
 
@@ -199,7 +199,7 @@ export default class ComponentDoc extends React.Component {
           {
             props.utils.toReactComponent(['section', {
               id: 'api',
-              className: 'markdown api-container',
+              className: 'maskdown api-container',
             }].concat(getChildren(doc.api || ['placeholder'])))
           }
         </article>

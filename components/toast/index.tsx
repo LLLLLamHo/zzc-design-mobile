@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 
-import { addClass, removeClass, hasClass } from '../_util/class.js';
+import { addClass, removeClass, hasClass } from '../_util/class';
 import { animationEvents } from '../_util/Event';
 import Icon from '../icon';
 import Alignment from '../_util/alignment';
@@ -88,7 +88,7 @@ function getToast( type: string, content: any, duration: number = 2, onClose: an
         const zzcToastCls = classNames(
             PREFIXCLS,
             {
-                [`${PREFIXCLS}-nomark`]: !mask
+                [`${PREFIXCLS}-nomask`]: !mask
             },
             {
                 [`${PREFIXCLS}-icon`]: type === 'loading' || type === 'success' || type === 'error' || type === 'waring'

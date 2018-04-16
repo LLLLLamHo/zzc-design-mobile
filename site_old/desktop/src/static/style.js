@@ -4,7 +4,7 @@ require('./header.less');
 require('./footer.less');
 require('./home.less');
 require('./page-nav.less');
-require('./markdown.less');
+require('./maskdown.less');
 require('./resource.less');
 require('./responsive.less');
 require('./preview-img.less');

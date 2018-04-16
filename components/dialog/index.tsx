@@ -1,17 +1,19 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
-import { addClass, removeClass, hasClass } from '../_util/class.js';
+import { addClass, removeClass, hasClass } from '../_util/class';
 import { animationEvents } from '../_util/Event';
 import './index.scss';
 
 export interface ModalProps {
     prefixCls?: string,
-    markClassName?: string,
+    maskClassName?: string,
     boxClassName: string,
-    transitionName?: string,
-    maskTransitionName?: string,
+    className?: string,
+    transitionName: string,
+    maskTransitionName: string,
     visible: boolean,
-    markClose: boolean,
+    transparent?: boolean,
+    maskClose: boolean,
     closeCallback?: any,
     style?: React.CSSProperties,
     maskStyle?: React.CSSProperties,
@@ -19,12 +21,13 @@ export interface ModalProps {
     footer?: JSX.Element,
 }
 
-export default class extends PureComponent<ModalProps, any> {
+export default class Dialog extends PureComponent<ModalProps, any> {
     static defaultProps = {
         prefixCls: 'zzc-dialog',
-        markClassName: '',
+        className: '',
+        maskClassName: '',
         boxClassName: '',
-        maskTransitionName: 'fade',
+        maskTransitionName: '',
         transitionName: '',
         style: {},
         maskStyle: {},
@@ -32,7 +35,8 @@ export default class extends PureComponent<ModalProps, any> {
         closeCallback () { },
         title: null,
         footer: null,
-        markClose: false
+        maskClose: false,
+        transparent: false
     }
 
     state = {
@@ -55,33 +59,38 @@ export default class extends PureComponent<ModalProps, any> {
     mask
     box
 
-    componentDidMount () {
+    componentDidMount (): void {
         if ( this.props.visible ) {
             this.addAnimationEvent();
+            this.addMarkCloseEvent();
         }
     }
 
-    componentDidUpdate() {
+    componentDidUpdate(): void {
         if ( !this.props.visible ) {
             this.close();
         }
     }
 
-    addAnimationEvent() {
-        if ( ( this.mask && hasClass( this.mask, `${this.props.prefixCls}-mask` ) ) && ( this.box && hasClass( `${this.props.prefixCls}-box` ) ) ) {
-            animationEvents.addEndEventListener( this.mask, this.markAddAnimationEnd, this );
+    addAnimationEvent (): void {
+        if ( this.props.maskTransitionName !== '' && this.mask && hasClass( this.mask, `${this.props.prefixCls}-mask` ) ) {
+            animationEvents.addEndEventListener( this.mask, this.maskAddAnimationEnd, this );
             addClass( this.mask, 'zzc-fade-enter-active' );
+        }
 
+        if ( this.props.transitionName !== '' && this.box && hasClass( this.box, `${this.props.prefixCls}-box` ) ) {
             animationEvents.addEndEventListener( this.box, this.boxAddAnimationEnd, this );
             addClass( this.box, this.setAnimationClass( this.props.transitionName, 'enterActive' ) );
-        } else {
+        }
+
+        if ( !this.box && !this.mask ) {
             requestAnimationFrame( () => {
                 this.addAnimationEvent();
             } );
         }
     }
 
-    markAddAnimationEnd( event ) {
+    maskAddAnimationEnd( event ): void {
         event.stopPropagation();
         if ( hasClass( this.mask, this.setAnimationClass( this.props.maskTransitionName, 'enter' ) ) ) {
             removeClass( this.mask, this.setAnimationClass( this.props.maskTransitionName, 'enterActive' ) );
@@ -93,56 +102,63 @@ export default class extends PureComponent<ModalProps, any> {
         }
     }
 
-    boxAddAnimationEnd( event ) {
+    boxAddAnimationEnd( event ): void {
         event.stopPropagation();
-        const _this = this;
         if ( hasClass( this.box, this.setAnimationClass( this.props.transitionName, 'enter' ) ) ) {
             removeClass( this.box, this.setAnimationClass( this.props.transitionName, 'enterActive' ) );
             removeClass( this.box, this.setAnimationClass( this.props.transitionName, 'enter' ) );
-            // mark关闭
-            if ( this.props.markClose && this.mask ) {
-                this.mask.onclick = function () {
-                    _this.close();
-                };
-            }
+        } else if ( this.props.transparent ) { // 当没有mask的情况下，box收起之后触发关闭modal
+            requestAnimationFrame( () => {
+                this.props.closeCallback();
+            } );
         }
     }
 
+    // mask关闭事件
+    addMarkCloseEvent (): void {
+        const _this = this;
+        if ( !this.props.transparent && this.props.maskClose && this.mask ) {
+            this.mask.onclick = function () {
+                _this.close();
+            };
+        }
+    }
 
-    setAnimationClass( transitionName, status ) {
+    setAnimationClass( transitionName: string, status: string ): string {
         if ( this.state.animationTypeList[transitionName] ) {
             return this.state.animationTypeList[transitionName][status];
         }
         return '';
     }
 
-    close() {
-        if ( this.box ) {
-            addClass( this.box, this.setAnimationClass( this.props.transitionName, 'leave' ) );
-            addClass( this.box, this.setAnimationClass( this.props.transitionName, 'leaveActive' ) );
-        }
-        if ( this.mask ) {
+    close (): void {
+        if ( this.mask && this.props.maskTransitionName !== '' ) {
             addClass( this.mask, this.setAnimationClass( this.props.maskTransitionName, 'leave' ) );
             addClass( this.mask, this.setAnimationClass( this.props.maskTransitionName, 'leaveActive' ) );
+        }
+        if ( this.box && this.props.transitionName !== '' ) {
+            addClass( this.box, this.setAnimationClass( this.props.transitionName, 'leave' ) );
+            addClass( this.box, this.setAnimationClass( this.props.transitionName, 'leaveActive' ) );
+        } else {
+            this.props.closeCallback();
         }
     }
 
     render() {
-        const { prefixCls, markClassName, boxClassName, maskStyle, style, transitionName, maskTransitionName, children, title, footer } = this.props;
-        const newMaskClassName = classNames(
+        const { prefixCls, className, maskClassName, boxClassName, maskStyle, style, transitionName, maskTransitionName, children, title, footer, transparent } = this.props;
+        const newMaskClassName: string = classNames(
             `${prefixCls}-mask`,
             this.setAnimationClass( maskTransitionName, 'enter' ),
-            markClassName
+            maskClassName
         );
-        const newBoxClassName = classNames(
+        const newBoxClassName: string = classNames(
             `${prefixCls}-box`,
             this.setAnimationClass( transitionName, 'enter' ),
             boxClassName
         );
-
         return (
-            <div className={classNames( `${prefixCls}` )}>
-                <div style={maskStyle} ref={( ref ) => { this.mask = ref; }} className={newMaskClassName} />
+            <div className={classNames( `${prefixCls}`, className )}>
+                {!transparent && <div style={maskStyle} ref={( ref ) => { this.mask = ref; }} className={newMaskClassName} />}
                 <div style={style} ref={( ref ) => { this.box = ref; }} className={newBoxClassName}>
                     {title && title}
                     {children}

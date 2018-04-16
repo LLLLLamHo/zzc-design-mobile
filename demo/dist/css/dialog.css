@@ -1,11 +1,4 @@
 body {
-  background: #fff !important;
-}
-
-.zzc-demo-body .zzc-button {
-  margin-bottom: .3rem;
-}
-body {
   background: #DDE0E6;
 }
 
@@ -1061,5 +1054,96 @@ button {
           -webkit-transform: scaleX(0.5) translateX(-50%);
               -ms-transform: scaleX(0.5) translateX(-50%);
                   transform: scaleX(0.5) translateX(-50%); }
+body {
+  background: #fff !important;
+}
 
-/*# sourceMappingURL=alert.css.map*/
+.zzc-demo-body > .zzc-button {
+  margin-bottom: .3rem;
+}
+
+.modal-text {
+  font-size: .26rem;
+  color: #333;
+  padding: .3rem;
+}
+
+.zzc-fade-enter {
+  opacity: 0;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.zzc-fade-enter.zzc-fade-enter-active {
+  -webkit-animation-name: zzcFadeIn;
+  animation-name: zzcFadeIn;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+}
+
+.zzc-fade-leave {
+  opacity: 0;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.zzc-fade-leave.zzc-fade-leave-active {
+  -webkit-animation-name: zzcFadeOut;
+  animation-name: zzcFadeOut;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+}
+
+@-webkit-keyframes zzcFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes zzcFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes zzcFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes zzcFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.black .zzc-dialog-box {
+  background: red;
+}
+
+/*# sourceMappingURL=dialog.css.map*/

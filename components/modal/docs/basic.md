@@ -4,6 +4,8 @@
 
 适用平台：WEB
 
+同时只能存在一个modal，如果需要切换modal，需要从业务代码中先将现有的modal关闭！
+
 ##Modal
 
 | 属性               | 说明                    | 类型     | 默认值    |
@@ -13,14 +15,60 @@
 | style              | 自定义样式              | object   | {}        |
 | title              | model显示的title         | string   | 无        |
 | buttons            | model的按钮组            | array    | []        |
-| markClose          | 点击遮罩层关闭Modal     | boolean  | false     |
+| maskClose          | 点击遮罩层关闭Modal     | boolean  | false     |
 | closable           | 是否使用默认的按钮      | boolean  | false     |
-| closeCallback      | 关闭Modal后的回调函数   | function | 无        |
+| closeCallback      | 关闭Modal后的回调函数（必填）   | function | 无        |
 | maskTransitionName | 遮罩层动画              | string   | fade      |
 | transitionName     | Modal动画               | string   | zoom      |
 | maskStyle          | 遮罩层样式              | object   | {}        |
 | type               | 模式                    | string   | modal     |
 | visible            | 控制Modal是否显示       | boolean  | false     |
+
+## 如何定义动画？
+我们要提供4个钩子，传入的动画名字应该是`fade`，因为内部会拼接为`zzc-fade-enter`.
+举例一个渐进渐出的动画效果为例：
+```css
+.zzc-fade-enter {
+    opacity: 0;
+    animation-duration: .2s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+    animation-play-state: paused; 
+}
+
+.zzc-fade-enter.zzc-fade-enter-active {
+    -webkit-animation-name: zzcFadeIn;
+    animation-name: zzcFadeIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; 
+}
+
+.zzc-fade-leave {
+    opacity: 0;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+    animation-play-state: paused; 
+}
+.zzc-fade-leave.zzc-fade-leave-active {
+    -webkit-animation-name: zzcFadeOut;
+    animation-name: zzcFadeOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; 
+}
+
+@keyframes zzcFadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes zzcFadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+```
 
 ##buttons
 
@@ -51,7 +99,7 @@
 <Modal
     title={this.state.title}
     visible={this.state.visible}
-    markClose={true}
+    maskClose={true}
     buttons={[
         {
             text: '确认',

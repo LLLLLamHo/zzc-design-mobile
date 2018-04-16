@@ -52,8 +52,8 @@ export default class Article extends React.Component {
     const otherContent = allChildren.slice(endIndex, allChildren.length);
     const IntroTabs = (
       <Tabs defaultActiveKey="1" key="tabs">
-        <TabPane tab={allChildren[webIndex].props.id.replace(/-/g, ' ')} key="1" className="markdown">{webContent}</TabPane>
-        <TabPane tab={allChildren[RnIndex].props.id.replace(/-/g, ' ')} key="2" className="markdown">{rnContent}</TabPane>
+        <TabPane tab={allChildren[webIndex].props.id.replace(/-/g, ' ')} key="1" className="maskdown">{webContent}</TabPane>
+        <TabPane tab={allChildren[RnIndex].props.id.replace(/-/g, ' ')} key="2" className="maskdown">{rnContent}</TabPane>
       </Tabs>
     );
     newChildren.push(IntroTabs);
@@ -92,7 +92,7 @@ export default class Article extends React.Component {
     } = meta;
     return (
       <DocumentTitle title={`${title || chinese || english} - Ant Design`}>
-        <article className="markdown">
+        <article className="maskdown">
           <h1>
             {title || english}
             {
@@ -101,7 +101,7 @@ export default class Article extends React.Component {
           </h1>
           {
             !description ? null :
-              props.utils.toReactComponent(['section', { className: 'markdown' }].concat(getChildren(description)))
+              props.utils.toReactComponent(['section', { className: 'maskdown' }].concat(getChildren(description)))
           }
           {
             (!content.toc || content.toc.length <= 1 || meta.toc === false) ?
@@ -109,7 +109,7 @@ export default class Article extends React.Component {
               <section className="toc">{props.utils.toReactComponent(content.toc)}</section>
           }
           {
-            this.getArticle(props.utils.toReactComponent(['section', { className: 'markdown' }].concat(getChildren(content.content))))
+            this.getArticle(props.utils.toReactComponent(['section', { className: 'maskdown' }].concat(getChildren(content.content))))
           }
         </article>
       </DocumentTitle>

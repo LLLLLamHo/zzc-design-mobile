@@ -527,7 +527,7 @@ template {
 [hidden] {
   display: none !important;
 }
-mark {
+mask {
   padding: .2em;
   background-color: #feffe6;
 }
@@ -1365,7 +1365,7 @@ mark {
 .anticon-coffee:before {
   content: "\E6E8";
 }
-.anticon-trademark:before {
+.anticon-trademask:before {
   content: "\E651";
 }
 .anticon-safety:before {
@@ -1448,7 +1448,7 @@ mark {
 .anticon-qq:before {
   content: "\E9BF";
 }
-.anticon-medium-workmark:before {
+.anticon-medium-workmask:before {
   content: "\E9BE";
 }
 .anticon-gitlab:before {
@@ -13977,7 +13977,7 @@ textarea.ant-time-picker-input {
   font-size: 14px;
   color: #f5222d;
 }
-.ant-form-hide-required-mark .ant-form-item-required:before {
+.ant-form-hide-required-mask .ant-form-item-required:before {
   display: none;
 }
 input[type="radio"][disabled],

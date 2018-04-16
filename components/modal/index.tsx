@@ -8,8 +8,8 @@ export interface ModalProps {
     prefixCls?: string,
     className?: string,
     activeClassName: string,
-    maskTransitionName?: string,
-    transitionName?: string,
+    maskTransitionName: string,
+    transitionName: string,
     title: string,
     inline?: boolean,
     full?: boolean,
@@ -18,7 +18,8 @@ export interface ModalProps {
     visible: boolean,
     closable: boolean,
     ghost?: boolean,
-    markClose: boolean,
+    transparent?: boolean,
+    maskClose: boolean,
     closeCallback?: any,
     onClick?: any,
     buttons?: Array<any>,
@@ -40,7 +41,8 @@ export default class Modal extends PureComponent<ModalProps, any> {
         title: '',
         transitionName: 'zoom',
         buttons: [],
-        markClose: false
+        maskClose: false,
+        transparent: false
     }
 
     state = {
@@ -133,24 +135,28 @@ export default class Modal extends PureComponent<ModalProps, any> {
     render() {
         const {
             children,
-            markClose,
+            maskClose,
             transitionName,
+            maskTransitionName,
             prefixCls,
             closeCallback,
             className,
             style,
             maskStyle,
             title,
-            visible
+            visible,
+            transparent
         } = this.props;
 
         if ( visible ) {
             return (
                 <Dialog
+                    transparent={transparent}
+                    maskTransitionName={maskTransitionName}
                     visible={this.state.visible}
                     style={style}
                     maskStyle={maskStyle}
-                    markClose={markClose}
+                    maskClose={maskClose}
                     transitionName={transitionName}
                     boxClassName={classNames( `${prefixCls}-box`, className )}
                     closeCallback={closeCallback}

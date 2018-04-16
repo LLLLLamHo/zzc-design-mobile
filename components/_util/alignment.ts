@@ -3,16 +3,17 @@
 import { isUndefined } from './typeof';
 
 export default class Alignment {
+    list: Array<any>
     constructor () {
         this.list = [];
     }
-    save ( data ) {
+    save ( data: any ): void {
         this.list.push( data );
     }
-    check () {
+    check (): any {
         return this.list;
     }
-    get ( index ) {
+    get ( index: any ): void {
         if ( index === 'first' ) {
             return this.list.shift();
         } else if ( index === 'last' ) {

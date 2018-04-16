@@ -2,25 +2,36 @@ import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import './index.scss';
 
-export default class Header extends PureComponent {
+export interface CardHeaderProps {
+    prefixCls: string,
+    className: string,
+    borderDirection: string,
+    title: string,
+    children: any,
+    noBorder: boolean,
+    extra: boolean,
+    style: React.CSSProperties
+}
+
+export default class Header extends PureComponent<CardHeaderProps, any> {
     static defaultProps = {
         prefixCls: 'zzc-card-header',
         className: '',
-        title: false,
+        title: '',
         extra: false,
         children: false,
         noBorder: false,
         style: {}
     }
 
-    setContent() {
+    setContent(): JSX.Element {
         const { title, extra, prefixCls, children } = this.props;
         if ( children ) {
             return children;
         }
         return (
             <React.Fragment>
-                {title && <h1 className={classNames( `${prefixCls}-title` )}>{title}</h1>}
+                {title !== '' && <h1 className={classNames( `${prefixCls}-title` )}>{title}</h1>}
                 {extra && <div className={classNames( `${prefixCls}-extra` )}>{extra}</div>}
             </React.Fragment>
         );
@@ -28,7 +39,7 @@ export default class Header extends PureComponent {
 
     render() {
         const { style, className, prefixCls, noBorder } = this.props;
-        const headClassName = classNames(
+        const headClassName: string = classNames(
             prefixCls,
             className,
             {

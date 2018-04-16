@@ -29,34 +29,34 @@ module.exports = {
     return nodePath.endsWith('/demo');
   },
   pick: {
-    components(markdownData) {
-      const filename = markdownData.meta.filename;
+    components(maskdownData) {
+      const filename = maskdownData.meta.filename;
       if (!/^components/.test(filename) ||
           /\/demo$/.test(path.dirname(filename))) return;
       /* eslint-disable consistent-return */
       return {
-        meta: markdownData.meta,
+        meta: maskdownData.meta,
       };
       /* eslint-enable consistent-return */
     },
     /* eslint-disable consistent-return */
-    indexDemos(markdownData) {
-      const paths = markdownData.meta.filename.split('/');
+    indexDemos(maskdownData) {
+      const paths = maskdownData.meta.filename.split('/');
       // add demos to index page, e.g. "components/drawer/demo/basic.md"
       if (paths[1] && _indexDemos.indexOf(paths[1]) > -1 && paths[2] && paths[2] === 'demo') {
         return {
           component: paths[1],
-          meta: markdownData.meta,
+          meta: maskdownData.meta,
         };
       }
     },
-    subListDemos(markdownData) {
-      const paths = markdownData.meta.filename.split('/');
+    subListDemos(maskdownData) {
+      const paths = maskdownData.meta.filename.split('/');
       // add demos to index page, e.g. "components/drawer/demo/basic.md"
       if (paths[1] && _subListDemos.indexOf(paths[1]) > -1 && paths[2] && paths[2] === 'demo') {
         return {
           component: paths[1],
-          meta: markdownData.meta,
+          meta: maskdownData.meta,
         };
       }
     },

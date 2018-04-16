@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
-import TouchFeedback from '../_util/components/TouchFeedback.jsx';
+import TouchFeedback from '../_util/components/TouchFeedback';
 
 import '../style/index';
 import './index.scss';

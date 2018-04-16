@@ -14,7 +14,7 @@
 | title         | 弹窗显示的title         | string                 | 无        |
 | content       | 弹窗显示的内容          | string/react component | null      |
 | buttons       | 弹窗的按钮组            | array                  | []        |
-| markClose     | 点击遮罩层关闭Alert     | boolean                | false     |
+| maskClose     | 点击遮罩层关闭Alert     | boolean                | false     |
 | closable      | 是否使用默认的按钮      | boolean                | false     |
 | closeCallback | 关闭Alert后的回调函数   | function               | 无     |
 

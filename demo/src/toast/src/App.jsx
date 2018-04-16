@@ -11,8 +11,8 @@ export default class App extends Component {
         super( props );
     }
 
-    markInfo() {
-        Toast.info( '这是一个无mark的info', 2, () => {
+    maskInfo() {
+        Toast.info( '这是一个无mask的info', 2, () => {
             console.log( '关闭' );
         }, false );
     }
@@ -57,7 +57,7 @@ export default class App extends Component {
                     <h1 className="zzc-demo-title">Toast 轻提示</h1>
                 </div>
                 <div className="zzc-demo-body">
-                    <Button onClick={this.markInfo}>no mark info</Button>
+                    <Button onClick={this.maskInfo}>no mask info</Button>
                     <Button onClick={this.info} type="main">info</Button>
                     <Button onClick={this.success} type="main">success</Button>
                     <Button onClick={this.error} type="sub">error</Button>

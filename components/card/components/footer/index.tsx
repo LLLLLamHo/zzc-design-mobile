@@ -2,18 +2,27 @@ import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import './index.scss';
 
-export default class Footer extends PureComponent {
+export interface CardFooterProps {
+    prefixCls: string,
+    className: string,
+    borderDirection: string,
+    children: any,
+    noBorder: boolean,
+    style: React.CSSProperties
+}
+
+export default class Footer extends PureComponent<CardFooterProps, any> {
     static defaultProps = {
         prefixCls: 'zzc-card-footer',
         className: '',
-        children: false,
+        children: null,
         noBorder: false,
         style: {}
     }
 
     render() {
         const { style, className, prefixCls, noBorder, children } = this.props;
-        const footerClassName = classNames(
+        const footerClassName:string = classNames(
             prefixCls,
             className,
             {
@@ -22,7 +31,7 @@ export default class Footer extends PureComponent {
         );
         return (
             <div style={style} className={footerClassName}>
-                {!!children && children}
+                {children && children}
             </div>
         );
     }

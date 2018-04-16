@@ -2,11 +2,21 @@ import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import './index.scss';
 
-export default class Body extends PureComponent {
+export interface CardBodyProps {
+    prefixCls: string,
+    className: string,
+    borderDirection: string,
+    children: any,
+    noBorder: boolean,
+    full: boolean,
+    style: React.CSSProperties,
+}
+
+export default class Body extends PureComponent<CardBodyProps, any> {
     static defaultProps = {
         prefixCls: 'zzc-card-body',
         className: '',
-        children: false,
+        children: null,
         full: false,
         noBorder: false,
         style: {},
@@ -15,7 +25,7 @@ export default class Body extends PureComponent {
 
     render() {
         const { borderDirection, style, className, prefixCls, children, full, noBorder } = this.props;
-        const bodyClassName = classNames(
+        const bodyClassName: string = classNames(
             prefixCls,
             className,
             { [`${prefixCls}-full`]: full },
@@ -26,7 +36,7 @@ export default class Body extends PureComponent {
         return (
             <section style={style} className={bodyClassName}>
                 <div className={classNames( `${prefixCls}-box` )}>
-                    {!!children && children}
+                    {children && children}
                 </div>
             </section>
         );

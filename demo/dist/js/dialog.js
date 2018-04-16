@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "../";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 166);
+/******/ 	return __webpack_require__(__webpack_require__.s = 163);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -4345,10 +4345,7 @@ Dialog.defaultProps = {
 /* 160 */,
 /* 161 */,
 /* 162 */,
-/* 163 */,
-/* 164 */,
-/* 165 */,
-/* 166 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4362,7 +4359,7 @@ var _reactDom = __webpack_require__(27);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(167);
+var _App = __webpack_require__(164);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -4371,7 +4368,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
 /***/ }),
-/* 167 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4406,11 +4403,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(168);
+var _zzcDesign = __webpack_require__(99);
+
+__webpack_require__(165);
 
 __webpack_require__(98);
-
-var _zzcDesign = __webpack_require__(99);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4419,12 +4416,52 @@ var App = function (_Component) {
 
     function App(props) {
         (0, _classCallCheck3.default)(this, App);
-        return (0, _possibleConstructorReturn3.default)(this, (App.__proto__ || (0, _getPrototypeOf2.default)(App)).call(this, props));
+
+        var _this = (0, _possibleConstructorReturn3.default)(this, (App.__proto__ || (0, _getPrototypeOf2.default)(App)).call(this, props));
+
+        _this.state = {
+            visible: false,
+            visible2: false,
+            visible3: false,
+            visible4: false,
+            visible5: false
+        };
+        return _this;
     }
 
     (0, _createClass3.default)(App, [{
+        key: 'openDefaultDialog',
+        value: function openDefaultDialog() {
+            this.setState({
+                visible: true
+            });
+        }
+    }, {
+        key: 'openDialog',
+        value: function openDialog() {
+            this.setState({
+                visible2: true
+            });
+        }
+    }, {
+        key: 'openNoMaskDialog',
+        value: function openNoMaskDialog() {
+            this.setState({
+                visible5: true
+            });
+        }
+    }, {
+        key: 'openAnDialog',
+        value: function openAnDialog() {
+            this.setState({
+                visible3: true,
+                visible4: true
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
 
             return _react2.default.createElement(
                 'div',
@@ -4435,45 +4472,149 @@ var App = function (_Component) {
                     _react2.default.createElement(
                         'h1',
                         { className: 'zzc-demo-title' },
-                        'Icon \u56FE\u6807'
-                    ),
-                    _react2.default.createElement(
-                        'h2',
-                        null,
-                        'zzc-design\u5B9A\u4E49\u4E86\u4E00\u4E9B\u5E38\u7528\u7684svg\u56FE\u6807'
+                        'Dialog \u5BF9\u8BDD\u6846'
                     )
                 ),
                 _react2.default.createElement(
                     'div',
                     { className: 'zzc-demo-body' },
-                    _react2.default.createElement(_zzcDesign.Icon, { fill: 'red', width: '300px', height: '300px', type: 'success' }),
-                    _react2.default.createElement(_zzcDesign.Icon, { type: 'error' }),
-                    _react2.default.createElement(_zzcDesign.Icon, { type: 'waring' })
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'zzc-demo-body' },
                     _react2.default.createElement(
-                        'h5',
-                        null,
-                        '\u4E0D\u540C\u5927\u5C0F\u7684\u56FE\u6807'
+                        _zzcDesign.Button,
+                        { onClick: function onClick() {
+                                _this2.openDefaultDialog();
+                            } },
+                        '\u9ED8\u8BA4dialog'
                     ),
-                    _react2.default.createElement(_zzcDesign.Icon, { size: 'lg', type: 'success' }),
-                    _react2.default.createElement(_zzcDesign.Icon, { type: 'success' }),
-                    _react2.default.createElement(_zzcDesign.Icon, { size: 'sm', type: 'success' }),
-                    _react2.default.createElement(_zzcDesign.Icon, { size: 'xs', type: 'success' })
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'zzc-demo-body' },
+                    this.state.visible && _react2.default.createElement(
+                        _zzcDesign.Dialog,
+                        {
+                            visible: this.state.visible,
+                            maskClose: true,
+                            closeCallback: function closeCallback() {
+                                _this2.setState({ visible: false });
+                            }
+                        },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-text' },
+                            '\u8FD9\u662F\u4E00\u4E2A\u6587\u6848...'
+                        )
+                    ),
                     _react2.default.createElement(
-                        'h5',
-                        null,
-                        '\u4E0D\u540C\u989C\u8272\u7684\u56FE\u6807'
+                        _zzcDesign.Button,
+                        { onClick: function onClick() {
+                                _this2.openDialog();
+                            } },
+                        '\u5E26title\u548Cfooter\u7684dialog'
                     ),
-                    _react2.default.createElement(_zzcDesign.Icon, { style: { fill: 'green' }, type: 'success' }),
-                    _react2.default.createElement(_zzcDesign.Icon, { style: { fill: 'red' }, type: 'error' }),
-                    _react2.default.createElement(_zzcDesign.Icon, { style: { fill: 'blue' }, type: 'waring' })
+                    this.state.visible2 && _react2.default.createElement(
+                        _zzcDesign.Dialog,
+                        {
+                            title: _react2.default.createElement(
+                                'div',
+                                null,
+                                '123123123'
+                            ),
+                            footer: _react2.default.createElement(
+                                'div',
+                                null,
+                                _react2.default.createElement(
+                                    _zzcDesign.Button,
+                                    { onClick: function onClick() {
+                                            _this2.setState({ visible2: false });
+                                        } },
+                                    '\u5173\u95ED'
+                                )
+                            ),
+                            visible: this.state.visible2,
+                            closeCallback: function closeCallback() {
+                                _this2.setState({ visible2: false });
+                            }
+                        },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-text' },
+                            '...\u8FD9\u662F\u4E00\u4E2A\u6587\u6848...'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _zzcDesign.Button,
+                        { onClick: function onClick() {
+                                _this2.openNoMaskDialog();
+                            } },
+                        '\u900F\u660E\u80CC\u666F\u7684dialog'
+                    ),
+                    this.state.visible5 && _react2.default.createElement(
+                        _zzcDesign.Dialog,
+                        {
+                            title: _react2.default.createElement(
+                                'div',
+                                null,
+                                '123123123'
+                            ),
+                            className: 'black',
+                            transparent: true,
+                            footer: _react2.default.createElement(
+                                'div',
+                                null,
+                                _react2.default.createElement(
+                                    _zzcDesign.Button,
+                                    { onClick: function onClick() {
+                                            _this2.setState({ visible5: false });
+                                        } },
+                                    '\u5173\u95ED'
+                                )
+                            ),
+                            visible: this.state.visible5,
+                            closeCallback: function closeCallback() {
+                                _this2.setState({ visible5: false });
+                            }
+                        },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-text' },
+                            '...\u8FD9\u662F\u4E00\u4E2A\u6587\u6848...'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _zzcDesign.Button,
+                        { onClick: function onClick() {
+                                _this2.openAnDialog();
+                            } },
+                        '\u5E26\u52A8\u753B\u7684dialog'
+                    ),
+                    this.state.visible4 && _react2.default.createElement(
+                        _zzcDesign.Dialog,
+                        {
+                            maskTransitionName: 'fade',
+                            transitionName: 'fade',
+                            title: _react2.default.createElement(
+                                'div',
+                                null,
+                                '123123123'
+                            ),
+                            footer: _react2.default.createElement(
+                                'div',
+                                null,
+                                _react2.default.createElement(
+                                    _zzcDesign.Button,
+                                    { onClick: function onClick() {
+                                            _this2.setState({ visible3: false });
+                                        } },
+                                    '\u5173\u95ED'
+                                )
+                            ),
+                            visible: this.state.visible3,
+                            closeCallback: function closeCallback() {
+                                _this2.setState({ visible4: false });
+                            }
+                        },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-text' },
+                            '...\u8FD9\u662F\u4E00\u4E2A\u6587\u6848...'
+                        )
+                    )
                 )
             );
         }
@@ -4484,11 +4625,11 @@ var App = function (_Component) {
 exports.default = App;
 
 /***/ }),
-/* 168 */
+/* 165 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=icon.js.map
+//# sourceMappingURL=dialog.js.map

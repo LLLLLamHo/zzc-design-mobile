@@ -243,7 +243,7 @@ export default class Demo extends React.Component {
           {hsNode}
         </Modal>
 
-        <section className="code-box-meta markdown">
+        <section className="code-box-meta maskdown">
           <div className="code-box-title">
             <a href={`#${meta.id}`} ref={this.saveAnchor}>
               {localizedTitle}

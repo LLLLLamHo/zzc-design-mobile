@@ -1649,7 +1649,7 @@ var Modal = function (_PureComponent) {
         value: function render() {
             var _props = this.props,
                 children = _props.children,
-                markClose = _props.markClose,
+                maskClose = _props.maskClose,
                 transitionName = _props.transitionName,
                 prefixCls = _props.prefixCls,
                 closable = _props.closable,
@@ -1666,7 +1666,7 @@ var Modal = function (_PureComponent) {
                     visible: this.state.visible,
                     style: style,
                     maskStyle: maskStyle,
-                    markClose: markClose,
+                    maskClose: maskClose,
                     transitionName: transitionName,
                     boxClassName: (0, _classnames2.default)(prefixCls + '-box', className),
                     closeCallback: closeCallback
@@ -1693,7 +1693,7 @@ Modal.defaultProps = {
     title: '',
     transitionName: 'zoom',
     buttons: [],
-    markClose: false
+    maskClose: false
 };
 exports.default = Modal;
 
@@ -2945,7 +2945,7 @@ function getToast(type, content) {
         _duration = duration;
         _parentNode = createParentNode();
         _onClose = onClose;
-        var zzcToastCls = (0, _classnames2.default)(PREFIXCLS, (0, _defineProperty3.default)({}, PREFIXCLS + '-nomark', !mask), (0, _defineProperty3.default)({}, PREFIXCLS + '-icon', type === 'loading' || type === 'success' || type === 'error' || type === 'waring'));
+        var zzcToastCls = (0, _classnames2.default)(PREFIXCLS, (0, _defineProperty3.default)({}, PREFIXCLS + '-nomask', !mask), (0, _defineProperty3.default)({}, PREFIXCLS + '-icon', type === 'loading' || type === 'success' || type === 'error' || type === 'waring'));
         _reactDom2.default.render(_react2.default.createElement(
             'div',
             { className: zzcToastCls },
@@ -4175,7 +4175,7 @@ var Alert = function () {
             title: '',
             content: null,
             buttons: [],
-            markClose: false,
+            maskClose: false,
             closable: false,
             closeCallback: function closeCallback() {}
         };
@@ -4368,7 +4368,7 @@ var _class = function (_PureComponent) {
             var _this3 = this;
 
             if (this.mask && (0, _class2.hasClass)(this.mask, this.props.prefixCls + '-mask') && this.box && (0, _class2.hasClass)(this.props.prefixCls + '-box')) {
-                _Event.animationEvents.addEndEventListener(this.mask, this.markAddAnimationEnd, this);
+                _Event.animationEvents.addEndEventListener(this.mask, this.maskAddAnimationEnd, this);
                 (0, _class2.addClass)(this.mask, 'zzc-fade-enter-active');
 
                 _Event.animationEvents.addEndEventListener(this.box, this.boxAddAnimationEnd, this);
@@ -4380,8 +4380,8 @@ var _class = function (_PureComponent) {
             }
         }
     }, {
-        key: 'markAddAnimationEnd',
-        value: function markAddAnimationEnd(event) {
+        key: 'maskAddAnimationEnd',
+        value: function maskAddAnimationEnd(event) {
             var _this4 = this;
 
             event.stopPropagation();
@@ -4402,8 +4402,8 @@ var _class = function (_PureComponent) {
             if ((0, _class2.hasClass)(this.box, this.setAnimationClass(this.props.transitionName, 'enter'))) {
                 (0, _class2.removeClass)(this.box, this.setAnimationClass(this.props.transitionName, 'enterActive'));
                 (0, _class2.removeClass)(this.box, this.setAnimationClass(this.props.transitionName, 'enter'));
-                // mark关闭
-                if (this.props.markClose) {
+                // mask关闭
+                if (this.props.maskClose) {
                     document.querySelector('.' + _this.props.prefixCls + '-mask').onclick = function () {
                         _this.close();
                     };
@@ -4437,7 +4437,7 @@ var _class = function (_PureComponent) {
 
             var _props = this.props,
                 prefixCls = _props.prefixCls,
-                markClassName = _props.markClassName,
+                maskClassName = _props.maskClassName,
                 boxClassName = _props.boxClassName,
                 maskStyle = _props.maskStyle,
                 style = _props.style,
@@ -4445,7 +4445,7 @@ var _class = function (_PureComponent) {
                 maskTransitionName = _props.maskTransitionName,
                 children = _props.children;
 
-            var newMaskClassName = (0, _classnames2.default)(prefixCls + '-mask', this.setAnimationClass(maskTransitionName, 'enter'), markClassName);
+            var newMaskClassName = (0, _classnames2.default)(prefixCls + '-mask', this.setAnimationClass(maskTransitionName, 'enter'), maskClassName);
             var newBoxClassName = (0, _classnames2.default)(prefixCls + '-box', this.setAnimationClass(transitionName, 'enter'), boxClassName);
 
             return _react2.default.createElement('div', { className: (0, _classnames2.default)('' + prefixCls) }, _react2.default.createElement('div', { style: maskStyle, ref: function ref(_ref2) {
@@ -4461,7 +4461,7 @@ var _class = function (_PureComponent) {
 
 _class.defaultProps = {
     prefixCls: 'zzc-dialog',
-    markClassName: '',
+    maskClassName: '',
     boxClassName: '',
     maskTransitionName: 'fade',
     transitionName: '',
