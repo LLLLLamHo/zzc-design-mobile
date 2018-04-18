@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dialog, Button } from 'zzcDesign';
+import { Dialog, Button } from 'zzc-design-mobile';
 import './index.scss';
 import '../../../style/style.scss';
 

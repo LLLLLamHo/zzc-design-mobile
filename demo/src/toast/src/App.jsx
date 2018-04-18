@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './index.scss';
 import '../../../style/style.scss';
-import { Toast, Button } from 'zzcDesign';
+import { Toast, Button } from 'zzc-design-mobile';
 
 let isClose = false;
 

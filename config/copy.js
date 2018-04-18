@@ -2,7 +2,7 @@ const fs = require( 'fs' );
 const path = require( 'path' );
 
 const LIBPATH = path.join( __dirname, '../lib/' );
-const TARGETPATH = path.join( __dirname, '../demo/node_modules/zzcDesign' );
+const TARGETPATH = path.join( __dirname, '../demo/node_modules/zzc-design-mobile' );
 
 function forFileList( parentPath, targetPath ) {
     if ( !fs.existsSync( targetPath ) ) {

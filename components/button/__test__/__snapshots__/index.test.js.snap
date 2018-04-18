@@ -3,7 +3,7 @@
 exports[`Button 1`] = `
 <div>
   <a
-    class="zzc-button"
+    class="zzc-button zzc-button-default"
   >
     defualt
   </a>
@@ -38,7 +38,7 @@ exports[`Button 1`] = `
     sub-dk
   </a>
   <a
-    class="zzc-button zzc-button-disabled"
+    class="zzc-button zzc-button-default zzc-button-disabled"
   >
     disabled
   </a>
@@ -63,7 +63,7 @@ exports[`Button 1`] = `
     xs main
   </a>
   <a
-    class="zzc-button zzc-button-sm zzc-button-inline"
+    class="zzc-button zzc-button-sm zzc-button-default zzc-button-inline"
   >
     inline1
   </a>
@@ -93,18 +93,18 @@ exports[`Button 1`] = `
     full main
   </a>
   <a
-    class="zzc-button"
+    class="zzc-button zzc-button-default"
     style="background:green;color:#fff"
   >
     自定义样式
   </a>
   <a
-    class="zzc-button"
+    class="zzc-button zzc-button-default"
   >
     自定义active
   </a>
   <a
-    class="zzc-button"
+    class="zzc-button zzc-button-default"
   >
     禁止active
   </a>

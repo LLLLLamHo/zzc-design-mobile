@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, shallow, render } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import Card from '../index.jsx';
+import Card from '../index.tsx';
 
 test( 'Card', () => {
   const wrapper = render( <div>

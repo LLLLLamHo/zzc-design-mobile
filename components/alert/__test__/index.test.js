@@ -3,7 +3,7 @@ import { render } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
 import { isFunction } from '../../_util/typeof';
 
-import Alert from '../index.jsx';
+import Alert from '../index.tsx';
 
 test( 'Alert', () => { 
   const isFun = isFunction( Alert );

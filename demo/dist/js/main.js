@@ -1760,7 +1760,7 @@ __webpack_require__(99);
 
 __webpack_require__(100);
 
-var _zzcDesign = __webpack_require__(101);
+var _zzc-design-mobile = __webpack_require__(101);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1804,57 +1804,57 @@ var App = function (_Component) {
                         '\u989C\u8272\u3001\u7C7B\u578B'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         null,
                         _react2.default.createElement(
                             'div',
                             { className: 'icon-button' },
-                            _react2.default.createElement(_zzcDesign.Icon, { style: { fill: 'green' }, size: 'sm', className: 'aaa', type: 'success' }),
+                            _react2.default.createElement(_zzc-design-mobile.Icon, { style: { fill: 'green' }, size: 'sm', className: 'aaa', type: 'success' }),
                             'default'
                         )
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { type: 'main' },
                         'main'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { type: 'main-lh' },
                         'main-lh'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { type: 'main-dk' },
                         'main-dk'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { type: 'sub' },
                         'sub'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { type: 'sub-lh' },
                         'sub-lh'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { type: 'sub-dk' },
                         'sub-dk'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { ghost: true, type: 'main' },
                         '\u7A7A\u5FC3main'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { ghost: true, type: 'sub' },
                         '\u7A7A\u5FC3sub'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { disabled: true },
                         'disabled'
                     )
@@ -1868,22 +1868,22 @@ var App = function (_Component) {
                         '\u5C3A\u5BF8\u3001\u5927\u5C0F'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { type: 'main' },
                         'default main'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { size: 'lg', type: 'main' },
                         'lg main'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { size: 'sm', type: 'main' },
                         'sm main'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { size: 'xs', type: 'main' },
                         'xs main'
                     )
@@ -1897,27 +1897,27 @@ var App = function (_Component) {
                         'inline'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { inline: true, size: 'sm' },
                         'inline1'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { inline: true, size: 'sm', type: 'main' },
                         'inline2'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { inline: true, size: 'sm', type: 'sub' },
                         'inline3'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { ghost: true, inline: true, size: 'xs', type: 'main' },
                         'inline2'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { ghost: true, inline: true, size: 'xs', type: 'sub' },
                         'inline3'
                     )
@@ -1931,7 +1931,7 @@ var App = function (_Component) {
                         '\u5360\u6EE1'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { full: true, type: 'main' },
                         'full main'
                     )
@@ -1945,17 +1945,17 @@ var App = function (_Component) {
                         '\u81EA\u5B9A\u4E49\u6837\u5F0F'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { activeStyle: { background: 'blue' }, style: { background: 'green', color: '#fff' } },
                         '\u81EA\u5B9A\u4E49\u6837\u5F0F'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { activeClassName: 'custom' },
                         '\u81EA\u5B9A\u4E49active'
                     ),
                     _react2.default.createElement(
-                        _zzcDesign.Button,
+                        _zzc-design-mobile.Button,
                         { activeStyle: false },
                         '\u7981\u6B62active'
                     )

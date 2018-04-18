@@ -55,6 +55,12 @@ $default_border_color: #ccc;
             display: none !important;
         }
     }
+    &#{$cls}-noradius {
+        border-radius: 0 !important;
+        &:after {
+            border-radius: 0 !important;
+        }
+    }
 }
 
 //inline
@@ -92,7 +98,7 @@ $default_border_color: #ccc;
 @mixin disabled() {
     &#{$cls}-disabled {
         opacity: .5;
-        pointer-events: none;
+        // pointer-events: none; 兼容问题
         cursor: not-allowed;
     }
 }

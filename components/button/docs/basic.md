@@ -1,5 +1,6 @@
-点击后会触发一个操作。
+按钮组件
 
+点击后会触发一个操作。
 
 ## API
 
@@ -18,3 +19,5 @@
 | inline     | 是否设置为行内按钮  | boolean |   false  |
 | className  |  样式类名 | string | 无 |
 | ghost  |  是否为空中按钮 | boolean | false |
+| noBorder  |  不显示边框 | boolean | false |
+| noRadius  |  不显示圆角 | boolean | false |

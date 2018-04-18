@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, shallow, render } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import Button from '../index.jsx';
+import Button from '../index.tsx';
 
 test( 'Button', () => {
   const wrapper = render( <div>

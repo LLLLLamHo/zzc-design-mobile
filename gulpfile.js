@@ -37,7 +37,7 @@ function transformJSStaticSCSSToCss() {
 }
 
 gulp.task( 'compile', function () {
-    gulp.src( ['./es/**/*.jsx', './es/**/*.js'], { base: './es' } )
+    gulp.src( ['./es/**/*.jsx', './es/**/*.js', '!./components/**/*.test.js'], { base: './es' } )
         .pipe( babel( {
             presets: ['es2015', 'react', 'stage-2']
         } ) )
@@ -53,7 +53,7 @@ gulp.task( 'compile', function () {
 } );
 
 gulp.task( 'build', function () {
-    gulp.src( ['./components/**/*.jsx', './components/**/*.js'], { base: './components' } )
+    gulp.src( ['./components/**/*.jsx', './components/**/*.js', '!./components/**/*.test.js'], { base: './components' } )
         .pipe( babel( {
             presets: ['es2015', 'react', 'stage-2']
         } ) )
@@ -90,5 +90,5 @@ gulp.task( 'build', function () {
 } );
 
 gulp.task( 'watch', function () {
-    gulp.watch( ['./components/**/*.tsx', './components/**/*.ts', './components/**/*.jsx', './components/**/*.js', './components/**/*.scss', './components/**/*.svg'], ['build'] );
+    gulp.watch( ['!./components/**/*.test.js', './components/**/*.tsx', './components/**/*.ts', './components/**/*.jsx', './components/**/*.js', './components/**/*.scss', './components/**/*.svg'], ['build'] );
 } );

@@ -1,0 +1,79 @@
+.zzc-fade-enter {
+  opacity: 0;
+  animation-duration: .2s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  animation-play-state: paused; }
+
+.zzc-fade-enter.zzc-fade-enter-active {
+  -webkit-animation-name: zzcFadeIn;
+  animation-name: zzcFadeIn;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+.zzc-fade-leave {
+  opacity: 0;
+  animation-duration: .2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  animation-play-state: paused; }
+
+.zzc-fade-leave.zzc-fade-leave-active {
+  -webkit-animation-name: zzcFadeOut;
+  animation-name: zzcFadeOut;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+@keyframes zzcFadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes zzcFadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+.zzc-zoom-enter {
+  opacity: 0;
+  transform: scale(0.3);
+  animation-duration: .3s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-play-state: paused; }
+
+.zzc-zoom-enter.zzc-zoom-enter-active {
+  -webkit-animation-name: zzcZoomIn;
+  animation-name: zzcZoomIn;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+.zzc-zoom-leave {
+  animation-duration: .3s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-play-state: paused; }
+
+.zzc-zoom-leave.zzc-zoom-leave-active {
+  -webkit-animation-name: zzcZoomOut;
+  animation-name: zzcZoomOut;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+@keyframes zzcZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3); }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+@keyframes zzcZoomOut {
+  0% {
+    opacity: 1;
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    transform: scale(0.3); } }

@@ -1,0 +1,85 @@
+@charset "UTF-8";
+.zzc-modal-box {
+  width: 6.3rem;
+  overflow: hidden;
+  border-radius: 0.16rem;
+  -webkit-border-radius: 0.16rem;
+  /* ipad横屏 */
+  /* ipad竖屏 */ }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .zzc-modal-box {
+    width: 315px; } }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .zzc-modal-box {
+    width: 315px; } }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .zzc-modal-box {
+    width: 315px; } }
+
+.zzc-modal-box .zzc-modal-header {
+  height: 1rem;
+  color: #333333;
+  font-size: .32rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.zzc-modal-box .zzc-modal-header::after {
+  content: "";
+  position: absolute;
+  display: block;
+  z-index: 11;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #DDE0E6;
+  transform: scaleY(0.5) translateY(50%); }
+
+.zzc-modal-box .zzc-modal-body {
+  word-wrap: break-word;
+  max-height: 7rem;
+  min-height: 5.76rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; }
+
+.zzc-modal-box .zzc-modal-footer {
+  width: 100%;
+  overflow: hidden;
+  height: 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.zzc-modal-box .zzc-modal-footer::after {
+  content: "";
+  position: absolute;
+  display: block;
+  z-index: 11;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-top: 1px solid #DDE0E6;
+  transform: scaleY(0.5) translateY(-50%); }
+
+.zzc-modal-box .zzc-modal-footer .zzc-modal-btn {
+  flex: 1; }
+
+.zzc-modal-box .zzc-modal-footer .zzc-modal-btn:not(:first-child) {
+  position: relative; }
+
+.zzc-modal-box .zzc-modal-footer .zzc-modal-btn:not(:first-child)::after {
+  content: "";
+  position: absolute;
+  display: block;
+  z-index: 11;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-left: 1px solid #DDE0E6;
+  transform: scaleX(0.5) translateX(-50%); }

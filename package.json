@@ -1,15 +1,14 @@
 {
-  "name": "zzc-mobile",
+  "name": "zzc-design-mobile",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
-    "tsc": "./node_modules/.bin/tsc",
     "svgo": "./node_modules/.bin/svgo -f ./components/icon/svg",
     "build": "rm -rf ./es && gulp build",
-    "watch": "gulp watch",
-    "compile": "rm -rf ./lib && gulp compile",
-    "build_demo": "rm -rf ./lib && gulp build && node ./config/copy.js",
+    "watch": "rm -rf ./es && gulp watch",
+    "publish": "rm -rf ./lib && gulp compile",
+    "build_demo": "npm run publish && node ./config/copy.js",
     "test": "BABEL_ENV=test ./node_modules/.bin/jest -u --config .jest.js",
     "start": "cross-env NODE_ENV=development concurrently \"cross-env DEMO_ENV=react bisheng start -c ./bisheng.config.js\"",
     "site": "cross-env NODE_ENV=production concurrently \"cross-env DEMO_ENV=react bisheng build -c ./bisheng.config.js\""
@@ -85,6 +84,7 @@
     "react-test-renderer": "^16.2.0",
     "svgo": "^1.0.4",
     "through2": "^2.0.3",
+    "ts-jest": "^22.4.3",
     "typescript": "^2.7.2",
     "typescript-eslint-parser": "^14.0.0",
     "webpack": "^3.10.0"

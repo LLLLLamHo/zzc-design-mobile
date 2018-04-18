@@ -11,11 +11,11 @@ exports[`Card 1`] = `
       <div
         class="zzc-card-header"
       >
-        <h1
+        <div
           class="zzc-card-header-title"
         >
           卡片标题
-        </h1>
+        </div>
         <div
           class="zzc-card-header-extra"
         >
@@ -70,11 +70,11 @@ exports[`Card 1`] = `
       <div
         class="zzc-card-header"
       >
-        <h1
+        <div
           class="zzc-card-header-title"
         >
           卡片标题
-        </h1>
+        </div>
         <div
           class="zzc-card-header-extra"
         >

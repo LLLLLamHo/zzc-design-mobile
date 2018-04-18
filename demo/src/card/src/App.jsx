@@ -1,13 +1,13 @@
-import React, { PureComponent } from 'react';
-import { Card, Button, Icon } from 'zzcDesign';
+import React, {PureComponent} from 'react';
+import {Card, Button, Icon, Toast} from 'zzc-design-mobile';
 import './index.scss';
 import '../../../style/style.scss';
 
 export default class App extends PureComponent {
-    constructor(props) {
+    constructor( props ) {
         super( props );
         this.state = {
-            title : '卡片标题'
+            title: '卡片标题'
         };
     }
     render() {
@@ -37,7 +37,17 @@ export default class App extends PureComponent {
                 </div>
                 <div className='zzc-demo-body full'>
                     <Card>
-                        <Card.Header className='cursor-car-head' title='自定义样式' extra={<Icon size='sm' type='waring' />} />
+                        <Card.Header
+                            className='cursor-car-head'
+                            title='点击头部'
+                            extra={<Icon size='sm' type='waring' />}
+                            titleOnClick={() => {
+                                Toast.info( '点击title回调事件', 1 );
+                            }}
+                            extraOnClick={() => {
+                                Toast.info( '点击extra回调事件', 1 );
+                            }}
+                        />
                         <Card.Body borderDirection='left'>
                             <div className='card-box1'>
                                 <p>下划线左留空</p>
@@ -55,9 +65,9 @@ export default class App extends PureComponent {
                         </Card.Body>
                         <Card.Footer>
                             <div className='btn-group'>
-                                <Button noBorder inline>按钮1</Button>
-                                <Button noBorder inline type='main'>按钮2</Button>
-                            </div>    
+                                <Button noRadius noBorder inline>按钮1</Button>
+                                <Button noRadius noBorder inline type='main'>按钮2</Button>
+                            </div>
                         </Card.Footer>
                     </Card>
                 </div>
@@ -74,6 +84,44 @@ export default class App extends PureComponent {
                             <div className='card-box2'>
                                 <p>文本内容</p>
                                 <Icon size='sm' type='success' />
+                            </div>
+                        </Card.Body>
+                    </Card>
+                </div>
+                <div className='zzc-demo-body full'>
+                    <Card full>
+                        <Card.Header
+                            className='cursor-car-head'
+                            title='点击头部'
+                            extra={<Icon size='sm' type='waring' />}
+                            titleOnClick={() => {
+                                Toast.info( '点击title回调事件', 1 );
+                            }}
+                            extraOnClick={() => {
+                                Toast.info( '点击extra回调事件', 1 );
+                            }}
+                        />
+                        <Card.Body borderDirection='left'>
+                            <div className='card-box2'>
+                                <p>左边留空</p>
+                                <Icon size='sm' type='success' />
+                            </div>
+                        </Card.Body>
+                        <Card.Body borderDirection='right'>
+                            <div className='card-box2'>
+                                <p>右边留空</p>
+                                <Icon size='sm' type='success' />
+                            </div>
+                        </Card.Body>
+                        <Card.Body>
+                            <div className='card-box2'>
+                                <p>两边留空</p>
+                                <Icon size='sm' type='success' />
+                            </div>
+                        </Card.Body>
+                        <Card.Body>
+                            <div className='card-box2'>
+                                <p>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</p>
                             </div>
                         </Card.Body>
                     </Card>

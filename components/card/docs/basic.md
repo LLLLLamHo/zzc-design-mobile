@@ -20,7 +20,7 @@
 | prefixCls | 组件的公用className前序 | string  | zzc-card-header |
 | title     | 标题文字                | string  | 无              |
 | extra     | 辅助文字                | string  | 无              |
-| noBorder  | 是否显示分割线          | boolean | false           |
+| noBorder  | 不显示分割线          | boolean | false           |
 | className | 样式类名                | string  | 无              |
 | style     | 自定义样式              | object  | {}              |
 

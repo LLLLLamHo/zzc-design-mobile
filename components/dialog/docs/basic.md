@@ -6,7 +6,7 @@
 
 创建一个对话框，modal和alert都是基于dialog进行封装。
 
-##Modal
+##Dialog
 
 | 属性               | 说明                             | 类型       | 默认值    |
 | ------------------ | -------------------------------- | ---------- | --------- |
@@ -28,3 +28,14 @@
 默认dialog会直接显示，`visible`是用来控制dialog是否执行动画效果，当`visible`为`true`时会添加`enter`动画钩子，当为`true`改为`false`的时候会执行`leave`动画钩子。
 
 
+简单的例子
+
+```jsx
+<Dialog
+    visible='这是一个标题'
+    maskClose={true}
+    closeCallback={console.log(123)}
+>
+    <div className='modal-text'>这是一个文案...</div>
+</Dialog>
+```

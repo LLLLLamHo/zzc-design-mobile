@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
-import TouchFeedback from '../_util/components/TouchFeedback';
+import TouchFeedback from '../_util/TouchFeedback';
 
 import '../style/index';
 import './index.scss';
@@ -12,6 +12,7 @@ export interface ButtonProps {
         full?: boolean,
         disabled?: boolean,
         noBorder?: boolean,
+        noRadius?: boolean,
         type?: string,
         ghost?: boolean,
         onClick?: any,
@@ -29,6 +30,7 @@ export default class Button extends PureComponent<ButtonProps, any> {
         full: false,
         disabled: false,
         noBorder: false,
+        noRadius: false,
         ghost: false,
         type: 'default',
         onClick() { },
@@ -52,24 +54,26 @@ export default class Button extends PureComponent<ButtonProps, any> {
     }
 
     render() {
-        const { ghost, noBorder, children, className, prefixCls, type, full, size, inline, disabled, style, activeStyle, activeClassName, onClick } = this.props;
+        const { ghost, noBorder, noRadius, children, className, prefixCls, type, full, size, inline, disabled, style, activeStyle, activeClassName, onClick } = this.props;
         const btnClassNames:string = classNames(
             prefixCls,
             className,
             {
                 [`${prefixCls}-${size}`]: size,
                 [`${prefixCls}-full`]: full,
-                [`${prefixCls}-${type}`]: type != '',
+                [`${prefixCls}-${type}`]: type !== '',
                 [`${prefixCls}-inline`]: inline,
                 [`${prefixCls}-disabled`]: disabled,
                 [`${prefixCls}-ghost`]: ghost,
-                [`${prefixCls}-noborder`]: noBorder
+                [`${prefixCls}-noborder`]: noBorder,
+                [`${prefixCls}-noradius`]: noRadius
             }
         );
         return (
             <TouchFeedback
-                activeStyle={disabled ? false : activeStyle}
+                activeStyle={activeStyle ? activeStyle : {}}
                 activeClassName={this.setActiveClassName( activeClassName, type, ghost )}
+                disabled={disabled}
             >
                 <a
                     className={

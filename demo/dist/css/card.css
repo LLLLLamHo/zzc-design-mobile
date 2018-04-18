@@ -389,6 +389,10 @@ button {
     border: none !important; }
     .zzc-button.zzc-button-noborder:after {
       display: none !important; }
+  .zzc-button.zzc-button-noradius {
+    border-radius: 0 !important; }
+    .zzc-button.zzc-button-noradius:after {
+      border-radius: 0 !important; }
   .zzc-button.zzc-button-lg {
     height: 1rem;
     line-height: 1rem;
@@ -429,7 +433,6 @@ button {
       display: none; }
     .zzc-button.zzc-button-main.zzc-button-disabled {
       opacity: .5;
-      pointer-events: none;
       cursor: not-allowed; }
     .zzc-button.zzc-button-main.zzc-button-active-main {
       background: #3e63b0; }
@@ -468,7 +471,6 @@ button {
       display: none; }
     .zzc-button.zzc-button-main-lh.zzc-button-disabled {
       opacity: .5;
-      pointer-events: none;
       cursor: not-allowed; }
     .zzc-button.zzc-button-main-lh.zzc-button-active-main-lh {
       background: #6b88cc; }
@@ -507,7 +509,6 @@ button {
       display: none; }
     .zzc-button.zzc-button-main-dk.zzc-button-disabled {
       opacity: .5;
-      pointer-events: none;
       cursor: not-allowed; }
     .zzc-button.zzc-button-main-dk.zzc-button-active-main-dk {
       background: #1d3fa2; }
@@ -546,7 +547,6 @@ button {
       display: none; }
     .zzc-button.zzc-button-sub.zzc-button-disabled {
       opacity: .5;
-      pointer-events: none;
       cursor: not-allowed; }
     .zzc-button.zzc-button-sub.zzc-button-active-sub {
       background: #c30144; }
@@ -585,7 +585,6 @@ button {
       display: none; }
     .zzc-button.zzc-button-sub-lh.zzc-button-disabled {
       opacity: .5;
-      pointer-events: none;
       cursor: not-allowed; }
     .zzc-button.zzc-button-sub-lh.zzc-button-active-sub-lh {
       background: #cc4868; }
@@ -624,7 +623,6 @@ button {
       display: none; }
     .zzc-button.zzc-button-sub-dk.zzc-button-disabled {
       opacity: .5;
-      pointer-events: none;
       cursor: not-allowed; }
     .zzc-button.zzc-button-sub-dk.zzc-button-active-sub-dk {
       background: #a30028; }
@@ -663,7 +661,6 @@ button {
       -webkit-border-radius: 0; }
   .zzc-button.zzc-button-disabled {
     opacity: .5;
-    pointer-events: none;
     cursor: not-allowed; }
 
 .zzc-button-full {
@@ -703,6 +700,10 @@ button {
     border: none !important; }
     .zzc-button-full.zzc-button-noborder:after {
       display: none !important; }
+  .zzc-button-full.zzc-button-noradius {
+    border-radius: 0 !important; }
+    .zzc-button-full.zzc-button-noradius:after {
+      border-radius: 0 !important; }
   .zzc-button-full.zzc-button-main {
     background: #4E7CDD;
     color: #fff;
@@ -753,7 +754,6 @@ button {
       display: none; }
   .zzc-button-full.zzc-button-disabled {
     opacity: .5;
-    pointer-events: none;
     cursor: not-allowed; }
 .zzc-card-header {
   position: relative;
@@ -1110,7 +1110,6 @@ button {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  border-radius: 0;
 }
 
 /*# sourceMappingURL=card.css.map*/

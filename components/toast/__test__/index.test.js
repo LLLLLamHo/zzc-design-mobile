@@ -3,7 +3,7 @@ import { render } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
 import { isFunction } from '../../_util/typeof';
 
-import Toast from '../index.jsx';
+import Toast from '../index.tsx';
 
 test( 'Toast', () => { 
   const infoFun = isFunction( Toast.info );
