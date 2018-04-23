@@ -1,10 +1,10 @@
-模态弹窗
+弹出菜单
 
 ## API
 
 适用平台：WEB
 
-同时只能存在一个modal，如果需要切换modal，需要从业务代码中先将现有的modal关闭！
+同时只能存在一个popup，如果需要切换popup，需要从业务代码中先将现有的popup关闭！
 
 ##Modal
 
@@ -13,19 +13,16 @@
 | prefixCls          | 组件的公用className前序       | string   | zzc-modal |
 | className          | 定义Modal的body class         | string   | 无        |
 | style              | 自定义样式                    | object   | {}        |
-| title              | model显示的title              | string   | 无        |
-| buttons            | model的按钮组                 | array    | []        |
 | maskClose          | 点击遮罩层关闭Modal           | boolean  | false     |
-| closable           | 是否使用默认的按钮            | boolean  | false     |
 | closeCallback      | 关闭Modal后的回调函数（必填） | function | 无        |
-| maskTransitionName | 遮罩层动画                    | string   | zzc-fade      |
-| transitionName     | Modal动画                     | string   | zzc-zoom      |
+| maskTransitionName | 遮罩层动画                    | string   | fade      |
+| transitionName     | Modal动画                     | string   | zoom      |
 | maskStyle          | 遮罩层样式                    | object   | {}        |
 | visible            | 控制Modal是否显示             | boolean  | false     |
 | transparent        | 是否不创建mask                | boolean  | false     |
-## 如何定义动画？
-我们要提供4个钩子，传入的动画名字应该是`fade`，因为内部会拼接为`zzc-fade-enter`.
-举例一个渐进渐出的动画效果为例：
+| direction          | 弹出的方向                    | string   | bottom    |
+
+
 ```css
 .zzc-fade-enter {
     opacity: 0;

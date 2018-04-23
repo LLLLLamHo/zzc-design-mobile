@@ -32,7 +32,7 @@
 
 ```jsx
 <Dialog
-    visible='这是一个标题'
+    visible={true}
     maskClose={true}
     closeCallback={console.log(123)}
 >

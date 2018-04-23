@@ -2,19 +2,20 @@ import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import Animate from '../_util/Animate';
 import { addClass } from '../_util/class';
+import animateConfig from '../_util/animateConfig';
 import './index.scss';
 
 export interface ModalProps {
     prefixCls?: string,
     maskClassName?: string,
-    boxClassName: string,
+    boxClassName?: string,
     className?: string,
-    transitionName: string,
-    maskTransitionName: string,
+    transitionName?: string,
+    maskTransitionName?: string,
     visible: boolean,
     transparent?: boolean,
-    maskClose: boolean,
-    closeCallback: Function,
+    maskClose?: boolean,
+    closeCallback?: Function,
     style?: React.CSSProperties,
     maskStyle?: React.CSSProperties,
     title?: JSX.Element,
@@ -40,20 +41,7 @@ export default class Dialog extends PureComponent<ModalProps, any> {
     }
 
     state = {
-        animationTypeList: {
-            zoom: {
-                enter: 'zzc-zoom-enter',
-                enterActive: 'zzc-zoom-enter-active',
-                leave: 'zzc-zoom-leave',
-                leaveActive: 'zzc-zoom-leave-active'
-            },
-            fade: {
-                enter: 'zzc-fade-enter',
-                enterActive: 'zzc-fade-enter-active',
-                leave: 'zzc-fade-leave',
-                leaveActive: 'zzc-fade-leave-active'
-            }
-        }
+        animationTypeList: animateConfig
     }
 
     box
@@ -66,14 +54,20 @@ export default class Dialog extends PureComponent<ModalProps, any> {
     // mask关闭事件
     addMarkCloseEvent (): void {
         const _this = this;
+        const { closeCallback } = this.props;
         if ( !this.props.transparent && this.props.maskClose && this.mask ) {
             const maskAnimation = _this.getAnimationClass( _this.props.maskTransitionName );
             const bodyAnimation = _this.getAnimationClass( _this.props.transitionName );
             this.mask.onclick = function () {
-                addClass( _this.box, bodyAnimation.leave );
-                addClass( _this.box, bodyAnimation.leaveActive );
-                addClass( _this.mask, maskAnimation.leave );
-                addClass( _this.mask, maskAnimation.leaveActive );
+                // 当没有配置动画点击mask关闭dialog，直接调用
+                if ( maskAnimation ) {
+                    addClass( _this.box, bodyAnimation.leave );
+                    addClass( _this.box, bodyAnimation.leaveActive );
+                    addClass( _this.mask, maskAnimation.leave );
+                    addClass( _this.mask, maskAnimation.leaveActive );
+                } else {
+                    closeCallback && closeCallback();
+                }
             };
         }
     }
@@ -100,7 +94,7 @@ export default class Dialog extends PureComponent<ModalProps, any> {
                         visible={visible}
                         animationName={this.getAnimationClass( maskTransitionName )}
                         onEnd={( type ) => {
-                            type === 'leave' && closeCallback();
+                            type === 'leave' && closeCallback && closeCallback();
                         }}
                     >
                         <div style={maskStyle} ref={( ref ) => { this.mask = ref; }} className={newMaskClassName} />
@@ -114,7 +108,7 @@ export default class Dialog extends PureComponent<ModalProps, any> {
 
     // dialog主题是否加入动画
     createDialogBody (): JSX.Element | any {
-        const { prefixCls, visible, boxClassName, style, transitionName, children, title, footer } = this.props;
+        const { prefixCls, visible, transparent, boxClassName, style, transitionName, children, title, footer, closeCallback } = this.props;
         const newBoxClassName: string = classNames(
             `${prefixCls}-box`,
             boxClassName
@@ -124,6 +118,10 @@ export default class Dialog extends PureComponent<ModalProps, any> {
                 <Animate
                     visible={visible}
                     animationName={this.getAnimationClass( transitionName )}
+                    onEnd={( type ) => {
+                        // 当选择不创建mask的时候，body动画结束触发closeCallback
+                        type === 'leave' && transparent && closeCallback && closeCallback();
+                    }}
                 >
                     <div style={style} ref={( ref ) => { this.box = ref; }} className={newBoxClassName}>
                         {title && title}

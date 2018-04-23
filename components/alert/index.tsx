@@ -28,7 +28,7 @@ class Alert {
 
         this._alert = ReactDOM.render(
             <Modal
-                transitionName='zoom'
+                transitionName='zzc-zoom'
                 visible
                 {...this.opt}
                 title={this.createTitle( title, prefixCls, content )}

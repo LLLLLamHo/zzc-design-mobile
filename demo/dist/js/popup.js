@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "../";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 164);
+/******/ 	return __webpack_require__(__webpack_require__.s = 176);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -4633,7 +4633,19 @@ Popup.defaultProps = {
 /* 161 */,
 /* 162 */,
 /* 163 */,
-/* 164 */
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4647,7 +4659,7 @@ var _reactDom = __webpack_require__(21);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(165);
+var _App = __webpack_require__(177);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -4656,7 +4668,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
 /***/ }),
-/* 165 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4693,14 +4705,14 @@ var _react2 = _interopRequireDefault(_react);
 
 var _zzcDesignMobile = __webpack_require__(103);
 
-__webpack_require__(166);
+__webpack_require__(178);
 
 __webpack_require__(102);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var App = function (_PureComponent) {
-    (0, _inherits3.default)(App, _PureComponent);
+var App = function (_Component) {
+    (0, _inherits3.default)(App, _Component);
 
     function App(props) {
         (0, _classCallCheck3.default)(this, App);
@@ -4708,14 +4720,25 @@ var App = function (_PureComponent) {
         var _this = (0, _possibleConstructorReturn3.default)(this, (App.__proto__ || (0, _getPrototypeOf2.default)(App)).call(this, props));
 
         _this.state = {
-            title: '卡片标题'
+            visible: false,
+            visible2: false
         };
         return _this;
     }
 
     (0, _createClass3.default)(App, [{
+        key: 'openDefaultDialog',
+        value: function openDefaultDialog() {
+            this.setState({
+                visible: true,
+                visible2: true
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return _react2.default.createElement(
                 'div',
                 { className: 'zzc-demo' },
@@ -4725,242 +4748,31 @@ var App = function (_PureComponent) {
                     _react2.default.createElement(
                         'h1',
                         { className: 'zzc-demo-title' },
-                        'Card \u5361\u7247'
+                        'Dialog \u5BF9\u8BDD\u6846'
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'zzc-demo-body' },
+                    _react2.default.createElement(
+                        _zzcDesignMobile.Button,
+                        { onClick: function onClick() {
+                                _this2.openDefaultDialog();
+                            } },
+                        '\u9ED8\u8BA4dialog'
                     ),
-                    _react2.default.createElement(
-                        'h2',
-                        null,
-                        '\u5361\u7247\u5E03\u5C40\uFF0C\u4E3B\u8981\u5206\u4E3A\u5360\u6EE1\u6574\u5F62\u548C\u975E\u5360\u6EE1\u6574\u5F62\u7684\u5E03\u5C40\u65B9\u5F0F\uFF0C\u5206\u4E3A3\u4E2A\u90E8\u5206\uFF0CHeader\u3001Body\u3001Fotter\u4E09\u4E2A\u4E3B\u8981\u7EC4\u6210\u90E8\u5206\u3002'
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'zzc-demo-body full' },
-                    _react2.default.createElement(
-                        _zzcDesignMobile.Card,
-                        null,
-                        _react2.default.createElement(_zzcDesignMobile.Card.Header, { title: this.state.title, extra: 'this is extra' }),
-                        _react2.default.createElement(
-                            _zzcDesignMobile.Card.Body,
-                            null,
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'card-box1' },
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    '\u6587\u672C\u5185\u5BB9'
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            _zzcDesignMobile.Card.Body,
-                            null,
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'card-box1' },
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    '\u6587\u672C\u5185\u5BB9'
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            _zzcDesignMobile.Card.Footer,
-                            null,
-                            _react2.default.createElement(
-                                _zzcDesignMobile.Button,
-                                { noBorder: true, full: true },
-                                '\u6309\u94AE'
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'zzc-demo-body full' },
-                    _react2.default.createElement(
-                        _zzcDesignMobile.Card,
-                        null,
-                        _react2.default.createElement(_zzcDesignMobile.Card.Header, {
-                            className: 'cursor-car-head',
-                            title: '\u70B9\u51FB\u5934\u90E8',
-                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { size: 'sm', type: 'waring' }),
-                            titleOnClick: function titleOnClick() {
-                                _zzcDesignMobile.Toast.info('点击title回调事件', 1);
-                            },
-                            extraOnClick: function extraOnClick() {
-                                _zzcDesignMobile.Toast.info('点击extra回调事件', 1);
+                    this.state.visible && _react2.default.createElement(
+                        _zzcDesignMobile.Popup,
+                        {
+                            visible: this.state.visible2,
+                            closeCallback: function closeCallback() {
+                                _this2.setState({ visible: false });
                             }
-                        }),
+                        },
                         _react2.default.createElement(
-                            _zzcDesignMobile.Card.Body,
-                            { borderDirection: 'left' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'card-box1' },
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    '\u4E0B\u5212\u7EBF\u5DE6\u7559\u7A7A'
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            _zzcDesignMobile.Card.Body,
-                            { borderDirection: 'right' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'card-box1' },
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    '\u4E0B\u5212\u7EBF\u53F3\u7559\u7A7A'
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            _zzcDesignMobile.Card.Body,
-                            null,
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'card-box1' },
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    '\u6587\u672C\u5185\u5BB9............'
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            _zzcDesignMobile.Card.Footer,
-                            null,
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'btn-group' },
-                                _react2.default.createElement(
-                                    _zzcDesignMobile.Button,
-                                    { noRadius: true, noBorder: true, inline: true },
-                                    '\u6309\u94AE1'
-                                ),
-                                _react2.default.createElement(
-                                    _zzcDesignMobile.Button,
-                                    { noRadius: true, noBorder: true, inline: true, type: 'main' },
-                                    '\u6309\u94AE2'
-                                )
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'zzc-demo-body full' },
-                    _react2.default.createElement(
-                        _zzcDesignMobile.Card,
-                        { full: true },
-                        _react2.default.createElement(_zzcDesignMobile.Card.Header, { title: '\u5361\u7247\u6807\u9898', extra: 'this is extra' }),
-                        _react2.default.createElement(
-                            _zzcDesignMobile.Card.Body,
-                            { borderDirection: 'left' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'card-box2' },
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    '\u6587\u672C\u5185\u5BB9'
-                                ),
-                                _react2.default.createElement(_zzcDesignMobile.Icon, { size: 'sm', type: 'success' })
-                            )
-                        ),
-                        _react2.default.createElement(
-                            _zzcDesignMobile.Card.Body,
-                            null,
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'card-box2' },
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    '\u6587\u672C\u5185\u5BB9'
-                                ),
-                                _react2.default.createElement(_zzcDesignMobile.Icon, { size: 'sm', type: 'success' })
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'zzc-demo-body full' },
-                    _react2.default.createElement(
-                        _zzcDesignMobile.Card,
-                        { full: true },
-                        _react2.default.createElement(_zzcDesignMobile.Card.Header, {
-                            className: 'cursor-car-head',
-                            title: '\u70B9\u51FB\u5934\u90E8',
-                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { size: 'sm', type: 'waring' }),
-                            titleOnClick: function titleOnClick() {
-                                _zzcDesignMobile.Toast.info('点击title回调事件', 1);
-                            },
-                            extraOnClick: function extraOnClick() {
-                                _zzcDesignMobile.Toast.info('点击extra回调事件', 1);
-                            }
-                        }),
-                        _react2.default.createElement(
-                            _zzcDesignMobile.Card.Body,
-                            { borderDirection: 'left' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'card-box2' },
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    '\u5DE6\u8FB9\u7559\u7A7A'
-                                ),
-                                _react2.default.createElement(_zzcDesignMobile.Icon, { size: 'sm', type: 'success' })
-                            )
-                        ),
-                        _react2.default.createElement(
-                            _zzcDesignMobile.Card.Body,
-                            { borderDirection: 'right' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'card-box2' },
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    '\u53F3\u8FB9\u7559\u7A7A'
-                                ),
-                                _react2.default.createElement(_zzcDesignMobile.Icon, { size: 'sm', type: 'success' })
-                            )
-                        ),
-                        _react2.default.createElement(
-                            _zzcDesignMobile.Card.Body,
-                            null,
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'card-box2' },
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    '\u4E24\u8FB9\u7559\u7A7A'
-                                ),
-                                _react2.default.createElement(_zzcDesignMobile.Icon, { size: 'sm', type: 'success' })
-                            )
-                        ),
-                        _react2.default.createElement(
-                            _zzcDesignMobile.Card.Body,
-                            null,
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'card-box2' },
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    '\u6587\u672C\u5185\u5BB9\u6587\u672C\u5185\u5BB9\u6587\u672C\u5185\u5BB9\u6587\u672C\u5185\u5BB9\u6587\u672C\u5185\u5BB9\u6587\u672C\u5185\u5BB9\u6587\u672C\u5185\u5BB9\u6587\u672C\u5185\u5BB9\u6587\u672C\u5185\u5BB9\u6587\u672C\u5185\u5BB9\u6587\u672C\u5185\u5BB9\u6587\u672C\u5185\u5BB9\u6587\u672C\u5185\u5BB9'
-                                )
-                            )
+                            'div',
+                            { className: 'modal-text' },
+                            '\u8FD9\u662F\u4E00\u4E2A\u6587\u6848....'
                         )
                     )
                 )
@@ -4968,16 +4780,16 @@ var App = function (_PureComponent) {
         }
     }]);
     return App;
-}(_react.PureComponent);
+}(_react.Component);
 
 exports.default = App;
 
 /***/ }),
-/* 166 */
+/* 178 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=card.js.map
+//# sourceMappingURL=popup.js.map

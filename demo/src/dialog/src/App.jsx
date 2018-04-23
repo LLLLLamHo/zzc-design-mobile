@@ -86,8 +86,8 @@ export default class App extends Component {
 
                     <Button onClick={() => { this.openAnDialog(); }}>带动画的dialog</Button>
                     {this.state.visible4 && <Dialog
-                        maskTransitionName='fade'
-                        transitionName='zoom'
+                        maskTransitionName='zzc-fade'
+                        transitionName='zzc-zoom'
                         maskClose={true}
                         title={<div>123123123</div>}
                         footer={<div><Button onClick={() => { this.setState( { visible3: false } ); }}>关闭</Button></div>}
@@ -99,7 +99,7 @@ export default class App extends Component {
 
                     <Button onClick={() => { this.openCustomAnDialog(); }}>带自定义动画的dialog</Button>
                     {this.state.visible6 && <Dialog
-                        maskTransitionName='fade'
+                        maskTransitionName='zzc-fade'
                         transitionName='custom-an'
                         className='custom-dialog'
                         maskClose={true}

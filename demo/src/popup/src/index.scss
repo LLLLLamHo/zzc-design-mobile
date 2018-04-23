@@ -1,0 +1,43 @@
+body {
+    background: #fff !important;
+}
+
+.zzc-demo-body {
+    &>.zzc-button {
+        margin-bottom: .3rem;
+    }
+}
+
+.modal-text {
+    font-size: .26rem;
+    color: #333;
+    padding: .3rem;
+}
+
+.custom-dialog .zzc-dialog-box{
+    background: #fff;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+}
+.custom-dialog .zzc-dialog-box.custom-an{
+    -webkit-animation-name: customAn;
+    animation-name: customAn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+@keyframes customAn {
+    0% {
+        background: #fff;
+    }
+    100% {
+        background: red;
+    }
+}
+
+.black {
+    .zzc-dialog-box{
+        background: red;
+    }
+}

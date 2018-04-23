@@ -1054,6 +1054,31 @@ button {
           -webkit-transform: scaleX(0.5) translateX(-50%);
               -ms-transform: scaleX(0.5) translateX(-50%);
                   transform: scaleX(0.5) translateX(-50%); }
+.zzc-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .zzc-popup .zzc-popup-mask {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 999; }
+  .zzc-popup .zzc-popup-box {
+    position: absolute;
+    background: #fff;
+    z-index: 1001; }
 .zzc-button {
   margin-bottom: .2rem;
 }

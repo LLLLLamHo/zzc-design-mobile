@@ -31,7 +31,7 @@ export interface ModalProps {
 export default class Modal extends PureComponent<ModalProps, any> {
     static defaultProps = {
         prefixCls: 'zzc-modal',
-        maskTransitionName: 'fade',
+        maskTransitionName: 'zzc-fade',
         style: {},
         maskStyle: {},
         className: '',
@@ -39,7 +39,7 @@ export default class Modal extends PureComponent<ModalProps, any> {
         closeCallback() { },
         visible: false,
         title: '',
-        transitionName: 'zoom',
+        transitionName: 'zzc-zoom',
         buttons: [],
         maskClose: false,
         transparent: false

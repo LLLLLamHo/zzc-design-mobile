@@ -42,6 +42,7 @@ const eslintrc = {
         'eol-last': 0,//要求或禁止文件末尾存在空行
         'guard-for-in': 0,
         //react
+        'react/prefer-stateless-function': 0,
         'react/jsx-closing-tag-location' : 0,
         'react/boolean-prop-naming': 1,//强制布尔值类型一直命名 is/has
         'react/no-string-refs': 0,//强制ref = Function, ref={(c) => { this.hello = c; }}
