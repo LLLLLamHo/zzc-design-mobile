@@ -1,5 +1,5 @@
 const path = require( 'path' );
-const fs = require('fs');
+const fs = require( 'fs' );
 
 let REACT_PATH = 'react/umd/react.production.min.js';
 let REACT_DOM_PATH = 'react-dom/umd/react-dom.production.min.js';
@@ -8,10 +8,10 @@ const ROOT_PATH = process.cwd();
 const ENV = process.env.ENV;
 const CWD = process.cwd();
 
-let dirs = fs.readdirSync( path.join(CWD,'./src') );
+let dirs = fs.readdirSync( path.join( CWD, './src' ) );
 let entry = {};
-for(let i = 0;i<dirs.length;i++){
-    entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+for ( let i = 0; i < dirs.length; i++ ) {
+    entry[dirs[i]] = `./src/${ dirs[i] }/src/index.jsx`;
 }
 
 let config = {
@@ -36,7 +36,7 @@ let config = {
     ]
 }
 
-if ( ENV == 'development' ) { 
+if ( ENV == 'development' ) {
     config.resolve = {
         alias: {
             "zzc-design-mobile": path.resolve(

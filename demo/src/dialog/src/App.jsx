@@ -11,7 +11,9 @@ export default class App extends Component {
             visible2: false,
             visible3: false,
             visible4: false,
-            visible5: false
+            visible5: false,
+            visible6: false,
+            visible7: false
         };
     }
 
@@ -37,7 +39,13 @@ export default class App extends Component {
             visible4: true
         } );
     }
-
+    openCustomAnDialog() {
+        this.setState( {
+            visible6: true,
+            visible7: true
+        } );
+    }
+    
     render() {
         return (
             <div className='zzc-demo'>
@@ -79,11 +87,26 @@ export default class App extends Component {
                     <Button onClick={() => { this.openAnDialog(); }}>带动画的dialog</Button>
                     {this.state.visible4 && <Dialog
                         maskTransitionName='fade'
-                        transitionName='fade'
+                        transitionName='zoom'
+                        maskClose={true}
                         title={<div>123123123</div>}
                         footer={<div><Button onClick={() => { this.setState( { visible3: false } ); }}>关闭</Button></div>}
                         visible={this.state.visible3}
                         closeCallback={() => { this.setState({ visible4: false }); }}
+                    >
+                        <div className='modal-text'>...这是一个文案...</div>
+                    </Dialog>}
+
+                    <Button onClick={() => { this.openCustomAnDialog(); }}>带自定义动画的dialog</Button>
+                    {this.state.visible6 && <Dialog
+                        maskTransitionName='fade'
+                        transitionName='custom-an'
+                        className='custom-dialog'
+                        maskClose={true}
+                        title={<div>自定义动画</div>}
+                        footer={<div><Button onClick={() => { this.setState( { visible7: false } ); }}>关闭</Button></div>}
+                        visible={this.state.visible7}
+                        closeCallback={() => { this.setState({ visible6: false }); }}
                     >
                         <div className='modal-text'>...这是一个文案...</div>
                     </Dialog>}
