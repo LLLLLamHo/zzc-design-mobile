@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './index.scss';
 import '../../../style/style.scss';
-import { Icon } from '../../../../es/';
+import { Icon } from 'zzc-design-mobile';
 
 export default class App extends Component {
 

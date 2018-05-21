@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Popup, Button, Card, Icon} from '../../../../es/';
+import {Popup, Button, Card, Icon} from 'zzc-design-mobile';
 import './index.scss';
 import '../../../style/style.scss';
 

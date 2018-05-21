@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import '../../../style/style.scss';
-import { Alert, Button, Toast } from '../../../../es/';
+import { Alert, Button, Toast } from 'zzc-design-mobile';
 
 let isClose = false;
 

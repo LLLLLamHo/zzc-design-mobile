@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Tabs} from '../../../../es/';
+import {Tabs} from 'zzc-design-mobile';
 import './index.scss';
 import '../../../style/style.scss';
 

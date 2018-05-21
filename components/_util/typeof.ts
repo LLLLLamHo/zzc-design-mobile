@@ -27,3 +27,12 @@ export function isRegExp( s: any ): boolean {
 export function isUndefined( s: any ): boolean {
     return isType( s, 'Undefined' );
 }
+export function isNull( s: any ): boolean {
+    return isType( s, 'Null' );
+}
+export function isDOM ( s: any ): boolean {
+    if ( typeof HTMLElement === 'object' ) {
+        return s instanceof HTMLElement;
+    }
+    return s && typeof s === 'object' && s.nodeType === 1 && typeof s.nodeName === 'string';
+}

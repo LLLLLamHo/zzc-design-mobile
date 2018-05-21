@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import './index.scss';
 import '../../../style/style.scss';
-import { Button, Icon } from '../../../../es/';
+import { Button, Icon } from 'zzc-design-mobile';
 
 let isClose = false;
 
