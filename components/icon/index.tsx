@@ -10,8 +10,10 @@ export interface IconProps {
     className?: string,
     style?: React.CSSProperties,
     reset?: any
-    
 }
+
+loadSprite();
+
 export default class Icon extends React.PureComponent<IconProps,any> {
     componentDidMount(): void {
         loadSprite();
@@ -22,7 +24,7 @@ export default class Icon extends React.PureComponent<IconProps,any> {
         type: undefined,
         size: 'md',
         className: '',
-        style: {},
+        style: {}
     }
 
     render () {

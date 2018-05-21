@@ -55,7 +55,7 @@ export default class Button extends PureComponent<ButtonProps, any> {
 
     render() {
         const { ghost, noBorder, noRadius, children, className, prefixCls, type, full, size, inline, disabled, style, activeStyle, activeClassName, onClick } = this.props;
-        const btnClassNames:string = classNames(
+        const btnClassNames: string = classNames(
             prefixCls,
             className,
             {

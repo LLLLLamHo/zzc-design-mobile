@@ -105,10 +105,16 @@ export default class Modal extends PureComponent<ModalProps, any> {
         </Button>, { ...btn.props } );
     }
 
-    close(): void {
-        this.setState( {
-            visible: false
-        } );
+    close (): void {
+        const { transitionName, maskTransitionName, closeCallback } = this.props;
+        // 当没有提供动画，无法触发动画事件触发外部传入的closeCallback，所以当没有动画则主动触发外部closeCallback
+        if ( transitionName === '' && maskTransitionName === '' ) {
+            closeCallback && closeCallback();
+        } else {
+            this.setState( {
+                visible: false
+            } );
+        }
     }
 
     createTitle( title: string ): any {

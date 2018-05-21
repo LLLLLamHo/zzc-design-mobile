@@ -33,18 +33,21 @@ let config = {
             }
             callback();
         }
-    ]
-}
-
-if ( ENV == 'development' ) {
-    config.resolve = {
-        alias: {
-            "zzc-design-mobile": path.resolve(
-                __dirname,
-                "../es/index.js"
-            )
-        }
+    ],
+    devServer: {
+        port: '4321'
     }
 }
+
+// if ( ENV == 'development' ) {
+//     config.resolve = {
+//         alias: {
+//             "zzc-design-mobile": path.resolve(
+//                 __dirname,
+//                 "../es/index.js"
+//             )
+//         }
+//     }
+// }
 
 module.exports = config;

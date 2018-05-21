@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal 1`] = `
+<div
+  class="zzc-tabs-box"
+>
+  <div
+    class="zzc-tabs-tab-list"
+  >
+    <div
+      class="zzc-tabs-tab-list-item"
+    >
+      tab one
+    </div>
+    <div
+      class="zzc-tabs-tab-list-item"
+    >
+      tab two
+    </div>
+    <div
+      class="zzc-tabs-tab-list-item"
+    >
+      tab three
+    </div>
+  </div>
+</div>
+`;

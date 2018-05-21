@@ -1,0 +1,27 @@
+@import '../style/base.scss';
+$cls: '.zzc-tabs';
+#{$cls} {
+    background: #fff;
+    &-box {
+        color: red;
+        #{$cls}-tab-list {
+            height: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+            @include halfPXLine('bottom','#E8E8E8');
+            &-item {
+                flex: 1;
+                height: 100%;
+                width: 100%;
+                color: #666666;
+                font-size: .28rem;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}

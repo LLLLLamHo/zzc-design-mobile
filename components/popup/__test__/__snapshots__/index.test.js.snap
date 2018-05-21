@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal 1`] = `
+<div
+  class="zzc-popup"
+>
+  <div
+    class="zzc-popup-mask"
+  />
+  <div
+    class="zzc-popup-box zzc-popup-bottom"
+  >
+    <h1>
+      123
+    </h1>
+  </div>
+</div>
+`;

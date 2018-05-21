@@ -6,10 +6,10 @@ exports[`Modal 1`] = `
     class="zzc-dialog"
   >
     <div
-      class="zzc-dialog-mask zzc-fade-enter"
+      class="zzc-dialog-mask"
     />
     <div
-      class="zzc-dialog-box zzc-zoom-enter zzc-modal-box"
+      class="zzc-dialog-box zzc-modal-box"
     >
       <div
         class="zzc-modal-header"

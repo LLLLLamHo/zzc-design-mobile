@@ -20,18 +20,18 @@ export default class Animate extends React.PureComponent<AnimateProps> {
 
     componentDidMount (): void {
         this.addAnimationEvent();
-        this.runHookEvent();
+        this.runHookEvent( true );
     }
 
     componentDidUpdate (): void {
-        this.runHookEvent();
+        this.runHookEvent( false );
     }
 
     // 执行触发钩子事件
-    runHookEvent (): void {
+    runHookEvent ( isFirst: boolean ): void {
         if ( this.props.visible ) {
             this.enterEvent();
-        } else {
+        } else if ( !isFirst ) {
             this.leaveEvent();
         }
     }

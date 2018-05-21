@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {Card, Button, Icon, Toast} from 'zzc-design-mobile';
+import {Card, Button, Icon, Toast} from '../../../../es/';
 import './index.scss';
 import '../../../style/style.scss';
 

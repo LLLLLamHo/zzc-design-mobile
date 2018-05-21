@@ -9,9 +9,7 @@ export interface PopupProps {
     style?: React.CSSProperties,
     maskStyle?: React.CSSProperties,
     maskClose?: boolean,
-    closeCallback?: Function,
-    maskTransitionName?: string,
-    transitionName?: string,
+    onClose?: Function,
     transparent?: boolean,
     direction?: string
 }
@@ -23,36 +21,53 @@ export default class Popup extends React.PureComponent<PopupProps> {
         style: {},
         maskStyle: {},
         maskClose: false,
-        closeCallback () { },
-        maskTransitionName: 'zzc-fade',
-        transitionName: 'zzc-slide-bottom',
+        onClose () { },
         transparent: false,
         direction: 'bottom'
     }
 
     state = {
+        showPopup: this.props.visible,
         animationTypeList: animateConfig
     }
 
-    // 获取指定样式
-    getAnimationClass ( transitionName: any ): any {
-        if ( this.state.animationTypeList[transitionName] ) {
-            return this.state.animationTypeList[transitionName];
+    componentWillReceiveProps (nextProps) {
+        if ( nextProps.visible ) {
+            this.setState( {
+                showPopup: true
+            } );
         }
-        return transitionName ? transitionName : null;
+    }
+
+    // 获取指定样式
+    getAnimationClass ( direction: any ): any {
+        const animation = this.state.animationTypeList[`zzc-slide-${direction}`];
+        if ( animation ) {
+            return animation;
+        }
+        return direction ? direction : null;
     }
 
     render () {
-        const { visible, children, prefixCls } = this.props;
-        console.log( this.state.animationTypeList );
-        return (
-            <Dialog
-                prefixCls={prefixCls}
-                visible={visible}
-                {...this.props}
-            >
-                {children}
-            </Dialog>
-        );
+        const { visible, children, prefixCls, direction, onClose } = this.props;
+        if ( this.state.showPopup ) {
+            return (
+                <Dialog
+                    maskTransitionName='zzc-fade'
+                    transitionName={this.getAnimationClass( direction )}
+                    prefixCls={prefixCls}
+                    boxClassName={`${prefixCls}-${direction}`}
+                    visible={visible}
+                    closeCallback={() => {
+                        this.setState( { showPopup: false } );
+                        onClose && onClose();
+                    }}
+                    {...this.props}
+                >
+                    {children}
+                </Dialog>
+            );
+        }
+        return null;
     }
 }
