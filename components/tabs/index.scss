@@ -3,24 +3,37 @@ $cls: '.zzc-tabs';
 #{$cls} {
     background: #fff;
     &-box {
-        color: red;
-        #{$cls}-tab-list {
+        #{$cls}-list {
+            background: #fff;
             height: 1rem;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             overflow: hidden;
+            flex-direction: row;
             @include halfPXLine('bottom','#E8E8E8');
             &-item {
-                flex: 1;
                 height: 100%;
-                width: 100%;
+                flex-shrink: 0;
                 color: #666666;
-                font-size: .28rem;
+                font-size: $fs28rem;
                 text-align: center;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                &#{$cls}-active{
+                    color: $main;
+                }
+            }
+            &-unserline {
+                position: absolute;
+                z-index: 10;
+                left: 0;
+                bottom: 0;
+                background: $main;
+                height: .04rem;
+                @include setTransition();
             }
         }
     }

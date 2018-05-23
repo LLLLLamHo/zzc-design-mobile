@@ -89,3 +89,8 @@
     border-radius: $borderRadius;
     -webkit-border-radius: $borderRadius;
 }
+
+//设置transition
+@mixin setTransition($seconds: .2s, $timing: ease-in-out) {
+    transition: all $seconds $timing;
+}

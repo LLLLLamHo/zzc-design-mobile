@@ -18,6 +18,7 @@ const eslintrc = {
         'typescript'
     ],
     rules: {
+        "eqeqeq": 0,
         "no-undef": 0,
         //default
         "jsx-quotes": [2, "prefer-single"],

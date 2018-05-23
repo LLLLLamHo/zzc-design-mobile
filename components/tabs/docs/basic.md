@@ -1,41 +1,25 @@
-弹出菜单
+标签页
 
 ## API
 
 适用平台：WEB
 
-同时只能存在一个popup，如果需要切换popup，需要从业务代码中先将现有的popup关闭！
+用于让用户在不同的视图中进行切换。
+
 
 ##Modal
 
-| 属性               | 说明                               | 类型                              | 默认值              |
-| ------------------ | ---------------------------------- | --------------------------------- | ------------------- |
-| prefixCls          | 组件的公用className前序            | string                            | zzc-modal           |
-| className          | 定义popup的body class              | string                            | 无                  |
-| style              | 自定义样式                         | object                            | {}                  |
-| maskClose          | 点击遮罩层关闭popup                | boolean                           | false               |
-| onClose            | 关闭popup后的回调函数（必填）      | function                          | 无                  |
-| maskStyle          | 遮罩层样式                         | object                            | {}                  |
-| visible            | 控制popup是否显示                  | boolean                           | false               |
-| transparent        | 是否不创建mask                     | boolean                           | false               |
-| direction          | 弹出的方向                         | string(可选top,bottom,left,right) | bottom              |
+| 属性      | 说明                       | 类型          | 默认值   |
+| --------- | -------------------------- | ------------- | -------- |
+| prefixCls | 组件的公用className前序    | string        | zzc-tabs |
+| tabs      | 标签页组件的item数据       | array        | []       |
+| initIndex | 默认选中的tab下标值        | number/string | 0        |
+| index     | 指定当前激活的tab（受控） | number/string | null     |
+| onChange  | 点击tab切换激活的回调事件（当使用受控tab的时候，建议配合使用） | function      |          |
+| maxTabLength  | 最多同时显示多少个tab | number      |     3     |
 
 
-简单的调用demo
 
-```jsx
-<Popup
-    maskClose={true}
-    visible={this.state.visible}
-    onClose={() => {
-        this.setState( {
-            visible: false
-        } );
-    }}
->
-    <div>123</div>
-</Popup>
-```
 
-当`maskClose`为true时，必须提供`onClose`给popup内部调用。
+
 
