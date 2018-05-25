@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import Gesture from '../_util/Gesture';
 import TabsList from './components/tabList';
 import { isFunction, isNull } from '../_util/typeof';
 import './index.scss';
@@ -59,21 +60,44 @@ export default class Tabs extends React.PureComponent<TabsProps, TabsState> {
             } );
         }
     }
-    render (): JSX.Element {
-        const { prefixCls, style, tabs, maxTabLength } = this.props;
+
+    wrapTabsList () {
+        const { prefixCls, tabs, maxTabLength } = this.props;
         const { currIndex } = this.state;
+        if ( tabs && tabs.length > maxTabLength ) {
+            return (
+                <Gesture>
+                    <div className={`${prefixCls}-wrap`}>
+                        <TabsList
+                            maxTabLength={maxTabLength}
+                            prefixCls={prefixCls}
+                            tabs={tabs}
+                            currIndex={currIndex}
+                            onChange={( key ) => { this.onChange( key ); }}
+                        />
+                    </div>
+                </Gesture>
+            );
+        }
+        return (
+            <TabsList
+                maxTabLength={maxTabLength}
+                prefixCls={prefixCls}
+                tabs={tabs}
+                currIndex={currIndex}
+                onChange={( key ) => { this.onChange( key ); }}
+            />
+        );
+    }
+
+    render (): JSX.Element {
+        const { prefixCls, style } = this.props;
         return (
             <div
                 className={classnames( `${prefixCls}-box` )}
                 style={style}
             >
-                <TabsList
-                    maxTabLength={maxTabLength}
-                    prefixCls={prefixCls}
-                    tabs={tabs}
-                    currIndex={currIndex}
-                    onChange={( key ) => { this.onChange( key ); }}
-                />
+                {this.wrapTabsList()}
             </div>
         );
     }
