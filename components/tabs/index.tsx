@@ -61,12 +61,23 @@ export default class Tabs extends React.PureComponent<TabsProps, TabsState> {
         }
     }
 
+    onPan = {
+        onPanStart: () => { console.log( 123 ); },
+        onPanMove: (status) => { console.log( status ); },
+        onPanEnd: () => { console.log( 321 ); }
+    }
+
     wrapTabsList () {
         const { prefixCls, tabs, maxTabLength } = this.props;
         const { currIndex } = this.state;
+
+        const onPan = this.onPan;
+
         if ( tabs && tabs.length > maxTabLength ) {
             return (
-                <Gesture>
+                <Gesture
+                    {...onPan}
+                >
                     <div className={`${prefixCls}-wrap`}>
                         <TabsList
                             maxTabLength={maxTabLength}

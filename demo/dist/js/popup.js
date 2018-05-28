@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "../";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 179);
+/******/ 	return __webpack_require__(__webpack_require__.s = 181);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -121,7 +121,7 @@ exports.default = function () {
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(81), __esModule: true };
+module.exports = { "default": __webpack_require__(82), __esModule: true };
 
 /***/ }),
 /* 4 */
@@ -155,11 +155,11 @@ exports.default = function (self, call) {
 
 exports.__esModule = true;
 
-var _setPrototypeOf = __webpack_require__(95);
+var _setPrototypeOf = __webpack_require__(96);
 
 var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
 
-var _create = __webpack_require__(99);
+var _create = __webpack_require__(100);
 
 var _create2 = _interopRequireDefault(_create);
 
@@ -492,7 +492,7 @@ module.exports = Object.keys || function keys(O) {
 /* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(107), __esModule: true };
+module.exports = { "default": __webpack_require__(108), __esModule: true };
 
 /***/ }),
 /* 22 */
@@ -682,7 +682,7 @@ module.exports = function (it, S) {
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject = __webpack_require__(19);
-var dPs = __webpack_require__(75);
+var dPs = __webpack_require__(76);
 var enumBugKeys = __webpack_require__(37);
 var IE_PROTO = __webpack_require__(35)('IE_PROTO');
 var Empty = function () { /* empty */ };
@@ -697,7 +697,7 @@ var createDict = function () {
   var gt = '>';
   var iframeDocument;
   iframe.style.display = 'none';
-  __webpack_require__(71).appendChild(iframe);
+  __webpack_require__(72).appendChild(iframe);
   iframe.src = 'javascript:'; // eslint-disable-line no-script-url
   // createDict = iframe.contentWindow.Object;
   // html.removeChild(iframe);
@@ -765,11 +765,11 @@ module.exports = (
 
 exports.__esModule = true;
 
-var _iterator = __webpack_require__(85);
+var _iterator = __webpack_require__(86);
 
 var _iterator2 = _interopRequireDefault(_iterator);
 
-var _symbol = __webpack_require__(87);
+var _symbol = __webpack_require__(88);
 
 var _symbol2 = _interopRequireDefault(_symbol);
 
@@ -926,7 +926,7 @@ var _classnames = __webpack_require__(7);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Animate = __webpack_require__(116);
+var _Animate = __webpack_require__(117);
 
 var _Animate2 = _interopRequireDefault(_Animate);
 
@@ -936,7 +936,7 @@ var _animateConfig = __webpack_require__(64);
 
 var _animateConfig2 = _interopRequireDefault(_animateConfig);
 
-__webpack_require__(117);
+__webpack_require__(118);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1116,7 +1116,7 @@ Dialog.defaultProps = {
 /***/ (function(module, exports, __webpack_require__) {
 
 // optional / simple context binding
-var aFunction = __webpack_require__(67);
+var aFunction = __webpack_require__(68);
 module.exports = function (fn, that, length) {
   aFunction(fn);
   if (that === undefined) return fn;
@@ -1173,7 +1173,7 @@ var redefine = __webpack_require__(51);
 var hide = __webpack_require__(16);
 var has = __webpack_require__(14);
 var Iterators = __webpack_require__(28);
-var $iterCreate = __webpack_require__(74);
+var $iterCreate = __webpack_require__(75);
 var setToStringTag = __webpack_require__(30);
 var getPrototypeOf = __webpack_require__(54);
 var ITERATOR = __webpack_require__(11)('iterator');
@@ -1260,7 +1260,7 @@ module.exports = __webpack_require__(16);
 
 var has = __webpack_require__(14);
 var toIObject = __webpack_require__(18);
-var arrayIndexOf = __webpack_require__(76)(false);
+var arrayIndexOf = __webpack_require__(77)(false);
 var IE_PROTO = __webpack_require__(35)('IE_PROTO');
 
 module.exports = function (object, names) {
@@ -1328,7 +1328,7 @@ module.exports = function (KEY, exec) {
 /* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(83), __esModule: true };
+module.exports = { "default": __webpack_require__(84), __esModule: true };
 
 /***/ }),
 /* 57 */
@@ -1342,7 +1342,7 @@ var has = __webpack_require__(14);
 var DESCRIPTORS = __webpack_require__(13);
 var $export = __webpack_require__(10);
 var redefine = __webpack_require__(51);
-var META = __webpack_require__(89).KEY;
+var META = __webpack_require__(90).KEY;
 var $fails = __webpack_require__(17);
 var shared = __webpack_require__(36);
 var setToStringTag = __webpack_require__(30);
@@ -1350,15 +1350,15 @@ var uid = __webpack_require__(25);
 var wks = __webpack_require__(11);
 var wksExt = __webpack_require__(39);
 var wksDefine = __webpack_require__(40);
-var enumKeys = __webpack_require__(90);
-var isArray = __webpack_require__(91);
+var enumKeys = __webpack_require__(91);
+var isArray = __webpack_require__(92);
 var anObject = __webpack_require__(19);
 var isObject = __webpack_require__(15);
 var toIObject = __webpack_require__(18);
 var toPrimitive = __webpack_require__(33);
 var createDesc = __webpack_require__(24);
 var _create = __webpack_require__(34);
-var gOPNExt = __webpack_require__(92);
+var gOPNExt = __webpack_require__(93);
 var $GOPD = __webpack_require__(59);
 var $DP = __webpack_require__(12);
 var $keys = __webpack_require__(20);
@@ -1727,7 +1727,7 @@ exports.animationEvents = animationEvents;
 /* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(105), __esModule: true };
+module.exports = { "default": __webpack_require__(106), __esModule: true };
 
 /***/ }),
 /* 62 */
@@ -1765,7 +1765,7 @@ var _inherits2 = __webpack_require__(5);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _getOwnPropertySymbols = __webpack_require__(110);
+var _getOwnPropertySymbols = __webpack_require__(111);
 
 var _getOwnPropertySymbols2 = _interopRequireDefault(_getOwnPropertySymbols);
 
@@ -1777,11 +1777,11 @@ var _classnames = __webpack_require__(7);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _loadSprite = __webpack_require__(112);
+var _loadSprite = __webpack_require__(113);
 
 var _loadSprite2 = _interopRequireDefault(_loadSprite);
 
-__webpack_require__(113);
+__webpack_require__(114);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1939,13 +1939,13 @@ var _classnames = __webpack_require__(7);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _TouchFeedback = __webpack_require__(118);
+var _TouchFeedback = __webpack_require__(119);
 
 var _TouchFeedback2 = _interopRequireDefault(_TouchFeedback);
 
 __webpack_require__(44);
 
-__webpack_require__(120);
+__webpack_require__(121);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2075,7 +2075,7 @@ var _button = __webpack_require__(65);
 
 var _button2 = _interopRequireDefault(_button);
 
-__webpack_require__(130);
+__webpack_require__(131);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2248,6 +2248,35 @@ Modal.defaultProps = {
 
 /***/ }),
 /* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+// http://hammerjs.github.io/api/#directions
+var DIRECTION_NONE = exports.DIRECTION_NONE = 1; // 00001
+var DIRECTION_LEFT = exports.DIRECTION_LEFT = 2; // 00010
+var DIRECTION_RIGHT = exports.DIRECTION_RIGHT = 4; // 00100
+var DIRECTION_UP = exports.DIRECTION_UP = 8; // 01000
+var DIRECTION_DOWN = exports.DIRECTION_DOWN = 16; // 10000
+var DIRECTION_HORIZONTAL = exports.DIRECTION_HORIZONTAL = DIRECTION_LEFT | DIRECTION_RIGHT; // 00110 6
+var DIRECTION_VERTICAL = exports.DIRECTION_VERTICAL = DIRECTION_UP | DIRECTION_DOWN; // 11000 24
+var DIRECTION_ALL = exports.DIRECTION_ALL = DIRECTION_HORIZONTAL | DIRECTION_VERTICAL; // 11110  30
+// http://hammerjs.github.io/recognizer-press/
+var PRESS = exports.PRESS = {
+    time: 251 // Minimal press time in ms.
+};
+// http://hammerjs.github.io/recognizer-swipe/
+var SWIPE = exports.SWIPE = {
+    threshold: 10,
+    velocity: 0.3
+};
+
+/***/ }),
+/* 68 */
 /***/ (function(module, exports) {
 
 module.exports = function (it) {
@@ -2257,18 +2286,18 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports) {
 
 
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var $at = __webpack_require__(73)(true);
+var $at = __webpack_require__(74)(true);
 
 // 21.1.3.27 String.prototype[@@iterator]()
 __webpack_require__(49)(String, 'String', function (iterated) {
@@ -2287,7 +2316,7 @@ __webpack_require__(49)(String, 'String', function (iterated) {
 
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.15 ToLength
@@ -2299,7 +2328,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var document = __webpack_require__(8).document;
@@ -2307,10 +2336,10 @@ module.exports = document && document.documentElement;
 
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(78);
+__webpack_require__(79);
 var global = __webpack_require__(8);
 var hide = __webpack_require__(16);
 var Iterators = __webpack_require__(28);
@@ -2332,7 +2361,7 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var toInteger = __webpack_require__(31);
@@ -2355,7 +2384,7 @@ module.exports = function (TO_STRING) {
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2375,7 +2404,7 @@ module.exports = function (Constructor, NAME, next) {
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP = __webpack_require__(12);
@@ -2394,14 +2423,14 @@ module.exports = __webpack_require__(13) ? Object.defineProperties : function de
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // false -> Array#indexOf
 // true  -> Array#includes
 var toIObject = __webpack_require__(18);
-var toLength = __webpack_require__(70);
-var toAbsoluteIndex = __webpack_require__(77);
+var toLength = __webpack_require__(71);
+var toAbsoluteIndex = __webpack_require__(78);
 module.exports = function (IS_INCLUDES) {
   return function ($this, el, fromIndex) {
     var O = toIObject($this);
@@ -2423,7 +2452,7 @@ module.exports = function (IS_INCLUDES) {
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var toInteger = __webpack_require__(31);
@@ -2436,13 +2465,13 @@ module.exports = function (index, length) {
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var addToUnscopables = __webpack_require__(79);
-var step = __webpack_require__(80);
+var addToUnscopables = __webpack_require__(80);
+var step = __webpack_require__(81);
 var Iterators = __webpack_require__(28);
 var toIObject = __webpack_require__(18);
 
@@ -2477,14 +2506,14 @@ addToUnscopables('entries');
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports) {
 
 module.exports = function () { /* empty */ };
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports) {
 
 module.exports = function (done, value) {
@@ -2493,15 +2522,15 @@ module.exports = function (done, value) {
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(82);
+__webpack_require__(83);
 module.exports = __webpack_require__(6).Object.getPrototypeOf;
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 Object.getPrototypeOf(O)
@@ -2516,10 +2545,10 @@ __webpack_require__(55)('getPrototypeOf', function () {
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(84);
+__webpack_require__(85);
 var $Object = __webpack_require__(6).Object;
 module.exports = function defineProperty(it, key, desc) {
   return $Object.defineProperty(it, key, desc);
@@ -2527,7 +2556,7 @@ module.exports = function defineProperty(it, key, desc) {
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $export = __webpack_require__(10);
@@ -2536,39 +2565,39 @@ $export($export.S + $export.F * !__webpack_require__(13), 'Object', { defineProp
 
 
 /***/ }),
-/* 85 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(86), __esModule: true };
-
-/***/ }),
 /* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(69);
-__webpack_require__(72);
-module.exports = __webpack_require__(39).f('iterator');
-
+module.exports = { "default": __webpack_require__(87), __esModule: true };
 
 /***/ }),
 /* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(88), __esModule: true };
+__webpack_require__(70);
+__webpack_require__(73);
+module.exports = __webpack_require__(39).f('iterator');
+
 
 /***/ }),
 /* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = { "default": __webpack_require__(89), __esModule: true };
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
 __webpack_require__(57);
-__webpack_require__(68);
-__webpack_require__(93);
+__webpack_require__(69);
 __webpack_require__(94);
+__webpack_require__(95);
 module.exports = __webpack_require__(6).Symbol;
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var META = __webpack_require__(25)('meta');
@@ -2627,7 +2656,7 @@ var meta = module.exports = {
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // all enumerable object keys, includes symbols
@@ -2648,7 +2677,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.2.2 IsArray(argument)
@@ -2659,7 +2688,7 @@ module.exports = Array.isArray || function isArray(arg) {
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
@@ -2684,44 +2713,44 @@ module.exports.f = function getOwnPropertyNames(it) {
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(40)('asyncIterator');
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(40)('observable');
 
 
 /***/ }),
-/* 95 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(96), __esModule: true };
-
-/***/ }),
 /* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(97);
-module.exports = __webpack_require__(6).Object.setPrototypeOf;
-
+module.exports = { "default": __webpack_require__(97), __esModule: true };
 
 /***/ }),
 /* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// 19.1.3.19 Object.setPrototypeOf(O, proto)
-var $export = __webpack_require__(10);
-$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(98).set });
+__webpack_require__(98);
+module.exports = __webpack_require__(6).Object.setPrototypeOf;
 
 
 /***/ }),
 /* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.19 Object.setPrototypeOf(O, proto)
+var $export = __webpack_require__(10);
+$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(99).set });
+
+
+/***/ }),
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Works with __proto__ only. Old v8 can't work with null proto objects.
@@ -2752,16 +2781,16 @@ module.exports = {
 
 
 /***/ }),
-/* 99 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(100), __esModule: true };
-
-/***/ }),
 /* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(101);
+module.exports = { "default": __webpack_require__(101), __esModule: true };
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(102);
 var $Object = __webpack_require__(6).Object;
 module.exports = function create(P, D) {
   return $Object.create(P, D);
@@ -2769,7 +2798,7 @@ module.exports = function create(P, D) {
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $export = __webpack_require__(10);
@@ -2778,13 +2807,13 @@ $export($export.S, 'Object', { create: __webpack_require__(34) });
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2795,7 +2824,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Tabs = exports.Popup = exports.Modal = exports.Alert = exports.Card = exports.Button = exports.Dialog = exports.Icon = exports.Toast = undefined;
 
-var _toast = __webpack_require__(104);
+var _toast = __webpack_require__(105);
 
 Object.defineProperty(exports, 'Toast', {
   enumerable: true,
@@ -2831,7 +2860,7 @@ Object.defineProperty(exports, 'Button', {
   }
 });
 
-var _card = __webpack_require__(121);
+var _card = __webpack_require__(122);
 
 Object.defineProperty(exports, 'Card', {
   enumerable: true,
@@ -2840,7 +2869,7 @@ Object.defineProperty(exports, 'Card', {
   }
 });
 
-var _alert = __webpack_require__(129);
+var _alert = __webpack_require__(130);
 
 Object.defineProperty(exports, 'Alert', {
   enumerable: true,
@@ -2858,7 +2887,7 @@ Object.defineProperty(exports, 'Modal', {
   }
 });
 
-var _popup = __webpack_require__(132);
+var _popup = __webpack_require__(133);
 
 Object.defineProperty(exports, 'Popup', {
   enumerable: true,
@@ -2867,7 +2896,7 @@ Object.defineProperty(exports, 'Popup', {
   }
 });
 
-var _tabs = __webpack_require__(134);
+var _tabs = __webpack_require__(135);
 
 Object.defineProperty(exports, 'Tabs', {
   enumerable: true,
@@ -2881,7 +2910,7 @@ __webpack_require__(63);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2936,13 +2965,13 @@ var _icon = __webpack_require__(62);
 
 var _icon2 = _interopRequireDefault(_icon);
 
-var _alignment = __webpack_require__(114);
+var _alignment = __webpack_require__(115);
 
 var _alignment2 = _interopRequireDefault(_alignment);
 
 __webpack_require__(44);
 
-__webpack_require__(115);
+__webpack_require__(116);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3094,15 +3123,15 @@ var Toast = function (_Component) {
 exports.default = Toast;
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(106);
+__webpack_require__(107);
 module.exports = __webpack_require__(6).Object.keys;
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 Object.keys(O)
@@ -3117,25 +3146,25 @@ __webpack_require__(55)('keys', function () {
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(108);
+__webpack_require__(109);
 module.exports = __webpack_require__(6).Object.assign;
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.3.1 Object.assign(target, source)
 var $export = __webpack_require__(10);
 
-$export($export.S + $export.F, 'Object', { assign: __webpack_require__(109) });
+$export($export.S + $export.F, 'Object', { assign: __webpack_require__(110) });
 
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3176,13 +3205,13 @@ module.exports = !$assign || __webpack_require__(17)(function () {
 
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(111), __esModule: true };
+module.exports = { "default": __webpack_require__(112), __esModule: true };
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(57);
@@ -3190,7 +3219,7 @@ module.exports = __webpack_require__(6).Object.getOwnPropertySymbols;
 
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3239,13 +3268,13 @@ var loadSprite = function loadSprite() {
 exports.default = loadSprite;
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3306,13 +3335,13 @@ var Alignment = function () {
 exports.default = Alignment;
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3486,13 +3515,13 @@ Animate.defaultProps = {
 };
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3531,7 +3560,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _classNames = __webpack_require__(119);
+var _classNames = __webpack_require__(120);
 
 var _classNames2 = _interopRequireDefault(_classNames);
 
@@ -3648,7 +3677,7 @@ TouchFeedback.defaultProps = {
 };
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -3703,13 +3732,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3752,21 +3781,21 @@ var _classnames = __webpack_require__(7);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _header = __webpack_require__(122);
+var _header = __webpack_require__(123);
 
 var _header2 = _interopRequireDefault(_header);
 
-var _body = __webpack_require__(124);
+var _body = __webpack_require__(125);
 
 var _body2 = _interopRequireDefault(_body);
 
-var _footer = __webpack_require__(126);
+var _footer = __webpack_require__(127);
 
 var _footer2 = _interopRequireDefault(_footer);
 
 __webpack_require__(44);
 
-__webpack_require__(128);
+__webpack_require__(129);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3816,7 +3845,7 @@ Card.Body = _body2.default;
 Card.Footer = _footer2.default;
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3859,7 +3888,7 @@ var _classnames = __webpack_require__(7);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-__webpack_require__(123);
+__webpack_require__(124);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3939,13 +3968,13 @@ Header.defaultProps = {
 };
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3988,7 +4017,7 @@ var _classnames = __webpack_require__(7);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-__webpack_require__(125);
+__webpack_require__(126);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4040,13 +4069,13 @@ Body.defaultProps = {
 };
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4089,7 +4118,7 @@ var _classnames = __webpack_require__(7);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-__webpack_require__(127);
+__webpack_require__(128);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4133,12 +4162,6 @@ Footer.defaultProps = {
 };
 
 /***/ }),
-/* 127 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 128 */
 /***/ (function(module, exports) {
 
@@ -4146,6 +4169,12 @@ Footer.defaultProps = {
 
 /***/ }),
 /* 129 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4196,7 +4225,7 @@ var _modal = __webpack_require__(66);
 
 var _modal2 = _interopRequireDefault(_modal);
 
-__webpack_require__(131);
+__webpack_require__(132);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4283,12 +4312,6 @@ var Alert = function () {
 }();
 
 /***/ }),
-/* 130 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 131 */
 /***/ (function(module, exports) {
 
@@ -4296,6 +4319,12 @@ var Alert = function () {
 
 /***/ }),
 /* 132 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4342,7 +4371,7 @@ var _animateConfig = __webpack_require__(64);
 
 var _animateConfig2 = _interopRequireDefault(_animateConfig);
 
-__webpack_require__(133);
+__webpack_require__(134);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4424,13 +4453,13 @@ Popup.defaultProps = {
 };
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4469,17 +4498,17 @@ var _classnames = __webpack_require__(7);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Gesture = __webpack_require__(135);
+var _Gesture = __webpack_require__(136);
 
 var _Gesture2 = _interopRequireDefault(_Gesture);
 
-var _tabList = __webpack_require__(136);
+var _tabList = __webpack_require__(138);
 
 var _tabList2 = _interopRequireDefault(_tabList);
 
 var _typeof = __webpack_require__(22);
 
-__webpack_require__(139);
+__webpack_require__(141);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4491,6 +4520,17 @@ var Tabs = function (_React$PureComponent) {
 
         var _this = (0, _possibleConstructorReturn3.default)(this, (Tabs.__proto__ || (0, _getPrototypeOf2.default)(Tabs)).call(this, props));
 
+        _this.onPan = {
+            onPanStart: function onPanStart() {
+                console.log(123);
+            },
+            onPanMove: function onPanMove(status) {
+                console.log(status);
+            },
+            onPanEnd: function onPanEnd() {
+                console.log(321);
+            }
+        };
         _this.state = {
             currIndex: props.index ? props.index : props.initIndex
         };
@@ -4530,10 +4570,11 @@ var Tabs = function (_React$PureComponent) {
                 maxTabLength = _props.maxTabLength;
             var currIndex = this.state.currIndex;
 
+            var onPan = this.onPan;
             if (tabs && tabs.length > maxTabLength) {
                 return _react2.default.createElement(
                     _Gesture2.default,
-                    null,
+                    onPan,
                     _react2.default.createElement(
                         'div',
                         { className: prefixCls + '-wrap' },
@@ -4577,7 +4618,7 @@ Tabs.defaultProps = {
 };
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4616,32 +4657,111 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _util = __webpack_require__(137);
+
+var _config = __webpack_require__(67);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var directionMap = {
+    all: _config.DIRECTION_ALL,
+    vertical: _config.DIRECTION_VERTICAL,
+    horizontal: _config.DIRECTION_HORIZONTAL
+};
 
 var Gesture = function (_React$PureComponent) {
     (0, _inherits3.default)(Gesture, _React$PureComponent);
 
-    function Gesture() {
+    function Gesture(props) {
         (0, _classCallCheck3.default)(this, Gesture);
-        return (0, _possibleConstructorReturn3.default)(this, (Gesture.__proto__ || (0, _getPrototypeOf2.default)(Gesture)).apply(this, arguments));
+
+        // 单手指手势事件-结束
+        var _this = (0, _possibleConstructorReturn3.default)(this, (Gesture.__proto__ || (0, _getPrototypeOf2.default)(Gesture)).call(this, props));
+
+        _this.doSingleTouchEnd = function (status) {
+            var _this$gesture = _this.gesture,
+                moveStatus = _this$gesture.moveStatus,
+                pinch = _this$gesture.pinch,
+                rotate = _this$gesture.rotate,
+                press = _this$gesture.press,
+                pan = _this$gesture.pan,
+                direction = _this$gesture.direction;
+
+            if (pinch || rotate) {
+                return;
+            }
+            if (moveStatus) {
+                var z = moveStatus.z,
+                    velocity = moveStatus.velocity;
+                // 计算是否符合滑动
+
+                var swipe = (0, _util.shouldTriggerSwipe)(z, velocity);
+                _this.setGestureState({
+                    swipe: swipe
+                });
+                if (pan) {
+                    // pan need end, it's a process
+                    // sometimes, start with pan left, but end with pan right....
+                    _this.triggerAllowEvent('onPan', status);
+                }
+                if (swipe) {
+                    var directionEvName = (0, _util.getDirectionEventName)(direction);
+                    // swipe just need a direction, it's a endpoint
+                    _this.triggerAllowEvent('onSwipe', directionEvName);
+                    return;
+                }
+            }
+            // 长按放手事件
+            if (press) {
+                _this.triggerEvent('onPressUp');
+                return;
+            }
+            // tap事件，点击down和up之间少于251毫秒
+            _this.triggerEvent('onTap');
+        };
+        _this.directionSetting = directionMap[props.direction]; // 初始化当前方向设定
+        return _this;
     }
 
     (0, _createClass3.default)(Gesture, [{
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            this.cleanPressTimer();
+        }
+    }, {
         key: 'now',
         value: function now() {
             return new Date().getTime();
+        }
+    }, {
+        key: 'getGestureState',
+        value: function getGestureState() {
+            if (!this.gesture) {
+                return this.gesture;
+            }
+            return (0, _assign2.default)({}, this.gesture);
         }
     }, {
         key: 'initGestureStatus',
         value: function initGestureStatus(e) {
             var touches = this.getTouches(e);
             var now = this.now();
-            this.setGestureStatus({
+            var _props = this.props,
+                enablePinch = _props.enablePinch,
+                enableRotate = _props.enableRotate;
+            // 当没有开启选择和缩放手势时候不去计算当前的手势状态
+
+            var mutliFingerStatus = void 0;
+            if (touches.length > 1 && (enablePinch || enableRotate)) {
+                mutliFingerStatus = (0, _util.calcMutliFingerStatus)(touches);
+            }
+            this.setGestureState({
                 touches: touches,
-                startTime: now,
                 time: now,
                 startTouches: touches,
-                preTouches: null
+                startTime: now,
+                startMutliFingerStatus: mutliFingerStatus,
+                mutliFingerStatus: mutliFingerStatus
             });
         }
     }, {
@@ -4652,14 +4772,37 @@ var Gesture = function (_React$PureComponent) {
     }, {
         key: 'updateGestureStatus',
         value: function updateGestureStatus(e) {
-            this.gesture = {
-                touches: this.getTouches(e),
-                preTouches: this.gesture.touches
-            };
+            var time = this.now();
+            // 更新时间
+            this.setGestureState({
+                time: time
+            });
+            if (!e.touches || !e.touches.length) {
+                return;
+            }
+            var _gesture = this.gesture,
+                startTime = _gesture.startTime,
+                startTouches = _gesture.startTouches,
+                pinch = _gesture.pinch,
+                rotate = _gesture.rotate;
+
+            var touches = this.getTouches(e);
+            var moveStatus = (0, _util.calcMoveStatus)(startTouches, touches, time - startTime);
+            var mutliFingerStatus = void 0;
+            if (pinch || rotate) {
+                mutliFingerStatus = (0, _util.calcMutliFingerStatus)(touches);
+            }
+            this.setGestureState({
+                /* update status snapshot */
+                touches: touches,
+                mutliFingerStatus: mutliFingerStatus,
+                /* update duration status */
+                moveStatus: moveStatus
+            });
         }
     }, {
-        key: 'setGestureStatus',
-        value: function setGestureStatus(params) {
+        key: 'setGestureState',
+        value: function setGestureState(params) {
             if (!this.gesture) {
                 this.gesture = {};
             }
@@ -4679,64 +4822,343 @@ var Gesture = function (_React$PureComponent) {
                 };
             });
         }
+        // 触发主事件，例如：onPan
+
+    }, {
+        key: 'triggerEvent',
+        value: function triggerEvent(name) {
+            var cb = this.props[name];
+            if (typeof cb === 'function') {
+                for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+                    args[_key - 1] = arguments[_key];
+                }
+
+                // always give user gesture object as first params first
+                cb.apply(undefined, [this.getGestureState()].concat(args));
+            }
+        }
+        // 触发子事件，例如：onPanStart
+
+    }, {
+        key: 'triggerSubEvent',
+        value: function triggerSubEvent(mainEventName, eventStatus) {
+            if (eventStatus) {
+                var subEventName = (0, _util.getEventName)(mainEventName, eventStatus);
+
+                for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+                    args[_key2 - 2] = arguments[_key2];
+                }
+
+                this.triggerEvent.apply(this, [subEventName].concat(args));
+            }
+        }
+        // 合并触发主、子事件
+
+    }, {
+        key: 'triggerCombineEvent',
+        value: function triggerCombineEvent(mainEventName, eventStatus) {
+            for (var _len3 = arguments.length, args = Array(_len3 > 2 ? _len3 - 2 : 0), _key3 = 2; _key3 < _len3; _key3++) {
+                args[_key3 - 2] = arguments[_key3];
+            }
+
+            this.triggerEvent.apply(this, [mainEventName].concat(args));
+            this.triggerSubEvent.apply(this, [mainEventName, eventStatus].concat(args));
+        }
+        // 缩放事件
+
+    }, {
+        key: 'triggerPinchEvent',
+        value: function triggerPinchEvent(mainEventName, eventStatus) {
+            var scale = this.gesture.scale;
+
+            if (eventStatus === 'move' && typeof scale === 'number') {
+                // 特殊处理两个事件，当缩放比大于1的时候触发onPinchOut，否则触发onPinchIn
+                if (scale > 1) {
+                    this.triggerEvent('onPinchOut');
+                }
+                if (scale < 1) {
+                    this.triggerEvent('onPinchIn');
+                }
+            }
+            // 继续触发常规事件
+
+            for (var _len4 = arguments.length, args = Array(_len4 > 2 ? _len4 - 2 : 0), _key4 = 2; _key4 < _len4; _key4++) {
+                args[_key4 - 2] = arguments[_key4];
+            }
+
+            this.triggerCombineEvent.apply(this, [mainEventName, eventStatus].concat(args));
+        }
+        // 检查是否多手指手势-开始
+
+    }, {
+        key: 'checkIfMultiTouchStart',
+        value: function checkIfMultiTouchStart() {
+            var _props2 = this.props,
+                enablePinch = _props2.enablePinch,
+                enableRotate = _props2.enableRotate;
+            var touches = this.gesture.touches;
+
+            if (touches.length > 1 && (enablePinch || enableRotate)) {
+                // 初始化缩放
+                if (enablePinch) {
+                    var startMutliFingerStatus = (0, _util.calcMutliFingerStatus)(touches);
+                    this.setGestureState({
+                        startMutliFingerStatus: startMutliFingerStatus,
+                        pinch: true,
+                        scale: 1
+                    });
+                    this.triggerCombineEvent('onPinch', 'start');
+                }
+                // 初始化旋转
+                if (enableRotate) {
+                    this.setGestureState({
+                        rotate: true,
+                        rotation: 0
+                    });
+                    this.triggerCombineEvent('onRotate', 'start');
+                }
+            }
+        }
+        // 检查多手指手势-移动
+
+    }, {
+        key: 'checkIfMultiTouchMove',
+        value: function checkIfMultiTouchMove() {
+            var _gesture2 = this.gesture,
+                pinch = _gesture2.pinch,
+                rotate = _gesture2.rotate,
+                touches = _gesture2.touches,
+                startMutliFingerStatus = _gesture2.startMutliFingerStatus,
+                mutliFingerStatus = _gesture2.mutliFingerStatus;
+            // 一开始时不是双手指触发不进行任何逻辑
+
+            if (!pinch && !rotate) {
+                return;
+            }
+            // 一开是双手指，移动单手指
+            if (touches.length < 2) {
+                this.setGestureState({
+                    pinch: false,
+                    rotate: false
+                });
+                pinch && this.triggerCombineEvent('onPinch', 'cancel');
+                rotate && this.triggerCombineEvent('onRotate', 'cancel');
+                return;
+            }
+            // 缩放
+            if (pinch) {
+                // 缩放比例
+                var scale = mutliFingerStatus.z / startMutliFingerStatus.z;
+                this.setGestureState({
+                    scale: scale
+                });
+                this.triggerPinchEvent('onPinch', 'move');
+            }
+            // 旋转
+            if (rotate) {
+                var rotation = (0, _util.calcRotation)(startMutliFingerStatus, mutliFingerStatus);
+                this.setGestureState({
+                    rotation: rotation
+                });
+                this.triggerCombineEvent('onRotate', 'move');
+            }
+        }
+        // 检查单手指手势-移动
+
+    }, {
+        key: 'checkIfSingleTouchMove',
+        value: function checkIfSingleTouchMove() {
+            var _gesture3 = this.gesture,
+                pan = _gesture3.pan,
+                touches = _gesture3.touches,
+                moveStatus = _gesture3.moveStatus,
+                preTouches = _gesture3.preTouches;
+            // 一旦移动中的手指超过两只则取消pan事件
+
+            if (touches.length > 1) {
+                this.setGestureState({
+                    pan: false
+                });
+                pan && this.triggerCombineEvent('onPan', 'cancel');
+                return;
+            }
+            this.event.preventDefault();
+            if (moveStatus) {
+                var direction = (0, _util.getMovingDirection)(preTouches[0], touches[0]);
+                this.setGestureState({
+                    direction: direction
+                });
+                var eventName = (0, _util.getDirectionEventName)(direction);
+                // 检查当前允许方向
+                if (!this.allowGesture()) {
+                    return;
+                }
+                // 如果start并不满足pan的条件，则当这次move未start处理
+                if (!pan) {
+                    this.triggerCombineEvent('onPan', 'start');
+                    this.setGestureState({
+                        pan: true
+                    });
+                } else {
+                    this.triggerCombineEvent('onPan', eventName);
+                    this.triggerSubEvent('onPan', 'move');
+                }
+            }
+        }
+        // 检查多手指手势事件-结束
+
+    }, {
+        key: 'checkIfMultiTouchEnd',
+        value: function checkIfMultiTouchEnd(status) {
+            var _gesture4 = this.gesture,
+                pinch = _gesture4.pinch,
+                rotate = _gesture4.rotate;
+
+            if (pinch) {
+                this.triggerCombineEvent('onPinch', status);
+            }
+            if (rotate) {
+                this.triggerCombineEvent('onRotate', status);
+            }
+        }
+        // 记录长按
+
+    }, {
+        key: 'initPressTimer',
+        value: function initPressTimer() {
+            var _this2 = this;
+
+            this.cleanPressTimer();
+            this.pressTimer = setTimeout(function () {
+                _this2.setGestureState({
+                    press: true
+                });
+                _this2.triggerEvent('onPress');
+                _this2.pressTimer = null;
+            }, _config.PRESS.time);
+        }
+        // 清楚长按
+
+    }, {
+        key: 'cleanPressTimer',
+        value: function cleanPressTimer() {
+            this.pressTimer && clearTimeout(this.pressTimer);
+        }
+    }, {
+        key: 'triggerAllowEvent',
+        value: function triggerAllowEvent(type, status) {
+            if (this.allowGesture()) {
+                this.triggerCombineEvent(type, status);
+            } else {
+                this.triggerSubEvent(type, status);
+            }
+        }
     }, {
         key: '_handleTouchStart',
         value: function _handleTouchStart(e) {
+            // 清空状态
             this.clearGestureStatus();
+            this.event = e;
             if (e.touches.length > 1) {
                 e.preventDefault();
             }
+            // 初始化手势状态
             this.initGestureStatus(e);
+            // 长按
+            this.initPressTimer();
+            // 检查多手指手势
+            this.checkIfMultiTouchStart();
         }
     }, {
         key: '_handleTouchMove',
         value: function _handleTouchMove(e) {
-            alert(e.touches.length);
-            if (e.touches.length > 1) {
-                e.preventDefault();
+            // 清楚长按计时
+            this.cleanPressTimer();
+            this.event = e;
+            if (!this.gesture) {
+                return;
             }
+            // 更新手势状态
             this.updateGestureStatus(e);
-            console.log(this.gesture);
+            this.checkIfSingleTouchMove();
+            this.checkIfMultiTouchMove();
         }
     }, {
         key: '_handleTouchCancel',
         value: function _handleTouchCancel(e) {
+            this.cleanPressTimer();
+            this.event = e;
             if (e.touches.length > 1) {
                 e.preventDefault();
             }
             this.updateGestureStatus(e);
+            this.doSingleTouchEnd('cancel');
+            this.checkIfMultiTouchEnd('cancel');
         }
     }, {
         key: '_handleTouchEnd',
         value: function _handleTouchEnd(e) {
+            this.cleanPressTimer();
+            this.event = e;
             if (e.touches.length > 1) {
                 e.preventDefault();
             }
             this.updateGestureStatus(e);
+            this.doSingleTouchEnd('end');
+            this.checkIfMultiTouchEnd('end');
+        }
+        // 检查是否满足当前配置的方向条件
+
+    }, {
+        key: 'allowGesture',
+        value: function allowGesture() {
+            return (0, _util.shouldTriggerDirection)(this.gesture.direction, this.directionSetting);
+        }
+        // 设置touchAction
+
+    }, {
+        key: 'getTouchAction',
+        value: function getTouchAction() {
+            var _props3 = this.props,
+                enablePinch = _props3.enablePinch,
+                enableRotate = _props3.enableRotate;
+            var directionSetting = this.directionSetting;
+
+            if (enablePinch || enableRotate || directionSetting === _config.DIRECTION_ALL) {
+                return 'pan-x pan-y';
+            }
+            if (directionSetting === _config.DIRECTION_VERTICAL) {
+                return 'pan-x';
+            }
+            if (directionSetting === _config.DIRECTION_HORIZONTAL) {
+                return 'pan-y';
+            }
+            return 'auto';
         }
     }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
+            var _this3 = this;
 
             var children = this.props.children;
 
             var child = _react2.default.Children.only(children);
+            var touchAction = this.getTouchAction();
             var events = {
                 onTouchStart: function onTouchStart(e) {
-                    _this2._handleTouchStart(e);
+                    _this3._handleTouchStart(e);
                 },
                 onTouchMove: function onTouchMove(e) {
-                    _this2._handleTouchMove(e);
+                    _this3._handleTouchMove(e);
                 },
                 onTouchCancel: function onTouchCancel(e) {
-                    _this2._handleTouchCancel(e);
+                    _this3._handleTouchCancel(e);
                 },
                 onTouchEnd: function onTouchEnd(e) {
-                    _this2._handleTouchEnd(e);
+                    _this3._handleTouchEnd(e);
                 }
             };
-            return _react2.default.cloneElement(child, (0, _assign2.default)({}, events));
+            return _react2.default.cloneElement(child, (0, _assign2.default)({}, events, { style: (0, _assign2.default)({ touchAction: touchAction }, child.props.style || {}) }));
         }
     }]);
     return Gesture;
@@ -4744,8 +5166,152 @@ var Gesture = function (_React$PureComponent) {
 
 exports.default = Gesture;
 
+Gesture.defaultProps = {
+    enableRotate: false,
+    enablePinch: false,
+    direction: 'all'
+};
+
 /***/ }),
-/* 136 */
+/* 137 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.calcMutliFingerStatus = calcMutliFingerStatus;
+exports.calcMoveStatus = calcMoveStatus;
+exports.getMovingDirection = getMovingDirection;
+exports.calcRotation = calcRotation;
+exports.getEventName = getEventName;
+exports.getDirectionEventName = getDirectionEventName;
+exports.shouldTriggerDirection = shouldTriggerDirection;
+exports.shouldTriggerSwipe = shouldTriggerSwipe;
+
+var _config = __webpack_require__(67);
+
+// 计算缩放比率
+function _calcTriangleDistance(x, y) {
+    return Math.sqrt(x * x + y * y);
+}
+// 计算角度
+function _calcAngle(x, y) {
+    var radian = Math.atan2(y, x);
+    return 180 / (Math.PI / radian);
+}
+// 计算手指状态
+function calcMutliFingerStatus(touches) {
+    // 两只手指
+    if (touches.length >= 2) {
+        var _touches$ = touches[0],
+            x1 = _touches$.x,
+            y1 = _touches$.y;
+        var _touches$2 = touches[1],
+            x2 = _touches$2.x,
+            y2 = _touches$2.y;
+
+        var deltaX = x2 - x1;
+        var deltaY = y2 - y1;
+        return {
+            x: deltaX,
+            y: deltaY,
+            z: _calcTriangleDistance(deltaX, deltaY),
+            angle: _calcAngle(deltaX, deltaY)
+        };
+    }
+    return null;
+}
+// 计算move时的状态
+function calcMoveStatus(startTouches, touches, time) {
+    var _startTouches$ = startTouches[0],
+        x1 = _startTouches$.x,
+        y1 = _startTouches$.y;
+    var _touches$3 = touches[0],
+        x2 = _touches$3.x,
+        y2 = _touches$3.y;
+
+    var deltaX = x2 - x1;
+    var deltaY = y2 - y1;
+    var deltaZ = _calcTriangleDistance(deltaX, deltaY);
+    return {
+        x: deltaX,
+        y: deltaY,
+        z: deltaZ,
+        time: time,
+        velocity: deltaZ / time,
+        angle: _calcAngle(deltaX, deltaY)
+    };
+}
+// 获取当前方向
+function getMovingDirection(preTouches, touches) {
+    // 根据当前的xy值和上一个xy值进行计算方向
+    var x1 = preTouches.x,
+        y1 = preTouches.y;
+    var x2 = touches.x,
+        y2 = touches.y;
+
+    var deltaX = x2 - x1;
+    var deltaY = y2 - y1;
+    // 没有移动
+    if (deltaX === 0 && deltaY === 0) {
+        return _config.DIRECTION_NONE;
+    }
+    // 根据变化的数值少决定是横向移动还是竖向移动
+    if (Math.abs(deltaX) >= Math.abs(deltaY)) {
+        return deltaX < 0 ? _config.DIRECTION_LEFT : _config.DIRECTION_RIGHT;
+    }
+    return deltaY < 0 ? _config.DIRECTION_UP : _config.DIRECTION_DOWN;
+}
+// 计算旋转角度
+function calcRotation(startMutliFingerStatus, mutliFingerStatus) {
+    var startAngle = startMutliFingerStatus.angle;
+    var angle = mutliFingerStatus.angle;
+
+    return angle - startAngle;
+}
+// 拼接事件名称 将move转为Move
+function getEventName(prefix, status) {
+    return prefix + status[0].toUpperCase() + status.slice(1);
+}
+// 根据方向标识返回对应的方向事件名称
+function getDirectionEventName(direction) {
+    var name = void 0;
+    switch (direction) {
+        case _config.DIRECTION_NONE:
+            break;
+        case _config.DIRECTION_LEFT:
+            name = 'left';
+            break;
+        case _config.DIRECTION_RIGHT:
+            name = 'right';
+            break;
+        case _config.DIRECTION_UP:
+            name = 'up';
+            break;
+        case _config.DIRECTION_DOWN:
+            name = 'down';
+            break;
+        default:
+    }
+    return name;
+}
+// 查看当前方向配置是否满足当前触发的方向
+function shouldTriggerDirection(direction, directionSetting) {
+    if (directionSetting & direction) {
+        return true;
+    }
+    return false;
+}
+// 计算是否触发swiper
+function shouldTriggerSwipe(delta, velocity) {
+    return Math.abs(delta) >= _config.SWIPE.threshold && Math.abs(velocity) > _config.SWIPE.velocity;
+}
+
+/***/ }),
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4788,11 +5354,11 @@ var _classnames2 = __webpack_require__(7);
 
 var _classnames3 = _interopRequireDefault(_classnames2);
 
-var _tabItem = __webpack_require__(137);
+var _tabItem = __webpack_require__(139);
 
 var _tabItem2 = _interopRequireDefault(_tabItem);
 
-var _tabsListUnserline = __webpack_require__(138);
+var _tabsListUnserline = __webpack_require__(140);
 
 var _tabsListUnserline2 = _interopRequireDefault(_tabsListUnserline);
 
@@ -4882,7 +5448,7 @@ var TabsList = function (_React$PureComponent) {
 exports.default = TabsList;
 
 /***/ }),
-/* 137 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4916,7 +5482,7 @@ function TabsItem(props) {
 }
 
 /***/ }),
-/* 138 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4941,14 +5507,12 @@ function TabsListUnserlineProps(props) {
 }
 
 /***/ }),
-/* 139 */
+/* 141 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 140 */,
-/* 141 */,
 /* 142 */,
 /* 143 */,
 /* 144 */,
@@ -4986,7 +5550,9 @@ function TabsListUnserlineProps(props) {
 /* 176 */,
 /* 177 */,
 /* 178 */,
-/* 179 */
+/* 179 */,
+/* 180 */,
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5000,7 +5566,7 @@ var _reactDom = __webpack_require__(23);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(180);
+var _App = __webpack_require__(182);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -5009,7 +5575,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
 /***/ }),
-/* 180 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5044,11 +5610,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _zzcDesignMobile = __webpack_require__(103);
+var _zzcDesignMobile = __webpack_require__(104);
 
-__webpack_require__(181);
+__webpack_require__(183);
 
-__webpack_require__(102);
+__webpack_require__(103);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5874,7 +6440,7 @@ var App = function (_Component) {
 exports.default = App;
 
 /***/ }),
-/* 181 */
+/* 183 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
