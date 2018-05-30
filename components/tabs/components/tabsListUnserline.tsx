@@ -1,8 +1,9 @@
 import React from 'react';
-
+import classnames from 'classnames';
 export interface TabsListUnserlineProps {
-    className: string,
+    prefixCls?: string,
     style: React.CSSProperties,
+    tabUnderlineAnimation?: boolean
 }
 
 export interface itemObject {
@@ -10,10 +11,16 @@ export interface itemObject {
 }
 
 export default function TabsListUnserlineProps( props: TabsListUnserlineProps ) {
-    const { className, style } = props;
+    const { prefixCls, style, tabUnderlineAnimation } = props;
+    const cls = classnames(
+        `${prefixCls}-ls-unline`,
+        {
+            [`${prefixCls}-ls-unline-am`]: tabUnderlineAnimation
+        }
+    );
     return (
         <div
-            className={className}
+            className={cls}
             style={style}
         />
     );

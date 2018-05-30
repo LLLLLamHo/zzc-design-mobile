@@ -13,10 +13,13 @@
 | --------- | -------------------------- | ------------- | -------- |
 | prefixCls | 组件的公用className前序    | string        | zzc-tabs |
 | tabs      | 标签页组件的item数据       | array        | []       |
-| initIndex | 默认选中的tab下标值        | number/string | 0        |
+| defaultIndex | 默认选中的tab下标值        | number/string | 0        |
 | index     | 指定当前激活的tab（受控） | number/string | null     |
-| onChange  | 点击tab切换激活的回调事件（当使用受控tab的时候，建议配合使用） | function      |          |
+| onChange  | 点击tab切换激活的回调事件（当使用受控tab的时候，建议配合使用） | function      | 
 | maxTabLength  | 最多同时显示多少个tab | number      |     3     |
+| tabDirection  | tab的方向 | string（'horizontal' | 'vertical'）      |     horizontal     |
+| tabUnderlineAnimation  | 切换tab事下划线动画事件 | boolean      |     true     |
+
 
 
 

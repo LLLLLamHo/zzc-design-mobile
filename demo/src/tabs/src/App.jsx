@@ -14,7 +14,17 @@ export default class App extends Component {
                 { title: 'tab 4' },
                 { title: 'tab 5' }
             ],
-            tabsIndex: 0
+            tabs2: [
+                { title: 'tab 1' },
+                { title: 'tab 2' },
+                { title: 'tab 3' },
+                { title: 'tab 4' },
+                { title: 'tab 5' },
+                { title: 'tab 6' },
+                { title: 'tab 7' }
+            ],
+            tabsIndex: 0,
+            tabsIndex2: 0
         };
     }
 
@@ -26,6 +36,9 @@ export default class App extends Component {
                     <h2>提供多个标签页面切换功能</h2>
                 </div>
                 <div className='zzc-demo-body full'>
+                    <div className='zzc-demo-header'>
+                        <h1 className='zzc-demo-title'>受控的tabs</h1>
+                    </div>
                     <Tabs
                         maxTabLength={3}    
                         index={this.state.tabsIndex}
@@ -34,6 +47,19 @@ export default class App extends Component {
                             this.setState( {
                                 tabsIndex: key
                             } );
+                        }}
+                    />
+                </div>
+                <div className='zzc-demo-body full'>
+                    <div className='zzc-demo-header'>
+                        <h1 className='zzc-demo-title'>非受控的tabs</h1>
+                    </div>
+                    <Tabs
+                        maxTabLength={4}    
+                        defaultIndex={this.state.tabsIndex2}
+                        tabs={this.state.tabs2}
+                        onChange={( key ) => {
+                            // console.log( 123 );
                         }}
                     />
                 </div>

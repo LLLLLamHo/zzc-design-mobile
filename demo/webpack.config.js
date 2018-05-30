@@ -35,6 +35,7 @@ let config = {
         }
     ],
     devServer: {
+        host: '172.16.201.160',
         port: '4321'
     }
 };
