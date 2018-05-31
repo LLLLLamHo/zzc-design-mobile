@@ -2,15 +2,23 @@
 $cls: '.zzc-tabs';
 #{$cls} {
     background: #fff;
+    width: 100%;
     &-box {
-        #{$cls}-list {
+        background: #fff;
+        overflow: hidden;
+        #{$cls}-bar-wrap{
+            width: 100%;
+            overflow: visible;
+            &-am{
+                @include setTransition();
+            }
+        }
+        #{$cls}-ls {
             background: #fff;
             height: 1rem;
-            width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            overflow: hidden;
             flex-direction: row;
             @include halfPXLine('bottom','#E8E8E8');
             &-item {
@@ -26,14 +34,16 @@ $cls: '.zzc-tabs';
                     color: $main;
                 }
             }
-            &-unserline {
+            &-unline {
                 position: absolute;
                 z-index: 10;
                 left: 0;
                 bottom: 0;
                 background: $main;
                 height: .04rem;
-                @include setTransition();
+                &-am{
+                    @include setTransition();
+                }
             }
         }
     }

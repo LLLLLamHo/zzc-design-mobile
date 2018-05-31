@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface TabsItemProps {
-    key: string,
+    itemKey: string,
     className: string,
     clickEvent: Function,
     style: React.CSSProperties,
@@ -13,10 +13,10 @@ export interface itemObject {
 }
 
 export default function TabsItem( props: TabsItemProps ) {
-    const { key, className, clickEvent, style, item } = props;
+    const { itemKey, className, clickEvent, style, item } = props;
     return (
         <div
-            key={key}
+            key={itemKey}
             className={className}
             style={style}
             onClick={() => { clickEvent(); }}
