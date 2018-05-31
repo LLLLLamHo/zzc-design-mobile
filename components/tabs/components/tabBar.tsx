@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Gesture from '../../_util/Gesture';
 import TabsList from './tabList';
 import { TabBarProps } from '../propsType';
-import { setLayoutScroll, getTabItemWidht } from '../util/';
+import { setLayoutScroll, getTabItemWidht, getTranslate3dStyle } from '../util/';
 
 export interface TabBarState {
     canScroll: boolean
@@ -13,12 +13,20 @@ export interface TabBarState {
 export default class TabBar extends React.PureComponent<TabBarProps, TabBarState> {
     private layout : HTMLDivElement
 
-    constructor( props ) {
+    constructor( props: TabBarProps ) {
         super( props );
         this.state = {
             canScroll: props.tabs && props.tabs.length > props.maxTabLength,
             wrapStyle: this.getWarpContentStyle( props.currIndex )
         };
+    }
+
+    componentWillReceiveProps ( nextProps: TabBarProps ) {
+        if ( this.props.currIndex != nextProps.currIndex ) {
+            this.setState( {
+                wrapStyle: this.getWarpContentStyle( nextProps.currIndex )
+            } );
+        }
     }
 
     getWarpContentStyle ( index: number ): string {
@@ -38,14 +46,7 @@ export default class TabBar extends React.PureComponent<TabBarProps, TabBarState
     }
 
     setWrapStyle ( wrapStyle: string ) {
-        const isVertical = this.props.isTabVertical();
-        const value: string = isVertical ? `0px, ${wrapStyle}, 0px` : `${wrapStyle}, 0px, 0px`;
-        const translate3d = `translate3d(${value})`;
-        return {
-            transform: translate3d,
-            WebkitTransform: translate3d,
-            MozTransform: translate3d
-        };
+        return getTranslate3dStyle( wrapStyle, this.props.tabDirection );
     }
 
     onChange ( key: number ): void {
@@ -59,6 +60,7 @@ export default class TabBar extends React.PureComponent<TabBarProps, TabBarState
         // 默认是0
         let lastOffset: number | string = 0;
         let finalOffset: number = 0;
+        const { animated } = this.props;
 
         const getOffset = () => {
             let offset = +`${lastOffset}`.replace( '%', '' );
@@ -71,20 +73,21 @@ export default class TabBar extends React.PureComponent<TabBarProps, TabBarState
 
         return {
             onPanStart: () => {
-                this.layout.className = `${this.props.prefixCls}-bar-wrap`;
+                if ( animated ) {
+                    this.layout.className = `${this.props.prefixCls}-bar-wrap`;
+                }
             },
             onPanMove: ( status ) => {
                 console.log( getOffset() );
                 // 将上次记录到的offset加上这次move的距离得出本次offset的值
                 let offset = getOffset() + status.moveStatus.x;
-                const isVertical = this.props.isTabVertical();
                 // 最大滚动距离是负数
                 const maxScrollOffset = -this.layout.scrollWidth + this.layout.clientWidth;
                 // 当move向左的时候永远为负数，向右的时候永远是正数
                 // 计算当前offset不能小于0和大于最大滚动距离。
                 offset = Math.min( offset, 0 );
                 offset = Math.max( offset, maxScrollOffset );
-                setLayoutScroll( this.layout, offset, 'px', isVertical );
+                setLayoutScroll( this.layout, offset, 'px', this.props.tabDirection == 'vertical' );
                 this.layout.style.transform = `translate3d(${offset}px, 0px, 0px)`;
                 // 记录每次滑动后计算的offset
                 finalOffset = offset;
@@ -93,21 +96,27 @@ export default class TabBar extends React.PureComponent<TabBarProps, TabBarState
                 // 记录这次滑动的最后offset
                 lastOffset = finalOffset;
                 const originCls = this.layout.className;
-                this.layout.className = `${originCls} ${this.props.prefixCls}-bar-wrap-am`;
+                if ( animated ) {
+                    this.layout.className = `${originCls} ${this.props.prefixCls}-bar-wrap-am`;
+                }
             },
             setCurrentOffset: ( offset: number | string ) => lastOffset = offset
         };
     } )()
 
     wrapTabsList (): JSX.Element {
-        const { currIndex, prefixCls, tabs, maxTabLength, tabUnderlineAnimation, tabDirection } = this.props;
+        const { currIndex, prefixCls, tabs, maxTabLength, animated, tabDirection } = this.props;
         const { canScroll, wrapStyle } = this.state;
-
         const onPan = this.onPan;
 
         // 当tabs数量大于最大显示数量的时候需要加入手势提供滑动
         if ( canScroll ) {
-            const cls = classnames( `${prefixCls}-bar-wrap`, `${prefixCls}-bar-wrap-am` );
+            const cls = classnames(
+                `${prefixCls}-bar-wrap`,
+                {
+                    [`${prefixCls}-bar-wrap-am`]: animated
+                }
+            );
             return (
                 <Gesture
                     direction={tabDirection}
@@ -119,7 +128,7 @@ export default class TabBar extends React.PureComponent<TabBarProps, TabBarState
                         style={this.setWrapStyle( wrapStyle )}
                     >
                         <TabsList
-                            tabUnderlineAnimation={tabUnderlineAnimation}
+                            animated={animated}
                             maxTabLength={maxTabLength}
                             prefixCls={prefixCls}
                             tabs={tabs}
@@ -132,6 +141,7 @@ export default class TabBar extends React.PureComponent<TabBarProps, TabBarState
         }
         return (
             <TabsList
+                animated={animated}
                 maxTabLength={maxTabLength}
                 prefixCls={prefixCls}
                 tabs={tabs}
@@ -141,11 +151,16 @@ export default class TabBar extends React.PureComponent<TabBarProps, TabBarState
         );
     }
 
-    setLayout ( div ) {
+    setLayout ( div ): void {
         this.layout = div;
     }
 
     render (): JSX.Element {
-        return this.wrapTabsList();
+        const { prefixCls } = this.props;
+        return (
+            <div className={`${prefixCls}-bar-box`}>
+                {this.wrapTabsList()}
+            </div>
+        );
     }
 }

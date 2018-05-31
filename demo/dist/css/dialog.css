@@ -40,6 +40,12 @@ body {
 .zzc-demo .zzc-demo-body.full h5 {
   padding: .2rem .3rem;
 }
+
+.zzc-demo .zzc-component-title {
+  color: #333;
+  font-size: .32rem;
+  padding: .3rem;
+}
 .zzc-icon {
   fill: currentColor;
   background-size: cover; }
@@ -1356,9 +1362,73 @@ button {
       .zzc-tabs-box .zzc-tabs-bar-wrap-am {
         -webkit-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out; }
-    .zzc-tabs-box .zzc-tabs-ls {
-      background: #fff;
-      height: 1rem;
+    .zzc-tabs-box .zzc-tabs-content-wrap {
+      width: 100%;
+      overflow: visible; }
+      .zzc-tabs-box .zzc-tabs-content-wrap-am {
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out; }
+    .zzc-tabs-box .zzc-tabs-bar-box {
+      position: relative; }
+      .zzc-tabs-box .zzc-tabs-bar-box::after {
+        content: "";
+        position: absolute;
+        display: block;
+        z-index: 11;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-bottom: 1px solid #E8E8E8;
+        -webkit-transform: scaleY(0.5) translateY(50%);
+            -ms-transform: scaleY(0.5) translateY(50%);
+                transform: scaleY(0.5) translateY(50%); }
+      .zzc-tabs-box .zzc-tabs-bar-box::after {
+        z-index: 9; }
+      .zzc-tabs-box .zzc-tabs-bar-box .zzc-tabs-ls {
+        background: #fff;
+        height: 1rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row; }
+        .zzc-tabs-box .zzc-tabs-bar-box .zzc-tabs-ls-item {
+          height: 100%;
+          -ms-flex-negative: 0;
+              flex-shrink: 0;
+          color: #666666;
+          font-size: 0.28rem;
+          text-align: center;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center; }
+          .zzc-tabs-box .zzc-tabs-bar-box .zzc-tabs-ls-item.zzc-tabs-active {
+            color: #4E7CDD; }
+        .zzc-tabs-box .zzc-tabs-bar-box .zzc-tabs-ls-unline {
+          position: absolute;
+          z-index: 12;
+          left: 0;
+          bottom: 0;
+          background: #4E7CDD;
+          height: .04rem; }
+          .zzc-tabs-box .zzc-tabs-bar-box .zzc-tabs-ls-unline-am {
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out; }
+    .zzc-tabs-box .zzc-tabs-content {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -1372,47 +1442,13 @@ button {
       -webkit-box-direction: normal;
           -ms-flex-direction: row;
               flex-direction: row;
-      position: relative; }
-      .zzc-tabs-box .zzc-tabs-ls::after {
-        content: "";
-        position: absolute;
-        display: block;
-        z-index: 11;
-        bottom: 0;
-        left: 0;
+      height: auto;
+      background: #fff; }
+      .zzc-tabs-box .zzc-tabs-content-item {
+        height: auto;
         width: 100%;
-        border-bottom: 1px solid "#E8E8E8";
-        -webkit-transform: scaleY(0.5) translateY(50%);
-            -ms-transform: scaleY(0.5) translateY(50%);
-                transform: scaleY(0.5) translateY(50%); }
-      .zzc-tabs-box .zzc-tabs-ls-item {
-        height: 100%;
         -ms-flex-negative: 0;
-            flex-shrink: 0;
-        color: #666666;
-        font-size: 0.28rem;
-        text-align: center;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center; }
-        .zzc-tabs-box .zzc-tabs-ls-item.zzc-tabs-active {
-          color: #4E7CDD; }
-      .zzc-tabs-box .zzc-tabs-ls-unline {
-        position: absolute;
-        z-index: 10;
-        left: 0;
-        bottom: 0;
-        background: #4E7CDD;
-        height: .04rem; }
-        .zzc-tabs-box .zzc-tabs-ls-unline-am {
-          -webkit-transition: all 0.2s ease-in-out;
-          transition: all 0.2s ease-in-out; }
+            flex-shrink: 0; }
 body {
   background: #fff !important;
 }
