@@ -7,7 +7,7 @@ $cls: '.zzc-input-item';
 }
 
 //按钮尺寸
-@mixin btnSize() {
+@mixin inputSize() {
     //默认尺寸
     height: .88rem;
     line-height: .88rem;
@@ -44,12 +44,11 @@ $cls: '.zzc-input-item';
         border-radius: 0;
     }
 }
-
+ß
 //input class
 #{$cls} {
     @include inputBase();
     @include inputSize();
-    @include inputColor('nomal');
     @include noBorderRadius();
     @include disabled();
 }
