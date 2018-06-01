@@ -3,7 +3,7 @@ import classnames from 'classnames';
 export interface TabsListUnserlineProps {
     prefixCls?: string,
     style: React.CSSProperties,
-    tabUnderlineAnimation?: boolean
+    animated?: boolean
 }
 
 export interface itemObject {
@@ -11,11 +11,11 @@ export interface itemObject {
 }
 
 export default function TabsListUnserlineProps( props: TabsListUnserlineProps ) {
-    const { prefixCls, style, tabUnderlineAnimation } = props;
+    const { prefixCls, style, animated } = props;
     const cls = classnames(
         `${prefixCls}-ls-unline`,
         {
-            [`${prefixCls}-ls-unline-am`]: tabUnderlineAnimation
+            [`${prefixCls}-ls-unline-am`]: animated
         }
     );
     return (

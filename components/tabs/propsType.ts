@@ -7,7 +7,8 @@ export interface TabsProps {
     onChange: Function,
     maxTabLength: number,
     tabDirection?: 'all' | 'vertical' | 'horizontal',
-    tabUnderlineAnimation?: boolean
+    animated?: boolean
+    swipeable?: boolean
 }
 
 export interface TabBarProps {
@@ -17,12 +18,21 @@ export interface TabBarProps {
     tabs: Array<tabs>,
     style?: React.CSSProperties,
     onChange: Function,
-    isTabVertical: Function,
     maxTabLength: number,
     tabDirection?: 'all' | 'vertical' | 'horizontal',
-    tabUnderlineAnimation?: boolean
+    animated?: boolean
 }
 
-export interface tabs {
-    title: string | JSX.Element
+export interface TabContentProps {
+    tabDirection?: string
+    currIndex?: number
+    prefixCls?: string
+    animated?: boolean
+    swipeable?: boolean
+    onChange: Function
+    tabs: Array<tabs>
 }
+
+export declare type tabs = {
+    title: string | JSX.Element
+};

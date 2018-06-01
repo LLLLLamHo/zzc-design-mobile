@@ -1,5 +1,6 @@
 import React from 'react';
 import TabBar from './components/tabBar';
+import TabContent from './components/tabContent';
 import { isFunction, isNull } from '../_util/typeof';
 import { TabsProps } from './propsType';
 import './index.scss';
@@ -18,10 +19,11 @@ export default class Tabs extends React.PureComponent<TabsProps, TabsState> {
         onChange: () => { },
         maxTabLength: 3,
         tabDirection: 'horizontal',
-        tabUnderlineAnimation: true
+        animated: true,
+        swipeable: true
     }
 
-    constructor( props ) {
+    constructor( props: TabsProps ) {
         super( props );
         const index = props.index ? props.index : props.defaultIndex;
         this.state = {
@@ -29,7 +31,6 @@ export default class Tabs extends React.PureComponent<TabsProps, TabsState> {
             preIndex: index
         };
         this.onChange = this.onChange.bind( this );
-        this.isTabVertical = this.isTabVertical.bind( this );
     }
 
     componentWillReceiveProps ( nextPros: any ): void {
@@ -39,10 +40,6 @@ export default class Tabs extends React.PureComponent<TabsProps, TabsState> {
                 preIndex: this.state.currIndex
             } );
         }
-    }
-
-    isTabVertical (): boolean {
-        return this.props.tabDirection === 'vertical';
     }
 
     onChange ( key: number ): void {
@@ -64,7 +61,7 @@ export default class Tabs extends React.PureComponent<TabsProps, TabsState> {
     }
 
     render (): JSX.Element {
-        const { prefixCls, style } = this.props;
+        const { prefixCls, style, children } = this.props;
         return (
             <div
                 className={`${prefixCls}-box`}
@@ -73,9 +70,18 @@ export default class Tabs extends React.PureComponent<TabsProps, TabsState> {
                 <TabBar
                     {...this.props}
                     {...this.state}
-                    isTabVertical={this.isTabVertical}
                     onChange={this.onChange}
                 />
+                {
+                    children &&
+                    <TabContent
+                        {...this.props}
+                        {...this.state}
+                        onChange={this.onChange}
+                    >
+                        {children}
+                    </TabContent>
+                }
             </div>
         );
     }

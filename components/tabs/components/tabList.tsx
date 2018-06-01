@@ -11,7 +11,7 @@ export interface TabsListProps {
     onChange: Function,
     currIndex: number,
     maxTabLength: number,
-    tabUnderlineAnimation?: boolean
+    animated?: boolean
 }
 
 export interface tabs {
@@ -53,14 +53,14 @@ export default class TabsList extends React.PureComponent<TabsListProps> {
     }
 
     setTabList (): JSX.Element | null {
-        const { prefixCls, tabs, currIndex, maxTabLength, tabUnderlineAnimation } = this.props;
+        const { prefixCls, tabs, currIndex, maxTabLength, animated } = this.props;
         if ( isArray( tabs ) ) {
             const width = getTabItemWidht( maxTabLength );
             return (
                 <div className={`${prefixCls}-ls`}>
                     {this.setTabItem( width )}
                     <TabsListUnserlineProps
-                        tabUnderlineAnimation={tabUnderlineAnimation}
+                        animated={animated}
                         prefixCls={prefixCls}
                         style={{
                             width: `${width}%`,
