@@ -362,7 +362,7 @@ module.exports = $export;
 /***/ (function(module, exports, __webpack_require__) {
 
 var store = __webpack_require__(37)('wks');
-var uid = __webpack_require__(26);
+var uid = __webpack_require__(25);
 var Symbol = __webpack_require__(9).Symbol;
 var USE_SYMBOL = typeof Symbol == 'function';
 
@@ -378,7 +378,7 @@ $exports.store = store;
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var anObject = __webpack_require__(19);
+var anObject = __webpack_require__(21);
 var IE8_DOM_DEFINE = __webpack_require__(51);
 var toPrimitive = __webpack_require__(34);
 var dP = Object.defineProperty;
@@ -430,7 +430,7 @@ module.exports = function (it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP = __webpack_require__(12);
-var createDesc = __webpack_require__(25);
+var createDesc = __webpack_require__(24);
 module.exports = __webpack_require__(13) ? function (object, key, value) {
   return dP.f(object, key, createDesc(1, value));
 } : function (object, key, value) {
@@ -468,63 +468,10 @@ module.exports = function (it) {
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(15);
-module.exports = function (it) {
-  if (!isObject(it)) throw TypeError(it + ' is not an object!');
-  return it;
-};
-
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 19.1.2.14 / 15.2.3.14 Object.keys(O)
-var $keys = __webpack_require__(53);
-var enumBugKeys = __webpack_require__(38);
-
-module.exports = Object.keys || function keys(O) {
-  return $keys(O, enumBugKeys);
-};
-
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _assign = __webpack_require__(22);
-
-var _assign2 = _interopRequireDefault(_assign);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _assign2.default || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];
-
-    for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }
-
-  return target;
-};
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
 module.exports = { "default": __webpack_require__(110), __esModule: true };
 
 /***/ }),
-/* 23 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -589,13 +536,37 @@ function isDOM(s) {
 }
 
 /***/ }),
-/* 24 */
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__(15);
+module.exports = function (it) {
+  if (!isObject(it)) throw TypeError(it + ' is not an object!');
+  return it;
+};
+
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.14 / 15.2.3.14 Object.keys(O)
+var $keys = __webpack_require__(53);
+var enumBugKeys = __webpack_require__(38);
+
+module.exports = Object.keys || function keys(O) {
+  return $keys(O, enumBugKeys);
+};
+
+
+/***/ }),
+/* 23 */
 /***/ (function(module, exports) {
 
 module.exports = window.ReactDOM;
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports) {
 
 module.exports = function (bitmap, value) {
@@ -609,7 +580,7 @@ module.exports = function (bitmap, value) {
 
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports) {
 
 var id = 0;
@@ -620,7 +591,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.13 ToObject(argument)
@@ -631,11 +602,40 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports) {
 
 exports.f = {}.propertyIsEnumerable;
 
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _assign = __webpack_require__(19);
+
+var _assign2 = _interopRequireDefault(_assign);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _assign2.default || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+
+  return target;
+};
 
 /***/ }),
 /* 29 */
@@ -710,7 +710,7 @@ module.exports = function (it, S) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-var anObject = __webpack_require__(19);
+var anObject = __webpack_require__(21);
 var dPs = __webpack_require__(78);
 var enumBugKeys = __webpack_require__(38);
 var IE_PROTO = __webpack_require__(36)('IE_PROTO');
@@ -757,7 +757,7 @@ module.exports = Object.create || function create(O, Properties) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var shared = __webpack_require__(37)('keys');
-var uid = __webpack_require__(26);
+var uid = __webpack_require__(25);
 module.exports = function (key) {
   return shared[key] || (shared[key] = uid(key));
 };
@@ -1122,7 +1122,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.setLayoutScroll = setLayoutScroll;
-exports.getTabItemWidht = getTabItemWidht;
+exports.getTabItemSize = getTabItemSize;
 exports.getTranslate3dStyle = getTranslate3dStyle;
 function setLayoutScroll(layout, offset, unit, isVertical) {
     var value = isVertical ? '0px, ' + offset + unit + ', 0px' : '' + offset + unit + ', 0px, 0px';
@@ -1130,11 +1130,11 @@ function setLayoutScroll(layout, offset, unit, isVertical) {
     var style = layout.style;
     setTransfrom(style, translate3d);
 }
-function getTabItemWidht(maxTabLength) {
+function getTabItemSize(maxTabLength) {
     return (100 / maxTabLength).toFixed(4);
 }
 function getTranslate3dStyle(value, direction) {
-    var offset = direction === 'vertical' ? '0px, ' + value + ', 0px' : value + ', 0px, 0px';
+    var offset = direction === 'vertical' ? '0px, ' + value + ', 1px' : value + ', 0px, 1px';
     var translate3d = 'translate3d(' + offset + ')';
     return {
         transform: translate3d,
@@ -1332,7 +1332,7 @@ module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
 
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
 var has = __webpack_require__(14);
-var toObject = __webpack_require__(27);
+var toObject = __webpack_require__(26);
 var IE_PROTO = __webpack_require__(36)('IE_PROTO');
 var ObjectProto = Object.prototype;
 
@@ -1383,22 +1383,22 @@ var META = __webpack_require__(92).KEY;
 var $fails = __webpack_require__(17);
 var shared = __webpack_require__(37);
 var setToStringTag = __webpack_require__(31);
-var uid = __webpack_require__(26);
+var uid = __webpack_require__(25);
 var wks = __webpack_require__(11);
 var wksExt = __webpack_require__(40);
 var wksDefine = __webpack_require__(41);
 var enumKeys = __webpack_require__(93);
 var isArray = __webpack_require__(94);
-var anObject = __webpack_require__(19);
+var anObject = __webpack_require__(21);
 var isObject = __webpack_require__(15);
 var toIObject = __webpack_require__(18);
 var toPrimitive = __webpack_require__(34);
-var createDesc = __webpack_require__(25);
+var createDesc = __webpack_require__(24);
 var _create = __webpack_require__(35);
 var gOPNExt = __webpack_require__(95);
 var $GOPD = __webpack_require__(60);
 var $DP = __webpack_require__(12);
-var $keys = __webpack_require__(20);
+var $keys = __webpack_require__(22);
 var gOPD = $GOPD.f;
 var dP = $DP.f;
 var gOPN = gOPNExt.f;
@@ -1522,7 +1522,7 @@ if (!USE_NATIVE) {
   $GOPD.f = $getOwnPropertyDescriptor;
   $DP.f = $defineProperty;
   __webpack_require__(59).f = gOPNExt.f = $getOwnPropertyNames;
-  __webpack_require__(28).f = $propertyIsEnumerable;
+  __webpack_require__(27).f = $propertyIsEnumerable;
   __webpack_require__(42).f = $getOwnPropertySymbols;
 
   if (DESCRIPTORS && !__webpack_require__(30)) {
@@ -1625,8 +1625,8 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 /* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var pIE = __webpack_require__(28);
-var createDesc = __webpack_require__(25);
+var pIE = __webpack_require__(27);
+var createDesc = __webpack_require__(24);
 var toIObject = __webpack_require__(18);
 var toPrimitive = __webpack_require__(34);
 var has = __webpack_require__(14);
@@ -1778,7 +1778,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _extends2 = __webpack_require__(21);
+var _extends2 = __webpack_require__(28);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
@@ -2072,7 +2072,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _assign = __webpack_require__(22);
+var _assign = __webpack_require__(19);
 
 var _assign2 = _interopRequireDefault(_assign);
 
@@ -2295,7 +2295,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _assign = __webpack_require__(22);
+var _assign = __webpack_require__(19);
 
 var _assign2 = _interopRequireDefault(_assign);
 
@@ -2982,7 +2982,7 @@ module.exports = function (TO_STRING) {
 "use strict";
 
 var create = __webpack_require__(35);
-var descriptor = __webpack_require__(25);
+var descriptor = __webpack_require__(24);
 var setToStringTag = __webpack_require__(31);
 var IteratorPrototype = {};
 
@@ -3000,8 +3000,8 @@ module.exports = function (Constructor, NAME, next) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP = __webpack_require__(12);
-var anObject = __webpack_require__(19);
-var getKeys = __webpack_require__(20);
+var anObject = __webpack_require__(21);
+var getKeys = __webpack_require__(22);
 
 module.exports = __webpack_require__(13) ? Object.defineProperties : function defineProperties(O, Properties) {
   anObject(O);
@@ -3126,7 +3126,7 @@ module.exports = __webpack_require__(7).Object.getPrototypeOf;
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 Object.getPrototypeOf(O)
-var toObject = __webpack_require__(27);
+var toObject = __webpack_require__(26);
 var $getPrototypeOf = __webpack_require__(55);
 
 __webpack_require__(56)('getPrototypeOf', function () {
@@ -3192,7 +3192,7 @@ module.exports = __webpack_require__(7).Symbol;
 /* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var META = __webpack_require__(26)('meta');
+var META = __webpack_require__(25)('meta');
 var isObject = __webpack_require__(15);
 var has = __webpack_require__(14);
 var setDesc = __webpack_require__(12).f;
@@ -3252,9 +3252,9 @@ var meta = module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 // all enumerable object keys, includes symbols
-var getKeys = __webpack_require__(20);
+var getKeys = __webpack_require__(22);
 var gOPS = __webpack_require__(42);
-var pIE = __webpack_require__(28);
+var pIE = __webpack_require__(27);
 module.exports = function (it) {
   var result = getKeys(it);
   var getSymbols = gOPS.f;
@@ -3348,7 +3348,7 @@ $export($export.S, 'Object', { setPrototypeOf: __webpack_require__(101).set });
 // Works with __proto__ only. Old v8 can't work with null proto objects.
 /* eslint-disable no-proto */
 var isObject = __webpack_require__(15);
-var anObject = __webpack_require__(19);
+var anObject = __webpack_require__(21);
 var check = function (O, proto) {
   anObject(O);
   if (!isObject(proto) && proto !== null) throw TypeError(proto + ": can't set as prototype!");
@@ -3541,7 +3541,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(24);
+var _reactDom = __webpack_require__(23);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -3727,8 +3727,8 @@ module.exports = __webpack_require__(7).Object.keys;
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 Object.keys(O)
-var toObject = __webpack_require__(27);
-var $keys = __webpack_require__(20);
+var toObject = __webpack_require__(26);
+var $keys = __webpack_require__(22);
 
 __webpack_require__(56)('keys', function () {
   return function keys(it) {
@@ -3762,10 +3762,10 @@ $export($export.S + $export.F, 'Object', { assign: __webpack_require__(112) });
 "use strict";
 
 // 19.1.2.1 Object.assign(target, source, ...)
-var getKeys = __webpack_require__(20);
+var getKeys = __webpack_require__(22);
 var gOPS = __webpack_require__(42);
-var pIE = __webpack_require__(28);
-var toObject = __webpack_require__(27);
+var pIE = __webpack_require__(27);
+var toObject = __webpack_require__(26);
 var IObject = __webpack_require__(54);
 var $assign = Object.assign;
 
@@ -3885,7 +3885,7 @@ var _createClass2 = __webpack_require__(2);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _typeof = __webpack_require__(23);
+var _typeof = __webpack_require__(20);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3968,11 +3968,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(24);
+var _reactDom = __webpack_require__(23);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _typeof = __webpack_require__(23);
+var _typeof = __webpack_require__(20);
 
 var _Event = __webpack_require__(61);
 
@@ -4124,7 +4124,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _assign = __webpack_require__(22);
+var _assign = __webpack_require__(19);
 
 var _assign2 = _interopRequireDefault(_assign);
 
@@ -4156,7 +4156,7 @@ var _classNames = __webpack_require__(122);
 
 var _classNames2 = _interopRequireDefault(_classNames);
 
-var _typeof = __webpack_require__(23);
+var _typeof = __webpack_require__(20);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4780,11 +4780,11 @@ var _defineProperty2 = __webpack_require__(8);
 
 var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 
-var _extends2 = __webpack_require__(21);
+var _extends2 = __webpack_require__(28);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
-var _assign = __webpack_require__(22);
+var _assign = __webpack_require__(19);
 
 var _assign2 = _interopRequireDefault(_assign);
 
@@ -4805,7 +4805,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(24);
+var _reactDom = __webpack_require__(23);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -4927,7 +4927,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _extends2 = __webpack_require__(21);
+var _extends2 = __webpack_require__(28);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
@@ -5062,7 +5062,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _extends2 = __webpack_require__(21);
+var _extends2 = __webpack_require__(28);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
@@ -5090,6 +5090,10 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _classnames = __webpack_require__(6);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
 var _tabBar = __webpack_require__(138);
 
 var _tabBar2 = _interopRequireDefault(_tabBar);
@@ -5098,7 +5102,7 @@ var _tabContent = __webpack_require__(143);
 
 var _tabContent2 = _interopRequireDefault(_tabContent);
 
-var _typeof = __webpack_require__(23);
+var _typeof = __webpack_require__(20);
 
 __webpack_require__(145);
 
@@ -5158,12 +5162,16 @@ var Tabs = function (_React$PureComponent) {
             var _props = this.props,
                 prefixCls = _props.prefixCls,
                 style = _props.style,
-                children = _props.children;
+                children = _props.children,
+                tabBarPosition = _props.tabBarPosition,
+                className = _props.className;
 
+            var direction = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? 'horizontal' : 'vertical';
+            var cls = (0, _classnames2.default)(className, prefixCls + '-box', prefixCls + '-box-' + tabBarPosition);
             return _react2.default.createElement(
                 'div',
-                { className: prefixCls + '-box', style: style },
-                _react2.default.createElement(_tabBar2.default, (0, _extends3.default)({}, this.props, this.state, { onChange: this.onChange })),
+                { className: cls, style: style },
+                _react2.default.createElement(_tabBar2.default, (0, _extends3.default)({}, this.props, { tabDirection: direction }, this.state, { onChange: this.onChange })),
                 children && _react2.default.createElement(
                     _tabContent2.default,
                     (0, _extends3.default)({}, this.props, this.state, { onChange: this.onChange }),
@@ -5179,15 +5187,20 @@ exports.default = Tabs;
 
 Tabs.defaultProps = {
     prefixCls: 'zzc-tabs',
+    className: '',
     style: {},
+    tabBarUnderlineStyle: {},
     tabs: [],
     defaultIndex: 0,
     index: null,
     onChange: function onChange() {},
     maxTabLength: 3,
-    tabDirection: 'horizontal',
+    swipeDirection: 'horizontal',
     animated: true,
-    swipeable: true
+    swipeable: true,
+    isOpenTabBarScroll: true,
+    isOpenTabContentScroll: true,
+    tabBarPosition: 'top'
 };
 
 /***/ }),
@@ -5201,10 +5214,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = undefined;
-
-var _extends2 = __webpack_require__(21);
-
-var _extends3 = _interopRequireDefault(_extends2);
 
 var _defineProperty2 = __webpack_require__(8);
 
@@ -5264,11 +5273,12 @@ var TabBar = function (_React$PureComponent) {
             var finalOffset = 0;
             var animated = _this.props.animated;
 
+            var isVertical = _this.props.tabDirection == 'vertical';
             var getOffset = function getOffset() {
                 var offset = +('' + lastOffset).replace('%', '');
                 if (('' + lastOffset).indexOf('%') >= 0) {
                     offset /= 100;
-                    offset *= _this.layout.clientWidth;
+                    offset *= isVertical ? _this.layout.clientHeight : _this.layout.clientWidth;
                 }
                 return offset;
             };
@@ -5279,17 +5289,15 @@ var TabBar = function (_React$PureComponent) {
                     }
                 },
                 onPanMove: function onPanMove(status) {
-                    console.log(getOffset());
                     // 将上次记录到的offset加上这次move的距离得出本次offset的值
-                    var offset = getOffset() + status.moveStatus.x;
+                    var offset = isVertical ? getOffset() + status.moveStatus.y : getOffset() + status.moveStatus.x;
                     // 最大滚动距离是负数
-                    var maxScrollOffset = -_this.layout.scrollWidth + _this.layout.clientWidth;
+                    var maxScrollOffset = isVertical ? -_this.layout.scrollHeight + _this.layout.clientHeight : -_this.layout.scrollWidth + _this.layout.clientWidth;
                     // 当move向左的时候永远为负数，向右的时候永远是正数
                     // 计算当前offset不能小于0和大于最大滚动距离。
                     offset = Math.min(offset, 0);
                     offset = Math.max(offset, maxScrollOffset);
-                    (0, _util.setLayoutScroll)(_this.layout, offset, 'px', _this.props.tabDirection == 'vertical');
-                    _this.layout.style.transform = 'translate3d(' + offset + 'px, 0px, 0px)';
+                    (0, _util.setLayoutScroll)(_this.layout, offset, 'px', isVertical);
                     // 记录每次滑动后计算的offset
                     finalOffset = offset;
                 },
@@ -5332,10 +5340,10 @@ var TabBar = function (_React$PureComponent) {
             var offset = '0';
             var calcMaxTabLength = maxTabLength - 1;
             if (index >= calcMaxTabLength - 1 && index < tabs.length - 1) {
-                offset = '-' + (0, _util.getTabItemWidht)(maxTabLength) * (index - (calcMaxTabLength - 1)) + '%';
+                offset = '-' + (0, _util.getTabItemSize)(maxTabLength) * (index - (calcMaxTabLength - 1)) + '%';
             }
             if (index == tabs.length - 1) {
-                offset = '-' + (0, _util.getTabItemWidht)(maxTabLength) * (index - 1 - (calcMaxTabLength - 1)) + '%';
+                offset = '-' + (0, _util.getTabItemSize)(maxTabLength) * (index - 1 - (calcMaxTabLength - 1)) + '%';
             }
             this.onPan.setCurrentOffset(offset);
             return offset;
@@ -5354,8 +5362,8 @@ var TabBar = function (_React$PureComponent) {
             this.props.onChange(key);
         }
     }, {
-        key: 'wrapTabsList',
-        value: function wrapTabsList() {
+        key: 'renderTabbar',
+        value: function renderTabbar() {
             var _this2 = this;
 
             var _props2 = this.props,
@@ -5364,32 +5372,37 @@ var TabBar = function (_React$PureComponent) {
                 tabs = _props2.tabs,
                 maxTabLength = _props2.maxTabLength,
                 animated = _props2.animated,
-                tabDirection = _props2.tabDirection;
-            var _state = this.state,
-                canScroll = _state.canScroll,
-                wrapStyle = _state.wrapStyle;
+                tabBarPosition = _props2.tabBarPosition,
+                tabBarUnderlineStyle = _props2.tabBarUnderlineStyle;
+            var wrapStyle = this.state.wrapStyle;
+
+            var cls = (0, _classnames3.default)(prefixCls + '-bar-wrap', (0, _defineProperty3.default)({}, prefixCls + '-bar-wrap-am', animated));
+            return _react2.default.createElement(
+                'div',
+                { className: cls, ref: function ref(refs) {
+                        _this2.setLayout(refs);
+                    }, style: this.setWrapStyle(wrapStyle) },
+                _react2.default.createElement(_tabList2.default, { tabBarUnderlineStyle: tabBarUnderlineStyle, tabBarPosition: tabBarPosition, animated: animated, maxTabLength: maxTabLength, prefixCls: prefixCls, tabs: tabs, currIndex: currIndex, onChange: function onChange(key) {
+                        _this2.onChange(key);
+                    } })
+            );
+        }
+    }, {
+        key: 'wrapTabsList',
+        value: function wrapTabsList() {
+            var isOpenTabBarScroll = this.props.isOpenTabBarScroll;
+            var canScroll = this.state.canScroll;
 
             var onPan = this.onPan;
             // 当tabs数量大于最大显示数量的时候需要加入手势提供滑动
-            if (canScroll) {
-                var cls = (0, _classnames3.default)(prefixCls + '-bar-wrap', (0, _defineProperty3.default)({}, prefixCls + '-bar-wrap-am', animated));
+            if (canScroll && isOpenTabBarScroll) {
                 return _react2.default.createElement(
                     _Gesture2.default,
-                    (0, _extends3.default)({ direction: tabDirection }, onPan),
-                    _react2.default.createElement(
-                        'div',
-                        { className: cls, ref: function ref(refs) {
-                                _this2.setLayout(refs);
-                            }, style: this.setWrapStyle(wrapStyle) },
-                        _react2.default.createElement(_tabList2.default, { animated: animated, maxTabLength: maxTabLength, prefixCls: prefixCls, tabs: tabs, currIndex: currIndex, onChange: function onChange(key) {
-                                _this2.onChange(key);
-                            } })
-                    )
+                    onPan,
+                    this.renderTabbar()
                 );
             }
-            return _react2.default.createElement(_tabList2.default, { animated: animated, maxTabLength: maxTabLength, prefixCls: prefixCls, tabs: tabs, currIndex: currIndex, onChange: function onChange(key) {
-                    _this2.onChange(key);
-                } });
+            return this.renderTabbar();
         }
     }, {
         key: 'setLayout',
@@ -5591,9 +5604,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _classnames2 = __webpack_require__(6);
+var _classnames3 = __webpack_require__(6);
 
-var _classnames3 = _interopRequireDefault(_classnames2);
+var _classnames4 = _interopRequireDefault(_classnames3);
 
 var _tabItem = __webpack_require__(141);
 
@@ -5605,7 +5618,7 @@ var _tabsListUnserline2 = _interopRequireDefault(_tabsListUnserline);
 
 var _util = __webpack_require__(46);
 
-var _typeof = __webpack_require__(23);
+var _typeof = __webpack_require__(20);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5620,7 +5633,7 @@ var TabsList = function (_React$PureComponent) {
     (0, _createClass3.default)(TabsList, [{
         key: 'setTabIsActive',
         value: function setTabIsActive(prefixCls, currIndex, key) {
-            return (0, _classnames3.default)(prefixCls + '-ls-item', (0, _defineProperty3.default)({}, prefixCls + '-active', key == currIndex));
+            return (0, _classnames4.default)(prefixCls + '-ls-item', (0, _defineProperty3.default)({}, prefixCls + '-active', key == currIndex));
         }
     }, {
         key: 'onChange',
@@ -5629,26 +5642,21 @@ var TabsList = function (_React$PureComponent) {
         }
     }, {
         key: 'setTabItem',
-        value: function setTabItem(width) {
+        value: function setTabItem(size) {
             var _this2 = this;
 
             var _props = this.props,
                 prefixCls = _props.prefixCls,
                 tabs = _props.tabs,
-                currIndex = _props.currIndex;
+                currIndex = _props.currIndex,
+                tabBarPosition = _props.tabBarPosition;
 
+            var style = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? { width: size + '%' } : { height: size + '%' };
             return tabs && tabs.map(function (item, key) {
                 return _react2.default.createElement(_tabItem2.default, { key: 'zzc-tabitem-' + key, itemKey: 'zzc-tab-' + key, className: _this2.setTabIsActive(prefixCls, currIndex, key), clickEvent: function clickEvent() {
                         _this2.onChange(key);
-                    }, style: {
-                        width: width + '%'
-                    }, item: item });
+                    }, style: style, item: item });
             });
-        }
-    }, {
-        key: 'setPosition',
-        value: function setPosition(currIndex) {
-            return (currIndex * 100).toFixed(4);
         }
     }, {
         key: 'setTabList',
@@ -5658,18 +5666,20 @@ var TabsList = function (_React$PureComponent) {
                 tabs = _props2.tabs,
                 currIndex = _props2.currIndex,
                 maxTabLength = _props2.maxTabLength,
-                animated = _props2.animated;
+                animated = _props2.animated,
+                tabBarPosition = _props2.tabBarPosition,
+                tabBarUnderlineStyle = _props2.tabBarUnderlineStyle;
 
             if ((0, _typeof.isArray)(tabs)) {
-                var width = (0, _util.getTabItemWidht)(maxTabLength);
+                var _classnames2;
+
+                var size = (0, _util.getTabItemSize)(maxTabLength);
+                var cls = (0, _classnames4.default)(prefixCls + '-ls', (_classnames2 = {}, (0, _defineProperty3.default)(_classnames2, prefixCls + '-ls-horizontal', tabBarPosition == 'top' || tabBarPosition == 'bottom'), (0, _defineProperty3.default)(_classnames2, prefixCls + '-ls-vertical', tabBarPosition == 'left' || tabBarPosition == 'right'), _classnames2));
                 return _react2.default.createElement(
                     'div',
-                    { className: prefixCls + '-ls' },
-                    this.setTabItem(width),
-                    _react2.default.createElement(_tabsListUnserline2.default, { animated: animated, prefixCls: prefixCls, style: {
-                            width: width + '%',
-                            transform: 'translate3d(' + this.setPosition(currIndex) + '%,0,0)'
-                        } })
+                    { className: cls },
+                    this.setTabItem(size),
+                    _react2.default.createElement(_tabsListUnserline2.default, { tabBarUnderlineStyle: tabBarUnderlineStyle, currIndex: currIndex, tabBarPosition: tabBarPosition, animated: animated, prefixCls: prefixCls, size: size })
                 );
             }
             return null;
@@ -5715,7 +5725,7 @@ function TabsItem(props) {
         { key: itemKey, className: className, style: style, onClick: function onClick() {
                 clickEvent();
             } },
-        item.title
+        _react2.default.isValidElement(item) ? item : item.title
     );
 }
 
@@ -5734,6 +5744,10 @@ var _defineProperty2 = __webpack_require__(8);
 
 var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 
+var _assign = __webpack_require__(19);
+
+var _assign2 = _interopRequireDefault(_assign);
+
 exports.default = TabsListUnserlineProps;
 
 var _react = __webpack_require__(0);
@@ -5746,12 +5760,21 @@ var _classnames3 = _interopRequireDefault(_classnames2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function setPosition(currIndex) {
+    return (currIndex * 100).toFixed(4);
+}
 function TabsListUnserlineProps(props) {
     var prefixCls = props.prefixCls,
-        style = props.style,
-        animated = props.animated;
+        size = props.size,
+        animated = props.animated,
+        tabBarPosition = props.tabBarPosition,
+        currIndex = props.currIndex,
+        tabBarUnderlineStyle = props.tabBarUnderlineStyle;
 
-    var cls = (0, _classnames3.default)(prefixCls + '-ls-unline', (0, _defineProperty3.default)({}, prefixCls + '-ls-unline-am', animated));
+    var unlineTransform = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? 'translate3d(' + setPosition(currIndex) + '%,0,0)' : 'translate3d(0,' + setPosition(currIndex) + '%,0)';
+    var style = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? { width: size + '%', transform: unlineTransform } : { height: size + '%', transform: unlineTransform };
+    style = (0, _assign2.default)({}, style, tabBarUnderlineStyle);
+    var cls = (0, _classnames3.default)(prefixCls + '-ls-unline', prefixCls + '-ls-unline-' + tabBarPosition, (0, _defineProperty3.default)({}, prefixCls + '-ls-unline-am', animated));
     return _react2.default.createElement('div', { className: cls, style: style });
 }
 
@@ -5809,6 +5832,8 @@ var _Gesture2 = _interopRequireDefault(_Gesture);
 
 var _util = __webpack_require__(46);
 
+var _typeof = __webpack_require__(20);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var TabrContent = function (_React$PureComponent) {
@@ -5824,30 +5849,36 @@ var TabrContent = function (_React$PureComponent) {
             var lastOffset = 0;
             var finalOffset = 0;
             var maxIndex = _this.props.tabs.length - 1;
+            var isVertical = _this.props.swipeDirection == 'vertical';
             var getOffset = function getOffset() {
                 var offset = +('' + lastOffset).replace('%', '');
                 if (('' + lastOffset).indexOf('%') >= 0) {
                     offset /= 100;
-                    offset *= _this.layout.clientWidth;
+                    offset *= isVertical ? _this.layout.clientHeight : _this.layout.clientWidth;
                 }
                 return offset;
             };
+            if (!_this.props.animated) {
+                return {
+                    setCurrentOffset: function setCurrentOffset(offset) {
+                        return lastOffset = offset;
+                    }
+                };
+            }
             return {
                 onPanStart: function onPanStart() {
                     _this.layout.className = _this.props.prefixCls + '-content-wrap';
                 },
                 onPanMove: function onPanMove(status) {
-                    console.log(getOffset());
                     // 将上次记录到的offset加上这次move的距离得出本次offset的值
-                    var offset = getOffset() + status.moveStatus.x;
+                    var offset = isVertical ? getOffset() + status.moveStatus.y : getOffset() + status.moveStatus.x;
                     // 最大滚动距离是负数
-                    var maxScrollOffset = -_this.layout.scrollWidth + _this.layout.clientWidth;
+                    var maxScrollOffset = isVertical ? -_this.layout.scrollHeight + _this.layout.clientHeight : -_this.layout.scrollWidth + _this.layout.clientWidth;
                     // 当move向左的时候永远为负数，向右的时候永远是正数
                     // 计算当前offset不能小于0和大于最大滚动距离。
                     offset = Math.min(offset, 0);
                     offset = Math.max(offset, maxScrollOffset);
-                    (0, _util.setLayoutScroll)(_this.layout, offset, 'px', _this.props.tabDirection == 'vertical');
-                    _this.layout.style.transform = 'translate3d(' + offset + 'px, 0px, 0px)';
+                    (0, _util.setLayoutScroll)(_this.layout, offset, 'px', isVertical);
                     // 记录每次滑动后计算的offset
                     finalOffset = offset;
                 },
@@ -5858,11 +5889,11 @@ var TabrContent = function (_React$PureComponent) {
                     _this.layout.className = originCls + ' ' + _this.props.prefixCls + '-content-wrap-am';
                     if (_this.props.swipeable) {
                         // 当滑动的距离大于当前Item宽度的50%，则跳转到下一个item，否则归为。
-                        var swiperIndex = Math.round(Math.abs(lastOffset) / _this.layout.clientWidth);
+                        var swiperIndex = isVertical ? Math.round(Math.abs(lastOffset) / _this.layout.clientHeight) : Math.round(Math.abs(lastOffset) / _this.layout.clientWidth);
                         swiperIndex = swiperIndex > maxIndex ? maxIndex : swiperIndex;
                         lastOffset = '-' + swiperIndex * 100 + '%';
                         if (swiperIndex == _this.props.currIndex) {
-                            _this.layout.style.transform = 'translate3d(-' + swiperIndex * 100 + '%, 0px, 0px)';
+                            _this.layout.style.transform = isVertical ? 'translate3d(0px, -' + swiperIndex * 100 + '%, 0px)' : 'translate3d(-' + swiperIndex * 100 + '%, 0px, 0px)';
                         } else {
                             _this.props.onChange(swiperIndex);
                         }
@@ -5881,15 +5912,15 @@ var TabrContent = function (_React$PureComponent) {
         value: function setContentWrapStyle() {
             var _props = this.props,
                 currIndex = _props.currIndex,
-                tabDirection = _props.tabDirection;
+                swipeDirection = _props.swipeDirection;
 
             var value = currIndex ? '-' + currIndex * 100 + '%' : '0';
             this.onPan.setCurrentOffset(value);
-            return (0, _util.getTranslate3dStyle)(value, tabDirection);
+            return (0, _util.getTranslate3dStyle)(value, swipeDirection);
         }
     }, {
-        key: 'renderContnt',
-        value: function renderContnt() {
+        key: 'renderContentList',
+        value: function renderContentList() {
             var _this2 = this;
 
             var _props2 = this.props,
@@ -5897,7 +5928,34 @@ var TabrContent = function (_React$PureComponent) {
                 prefixCls = _props2.prefixCls,
                 animated = _props2.animated;
 
-            if (children && !children.length) {
+            var warpCls = (0, _classnames3.default)(prefixCls + '-content-wrap', (0, _defineProperty3.default)({}, prefixCls + '-content-wrap-am', animated));
+            return _react2.default.createElement(
+                'div',
+                { className: warpCls, style: this.setContentWrapStyle(), ref: function ref(refs) {
+                        _this2.setLayout(refs);
+                    } },
+                _react2.default.createElement(
+                    'div',
+                    { className: prefixCls + '-content' },
+                    children && children instanceof Array && children.map(function (item, key) {
+                        return _react2.default.createElement(
+                            _tabPane2.default,
+                            { prefixCls: prefixCls, key: 'zzc-tabs-content-item-' + key + '-' + new Date().getTime() },
+                            item
+                        );
+                    })
+                )
+            );
+        }
+    }, {
+        key: 'renderContnt',
+        value: function renderContnt() {
+            var _props3 = this.props,
+                children = _props3.children,
+                prefixCls = _props3.prefixCls,
+                isOpenTabContentScroll = _props3.isOpenTabContentScroll;
+
+            if (children && !(0, _typeof.isArray)(children)) {
                 return _react2.default.createElement(
                     'div',
                     { className: prefixCls + '-content' },
@@ -5908,28 +5966,14 @@ var TabrContent = function (_React$PureComponent) {
                     )
                 );
             }
-            var warpCls = (0, _classnames3.default)(prefixCls + '-content-wrap', (0, _defineProperty3.default)({}, prefixCls + '-content-wrap-am', animated));
-            return _react2.default.createElement(
-                _Gesture2.default,
-                this.onPan,
-                _react2.default.createElement(
-                    'div',
-                    { className: warpCls, style: this.setContentWrapStyle(), ref: function ref(refs) {
-                            _this2.setLayout(refs);
-                        } },
-                    _react2.default.createElement(
-                        'div',
-                        { className: prefixCls + '-content' },
-                        children && children instanceof Array && children.map(function (item, key) {
-                            return _react2.default.createElement(
-                                _tabPane2.default,
-                                { prefixCls: prefixCls, key: 'zzc-tabs-content-item-' + key + '-' + new Date().getTime() },
-                                item
-                            );
-                        })
-                    )
-                )
-            );
+            if (isOpenTabContentScroll) {
+                return _react2.default.createElement(
+                    _Gesture2.default,
+                    this.onPan,
+                    this.renderContentList()
+                );
+            }
+            return this.renderContentList();
         }
     }, {
         key: 'setLayout',
@@ -5939,7 +5983,16 @@ var TabrContent = function (_React$PureComponent) {
     }, {
         key: 'render',
         value: function render() {
-            return this.renderContnt();
+            var _props4 = this.props,
+                prefixCls = _props4.prefixCls,
+                swipeDirection = _props4.swipeDirection;
+
+            var cls = (0, _classnames3.default)(prefixCls + '-content-box', prefixCls + '-content-box-' + swipeDirection);
+            return _react2.default.createElement(
+                'div',
+                { className: cls },
+                this.renderContnt()
+            );
         }
     }]);
     return TabrContent;
@@ -6078,7 +6131,7 @@ module.exports = function (it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.3.20 SpeciesConstructor(O, defaultConstructor)
-var anObject = __webpack_require__(19);
+var anObject = __webpack_require__(21);
 var aFunction = __webpack_require__(70);
 var SPECIES = __webpack_require__(11)('species');
 module.exports = function (O, D) {
@@ -6195,7 +6248,7 @@ module.exports = function (exec) {
 /* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var anObject = __webpack_require__(19);
+var anObject = __webpack_require__(21);
 var isObject = __webpack_require__(15);
 var newPromiseCapability = __webpack_require__(146);
 
@@ -6526,7 +6579,7 @@ module.exports = function (it, Constructor, name, forbiddenField) {
 var ctx = __webpack_require__(47);
 var call = __webpack_require__(157);
 var isArrayIter = __webpack_require__(158);
-var anObject = __webpack_require__(19);
+var anObject = __webpack_require__(21);
 var toLength = __webpack_require__(73);
 var getIterFn = __webpack_require__(159);
 var BREAK = {};
@@ -6555,7 +6608,7 @@ exports.RETURN = RETURN;
 /***/ (function(module, exports, __webpack_require__) {
 
 // call something on iterator step with safe closing on error
-var anObject = __webpack_require__(19);
+var anObject = __webpack_require__(21);
 module.exports = function (iterator, fn, value, entries) {
   try {
     return entries ? fn(anObject(value)[0], value[1]) : fn(value);
@@ -6811,7 +6864,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(24);
+var _reactDom = __webpack_require__(23);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -6863,7 +6916,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(24);
+var _reactDom = __webpack_require__(23);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 

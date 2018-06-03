@@ -5,12 +5,12 @@ export function setLayoutScroll ( layout: HTMLDivElement, offset: number, unit: 
     setTransfrom( style, translate3d );
 }
 
-export function getTabItemWidht ( maxTabLength: number ): any {
+export function getTabItemSize ( maxTabLength: number ): any {
     return ( 100 / maxTabLength ).toFixed( 4 );
 }
 
 export function getTranslate3dStyle ( value: string, direction: any ): any {
-    const offset = direction === 'vertical' ? `0px, ${value}, 0px` : `${value}, 0px, 0px`;
+    const offset = direction === 'vertical' ? `0px, ${value}, 1px` : `${value}, 0px, 1px`;
     const translate3d = `translate3d(${offset})`;
     return {
         transform: translate3d,

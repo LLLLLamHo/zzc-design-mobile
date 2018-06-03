@@ -2,11 +2,13 @@ import React from 'react';
 import classnames from 'classnames';
 import TabsItem from './tabItem';
 import TabsListUnserlineProps from './tabsListUnserline';
-import { getTabItemWidht } from '../util/';
+import { getTabItemSize } from '../util/';
 import { isArray } from '../../_util/typeof';
 
 export interface TabsListProps {
     prefixCls?: string,
+    tabBarUnderlineStyle?: React.CSSProperties
+    tabBarPosition?: string,
     tabs?: Array<tabs>,
     onChange: Function,
     currIndex: number,
@@ -32,40 +34,42 @@ export default class TabsList extends React.PureComponent<TabsListProps> {
         this.props.onChange( key );
     }
 
-    setTabItem ( width: any ): any {
-        const { prefixCls, tabs, currIndex } = this.props;
+    setTabItem ( size: any ): any {
+        const { prefixCls, tabs, currIndex, tabBarPosition } = this.props;
+        const style = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? { width: `${size}%` } : { height: `${size}%` };
         return ( tabs && tabs.map( ( item, key ) => (
             <TabsItem
                 key={`zzc-tabitem-${key}`}
                 itemKey={`zzc-tab-${key}`}
                 className={this.setTabIsActive( prefixCls, currIndex, key )}
                 clickEvent={() => { this.onChange( key ); }}
-                style={{
-                    width: `${width}%`
-                }}
+                style={style}
                 item={item}
             />
         ) ) );
     }
 
-    setPosition ( currIndex: any ): string {
-        return ( currIndex * 100 ).toFixed( 4 );
-    }
-
     setTabList (): JSX.Element | null {
-        const { prefixCls, tabs, currIndex, maxTabLength, animated } = this.props;
+        const { prefixCls, tabs, currIndex, maxTabLength, animated, tabBarPosition, tabBarUnderlineStyle } = this.props;
         if ( isArray( tabs ) ) {
-            const width = getTabItemWidht( maxTabLength );
+            const size = getTabItemSize( maxTabLength );
+            const cls = classnames(
+                `${prefixCls}-ls`,
+                {
+                    [`${prefixCls}-ls-horizontal`]: tabBarPosition == 'top' || tabBarPosition == 'bottom',
+                    [`${prefixCls}-ls-vertical`]: tabBarPosition == 'left' || tabBarPosition == 'right'
+                },
+            );
             return (
-                <div className={`${prefixCls}-ls`}>
-                    {this.setTabItem( width )}
+                <div className={cls}>
+                    {this.setTabItem( size )}
                     <TabsListUnserlineProps
+                        tabBarUnderlineStyle={tabBarUnderlineStyle}    
+                        currIndex={currIndex}
+                        tabBarPosition={tabBarPosition}
                         animated={animated}
                         prefixCls={prefixCls}
-                        style={{
-                            width: `${width}%`,
-                            transform: `translate3d(${this.setPosition( currIndex )}%,0,0)`
-                        }}
+                        size={size}
                     />
                 </div>
             );

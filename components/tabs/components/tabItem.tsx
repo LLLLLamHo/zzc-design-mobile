@@ -21,7 +21,7 @@ export default function TabsItem( props: TabsItemProps ) {
             style={style}
             onClick={() => { clickEvent(); }}
         >
-            {item.title}
+            {React.isValidElement( item ) ? item : item.title}
         </div>
     );
 }

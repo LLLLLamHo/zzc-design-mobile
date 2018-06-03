@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import TabBar from './components/tabBar';
 import TabContent from './components/tabContent';
 import { isFunction, isNull } from '../_util/typeof';
@@ -12,15 +13,20 @@ export interface TabsState {
 export default class Tabs extends React.PureComponent<TabsProps, TabsState> {
     static defaultProps = {
         prefixCls: 'zzc-tabs',
+        className: '',
         style: {},
+        tabBarUnderlineStyle: {},
         tabs: [],
         defaultIndex: 0,
         index: null,
         onChange: () => { },
         maxTabLength: 3,
-        tabDirection: 'horizontal',
+        swipeDirection: 'horizontal',
         animated: true,
-        swipeable: true
+        swipeable: true,
+        isOpenTabBarScroll: true,
+        isOpenTabContentScroll: true,
+        tabBarPosition: 'top'
     }
 
     constructor( props: TabsProps ) {
@@ -61,14 +67,21 @@ export default class Tabs extends React.PureComponent<TabsProps, TabsState> {
     }
 
     render (): JSX.Element {
-        const { prefixCls, style, children } = this.props;
+        const { prefixCls, style, children, tabBarPosition, className } = this.props;
+        const direction = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? 'horizontal' : 'vertical';
+        const cls = classnames(
+            className,
+            `${prefixCls}-box`,
+            `${prefixCls}-box-${tabBarPosition}`
+        );
         return (
             <div
-                className={`${prefixCls}-box`}
+                className={cls}
                 style={style}
             >
                 <TabBar
                     {...this.props}
+                    tabDirection={direction}
                     {...this.state}
                     onChange={this.onChange}
                 />
