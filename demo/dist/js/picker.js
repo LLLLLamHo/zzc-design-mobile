@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "../";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 180);
+/******/ 	return __webpack_require__(__webpack_require__.s = 189);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -9234,7 +9234,16 @@ BScroll.Version = '1.11.1';
 /* 177 */,
 /* 178 */,
 /* 179 */,
-/* 180 */
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9248,7 +9257,7 @@ var _reactDom = __webpack_require__(22);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(181);
+var _App = __webpack_require__(190);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -9257,7 +9266,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
 /***/ }),
-/* 181 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9294,7 +9303,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _zzcDesignMobile = __webpack_require__(106);
 
-__webpack_require__(182);
+__webpack_require__(191);
 
 __webpack_require__(105);
 
@@ -9308,60 +9317,13 @@ var App = function (_Component) {
 
         var _this = (0, _possibleConstructorReturn3.default)(this, (App.__proto__ || (0, _getPrototypeOf2.default)(App)).call(this, props));
 
-        _this.state = {
-            visible: false,
-            visible2: false,
-            visible3: false,
-            visible4: false,
-            visible5: false,
-            visible6: false,
-            visible7: false
-        };
+        _this.state = {};
         return _this;
     }
 
     (0, _createClass3.default)(App, [{
-        key: 'openDefaultDialog',
-        value: function openDefaultDialog() {
-            this.setState({
-                visible: true
-            });
-        }
-    }, {
-        key: 'openDialog',
-        value: function openDialog() {
-            this.setState({
-                visible2: true
-            });
-        }
-    }, {
-        key: 'openNoMaskDialog',
-        value: function openNoMaskDialog() {
-            this.setState({
-                visible5: true
-            });
-        }
-    }, {
-        key: 'openAnDialog',
-        value: function openAnDialog() {
-            this.setState({
-                visible3: true,
-                visible4: true
-            });
-        }
-    }, {
-        key: 'openCustomAnDialog',
-        value: function openCustomAnDialog() {
-            this.setState({
-                visible6: true,
-                visible7: true
-            });
-        }
-    }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
-
             return _react2.default.createElement(
                 'div',
                 { className: 'zzc-demo' },
@@ -9371,192 +9333,36 @@ var App = function (_Component) {
                     _react2.default.createElement(
                         'h1',
                         { className: 'zzc-demo-title' },
-                        'Dialog \u5BF9\u8BDD\u6846'
+                        'Picker \u6EDA\u52A8\u9009\u62E9\u6846'
+                    ),
+                    _react2.default.createElement(
+                        'h2',
+                        null,
+                        '\u63D0\u4F9B\u591A\u7EA7\u8054\u52A8\u6EDA\u52A8\u9009\u62E9'
                     )
                 ),
                 _react2.default.createElement(
                     'div',
-                    { className: 'zzc-demo-body' },
+                    { className: 'zzc-demo-body full' },
                     _react2.default.createElement(
-                        _zzcDesignMobile.Button,
-                        { onClick: function onClick() {
-                                _this2.openDefaultDialog();
-                            } },
-                        '\u9ED8\u8BA4dialog'
-                    ),
-                    this.state.visible && _react2.default.createElement(
-                        _zzcDesignMobile.Dialog,
-                        {
-                            visible: this.state.visible,
-                            maskClose: true,
-                            closeCallback: function closeCallback() {
-                                _this2.setState({ visible: false });
-                            }
-                        },
+                        _zzcDesignMobile.Card,
+                        { full: true },
                         _react2.default.createElement(
-                            'div',
-                            { className: 'modal-text' },
-                            '\u8FD9\u662F\u4E00\u4E2A\u6587\u6848...'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        _zzcDesignMobile.Button,
-                        { onClick: function onClick() {
-                                _this2.openDialog();
-                            } },
-                        '\u5E26title\u548Cfooter\u7684dialog'
-                    ),
-                    this.state.visible2 && _react2.default.createElement(
-                        _zzcDesignMobile.Dialog,
-                        {
-                            title: _react2.default.createElement(
+                            _zzcDesignMobile.Card.Body,
+                            null,
+                            _react2.default.createElement(
                                 'div',
-                                null,
-                                '123123123'
-                            ),
-                            footer: _react2.default.createElement(
-                                'div',
-                                null,
+                                { className: 'card-box2' },
                                 _react2.default.createElement(
-                                    _zzcDesignMobile.Button,
-                                    { onClick: function onClick() {
-                                            _this2.setState({ visible2: false });
-                                        } },
-                                    '\u5173\u95ED'
+                                    'p',
+                                    null,
+                                    '\u6253\u5F00\u65F6\u95F4\u9009\u62E9\u6846'
                                 )
-                            ),
-                            visible: this.state.visible2,
-                            closeCallback: function closeCallback() {
-                                _this2.setState({ visible2: false });
-                            }
-                        },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal-text' },
-                            '...\u8FD9\u662F\u4E00\u4E2A\u6587\u6848...'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        _zzcDesignMobile.Button,
-                        { onClick: function onClick() {
-                                _this2.openNoMaskDialog();
-                            } },
-                        '\u900F\u660E\u80CC\u666F\u7684dialog'
-                    ),
-                    this.state.visible5 && _react2.default.createElement(
-                        _zzcDesignMobile.Dialog,
-                        {
-                            title: _react2.default.createElement(
-                                'div',
-                                null,
-                                '123123123'
-                            ),
-                            className: 'black',
-                            transparent: true,
-                            footer: _react2.default.createElement(
-                                'div',
-                                null,
-                                _react2.default.createElement(
-                                    _zzcDesignMobile.Button,
-                                    { onClick: function onClick() {
-                                            _this2.setState({ visible5: false });
-                                        } },
-                                    '\u5173\u95ED'
-                                )
-                            ),
-                            visible: this.state.visible5,
-                            closeCallback: function closeCallback() {
-                                _this2.setState({ visible5: false });
-                            }
-                        },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal-text' },
-                            '...\u8FD9\u662F\u4E00\u4E2A\u6587\u6848...'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        _zzcDesignMobile.Button,
-                        { onClick: function onClick() {
-                                _this2.openAnDialog();
-                            } },
-                        '\u5E26\u52A8\u753B\u7684dialog'
-                    ),
-                    this.state.visible4 && _react2.default.createElement(
-                        _zzcDesignMobile.Dialog,
-                        {
-                            maskTransitionName: 'zzc-fade',
-                            transitionName: 'zzc-zoom',
-                            maskClose: true,
-                            title: _react2.default.createElement(
-                                'div',
-                                null,
-                                '123123123'
-                            ),
-                            footer: _react2.default.createElement(
-                                'div',
-                                null,
-                                _react2.default.createElement(
-                                    _zzcDesignMobile.Button,
-                                    { onClick: function onClick() {
-                                            _this2.setState({ visible3: false });
-                                        } },
-                                    '\u5173\u95ED'
-                                )
-                            ),
-                            visible: this.state.visible3,
-                            closeCallback: function closeCallback() {
-                                _this2.setState({ visible4: false });
-                            }
-                        },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal-text' },
-                            '...\u8FD9\u662F\u4E00\u4E2A\u6587\u6848...'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        _zzcDesignMobile.Button,
-                        { onClick: function onClick() {
-                                _this2.openCustomAnDialog();
-                            } },
-                        '\u5E26\u81EA\u5B9A\u4E49\u52A8\u753B\u7684dialog'
-                    ),
-                    this.state.visible6 && _react2.default.createElement(
-                        _zzcDesignMobile.Dialog,
-                        {
-                            maskTransitionName: 'zzc-fade',
-                            transitionName: 'custom-an',
-                            className: 'custom-dialog',
-                            maskClose: true,
-                            title: _react2.default.createElement(
-                                'div',
-                                null,
-                                '\u81EA\u5B9A\u4E49\u52A8\u753B'
-                            ),
-                            footer: _react2.default.createElement(
-                                'div',
-                                null,
-                                _react2.default.createElement(
-                                    _zzcDesignMobile.Button,
-                                    { onClick: function onClick() {
-                                            _this2.setState({ visible7: false });
-                                        } },
-                                    '\u5173\u95ED'
-                                )
-                            ),
-                            visible: this.state.visible7,
-                            closeCallback: function closeCallback() {
-                                _this2.setState({ visible6: false });
-                            }
-                        },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal-text' },
-                            '...\u8FD9\u662F\u4E00\u4E2A\u6587\u6848...'
+                            )
                         )
                     )
-                )
+                ),
+                _react2.default.createElement(_zzcDesignMobile.Picker, null)
             );
         }
     }]);
@@ -9566,11 +9372,11 @@ var App = function (_Component) {
 exports.default = App;
 
 /***/ }),
-/* 182 */
+/* 191 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=dialog.js.map
+//# sourceMappingURL=picker.js.map

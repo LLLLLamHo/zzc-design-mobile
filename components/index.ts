@@ -9,3 +9,4 @@ export { default as Alert } from './alert';
 export { default as Modal } from './modal';
 export { default as Popup } from './popup';
 export { default as Tabs } from './tabs';
+export { default as Picker } from './picker';

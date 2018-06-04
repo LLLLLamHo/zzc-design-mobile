@@ -2,14 +2,14 @@ import React from 'react';
 
 export interface TabsPaneProps{
     prefixCls?: string
-    key?: string
+    itemKey?: string
 }
 
 export default class TabsPane extends React.PureComponent<TabsPaneProps> {
     render () {
-        const { prefixCls, children, key } = this.props;
+        const { prefixCls, children, itemKey } = this.props;
         return (
-            <div key={key} className={`${prefixCls}-content-item`}>
+            <div key={itemKey} className={`${prefixCls}-content-item`}>
                 {children}
             </div>
         );

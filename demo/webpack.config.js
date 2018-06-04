@@ -11,7 +11,7 @@ const CWD = process.cwd();
 let dirs = fs.readdirSync( path.join( CWD, './src' ) );
 let entry = {};
 for ( let i = 0; i < dirs.length; i++ ) {
-    entry[dirs[i]] = `./src/${ dirs[i] }/src/index.jsx`;
+    entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
 }
 
 let config = {
@@ -35,7 +35,7 @@ let config = {
         }
     ],
     devServer: {
-        // host: '172.16.201.160',
+        host: '172.16.201.160',
         port: '4321'
     }
 };

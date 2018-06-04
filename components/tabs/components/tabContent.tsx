@@ -30,7 +30,8 @@ export default class TabrContent extends React.PureComponent<TabContentProps> {
                     {children && children instanceof Array && children.map( ( ( item, key ) => (
                         <TabsPane
                             prefixCls={prefixCls}
-                            key={`zzc-tabs-content-item-${key}-${new Date().getTime()}`}
+                            key={`tabspane-${key}-${new Date().getTime()}`}
+                            itemKey={`zzc-tabs-content-item-${key}-${new Date().getTime()}`}
                         >
                             {item}
                         </TabsPane>
@@ -111,6 +112,7 @@ export default class TabrContent extends React.PureComponent<TabContentProps> {
             onPanEnd: () => {
                 // 记录这次滑动的最后offset
                 lastOffset = finalOffset;
+
                 const originCls = this.layout.className;
                 this.layout.className = `${originCls} ${this.props.prefixCls}-content-wrap-am`;
                 if ( this.props.swipeable ) {

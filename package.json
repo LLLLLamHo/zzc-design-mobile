@@ -16,7 +16,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "classnames": "^2.2.5"
+    "better-scroll": "1.11.1",
+    "classnames": "2.2.5"
   },
   "devDependencies": {
     "@types/classnames": "2.2.3",
