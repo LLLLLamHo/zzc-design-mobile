@@ -87,7 +87,7 @@
     "through2": "2.0.3",
     "ts-jest": "22.4.3",
     "typescript": "2.7.2",
-    "typescript-eslint-parser": "14.0.0",
+    "typescript-eslint-parser": "^14.0.0",
     "webpack": "3.10.0"
   }
 }

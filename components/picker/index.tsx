@@ -1,29 +1,56 @@
 import React from 'react';
-
-
 import classnames from 'classnames';
 import PickerWrapper from './components/pickerWrapper';
+import { isFunction } from '../_util/typeof';
 import { PickerProps } from './propsType';
 import './index.scss';
 
 
-export default class Picker extends React.PureComponent<PickerProps> {
+export default class Picker extends React.Component<PickerProps> {
     static defaultProps = {
         prefixCls: 'zzc-picker',
         className: '',
-        style: {}
+        style: {},
+        pickerData: [],
+        scrollData: []
     }
-
     private BScrollList: Array<any> = [];
 
     constructor( props ) {
         super( props );
         this.initBScrollCallback = this.initBScrollCallback.bind( this );
     }
+    shouldComponentUpdate( nextState, nextProps ) {
+        if ( JSON.stringify( nextProps ) != JSON.stringify( this.props ) ) {
+            return true;
+        }
+        return false;
+    }
+
+    componentDidMount() {
+        this.props.renderAfter && isFunction( this.props.renderAfter ) && this.props.renderAfter( this.BScrollList );
+    }
 
     initBScrollCallback ( BScrollObj ) {
         this.BScrollList.push( BScrollObj );
-        console.log( this.BScrollList );
+    }
+
+    renderPickerWrapper(): Array<any> {
+        const { pickerData = [], prefixCls, onTouchEnd, onTouchStart } = this.props;
+        const timestamp = new Date().getTime();
+        const pickerWrapperNodes = pickerData.map( ( item, key ) => (
+            <PickerWrapper
+                key={`${timestamp}-${key}-cm`}
+                wrapperIndex={key}
+                wrapperKey={`${timestamp}-${key}-node`}
+                data={item}
+                prefixCls={prefixCls}
+                initBScrollCallback={this.initBScrollCallback}
+                onTouchStart={onTouchStart}
+                onTouchEnd={onTouchEnd}
+            />
+        ) );
+        return pickerWrapperNodes;
     }
 
     render (): JSX.Element {
@@ -37,18 +64,7 @@ export default class Picker extends React.PureComponent<PickerProps> {
                 className={cls}
                 style={style}
             >
-                <PickerWrapper
-                    prefixCls={prefixCls}
-                    initBScrollCallback={this.initBScrollCallback}
-                />
-                <PickerWrapper
-                    prefixCls={prefixCls}
-                    initBScrollCallback={this.initBScrollCallback}
-                />
-                <PickerWrapper
-                    prefixCls={prefixCls}
-                    initBScrollCallback={this.initBScrollCallback}
-                />
+                {this.renderPickerWrapper()}
             </div>
         );
     }

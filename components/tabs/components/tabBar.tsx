@@ -119,7 +119,7 @@ export default class TabBar extends React.PureComponent<TabBarProps, TabBarState
                 style={this.setWrapStyle( wrapStyle )}
             >
                 <TabsList
-                    tabBarUnderlineStyle={tabBarUnderlineStyle}    
+                    tabBarUnderlineStyle={tabBarUnderlineStyle}
                     tabBarPosition={tabBarPosition}
                     animated={animated}
                     maxTabLength={maxTabLength}

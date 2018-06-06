@@ -1,11 +1,14 @@
 import React from 'react';
 import BScroll from 'better-scroll';
 import ReactDOM from 'react-dom';
+import classnames from 'classnames'
 import { PickerWrapperProps } from '../propsType';
 
 export default class PickerWrapper extends React.PureComponent<PickerWrapperProps> {
     static defaultProps = {
-        prefixCls: 'zzc-picker'
+        prefixCls: 'zzc-picker',
+        wrapperKey: '',
+        data: []
     }
 
     private wrapper: HTMLDivElement | null
@@ -15,27 +18,41 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
 
     constructor( props ) {
         super( props );
-        this.removeActiveItem = this.removeActiveItem.bind( this );
-        this.addActiveItem = this.addActiveItem.bind( this );
+        this.touchEnd = this.touchEnd.bind( this );
+        this.touchStart = this.touchStart.bind( this );
+    }
+
+    componentDidUpdate(): void {
+        if ( this.props.data.selectedIndex ) {
+            this.BScrollObj.wheelTo( this.props.data.selectedIndex );
+        }
     }
 
     componentDidMount (): void {
-        const { prefixCls } = this.props;
+        const { prefixCls, data } = this.props;
         const wrapperNode = this.wrapper ? ReactDOM.findDOMNode( this.wrapper ) : null;
-        this.BScrollObj = new BScroll( wrapperNode, {
-            wheel: {
-                selectedIndex: 0,
-                rotate: 25,
-                adjustTime: 400,
-                wheelWrapperClass: `${prefixCls}-ws`,
-                wheelItemClass: `${prefixCls}-wi`
-            }
-        } );
-        this.BScrollObj.on( 'beforeScrollStart', this.removeActiveItem );
-        this.BScrollObj.on( 'scrollEnd', this.addActiveItem );
-        this.BScrollObj.on( 'scrollCancel', this.addActiveItem );
-        this.addActiveItem();
-        this.props.initBScrollCallback( this.BScrollObj );
+        if ( wrapperNode ) {
+            this.BScrollObj = new BScroll( wrapperNode, {
+                wheel: {
+                    selectedIndex: data.selectIndex ? data.selectIndex : 0,
+                    rotate: 25,
+                    adjustTime: 400,
+                    wheelWrapperClass: `${prefixCls}-ws`,
+                    wheelItemClass: `${prefixCls}-wi`
+                }
+            } );
+            this.BScrollObj.on( 'beforeScrollStart', this.touchStart );
+            this.BScrollObj.on( 'scrollEnd', this.touchEnd );
+            this.BScrollObj.on( 'scrollCancel', this.touchEnd );
+            this.addActiveItem();
+            this.props.initBScrollCallback( this.BScrollObj );
+        }
+    }
+
+    componentWillUnmount():void {
+        this.BScrollObj.off( 'beforeScrollStart', this.touchStart );
+        this.BScrollObj.off( 'scrollEnd', this.touchEnd );
+        this.BScrollObj.off( 'scrollCancel', this.touchEnd );
     }
 
     getWrapper ( div ): void {
@@ -44,6 +61,16 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
 
     getWheelScroll ( div ): void {
         this.wheelScroll = ReactDOM.findDOMNode( div );
+    }
+
+    touchEnd(): void {
+        this.addActiveItem();
+        this.props.onTouchEnd && this.props.onTouchEnd( this.props.wrapperIndex, this.BScrollObj.getSelectedIndex() );
+    }
+
+    touchStart(): void {
+        this.removeActiveItem();
+        this.props.onTouchStart && this.props.onTouchStart( this.props.wrapperIndex );
     }
     
     removeActiveItem (): void {
@@ -57,26 +84,44 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
         this.wheelScroll.children[this.currIndex].className = `${prefixCls}-wi ${prefixCls}-wi-active`;
     }
 
+    renderItem(): Array<any> {
+        const { prefixCls, data } = this.props;
+        const liCls = classnames(
+            data.itemClassName,
+            `${prefixCls}-wi`,
+        );
+        const timestamp = new Date().getTime();
+        const liNodeList = data.listData.map( ( item, key ) => (
+            <li
+                className={liCls}
+                data-key={item.dataKey ? item.dataKey : item.text}
+                key={`${timestamp}-${key}-item`}
+            >
+                {item.text}
+            </li>
+        ) );
+
+        return liNodeList;
+    }
+
     render (): JSX.Element {
-        const { prefixCls } = this.props;
+        const { prefixCls, data, wrapperKey } = this.props;
+        const ulCls = classnames(
+            data.className,
+            `${prefixCls}-ws`,
+        );
 
         return (
-            <div className={`${prefixCls}-wrapper wrapper`} ref={( refs ) => { this.getWrapper( refs ); }}>
-                <ul className={`${prefixCls}-ws`} ref={( refs ) => { this.getWheelScroll( refs ); }}>
-                    <li className={`${prefixCls}-wi`}>1</li>
-                    <li className={`${prefixCls}-wi`}>2</li>
-                    <li className={`${prefixCls}-wi`}>3</li>
-                    <li className={`${prefixCls}-wi`}>4</li>
-                    <li className={`${prefixCls}-wi`}>5</li>
-                    <li className={`${prefixCls}-wi`}>6</li>
-                    <li className={`${prefixCls}-wi`}>7</li>
-                    <li className={`${prefixCls}-wi`}>8</li>
-                    <li className={`${prefixCls}-wi`}>9</li>
-                    <li className={`${prefixCls}-wi`}>10</li>
-                    <li className={`${prefixCls}-wi`}>11</li>
-                    <li className={`${prefixCls}-wi`}>12</li>
-                    <li className={`${prefixCls}-wi`}>13</li>
-                    <li className={`${prefixCls}-wi`}>14</li>
+            <div
+                key={wrapperKey}
+                className={`${prefixCls}-wrapper wrapper`}
+                ref={( refs ) => { this.getWrapper( refs ); }}
+            >
+                <ul
+                    className={ulCls}
+                    ref={( refs ) => { this.getWheelScroll( refs ); }}
+                >
+                    {this.renderItem()}
                 </ul>
             </div>
         );

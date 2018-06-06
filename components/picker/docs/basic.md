@@ -1,4 +1,4 @@
-标签页
+滑动选择框
 
 ## API
 
@@ -7,36 +7,41 @@
 用于让用户在不同的视图中进行切换。
 
 
-## Tabs
+## picker
 
-| 属性                   | 说明                                                            | 类型                 | 默认值       |
-| ---------------------- | --------------------------------------------------------------- | -------------------- | ------------ |
-| prefixCls              | 组件的公用className前序                                         | string               | zzc-tabs     |
-| className              | 为zzc-tabs-box添加额外class    | string               | ''   |
-| style              | 为zzc-tabs-box添加额外style样式    | object               | {}   |
-| tabBarPosition         | tabbar的位置'top'、'bottom'、'left'、'right'                    | string               | 'top'        |
-| tabs                   | 标签页组件的item数据                                            | array               | []           |
-| defaultIndex           | 默认选中的tab下标值                                             | number/string        | 0            |
-| index                  | 指定当前激活的tab（受控）                                      | number/string        | null         |
-| onChange               | 点击tab切换激活的回调事件（当使用受控tab的时候，建议配合使用） | function             |              |
-| maxTabLength           | 最多同时显示多少个tab                                          | number               | 3            |
-| animated               | 切换动画                                                        | boolean              | true         |
-| swipeable              | 内容是否可以滑动切换                                            | boolean              | true         |
-| swipeDirection         | 内容滑动方向                                                    | string（'horizontal' | 'vertical'） | horizontal |
-| isOpenTabBarScroll     | 是否可以tabbar滑动滚动                                          | boolean              | true         |
-| isOpenTabContentScroll | 是否可以内容滑动滚动                                            | boolean              | true         |
-| tabBarUnderlineStyle              | 为下划线添加额外style样式    | object               | {}   |
+| 属性         | 说明                                                             | 类型     | 默认值     |
+| ------------ | ---------------------------------------------------------------- | -------- | ---------- |
+| prefixCls    | 组件的公用className前序                                          | string   | zzc-picker |
+| className    | 为zzc-tabs-box添加额外class                                      | string   | ''         |
+| style        | 为zzc-tabs-box添加额外style样式                                  | object   | {}         |
+| pickerData   | 传入picker组件的数据                                             | Array    | []         |
+| scrollData   | 传入picker组件初始化scroll的参数                                 | object   | {}         |
+| renderAfter  | 渲染完成后的回调函数                                             | Function |            |
+| onTouchStart | 开始滑动事件，会返回当前滑动的滑动框下标                         | Function |            |
+| onTouchEnd   | 滑动结束事件，会返回当前滑动结束后选中的item下标和当前滑动框下标 | Function |            |
 
 
 
-## Tabs主体内容
+## pickerData
 
-需要注意的是，因为主体滑动切换建议主体内容高度保持一致，然后提供滚动展示更多内容。
+有一些固定的参数需要传入，用于初始化滚动项中的信息。
 
-## 注意事项
-如果使用`tabBarPosition=left|right`，必须在父级定义个高度，否则布局会有问题。当`tabBarPosition=left|right`的时候，强制将tabbar的交互方式转为垂直交互。
-当使用垂直布局时，应该尽量避免tabbar的滑动，因为浏览器的滚动无法禁止，会导致奇怪的交互现象，应该尽量使用`maxTabLength`将所有的tabbar显示出来
-当,当时使用垂直布局的时候建议将`isOpenTabBarScroll`和`isOpenTabContentScroll`设置为`false`。
+| 属性          | 说明                    | 类型   | 默认值 |
+| ------------- | ----------------------- | ------ | ------ |
+| className     | scroll父元素的class     | string | ''     |
+| itemClassName | scroll中每个选项的class | string | ''     |
+| defaultIndex  | 默认的选中项            | number | ''     |
+| listData      | list的item信息          | Array  | []     |
+
+## listData
+
+| 属性    | 说明                                   | 类型   | 默认值 |
+| ------- | -------------------------------------- | ------ | ------ |
+| text    | item显示的文案                         | string | ''     |
+| dataKey | item元素中的data-key，不传默认使用text | string | ''     |
+
+
+
 
 
 
