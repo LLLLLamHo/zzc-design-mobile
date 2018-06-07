@@ -29,18 +29,10 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
     }
 
     componentDidMount (): void {
-        const { prefixCls, data } = this.props;
+        const initBScrollConfig = this.resetBScrollConfig();
         const wrapperNode = this.wrapper ? ReactDOM.findDOMNode( this.wrapper ) : null;
         if ( wrapperNode ) {
-            this.BScrollObj = new BScroll( wrapperNode, {
-                wheel: {
-                    selectedIndex: data.selectIndex ? data.selectIndex : 0,
-                    rotate: 25,
-                    adjustTime: 400,
-                    wheelWrapperClass: `${prefixCls}-ws`,
-                    wheelItemClass: `${prefixCls}-wi`
-                }
-            } );
+            this.BScrollObj = new BScroll( wrapperNode, initBScrollConfig );
             this.BScrollObj.on( 'beforeScrollStart', this.touchStart );
             this.BScrollObj.on( 'scrollEnd', this.touchEnd );
             this.BScrollObj.on( 'scrollCancel', this.touchEnd );
@@ -53,6 +45,27 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
         this.BScrollObj.off( 'beforeScrollStart', this.touchStart );
         this.BScrollObj.off( 'scrollEnd', this.touchEnd );
         this.BScrollObj.off( 'scrollCancel', this.touchEnd );
+    }
+
+    resetBScrollConfig(): any {
+        const { prefixCls, data } = this.props;
+        const wheel = {
+            selectedIndex: data.selectIndex ? data.selectIndex : 0,
+            rotate: 25,
+            adjustTime: 400,
+            wheelWrapperClass: `${prefixCls}-ws`,
+            wheelItemClass: `${prefixCls}-wi`
+        };
+        let initBScrollConfig: any = {};
+        if ( data.scrollData ) {
+            initBScrollConfig = data.scrollData;
+            if ( initBScrollConfig.wheel ) {
+                initBScrollConfig.wheel = Object.assign( {}, initBScrollConfig.wheel, wheel );
+            }
+        } else {
+            initBScrollConfig.wheel = wheel;
+        }
+        return initBScrollConfig;
     }
 
     getWrapper ( div ): void {

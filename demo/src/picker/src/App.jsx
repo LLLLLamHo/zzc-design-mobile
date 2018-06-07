@@ -33,7 +33,14 @@ export default class App extends Component {
                             text: '2019',
                             dataKey: '2019222'
                         }
-                    ]
+                    ],
+                    scrollData: {
+                        wheel: {
+                            selectedIndex: 2,
+                            rotate: 25,
+                            adjustTime: 33333
+                        }
+                    }
                 },
                 {
                     className: 'month-list',
@@ -116,23 +123,16 @@ export default class App extends Component {
             <div className='zzc-demo'>
                 <div className='zzc-demo-header'>
                     <h1 className='zzc-demo-title'>Picker 滚动选择框</h1>
-                    <h2>提供多级联动滚动选择</h2>
+                    <h2>基本的滑动交互的功能组件，作为底层组件使用，如果要使用日期滑动选择组件，请使用DatePicker。</h2>
                 </div>
                 <div className='zzc-demo-body full'>
-                    <Card full>
-                        <Card.Body>
-                            <div className='card-box2'>
-                                <p>打开时间选择框</p>
-                            </div>
-                        </Card.Body>
-                    </Card>
+                    <Picker
+                        onTouchEnd={( scrollIndex, itemIndex ) => {this.touchEnd( scrollIndex, itemIndex );}}
+                        onTouchStart={( scrollIndex ) => { this.touchStart( scrollIndex );}}
+                        pickerData={this.state.data1}
+                        renderAfter={this.renderAfter}
+                    />
                 </div>
-                <Picker
-                    onTouchEnd={( scrollIndex, itemIndex ) => {this.touchEnd( scrollIndex, itemIndex );}}
-                    onTouchStart={( scrollIndex ) => {this.touchStart( scrollIndex );}}
-                    pickerData={this.state.data1}
-                    renderAfter={this.renderAfter}
-                />
             </div>
         );
     }

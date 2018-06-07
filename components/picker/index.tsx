@@ -11,8 +11,7 @@ export default class Picker extends React.Component<PickerProps> {
         prefixCls: 'zzc-picker',
         className: '',
         style: {},
-        pickerData: [],
-        scrollData: []
+        pickerData: []
     }
     private BScrollList: Array<any> = [];
 

@@ -3,7 +3,6 @@ export interface PickerProps {
     className?: string
     style?: React.CSSProperties
     pickerData?: Array<PickerData>
-    scrollData?: any
     renderAfter?: Function
     onTouchEnd?: Function
     onTouchStart?: Function
@@ -24,6 +23,7 @@ export declare type PickerData = {
     itemClassName?: string
     selectIndex?: number
     listData?: Array<ListData>
+    scrollData?: Object
 };
 
 export declare type ListData = {
