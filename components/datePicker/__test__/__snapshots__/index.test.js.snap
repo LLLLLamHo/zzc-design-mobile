@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal 1`] = `
+<div
+  class="zzc-picker"
+>
+  <div
+    class="zzc-picker-wrapper wrapper"
+  >
+    <ul
+      class="year-list zzc-picker-ws"
+    >
+      <li
+        class="year-item zzc-picker-wi"
+        data-key="2015222"
+      >
+        2015
+      </li>
+      <li
+        class="year-item zzc-picker-wi"
+        data-key="2016222"
+      >
+        2016
+      </li>
+      <li
+        class="year-item zzc-picker-wi"
+        data-key="2017222"
+      >
+        2017
+      </li>
+      <li
+        class="year-item zzc-picker-wi"
+        data-key="2018222"
+      >
+        2018
+      </li>
+      <li
+        class="year-item zzc-picker-wi"
+        data-key="2019222"
+      >
+        2019
+      </li>
+    </ul>
+  </div>
+  <div
+    class="zzc-picker-wrapper wrapper"
+  >
+    <ul
+      class="month-list zzc-picker-ws"
+    >
+      <li
+        class="month-item zzc-picker-wi"
+        data-key="0"
+      >
+        1月
+      </li>
+      <li
+        class="month-item zzc-picker-wi"
+        data-key="1"
+      >
+        2月
+      </li>
+      <li
+        class="month-item zzc-picker-wi"
+        data-key="2"
+      >
+        3月
+      </li>
+      <li
+        class="month-item zzc-picker-wi"
+        data-key="3"
+      >
+        4月
+      </li>
+      <li
+        class="month-item zzc-picker-wi"
+        data-key="4"
+      >
+        5月
+      </li>
+      <li
+        class="month-item zzc-picker-wi"
+        data-key="5"
+      >
+        6月
+      </li>
+      <li
+        class="month-item zzc-picker-wi"
+        data-key="6"
+      >
+        7月
+      </li>
+    </ul>
+  </div>
+  <div
+    class="zzc-picker-wrapper wrapper"
+  >
+    <ul
+      class="data-list zzc-picker-ws"
+    >
+      <li
+        class="data-item zzc-picker-wi"
+        data-key="1日"
+      >
+        1日
+      </li>
+      <li
+        class="data-item zzc-picker-wi"
+        data-key="2日"
+      >
+        2日
+      </li>
+      <li
+        class="data-item zzc-picker-wi"
+        data-key="3日"
+      >
+        3日
+      </li>
+      <li
+        class="data-item zzc-picker-wi"
+        data-key="4日"
+      >
+        4日
+      </li>
+      <li
+        class="data-item zzc-picker-wi"
+        data-key="5日"
+      >
+        5日
+      </li>
+      <li
+        class="data-item zzc-picker-wi"
+        data-key="6日"
+      >
+        6日
+      </li>
+      <li
+        class="data-item zzc-picker-wi"
+        data-key="7日"
+      >
+        7日
+      </li>
+    </ul>
+  </div>
+</div>
+`;

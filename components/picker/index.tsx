@@ -38,7 +38,7 @@ export default class Picker extends React.Component<PickerProps> {
         const { pickerData = [], prefixCls, onTouchEnd, onTouchStart } = this.props;
         const timestamp = new Date().getTime();
         const pickerWrapperNodes = pickerData.map( ( item, key ) => (
-            <PickerWrapper
+            item ? <PickerWrapper
                 key={`${timestamp}-${key}-cm`}
                 wrapperIndex={key}
                 wrapperKey={`${timestamp}-${key}-node`}
@@ -47,7 +47,7 @@ export default class Picker extends React.Component<PickerProps> {
                 initBScrollCallback={this.initBScrollCallback}
                 onTouchStart={onTouchStart}
                 onTouchEnd={onTouchEnd}
-            />
+            /> : null
         ) );
         return pickerWrapperNodes;
     }

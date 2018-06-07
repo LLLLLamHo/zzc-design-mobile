@@ -21,6 +21,7 @@ const eslintrc = {
         "no-bitwise": 0,
         "eqeqeq": 0,
         "no-undef": 0,
+        "no-plusplus": 0,
         //default
         "jsx-quotes": [2, "prefer-single"],
         "object-shorthand" : [2, "always", { "avoidQuotes": true }],
