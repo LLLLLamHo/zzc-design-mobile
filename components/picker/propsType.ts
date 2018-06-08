@@ -13,6 +13,7 @@ export interface PickerWrapperProps {
     wrapperIndex?: number
     initBScrollCallback: Function
     wrapperKey?: string
+    type?: string
     data?: any
     onTouchEnd?: Function
     onTouchStart?: Function
@@ -24,6 +25,7 @@ export declare type PickerData = {
     selectIndex?: number
     listData?: Array<ListData>
     scrollData?: Object
+    scrollType?: string
 };
 
 export declare type ListData = {

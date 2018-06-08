@@ -10,7 +10,7 @@ $cls: '.zzc-tabs';
         &-top {
             flex-direction: column;
             #{$cls}-bar-box {
-                @include halfPXLine('bottom', #E8E8E8);
+                @include halfPXLine('bottom', $border_color);
                 &::after {
                     z-index: 9;
                 }
@@ -19,7 +19,7 @@ $cls: '.zzc-tabs';
         &-bottom {
             flex-direction: column-reverse;
             #{$cls}-bar-box {
-                @include halfPXLine('top', #E8E8E8);
+                @include halfPXLine('top', $border_color);
                 &::after {
                     z-index: 9;
                 }
@@ -29,7 +29,7 @@ $cls: '.zzc-tabs';
             flex-direction: row;
             height: 100%;
             #{$cls}-bar-box {
-                @include halfPXLine('right', #E8E8E8);
+                @include halfPXLine('right', $border_color);
                 &::after {
                     z-index: 9;
                 }
@@ -39,7 +39,7 @@ $cls: '.zzc-tabs';
             height: 100%;
             flex-direction: row-reverse;
             #{$cls}-bar-box {
-                @include halfPXLine('left', #E8E8E8);
+                @include halfPXLine('left', $border_color);
                 &::after {
                     z-index: 9;
                 }

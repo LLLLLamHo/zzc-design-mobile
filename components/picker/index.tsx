@@ -13,7 +13,7 @@ export default class Picker extends React.Component<PickerProps> {
         style: {},
         pickerData: []
     }
-    private BScrollList: Array<any> = [];
+    private BScrollList: object = {};
 
     constructor( props ) {
         super( props );
@@ -30,8 +30,8 @@ export default class Picker extends React.Component<PickerProps> {
         this.props.renderAfter && isFunction( this.props.renderAfter ) && this.props.renderAfter( this.BScrollList );
     }
 
-    initBScrollCallback ( BScrollObj ) {
-        this.BScrollList.push( BScrollObj );
+    initBScrollCallback ( key, BScrollObj ) {
+        this.BScrollList[key] = BScrollObj;
     }
 
     renderPickerWrapper(): Array<any> {

@@ -15,7 +15,7 @@
 | className    | 为zzc-tabs-box添加额外class                                      | string   | ''         |
 | style        | 为zzc-tabs-box添加额外style样式                                  | object   | {}         |
 | pickerData   | 传入picker组件的数据                                             | Array    | []         |
-| renderAfter  | 渲染完成后的回调函数                                             | Function |            |
+| renderAfter  | 渲染完成后的回调函数(返回滑动列表)                                             | Function |            |
 | onTouchStart | 开始滑动事件，会返回当前滑动的滑动框下标                         | Function |            |
 | onTouchEnd   | 滑动结束事件，会返回当前滑动结束后选中的item下标和当前滑动框下标 | Function |            |
 
@@ -31,6 +31,7 @@
 | itemClassName | scroll中每个选项的class          | string | ''     |
 | defaultIndex  | 默认的选中项                     | number | ''     |
 | listData      | list的item信息                   | Array  | []     |
+| scrollType      | scroll的类型标识                   | string  | ''     |
 | scrollData    | 传入picker组件初始化scroll的参数,[详情查看]("https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/api.html#offtype-fn") | object | {}     |
 
 ## listData

@@ -7,6 +7,7 @@ export default class App extends Component {
     constructor( props ) {
         super( props );
         this.state = {
+            text: new Date().getTime(),
             visible: false,
             visible2: false,
             visible3: false,
@@ -50,6 +51,12 @@ export default class App extends Component {
         } );
     }
 
+    clickEvent() {
+        this.setState({
+            text: new Date().getTime()
+        });
+    }
+
     render() {
         return (
             <div className='zzc-demo'>
@@ -88,8 +95,8 @@ export default class App extends Component {
                             </Card.Header>
                             <div className='card1-contnt'>
                                 <Card.Body borderDirection='left'>
-                                    <div className='card-box2'>
-                                        <p>左边留空</p>
+                                    <div className='card-box2' onClick={this.clickEvent.bind(this)}>
+                                        <p>{this.state.text}</p>
                                         <Icon size='sm' type='success' />
                                     </div>
                                 </Card.Body>

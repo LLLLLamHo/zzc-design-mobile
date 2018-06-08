@@ -18,6 +18,7 @@ const eslintrc = {
         'typescript'
     ],
     rules: {
+        "default-case": 0,
         "no-bitwise": 0,
         "eqeqeq": 0,
         "no-undef": 0,

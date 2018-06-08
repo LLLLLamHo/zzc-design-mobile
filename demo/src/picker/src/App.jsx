@@ -11,6 +11,7 @@ export default class App extends Component {
                 {
                     className: 'year-list',
                     itemClassName: 'year-item',
+                    scrollType: 'year',
                     selectIndex: 2,
                     listData: [
                         {
@@ -45,6 +46,7 @@ export default class App extends Component {
                 {
                     className: 'month-list',
                     itemClassName: 'month-item',
+                    scrollType: 'month',
                     selectIndex: 2,
                     listData: [
                         {
@@ -80,6 +82,7 @@ export default class App extends Component {
                 {
                     className: 'data-list',
                     itemClassName: 'data-item',
+                    scrollType: 'day',
                     listData: [{
                         text: '1日'
                     },

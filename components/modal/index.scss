@@ -19,7 +19,7 @@ $cls: '.zzc-modal';
         height: 1rem;
         color:#333333;
         font-size: .32rem;
-        @include halfPXLine('bottom', #DDE0E6);
+        @include halfPXLine('bottom', $border_color);
         @include flex();        
     }
 
@@ -36,14 +36,14 @@ $cls: '.zzc-modal';
         width: 100%;
         overflow: hidden;
         height: 1rem;
-        @include halfPXLine('top', #DDE0E6);
+        @include halfPXLine('top', $border_color);
         display: flex;
         align-items: center;
         justify-content: center;
         #{$cls}-btn {
             flex: 1;
             &:not(:first-child) {
-                @include halfPXLine('left', #DDE0E6);
+                @include halfPXLine('left', $border_color);
             }
         }
     }

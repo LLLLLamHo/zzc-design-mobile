@@ -17,6 +17,7 @@ export interface ModalProps {
     maskClose?: boolean,
     closeCallback?: Function,
     style?: React.CSSProperties,
+    bodyStyle?: React.CSSProperties,
     maskStyle?: React.CSSProperties,
     title?: JSX.Element,
     footer?: JSX.Element,
@@ -104,7 +105,7 @@ export default class Dialog extends PureComponent<ModalProps, any> {
 
     // dialog主题是否加入动画
     createDialogBody (): JSX.Element | any {
-        const { prefixCls, visible, transparent, boxClassName, style, transitionName, maskTransitionName, children, title, footer, closeCallback } = this.props;
+        const { prefixCls, visible, bodyStyle, transparent, boxClassName, transitionName, maskTransitionName, children, title, footer, closeCallback } = this.props;
         const newBoxClassName: string = classNames(
             `${prefixCls}-box`,
             boxClassName
@@ -120,7 +121,7 @@ export default class Dialog extends PureComponent<ModalProps, any> {
                         type === 'enter' && this.addMarkCloseEvent();
                     }}
                 >
-                    <div style={style} ref={( ref ) => { this.box = ref; }} className={newBoxClassName}>
+                    <div style={bodyStyle} ref={( ref ) => { this.box = ref; }} className={newBoxClassName}>
                         {title && title}
                         {children}
                         {footer && footer}
@@ -129,7 +130,7 @@ export default class Dialog extends PureComponent<ModalProps, any> {
             );
         }
         return (
-            <div style={style} ref={( ref ) => { this.box = ref; }} className={newBoxClassName}>
+            <div style={bodyStyle} ref={( ref ) => { this.box = ref; }} className={newBoxClassName}>
                 {title && title}
                 {children}
                 {footer && footer}
@@ -138,9 +139,9 @@ export default class Dialog extends PureComponent<ModalProps, any> {
     }
 
     render(): JSX.Element {
-        const { prefixCls, className } = this.props;
+        const { prefixCls, className, style } = this.props;
         return (
-            <div className={classNames( `${prefixCls}`, className )}>
+            <div style={style} className={classNames( `${prefixCls}`, className )}>
                 {this.createDialogMask()}
                 {this.createDialogBody()}
             </div>

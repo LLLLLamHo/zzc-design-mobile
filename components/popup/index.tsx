@@ -31,7 +31,7 @@ export default class Popup extends React.PureComponent<PopupProps> {
         animationTypeList: animateConfig
     }
 
-    componentWillReceiveProps (nextProps) {
+    componentWillReceiveProps ( nextProps ) {
         if ( nextProps.visible ) {
             this.setState( {
                 showPopup: true

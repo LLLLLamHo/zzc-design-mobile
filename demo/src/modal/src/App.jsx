@@ -17,7 +17,8 @@ export default class App extends Component {
             visible4: false,
             visible5: false,
             visible6: false,
-            title: '带标题区的 Modal'
+            title: '带标题区的 Modal',
+            text: new Date().getTime()
         };
     }
 
@@ -54,6 +55,12 @@ export default class App extends Component {
         } );
     }
 
+    modalClick() {
+        this.setState({
+            text: new Date().getTime()
+        });
+    }
+
     render() {
         return (
             <div className="zzc-demo">
@@ -68,7 +75,7 @@ export default class App extends Component {
                         visible={this.state.visible}
                         closeCallback={() => { this.setState( { visible: false } ); }}
                     >
-                        <div className="modal-text">这是一个文案...</div>
+                        <div className="modal-text" onClick={() => { this.modalClick(); }}>{this.state.text}</div>
                     </Modal>
                     <Button onClick={this.openCustomModal.bind( this )}>自定义按钮Modal</Button>
                     <Modal

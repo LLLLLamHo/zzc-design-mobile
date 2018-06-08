@@ -1,2 +1,9 @@
-export { default as cn } from './zh-CN';
-export { default as hk } from './zh-HK';
+import cn from './zh-CN';
+import hk from './zh-HK';
+import en from './zh-EN';
+
+export default {
+    cn,
+    hk,
+    en
+};

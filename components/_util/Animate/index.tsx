@@ -18,6 +18,8 @@ export default class Animate extends React.PureComponent<AnimateProps> {
         onEnd: () => { }
     }
 
+    private animateStatus: any = null;
+
     componentDidMount (): void {
         this.addAnimationEvent();
         this.runHookEvent( true );
@@ -29,9 +31,9 @@ export default class Animate extends React.PureComponent<AnimateProps> {
 
     // 执行触发钩子事件
     runHookEvent ( isFirst: boolean ): void {
-        if ( this.props.visible ) {
+        if ( ( isFirst && this.props.visible ) || ( !isFirst && this.props.visible && this.animateStatus == 'leave' ) ) {
             this.enterEvent();
-        } else if ( !isFirst ) {
+        } else if ( !isFirst && !this.props.visible && this.animateStatus == 'enter' ) {
             this.leaveEvent();
         }
     }
@@ -56,6 +58,7 @@ export default class Animate extends React.PureComponent<AnimateProps> {
             } else {
                 addClass( node, animationName );
             }
+            this.animateStatus = 'enter';
         }
     }
 
@@ -71,6 +74,7 @@ export default class Animate extends React.PureComponent<AnimateProps> {
             } else {
                 removeClass( node, animationName );
             }
+            this.animateStatus = 'leave';
         }
     }
 
@@ -79,22 +83,24 @@ export default class Animate extends React.PureComponent<AnimateProps> {
         event.stopPropagation();
         const { animationName }: any = this.props;
         const { enter, enterActive } = animationName;
-        const node = ReactDOM.findDOMNode( this );
-        if ( isDOM( node ) ) {
-            let animationType = 'enter';
-            // 当传入object会清楚enter钩子，如果只是传入一个字符串，会保留class直至关闭才去掉class
-            if ( isObject( animationName ) ) {
-                if ( hasClass( node, enter ) ) {
-                    removeClass( node, enter );
-                    removeClass( node, enterActive );
-                } else {
+        try {
+            const node = ReactDOM.findDOMNode( this );
+            if ( isDOM( node ) ) {
+                let animationType = 'enter';
+                // 当传入object会清楚enter钩子，如果只是传入一个字符串，会保留class直至关闭才去掉class
+                if ( isObject( animationName ) ) {
+                    if ( hasClass( node, enter ) ) {
+                        removeClass( node, enter );
+                        removeClass( node, enterActive );
+                    } else {
+                        animationType = 'leave';
+                    }
+                } else if ( hasClass( node, animationName ) && !!this.props.visible ) {
                     animationType = 'leave';
                 }
-            } else if ( hasClass( node, animationName ) && !!this.props.visible ) {
-                animationType = 'leave';
+                this.props.onEnd && this.props.onEnd( animationType );
             }
-            this.props.onEnd && this.props.onEnd( animationType );
-        }
+        } catch ( err ){}
     }
 
     render (): any {

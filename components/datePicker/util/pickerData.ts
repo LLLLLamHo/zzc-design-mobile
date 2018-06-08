@@ -6,6 +6,7 @@ export function setYearListData( minYear, maxYear, currYear, langData ): ListIte
     const yearListData: ListItem = {
         className: 'year-list',
         itemClassName: 'year-item',
+        scrollType: 'year',
         selectIndex: 0,
         listData: []
     };
@@ -27,6 +28,7 @@ export function setMonthListData ( currMonth, langData ): ListItem {
     const monthListData: ListItem = {
         className: 'month-list',
         itemClassName: 'month-item',
+        scrollType: 'month',
         selectIndex: currMonth - 1,
         listData: []
     };
@@ -46,6 +48,7 @@ export function setDayListData ( currDateData, langData ): ListItem {
     const dayListData: ListItem = {
         className: 'day-list',
         itemClassName: 'day-item',
+        scrollType: 'day',
         selectIndex: day - 1,
         listData: []
     };
@@ -64,44 +67,71 @@ export function setDayListData ( currDateData, langData ): ListItem {
     return dayListData;
 }
 
-export function setHoursListData ( currDateData, langData ): ListItem {
+export function setHoursListData ( currDateData, use12hour, langData ): ListItem {
     const { hour } = currDateData;
-    const dayListData: ListItem = {
+    const hourListData: ListItem = {
         className: 'hour-list',
         itemClassName: 'hour-item',
-        selectIndex: hour,
+        scrollType: 'hour',
+        selectIndex: use12hour && hour > 12 ? hour - 12 : hour,
         listData: []
     };
 
+    const step = use12hour ? 12 : 24;
     let hourText: number = 0;
-    for ( let i = 0; i < 24; i++ ) {
-        dayListData.listData.push( {
+    for ( let i = 0; i < step; i++ ) {
+        hourListData.listData.push( {
             text: `${hourText}${langData.hour}`,
             dataKey: hourText
         } );
         hourText++;
     }
 
-    return dayListData;
+    return hourListData;
 }
 
-export function setMinuteListData ( currDateData, langData ): ListItem {
+export function setMinuteListData ( currDateData, minuteStep, langData ): ListItem {
     const { minute } = currDateData;
-    const dayListData: ListItem = {
+    const minuteListData: ListItem = {
         className: 'minute-list',
         itemClassName: 'minute-item',
+        scrollType: 'minute',
         selectIndex: minute,
         listData: []
     };
 
+    const step = 60 / minuteStep;
     let minuteText: number = 0;
-    for ( let i = 0; i < 60; i++ ) {
-        dayListData.listData.push( {
+    for ( let i = 0; i < step; i++ ) {
+        if ( minuteText == minute ) {
+            minuteListData.selectIndex = i;
+        }
+        minuteListData.listData.push( {
             text: `${minuteText}${langData.minutes}`,
             dataKey: minuteText
         } );
-        minuteText++;
+        minuteText += minuteStep;
     }
+    return minuteListData;
+}
 
-    return dayListData;
+export function setHour12ListData( hour, langData ): ListItem {
+    const hour12ListData: ListItem = {
+        className: 'minute-list',
+        itemClassName: 'minute-item',
+        scrollType: 'hour12',
+        selectIndex: hour < 12 ? 0 : 1,
+        listData: [
+            {
+                text: langData.am,
+                dataKey: 'am'
+            },
+            {
+                text: langData.pm,
+                dataKey: 'pm'
+            }
+        ]
+    };
+
+    return hour12ListData;
 }

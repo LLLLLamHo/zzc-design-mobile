@@ -29,6 +29,7 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
     }
 
     componentDidMount (): void {
+        const { scrollType = new Date().getTime() } = this.props.data;
         const initBScrollConfig = this.resetBScrollConfig();
         const wrapperNode = this.wrapper ? ReactDOM.findDOMNode( this.wrapper ) : null;
         if ( wrapperNode ) {
@@ -37,7 +38,7 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
             this.BScrollObj.on( 'scrollEnd', this.touchEnd );
             this.BScrollObj.on( 'scrollCancel', this.touchEnd );
             this.addActiveItem();
-            this.props.initBScrollCallback( this.BScrollObj );
+            this.props.initBScrollCallback( scrollType, this.BScrollObj );
         }
     }
 
@@ -123,7 +124,6 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
             data.className,
             `${prefixCls}-ws`,
         );
-
         return (
             <div
                 key={wrapperKey}
@@ -136,6 +136,7 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
                 >
                     {this.renderItem()}
                 </ul>
+                <div className={`${prefixCls}-wrapper-bg`} />
             </div>
         );
     }
