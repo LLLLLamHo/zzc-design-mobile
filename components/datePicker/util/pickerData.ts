@@ -54,16 +54,17 @@ export function setDayListData ( currDateData, langData ): ListItem {
     };
 
     const curDate = new Date( `${year}-${month}-${day}` );
-    const dayCount = new Date( new Date( curDate.setMonth( month ) ).setDate( 0 ) ).getDate();
+
+    const calcDate = new Date( curDate.setDate( 1 ) );
+    const dayCount = new Date( new Date( calcDate.setMonth( month ) ).setDate( 0 ) ).getDate();
     let dayText: number = 1;
-    for ( let i = 0; i <= dayCount; i++ ) {
+    for ( let i = 0; i < dayCount; i++ ) {
         dayListData.listData.push( {
             text: `${dayText}${langData.day}`,
             dataKey: dayText
         } );
         dayText++;
     }
-
     return dayListData;
 }
 

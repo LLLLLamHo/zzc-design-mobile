@@ -78,8 +78,9 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
     }
 
     touchEnd(): void {
+        const { wrapperIndex, scrollType } = this.props.data;
         this.addActiveItem();
-        this.props.onTouchEnd && this.props.onTouchEnd( this.props.wrapperIndex, this.BScrollObj.getSelectedIndex() );
+        this.props.onTouchEnd && this.props.onTouchEnd( scrollType ? scrollType : wrapperIndex, this.BScrollObj.getSelectedIndex() );
     }
 
     touchStart(): void {

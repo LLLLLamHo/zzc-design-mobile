@@ -5,6 +5,7 @@ import { createDateListData, createDateTimeListData, createTimeListData, createY
 import { getModeDateData, getModeTimeData, getModeDateTimeData, getModeYearData, getModeMonthData } from './util/getScrollData';
 import Picker from '../picker';
 import Popup from '../Popup';
+import { getLastDate } from './util/date';
 import { isFunction } from '../_util/typeof';
 import { DatePickerProps, DatePickerState, ListItem, DateData, BScrollArray } from './propsType';
 import './index.scss';
@@ -29,20 +30,20 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
 
     constructor( props ) {
         super( props );
-        this.initDate();
+        this.initDate( null );
         this.touchEnd = this.touchEnd.bind( this );
         this.renderAfter = this.renderAfter.bind( this );
         this.close = this.close.bind( this );
         this.submit = this.submit.bind( this );
     }
 
-    initDate() {
+    initDate( time ) {
         const { minDate, maxDate, selectTime, lang, mode, minuteStep, use12hour } = this.props;
+        const calcTime = time ? time : selectTime;
         const langData = langTextObject[lang];
         const calcMinDate = initMinDate( minDate );
         const calcMaxDate = initMaxDate( maxDate );
-        const calcCurrDate = initSelectDate( selectTime, calcMinDate );
-
+        const calcCurrDate = initSelectDate( calcTime, calcMinDate );
         const listData: {
         yearList: null | ListItem
         monthList: null | ListItem
@@ -74,6 +75,7 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         }
 
         this.state = Object.assign( {}, listData, { langData } );
+        time && this.setState( this.state );
     }
 
     renderAfter( BScrollList ): void {
@@ -82,6 +84,19 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
 
     touchEnd( scrollKey ): void {
         const { onValueChange } = this.props;
+        // 上一次选择的月份的日期在当前选中的月份的日期没有的时候，选中最后一个日期
+        const currDateData = this.getCurrDate( scrollKey ).currDate.split( '-' );
+        const currYear = parseInt( currDateData[0] );
+        const currMonth = parseInt( currDateData[1] );
+        const currDay = parseInt( currDateData[2] );
+        const currDateLastDay = getLastDate( currYear, currMonth );
+        let currDate;
+        if ( currDay > currDateLastDay ) {
+            currDate = new Date( `${currDateData[0]}-${currDateData[1]}-${currDateLastDay}` );
+        } else {
+            currDate = new Date( this.getCurrDate( scrollKey ).currDate );
+        }
+        this.initDate( currDate );
         if ( onValueChange && isFunction( onValueChange ) ) {
             onValueChange( this.getCurrDate( scrollKey ) );
         }

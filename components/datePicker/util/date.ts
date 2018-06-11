@@ -73,3 +73,7 @@ export function resolveDate( dateString ): DateData {
         minute: time[1]
     };
 }
+
+export function getLastDate( year, month ): number {
+    return new Date( new Date( `${year}-${month + 1}-1` ).setDate( 0 ) ).getDate();
+}

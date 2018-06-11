@@ -17,7 +17,7 @@
 | pickerData   | 传入picker组件的数据                                             | Array    | []         |
 | renderAfter  | 渲染完成后的回调函数(返回滑动列表)                                             | Function |            |
 | onTouchStart | 开始滑动事件，会返回当前滑动的滑动框下标                         | Function |            |
-| onTouchEnd   | 滑动结束事件，会返回当前滑动结束后选中的item下标和当前滑动框下标 | Function |            |
+| onTouchEnd   | 滑动结束事件，会返回当前滑动结束后触发事件的BScroll的标识（如果没有标识则返回下标）和当前选中的滑动框中的item的下标 | Function |            |
 
 
 

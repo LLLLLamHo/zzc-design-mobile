@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Animate from '../_util/Animate';
 import { addClass } from '../_util/class';
 import animateConfig from '../_util/animateConfig';
+import { isFunction } from '../_util/typeof';
 import './index.scss';
 
 export interface ModalProps {
@@ -48,18 +49,29 @@ export default class Dialog extends PureComponent<ModalProps, any> {
     box
     mask
 
+    componentDidMount() {
+        // 当没有动画效果的时候，创建完毕后需要为mask添加点击关闭事件
+        !this.props.transparent && this.props.maskClose && this.addMarkCloseEvent();
+    }
+
+    componentDidUpdate() {
+        !this.props.transparent && this.props.maskClose && !isFunction( this.mask.onclick ) && this.addMarkCloseEvent();
+    }
+
     // mask关闭事件
     addMarkCloseEvent (): void {
         const _this = this;
         const { closeCallback } = this.props;
-        if ( !this.props.transparent && this.props.maskClose && this.mask ) {
+        if ( this.mask ) {
             const maskAnimation = _this.getAnimationClass( _this.props.maskTransitionName );
             const bodyAnimation = _this.getAnimationClass( _this.props.transitionName );
             this.mask.onclick = function () {
-                // 当没有配置动画点击mask关闭dialog，直接调用
-                if ( maskAnimation ) {
+                if ( bodyAnimation ) {
                     addClass( _this.box, bodyAnimation.leave );
                     addClass( _this.box, bodyAnimation.leaveActive );
+                }
+                // 当没有配置动画点击mask关闭dialog，直接调用
+                if ( maskAnimation ) {
                     addClass( _this.mask, maskAnimation.leave );
                     addClass( _this.mask, maskAnimation.leaveActive );
                 } else {
@@ -118,7 +130,6 @@ export default class Dialog extends PureComponent<ModalProps, any> {
                     onEnd={( type ) => {
                         // 当选择不创建mask或者mask不使用动画的时候，body动画结束触发closeCallback
                         type === 'leave' && ( transparent || maskTransitionName === '' ) && closeCallback && closeCallback();
-                        type === 'enter' && this.addMarkCloseEvent();
                     }}
                 >
                     <div style={bodyStyle} ref={( ref ) => { this.box = ref; }} className={newBoxClassName}>

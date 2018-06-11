@@ -3,7 +3,6 @@ import { DatePickerState, BScrollArray } from '../propsType';
 export function getModeDateData( BScrollList: BScrollArray, state: DatePickerState ): string {
     const { year: yearBS, month: monthBS, day: dayBS } = BScrollList;
     const { yearList, monthList, dayList } = state;
-
     const year = yearList.listData[yearBS.getSelectedIndex()].dataKey;
     const month = monthList.listData[monthBS.getSelectedIndex()].dataKey;
     const day = dayList.listData[dayBS.getSelectedIndex()].dataKey;

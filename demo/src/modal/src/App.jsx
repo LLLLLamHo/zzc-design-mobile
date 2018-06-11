@@ -71,7 +71,7 @@ export default class App extends Component {
                     <Button onClick={this.openDefaultModal.bind( this )}>默认按钮Modal</Button>
                     <Modal
                         title={this.state.title}
-                        closable={true}
+                        closable
                         visible={this.state.visible}
                         closeCallback={() => { this.setState( { visible: false } ); }}
                     >
@@ -133,8 +133,8 @@ export default class App extends Component {
                     <Modal
                         title={this.state.title}
                         visible={this.state.visible4}
-                        maskClose={true}
-                        closable={true}
+                        maskClose
+                        closable
                         closeCallback={() => { this.setState( { visible4: false } ); }}
                     >
                         <div className="modal-text">这是一个文案...</div>
