@@ -1,0 +1,21 @@
+{
+  "name": "page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "./node_modules/.bin/guido build",
+    "watch": "./node_modules/.bin/guido watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "github-markdown-css": "^2.10.0",
+    "guido": "^3.7.4",
+    "html-loader": "^0.5.5",
+    "markdown-loader": "^3.0.0",
+    "marked": "^0.4.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  }
+}
