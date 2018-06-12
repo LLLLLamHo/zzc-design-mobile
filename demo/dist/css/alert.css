@@ -234,6 +234,8 @@ button {
     height: 100%;
     width: 100%;
     position: absolute;
+    top: 0;
+    left: 0;
     z-index: 999; }
   .zzc-dialog .zzc-dialog-box {
     position: absolute;
@@ -1047,6 +1049,7 @@ button {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1001;
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -1641,6 +1644,7 @@ button {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1001;
   height: 100%;
   width: 100%;
   display: -webkit-box;

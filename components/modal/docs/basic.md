@@ -23,6 +23,7 @@
 | maskStyle          | 遮罩层样式                    | object   | {}        |
 | visible            | 控制Modal是否显示             | boolean  | false     |
 | transparent        | 是否不创建mask                | boolean  | false     |
+| lang     | 语言版本                                                            | string('cn'、'hk'、'en')    |     cn    |
 ## 如何定义动画？
 我们要提供4个钩子，传入的动画名字应该是`fade`，因为内部会拼接为`zzc-fade-enter`.
 举例一个渐进渐出的动画效果为例：

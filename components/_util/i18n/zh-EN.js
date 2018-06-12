@@ -5,5 +5,10 @@ export default {
     hour: '',
     minutes: '',
     am: 'AM',
-    pm: 'PM'
+    pm: 'PM',
+    confirm: 'confirm',
+    cancel: 'cancel',
+    close: 'close',
+    open: 'open',
+    datePickerTitle: 'Please select'
 };

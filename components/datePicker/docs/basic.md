@@ -18,8 +18,13 @@
 | onChange      | 值更变时出发回调函数                                                               | Function |                    |
 | minDate       | 最小日期（2010-1-1）                                                               | string   | 当前年份向前取10年 |
 | maxDate       | 最大日期（2018-1-1）                                                               | string   | 当前年份向后取10年 |
-| selectTime    | 默认选中日期时间                                                                   | Date     |                    |
+| selectTime    | 默认选中日期时间                                                                   | Date | string（2018-1-1 12:10）     |                    |
 | minuteStep    | 分钟的间隔数                                                                       | number   | 1                  |
 | use12hour     | 是否使用12小时制                                                                   | boolearn | false              |
 | onValueChange | 更改选中项的时候触发，返回当前选中的时间                                           | Function |                    |
 | maskClose     | 点击mask关闭时间选择框                                                             | boolean  | true               |
+| lang     | 语言版本                                                            | string('cn'、'hk'、'en')    |     cn    |
+
+## 使用方式
+
+如果使用`mode='time'`，则传入`selectTime`的格式应该为`12:30`字符串，如果使用`mode=year/month`,只需要传入对应的年份和月份即可。例如：`'2019'`或者`'8'`。其他`mode`方式钧可以使用string或者是一个字符串。

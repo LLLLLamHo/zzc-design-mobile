@@ -74,7 +74,7 @@ export function setHoursListData ( currDateData, use12hour, langData ): ListItem
         className: 'hour-list',
         itemClassName: 'hour-item',
         scrollType: 'hour',
-        selectIndex: use12hour && hour > 12 ? hour - 12 : hour,
+        selectIndex: use12hour && hour >= 12 ? hour - 12 : hour,
         listData: []
     };
 
@@ -97,10 +97,9 @@ export function setMinuteListData ( currDateData, minuteStep, langData ): ListIt
         className: 'minute-list',
         itemClassName: 'minute-item',
         scrollType: 'minute',
-        selectIndex: minute,
+        selectIndex: minuteStep == 1 ? minute : 0, // 当step不等于1的时候，默认选中未0，之后通过循环获取到对应的时间index
         listData: []
     };
-
     const step = 60 / minuteStep;
     let minuteText: number = 0;
     for ( let i = 0; i < step; i++ ) {

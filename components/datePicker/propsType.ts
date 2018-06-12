@@ -6,7 +6,7 @@ export interface DatePickerProps {
     mode?: 'date' | 'time' | 'datetime' | 'year' | 'month'
     minDate?: string
     maxDate?: string
-    selectTime?: Date
+    selectTime?: any
     lang?: 'cn' | 'hk' | 'en'
     minuteStep?: number
     use12hour?: boolean

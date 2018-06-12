@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import Dialog from '../dialog';
 import Button from '../button';
+import langTextObject from '../_util/i18n';
 import './index.scss';
 
 export interface ModalProps {
@@ -22,6 +23,7 @@ export interface ModalProps {
     maskClose: boolean,
     closeCallback?: any,
     onClick?: any,
+    lang?: 'cn' | 'hk' | 'en'
     buttons?: Array<any>,
     style?: React.CSSProperties,
     maskStyle?: React.CSSProperties,
@@ -42,11 +44,13 @@ export default class Modal extends PureComponent<ModalProps, any> {
         transitionName: 'zzc-zoom',
         buttons: [],
         maskClose: false,
-        transparent: false
+        transparent: false,
+        lang: 'cn'
     }
 
     state = {
         visible: this.props.visible
+        lang: langTextObject[this.props.lang]
     }
 
     componentWillReceiveProps( newProps ): void {
@@ -58,6 +62,7 @@ export default class Modal extends PureComponent<ModalProps, any> {
     }
 
     createAlertFooter( closable: boolean, buttons?: Array<any> ): any {
+        const { lang } = this.state;
         if ( closable ) {
             return (
                 <Button
@@ -69,7 +74,7 @@ export default class Modal extends PureComponent<ModalProps, any> {
                         }
                     }
                 >
-                    关闭
+                    {lang.close}
                 </Button>
             );
         } else if ( buttons && buttons.length > 0 ) {

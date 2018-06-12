@@ -121,7 +121,7 @@ exports.default = function () {
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(85), __esModule: true };
+module.exports = { "default": __webpack_require__(86), __esModule: true };
 
 /***/ }),
 /* 4 */
@@ -155,11 +155,11 @@ exports.default = function (self, call) {
 
 exports.__esModule = true;
 
-var _setPrototypeOf = __webpack_require__(99);
+var _setPrototypeOf = __webpack_require__(100);
 
 var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
 
-var _create = __webpack_require__(103);
+var _create = __webpack_require__(104);
 
 var _create2 = _interopRequireDefault(_create);
 
@@ -363,7 +363,7 @@ if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(111), __esModule: true };
+module.exports = { "default": __webpack_require__(112), __esModule: true };
 
 /***/ }),
 /* 12 */
@@ -681,7 +681,7 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Animate = __webpack_require__(120);
+var _Animate = __webpack_require__(121);
 
 var _Animate2 = _interopRequireDefault(_Animate);
 
@@ -691,7 +691,9 @@ var _animateConfig = __webpack_require__(46);
 
 var _animateConfig2 = _interopRequireDefault(_animateConfig);
 
-__webpack_require__(121);
+var _typeof = __webpack_require__(9);
+
+__webpack_require__(122);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -708,23 +710,36 @@ var Dialog = function (_PureComponent) {
         };
         return _this2;
     }
-    // mask关闭事件
-
 
     (0, _createClass3.default)(Dialog, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            // 当没有动画效果的时候，创建完毕后需要为mask添加点击关闭事件
+            !this.props.transparent && this.props.maskClose && this.addMarkCloseEvent();
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate() {
+            !this.props.transparent && this.props.maskClose && !(0, _typeof.isFunction)(this.mask.onclick) && this.addMarkCloseEvent();
+        }
+        // mask关闭事件
+
+    }, {
         key: 'addMarkCloseEvent',
         value: function addMarkCloseEvent() {
             var _this = this;
             var closeCallback = this.props.closeCallback;
 
-            if (!this.props.transparent && this.props.maskClose && this.mask) {
+            if (this.mask) {
                 var maskAnimation = _this.getAnimationClass(_this.props.maskTransitionName);
                 var bodyAnimation = _this.getAnimationClass(_this.props.transitionName);
                 this.mask.onclick = function () {
-                    // 当没有配置动画点击mask关闭dialog，直接调用
-                    if (maskAnimation) {
+                    if (bodyAnimation) {
                         (0, _class.addClass)(_this.box, bodyAnimation.leave);
                         (0, _class.addClass)(_this.box, bodyAnimation.leaveActive);
+                    }
+                    // 当没有配置动画点击mask关闭dialog，直接调用
+                    if (maskAnimation) {
                         (0, _class.addClass)(_this.mask, maskAnimation.leave);
                         (0, _class.addClass)(_this.mask, maskAnimation.leaveActive);
                     } else {
@@ -805,7 +820,6 @@ var Dialog = function (_PureComponent) {
                     { visible: visible, animationName: this.getAnimationClass(transitionName), onEnd: function onEnd(type) {
                             // 当选择不创建mask或者mask不使用动画的时候，body动画结束触发closeCallback
                             type === 'leave' && (transparent || maskTransitionName === '') && closeCallback && closeCallback();
-                            type === 'enter' && _this4.addMarkCloseEvent();
                         } },
                     _react2.default.createElement(
                         'div',
@@ -941,7 +955,7 @@ module.exports = function (it, S) {
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject = __webpack_require__(21);
-var dPs = __webpack_require__(79);
+var dPs = __webpack_require__(80);
 var enumBugKeys = __webpack_require__(39);
 var IE_PROTO = __webpack_require__(37)('IE_PROTO');
 var Empty = function () { /* empty */ };
@@ -956,7 +970,7 @@ var createDict = function () {
   var gt = '>';
   var iframeDocument;
   iframe.style.display = 'none';
-  __webpack_require__(75).appendChild(iframe);
+  __webpack_require__(76).appendChild(iframe);
   iframe.src = 'javascript:'; // eslint-disable-line no-script-url
   // createDict = iframe.contentWindow.Object;
   // html.removeChild(iframe);
@@ -1024,11 +1038,11 @@ module.exports = (
 
 exports.__esModule = true;
 
-var _iterator = __webpack_require__(89);
+var _iterator = __webpack_require__(90);
 
 var _iterator2 = _interopRequireDefault(_iterator);
 
-var _symbol = __webpack_require__(91);
+var _symbol = __webpack_require__(92);
 
 var _symbol2 = _interopRequireDefault(_symbol);
 
@@ -1207,7 +1221,7 @@ function setTransfrom(style, value) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // optional / simple context binding
-var aFunction = __webpack_require__(71);
+var aFunction = __webpack_require__(72);
 module.exports = function (fn, that, length) {
   aFunction(fn);
   if (that === undefined) return fn;
@@ -1264,7 +1278,7 @@ var redefine = __webpack_require__(53);
 var hide = __webpack_require__(18);
 var has = __webpack_require__(16);
 var Iterators = __webpack_require__(30);
-var $iterCreate = __webpack_require__(78);
+var $iterCreate = __webpack_require__(79);
 var setToStringTag = __webpack_require__(32);
 var getPrototypeOf = __webpack_require__(56);
 var ITERATOR = __webpack_require__(13)('iterator');
@@ -1351,7 +1365,7 @@ module.exports = __webpack_require__(18);
 
 var has = __webpack_require__(16);
 var toIObject = __webpack_require__(20);
-var arrayIndexOf = __webpack_require__(80)(false);
+var arrayIndexOf = __webpack_require__(81)(false);
 var IE_PROTO = __webpack_require__(37)('IE_PROTO');
 
 module.exports = function (object, names) {
@@ -1419,7 +1433,7 @@ module.exports = function (KEY, exec) {
 /* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(87), __esModule: true };
+module.exports = { "default": __webpack_require__(88), __esModule: true };
 
 /***/ }),
 /* 59 */
@@ -1433,7 +1447,7 @@ var has = __webpack_require__(16);
 var DESCRIPTORS = __webpack_require__(15);
 var $export = __webpack_require__(12);
 var redefine = __webpack_require__(53);
-var META = __webpack_require__(93).KEY;
+var META = __webpack_require__(94).KEY;
 var $fails = __webpack_require__(19);
 var shared = __webpack_require__(38);
 var setToStringTag = __webpack_require__(32);
@@ -1441,15 +1455,15 @@ var uid = __webpack_require__(26);
 var wks = __webpack_require__(13);
 var wksExt = __webpack_require__(41);
 var wksDefine = __webpack_require__(42);
-var enumKeys = __webpack_require__(94);
-var isArray = __webpack_require__(95);
+var enumKeys = __webpack_require__(95);
+var isArray = __webpack_require__(96);
 var anObject = __webpack_require__(21);
 var isObject = __webpack_require__(17);
 var toIObject = __webpack_require__(20);
 var toPrimitive = __webpack_require__(35);
 var createDesc = __webpack_require__(25);
 var _create = __webpack_require__(36);
-var gOPNExt = __webpack_require__(96);
+var gOPNExt = __webpack_require__(97);
 var $GOPD = __webpack_require__(61);
 var $DP = __webpack_require__(14);
 var $keys = __webpack_require__(23);
@@ -1818,7 +1832,7 @@ exports.animationEvents = animationEvents;
 /* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(109), __esModule: true };
+module.exports = { "default": __webpack_require__(110), __esModule: true };
 
 /***/ }),
 /* 64 */
@@ -1856,7 +1870,7 @@ var _inherits2 = __webpack_require__(5);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _getOwnPropertySymbols = __webpack_require__(114);
+var _getOwnPropertySymbols = __webpack_require__(115);
 
 var _getOwnPropertySymbols2 = _interopRequireDefault(_getOwnPropertySymbols);
 
@@ -1868,11 +1882,11 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _loadSprite = __webpack_require__(116);
+var _loadSprite = __webpack_require__(117);
 
 var _loadSprite2 = _interopRequireDefault(_loadSprite);
 
-__webpack_require__(117);
+__webpack_require__(118);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1981,13 +1995,13 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _TouchFeedback = __webpack_require__(122);
+var _TouchFeedback = __webpack_require__(123);
 
 var _TouchFeedback2 = _interopRequireDefault(_TouchFeedback);
 
 __webpack_require__(45);
 
-__webpack_require__(124);
+__webpack_require__(125);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2117,7 +2131,11 @@ var _button = __webpack_require__(66);
 
 var _button2 = _interopRequireDefault(_button);
 
-__webpack_require__(134);
+var _i18n = __webpack_require__(68);
+
+var _i18n2 = _interopRequireDefault(_i18n);
+
+__webpack_require__(138);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2130,7 +2148,8 @@ var Modal = function (_PureComponent) {
         var _this = (0, _possibleConstructorReturn3.default)(this, (Modal.__proto__ || (0, _getPrototypeOf2.default)(Modal)).apply(this, arguments));
 
         _this.state = {
-            visible: _this.props.visible
+            visible: _this.props.visible,
+            lang: _i18n2.default[_this.props.lang]
         };
         return _this;
     }
@@ -2149,13 +2168,15 @@ var Modal = function (_PureComponent) {
         value: function createAlertFooter(closable, buttons) {
             var _this2 = this;
 
+            var lang = this.state.lang;
+
             if (closable) {
                 return _react2.default.createElement(
                     _button2.default,
                     { noBorder: true, full: true, onClick: function onClick() {
                             _this2.close();
                         } },
-                    '\u5173\u95ED'
+                    lang.close
                 );
             } else if (buttons && buttons.length > 0) {
                 return buttons.map(function (item, key) {
@@ -2285,11 +2306,45 @@ Modal.defaultProps = {
     transitionName: 'zzc-zoom',
     buttons: [],
     maskClose: false,
-    transparent: false
+    transparent: false,
+    lang: 'cn'
 };
 
 /***/ }),
 /* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _zhCN = __webpack_require__(135);
+
+var _zhCN2 = _interopRequireDefault(_zhCN);
+
+var _zhHK = __webpack_require__(136);
+
+var _zhHK2 = _interopRequireDefault(_zhHK);
+
+var _zhEN = __webpack_require__(137);
+
+var _zhEN2 = _interopRequireDefault(_zhEN);
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+exports.default = {
+    cn: _zhCN2.default,
+    hk: _zhHK2.default,
+    en: _zhEN2.default
+};
+
+/***/ }),
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2328,9 +2383,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _util = __webpack_require__(140);
+var _util = __webpack_require__(144);
 
-var _config = __webpack_require__(69);
+var _config = __webpack_require__(70);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2846,7 +2901,7 @@ Gesture.defaultProps = {
 };
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2875,7 +2930,7 @@ var SWIPE = exports.SWIPE = {
 };
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2886,7 +2941,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _stringify = __webpack_require__(147);
+var _stringify = __webpack_require__(151);
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
@@ -2918,13 +2973,13 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _pickerWrapper = __webpack_require__(149);
+var _pickerWrapper = __webpack_require__(153);
 
 var _pickerWrapper2 = _interopRequireDefault(_pickerWrapper);
 
 var _typeof = __webpack_require__(9);
 
-__webpack_require__(151);
+__webpack_require__(155);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3006,7 +3061,7 @@ Picker.defaultProps = {
 };
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports) {
 
 module.exports = function (it) {
@@ -3016,18 +3071,18 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports) {
 
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var $at = __webpack_require__(77)(true);
+var $at = __webpack_require__(78)(true);
 
 // 21.1.3.27 String.prototype[@@iterator]()
 __webpack_require__(51)(String, 'String', function (iterated) {
@@ -3046,7 +3101,7 @@ __webpack_require__(51)(String, 'String', function (iterated) {
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.15 ToLength
@@ -3058,7 +3113,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var document = __webpack_require__(10).document;
@@ -3066,10 +3121,10 @@ module.exports = document && document.documentElement;
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(82);
+__webpack_require__(83);
 var global = __webpack_require__(10);
 var hide = __webpack_require__(18);
 var Iterators = __webpack_require__(30);
@@ -3091,7 +3146,7 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var toInteger = __webpack_require__(33);
@@ -3114,7 +3169,7 @@ module.exports = function (TO_STRING) {
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3134,7 +3189,7 @@ module.exports = function (Constructor, NAME, next) {
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP = __webpack_require__(14);
@@ -3153,14 +3208,14 @@ module.exports = __webpack_require__(15) ? Object.defineProperties : function de
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // false -> Array#indexOf
 // true  -> Array#includes
 var toIObject = __webpack_require__(20);
-var toLength = __webpack_require__(74);
-var toAbsoluteIndex = __webpack_require__(81);
+var toLength = __webpack_require__(75);
+var toAbsoluteIndex = __webpack_require__(82);
 module.exports = function (IS_INCLUDES) {
   return function ($this, el, fromIndex) {
     var O = toIObject($this);
@@ -3182,7 +3237,7 @@ module.exports = function (IS_INCLUDES) {
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var toInteger = __webpack_require__(33);
@@ -3195,13 +3250,13 @@ module.exports = function (index, length) {
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var addToUnscopables = __webpack_require__(83);
-var step = __webpack_require__(84);
+var addToUnscopables = __webpack_require__(84);
+var step = __webpack_require__(85);
 var Iterators = __webpack_require__(30);
 var toIObject = __webpack_require__(20);
 
@@ -3236,14 +3291,14 @@ addToUnscopables('entries');
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports) {
 
 module.exports = function () { /* empty */ };
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports) {
 
 module.exports = function (done, value) {
@@ -3252,15 +3307,15 @@ module.exports = function (done, value) {
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(86);
+__webpack_require__(87);
 module.exports = __webpack_require__(7).Object.getPrototypeOf;
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 Object.getPrototypeOf(O)
@@ -3275,10 +3330,10 @@ __webpack_require__(57)('getPrototypeOf', function () {
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(88);
+__webpack_require__(89);
 var $Object = __webpack_require__(7).Object;
 module.exports = function defineProperty(it, key, desc) {
   return $Object.defineProperty(it, key, desc);
@@ -3286,7 +3341,7 @@ module.exports = function defineProperty(it, key, desc) {
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $export = __webpack_require__(12);
@@ -3295,39 +3350,39 @@ $export($export.S + $export.F * !__webpack_require__(15), 'Object', { defineProp
 
 
 /***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(90), __esModule: true };
-
-/***/ }),
 /* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(73);
-__webpack_require__(76);
-module.exports = __webpack_require__(41).f('iterator');
-
+module.exports = { "default": __webpack_require__(91), __esModule: true };
 
 /***/ }),
 /* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(92), __esModule: true };
+__webpack_require__(74);
+__webpack_require__(77);
+module.exports = __webpack_require__(41).f('iterator');
+
 
 /***/ }),
 /* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = { "default": __webpack_require__(93), __esModule: true };
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
 __webpack_require__(59);
-__webpack_require__(72);
-__webpack_require__(97);
+__webpack_require__(73);
 __webpack_require__(98);
+__webpack_require__(99);
 module.exports = __webpack_require__(7).Symbol;
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var META = __webpack_require__(26)('meta');
@@ -3386,7 +3441,7 @@ var meta = module.exports = {
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // all enumerable object keys, includes symbols
@@ -3407,7 +3462,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.2.2 IsArray(argument)
@@ -3418,7 +3473,7 @@ module.exports = Array.isArray || function isArray(arg) {
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
@@ -3443,44 +3498,44 @@ module.exports.f = function getOwnPropertyNames(it) {
 
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(42)('asyncIterator');
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(42)('observable');
 
 
 /***/ }),
-/* 99 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(100), __esModule: true };
-
-/***/ }),
 /* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(101);
-module.exports = __webpack_require__(7).Object.setPrototypeOf;
-
+module.exports = { "default": __webpack_require__(101), __esModule: true };
 
 /***/ }),
 /* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// 19.1.3.19 Object.setPrototypeOf(O, proto)
-var $export = __webpack_require__(12);
-$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(102).set });
+__webpack_require__(102);
+module.exports = __webpack_require__(7).Object.setPrototypeOf;
 
 
 /***/ }),
 /* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.19 Object.setPrototypeOf(O, proto)
+var $export = __webpack_require__(12);
+$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(103).set });
+
+
+/***/ }),
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Works with __proto__ only. Old v8 can't work with null proto objects.
@@ -3511,16 +3566,16 @@ module.exports = {
 
 
 /***/ }),
-/* 103 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(104), __esModule: true };
-
-/***/ }),
 /* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(105);
+module.exports = { "default": __webpack_require__(105), __esModule: true };
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(106);
 var $Object = __webpack_require__(7).Object;
 module.exports = function create(P, D) {
   return $Object.create(P, D);
@@ -3528,7 +3583,7 @@ module.exports = function create(P, D) {
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $export = __webpack_require__(12);
@@ -3537,13 +3592,13 @@ $export($export.S, 'Object', { create: __webpack_require__(36) });
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3554,7 +3609,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.DatePicker = exports.Picker = exports.Tabs = exports.Popup = exports.Modal = exports.Alert = exports.Card = exports.Button = exports.Dialog = exports.Icon = exports.Toast = undefined;
 
-var _toast = __webpack_require__(108);
+var _toast = __webpack_require__(109);
 
 Object.defineProperty(exports, 'Toast', {
   enumerable: true,
@@ -3590,7 +3645,7 @@ Object.defineProperty(exports, 'Button', {
   }
 });
 
-var _card = __webpack_require__(125);
+var _card = __webpack_require__(126);
 
 Object.defineProperty(exports, 'Card', {
   enumerable: true,
@@ -3599,7 +3654,7 @@ Object.defineProperty(exports, 'Card', {
   }
 });
 
-var _alert = __webpack_require__(133);
+var _alert = __webpack_require__(134);
 
 Object.defineProperty(exports, 'Alert', {
   enumerable: true,
@@ -3617,7 +3672,7 @@ Object.defineProperty(exports, 'Modal', {
   }
 });
 
-var _popup = __webpack_require__(136);
+var _popup = __webpack_require__(140);
 
 Object.defineProperty(exports, 'Popup', {
   enumerable: true,
@@ -3626,7 +3681,7 @@ Object.defineProperty(exports, 'Popup', {
   }
 });
 
-var _tabs = __webpack_require__(138);
+var _tabs = __webpack_require__(142);
 
 Object.defineProperty(exports, 'Tabs', {
   enumerable: true,
@@ -3635,7 +3690,7 @@ Object.defineProperty(exports, 'Tabs', {
   }
 });
 
-var _picker = __webpack_require__(70);
+var _picker = __webpack_require__(71);
 
 Object.defineProperty(exports, 'Picker', {
   enumerable: true,
@@ -3644,7 +3699,7 @@ Object.defineProperty(exports, 'Picker', {
   }
 });
 
-var _datePicker = __webpack_require__(152);
+var _datePicker = __webpack_require__(156);
 
 Object.defineProperty(exports, 'DatePicker', {
   enumerable: true,
@@ -3658,7 +3713,7 @@ __webpack_require__(65);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3713,13 +3768,13 @@ var _icon = __webpack_require__(64);
 
 var _icon2 = _interopRequireDefault(_icon);
 
-var _alignment = __webpack_require__(118);
+var _alignment = __webpack_require__(119);
 
 var _alignment2 = _interopRequireDefault(_alignment);
 
 __webpack_require__(45);
 
-__webpack_require__(119);
+__webpack_require__(120);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3871,15 +3926,15 @@ var Toast = function (_Component) {
 exports.default = Toast;
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(110);
+__webpack_require__(111);
 module.exports = __webpack_require__(7).Object.keys;
 
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 Object.keys(O)
@@ -3894,25 +3949,25 @@ __webpack_require__(57)('keys', function () {
 
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(112);
+__webpack_require__(113);
 module.exports = __webpack_require__(7).Object.assign;
 
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.3.1 Object.assign(target, source)
 var $export = __webpack_require__(12);
 
-$export($export.S + $export.F, 'Object', { assign: __webpack_require__(113) });
+$export($export.S + $export.F, 'Object', { assign: __webpack_require__(114) });
 
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3953,13 +4008,13 @@ module.exports = !$assign || __webpack_require__(19)(function () {
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(115), __esModule: true };
+module.exports = { "default": __webpack_require__(116), __esModule: true };
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(59);
@@ -3967,7 +4022,7 @@ module.exports = __webpack_require__(7).Object.getOwnPropertySymbols;
 
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4016,13 +4071,13 @@ var loadSprite = function loadSprite() {
 exports.default = loadSprite;
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4083,13 +4138,13 @@ var Alignment = function () {
 exports.default = Alignment;
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4271,13 +4326,13 @@ Animate.defaultProps = {
 };
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4316,7 +4371,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _classNames = __webpack_require__(123);
+var _classNames = __webpack_require__(124);
 
 var _classNames2 = _interopRequireDefault(_classNames);
 
@@ -4433,7 +4488,7 @@ TouchFeedback.defaultProps = {
 };
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -4488,13 +4543,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4537,21 +4592,21 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _header = __webpack_require__(126);
+var _header = __webpack_require__(127);
 
 var _header2 = _interopRequireDefault(_header);
 
-var _body = __webpack_require__(128);
+var _body = __webpack_require__(129);
 
 var _body2 = _interopRequireDefault(_body);
 
-var _footer = __webpack_require__(130);
+var _footer = __webpack_require__(131);
 
 var _footer2 = _interopRequireDefault(_footer);
 
 __webpack_require__(45);
 
-__webpack_require__(132);
+__webpack_require__(133);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4601,7 +4656,7 @@ Card.Body = _body2.default;
 Card.Footer = _footer2.default;
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4644,7 +4699,7 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-__webpack_require__(127);
+__webpack_require__(128);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4724,13 +4779,13 @@ Header.defaultProps = {
 };
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4773,7 +4828,7 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-__webpack_require__(129);
+__webpack_require__(130);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4825,13 +4880,13 @@ Body.defaultProps = {
 };
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4874,7 +4929,7 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-__webpack_require__(131);
+__webpack_require__(132);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4918,12 +4973,6 @@ Footer.defaultProps = {
 };
 
 /***/ }),
-/* 131 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 132 */
 /***/ (function(module, exports) {
 
@@ -4931,6 +4980,12 @@ Footer.defaultProps = {
 
 /***/ }),
 /* 133 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4981,7 +5036,7 @@ var _modal = __webpack_require__(67);
 
 var _modal2 = _interopRequireDefault(_modal);
 
-__webpack_require__(135);
+__webpack_require__(139);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5068,19 +5123,94 @@ var Alert = function () {
 }();
 
 /***/ }),
-/* 134 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 135 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    year: '年',
+    month: '月',
+    day: '日',
+    hour: '时',
+    minutes: '分',
+    am: '上午',
+    pm: '下午',
+    confirm: '确认',
+    cancel: '取消',
+    close: '关闭',
+    open: '打开',
+    datePickerTitle: '请选择时间'
+};
 
 /***/ }),
 /* 136 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    year: '年',
+    month: '月',
+    day: '日',
+    hour: '時',
+    minutes: '分',
+    am: '上午',
+    pm: '下午',
+    confirm: '確認',
+    cancel: '取消',
+    close: '關閉',
+    open: '打開',
+    datePickerTitle: '請選擇時間'
+};
+
+/***/ }),
+/* 137 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    year: '',
+    month: '',
+    day: '',
+    hour: '',
+    minutes: '',
+    am: 'AM',
+    pm: 'PM',
+    confirm: 'confirm',
+    cancel: 'cancel',
+    close: 'close',
+    open: 'open',
+    datePickerTitle: 'Please select'
+};
+
+/***/ }),
+/* 138 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 139 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5127,7 +5257,7 @@ var _animateConfig = __webpack_require__(46);
 
 var _animateConfig2 = _interopRequireDefault(_animateConfig);
 
-__webpack_require__(137);
+__webpack_require__(141);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5209,13 +5339,13 @@ Popup.defaultProps = {
 };
 
 /***/ }),
-/* 137 */
+/* 141 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 138 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5258,17 +5388,17 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _tabBar = __webpack_require__(139);
+var _tabBar = __webpack_require__(143);
 
 var _tabBar2 = _interopRequireDefault(_tabBar);
 
-var _tabContent = __webpack_require__(144);
+var _tabContent = __webpack_require__(148);
 
 var _tabContent2 = _interopRequireDefault(_tabContent);
 
 var _typeof = __webpack_require__(9);
 
-__webpack_require__(146);
+__webpack_require__(150);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5368,7 +5498,7 @@ Tabs.defaultProps = {
 };
 
 /***/ }),
-/* 139 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5411,11 +5541,11 @@ var _classnames2 = __webpack_require__(6);
 
 var _classnames3 = _interopRequireDefault(_classnames2);
 
-var _Gesture = __webpack_require__(68);
+var _Gesture = __webpack_require__(69);
 
 var _Gesture2 = _interopRequireDefault(_Gesture);
 
-var _tabList = __webpack_require__(141);
+var _tabList = __webpack_require__(145);
 
 var _tabList2 = _interopRequireDefault(_tabList);
 
@@ -5591,7 +5721,7 @@ var TabBar = function (_React$PureComponent) {
 exports.default = TabBar;
 
 /***/ }),
-/* 140 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5609,7 +5739,7 @@ exports.getDirectionEventName = getDirectionEventName;
 exports.shouldTriggerDirection = shouldTriggerDirection;
 exports.shouldTriggerSwipe = shouldTriggerSwipe;
 
-var _config = __webpack_require__(69);
+var _config = __webpack_require__(70);
 
 // 计算缩放比率
 function _calcTriangleDistance(x, y) {
@@ -5729,7 +5859,7 @@ function shouldTriggerSwipe(delta, velocity) {
 }
 
 /***/ }),
-/* 141 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5772,11 +5902,11 @@ var _classnames3 = __webpack_require__(6);
 
 var _classnames4 = _interopRequireDefault(_classnames3);
 
-var _tabItem = __webpack_require__(142);
+var _tabItem = __webpack_require__(146);
 
 var _tabItem2 = _interopRequireDefault(_tabItem);
 
-var _tabsListUnserline = __webpack_require__(143);
+var _tabsListUnserline = __webpack_require__(147);
 
 var _tabsListUnserline2 = _interopRequireDefault(_tabsListUnserline);
 
@@ -5860,7 +5990,7 @@ var TabsList = function (_React$PureComponent) {
 exports.default = TabsList;
 
 /***/ }),
-/* 142 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5894,7 +6024,7 @@ function TabsItem(props) {
 }
 
 /***/ }),
-/* 143 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5943,7 +6073,7 @@ function TabsListUnserlineProps(props) {
 }
 
 /***/ }),
-/* 144 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5986,11 +6116,11 @@ var _classnames2 = __webpack_require__(6);
 
 var _classnames3 = _interopRequireDefault(_classnames2);
 
-var _tabPane = __webpack_require__(145);
+var _tabPane = __webpack_require__(149);
 
 var _tabPane2 = _interopRequireDefault(_tabPane);
 
-var _Gesture = __webpack_require__(68);
+var _Gesture = __webpack_require__(69);
 
 var _Gesture2 = _interopRequireDefault(_Gesture);
 
@@ -6165,7 +6295,7 @@ var TabrContent = function (_React$PureComponent) {
 exports.default = TabrContent;
 
 /***/ }),
-/* 145 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6231,19 +6361,19 @@ var TabsPane = function (_React$PureComponent) {
 exports.default = TabsPane;
 
 /***/ }),
-/* 146 */
+/* 150 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 147 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(148), __esModule: true };
+module.exports = { "default": __webpack_require__(152), __esModule: true };
 
 /***/ }),
-/* 148 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var core = __webpack_require__(7);
@@ -6254,7 +6384,7 @@ module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
 
 
 /***/ }),
-/* 149 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6293,7 +6423,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _betterScroll = __webpack_require__(150);
+var _betterScroll = __webpack_require__(154);
 
 var _betterScroll2 = _interopRequireDefault(_betterScroll);
 
@@ -6323,9 +6453,11 @@ var PickerWrapper = function (_React$PureComponent) {
     (0, _createClass3.default)(PickerWrapper, [{
         key: 'componentDidUpdate',
         value: function componentDidUpdate() {
+            console.log(this.props.data.selectedIndex);
             if (this.props.data.selectedIndex) {
                 this.BScrollObj.wheelTo(this.props.data.selectedIndex);
             }
+            this.BScrollObj.refresh();
         }
     }, {
         key: 'componentDidMount',
@@ -6389,8 +6521,12 @@ var PickerWrapper = function (_React$PureComponent) {
     }, {
         key: 'touchEnd',
         value: function touchEnd() {
+            var _props$data = this.props.data,
+                wrapperIndex = _props$data.wrapperIndex,
+                scrollType = _props$data.scrollType;
+
             this.addActiveItem();
-            this.props.onTouchEnd && this.props.onTouchEnd(this.props.wrapperIndex, this.BScrollObj.getSelectedIndex());
+            this.props.onTouchEnd && this.props.onTouchEnd(scrollType ? scrollType : wrapperIndex, this.BScrollObj.getSelectedIndex());
         }
     }, {
         key: 'touchStart',
@@ -6470,7 +6606,7 @@ PickerWrapper.defaultProps = {
 };
 
 /***/ }),
-/* 150 */
+/* 154 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9283,13 +9419,13 @@ BScroll.Version = '1.11.1';
 
 
 /***/ }),
-/* 151 */
+/* 155 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 152 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9332,32 +9468,32 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _date = __webpack_require__(153);
+var _date = __webpack_require__(157);
 
-var _setListData = __webpack_require__(154);
+var _setListData = __webpack_require__(158);
 
-var _getScrollData = __webpack_require__(156);
+var _getScrollData = __webpack_require__(160);
 
-var _picker = __webpack_require__(70);
+var _picker = __webpack_require__(71);
 
 var _picker2 = _interopRequireDefault(_picker);
 
-var _Popup = __webpack_require__(157);
+var _Popup = __webpack_require__(161);
 
 var _Popup2 = _interopRequireDefault(_Popup);
 
 var _typeof = __webpack_require__(9);
 
-__webpack_require__(159);
-
-var _i18n = __webpack_require__(160);
+var _i18n = __webpack_require__(68);
 
 var _i18n2 = _interopRequireDefault(_i18n);
 
+__webpack_require__(163);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var DatePicker = function (_React$Component) {
-    (0, _inherits3.default)(DatePicker, _React$Component);
+var DatePicker = function (_React$PureComponent) {
+    (0, _inherits3.default)(DatePicker, _React$PureComponent);
 
     function DatePicker(props) {
         (0, _classCallCheck3.default)(this, DatePicker);
@@ -9365,7 +9501,9 @@ var DatePicker = function (_React$Component) {
         var _this = (0, _possibleConstructorReturn3.default)(this, (DatePicker.__proto__ || (0, _getPrototypeOf2.default)(DatePicker)).call(this, props));
 
         _this.BScrollList = {};
-        _this.initDate();
+        _this.datePickerStatus = 'hide';
+        _this.preDatePickerStatus = 'hide';
+        _this.initDate(null);
         _this.touchEnd = _this.touchEnd.bind(_this);
         _this.renderAfter = _this.renderAfter.bind(_this);
         _this.close = _this.close.bind(_this);
@@ -9374,21 +9512,76 @@ var DatePicker = function (_React$Component) {
     }
 
     (0, _createClass3.default)(DatePicker, [{
-        key: 'initDate',
-        value: function initDate() {
-            var _props = this.props,
-                minDate = _props.minDate,
-                maxDate = _props.maxDate,
-                selectTime = _props.selectTime,
-                lang = _props.lang,
-                mode = _props.mode,
-                minuteStep = _props.minuteStep,
-                use12hour = _props.use12hour;
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps() {
+            this.preDatePickerStatus = this.datePickerStatus;
+            if (this.props.visible) {
+                this.datePickerStatus = 'show';
+            } else {
+                this.datePickerStatus = 'hide';
+            }
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate() {
+            this.resetPicker();
+        }
+    }, {
+        key: 'resetPicker',
+        value: function resetPicker() {
+            var _this2 = this;
 
+            if (this.datePickerStatus === 'show' && !this.props.visible) {
+                this.preDatePickerStatus = this.datePickerStatus;
+                this.datePickerStatus = 'hide';
+                var _props = this.props,
+                    selectTime = _props.selectTime,
+                    mode = _props.mode;
+                // 关闭的时候，如果当前滑动框选中的日期和当前传入的时间一样，则无需进行reset
+
+                var calcTime = this.initDateObject(null, selectTime, mode);
+                var currPickerDate = this.initDateObject(null, this.getCurrDate().currDate, mode).getTime();
+                if (currPickerDate != calcTime.getTime()) {
+                    setTimeout(function () {
+                        _this2.initDate(calcTime);
+                    }, 500);
+                }
+            }
+        }
+    }, {
+        key: 'initDateObject',
+        value: function initDateObject(time, selectTime, mode) {
+            var calcTime = void 0;
+            if ((0, _typeof.isDate)(time)) {
+                calcTime = time;
+            } else if (mode == 'time') {
+                calcTime = new Date('1993-9-17 ' + selectTime);
+            } else if (mode == 'year') {
+                calcTime = new Date(selectTime + '-1-1');
+            } else if (mode == 'month') {
+                calcTime = new Date('1993-' + selectTime + '-1');
+            } else {
+                calcTime = (0, _typeof.isDate)(selectTime) ? selectTime : new Date(selectTime);
+            }
+            return calcTime;
+        }
+    }, {
+        key: 'initDate',
+        value: function initDate(time) {
+            var _props2 = this.props,
+                minDate = _props2.minDate,
+                maxDate = _props2.maxDate,
+                selectTime = _props2.selectTime,
+                lang = _props2.lang,
+                mode = _props2.mode,
+                minuteStep = _props2.minuteStep,
+                use12hour = _props2.use12hour;
+
+            var calcTime = this.initDateObject(time, selectTime, mode);
             var langData = _i18n2.default[lang];
             var calcMinDate = (0, _date.initMinDate)(minDate);
             var calcMaxDate = (0, _date.initMaxDate)(maxDate);
-            var calcCurrDate = (0, _date.initSelectDate)(selectTime, calcMinDate);
+            var calcCurrDate = (0, _date.initSelectDate)(calcTime, calcMinDate);
             var listData = {
                 yearList: null,
                 monthList: null,
@@ -9416,6 +9609,7 @@ var DatePicker = function (_React$Component) {
                     break;
             }
             this.state = (0, _assign2.default)({}, listData, { langData: langData });
+            time && this.setState(this.state);
         }
     }, {
         key: 'renderAfter',
@@ -9425,8 +9619,39 @@ var DatePicker = function (_React$Component) {
     }, {
         key: 'touchEnd',
         value: function touchEnd(scrollKey) {
-            var onValueChange = this.props.onValueChange;
+            var _props3 = this.props,
+                onValueChange = _props3.onValueChange,
+                mode = _props3.mode;
 
+            var currDateData = void 0;
+            var currDate = void 0;
+            if (mode && mode.indexOf('date') != -1) {
+                if (mode === 'datetime') {
+                    var currData = this.getCurrDate(scrollKey).currDate.split(' ');
+                    var data = currData[0].split('-');
+                    var time = currData[1].split(':');
+                    currDateData = data.concat(time);
+                } else {
+                    currDateData = this.getCurrDate(scrollKey).currDate.split('-');
+                }
+                // 上一次选择的月份的日期在当前选中的月份的日期没有的时候，选中最后一个日期
+                var currYear = parseInt(currDateData[0]);
+                var currMonth = parseInt(currDateData[1]);
+                var currDay = parseInt(currDateData[2]);
+                var currDateLastDay = (0, _date.getLastDate)(currYear, currMonth);
+                if (currDay > currDateLastDay) {
+                    currDate = new Date(currDateData[0] + '-' + currDateData[1] + '-' + currDateLastDay);
+                } else {
+                    currDate = new Date(this.getCurrDate(scrollKey).currDate);
+                }
+            } else if (mode == 'time') {
+                currDate = new Date('1993-9-17 ' + this.getCurrDate(scrollKey).currDate);
+            } else if (mode == 'year') {
+                currDate = new Date(this.getCurrDate(scrollKey).currDate + '-9-17');
+            } else if (mode == 'month') {
+                currDate = new Date('1993-' + this.getCurrDate(scrollKey).currDate + '-17');
+            }
+            this.initDate(currDate);
             if (onValueChange && (0, _typeof.isFunction)(onValueChange)) {
                 onValueChange(this.getCurrDate(scrollKey));
             }
@@ -9455,7 +9680,7 @@ var DatePicker = function (_React$Component) {
                     resultData.currDate = (0, _getScrollData.getModeYearData)(this.BScrollList, this.state);
                     break;
                 case 'month':
-                    resultData.currDate = (0, _getScrollData.getModeMonthData)(this.BScrollList, this.state);
+                    resultData.currDate = (0, _getScrollData.getModeMonthData)(this.BScrollList, this.state, mode);
                     break;
             }
             return resultData;
@@ -9463,9 +9688,12 @@ var DatePicker = function (_React$Component) {
     }, {
         key: 'close',
         value: function close() {
-            var onClose = this.props.onClose;
+            // 因为设计原因，点击取消按钮会导致两次取消事件触发，通过记录上一个状态为hide触发close才会触发onClose事件
+            if (this.preDatePickerStatus === 'hide') {
+                var onClose = this.props.onClose;
 
-            onClose && (0, _typeof.isFunction)(onClose) && onClose();
+                onClose && (0, _typeof.isFunction)(onClose) && onClose();
+            }
         }
     }, {
         key: 'submit',
@@ -9477,17 +9705,18 @@ var DatePicker = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _props2 = this.props,
-                prefixCls = _props2.prefixCls,
-                className = _props2.className,
-                style = _props2.style,
-                visible = _props2.visible,
-                maskClose = _props2.maskClose;
+            var _props4 = this.props,
+                prefixCls = _props4.prefixCls,
+                className = _props4.className,
+                style = _props4.style,
+                visible = _props4.visible,
+                maskClose = _props4.maskClose;
+            var langData = this.state.langData;
 
             var cls = (0, _classnames2.default)(className, '' + prefixCls);
             return _react2.default.createElement(
                 _Popup2.default,
-                { maskClose: maskClose, direction: 'bottom', visible: visible },
+                { maskClose: maskClose, direction: 'bottom', visible: visible, onClose: this.close },
                 _react2.default.createElement(
                     'div',
                     { className: cls, style: style },
@@ -9497,17 +9726,17 @@ var DatePicker = function (_React$Component) {
                         _react2.default.createElement(
                             'div',
                             { className: cls + '-header-close', onClick: this.close },
-                            '\u53D6\u6D88'
+                            langData.cancel
                         ),
                         _react2.default.createElement(
                             'div',
                             { className: cls + '-header-title' },
-                            '\u8BF7\u9009\u62E9\u65F6\u95F4'
+                            langData.datePickerTitle
                         ),
                         _react2.default.createElement(
                             'div',
                             { className: cls + '-header-submit', onClick: this.submit },
-                            '\u786E\u5B9A'
+                            langData.confirm
                         )
                     ),
                     _react2.default.createElement(_picker2.default, { renderAfter: this.renderAfter, onTouchEnd: this.touchEnd, pickerData: [this.state.yearList, this.state.monthList, this.state.dayList, this.state.hourList, this.state.minuteList, this.state.hour12List] })
@@ -9516,7 +9745,7 @@ var DatePicker = function (_React$Component) {
         }
     }]);
     return DatePicker;
-}(_react2.default.Component);
+}(_react2.default.PureComponent);
 
 exports.default = DatePicker;
 
@@ -9536,7 +9765,7 @@ DatePicker.defaultProps = {
 };
 
 /***/ }),
-/* 153 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9549,6 +9778,7 @@ exports.initMinDate = initMinDate;
 exports.initMaxDate = initMaxDate;
 exports.initSelectDate = initSelectDate;
 exports.resolveDate = resolveDate;
+exports.getLastDate = getLastDate;
 
 var _typeof = __webpack_require__(9);
 
@@ -9613,9 +9843,12 @@ function resolveDate(dateString) {
         minute: time[1]
     };
 }
+function getLastDate(year, month) {
+    return new Date(new Date(year + '-' + (month + 1) + '-1').setDate(0)).getDate();
+}
 
 /***/ }),
-/* 154 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9631,7 +9864,7 @@ exports.createYearListData = createYearListData;
 exports.createMonthListData = createMonthListData;
 exports.createHour12ListData = createHour12ListData;
 
-var _pickerData = __webpack_require__(155);
+var _pickerData = __webpack_require__(159);
 
 function createDateListData(obj, calcMinDate, calcMaxDate, calcCurrDate, langData) {
     obj.yearList = (0, _pickerData.setYearListData)(calcMinDate.year, calcMaxDate.year, calcCurrDate.year, langData);
@@ -9666,7 +9899,7 @@ function createHour12ListData(obj, calcCurrDate, langData) {
 }
 
 /***/ }),
-/* 155 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9734,9 +9967,10 @@ function setDayListData(currDateData, langData) {
         listData: []
     };
     var curDate = new Date(year + '-' + month + '-' + day);
-    var dayCount = new Date(new Date(curDate.setMonth(month)).setDate(0)).getDate();
+    var calcDate = new Date(curDate.setDate(1));
+    var dayCount = new Date(new Date(calcDate.setMonth(month)).setDate(0)).getDate();
     var dayText = 1;
-    for (var i = 0; i <= dayCount; i++) {
+    for (var i = 0; i < dayCount; i++) {
         dayListData.listData.push({
             text: '' + dayText + langData.day,
             dataKey: dayText
@@ -9752,7 +9986,7 @@ function setHoursListData(currDateData, use12hour, langData) {
         className: 'hour-list',
         itemClassName: 'hour-item',
         scrollType: 'hour',
-        selectIndex: use12hour && hour > 12 ? hour - 12 : hour,
+        selectIndex: use12hour && hour >= 12 ? hour - 12 : hour,
         listData: []
     };
     var step = use12hour ? 12 : 24;
@@ -9773,7 +10007,7 @@ function setMinuteListData(currDateData, minuteStep, langData) {
         className: 'minute-list',
         itemClassName: 'minute-item',
         scrollType: 'minute',
-        selectIndex: minute,
+        selectIndex: minuteStep == 1 ? minute : 0,
         listData: []
     };
     var step = 60 / minuteStep;
@@ -9808,7 +10042,7 @@ function setHour12ListData(hour, langData) {
 }
 
 /***/ }),
-/* 156 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9863,11 +10097,14 @@ function getModeYearData(BScrollList, state) {
     var year = yearList.listData[yearBS.getSelectedIndex()].dataKey;
     return year;
 }
-function getModeMonthData(BScrollList, state) {
+function getModeMonthData(BScrollList, state, mode) {
     var monthBS = BScrollList.month;
     var monthList = state.monthList;
 
     var month = monthList.listData[monthBS.getSelectedIndex()].dataKey;
+    if (mode == 'month') {
+        return month; // 如果mode等于month则不补0
+    }
     return resetDate(month);
 }
 function resetDate(date) {
@@ -9875,7 +10112,7 @@ function resetDate(date) {
 }
 
 /***/ }),
-/* 157 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9922,7 +10159,7 @@ var _animateConfig = __webpack_require__(46);
 
 var _animateConfig2 = _interopRequireDefault(_animateConfig);
 
-__webpack_require__(158);
+__webpack_require__(162);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10004,109 +10241,16 @@ Popup.defaultProps = {
 };
 
 /***/ }),
-/* 158 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 159 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 160 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _zhCN = __webpack_require__(161);
-
-var _zhCN2 = _interopRequireDefault(_zhCN);
-
-var _zhHK = __webpack_require__(162);
-
-var _zhHK2 = _interopRequireDefault(_zhHK);
-
-var _zhEN = __webpack_require__(163);
-
-var _zhEN2 = _interopRequireDefault(_zhEN);
-
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : { default: obj };
-}
-
-exports.default = {
-    cn: _zhCN2.default,
-    hk: _zhHK2.default,
-    en: _zhEN2.default
-};
-
-/***/ }),
-/* 161 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = {
-    year: '年',
-    month: '月',
-    day: '日',
-    hour: '时',
-    minutes: '分',
-    am: '上午',
-    pm: '下午'
-};
-
-/***/ }),
 /* 162 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = {
-    year: '年',
-    month: '月',
-    day: '日',
-    hour: '時',
-    minutes: '分',
-    am: '上午',
-    pm: '下午'
-};
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 163 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = {
-    year: '',
-    month: '',
-    day: '',
-    hour: '',
-    minutes: '',
-    am: 'AM',
-    pm: 'PM'
-};
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 164 */,
@@ -10205,9 +10349,9 @@ var _react2 = _interopRequireDefault(_react);
 
 __webpack_require__(202);
 
-__webpack_require__(106);
+__webpack_require__(107);
 
-var _zzcDesignMobile = __webpack_require__(107);
+var _zzcDesignMobile = __webpack_require__(108);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

@@ -5,5 +5,10 @@ export default {
     hour: '時',
     minutes: '分',
     am: '上午',
-    pm: '下午'
+    pm: '下午',
+    confirm: '確認',
+    cancel: '取消',
+    close: '關閉',
+    open: '打開',
+    datePickerTitle: '請選擇時間'
 };

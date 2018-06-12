@@ -36,10 +36,13 @@ export function getModeYearData( BScrollList: BScrollArray, state: DatePickerSta
     return year;
 }
 
-export function getModeMonthData( BScrollList: BScrollArray, state: DatePickerState ): string {
+export function getModeMonthData( BScrollList: BScrollArray, state: DatePickerState, mode: string ): string {
     const { month: monthBS } = BScrollList;
     const { monthList } = state;
     const month = monthList.listData[monthBS.getSelectedIndex()].dataKey;
+    if ( mode == 'month' ) {
+        return month; // 如果mode等于month则不补0
+    }
     return resetDate( month );
 }
 
