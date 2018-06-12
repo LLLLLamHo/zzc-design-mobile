@@ -1,24 +1,24 @@
-.zzc-icon {
+.zds-icon {
   fill: currentColor;
   background-size: cover; }
 
-.zzc-icon-lg {
+.zds-icon-lg {
   width: .8rem;
   height: .8rem; }
 
-.zzc-icon-md {
+.zds-icon-md {
   width: .6rem;
   height: .6rem; }
 
-.zzc-icon-sm {
+.zds-icon-sm {
   width: .4rem;
   height: .4rem; }
 
-.zzc-icon-xs {
+.zds-icon-xs {
   width: .2rem;
   height: .2rem; }
 
-.zzc-icon-loading {
+.zds-icon-loading {
   animation: cirle-zzc 1s linear infinite; }
 
 @keyframes cirle-zzc {

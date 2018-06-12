@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import loadSprite from './loadSprite';
+import config from '../_util/config';
 import './index.scss';
 
 export interface IconProps {
@@ -20,7 +21,7 @@ export default class Icon extends React.PureComponent<IconProps,any> {
     }
 
     static defaultProps = {
-        prefixCls: 'zzc-icon',
+        prefixCls: `${config.cls}-icon`,
         type: undefined,
         size: 'md',
         className: '',

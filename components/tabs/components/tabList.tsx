@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import TabsItem from './tabItem';
 import TabsListUnserlineProps from './tabsListUnserline';
 import { getTabItemSize } from '../util/';
+import config from '../../_util/config';
 import { isArray } from '../../_util/typeof';
 
 export interface TabsListProps {
@@ -39,8 +40,8 @@ export default class TabsList extends React.PureComponent<TabsListProps> {
         const style = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? { width: `${size}%` } : { height: `${size}%` };
         return ( tabs && tabs.map( ( item, key ) => (
             <TabsItem
-                key={`zzc-tabitem-${key}`}
-                itemKey={`zzc-tab-${key}`}
+                key={`${config.cls}-tabitem-${key}`}
+                itemKey={`${config.cls}-tab-${key}`}
                 className={this.setTabIsActive( prefixCls, currIndex, key )}
                 clickEvent={() => { this.onChange( key ); }}
                 style={style}

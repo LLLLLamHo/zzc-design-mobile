@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Animate from '../_util/Animate';
 import { addClass } from '../_util/class';
 import animateConfig from '../_util/animateConfig';
+import config from '../_util/config';
 import { isFunction } from '../_util/typeof';
 import './index.scss';
 
@@ -26,7 +27,7 @@ export interface ModalProps {
 
 export default class Dialog extends PureComponent<ModalProps, any> {
     static defaultProps = {
-        prefixCls: 'zzc-dialog',
+        prefixCls: `${config.cls}-dialog`,
         className: '',
         maskClassName: '',
         boxClassName: '',

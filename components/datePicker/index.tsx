@@ -7,12 +7,13 @@ import Picker from '../picker';
 import Popup from '../Popup';
 import { isFunction, isDate } from '../_util/typeof';
 import langTextObject from '../_util/i18n';
-import { DatePickerProps, DatePickerState, ListItem, DateData, BScrollArray } from './propsType';
+import { DatePickerProps, DatePickerState, ListItem, BScrollArray } from './propsType';
+import config from '../_util/config';
 import './index.scss';
 
 export default class DatePicker extends React.PureComponent<DatePickerProps, DatePickerState> {
     static defaultProps = {
-        prefixCls: 'zzc-datepicker',
+        prefixCls: `${config.cls}-datepicker`,
         className: '',
         style: {},
         mode: 'date',

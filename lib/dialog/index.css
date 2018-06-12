@@ -1,4 +1,4 @@
-.zzc-dialog {
+.zds-dialog {
   position: fixed;
   top: 0;
   left: 0;
@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center; }
 
-.zzc-dialog .zzc-dialog-mask {
+.zds-dialog .zds-dialog-mask {
   background: rgba(0, 0, 0, 0.8);
   height: 100%;
   width: 100%;
@@ -17,31 +17,31 @@
   left: 0;
   z-index: 999; }
 
-.zzc-dialog .zzc-dialog-box {
+.zds-dialog .zds-dialog-box {
   background: #fff;
   z-index: 1001; }
 
-.zzc-fade-enter {
+.zds-fade-enter {
   opacity: 0;
   animation-duration: .2s;
   animation-fill-mode: both;
   animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   animation-play-state: paused; }
 
-.zzc-fade-enter.zzc-fade-enter-active {
+.zds-fade-enter.zds-fade-enter-active {
   -webkit-animation-name: zzcFadeIn;
   animation-name: zzcFadeIn;
   -webkit-animation-play-state: running;
   animation-play-state: running; }
 
-.zzc-fade-leave {
+.zds-fade-leave {
   opacity: 0;
   animation-duration: .2s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   animation-play-state: paused; }
 
-.zzc-fade-leave.zzc-fade-leave-active {
+.zds-fade-leave.zds-fade-leave-active {
   -webkit-animation-name: zzcFadeOut;
   animation-name: zzcFadeOut;
   -webkit-animation-play-state: running;
@@ -59,7 +59,7 @@
   100% {
     opacity: 0; } }
 
-.zzc-zoom-enter {
+.zds-zoom-enter {
   opacity: 0;
   transform: scale(0.3);
   animation-duration: .3s;
@@ -67,19 +67,19 @@
   animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   animation-play-state: paused; }
 
-.zzc-zoom-enter.zzc-zoom-enter-active {
+.zds-zoom-enter.zds-zoom-enter-active {
   -webkit-animation-name: zzcZoomIn;
   animation-name: zzcZoomIn;
   -webkit-animation-play-state: running;
   animation-play-state: running; }
 
-.zzc-zoom-leave {
+.zds-zoom-leave {
   animation-duration: .3s;
   animation-fill-mode: both;
   animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   animation-play-state: paused; }
 
-.zzc-zoom-leave.zzc-zoom-leave-active {
+.zds-zoom-leave.zds-zoom-leave-active {
   -webkit-animation-name: zzcZoomOut;
   animation-name: zzcZoomOut;
   -webkit-animation-play-state: running;

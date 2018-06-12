@@ -1,4 +1,4 @@
-.zzc-datepicker-header {
+.zds-datepicker-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -7,7 +7,7 @@
   box-sizing: border-box;
   position: relative; }
 
-.zzc-datepicker-header::after {
+.zds-datepicker-header::after {
   content: "";
   position: absolute;
   display: block;
@@ -18,19 +18,19 @@
   border-bottom: 1px solid #DDE0E6;
   transform: scaleY(0.5) translateY(50%); }
 
-.zzc-datepicker-header > div {
+.zds-datepicker-header > div {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center; }
 
-.zzc-datepicker-header-close {
+.zds-datepicker-header-close {
   padding-left: .3rem;
   color: #4E7CDD; }
 
-.zzc-datepicker-header-submit {
+.zds-datepicker-header-submit {
   padding-right: .3rem;
   color: #4E7CDD; }
 
-.zzc-datepicker-header-title {
+.zds-datepicker-header-title {
   flex: 1; }

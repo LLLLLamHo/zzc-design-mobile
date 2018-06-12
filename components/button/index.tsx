@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import TouchFeedback from '../_util/TouchFeedback';
+import config from '../_util/config';
 
 import '../style/index';
 import './index.scss';
@@ -24,7 +25,7 @@ export interface ButtonProps {
 
 export default class Button extends PureComponent<ButtonProps, any> {
     static defaultProps = {
-        prefixCls: 'zzc-button',
+        prefixCls: `${config.cls}-button`,
         size: false,
         inline: false,
         full: false,

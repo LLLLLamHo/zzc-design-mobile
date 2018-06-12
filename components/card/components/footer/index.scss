@@ -1,6 +1,6 @@
 @import '../../../style/base.scss';
 
-$cls: '.zzc-card-footer';
+$cls: '.zds-card-footer';
 #{$cls}{
     @include halfPXLine('top',$border_color);
     &-noborder{

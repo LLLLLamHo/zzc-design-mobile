@@ -1,23 +1,23 @@
-.zzc-card {
+.zds-card {
   background: transparent; }
 
-.zzc-card-full .zzc-card-box {
+.zds-card-full .zds-card-box {
   margin: 0;
   border-radius: 0;
   box-shadow: none; }
 
-.zzc-card-box {
+.zds-card-box {
   overflow: hidden;
   background: #fff;
   margin: 0 .2rem;
   border-radius: .16rem;
   box-shadow: 0 0.04rem 0.12rem 0 rgba(0, 0, 0, 0.15); }
 
-.zzc-card-box section:last-of-type {
+.zds-card-box section:last-of-type {
   color: red; }
 
-.zzc-card-box section:last-of-type .zzc-card-body-box {
+.zds-card-box section:last-of-type .zds-card-body-box {
   color: red; }
 
-.zzc-card-box section:last-of-type .zzc-card-body-box:after {
+.zds-card-box section:last-of-type .zds-card-body-box:after {
   display: none; }

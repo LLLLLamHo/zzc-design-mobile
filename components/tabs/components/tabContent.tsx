@@ -4,6 +4,7 @@ import TabsPane from './tabPane';
 import Gesture from '../../_util/Gesture';
 import { setLayoutScroll, getTranslate3dStyle } from '../util';
 import { TabContentProps } from '../propsType';
+import config from '../../_util/config';
 import { isArray } from '../../_util/typeof';
 
 export default class TabrContent extends React.PureComponent<TabContentProps> {
@@ -31,7 +32,7 @@ export default class TabrContent extends React.PureComponent<TabContentProps> {
                         <TabsPane
                             prefixCls={prefixCls}
                             key={`tabspane-${key}-${new Date().getTime()}`}
-                            itemKey={`zzc-tabs-content-item-${key}-${new Date().getTime()}`}
+                            itemKey={`${config.cls}-tabs-content-item-${key}-${new Date().getTime()}`}
                         >
                             {item}
                         </TabsPane>

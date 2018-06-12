@@ -4,6 +4,7 @@ import TabBar from './components/tabBar';
 import TabContent from './components/tabContent';
 import { isFunction, isNull } from '../_util/typeof';
 import { TabsProps } from './propsType';
+import config from '../_util/config';
 import './index.scss';
 
 export interface TabsState {
@@ -12,7 +13,7 @@ export interface TabsState {
 }
 export default class Tabs extends React.PureComponent<TabsProps, TabsState> {
     static defaultProps = {
-        prefixCls: 'zzc-tabs',
+        prefixCls: `${config.cls}-tabs`,
         className: '',
         style: {},
         tabBarUnderlineStyle: {},

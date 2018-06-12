@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import Modal from '../modal';
+import config from '../_util/config';
 import './index.scss';
 
 class Alert {
@@ -11,7 +12,7 @@ class Alert {
 
     constructor( opt ) {
         const defaultPorps = {
-            prefixCls: 'zzc-alert',
+            prefixCls: `${config.cls}-alert`,
             className: '',
             style: {},
             title: '',
@@ -28,7 +29,7 @@ class Alert {
 
         this._alert = ReactDOM.render(
             <Modal
-                transitionName='zzc-zoom'
+                transitionName={`${config.cls}-zoom`}
                 visible
                 {...this.opt}
                 title={this.createTitle( title, prefixCls, content )}

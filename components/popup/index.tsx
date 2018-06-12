@@ -1,6 +1,7 @@
 import React from 'react';
 import Dialog from '../dialog';
 import animateConfig from '../_util/animateConfig';
+import config from '../_util/config';
 import './index.scss';
 
 export interface PopupProps {
@@ -16,7 +17,7 @@ export interface PopupProps {
 
 export default class Popup extends React.PureComponent<PopupProps> {
     static defaultProps = {
-        prefixCls: 'zzc-popup',
+        prefixCls: `${config.cls}-popup`,
         visible: false,
         style: {},
         maskStyle: {},
@@ -41,7 +42,7 @@ export default class Popup extends React.PureComponent<PopupProps> {
 
     // 获取指定样式
     getAnimationClass ( direction: any ): any {
-        const animation = this.state.animationTypeList[`zzc-slide-${direction}`];
+        const animation = this.state.animationTypeList[`${config.cls}-slide-${direction}`];
         if ( animation ) {
             return animation;
         }
@@ -53,7 +54,7 @@ export default class Popup extends React.PureComponent<PopupProps> {
         if ( this.state.showPopup ) {
             return (
                 <Dialog
-                    maskTransitionName='zzc-fade'
+                    maskTransitionName={`${config.cls}-fade`}
                     transitionName={this.getAnimationClass( direction )}
                     prefixCls={prefixCls}
                     boxClassName={`${prefixCls}-${direction}`}

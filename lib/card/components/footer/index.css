@@ -1,9 +1,9 @@
-.zzc-card-footer {
+.zds-card-footer {
   position: relative;
   width: 100%;
   box-sizing: border-box; }
 
-.zzc-card-footer::after {
+.zds-card-footer::after {
   content: "";
   position: absolute;
   display: block;
@@ -14,5 +14,5 @@
   border-top: 1px solid #DDE0E6;
   transform: scaleY(0.5) translateY(-50%); }
 
-.zzc-card-footer-noborder:after {
+.zds-card-footer-noborder:after {
   display: none; }

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
+import config from '../../../_util/config';
 import './index.scss';
 
 export interface CardHeaderProps {
@@ -17,7 +18,7 @@ export interface CardHeaderProps {
 
 export default class Header extends PureComponent<CardHeaderProps, any> {
     static defaultProps = {
-        prefixCls: 'zzc-card-header',
+        prefixCls: `${config.cls}-card-header`,
         className: '',
         title: '',
         extra: false,
