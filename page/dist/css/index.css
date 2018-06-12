@@ -699,16 +699,47 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 30px;
   box-sizing: border-box;
 }
 
-.zzc-demo-header h1 {
+.zzc-demo-header .zzc-demo-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  line-height: 1;
+}
+
+.zzc-demo-header .zzc-demo-title h1 {
   color: #fff;
-  font-size: 28px;
+  font-size: 38px;
+}
+
+.zzc-demo-header .zzc-demo-title p {
+  margin-left: 10px;
+  color: #fff;
+  font-size: 22px;
+}
+
+.zzc-demo-header .zzc-demo-version {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  line-height: 1;
+  color: #fff;
+  font-size: 18px;
 }
 /**
   * reset browser style

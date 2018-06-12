@@ -10,7 +10,7 @@
 
 | 属性               | 说明                               | 类型                              | 默认值              |
 | ------------------ | ---------------------------------- | --------------------------------- | ------------------- |
-| prefixCls          | 组件的公用className前序            | string                            | zzc-modal           |
+| prefixCls          | 组件的公用className前序            | string                            | zds-popup           |
 | className          | 定义popup的body class              | string                            | 无                  |
 | style              | 自定义样式                         | object                            | {}                  |
 | bodyStyle          | 弹框主题样式                         | object                            | {}                  |

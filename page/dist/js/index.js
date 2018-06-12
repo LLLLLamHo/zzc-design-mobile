@@ -1562,8 +1562,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_header_index__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__index_scss__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__index_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__index_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__package_json__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__package_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__package_json__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__config_config_json__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__config_config_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__config_config_json__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__index_scss__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__index_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__index_scss__);
 
 
 
@@ -1594,6 +1598,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = __WEBPACK_IMPORTED_MODULE_5__
 
 
 
+
+console.log(__WEBPACK_IMPORTED_MODULE_10__config_config_json___default.a);
+
 var App =
 /*#__PURE__*/
 function (_React$Component) {
@@ -1610,7 +1617,9 @@ function (_React$Component) {
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("div", {
         className: "zzc-demo-box"
-      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__components_header_index__["a" /* default */], null));
+      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__components_header_index__["a" /* default */], {
+        data: __WEBPACK_IMPORTED_MODULE_9__package_json___default.a
+      }));
     }
   }]);
 
@@ -21806,9 +21815,14 @@ function (_Component) {
   _createClass(Header, [{
     key: "render",
     value: function render() {
+      var data = this.props.data;
       return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("div", {
         className: "zzc-demo-header"
-      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("h1", null, "zzc-desgin-mobile \u79DF\u79DF\u8F66\u4E3B\u6D41\u7A0BUI\u89C4\u8303"));
+      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("div", {
+        className: "zzc-demo-title"
+      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("h1", null, data.name), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("p", null, data.name_cn)), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("div", {
+        className: "zzc-demo-version"
+      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("p", null, "\u5F53\u524D\u7248\u672C\uFF1A", data.version)));
     }
   }]);
 
@@ -21825,6 +21839,18 @@ function (_Component) {
 
 /***/ }),
 /* 109 */
+/***/ (function(module, exports) {
+
+module.exports = {"name":"zzc-design-mobile","name_cn":"租租车主流程UI规范","version":"1.0.7","description":"","main":"./lib/index.js","scripts":{"svgo":"./node_modules/.bin/svgo -f ./components/icon/svg","build":"rm -rf ./es && gulp build","watch":"rm -rf ./es && gulp watch","publish":"rm -rf ./lib && gulp compile","build_demo":"npm run publish && node ./config/copy.js","test":"BABEL_ENV=test ./node_modules/.bin/jest -u --config .jest.js","start":"cross-env NODE_ENV=development concurrently \"cross-env DEMO_ENV=react bisheng start -c ./bisheng.config.js\"","site":"cross-env NODE_ENV=production concurrently \"cross-env DEMO_ENV=react bisheng build -c ./bisheng.config.js\""},"author":"","license":"ISC","dependencies":{"better-scroll":"1.11.1","classnames":"2.2.5"},"devDependencies":{"@types/classnames":"2.2.3","@types/react":"16.3.14","@types/react-dom":"16.0.5","antd":"3.2.0","antd-mobile":"2.1.6","autoprefixer":"7.2.5","babel":"6.23.0","babel-core":"6.26.0","babel-eslint":"8.2.1","babel-jest":"22.2.2","babel-loader":"7.1.2","babel-plugin-external-helpers":"6.22.0","babel-plugin-import":"1.6.3","babel-plugin-transform-runtime":"6.23.0","babel-polyfill":"6.26.0","babel-preset-env":"1.6.1","babel-preset-es2015-rollup":"3.0.0","babel-preset-latest":"6.24.1","babel-preset-react":"6.24.1","babel-preset-stage-0":"6.24.1","bisheng":"0.28.0","bisheng-plugin-antd":"0.16.0","bisheng-plugin-description":"0.1.1","bisheng-plugin-react":"0.6.0","bisheng-plugin-toc":"0.4.0","chai":"4.1.2","chai-enzyme":"0.8.0","colors":"1.1.2","concurrently":"3.5.1","create-react-class":"15.6.3","cross-env":"5.1.3","css-split-webpack-plugin":"0.2.5","enzyme":"3.3.0","enzyme-adapter-react-16":"1.1.1","enzyme-to-json":"3.3.1","eslint":"4.19.1","eslint-config-airbnb":"16.1.0","eslint-plugin-import":"2.8.0","eslint-plugin-jsx-a11y":"6.0.3","eslint-plugin-react":"7.6.1","eslint-plugin-typescript":"0.11.0","gulp":"3.9.1","gulp-babel":"6.1.2","gulp-compass":"2.1.0","gulp-iconfont":"8.0.1","gulp-iconfont-css":"2.1.0","gulp-sass":"3.1.0","gulp-typescript":"4.0.2","gulp-uglify":"2.1.2","jest":"22.3.0","postcss":"6.0.17","preact":"8.2.7","preact-compat":"3.18.0","qrcode.react":"0.7.2","react":"16.2.0","react-copy-to-clipboard":"5.0.1","react-document-title":"2.0.3","react-dom":"16.2.0","react-github-button":"0.1.11","react-intl":"2.4.0","react-router":"4.2.0","react-sticky":"6.0.1","react-test-renderer":"16.2.0","svgo":"1.0.4","through2":"2.0.3","ts-jest":"22.4.3","typescript":"2.7.2","typescript-eslint-parser":"^14.0.0","webpack":"3.10.0"}}
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports) {
+
+module.exports = {"componentList":["alert","button","card","datePicker","dialog","icon","modal","picker","popup","tabs","toast"]}
+
+/***/ }),
+/* 111 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

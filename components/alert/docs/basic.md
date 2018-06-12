@@ -8,7 +8,7 @@
 
 | 属性          | 说明                    | 类型                   | 默认值    |
 | ------------- | ----------------------- | ---------------------- | --------- |
-| prefixCls     | 组件的公用className前序 | string                 | zzc-alert |
+| prefixCls     | 组件的公用className前序 | string                 | zds-alert |
 | className     | 定义最外层父元素的class | string                 | 无        |
 | style         | 自定义样式              | object                 | {}        |
 | title         | 弹窗显示的title         | string                 | 无        |

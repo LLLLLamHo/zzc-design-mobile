@@ -13,6 +13,7 @@
     "github-markdown-css": "^2.10.0",
     "guido": "^3.7.4",
     "html-loader": "^0.5.5",
+    "json-loader": "^0.5.7",
     "markdown-loader": "^3.0.0",
     "marked": "^0.4.0",
     "react": "^16.4.0",

@@ -1,3 +1,10 @@
+const setConfig = require( './config/setConfig' );
+
+
+( async () => {
+    await setConfig();
+} )();
+
 module.exports = {
     devtool: 'source-map',
     entry: {
@@ -12,11 +19,16 @@ module.exports = {
                 },
                 {
                     loader: 'markdown-loader',
-                    options: {
-                        /* your options here */
-                    }
+                    options: {}
                 }
             ]
-        }]
+        },
+        {
+            test: /\.json$/,
+            use: [{
+                loader: 'json-loader'
+            }]
+        }
+        ]
     }
 };

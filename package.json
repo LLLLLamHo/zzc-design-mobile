@@ -1,6 +1,7 @@
 {
   "name": "zzc-design-mobile",
-  "version": "1.0.6",
+  "name_cn": "租租车主流程UI规范",
+  "version": "1.0.7",
   "description": "",
   "main": "./lib/index.js",
   "scripts": {

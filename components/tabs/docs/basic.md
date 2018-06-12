@@ -11,7 +11,7 @@
 
 | 属性                   | 说明                                                            | 类型                 | 默认值       |
 | ---------------------- | --------------------------------------------------------------- | -------------------- | ------------ |
-| prefixCls              | 组件的公用className前序                                         | string               | zzc-tabs     |
+| prefixCls              | 组件的公用className前序                                         | string               | zds-tabs     |
 | className              | 为zzc-tabs-box添加额外class    | string               | ''   |
 | style              | 为zzc-tabs-box添加额外style样式    | object               | {}   |
 | tabBarPosition         | tabbar的位置'top'、'bottom'、'left'、'right'                    | string               | 'top'        |

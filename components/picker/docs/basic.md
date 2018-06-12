@@ -11,9 +11,9 @@
 
 | 属性         | 说明                                                             | 类型     | 默认值     |
 | ------------ | ---------------------------------------------------------------- | -------- | ---------- |
-| prefixCls    | 组件的公用className前序                                          | string   | zzc-picker |
-| className    | 为zzc-tabs-box添加额外class                                      | string   | ''         |
-| style        | 为zzc-tabs-box添加额外style样式                                  | object   | {}         |
+| prefixCls    | 组件的公用className前序                                          | string   | zds-picker |
+| className    | 为zds-tabs-box添加额外class                                      | string   | ''         |
+| style        | 为zds-tabs-box添加额外style样式                                  | object   | {}         |
 | pickerData   | 传入picker组件的数据                                             | Array    | []         |
 | renderAfter  | 渲染完成后的回调函数(返回滑动列表)                                             | Function |            |
 | onTouchStart | 开始滑动事件，会返回当前滑动的滑动框下标                         | Function |            |

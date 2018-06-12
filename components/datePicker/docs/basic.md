@@ -11,7 +11,7 @@
 
 | 属性          | 说明                                                                               | 类型     | 默认值             |
 | ------------- | ---------------------------------------------------------------------------------- | -------- | ------------------ |
-| prefixCls     | 组件的公用className前序                                                            | string   | zzc-picker         |
+| prefixCls     | 组件的公用className前序                                                            | string   | zds-picker         |
 | className     | 为zzc-tabs-box添加额外class                                                        | string   | ''                 |
 | style         | 为zzc-tabs-box添加额外style样式                                                    | object   | {}                 |
 | mode          | 日期选择的模式，可以日期`date`，时间`time`,日期加时间`datetime`,年`year`,月`month` | string   | date               |
