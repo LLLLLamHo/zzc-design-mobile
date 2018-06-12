@@ -2,145 +2,984 @@
 
 exports[`Modal 1`] = `
 <div
-  class="zzc-picker"
+  class="zzc-popup"
 >
   <div
-    class="zzc-picker-wrapper wrapper"
-  >
-    <ul
-      class="year-list zzc-picker-ws"
-    >
-      <li
-        class="year-item zzc-picker-wi"
-        data-key="2015222"
-      >
-        2015
-      </li>
-      <li
-        class="year-item zzc-picker-wi"
-        data-key="2016222"
-      >
-        2016
-      </li>
-      <li
-        class="year-item zzc-picker-wi"
-        data-key="2017222"
-      >
-        2017
-      </li>
-      <li
-        class="year-item zzc-picker-wi"
-        data-key="2018222"
-      >
-        2018
-      </li>
-      <li
-        class="year-item zzc-picker-wi"
-        data-key="2019222"
-      >
-        2019
-      </li>
-    </ul>
-  </div>
+    class="zzc-popup-mask"
+  />
   <div
-    class="zzc-picker-wrapper wrapper"
+    class="zzc-popup-box zzc-popup-bottom"
   >
-    <ul
-      class="month-list zzc-picker-ws"
+    <div
+      class="zzc-datepicker"
     >
-      <li
-        class="month-item zzc-picker-wi"
-        data-key="0"
+      <div
+        class="zzc-datepicker-header"
       >
-        1月
-      </li>
-      <li
-        class="month-item zzc-picker-wi"
-        data-key="1"
+        <div
+          class="zzc-datepicker-header-close"
+        >
+          取消
+        </div>
+        <div
+          class="zzc-datepicker-header-title"
+        >
+          请选择时间
+        </div>
+        <div
+          class="zzc-datepicker-header-submit"
+        >
+          确认
+        </div>
+      </div>
+      <div
+        class="zzc-picker"
       >
-        2月
-      </li>
-      <li
-        class="month-item zzc-picker-wi"
-        data-key="2"
-      >
-        3月
-      </li>
-      <li
-        class="month-item zzc-picker-wi"
-        data-key="3"
-      >
-        4月
-      </li>
-      <li
-        class="month-item zzc-picker-wi"
-        data-key="4"
-      >
-        5月
-      </li>
-      <li
-        class="month-item zzc-picker-wi"
-        data-key="5"
-      >
-        6月
-      </li>
-      <li
-        class="month-item zzc-picker-wi"
-        data-key="6"
-      >
-        7月
-      </li>
-    </ul>
-  </div>
-  <div
-    class="zzc-picker-wrapper wrapper"
-  >
-    <ul
-      class="data-list zzc-picker-ws"
-    >
-      <li
-        class="data-item zzc-picker-wi"
-        data-key="1日"
-      >
-        1日
-      </li>
-      <li
-        class="data-item zzc-picker-wi"
-        data-key="2日"
-      >
-        2日
-      </li>
-      <li
-        class="data-item zzc-picker-wi"
-        data-key="3日"
-      >
-        3日
-      </li>
-      <li
-        class="data-item zzc-picker-wi"
-        data-key="4日"
-      >
-        4日
-      </li>
-      <li
-        class="data-item zzc-picker-wi"
-        data-key="5日"
-      >
-        5日
-      </li>
-      <li
-        class="data-item zzc-picker-wi"
-        data-key="6日"
-      >
-        6日
-      </li>
-      <li
-        class="data-item zzc-picker-wi"
-        data-key="7日"
-      >
-        7日
-      </li>
-    </ul>
+        <div
+          class="zzc-picker-wrapper wrapper"
+        >
+          <ul
+            class="year-list zzc-picker-ws"
+          >
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2008"
+            >
+              2008年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2009"
+            >
+              2009年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2010"
+            >
+              2010年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2011"
+            >
+              2011年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2012"
+            >
+              2012年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2013"
+            >
+              2013年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2014"
+            >
+              2014年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2015"
+            >
+              2015年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2016"
+            >
+              2016年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2017"
+            >
+              2017年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2018"
+            >
+              2018年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2019"
+            >
+              2019年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2020"
+            >
+              2020年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2021"
+            >
+              2021年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2022"
+            >
+              2022年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2023"
+            >
+              2023年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2024"
+            >
+              2024年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2025"
+            >
+              2025年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2026"
+            >
+              2026年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2027"
+            >
+              2027年
+            </li>
+            <li
+              class="year-item zzc-picker-wi"
+              data-key="2028"
+            >
+              2028年
+            </li>
+          </ul>
+          <div
+            class="zzc-picker-wrapper-bg"
+          />
+        </div>
+        <div
+          class="zzc-picker-wrapper wrapper"
+        >
+          <ul
+            class="month-list zzc-picker-ws"
+          >
+            <li
+              class="month-item zzc-picker-wi"
+              data-key="1"
+            >
+              1月
+            </li>
+            <li
+              class="month-item zzc-picker-wi"
+              data-key="2"
+            >
+              2月
+            </li>
+            <li
+              class="month-item zzc-picker-wi"
+              data-key="3"
+            >
+              3月
+            </li>
+            <li
+              class="month-item zzc-picker-wi"
+              data-key="4"
+            >
+              4月
+            </li>
+            <li
+              class="month-item zzc-picker-wi"
+              data-key="5"
+            >
+              5月
+            </li>
+            <li
+              class="month-item zzc-picker-wi"
+              data-key="6"
+            >
+              6月
+            </li>
+            <li
+              class="month-item zzc-picker-wi"
+              data-key="7"
+            >
+              7月
+            </li>
+            <li
+              class="month-item zzc-picker-wi"
+              data-key="8"
+            >
+              8月
+            </li>
+            <li
+              class="month-item zzc-picker-wi"
+              data-key="9"
+            >
+              9月
+            </li>
+            <li
+              class="month-item zzc-picker-wi"
+              data-key="10"
+            >
+              10月
+            </li>
+            <li
+              class="month-item zzc-picker-wi"
+              data-key="11"
+            >
+              11月
+            </li>
+            <li
+              class="month-item zzc-picker-wi"
+              data-key="12"
+            >
+              12月
+            </li>
+          </ul>
+          <div
+            class="zzc-picker-wrapper-bg"
+          />
+        </div>
+        <div
+          class="zzc-picker-wrapper wrapper"
+        >
+          <ul
+            class="day-list zzc-picker-ws"
+          >
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="1"
+            >
+              1日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="2"
+            >
+              2日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="3"
+            >
+              3日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="4"
+            >
+              4日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="5"
+            >
+              5日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="6"
+            >
+              6日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="7"
+            >
+              7日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="8"
+            >
+              8日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="9"
+            >
+              9日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="10"
+            >
+              10日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="11"
+            >
+              11日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="12"
+            >
+              12日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="13"
+            >
+              13日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="14"
+            >
+              14日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="15"
+            >
+              15日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="16"
+            >
+              16日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="17"
+            >
+              17日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="18"
+            >
+              18日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="19"
+            >
+              19日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="20"
+            >
+              20日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="21"
+            >
+              21日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="22"
+            >
+              22日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="23"
+            >
+              23日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="24"
+            >
+              24日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="25"
+            >
+              25日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="26"
+            >
+              26日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="27"
+            >
+              27日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="28"
+            >
+              28日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="29"
+            >
+              29日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="30"
+            >
+              30日
+            </li>
+            <li
+              class="day-item zzc-picker-wi"
+              data-key="31"
+            >
+              31日
+            </li>
+          </ul>
+          <div
+            class="zzc-picker-wrapper-bg"
+          />
+        </div>
+        <div
+          class="zzc-picker-wrapper wrapper"
+        >
+          <ul
+            class="hour-list zzc-picker-ws"
+          >
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="0时"
+            >
+              0时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="1"
+            >
+              1时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="2"
+            >
+              2时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="3"
+            >
+              3时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="4"
+            >
+              4时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="5"
+            >
+              5时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="6"
+            >
+              6时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="7"
+            >
+              7时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="8"
+            >
+              8时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="9"
+            >
+              9时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="10"
+            >
+              10时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="11"
+            >
+              11时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="12"
+            >
+              12时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="13"
+            >
+              13时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="14"
+            >
+              14时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="15"
+            >
+              15时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="16"
+            >
+              16时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="17"
+            >
+              17时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="18"
+            >
+              18时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="19"
+            >
+              19时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="20"
+            >
+              20时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="21"
+            >
+              21时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="22"
+            >
+              22时
+            </li>
+            <li
+              class="hour-item zzc-picker-wi"
+              data-key="23"
+            >
+              23时
+            </li>
+          </ul>
+          <div
+            class="zzc-picker-wrapper-bg"
+          />
+        </div>
+        <div
+          class="zzc-picker-wrapper wrapper"
+        >
+          <ul
+            class="minute-list zzc-picker-ws"
+          >
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="0分"
+            >
+              0分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="1"
+            >
+              1分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="2"
+            >
+              2分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="3"
+            >
+              3分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="4"
+            >
+              4分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="5"
+            >
+              5分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="6"
+            >
+              6分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="7"
+            >
+              7分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="8"
+            >
+              8分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="9"
+            >
+              9分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="10"
+            >
+              10分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="11"
+            >
+              11分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="12"
+            >
+              12分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="13"
+            >
+              13分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="14"
+            >
+              14分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="15"
+            >
+              15分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="16"
+            >
+              16分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="17"
+            >
+              17分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="18"
+            >
+              18分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="19"
+            >
+              19分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="20"
+            >
+              20分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="21"
+            >
+              21分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="22"
+            >
+              22分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="23"
+            >
+              23分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="24"
+            >
+              24分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="25"
+            >
+              25分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="26"
+            >
+              26分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="27"
+            >
+              27分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="28"
+            >
+              28分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="29"
+            >
+              29分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="30"
+            >
+              30分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="31"
+            >
+              31分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="32"
+            >
+              32分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="33"
+            >
+              33分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="34"
+            >
+              34分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="35"
+            >
+              35分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="36"
+            >
+              36分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="37"
+            >
+              37分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="38"
+            >
+              38分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="39"
+            >
+              39分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="40"
+            >
+              40分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="41"
+            >
+              41分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="42"
+            >
+              42分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="43"
+            >
+              43分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="44"
+            >
+              44分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="45"
+            >
+              45分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="46"
+            >
+              46分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="47"
+            >
+              47分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="48"
+            >
+              48分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="49"
+            >
+              49分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="50"
+            >
+              50分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="51"
+            >
+              51分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="52"
+            >
+              52分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="53"
+            >
+              53分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="54"
+            >
+              54分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="55"
+            >
+              55分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="56"
+            >
+              56分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="57"
+            >
+              57分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="58"
+            >
+              58分
+            </li>
+            <li
+              class="minute-item zzc-picker-wi"
+              data-key="59"
+            >
+              59分
+            </li>
+          </ul>
+          <div
+            class="zzc-picker-wrapper-bg"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;

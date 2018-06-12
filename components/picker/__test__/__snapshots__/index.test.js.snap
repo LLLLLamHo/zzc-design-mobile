@@ -41,6 +41,9 @@ exports[`Modal 1`] = `
         2019
       </li>
     </ul>
+    <div
+      class="zzc-picker-wrapper-bg"
+    />
   </div>
   <div
     class="zzc-picker-wrapper wrapper"
@@ -91,6 +94,9 @@ exports[`Modal 1`] = `
         7月
       </li>
     </ul>
+    <div
+      class="zzc-picker-wrapper-bg"
+    />
   </div>
   <div
     class="zzc-picker-wrapper wrapper"
@@ -141,6 +147,9 @@ exports[`Modal 1`] = `
         7日
       </li>
     </ul>
+    <div
+      class="zzc-picker-wrapper-bg"
+    />
   </div>
 </div>
 `;
