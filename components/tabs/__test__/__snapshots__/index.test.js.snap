@@ -2,25 +2,121 @@
 
 exports[`Modal 1`] = `
 <div
-  class="zzc-tabs-box"
+  class="zzc-tabs-box zzc-tabs-box-top"
 >
   <div
-    class="zzc-tabs-tab-list"
+    class="zzc-tabs-bar-box"
   >
     <div
-      class="zzc-tabs-tab-list-item"
+      class="zzc-tabs-bar-wrap zzc-tabs-bar-wrap-am"
+      style="touch-action:pan-x pan-y;transform:translate3d(0, 0px, 1px);-webkit-transform:translate3d(0, 0px, 1px);-moz-transform:translate3d(0, 0px, 1px)"
     >
-      tab one
+      <div
+        class="zzc-tabs-ls zzc-tabs-ls-horizontal"
+      >
+        <div
+          class="zzc-tabs-ls-item zzc-tabs-active"
+          style="width:33.3333%"
+        >
+          tab 1
+        </div>
+        <div
+          class="zzc-tabs-ls-item"
+          style="width:33.3333%"
+        >
+          tab 2
+        </div>
+        <div
+          class="zzc-tabs-ls-item"
+          style="width:33.3333%"
+        >
+          tab 3
+        </div>
+        <div
+          class="zzc-tabs-ls-item"
+          style="width:33.3333%"
+        >
+          tab 4
+        </div>
+        <div
+          class="zzc-tabs-ls-item"
+          style="width:33.3333%"
+        >
+          tab 5
+        </div>
+        <div
+          class="zzc-tabs-ls-unline zzc-tabs-ls-unline-top zzc-tabs-ls-unline-am"
+          style="width:33.3333%;transform:translate3d(0.0000%,0,0)"
+        />
+      </div>
     </div>
+  </div>
+  <div
+    class="zzc-tabs-content-box zzc-tabs-content-box-horizontal"
+  >
     <div
-      class="zzc-tabs-tab-list-item"
+      class="zzc-tabs-content-wrap zzc-tabs-content-wrap-am"
+      style="touch-action:pan-x pan-y;transform:translate3d(0, 0px, 1px);-webkit-transform:translate3d(0, 0px, 1px);-moz-transform:translate3d(0, 0px, 1px)"
     >
-      tab two
-    </div>
-    <div
-      class="zzc-tabs-tab-list-item"
-    >
-      tab three
+      <div
+        class="zzc-tabs-content"
+      >
+        <div
+          class="zzc-tabs-content-item"
+        >
+          <div
+            class="item-content"
+          >
+            <p>
+              this is 1 content
+            </p>
+          </div>
+        </div>
+        <div
+          class="zzc-tabs-content-item"
+        >
+          <div
+            class="item-content"
+          >
+            <p>
+              this is 2 content
+            </p>
+          </div>
+        </div>
+        <div
+          class="zzc-tabs-content-item"
+        >
+          <div
+            class="item-content"
+          >
+            <p>
+              this is 3 content
+            </p>
+          </div>
+        </div>
+        <div
+          class="zzc-tabs-content-item"
+        >
+          <div
+            class="item-content"
+          >
+            <p>
+              this is 4 content
+            </p>
+          </div>
+        </div>
+        <div
+          class="zzc-tabs-content-item"
+        >
+          <div
+            class="item-content"
+          >
+            <p>
+              this is 5 content
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

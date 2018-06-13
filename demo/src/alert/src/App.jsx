@@ -43,7 +43,7 @@ export default class App extends Component {
     contentAlert() {
         Alert( {
             title: '标题',
-            content: <p>asdasdasdasd</p>,
+            content: <p>asdadasdas</p>,
             buttons: [
                 {
                     text: '取消',

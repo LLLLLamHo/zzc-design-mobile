@@ -17,7 +17,7 @@
 
 | 属性      | 说明                    | 类型    | 默认值          |
 | --------- | ----------------------- | ------- | --------------- |
-| prefixCls | 组件的公用className前序 | string  | zzc-card-header |
+| prefixCls | 组件的公用className前序 | string  | zds-card-header |
 | title     | 标题文字                | string  | 无              |
 | extra     | 辅助文字                | string  | 无              |
 | noBorder  | 不显示分割线          | boolean | false           |
@@ -35,7 +35,7 @@
 
 | 属性            | 说明                                           | 类型    | 默认值        |
 | --------------- | ---------------------------------------------- | ------- | ------------- |
-| prefixCls       | 组件的公用className前序                        | string  | zzc-card-body |
+| prefixCls       | 组件的公用className前序                        | string  | zds-card-body |
 | full            | 是否占满一行                                   | boolean | false         |
 | noBorder        | 是否显示分割线                                 | boolean | false         |
 | className       | 样式类名                                       | string  | 无            |
@@ -62,7 +62,7 @@
 
 | 属性      | 说明                    | 类型    | 默认值          |
 | --------- | ----------------------- | ------- | --------------- |
-| prefixCls | 组件的公用className前序 | string  | zzc-card-footer |
+| prefixCls | 组件的公用className前序 | string  | zds-card-footer |
 | noBorder  | 是否显示分割线          | boolean | false           |
 | className | 样式类名                | string  | 无              |
 | style     | 自定义样式              | object  | {}              |

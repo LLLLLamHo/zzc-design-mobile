@@ -1,0 +1,30 @@
+@import '../style/base.scss';
+$cls: '.zds-datepicker';
+#{$cls} {
+    &-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height:1rem;
+        font-size: .32rem;
+        box-sizing: border-box;
+        @include halfPXLine('bottom', $border_color);
+        &>div{
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &-close{
+            padding-left: .3rem;
+            color: $main;
+        }
+        &-submit{
+            padding-right: .3rem;
+            color: $main; 
+        }
+        &-title{
+            flex: 1;
+        }
+    }
+}

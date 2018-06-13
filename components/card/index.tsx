@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Header from './components/header';
 import Body from './components/body';
 import Footer from './components/footer';
-
+import config from '../_util/config';
 import '../style/index';
 import './index.scss';
 
@@ -16,7 +16,7 @@ export interface CardProps {
 
 export default class Card extends PureComponent<CardProps, any> {
     static defaultProps = {
-        prefixCls: 'zzc-card',
+        prefixCls: `${config.cls}-card`,
         className: '',
         full: false,
         style: {}

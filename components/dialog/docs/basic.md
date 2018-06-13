@@ -10,7 +10,7 @@
 
 | 属性               | 说明                             | 类型                           | 默认值    |
 | ------------------ | -------------------------------- | ------------------------------ | --------- |
-| prefixCls          | 组件的公用className前序          | string                         | zzc-modal |
+| prefixCls          | 组件的公用className前序          | string                         | zds-dialog |
 | className          | 定义dialog最外层元素的class      | string                         | 无        |
 | boxClassName       | 定义dialog的body class           | string                         | 无        |
 | maskClassName      | 定义dialog的mask class           | string                         | 无        |
@@ -45,23 +45,23 @@
 ```js
 // 内置了一些动画钩子
 zoom: {
-    enter: 'zzc-zoom-enter',
-    enterActive: 'zzc-zoom-enter-active',
-    leave: 'zzc-zoom-leave',
-    leaveActive: 'zzc-zoom-leave-active'
+    enter: 'zds-zoom-enter',
+    enterActive: 'zds-zoom-enter-active',
+    leave: 'zds-zoom-leave',
+    leaveActive: 'zds-zoom-leave-active'
 },
 fade: {
-    enter: 'zzc-fade-enter',
-    enterActive: 'zzc-fade-enter-active',
-    leave: 'zzc-fade-leave',
-    leaveActive: 'zzc-fade-leave-active'
+    enter: 'zds-fade-enter',
+    enterActive: 'zds-fade-enter-active',
+    leave: 'zds-fade-leave',
+    leaveActive: 'zds-fade-leave-active'
 }
 
 // 自定义动画钩子
 transitionName={{
-    enter: 'zzc-123-enter',
-    enterActive: 'zzc-123-enter-active',
-    leave: 'zzc-123-leave',
-    leaveActive: 'zzc-123-leave-active'
+    enter: 'zds-123-enter',
+    enterActive: 'zds-123-enter-active',
+    leave: 'zds-123-leave',
+    leaveActive: 'zds-123-leave-active'
 }}
 ```

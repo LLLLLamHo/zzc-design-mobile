@@ -1,4 +1,4 @@
-.zzc-toast {
+.zds-toast {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -9,7 +9,7 @@
   top: 50%;
   transform: translateY(-50%); }
 
-.zzc-toast.zzc-toast-nomask {
+.zds-toast.zds-toast-nomask {
   width: auto;
   max-width: 6.3rem;
   height: auto;
@@ -17,13 +17,13 @@
   left: 50%;
   transform: translate3d(-50%, -50%, 0); }
 
-.zzc-toast.zzc-toast-icon .zzc-toast-notice-content {
+.zds-toast.zds-toast-icon .zds-toast-notice-content {
   min-width: 2rem; }
 
-.zzc-toast.zzc-toast-icon .zzc-toast-notice-content .zzc-toast-text-content {
+.zds-toast.zds-toast-icon .zds-toast-notice-content .zds-toast-text-content {
   margin-top: .2rem; }
 
-.zzc-toast .zzc-toast-notice-content {
+.zds-toast .zds-toast-notice-content {
   background: rgba(51, 51, 51, 0.8);
   border-radius: 0.16rem;
   -webkit-border-radius: 0.16rem;
@@ -32,7 +32,7 @@
   box-sizing: border-box;
   max-width: 6.3rem; }
 
-.zzc-toast .zzc-toast-notice-content .zzc-toast-text {
+.zds-toast .zds-toast-notice-content .zds-toast-text {
   color: #fff;
   font-size: 0.28rem;
   word-wrap: break-word; }

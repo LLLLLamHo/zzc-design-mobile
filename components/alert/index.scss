@@ -1,6 +1,6 @@
 @import '../style/base.scss';
-$cls: '.zzc-alert';
-$cls_button: '.zzc-button';
+$cls: '.zds-alert';
+$cls_button: '.zds-button';
 #{$cls}-box {
     width: 6.3rem;
     overflow: hidden;
@@ -41,14 +41,14 @@ $cls_button: '.zzc-button';
         width: 100%;
         overflow: hidden;
         height: 1rem;
-        @include halfPXLine('top', #DDE0E6);
+        @include halfPXLine('top', $border_color);
         display: flex;
         align-items: center;
         justify-content: center;
         #{$cls}-btn {
             flex: 1;
             &:not(:first-child) {
-                @include halfPXLine('left', #DDE0E6);
+                @include halfPXLine('left', $border_color);
             }
         }
     }

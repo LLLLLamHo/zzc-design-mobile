@@ -1,0 +1,30 @@
+.zzc-demo-header {
+    height: 120px;
+    background: #4E7CDD;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 30px;
+    box-sizing: border-box;
+    .zzc-demo-title {
+        display: flex;
+        align-items: flex-end;
+        line-height: 1;
+        h1 {
+            color: #fff;
+            font-size: 38px;
+        }
+        p {
+            margin-left: 10px;
+            color: #fff;
+            font-size: 22px;
+        }
+    }
+    .zzc-demo-version{
+        display: flex;
+        align-items: flex-end;
+        line-height: 1;
+        color:#fff;
+        font-size: 18px;
+    }
+}

@@ -12,8 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "better-scroll": "^1.11.1",
     "classnames": "2.2.5",
-    "guido": "3.6.6"
+    "guido": "3.6.6",
+    "zzc-design-mobile": "^1.0.1"
   },
   "devDependencies": {
     "react": "16.2.0",

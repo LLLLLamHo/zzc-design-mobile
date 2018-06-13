@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
+import config from '../../../_util/config';
 import './index.scss';
 
 export interface CardFooterProps {
@@ -13,7 +14,7 @@ export interface CardFooterProps {
 
 export default class Footer extends PureComponent<CardFooterProps, any> {
     static defaultProps = {
-        prefixCls: 'zzc-card-footer',
+        prefixCls: `${config.cls}-card-footer`,
         className: '',
         children: null,
         noBorder: false,

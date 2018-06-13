@@ -1,0 +1,15 @@
+{
+    "componentList": [
+        "alert",
+        "button",
+        "card",
+        "datePicker",
+        "dialog",
+        "icon",
+        "modal",
+        "picker",
+        "popup",
+        "tabs",
+        "toast"
+    ]
+}

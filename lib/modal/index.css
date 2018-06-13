@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.zzc-modal-box {
+.zds-modal-box {
   width: 6.3rem;
   overflow: hidden;
   border-radius: 0.16rem;
@@ -8,18 +8,18 @@
   /* ipad竖屏 */ }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  .zzc-modal-box {
+  .zds-modal-box {
     width: 315px; } }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .zzc-modal-box {
+  .zds-modal-box {
     width: 315px; } }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  .zzc-modal-box {
+  .zds-modal-box {
     width: 315px; } }
 
-.zzc-modal-box .zzc-modal-header {
+.zds-modal-box .zds-modal-header {
   height: 1rem;
   color: #333333;
   font-size: .32rem;
@@ -28,7 +28,7 @@
   justify-content: center;
   align-items: center; }
 
-.zzc-modal-box .zzc-modal-header::after {
+.zds-modal-box .zds-modal-header::after {
   content: "";
   position: absolute;
   display: block;
@@ -39,7 +39,7 @@
   border-bottom: 1px solid #DDE0E6;
   transform: scaleY(0.5) translateY(50%); }
 
-.zzc-modal-box .zzc-modal-body {
+.zds-modal-box .zds-modal-body {
   word-wrap: break-word;
   max-height: 7rem;
   min-height: 5.76rem;
@@ -47,7 +47,7 @@
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch; }
 
-.zzc-modal-box .zzc-modal-footer {
+.zds-modal-box .zds-modal-footer {
   width: 100%;
   overflow: hidden;
   height: 1rem;
@@ -56,7 +56,7 @@
   align-items: center;
   justify-content: center; }
 
-.zzc-modal-box .zzc-modal-footer::after {
+.zds-modal-box .zds-modal-footer::after {
   content: "";
   position: absolute;
   display: block;
@@ -67,13 +67,13 @@
   border-top: 1px solid #DDE0E6;
   transform: scaleY(0.5) translateY(-50%); }
 
-.zzc-modal-box .zzc-modal-footer .zzc-modal-btn {
+.zds-modal-box .zds-modal-footer .zds-modal-btn {
   flex: 1; }
 
-.zzc-modal-box .zzc-modal-footer .zzc-modal-btn:not(:first-child) {
+.zds-modal-box .zds-modal-footer .zds-modal-btn:not(:first-child) {
   position: relative; }
 
-.zzc-modal-box .zzc-modal-footer .zzc-modal-btn:not(:first-child)::after {
+.zds-modal-box .zds-modal-footer .zds-modal-btn:not(:first-child)::after {
   content: "";
   position: absolute;
   display: block;

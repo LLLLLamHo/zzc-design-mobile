@@ -30,6 +30,9 @@ export function isUndefined( s: any ): boolean {
 export function isNull( s: any ): boolean {
     return isType( s, 'Null' );
 }
+export function isDate( s: any ): boolean {
+    return isType( s, 'Date' );
+}
 export function isDOM ( s: any ): boolean {
     if ( typeof HTMLElement === 'object' ) {
         return s instanceof HTMLElement;

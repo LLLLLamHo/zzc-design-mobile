@@ -1,10 +1,11 @@
 @import '../style/base.scss';
-$cls: '.zzc-popup';
-$cls2: '.zzc';
+$cls: '.zds-popup';
+$cls2: '.zds';
 #{$cls} {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1001;
     height: 100%;
     width: 100%;
     display: flex;

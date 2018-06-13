@@ -1,0 +1,61 @@
+.zzc-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5.4rem; }
+
+.zzc-picker .zzc-picker-wrapper {
+  display: block;
+  flex: 1;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  position: relative; }
+
+.zzc-picker .zzc-picker-wrapper::before {
+  display: block;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  right: 0;
+  width: 200%;
+  height: 1.6rem;
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scale(0.5, 0.5) translateY(-50%);
+  transform: scale(0.5, 0.5) translateY(-50%);
+  box-sizing: border-box;
+  background: transparent; }
+
+.zzc-picker .zzc-picker-wrapper-bg {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), linear-gradient(0deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+  background-position: top, bottom;
+  background-size: 100% 2.04rem;
+  background-repeat: no-repeat; }
+
+.zzc-picker .zzc-picker-wrapper .zzc-picker-ws {
+  margin-top: 2.3rem; }
+
+.zzc-picker .zzc-picker-wrapper .zzc-picker-ws .zzc-picker-wi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .28rem;
+  height: .8rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.zzc-picker .zzc-picker-wrapper .zzc-picker-ws .zzc-picker-wi-active {
+  color: #4E7CDD;
+  font-size: .3rem; }

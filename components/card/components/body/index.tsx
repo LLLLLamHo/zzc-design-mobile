@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
+import config from '../../../_util/config';
 import './index.scss';
 
 export interface CardBodyProps {
@@ -14,7 +15,7 @@ export interface CardBodyProps {
 
 export default class Body extends PureComponent<CardBodyProps, any> {
     static defaultProps = {
-        prefixCls: 'zzc-card-body',
+        prefixCls: `${config.cls}-card-body`,
         className: '',
         children: null,
         full: false,

@@ -1,0 +1,36 @@
+.zds-datepicker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 1rem;
+  font-size: .32rem;
+  box-sizing: border-box;
+  position: relative; }
+
+.zds-datepicker-header::after {
+  content: "";
+  position: absolute;
+  display: block;
+  z-index: 11;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #DDE0E6;
+  transform: scaleY(0.5) translateY(50%); }
+
+.zds-datepicker-header > div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.zds-datepicker-header-close {
+  padding-left: .3rem;
+  color: #4E7CDD; }
+
+.zds-datepicker-header-submit {
+  padding-right: .3rem;
+  color: #4E7CDD; }
+
+.zds-datepicker-header-title {
+  flex: 1; }

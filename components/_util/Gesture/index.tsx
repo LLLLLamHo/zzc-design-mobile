@@ -421,7 +421,7 @@ export default class Gesture extends React.PureComponent<GestureProps> {
         // 检查多手指手势
         this.checkIfMultiTouchStart();
     }
-    _handleTouchMove ( e: any ): void {
+    _handleTouchMove ( e: any ): any {
         // 清楚长按计时
         this.cleanPressTimer();
         this.event = e;
@@ -432,6 +432,9 @@ export default class Gesture extends React.PureComponent<GestureProps> {
         this.updateGestureStatus( e );
         this.checkIfSingleTouchMove();
         this.checkIfMultiTouchMove();
+
+        e.stopPropagation();
+        e.preventDefault();
     }
     _handleTouchCancel ( e: any ): void {
         this.cleanPressTimer();

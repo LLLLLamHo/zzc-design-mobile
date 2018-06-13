@@ -8,7 +8,7 @@
 
 属性 | 说明 | 类型 | 默认值
 |----|-----|------|------|
-| prefixCls | 组件的公用className前序 | string  | zzc-button |
+| prefixCls | 组件的公用className前序 | string  | zds-button |
 | type    | 按钮类型，可选值为`default`/`main`/`main-lh`/`main-dk`/`sub`/`sub-lh`/`sub-dk`或者不设  |   string   |   `default`  |
 | size    | 按钮大小，可选值为`lg`、`sm`、`xs` | string | 无|
 | activeStyle  | 点击反馈的自定义样式 (设为 false 时表示禁止点击反馈) | {}/false | {} |

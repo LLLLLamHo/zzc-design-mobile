@@ -1,7 +1,7 @@
 @import '../style/base.scss';
 
-$cls: 'zzc-toast';
-.#{$cls} {
+$cls: '.zds-toast';
+#{$cls} {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -11,7 +11,7 @@ $cls: 'zzc-toast';
     justify-content: center;
     top: 50%;
     transform: translateY(-50%);
-    &.#{$cls}-nomask {
+    &#{$cls}-nomask {
         width: auto;
         max-width: 6.3rem;
         height: auto;
@@ -19,22 +19,22 @@ $cls: 'zzc-toast';
         left: 50%;
         transform: translate3d(-50%, -50%, 0);
     }
-    &.#{$cls}-icon {
-        .#{$cls}-notice-content {
+    &#{$cls}-icon {
+        #{$cls}-notice-content {
             min-width: 2rem;
-            .#{$cls}-text-content {
+            #{$cls}-text-content {
                 margin-top: .2rem;
             }
         }
     }
-    .#{$cls}-notice-content {
+    #{$cls}-notice-content {
         background: rgba(51, 51, 51, 0.8);
         @include borderRadius(.16rem);
         text-align: center;
         padding: .3rem;
         box-sizing: border-box;
         max-width: 6.3rem;
-        .#{$cls}-text {
+        #{$cls}-text {
             color: $c_fff;
             font-size: $fs28rem;
             word-wrap: break-word;

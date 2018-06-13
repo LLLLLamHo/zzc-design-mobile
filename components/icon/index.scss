@@ -1,6 +1,6 @@
-$cls: zzc-icon;
+$cls: '.zds-icon';
 
-.#{$cls}{
+#{$cls}{
     fill: currentColor;
     background-size: cover;
     &-lg{
@@ -21,7 +21,7 @@ $cls: zzc-icon;
     }
 }
 
-.#{$cls}-loading {
+#{$cls}-loading {
     animation: cirle-zzc 1s linear infinite;
 }
 

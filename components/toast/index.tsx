@@ -6,11 +6,11 @@ import { addClass, removeClass, hasClass } from '../_util/class';
 import { animationEvents } from '../_util/Event';
 import Icon from '../icon';
 import Alignment from '../_util/alignment';
-
+import config from '../_util/config';
 import '../style/index';
 import './index.scss';
 
-const PREFIXCLS: string = 'zzc-toast';
+const PREFIXCLS: string = `${config.cls}-toast`;
 const alignment: any = new Alignment();
 
 let _closeTimer: any = null;
@@ -20,8 +20,8 @@ let _onClose: any = () => { };
 let _parentNode: any = null;
 
 function closeToast(): void {
-    addClass( _toastElem, 'zzc-fade-leave' );
-    addClass( _toastElem, 'zzc-fade-leave-active' );
+    addClass( _toastElem, `${config.cls}-fade-leave` );
+    addClass( _toastElem, `${config.cls}-fade-leave-active` );
     _closeTimer = null;
 }
 
@@ -39,9 +39,9 @@ function reset(): void {
 }
 
 function addAnimationEnd(): void {
-    if ( hasClass( this, 'zzc-fade-enter' ) ) {
-        removeClass( this, 'zzc-fade-enter-active' );
-        removeClass( this, 'zzc-fade-enter' );
+    if ( hasClass( this, `${config.cls}-fade-enter` ) ) {
+        removeClass( this, `${config.cls}-fade-enter-active` );
+        removeClass( this, `${config.cls}-fade-enter` );
         _duration !== 0 && countdown();
     } else {
         _parentNode && _parentNode.parentNode.removeChild( _parentNode );
@@ -120,8 +120,8 @@ function addAnimationEvent(): void {
     _toastElem = document.querySelector( `.${PREFIXCLS}-notice-content` );
     if ( _toastElem ) {
         animationEvents.addEndEventListener( _toastElem, addAnimationEnd );
-        addClass( _toastElem, 'zzc-fade-enter' );
-        addClass( _toastElem, 'zzc-fade-enter-active' );
+        addClass( _toastElem, `${config.cls}-fade-enter` );
+        addClass( _toastElem, `${config.cls}-fade-enter-active` );
     } else {
         requestAnimationFrame( () => {
             addAnimationEvent();
