@@ -14,7 +14,7 @@
 
 使用例子：
 
-```jsx
+```JavaScript
 <Animate
     visible={visible}
     animationName={{

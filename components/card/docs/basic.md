@@ -27,8 +27,8 @@
 *注意：如果再Header中传入子元素，则会不渲染`title`和`extra`。
 
 ```js
-    <Card.Header title="卡片标题" extra="this is extra"><h1>自定义标题</h1></Card.Header>
-    //这时只渲染h1标签
+//这时只渲染h1标签
+<Card.Header title="卡片标题" extra="this is extra"><h1>自定义标题</h1></Card.Header>
 ```
 
 ## Body
@@ -42,20 +42,20 @@
 | style           | 自定义样式                                     | object  | {}            |
 | borderDirection | 定义分割线开口位置（默认居中）, `left`/`right` | string  | 无            |
 
-```jsx
-    <Card>
-        <Card.Header title="卡片标题" extra="this is extra" />
-        <Card.Body>
+```JavaScript
+<Card>
+    <Card.Header title="卡片标题" extra="this is extra" />
+    <Card.Body>
+    <div className="card-box1">
+            <p>文本内容</p>
+        </div>
+    </Card.Body>
+    <Card.Body>
         <div className="card-box1">
-                <p>文本内容</p>
-            </div>
-        </Card.Body>
-        <Card.Body>
-            <div className="card-box1">
-                <p>文本内容</p>
-            </div>
-        </Card.Body>
-    </Card>
+            <p>文本内容</p>
+        </div>
+    </Card.Body>
+</Card>
 ```
 
 ## Footer
@@ -67,9 +67,9 @@
 | className | 样式类名                | string  | 无              |
 | style     | 自定义样式              | object  | {}              |
 
-```jsx
-    <Card.Footer>
-        <Button noBorder full>按钮</Button>
-    </Card.Footer>
+```JavaScript
+<Card.Footer>
+    <Button noBorder full>按钮</Button>
+</Card.Footer>
 ```
 
