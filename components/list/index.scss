@@ -3,7 +3,16 @@ $cls: '.zzc-list';
 
 //列表基本样式
 @mixin listBase() {
-    background-color: #fff;
+    & #{$cls}-pretips,
+    & #{$cls}-endtips {
+        color: #666;
+        font-size: $fs24rem;
+        padding: .1rem .3rem;
+    }
+
+    & #{$cls}-body {
+        background-color: #fff;
+    }
 }
 
 //list class

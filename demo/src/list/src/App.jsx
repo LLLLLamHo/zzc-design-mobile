@@ -16,16 +16,21 @@ export default class App extends PureComponent {
                     <h2>列表展示</h2>
                 </div>
                 <div className='zzc-demo-body'>
-                    <h5>默认</h5>
+                    <h5>基础列表</h5>
+                    <List preTips='这是前置描述，用于阐述下方内容，也可作为辅助标题使用'
+                        endTips='这是后置描述，一般用来作为上方内容的补充说明'
+                    >
+                        <ListItem>
+                            这是标题
+                        </ListItem>
+                        <ListItem space='left'>
+                            这是标题
+                        </ListItem>
+                        <ListItem space='right'>
+                            这是标题
+                        </ListItem>
+                    </List>
                 </div>
-                <List>
-                    <ListItem>
-                        这是标题
-                    </ListItem>
-                    <ListItem space='left'>
-                        这是标题
-                    </ListItem>
-                </List>
             </div>
 
         );
