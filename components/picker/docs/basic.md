@@ -32,7 +32,7 @@
 | defaultIndex  | 默认的选中项                     | number | ''     |
 | listData      | list的item信息                   | Array  | []     |
 | scrollType      | scroll的类型标识                   | string  | ''     |
-| scrollData    | 传入picker组件初始化scroll的参数,[详情查看]("https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/api.html#offtype-fn") | object | {}     |
+| scrollData    | 传入picker组件初始化scroll的参数,[详情查看](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/api.html#offtype-fn) | object | {}     |
 
 ## listData
 
