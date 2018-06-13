@@ -11,5 +11,207 @@
         "popup",
         "tabs",
         "toast"
-    ]
+    ],
+    "configData": {
+        "alert": {
+            "mdContent": "<p>警告弹窗</p>\n<h2 id=\"api\">API</h2>\n<p>适用平台：WEB</p>\n<h2 id=\"alert\">Alert</h2>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>prefixCls</td>\n<td>组件的公用className前序</td>\n<td>string</td>\n<td>zds-alert</td>\n</tr>\n<tr>\n<td>className</td>\n<td>定义最外层父元素的class</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>style</td>\n<td>自定义样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n<tr>\n<td>title</td>\n<td>弹窗显示的title</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>content</td>\n<td>弹窗显示的内容</td>\n<td>string/react component</td>\n<td>null</td>\n</tr>\n<tr>\n<td>buttons</td>\n<td>弹窗的按钮组</td>\n<td>array</td>\n<td>[]</td>\n</tr>\n<tr>\n<td>maskClose</td>\n<td>点击遮罩层关闭Alert</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>closable</td>\n<td>是否使用默认的按钮</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>closeCallback</td>\n<td>关闭Alert后的回调函数</td>\n<td>function</td>\n<td>无</td>\n</tr>\n</tbody></table>\n<h2 id=\"buttons\">buttons</h2>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>text</td>\n<td>按钮文字</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>onPress</td>\n<td>点击按钮的回调事件</td>\n<td>function</td>\n<td>无</td>\n</tr>\n<tr>\n<td>props</td>\n<td>传递紧按钮的参数</td>\n<td>object</td>\n<td>无</td>\n</tr>\n</tbody></table>\n<ul>\n<li>Alert所使用的按钮是使用zzcDesigne的<code>Button</code>组件，props传入的参数请参考<code>Button</code>的使用文档。</li>\n</ul>\n<h2 id=\"-\">示例</h2>\n<pre><code class=\"language-js\"><span class=\"hljs-selector-tag\">Alert</span>( {\n    <span class=\"hljs-attribute\">title</span>: <span class=\"hljs-string\">'标题'</span>,\n    content: &lt;p&gt;asdasdasdasd&lt;/p&gt;,\n    buttons: [\n        {\n            text: <span class=\"hljs-string\">'取消'</span>,\n            onPress: () =&gt; {\n                console.<span class=\"hljs-built_in\">log</span>( <span class=\"hljs-string\">'点击取'</span> )\n            },\n            <span class=\"hljs-selector-tag\">props</span>: {\n                <span class=\"hljs-attribute\">style</span>: { color:<span class=\"hljs-string\">'#254FCB'</span> }\n            }\n        }\n    ]\n} );</code></pre>\n<p>有时候我们需要进行一些异步操作之后才决定是否关闭<code>Alert</code>，这个时候在按钮的点击事件传入一个<code>Promise</code>。Alert会在你的<code>Promise</code>中调用<code>resolve</code>的时候进行关闭，从而实现异步关闭<code>Alert</code>。</p>\n<pre><code class=\"language-js\">Alert( {\n    title: <span class=\"hljs-string\">'发起一个请求'</span>,\n    buttons: [\n        {\n            text: <span class=\"hljs-string\">'确认'</span>,\n            onPress: <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-keyword\">new</span> Promise( <span class=\"hljs-function\"><span class=\"hljs-params\">( resolve )</span> =&gt;</span> {\n                Toast.info( <span class=\"hljs-string\">'onPresPromise'</span>, <span class=\"hljs-number\">1</span> );\n                setTimeout( resolve, <span class=\"hljs-number\">1000</span> );\n            } ),\n            props: {\n                type: <span class=\"hljs-string\">'main'</span>,\n                className: <span class=\"hljs-string\">'aaaa'</span>\n            }\n\n        }\n    ]\n} );</code></pre>\n",
+            "config": {
+                "title": "Alert",
+                "key": "alert",
+                "subTitle": "警告弹窗",
+                "category": "Feedback",
+                "categoryName": "Feedback"
+            }
+        },
+        "button": {
+            "mdContent": "<p>按钮组件</p>\n<p>点击后会触发一个操作。</p>\n<h2 id=\"api\">API</h2>\n<p>适用平台：WEB</p>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>prefixCls</td>\n<td>组件的公用className前序</td>\n<td>string</td>\n<td>zds-button</td>\n</tr>\n<tr>\n<td>type</td>\n<td>按钮类型，可选值为<code>default</code>、<code>main</code>、<code>main-lh</code>、<code>main-dk</code>、<code>sub</code>、<code>sub-lh</code>和<code>sub-dk</code>或者不设</td>\n<td>string</td>\n<td><code>default</code></td>\n</tr>\n<tr>\n<td>size</td>\n<td>按钮大小，可选值为<code>lg</code>、<code>sm</code>、<code>xs</code></td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>activeStyle</td>\n<td>点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)</td>\n<td>{}/false</td>\n<td>{}</td>\n</tr>\n<tr>\n<td>activeClassName</td>\n<td>点击反馈的自定义类名</td>\n<td>string</td>\n<td></td>\n</tr>\n<tr>\n<td>disabled</td>\n<td>设置禁用</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>onClick</td>\n<td>点击按钮的点击回调函数</td>\n<td>function</td>\n<td>无</td>\n</tr>\n<tr>\n<td>style</td>\n<td>自定义样式</td>\n<td>Object</td>\n<td>无</td>\n</tr>\n<tr>\n<td>inline</td>\n<td>是否设置为行内按钮</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>className</td>\n<td>样式类名</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>ghost</td>\n<td>是否为空中按钮</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>noBorder</td>\n<td>不显示边框</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>noRadius</td>\n<td>不显示圆角</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n</tbody></table>\n",
+            "config": {
+                "title": "Button",
+                "key": "button",
+                "subTitle": "按钮组件",
+                "category": "DataEntry",
+                "categoryName": "Data Entry"
+            }
+        },
+        "card": {
+            "mdContent": "<p>卡片布局</p>\n<h2 id=\"api\">API</h2>\n<p>适用平台：WEB</p>\n<h2 id=\"card\">Card</h2>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>prefixCls</td>\n<td>组件的公用className前序</td>\n<td>string</td>\n<td>zzc-card</td>\n</tr>\n<tr>\n<td>full</td>\n<td>是否占满一行</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>className</td>\n<td>样式类名</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>style</td>\n<td>自定义样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n</tbody></table>\n<h2 id=\"header\">Header</h2>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>prefixCls</td>\n<td>组件的公用className前序</td>\n<td>string</td>\n<td>zds-card-header</td>\n</tr>\n<tr>\n<td>title</td>\n<td>标题文字</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>extra</td>\n<td>辅助文字</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>noBorder</td>\n<td>不显示分割线</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>className</td>\n<td>样式类名</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>style</td>\n<td>自定义样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n</tbody></table>\n<p>*注意：如果再Header\b中传入子元素，则会不渲染<code>title</code>和<code>extra</code>。</p>\n<pre><code class=\"language-js\">    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">Card.Header</span> <span class=\"hljs-attr\">title</span>=<span class=\"hljs-string\">\"卡片标题\"</span> <span class=\"hljs-attr\">extra</span>=<span class=\"hljs-string\">\"this is extra\"</span>&gt;</span><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">h1</span>&gt;</span>自定义标题<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">h1</span>&gt;</span><span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">Card.Header</span>&gt;</span>\n    //这时只渲染h1标签</code></pre>\n<h2 id=\"body\">Body</h2>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>prefixCls</td>\n<td>组件的公用className前序</td>\n<td>string</td>\n<td>zds-card-body</td>\n</tr>\n<tr>\n<td>full</td>\n<td>是否占满一行</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>noBorder</td>\n<td>是否显示分割线</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>className</td>\n<td>样式类名</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>style</td>\n<td>自定义样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n<tr>\n<td>borderDirection</td>\n<td>定义分割线开口位置（默认居中）, <code>left</code>/<code>right</code></td>\n<td>string</td>\n<td>无</td>\n</tr>\n</tbody></table>\n<pre><code class=\"language-jsx\">    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">Card</span>&gt;</span>\n        <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">Card.Header</span> <span class=\"hljs-attr\">title</span>=<span class=\"hljs-string\">\"卡片标题\"</span> <span class=\"hljs-attr\">extra</span>=<span class=\"hljs-string\">\"this is extra\"</span> /&gt;</span>\n        <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">Card.Body</span>&gt;</span>\n        <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span> <span class=\"hljs-attr\">className</span>=<span class=\"hljs-string\">\"card-box1\"</span>&gt;</span>\n                <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">p</span>&gt;</span>文本内容<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">p</span>&gt;</span>\n            <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span>\n        <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">Card.Body</span>&gt;</span>\n        <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">Card.Body</span>&gt;</span>\n            <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span> <span class=\"hljs-attr\">className</span>=<span class=\"hljs-string\">\"card-box1\"</span>&gt;</span>\n                <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">p</span>&gt;</span>文本内容<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">p</span>&gt;</span>\n            <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span>\n        <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">Card.Body</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">Card</span>&gt;</span></code></pre>\n<h2 id=\"footer\">Footer</h2>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>prefixCls</td>\n<td>组件的公用className前序</td>\n<td>string</td>\n<td>zds-card-footer</td>\n</tr>\n<tr>\n<td>noBorder</td>\n<td>是否显示分割线</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>className</td>\n<td>样式类名</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>style</td>\n<td>自定义样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n</tbody></table>\n<pre><code class=\"language-jsx\">    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">Card.Footer</span>&gt;</span>\n        <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">Button</span> <span class=\"hljs-attr\">noBorder</span> <span class=\"hljs-attr\">full</span>&gt;</span>按钮<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">Button</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">Card.Footer</span>&gt;</span></code></pre>\n",
+            "config": {
+                "title": "Card",
+                "key": "card",
+                "subTitle": "卡片",
+                "category": "DataDisplay",
+                "categoryName": "Data Display"
+            }
+        },
+        "datePicker": {
+            "mdContent": "<p>日期滑动选择框</p>\n<h2 id=\"api\">API</h2>\n<p>适用平台：WEB</p>\n<p>提供各种维度的时间滑动选择。</p>\n<h2 id=\"picker\">picker</h2>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>prefixCls</td>\n<td>组件的公用className前序</td>\n<td>string</td>\n<td>zds-picker</td>\n</tr>\n<tr>\n<td>className</td>\n<td>为zzc-tabs-box添加额外class</td>\n<td>string</td>\n<td>‘’</td>\n</tr>\n<tr>\n<td>style</td>\n<td>为zzc-tabs-box添加额外style样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n<tr>\n<td>mode</td>\n<td>日期选择的模式，可以日期<code>date</code>，时间<code>time</code>,日期加时间<code>datetime</code>,年<code>year</code>,月<code>month</code></td>\n<td>string</td>\n<td>date</td>\n</tr>\n<tr>\n<td>onChange</td>\n<td>值更变时出发回调函数</td>\n<td>Function</td>\n<td></td>\n</tr>\n<tr>\n<td>minDate</td>\n<td>最小日期（2010-1-1）</td>\n<td>string</td>\n<td>当前年份向前取10年</td>\n</tr>\n<tr>\n<td>maxDate</td>\n<td>最大日期（2018-1-1）</td>\n<td>string</td>\n<td>当前年份向后取10年</td>\n</tr>\n<tr>\n<td>selectTime</td>\n<td>默认选中日期时间</td>\n<td>Date</td>\n<td>string（2018-1-1 12:10）</td>\n</tr>\n<tr>\n<td>minuteStep</td>\n<td>分钟的间隔数</td>\n<td>number</td>\n<td>1</td>\n</tr>\n<tr>\n<td>use12hour</td>\n<td>是否使用12小时制</td>\n<td>boolearn</td>\n<td>false</td>\n</tr>\n<tr>\n<td>onValueChange</td>\n<td>更改选中项的时候触发，返回当前选中的时间</td>\n<td>Function</td>\n<td></td>\n</tr>\n<tr>\n<td>maskClose</td>\n<td>点击mask关闭时间选择框</td>\n<td>boolean</td>\n<td>true</td>\n</tr>\n<tr>\n<td>lang</td>\n<td>语言版本</td>\n<td>string(‘cn’、’hk’、’en’)</td>\n<td>cn</td>\n</tr>\n</tbody></table>\n<h2 id=\"-\">使用方式</h2>\n<p>如果使用<code>mode=&#39;time&#39;</code>，则传入<code>selectTime</code>的格式应该为<code>12:30</code>字符串，如果使用<code>mode=year/month</code>,只需要传入对应的年份和月份即可。例如：<code>&#39;2019&#39;</code>或者<code>&#39;8&#39;</code>。其他<code>mode</code>方式钧可以使用string或者是一个字符串。</p>\n",
+            "config": {
+                "title": "DatePicker",
+                "key": "datePicker",
+                "subTitle": "日期选择",
+                "category": "DataEntry",
+                "categoryName": "Data Entry"
+            }
+        },
+        "dialog": {
+            "mdContent": "<p>对话框</p>\n<h2 id=\"api\">API</h2>\n<p>适用平台：WEB</p>\n<p>创建一个对话框，modal和alert都是基于dialog进行封装。</p>\n<h2 id=\"dialog\">Dialog</h2>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>prefixCls</td>\n<td>组件的公用className前序</td>\n<td>string</td>\n<td>zds-dialog</td>\n</tr>\n<tr>\n<td>className</td>\n<td>定义dialog最外层元素的class</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>boxClassName</td>\n<td>定义dialog的body class</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>maskClassName</td>\n<td>定义dialog的mask class</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>maskTransitionName</td>\n<td>定义dialog的mask 的动画class标识</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>transitionName</td>\n<td>定义dialog的mask 的动画class标识</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>style</td>\n<td>自定义样式dialog的body的样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n<tr>\n<td>maskStyle</td>\n<td>定义dialog的mask的样式</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>title</td>\n<td>dialog显示的title</td>\n<td>JSXElement</td>\n<td>无</td>\n</tr>\n<tr>\n<td>footer</td>\n<td>dialog显示的footer</td>\n<td>JSXElement</td>\n<td>无</td>\n</tr>\n<tr>\n<td>visible</td>\n<td>控制dialog执行动画</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>maskClose</td>\n<td>点击mask触发关闭</td>\n<td>boolean</td>\n<td>false无</td>\n</tr>\n<tr>\n<td>transparent</td>\n<td>是否不创建mask</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>closeCallback</td>\n<td>控制dialog关闭的方法</td>\n<td>function</td>\n<td>无</td>\n</tr>\n</tbody></table>\n<p>默认dialog会直接显示，<code>visible</code>是用来控制dialog是否执行动画效果，当<code>visible</code>为<code>true</code>时会添加<code>enter</code>动画钩子，当为<code>true</code>改为<code>false</code>的时候会执行<code>leave</code>动画钩子。</p>\n<p>简单的例子</p>\n<pre><code class=\"language-jsx\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">Dialog</span>\n    <span class=\"hljs-attr\">visible</span>=<span class=\"hljs-string\">{true}</span>\n    <span class=\"hljs-attr\">maskClose</span>=<span class=\"hljs-string\">{true}</span>\n    <span class=\"hljs-attr\">closeCallback</span>=<span class=\"hljs-string\">{console.log(123)}</span>\n&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span> <span class=\"hljs-attr\">className</span>=<span class=\"hljs-string\">'modal-text'</span>&gt;</span>这是一个文案...<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span>\n<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">Dialog</span>&gt;</span></code></pre>\n<p>关于<code>transitionName</code>和<code>maskTransitionName</code>有固定的样式配置。如果只是传入字符串，会在显示时添加对应class字符串，关闭时去掉对应的class字符串，但是如果传入的是一个对象，必须提供4个动画钩子：</p>\n<pre><code class=\"language-js\"><span class=\"hljs-comment\">// 内置了一些动画钩子</span>\n<span class=\"hljs-string\">zoom:</span> {\n<span class=\"hljs-symbol\">    enter:</span> <span class=\"hljs-string\">'zds-zoom-enter'</span>,\n<span class=\"hljs-symbol\">    enterActive:</span> <span class=\"hljs-string\">'zds-zoom-enter-active'</span>,\n<span class=\"hljs-symbol\">    leave:</span> <span class=\"hljs-string\">'zds-zoom-leave'</span>,\n<span class=\"hljs-symbol\">    leaveActive:</span> <span class=\"hljs-string\">'zds-zoom-leave-active'</span>\n},\n<span class=\"hljs-string\">fade:</span> {\n<span class=\"hljs-symbol\">    enter:</span> <span class=\"hljs-string\">'zds-fade-enter'</span>,\n<span class=\"hljs-symbol\">    enterActive:</span> <span class=\"hljs-string\">'zds-fade-enter-active'</span>,\n<span class=\"hljs-symbol\">    leave:</span> <span class=\"hljs-string\">'zds-fade-leave'</span>,\n<span class=\"hljs-symbol\">    leaveActive:</span> <span class=\"hljs-string\">'zds-fade-leave-active'</span>\n}\n\n<span class=\"hljs-comment\">// 自定义动画钩子</span>\ntransitionName={{\n<span class=\"hljs-symbol\">    enter:</span> <span class=\"hljs-string\">'zds-123-enter'</span>,\n<span class=\"hljs-symbol\">    enterActive:</span> <span class=\"hljs-string\">'zds-123-enter-active'</span>,\n<span class=\"hljs-symbol\">    leave:</span> <span class=\"hljs-string\">'zds-123-leave'</span>,\n<span class=\"hljs-symbol\">    leaveActive:</span> <span class=\"hljs-string\">'zds-123-leave-active'</span>\n}}</code></pre>\n",
+            "config": {
+                "title": "Dialog",
+                "key": "dialog",
+                "subTitle": "对话框",
+                "category": "Feedback",
+                "categoryName": "Feedback"
+            }
+        },
+        "icon": {
+            "mdContent": "<p>自带的svg图标库</p>\n<h2 id=\"api\">API</h2>\n<p>适用平台：WEB</p>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>prefixCls</td>\n<td>组件的公用className前序</td>\n<td>string</td>\n<td>zds-icon</td>\n</tr>\n<tr>\n<td>type</td>\n<td>图标类型，可以<code>success</code>/<code>error</code>等等</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>size</td>\n<td>图标大小，可选值为<code>lg</code>、<code>md</code>、<code>sm</code>、<code>xs</code></td>\n<td>string</td>\n<td><code>md</code></td>\n</tr>\n<tr>\n<td>style</td>\n<td>自定义样式</td>\n<td>Object</td>\n<td>无</td>\n</tr>\n<tr>\n<td>className</td>\n<td>样式类名</td>\n<td>string</td>\n<td>无</td>\n</tr>\n</tbody></table>\n",
+            "config": {
+                "title": "Icon",
+                "key": "icon",
+                "subTitle": "图标",
+                "category": "DataDisplay",
+                "categoryName": "Data Display"
+            }
+        },
+        "modal": {
+            "mdContent": "<p>模态弹窗</p>\n<h2 id=\"api\">API</h2>\n<p>适用平台：WEB</p>\n<p>同时只能存在一个modal，如果需要切换modal，需要从业务代码中先将现有的modal关闭！</p>\n<h2 id=\"modal\">Modal</h2>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>prefixCls</td>\n<td>组件的公用className前序</td>\n<td>string</td>\n<td>zds-modal</td>\n</tr>\n<tr>\n<td>className</td>\n<td>定义Modal的body class</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>style</td>\n<td>自定义样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n<tr>\n<td>title</td>\n<td>model显示的title</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>buttons</td>\n<td>model的按钮组</td>\n<td>array</td>\n<td>[]</td>\n</tr>\n<tr>\n<td>maskClose</td>\n<td>点击遮罩层关闭Modal</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>closable</td>\n<td>是否使用默认的按钮</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>closeCallback</td>\n<td>关闭Modal后的回调函数（必填）</td>\n<td>function</td>\n<td>无</td>\n</tr>\n<tr>\n<td>maskTransitionName</td>\n<td>遮罩层动画</td>\n<td>string</td>\n<td>zds-fade</td>\n</tr>\n<tr>\n<td>transitionName</td>\n<td>Modal动画</td>\n<td>string</td>\n<td>zds-zoom</td>\n</tr>\n<tr>\n<td>maskStyle</td>\n<td>遮罩层样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n<tr>\n<td>visible</td>\n<td>控制Modal是否显示</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>transparent</td>\n<td>是否不创建mask</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>lang</td>\n<td>语言版本</td>\n<td>string(‘cn’、’hk’、’en’)</td>\n<td>cn</td>\n</tr>\n<tr>\n<td>## 如何定义动画？</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>我们要提供4个钩子，传入的动画名字应该是<code>fade</code>，因为内部会拼接为<code>zds-fade-enter</code>.</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>举例一个渐进渐出的动画效果为例：</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><code>`</code>css</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>.zds-fade-enter {</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>    opacity: 0;</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>    animation-duration: .2s;</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>    animation-fill-mode: both;</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>    animation-play-state: paused; </td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>}</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody></table>\n<p>.zds-fade-enter.zzc-fade-enter-active {\n    -webkit-animation-name: zzcFadeIn;\n    animation-name: zzcFadeIn;\n    -webkit-animation-play-state: running;\n    animation-play-state: running; \n}</p>\n<p>.zds-fade-leave {\n    opacity: 0;\n    animation-duration: .2s;\n    animation-fill-mode: forwards;\n    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);\n    animation-play-state: paused; \n}\n.zds-fade-leave.zzc-fade-leave-active {\n    -webkit-animation-name: zzcFadeOut;\n    animation-name: zzcFadeOut;\n    -webkit-animation-play-state: running;\n    animation-play-state: running; \n}</p>\n<p>@keyframes zzcFadeIn {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }</p>\n<p>@keyframes zzcFadeOut {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }</p>\n<pre><code>\n<span class=\"hljs-comment\">## buttons</span>\n\n|<span class=\"hljs-string\"> 属性    </span>|<span class=\"hljs-string\"> 说明               </span>|<span class=\"hljs-string\"> 类型     </span>|<span class=\"hljs-string\"> 默认值 </span>|\n|<span class=\"hljs-string\"> ------- </span>|<span class=\"hljs-string\"> ------------------ </span>|<span class=\"hljs-string\"> -------- </span>|<span class=\"hljs-string\"> ------ </span>|\n|<span class=\"hljs-string\"> text    </span>|<span class=\"hljs-string\"> 按钮文字           </span>|<span class=\"hljs-string\"> string   </span>|<span class=\"hljs-string\"> 无     </span>|\n|<span class=\"hljs-string\"> onPress </span>|<span class=\"hljs-string\"> 点击按钮的回调事件 </span>|<span class=\"hljs-string\"> function </span>|<span class=\"hljs-string\"> 无     </span>|\n|<span class=\"hljs-string\"> props   </span>|<span class=\"hljs-string\"> 传递紧按钮的参数   </span>|<span class=\"hljs-string\"> object   </span>|<span class=\"hljs-string\"> 无     </span>|\n\n<span class=\"hljs-symbol\">*</span>Modal所使用的按钮是使用zzcDesigne的`Button`组件，props传入的参数请参考`Button`的使用文档。\n\n<span class=\"hljs-comment\">##\b 示例</span>\n\n```js\n<span class=\"hljs-variable\">&lt;Modal\n    title={this.state.title}\n    closable={true}\n    visible={this.state.visible}\n    closeCallback={() =&gt;</span> { this.setState( { visible: false } ); }}\n&gt;\n    <span class=\"hljs-variable\">&lt;div className=\"modal-text\"&gt;</span>这是一个文案...<span class=\"hljs-variable\">&lt;/div&gt;</span>\n<span class=\"hljs-variable\">&lt;/Modal&gt;</span></code></pre><p>有时候我们需要进行一些异步操作之后才决定是否关闭<code>Modal</code>，这个时候在按钮的点击事件传入一个<code>Promise</code>。Modal会在你的<code>Promise</code>中调用<code>resolve</code>的时候进行关闭，从而实现异步关闭<code>Modal</code>。</p>\n<pre><code class=\"language-js\">&lt;Modal\n    title={<span class=\"hljs-keyword\">this</span>.state.title}\n    visible={<span class=\"hljs-keyword\">this</span>.state.visible}\n    maskClose={<span class=\"hljs-literal\">true</span>}\n    buttons={[\n        {\n            <span class=\"hljs-attr\">text</span>: <span class=\"hljs-string\">'确认'</span>,\n            <span class=\"hljs-attr\">onPress</span>: <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Promise</span>( <span class=\"hljs-function\">(<span class=\"hljs-params\"> resolve </span>) =&gt;</span> {\n                Toast.info( <span class=\"hljs-string\">'onPress Promise'</span>, <span class=\"hljs-number\">1</span> );\n                setTimeout( resolve, <span class=\"hljs-number\">1000</span> );\n            } ),\n            <span class=\"hljs-attr\">props</span>: {\n                <span class=\"hljs-attr\">type</span>: <span class=\"hljs-string\">'main'</span>,\n                <span class=\"hljs-attr\">className</span>: <span class=\"hljs-string\">'aaaa'</span>\n            }\n\n        }\n    ]}\n    closeCallback={() =&gt; { <span class=\"hljs-keyword\">this</span>.setState( { <span class=\"hljs-attr\">visible3</span>: <span class=\"hljs-literal\">false</span> } ); }}\n&gt;\n    <span class=\"xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span> <span class=\"hljs-attr\">className</span>=<span class=\"hljs-string\">\"modal-text\"</span>&gt;</span>这是一个文案...<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span></span>\n&lt;<span class=\"hljs-regexp\">/Modal&gt;</span></code></pre>\n",
+            "config": {
+                "title": "Modal",
+                "key": "modal",
+                "subTitle": "模态框",
+                "category": "Feedback",
+                "categoryName": "Feedback"
+            }
+        },
+        "picker": {
+            "mdContent": "<p>滑动选择框</p>\n<h2 id=\"api\">API</h2>\n<p>适用平台：WEB</p>\n<p>用于DatePicker组件的底层组件，也可以用该组件进行扩展其他功能。</p>\n<h2 id=\"picker\">picker</h2>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>prefixCls</td>\n<td>组件的公用className前序</td>\n<td>string</td>\n<td>zds-picker</td>\n</tr>\n<tr>\n<td>className</td>\n<td>为zds-tabs-box添加额外class</td>\n<td>string</td>\n<td>‘’</td>\n</tr>\n<tr>\n<td>style</td>\n<td>为zds-tabs-box添加额外style样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n<tr>\n<td>pickerData</td>\n<td>传入picker组件的数据</td>\n<td>Array</td>\n<td>[]</td>\n</tr>\n<tr>\n<td>renderAfter</td>\n<td>渲染完成后的回调函数(返回滑动列表)</td>\n<td>Function</td>\n<td></td>\n</tr>\n<tr>\n<td>onTouchStart</td>\n<td>开始滑动事件，会返回当前滑动的滑动框下标</td>\n<td>Function</td>\n<td></td>\n</tr>\n<tr>\n<td>onTouchEnd</td>\n<td>滑动结束事件，会返回当前滑动结束后触发事件的BScroll的标识（如果没有标识则返回下标）和当前选中的滑动框中的item的下标</td>\n<td>Function</td>\n<td></td>\n</tr>\n</tbody></table>\n<h2 id=\"pickerdata\">pickerData</h2>\n<p>有一些固定的参数需要传入，\b用于初始化滚动项中的信息。</p>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>className</td>\n<td>scroll父元素的class</td>\n<td>string</td>\n<td>‘’</td>\n</tr>\n<tr>\n<td>itemClassName</td>\n<td>scroll中每个选项的class</td>\n<td>string</td>\n<td>‘’</td>\n</tr>\n<tr>\n<td>defaultIndex</td>\n<td>默认的选中项</td>\n<td>number</td>\n<td>‘’</td>\n</tr>\n<tr>\n<td>listData</td>\n<td>list的item信息</td>\n<td>Array</td>\n<td>[]</td>\n</tr>\n<tr>\n<td>scrollType</td>\n<td>scroll的类型标识</td>\n<td>string</td>\n<td>‘’</td>\n</tr>\n<tr>\n<td>scrollData</td>\n<td>传入picker组件初始化scroll的参数,<a href=\"%22https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/api.html#offtype-fn%22\">详情查看</a></td>\n<td>object</td>\n<td>{}</td>\n</tr>\n</tbody></table>\n<h2 id=\"listdata\">listData</h2>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>text</td>\n<td>item显示的文案</td>\n<td>string</td>\n<td>‘’</td>\n</tr>\n<tr>\n<td>dataKey</td>\n<td>item元素中的data-key，不传默认使用text</td>\n<td>string</td>\n<td>‘’</td>\n</tr>\n</tbody></table>\n",
+            "config": {
+                "title": "Picker",
+                "key": "picker",
+                "subTitle": "滑动框",
+                "category": "DataEntry",
+                "categoryName": "Data Entry"
+            }
+        },
+        "popup": {
+            "mdContent": "<p>弹出菜单</p>\n<h2 id=\"api\">API</h2>\n<p>适用平台：WEB</p>\n<p>同时只能存在一个popup，如果需要切换popup，需要从业务代码中先将现有的popup关闭！</p>\n<h2 id=\"modal\">Modal</h2>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>prefixCls</td>\n<td>组件的公用className前序</td>\n<td>string</td>\n<td>zds-popup</td>\n</tr>\n<tr>\n<td>className</td>\n<td>定义popup的body class</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>style</td>\n<td>自定义样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n<tr>\n<td>bodyStyle</td>\n<td>弹框主题样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n<tr>\n<td>maskStyle</td>\n<td>遮罩层样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n<tr>\n<td>maskClose</td>\n<td>点击遮罩层关闭popup</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>onClose</td>\n<td>关闭popup后的回调函数（必填）</td>\n<td>function</td>\n<td>无</td>\n</tr>\n<tr>\n<td>visible</td>\n<td>控制popup是否显示</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>transparent</td>\n<td>是否不创建mask</td>\n<td>boolean</td>\n<td>false</td>\n</tr>\n<tr>\n<td>direction</td>\n<td>弹出的方向</td>\n<td>string(可选top,bottom,left,right)</td>\n<td>bottom</td>\n</tr>\n</tbody></table>\n<p>简单的调用demo</p>\n<pre><code class=\"language-jsx\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">Popup</span>\n    <span class=\"hljs-attr\">maskClose</span>=<span class=\"hljs-string\">{true}</span>\n    <span class=\"hljs-attr\">visible</span>=<span class=\"hljs-string\">{this.state.visible}</span>\n    <span class=\"hljs-attr\">onClose</span>=<span class=\"hljs-string\">{()</span> =&gt;</span> {\n        this.setState( {\n            visible: false\n        } );\n    }}\n&gt;\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span>&gt;</span>123<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span>\n<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">Popup</span>&gt;</span></code></pre>\n<p>当<code>maskClose</code>为true时，必须提供<code>onClose</code>给popup内部调用。</p>\n",
+            "config": {
+                "title": "Popup",
+                "key": "popup",
+                "subTitle": "滑动弹窗",
+                "category": "Feedback",
+                "categoryName": "Feedback"
+            }
+        },
+        "tabs": {
+            "mdContent": "<p>标签页</p>\n<h2 id=\"api\">API</h2>\n<p>适用平台：WEB</p>\n<p>用于让用户在不同的视图中进行切换。</p>\n<h2 id=\"tabs\">Tabs</h2>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>prefixCls</td>\n<td>组件的公用className前序</td>\n<td>string</td>\n<td>zds-tabs</td>\n</tr>\n<tr>\n<td>className</td>\n<td>为zzc-tabs-box添加额外class</td>\n<td>string</td>\n<td>‘’</td>\n</tr>\n<tr>\n<td>style</td>\n<td>为zzc-tabs-box添加额外style样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n<tr>\n<td>tabBarPosition</td>\n<td>tabbar的位置’top’、’bottom’、’left’、’right’</td>\n<td>string</td>\n<td>‘top’</td>\n</tr>\n<tr>\n<td>tabs</td>\n<td>标签页组件的item数据</td>\n<td>\barray</td>\n<td>[]</td>\n</tr>\n<tr>\n<td>defaultIndex</td>\n<td>默认选中的tab下标值</td>\n<td>number/string</td>\n<td>0</td>\n</tr>\n<tr>\n<td>index</td>\n<td>\b指定当前激活的tab（受控）</td>\n<td>number/string</td>\n<td>null</td>\n</tr>\n<tr>\n<td>onChange</td>\n<td>\b点击tab切换激活的回调事件（当使用受控tab的时候，建议配合使用）</td>\n<td>function</td>\n<td></td>\n</tr>\n<tr>\n<td>maxTabLength</td>\n<td>\b最多同时显示多少个tab</td>\n<td>number</td>\n<td>3</td>\n</tr>\n<tr>\n<td>animated</td>\n<td>切换动画</td>\n<td>boolean</td>\n<td>true</td>\n</tr>\n<tr>\n<td>swipeable</td>\n<td>内容是否可以滑动切换</td>\n<td>boolean</td>\n<td>true</td>\n</tr>\n<tr>\n<td>swipeDirection</td>\n<td>内容滑动方向</td>\n<td>string（’horizontal’</td>\n<td>‘vertical’）</td>\n</tr>\n<tr>\n<td>isOpenTabBarScroll</td>\n<td>是否可以tabbar滑动滚动</td>\n<td>boolean</td>\n<td>true</td>\n</tr>\n<tr>\n<td>isOpenTabContentScroll</td>\n<td>是否可以内容滑动滚动</td>\n<td>boolean</td>\n<td>true</td>\n</tr>\n<tr>\n<td>tabBarUnderlineStyle</td>\n<td>为下划线添加额外style样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n</tbody></table>\n<h2 id=\"tabs-\">Tabs主体内容</h2>\n<p>需要注意的是，因为主体滑动切换建议主体内容高度保持一致，然后提供滚动展示更多内容。</p>\n<h2 id=\"-\">注意事项</h2>\n<p>如果使用<code>tabBarPosition=left|right</code>，必须在父级定义个高度，否则布局会有问题。当<code>tabBarPosition=left|right</code>的时候，强制将tabbar的交互方式转为垂直交互。\n当使用垂直布局时，应该尽量避免tabbar的滑动，因为浏览器的滚动无法禁止，会导致奇怪的交互现象，应该尽量使用<code>maxTabLength</code>将所有的tabbar显示出来\n当,当时使用垂直布局的时候建议将<code>isOpenTabBarScroll</code>和<code>isOpenTabContentScroll</code>设置为<code>false</code>。</p>\n",
+            "config": {
+                "title": "Tabs",
+                "key": "tabs",
+                "subTitle": "标签页",
+                "category": "Navigation",
+                "categoryName": "Navigation"
+            }
+        },
+        "toast": {
+            "mdContent": "<p>一种轻量级反馈/提示，可以用来显示不会打断用户操作的内容，适合用于页面转场、数据交互的等场景中。</p>\n<h3 id=\"-\">规则</h3>\n<ul>\n<li>一次只显示一个 toast。</li>\n<li>有 Icon 的 Toast，字数为 4-6 个；没有 Icon 的 Toast，字数不宜超过 14 个。</li>\n</ul>\n<h2 id=\"api\">API</h2>\n<p>适用平台：WEB、React-Native</p>\n<ul>\n<li><code>Toast.info(content, duration, onClose, mask)</code></li>\n<li><code>Toast.success(content, duration, onClose, mask)</code></li>\n<li><code>Toast.error(content, duration, onClose, mask)</code></li>\n<li><code>Toast.waring(content, duration, onClose, mask)</code></li>\n<li><code>Toast.loading(content, duration, onClose, mask)</code></li>\n</ul>\n<p>组件提供了五个静态方法，参数如下：</p>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>content</td>\n<td>提示内容</td>\n<td>React.Element or String</td>\n<td>无</td>\n</tr>\n<tr>\n<td>duration</td>\n<td>自动关闭的延时，单位秒</td>\n<td>number</td>\n<td>3</td>\n</tr>\n<tr>\n<td>onClose</td>\n<td>关闭后回调</td>\n<td>Function</td>\n<td>无</td>\n</tr>\n<tr>\n<td>mask</td>\n<td>是否显示透明蒙层，防止触摸穿透</td>\n<td>Boolean</td>\n<td>true</td>\n</tr>\n</tbody></table>\n<blockquote>\n<p><strong>注：</strong>  duration = 0 时，onClose 无效，toast 不会消失；隐藏 toast 需要手动调用 hide</p>\n</blockquote>\n<p>还提供了全局配置和全局销毁方法：</p>\n<ul>\n<li><code>Toast.hide()</code></li>\n</ul>\n",
+            "config": {
+                "title": "Toast",
+                "key": "toast",
+                "subTitle": "轻提示",
+                "category": "Feedback",
+                "categoryName": "Feedback"
+            }
+        },
+        "index": {
+            "mdContent": "<h1 id=\"zzc-design-mobile\">zzc-design-mobile</h1>\n<p>这是一个基于React实现的UI组件\b框架。</p>\n<h4 id=\"-\">简介</h4>\n<p>zzc-design-mobile是基于react开发的ui框架，用于租租车移动端的ui框架。\n由产品设计统一规范的移动端统一样式交互的方案。</p>\n<p>其中借鉴了antd的一些写法以及交互样式，并另外定制交互和样式。</p>\n<h4 id=\"-\">特性</h4>\n<ul>\n<li>开箱\b即用的高质量React组件</li>\n<li>使用TypeScript开发，提供完整的类型定义\b文件</li>\n<li>健全的使用文档以及demo</li>\n<li>扩展性非常好，容易定义各种自定义样式</li>\n</ul>\n<h4 id=\"-\">支持环境</h4>\n<ul>\n<li>IOS9和安卓4.4以上版本</li>\n</ul>\n<h4 id=\"-\">版本</h4>\n<ul>\n<li>稳定版 <a href=\"https://www.npmjs.com/package/zzc-design-mobile\"><img src=\"https://img.shields.io/npm/v/antd-mobile.svg?style=flat-square\" alt=\"npm package\"></a></li>\n</ul>\n<h4 id=\"-\">安装</h4>\n<pre><code class=\"language-Shell\">npm install zzc-<span class=\"hljs-built_in\">design</span>-mobile --<span class=\"hljs-keyword\">save</span>-dev</code></pre>\n<h4 id=\"-\">使用</h4>\n<p>zzc-design-mobile只支持<code>import</code>引入。不支持<code>cmd</code>。</p>\n<p>引入：</p>\n<pre><code class=\"language-JavaScript\"><span class=\"hljs-keyword\">import</span> { Alert, Modal } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">'zzc-design-mobile'</span>;</code></pre>\n<p>按需引入</p>\n<pre><code class=\"language-JavaScript\"><span class=\"hljs-keyword\">import</span> Alert <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">'zzc-design-mobile/lib/alert'</span>;</code></pre>\n<h4 id=\"development\">Development</h4>\n<pre><code class=\"language-Shell\">npm <span class=\"hljs-keyword\">run</span><span class=\"bash\"> svgo //清除多余的svg标识\n</span>npm <span class=\"hljs-keyword\">run</span><span class=\"bash\"> build //编译整个component到es目录（es6文件）\n</span>npm <span class=\"hljs-keyword\">run</span><span class=\"bash\"> watch //动态编译整个component到es目录（es6文件）\n</span>npm <span class=\"hljs-keyword\">run</span><span class=\"bash\"> publish //编译整个es到lib目录（es5文件）\n</span>npm <span class=\"hljs-keyword\">run</span><span class=\"bash\"> build_demo //相当于执行publish并将lib文件复制到demo文件中的node_modlues文件中\n</span>npm <span class=\"hljs-keyword\">run</span><span class=\"bash\"> <span class=\"hljs-built_in\">test</span> //运行单元测试</span></code></pre>\n<h4 id=\"demo\">demo</h4>\n<pre><code class=\"language-Shell\">npm <span class=\"hljs-keyword\">run</span><span class=\"bash\"> build //编译demo\n</span>npm <span class=\"hljs-keyword\">run</span><span class=\"bash\"> watch //编译demo\n</span>npm <span class=\"hljs-keyword\">run</span><span class=\"bash\"> publish //编译demo</span></code></pre>\n<p><code>publish</code>和<code>build</code>、<code>watch</code>有一点不一样，因为<code>build</code>和<code>watch</code>是开发环境，所以webpack打包的时候会将<code>zzc-design-mobile</code>指向外层文件的es文件中去获取。</p>\n<p>所以在开发中需要在根目录运行watch，demo目录中也要同时运行watch</p>\n"
+        }
+    },
+    "categoryData": {
+        "Feedback": [
+            {
+                "title": "Alert",
+                "key": "alert",
+                "subTitle": "警告弹窗",
+                "category": "Feedback",
+                "categoryName": "Feedback"
+            },
+            {
+                "title": "Dialog",
+                "key": "dialog",
+                "subTitle": "对话框",
+                "category": "Feedback",
+                "categoryName": "Feedback"
+            },
+            {
+                "title": "Modal",
+                "key": "modal",
+                "subTitle": "模态框",
+                "category": "Feedback",
+                "categoryName": "Feedback"
+            },
+            {
+                "title": "Popup",
+                "key": "popup",
+                "subTitle": "滑动弹窗",
+                "category": "Feedback",
+                "categoryName": "Feedback"
+            },
+            {
+                "title": "Toast",
+                "key": "toast",
+                "subTitle": "轻提示",
+                "category": "Feedback",
+                "categoryName": "Feedback"
+            }
+        ],
+        "DataEntry": [
+            {
+                "title": "Button",
+                "key": "button",
+                "subTitle": "按钮组件",
+                "category": "DataEntry",
+                "categoryName": "Data Entry"
+            },
+            {
+                "title": "DatePicker",
+                "key": "datePicker",
+                "subTitle": "日期选择",
+                "category": "DataEntry",
+                "categoryName": "Data Entry"
+            },
+            {
+                "title": "Picker",
+                "key": "picker",
+                "subTitle": "滑动框",
+                "category": "DataEntry",
+                "categoryName": "Data Entry"
+            }
+        ],
+        "DataDisplay": [
+            {
+                "title": "Card",
+                "key": "card",
+                "subTitle": "卡片",
+                "category": "DataDisplay",
+                "categoryName": "Data Display"
+            },
+            {
+                "title": "Icon",
+                "key": "icon",
+                "subTitle": "图标",
+                "category": "DataDisplay",
+                "categoryName": "Data Display"
+            }
+        ],
+        "Navigation": [
+            {
+                "title": "Tabs",
+                "key": "tabs",
+                "subTitle": "标签页",
+                "category": "Navigation",
+                "categoryName": "Navigation"
+            }
+        ]
+    }
 }

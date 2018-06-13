@@ -1,0 +1,39 @@
+.zzc-demo-content {
+    display: flex;
+    padding-top: 20px;
+    .zzc-demo-menu{
+        box-sizing: border-box;
+        width: 300px;
+        .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+            .zzc-demo-menu-title{
+                color:#1890ff;
+            }
+            .zzc-demo-menu-subtitle{
+                opacity: .65;
+                color: #1890ff;
+            }
+        }
+        .ant-menu-item-group-title{
+            padding-left: 24px;
+        }
+        .ant-menu-item-group-list{
+            .zzc-demo-menu-title{
+                padding-left: 30px;
+            }
+        }
+        .zzc-demo-menu-title{
+            font-size: 14px;
+        }
+        .zzc-demo-menu-subtitle{
+            font-size: 12px;
+            padding-left: 10px;
+            opacity: .65;
+        }
+    }
+
+    .zzc-demo-docs{
+        padding: 0 30px;
+        flex: 1;
+    }
+
+}
