@@ -6,6 +6,7 @@ $cls: '.zzc-input-item';
     border: .01rem solid #dde0e6;
     padding: 0 .3rem;
     border-radius: .08rem;
+    background-color: #fafafa;
 }
 
 //input 颜色
@@ -43,10 +44,29 @@ $cls: '.zzc-input-item';
     }
 }
 
+//不要边框
+@mixin noBorder() {
+    &#{$cls}-noborder {
+        border: none;
+        padding: 0;
+        background-color: transparent;
+    }
+}
+
 //不要圆角
 @mixin noBorderRadius() {
     &#{$cls}-noRadius {
         border-radius: 0;
+    }
+}
+
+// 错误状态
+@mixin error() {
+    &#{$cls}-error {
+        position: relative;
+        &:after {
+
+        }
     }
 }
 
@@ -55,6 +75,7 @@ $cls: '.zzc-input-item';
     @include inputBase();
     @include inputColor();
     @include inputSize();
+    @include noBorder();
     @include noBorderRadius();
     @include disabled();
 }

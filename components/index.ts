@@ -10,3 +10,5 @@ export { default as Modal } from './modal';
 export { default as Popup } from './popup';
 export { default as Tabs } from './tabs';
 export { default as InputItem } from './inputItem';
+export { default as List } from './list';
+export { default as ListItem } from './listItem';

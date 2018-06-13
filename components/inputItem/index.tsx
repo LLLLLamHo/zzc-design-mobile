@@ -27,13 +27,14 @@ export default class InputItem extends PureComponent<InputItemProps, any> {
         disabled: false,
         noBorder: false,
         noRadius: false,
+        type: 'text',
         handleChange() { },
         className: '',
         style: {}
     }
 
     render() {
-        const { prefixCls, value, placeholder, size, disabled, noBorder, noRadius, handleChange, className, style} = this.props;
+        const { prefixCls, value, placeholder, size, disabled, noBorder, noRadius, type, handleChange, className, style} = this.props;
         const inputClassNames: string = classNames(
             prefixCls,
             className,
@@ -46,10 +47,11 @@ export default class InputItem extends PureComponent<InputItemProps, any> {
         );
         return (
 
-            <input type="text"
+            <input type={type}
                    className={inputClassNames}
                    style={style}
                    value={value}
+                   disabled={disabled}
                    placeholder={placeholder}
                    onChange={handleChange} />
         );

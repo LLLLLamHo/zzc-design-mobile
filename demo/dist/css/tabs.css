@@ -40,6 +40,12 @@ body {
 .zzc-demo .zzc-demo-body.full h5 {
   padding: .2rem .3rem;
 }
+
+.zzc-demo .zzc-component-title {
+  color: #333;
+  font-size: .32rem;
+  padding: .3rem;
+}
 .zzc-icon {
   fill: currentColor;
   background-size: cover; }
@@ -1356,9 +1362,73 @@ button {
       .zzc-tabs-box .zzc-tabs-bar-wrap-am {
         -webkit-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out; }
-    .zzc-tabs-box .zzc-tabs-ls {
-      background: #fff;
-      height: 1rem;
+    .zzc-tabs-box .zzc-tabs-content-wrap {
+      width: 100%;
+      overflow: visible; }
+      .zzc-tabs-box .zzc-tabs-content-wrap-am {
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out; }
+    .zzc-tabs-box .zzc-tabs-bar-box {
+      position: relative; }
+      .zzc-tabs-box .zzc-tabs-bar-box::after {
+        content: "";
+        position: absolute;
+        display: block;
+        z-index: 11;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-bottom: 1px solid #E8E8E8;
+        -webkit-transform: scaleY(0.5) translateY(50%);
+            -ms-transform: scaleY(0.5) translateY(50%);
+                transform: scaleY(0.5) translateY(50%); }
+      .zzc-tabs-box .zzc-tabs-bar-box::after {
+        z-index: 9; }
+      .zzc-tabs-box .zzc-tabs-bar-box .zzc-tabs-ls {
+        background: #fff;
+        height: 1rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row; }
+        .zzc-tabs-box .zzc-tabs-bar-box .zzc-tabs-ls-item {
+          height: 100%;
+          -ms-flex-negative: 0;
+              flex-shrink: 0;
+          color: #666666;
+          font-size: 0.28rem;
+          text-align: center;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center; }
+          .zzc-tabs-box .zzc-tabs-bar-box .zzc-tabs-ls-item.zzc-tabs-active {
+            color: #4E7CDD; }
+        .zzc-tabs-box .zzc-tabs-bar-box .zzc-tabs-ls-unline {
+          position: absolute;
+          z-index: 12;
+          left: 0;
+          bottom: 0;
+          background: #4E7CDD;
+          height: .04rem; }
+          .zzc-tabs-box .zzc-tabs-bar-box .zzc-tabs-ls-unline-am {
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out; }
+    .zzc-tabs-box .zzc-tabs-content {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -1372,51 +1442,18 @@ button {
       -webkit-box-direction: normal;
           -ms-flex-direction: row;
               flex-direction: row;
-      position: relative; }
-      .zzc-tabs-box .zzc-tabs-ls::after {
-        content: "";
-        position: absolute;
-        display: block;
-        z-index: 11;
-        bottom: 0;
-        left: 0;
+      height: auto;
+      background: #fff; }
+      .zzc-tabs-box .zzc-tabs-content-item {
+        height: auto;
         width: 100%;
-        border-bottom: 1px solid "#E8E8E8";
-        -webkit-transform: scaleY(0.5) translateY(50%);
-            -ms-transform: scaleY(0.5) translateY(50%);
-                transform: scaleY(0.5) translateY(50%); }
-      .zzc-tabs-box .zzc-tabs-ls-item {
-        height: 100%;
         -ms-flex-negative: 0;
-            flex-shrink: 0;
-        color: #666666;
-        font-size: 0.28rem;
-        text-align: center;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center; }
-        .zzc-tabs-box .zzc-tabs-ls-item.zzc-tabs-active {
-          color: #4E7CDD; }
-      .zzc-tabs-box .zzc-tabs-ls-unline {
-        position: absolute;
-        z-index: 10;
-        left: 0;
-        bottom: 0;
-        background: #4E7CDD;
-        height: .04rem; }
-        .zzc-tabs-box .zzc-tabs-ls-unline-am {
-          -webkit-transition: all 0.2s ease-in-out;
-          transition: all 0.2s ease-in-out; }
+            flex-shrink: 0; }
 .zzc-input-item {
   border: .01rem solid #dde0e6;
   padding: 0 .3rem;
   border-radius: .08rem;
+  background-color: #fafafa;
   color: #333;
   height: .7rem;
   width: 100%;
@@ -1434,6 +1471,10 @@ button {
   .zzc-input-item:-ms-input-placeholder {
     /* Internet Explorer 10+ */
     color: #999; }
+  .zzc-input-item.zzc-input-item-noborder {
+    border: none;
+    padding: 0;
+    background-color: transparent; }
   .zzc-input-item.zzc-input-item-noRadius {
     border-radius: 0; }
   .zzc-input-item.zzc-input-item-disabled {
@@ -1447,14 +1488,10 @@ body {
   background: #e8e8e8;
 }
 
-.modal-text {
-  font-size: .26rem;
+.item-content {
+  width: 100%;
+  height: 4rem;
   color: #333;
-  padding: .3rem;
-  background: #e8e8e8;
-}
-
-.card-box1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1464,68 +1501,11 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.item-content p {
   font-size: .28rem;
-  color: #333;
-  height: 2rem;
-}
-
-.card-box2 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  font-size: .28rem;
-  color: #333;
-  padding: .3rem 0;
-}
-
-.cursor-car-head {
-  justify-items: end;
-}
-
-.cursor-car-head .cursor-car-close {
-  font-size: .24rem;
-  color: #333;
-  display: block;
-  position: absolute;
-  right: .3rem;
-  top: .3rem;
-}
-
-.btn-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.btn-group .zzc-button {
-  width: 50%;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-.card1-contnt {
-  height: 5rem;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-}
-
-.card2 {
-  width: 4rem;
-}
-
-.card2-contnt {
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+  text-align: center;
 }
 
 /*# sourceMappingURL=tabs.css.map*/

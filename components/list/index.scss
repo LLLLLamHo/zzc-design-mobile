@@ -1,0 +1,13 @@
+@import '../style/base.scss';
+$cls: '.zzc-list';
+
+//列表基本样式
+@mixin listBase() {
+    background-color: #fff;
+}
+
+//list class
+#{$cls} {
+    @include listBase();
+}
+

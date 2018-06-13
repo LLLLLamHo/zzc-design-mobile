@@ -1,0 +1,34 @@
+@import '../style/base.scss';
+$cls: '.zzc-list-item';
+
+//列表项基本样式
+@mixin listItemBase() {
+    #{$cls}-box {
+        display: flex;
+        min-height: 1rem;
+        box-sizing: border-box;
+        align-items: center;
+        font-size: $fs28rem;
+        border-bottom: 1px solid #dde0e6;
+    }
+}
+
+//左右留空
+@mixin space() {
+    &#{$cls}-left {
+        padding-left: .3rem;
+    }
+    &#{$cls}-right {
+        padding-right: .3rem;
+    }
+    &#{$cls}-none {
+        padding: 0;
+    }
+}
+
+//listItem class
+#{$cls} {
+    @include listItemBase();
+    @include space();
+}
+
