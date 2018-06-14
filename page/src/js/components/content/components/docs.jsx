@@ -1,6 +1,8 @@
 import React, {
     Component
 } from 'react';
+import { BackTop } from 'antd';
+import DemoBox from './demo';
 
 export default class Docs extends Component {
     getContent() {
@@ -9,11 +11,14 @@ export default class Docs extends Component {
     }
 
     render() {
+        const { index } = this.props;
         return (
             <div className='zzc-demo-docs'>
                 <div className='markdown-body'>
                     {this.getContent()}
                 </div>
+                { index != 'index' && <DemoBox index={index} />}
+                <BackTop />
             </div>
         );
     }

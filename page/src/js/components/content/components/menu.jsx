@@ -4,6 +4,12 @@ import React, {
 import { Menu } from 'antd';
 
 export default class ZZCMenu extends Component {
+    constructor( props ) {
+        super( props );
+        this.state = {
+            index: props.index
+        };
+    }
     createMenu() {
         const { data } = this.props;
         const component = [];
@@ -18,7 +24,8 @@ export default class ZZCMenu extends Component {
     }
 
     render () {
-        const { index, changeTab } = this.props;
+        const { changeTab } = this.props;
+        const { index } = this.state;
         return (
             <div className='zzc-demo-menu'>
                 <Menu
