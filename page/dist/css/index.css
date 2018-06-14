@@ -21657,15 +21657,6 @@ hue-6-2: #c18401
   height: 100%;
 }
 
-.zzc-demo-content .zzc-demo-menu .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected .zzc-demo-menu-title {
-  color: #1890ff;
-}
-
-.zzc-demo-content .zzc-demo-menu .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected .zzc-demo-menu-subtitle {
-  opacity: .65;
-  color: #1890ff;
-}
-
 .zzc-demo-content .zzc-demo-menu .ant-menu-item-group-title {
   padding-left: 24px;
 }

@@ -15,9 +15,9 @@ export default class Docs extends Component {
         return (
             <div className='zzc-demo-docs'>
                 <div className='markdown-body'>
-                    {this.getContent()}
+                    { this.getContent()}
                 </div>
-                { index != 'index' && <DemoBox index={index} />}
+                { ( index != 'index' && index != 'change' ) && <DemoBox index={index} />}
                 <BackTop />
             </div>
         );

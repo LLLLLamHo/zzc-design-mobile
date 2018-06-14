@@ -35,7 +35,8 @@ export default class ZZCMenu extends Component {
                     inlineCollapsed={false}
                     forceSubMenuRender
                 >
-                    <Menu.Item key='index'><p className='zzc-demo-menu-title'>zzc-design-mobile</p></Menu.Item>
+                    <Menu.Item key='index'><p className='zzc-demo-menu-title'>Zzc Design Mobile of React</p></Menu.Item>
+                    <Menu.Item key='change'><p className='zzc-demo-menu-title'>更新日志</p></Menu.Item>
                     {this.createMenu()}
                 </Menu>
             </div>
