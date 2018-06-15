@@ -1,5 +1,16 @@
 # zzc-design-mobile
 
+<div class='github-box'>
+    <div class='github-btn github-btn-large'>
+        <a class='gh-btn' href='//github.com/LLLLLamHo/zzc-design-mobile' target='_blank'>
+            <span class='gh-ico' aria-hidden='true'></span>
+            <span class='gh-text'>Star</span>
+        </a>
+        <a class='gh-count' target='_blank' href='//github.com/LLLLLamHo/zzc-design-mobile' style='display: none;'></a>
+    </div>
+</div>
+
+
 这是一个基于React实现的UI组件框架。
 
 [了解更多](https://lllllamho.github.io/zzc-design-mobile/)

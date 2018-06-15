@@ -19,7 +19,27 @@ class App extends React.Component {
         };
     }
 
-    changeTab( data ) {
+    componentDidMount () {
+        let xmlhttp;
+        if ( window.XMLHttpRequest ) {
+            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // IE6, IE5 浏览器执行代码
+            xmlhttp = new ActiveXObject( 'Microsoft.XMLHTTP' );
+        }
+        xmlhttp.onreadystatechange = function () {
+            if ( xmlhttp.readyState == 4 && xmlhttp.status == 200 ) {
+                const data = JSON.parse( xmlhttp.responseText );
+                document.querySelector( '.gh-count' ).innerHTML = data.watchers;
+                document.querySelector( '.gh-count' ).style.display = 'block';
+            }
+        };
+        xmlhttp.open( 'GET', 'https://api.github.com/repos/lllllamho/zzc-design-mobile', true );
+        xmlhttp.send();
+    }
+
+    changeTab ( data ) {
         this.setState( {
             currTabs: data.key
         }, () => {
@@ -27,7 +47,7 @@ class App extends React.Component {
         } );
     }
 
-    render() {
+    render () {
         return (
             <div className='zzc-demo-box'>
                 <Header data={config} />
