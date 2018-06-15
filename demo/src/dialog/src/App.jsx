@@ -86,7 +86,7 @@ export default class App extends Component {
 
                     <Button onClick={() => { this.openAnDialog(); }}>带动画的dialog</Button>
                     {this.state.visible4 && <Dialog
-                        maskTransitionName='zzc-fade'
+                        maskTransitionName='zds-fade'
                         transitionName=''
                         maskClose
                         title={<div>123123123</div>}
@@ -98,15 +98,16 @@ export default class App extends Component {
                     </Dialog>}
 
                     <Button onClick={() => { this.openCustomAnDialog(); }}>带自定义动画的dialog</Button>
-                    {this.state.visible6 && <Dialog
-                        maskTransitionName='zzc-fade'
-                        transitionName='custom-an'
+                    {this.state.visible7 && <Dialog
                         className='custom-dialog'
+                        maskTransitionName='zds-fade'
+                        transitionName='custom-an'
+                        boxClassName='custom-dialog-box'
                         maskClose
                         title={<div>自定义动画</div>}
-                        footer={<div><Button onClick={() => { this.setState( { visible7: false } ); }}>关闭</Button></div>}
-                        visible={this.state.visible7}
-                        closeCallback={() => { this.setState({ visible6: false }); }}
+                        footer={<div><Button onClick={() => { this.setState( { visible6: false } ); }}>关闭</Button></div>}
+                        visible={this.state.visible6}
+                        closeCallback={() => { this.setState({ visible7: false }); }}
                     >
                         <div className='modal-text'>...这是一个文案...</div>
                     </Dialog>}
