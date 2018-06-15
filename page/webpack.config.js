@@ -1,10 +1,3 @@
-const setConfig = require( './config/setConfig' );
-
-
-( async () => {
-    await setConfig();
-} )();
-
 module.exports = {
     devtool: 'source-map',
     entry: {

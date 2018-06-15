@@ -6,6 +6,14 @@
     justify-content: space-between;
     padding: 30px;
     box-sizing: border-box;
+    box-shadow: 1px 1px 8px #666;
+    div{
+        line-height: 1;
+    }
+    *{
+        margin:0;
+        padding: 0;
+    }
     .zzc-demo-title {
         display: flex;
         align-items: flex-end;

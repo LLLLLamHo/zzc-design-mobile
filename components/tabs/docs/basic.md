@@ -22,7 +22,7 @@
 | maxTabLength           | 最多同时显示多少个tab                                          | number               | 3            |
 | animated               | 切换动画                                                        | boolean              | true         |
 | swipeable              | 内容是否可以滑动切换                                            | boolean              | true         |
-| swipeDirection         | 内容滑动方向                                                    | string（'horizontal' | 'vertical'） | horizontal |
+| swipeDirection         | 内容滑动方向                                                    | string（'horizontal'、'vertical'） | horizontal |
 | isOpenTabBarScroll     | 是否可以tabbar滑动滚动                                          | boolean              | true         |
 | isOpenTabContentScroll | 是否可以内容滑动滚动                                            | boolean              | true         |
 | tabBarUnderlineStyle              | 为下划线添加额外style样式    | object               | {}   |

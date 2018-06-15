@@ -6,27 +6,30 @@
 
 同时只能存在一个modal，如果需要切换modal，需要从业务代码中先将现有的modal关闭！
 
-##Modal
+## Modal
 
-| 属性               | 说明                          | 类型     | 默认值    |
-| ------------------ | ----------------------------- | -------- | --------- |
-| prefixCls          | 组件的公用className前序       | string   | zds-modal |
-| className          | 定义Modal的body class         | string   | 无        |
-| style              | 自定义样式                    | object   | {}        |
-| title              | model显示的title              | string   | 无        |
-| buttons            | model的按钮组                 | array    | []        |
-| maskClose          | 点击遮罩层关闭Modal           | boolean  | false     |
-| closable           | 是否使用默认的按钮            | boolean  | false     |
-| closeCallback      | 关闭Modal后的回调函数（必填） | function | 无        |
-| maskTransitionName | 遮罩层动画                    | string   | zds-fade      |
-| transitionName     | Modal动画                     | string   | zds-zoom      |
-| maskStyle          | 遮罩层样式                    | object   | {}        |
-| visible            | 控制Modal是否显示             | boolean  | false     |
-| transparent        | 是否不创建mask                | boolean  | false     |
-| lang     | 语言版本                                                            | string('cn'、'hk'、'en')    |     cn    |
+| 属性               | 说明                          | 类型                     | 默认值    |
+| ------------------ | ----------------------------- | ------------------------ | --------- |
+| prefixCls          | 组件的公用className前序       | string                   | zds-modal |
+| className          | 定义Modal的body class         | string                   | 无        |
+| style              | 自定义样式                    | object                   | {}        |
+| title              | model显示的title              | string                   | 无        |
+| buttons            | model的按钮组                 | array                    | []        |
+| maskClose          | 点击遮罩层关闭Modal           | boolean                  | false     |
+| closable           | 是否使用默认的按钮            | boolean                  | false     |
+| closeCallback      | 关闭Modal后的回调函数（必填） | function                 | 无        |
+| maskTransitionName | 遮罩层动画                    | string                   | zds-fade  |
+| transitionName     | Modal动画                     | string                   | zds-zoom  |
+| maskStyle          | 遮罩层样式                    | object                   | {}        |
+| visible            | 控制Modal是否显示             | boolean                  | false     |
+| transparent        | 是否不创建mask                | boolean                  | false     |
+| lang               | 语言版本                      | string('cn'、'hk'、'en') | cn        |
+
 ## 如何定义动画？
+
 我们要提供4个钩子，传入的动画名字应该是`fade`，因为内部会拼接为`zds-fade-enter`.
 举例一个渐进渐出的动画效果为例：
+
 ```css
 .zds-fade-enter {
     opacity: 0;
@@ -70,7 +73,7 @@
     opacity: 0; } }
 ```
 
-##buttons
+## buttons
 
 | 属性    | 说明               | 类型     | 默认值 |
 | ------- | ------------------ | -------- | ------ |
@@ -78,9 +81,9 @@
 | onPress | 点击按钮的回调事件 | function | 无     |
 | props   | 传递紧按钮的参数   | object   | 无     |
 
-*Modal所使用的按钮是使用zzcDesigne的`Button`组件，props传入的参数请参考`Button`的使用文档。
+* Modal所使用的按钮是使用zzcDesigne的`Button`组件，props传入的参数请参考`Button`的使用文档。
 
-##示例
+## 示例
 
 ```js
 <Modal
