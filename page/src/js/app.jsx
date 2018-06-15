@@ -47,6 +47,7 @@ class App extends React.Component {
     componentDidUpdate() {
         if ( this.state.currTabs === 'index' ) {
             document.querySelector( '.gh-count' ).innerHTML = this.state.star;
+            document.querySelector( '.gh-count' ).style.display = 'block';
         }
     }
 
