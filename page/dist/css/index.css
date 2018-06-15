@@ -21583,7 +21583,7 @@ hue-6-2: #c18401
 }
 .zzc-demo-header {
   height: 120px;
-  background: #4E7CDD;
+  background: -webkit-linear-gradient(left, #4261d7, #5588d8);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
