@@ -1064,6 +1064,8 @@ button {
     background: rgba(0, 0, 0, 0.8);
     height: 100%;
     width: 100%;
+    top: 0;
+    left: 0;
     position: absolute;
     z-index: 999; }
   .zds-popup .zds-popup-box {
@@ -1598,19 +1600,37 @@ button {
   .zzc-input-item.zzc-input-item-disabled {
     opacity: .5;
     cursor: not-allowed; }
-.zzc-list {
+.zzc-list .zzc-list-pretips,
+.zzc-list .zzc-list-endtips {
+  color: #666;
+  font-size: 0.24rem;
+  padding: .1rem .3rem; }
+
+.zzc-list .zzc-list-body {
   background-color: #fff; }
 .zzc-list-item .zzc-list-item-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   min-height: 1rem;
+  padding: .3rem 0;
   box-sizing: border-box;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   font-size: 0.28rem;
   border-bottom: 1px solid #dde0e6; }
+
+.zzc-list-item .zzc-list-item-label {
+  margin-right: .3rem; }
+
+.zzc-list-item .zzc-list-item-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 50%;
+          flex: 1 50%; }
+
+.zzc-list-item .zzc-list-item-extra {
+  margin-right: .3rem; }
 
 .zzc-list-item.zzc-list-item-left {
   padding-left: .3rem; }
@@ -1712,6 +1732,8 @@ button {
     background: rgba(0, 0, 0, 0.8);
     height: 100%;
     width: 100%;
+    top: 0;
+    left: 0;
     position: absolute;
     z-index: 999; }
   .zds-popup .zds-popup-box {

@@ -20,14 +20,14 @@ export default class App extends PureComponent {
                     <List preTips='这是前置描述，用于阐述下方内容，也可作为辅助标题使用'
                         endTips='这是后置描述，一般用来作为上方内容的补充说明'
                     >
-                        <ListItem>
-                            这是标题
+                        <ListItem label='这是五个字' extra='这是箭头'>
+                            这是内容
                         </ListItem>
                         <ListItem space='left'>
-                            这是标题
+                            这是内容
                         </ListItem>
                         <ListItem space='right'>
-                            这是标题
+                            这是内容
                         </ListItem>
                     </List>
                 </div>

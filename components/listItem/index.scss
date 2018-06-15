@@ -6,10 +6,31 @@ $cls: '.zzc-list-item';
     #{$cls}-box {
         display: flex;
         min-height: 1rem;
+        padding: .3rem 0;
         box-sizing: border-box;
         align-items: center;
         font-size: $fs28rem;
         border-bottom: 1px solid #dde0e6;
+    }
+}
+
+// 列表项左边标题样式
+@mixin listItemLabel {
+    #{$cls}-label {
+        margin-right: .3rem;
+    }
+}
+
+// 列表项内容样式
+@mixin listItemContent {
+    #{$cls}-content {
+        flex: 1 50%;
+    }
+}
+
+@mixin listItemExtra {
+    #{$cls}-extra {
+        margin-right: .3rem;
     }
 }
 
@@ -29,6 +50,9 @@ $cls: '.zzc-list-item';
 //listItem class
 #{$cls} {
     @include listItemBase();
+    @include listItemLabel();
+    @include listItemContent();
+    @include listItemExtra();
     @include space();
 }
 
