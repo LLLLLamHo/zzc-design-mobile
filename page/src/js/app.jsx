@@ -15,11 +15,13 @@ class App extends React.Component {
         super( props );
         const hash = window.location.hash;
         this.state = {
+            star: null,
             currTabs: hash != '' ? hash.split( '#' )[1] : 'index'
         };
     }
 
     componentDidMount () {
+        const _this = this;
         let xmlhttp;
         if ( window.XMLHttpRequest ) {
             //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
@@ -31,12 +33,21 @@ class App extends React.Component {
         xmlhttp.onreadystatechange = function () {
             if ( xmlhttp.readyState == 4 && xmlhttp.status == 200 ) {
                 const data = JSON.parse( xmlhttp.responseText );
+                _this.setState( {
+                    star: data.watchers
+                } );
                 document.querySelector( '.gh-count' ).innerHTML = data.watchers;
                 document.querySelector( '.gh-count' ).style.display = 'block';
             }
         };
         xmlhttp.open( 'GET', 'https://api.github.com/repos/lllllamho/zzc-design-mobile', true );
         xmlhttp.send();
+    }
+
+    componentDidUpdate() {
+        if ( this.state.currTabs === 'index' ) {
+            document.querySelector( '.gh-count' ).innerHTML = this.state.star;
+        }
     }
 
     changeTab ( data ) {
