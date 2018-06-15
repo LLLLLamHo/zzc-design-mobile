@@ -54,6 +54,9 @@ async function setComponentConfig( componentList ) {
         configData.change = {
             mdContent: marked( fs.readFileSync( path.join( __dirname, '../../docs/change.md' ), 'utf8' ), mdOptions )
         };
+        configData.pull = {
+            mdContent: marked( fs.readFileSync( path.join( __dirname, '../../docs/pull.md' ), 'utf8' ), mdOptions )
+        };
         await resolve( { configData, categoryData } );
     } ).then( data => data );
 }
