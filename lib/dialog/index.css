@@ -19,7 +19,8 @@
 
 .zds-dialog .zds-dialog-box {
   background: #fff;
-  z-index: 1001; }
+  z-index: 1001;
+  position: relative; }
 
 .zds-fade-enter {
   opacity: 0;
