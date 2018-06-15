@@ -2,11 +2,11 @@
 
 <div class='github-box'>
     <div class='github-btn github-btn-large'>
-        <a class='gh-btn' href='//github.com/LLLLLamHo/zzc-design-mobile' target='_blank'>
+        <a class='gh-btn' href='https://github.com/LLLLLamHo/zzc-design-mobile' target='_blank'>
             <span class='gh-ico' aria-hidden='true'></span>
             <span class='gh-text'>Star</span>
         </a>
-        <a class='gh-count' target='_blank' href='//github.com/LLLLLamHo/zzc-design-mobile' style='display: none;'></a>
+        <a class='gh-count' target='_blank' href='https://github.com/LLLLLamHo/zzc-design-mobile' style='display: none;'></a>
     </div>
 </div>
 
