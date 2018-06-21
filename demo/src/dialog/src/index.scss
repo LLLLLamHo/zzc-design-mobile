@@ -14,13 +14,13 @@ body {
     padding: .3rem;
 }
 
-.custom-dialog .zzc-dialog-box{
+.custom-dialog .custom-dialog-box{
     background: #fff;
     animation-duration: 2s;
     animation-fill-mode: both;
     animation-play-state: paused;
 }
-.custom-dialog .zzc-dialog-box.custom-an{
+.custom-dialog .custom-dialog-box.custom-an{
     -webkit-animation-name: customAn;
     animation-name: customAn;
     -webkit-animation-play-state: running;

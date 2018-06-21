@@ -37,6 +37,7 @@ export default class ZZCMenu extends Component {
                 >
                     <Menu.Item key='index'><p className='zzc-demo-menu-title'>Zzc Design Mobile of React</p></Menu.Item>
                     <Menu.Item key='change'><p className='zzc-demo-menu-title'>更新日志</p></Menu.Item>
+                    <Menu.Item key='pull'><p className='zzc-demo-menu-title'>贡献指南</p></Menu.Item>
                     {this.createMenu()}
                 </Menu>
             </div>

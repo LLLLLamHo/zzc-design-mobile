@@ -17,7 +17,7 @@ export default class Docs extends Component {
                 <div className='markdown-body'>
                     { this.getContent()}
                 </div>
-                { ( index != 'index' && index != 'change' ) && <DemoBox index={index} />}
+                { ( index != 'index' && index != 'change' && index != 'pull' ) && <DemoBox index={index} />}
                 <BackTop />
             </div>
         );
