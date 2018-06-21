@@ -1,59 +1,68 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, ReactNode } from 'react';
 import classNames from 'classnames';
+import ListItem from '../listItem';
 
 import '../style/index';
 import './index.scss';
 
 export interface InputItemProps {
         prefixCls?: string,
+        className?: string,
+        style?: React.CSSProperties,
+        type?: string,
         value?: string,
         placeholder: string,
-        size?: boolean,
         disabled?: boolean,
-        noBorder?: boolean,
-        noRadius?: boolean,
-        type?: string,
-        handleChange?: any,
-        className?: string,
-        style?: React.CSSProperties
+        onChange?: any,
+        onFocus?: any,
+        onBlur?: any,
+        inline?: boolean,
+        theme: string,
+        label?: ReactNode | null,
+        extra?: ReactNode | null,
+        noBorder?: boolean
 }
 
 export default class InputItem extends PureComponent<InputItemProps, any> {
     static defaultProps = {
         prefixCls: 'zzc-input-item',
+        className: '',
+        style: {},
+        type: 'text',
         value: '',
         placeholder: '说点什么...',
-        size: false,
         disabled: false,
-        noBorder: false,
-        noRadius: false,
-        type: 'text',
-        handleChange() { },
-        className: '',
-        style: {}
+        onChange() { },
+        onFocus() { },
+        onBlur() { },
+        inline: false,
+        theme: 'default',
+        label: '',
+        extra: '',
+        noBorder: false
     }
 
     render() {
-        const { prefixCls, value, placeholder, size, disabled, noBorder, noRadius, type, handleChange, className, style} = this.props;
+        const { prefixCls, className, style, type, value, placeholder, disabled, onChange, label, extra, noBorder} = this.props;
         const inputClassNames: string = classNames(
             prefixCls,
             className,
             {
-                [`${prefixCls}-${size}`]: size,
-                [`${prefixCls}-disabled`]: disabled,
-                [`${prefixCls}-noborder`]: noBorder,
-                [`${prefixCls}-noradius`]: noRadius
+                [`${prefixCls}-disabled`]: disabled
             }
         );
         return (
-
-            <input type={type}
+            <ListItem label={label}
+                extra={extra}
+                noBorder={noBorder} >
+                <input type={type}
                    className={inputClassNames}
                    style={style}
                    value={value}
-                   disabled={disabled}
                    placeholder={placeholder}
-                   onChange={handleChange} />
+                   onChange={onChange}
+                   disabled={disabled} />
+            </ListItem>
         );
     }
 }

@@ -13,7 +13,8 @@ export interface ListItemProps {
     inStyle?: React.CSSProperties,
     onClick?: any,
     label?: ReactNode | null,
-    extra?: ReactNode | null
+    extra?: ReactNode | null,
+    noBorder?: boolean
 }
 
 export default class ListItem extends PureComponent<ListItemProps, any> {
@@ -24,11 +25,13 @@ export default class ListItem extends PureComponent<ListItemProps, any> {
         style: {},
         inStyle: {},
         onClick() { },
-        label: ''
+        label: '',
+        extra: '',
+        noBorder: false
     }
 
     render() {
-        const { prefixCls, space, className, inClassName, style, inStyle, children, onClick, label, extra } = this.props;
+        const { prefixCls, space, className, inClassName, style, inStyle, children, onClick, label, extra, noBorder } = this.props;
         const listItemClassNames: string = classNames(
             prefixCls,
             className,
@@ -38,7 +41,10 @@ export default class ListItem extends PureComponent<ListItemProps, any> {
         );
         const listItemInClassNames: string = classNames(
             `${prefixCls}-box`,
-            inClassName
+            inClassName,
+            {
+                [`${prefixCls}-no-border`]: noBorder
+            }
         );
         return (
             <div className={listItemClassNames}

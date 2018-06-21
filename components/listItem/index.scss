@@ -6,7 +6,6 @@ $cls: '.zzc-list-item';
     #{$cls}-box {
         display: flex;
         min-height: 1rem;
-        padding: .3rem 0;
         box-sizing: border-box;
         align-items: center;
         font-size: $fs28rem;
@@ -30,7 +29,7 @@ $cls: '.zzc-list-item';
 
 @mixin listItemExtra {
     #{$cls}-extra {
-        margin-right: .3rem;
+        margin: 0 .3rem;
     }
 }
 
@@ -47,12 +46,21 @@ $cls: '.zzc-list-item';
     }
 }
 
+// 去掉下边框
+@mixin noBorder() {
+    #{$cls}-no-border {
+        border-bottom: none;
+    }
+}
+
 //listItem class
 #{$cls} {
+    background-color: #fff;
     @include listItemBase();
     @include listItemLabel();
     @include listItemContent();
     @include listItemExtra();
+    @include noBorder();
     @include space();
 }
 

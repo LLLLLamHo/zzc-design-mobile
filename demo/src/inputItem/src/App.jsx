@@ -21,12 +21,18 @@ export default class App extends PureComponent {
     handleChange5 = this.handleChange5.bind( this );
     handleChange6 = this.handleChange6.bind( this );
 
-    handleChange1( event ) { this.setState( { value1: event.target.value } ); }
+    handleChange1( event ) { console.log(1); console.log(event); this.setState( { value1: event.target.value } ); }
     handleChange2( event ) { this.setState( { value2: event.target.value } ); }
     handleChange3( event ) { this.setState( { value3: event.target.value } ); }
     handleChange4( event ) { this.setState( { value4: event.target.value } ); }
     handleChange5( event ) { this.setState( { value5: event.target.value } ); }
     handleChange6( event ) { this.setState( { value6: event.target.value } ); }
+
+    createExtraEle() {
+        return (
+            <p className='extra-tips'>发送</p>
+        );
+    }
 
     render() {
         return (
@@ -38,36 +44,31 @@ export default class App extends PureComponent {
                 <div className='zzc-demo-body'>
                     <h5>默认</h5>
                     <InputItem value={this.state.value1}
-                        handleChange={this.handleChange1}
+                        onChange={this.handleChange1}
+                        extra={this.createExtraEle()}
                     />
-
-                    <h5>默认 disabled</h5>
                     <InputItem value={this.state.value2}
-                        handleChange={this.handleChange2}
+                        onChange={this.handleChange2}
+                        extra={this.createExtraEle()}
                         disabled
                     />
-                    <h5>默认 error</h5>
                     <InputItem value={this.state.value3}
-                        handleChange={this.handleChange3}
+                        onChange={this.handleChange3}
+                        noBorder
                     />
                 </div>
 
                 <div className='zzc-demo-body'>
                     <h5>无边框</h5>
                     <InputItem value={this.state.value4}
-                        handleChange={this.handleChange1}
-                        noBorder
+                        onChange={this.handleChange1}
                     />
-
-                    <h5>无边框 disabled</h5>
                     <InputItem value={this.state.value5}
-                        handleChange={this.handleChange5}
-                        noBorder
+                        onChange={this.handleChange5}
                         disabled
                     />
-                    <h5>无边框 error</h5>
                     <InputItem value={this.state.value6}
-                        handleChange={this.handleChange6}
+                        onChange={this.handleChange6}
                         noBorder
                     />
                 </div>
