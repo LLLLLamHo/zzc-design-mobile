@@ -22,7 +22,7 @@ export interface ModalProps {
     bodyStyle?: React.CSSProperties,
     maskStyle?: React.CSSProperties,
     title?: JSX.Element,
-    footer?: JSX.Element,
+    footer?: JSX.Element | null,
 }
 
 export default class Dialog extends PureComponent<ModalProps, any> {
@@ -119,7 +119,6 @@ export default class Dialog extends PureComponent<ModalProps, any> {
     // dialog主题是否加入动画
     createDialogBody (): JSX.Element | any {
         const { prefixCls, visible, bodyStyle, transparent, boxClassName, transitionName, maskTransitionName, children, title, footer, closeCallback } = this.props;
-        console.log(boxClassName)        
         const newBoxClassName: string = classNames(
             `${prefixCls}-box`,
             boxClassName
@@ -130,7 +129,6 @@ export default class Dialog extends PureComponent<ModalProps, any> {
                     visible={visible}
                     animationName={this.getAnimationClass( transitionName )}
                     onEnd={( type ) => {
-                        debugger;
                         // 当选择不创建mask或者mask不使用动画的时候，body动画结束触发closeCallback
                         type === 'leave' && ( transparent || maskTransitionName === '' ) && closeCallback && closeCallback();
                     }}

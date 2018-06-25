@@ -3,24 +3,25 @@ import classNames from 'classnames';
 import Dialog from '../dialog';
 import Button from '../button';
 import langTextObject from '../_util/i18n';
+import config from '../_util/config';
 import './index.scss';
 
 export interface ModalProps {
     prefixCls?: string,
     className?: string,
-    activeClassName: string,
-    maskTransitionName: string,
-    transitionName: string,
-    title: string,
+    activeClassName?: string,
+    maskTransitionName?: string,
+    transitionName?: string,
+    title?: string,
     inline?: boolean,
     full?: boolean,
     disabled?: boolean,
     noBorder?: boolean,
     visible: boolean,
-    closable: boolean,
+    closable?: boolean,
     ghost?: boolean,
     transparent?: boolean,
-    maskClose: boolean,
+    maskClose?: boolean,
     closeCallback?: any,
     onClick?: any,
     lang?: 'cn' | 'hk' | 'en'
@@ -32,8 +33,8 @@ export interface ModalProps {
 
 export default class Modal extends PureComponent<ModalProps, any> {
     static defaultProps = {
-        prefixCls: 'zds-modal',
-        maskTransitionName: 'zds-fade',
+        prefixCls: `${config.cls}-modal`,
+        maskTransitionName: `${config.cls}-fade`,
         style: {},
         maskStyle: {},
         className: '',
@@ -41,7 +42,7 @@ export default class Modal extends PureComponent<ModalProps, any> {
         closeCallback() { },
         visible: false,
         title: '',
-        transitionName: 'zds-zoom',
+        transitionName: `${config.cls}-zoom`,
         buttons: [],
         maskClose: false,
         transparent: false,
@@ -49,19 +50,25 @@ export default class Modal extends PureComponent<ModalProps, any> {
     }
 
     state = {
-        visible: this.props.visible
+        isRenderModal: this.props.visible,
+        visible: this.props.visible,
         lang: langTextObject[this.props.lang]
     }
 
     componentWillReceiveProps( newProps ): void {
         if ( this.state.visible !== newProps.visible ) {
-            this.setState( {
-                visible: newProps.visible
-            } );
+            if ( newProps.visible ) {
+                this.setState( {
+                    isRenderModal: newProps.visible,
+                    visible: newProps.visible
+                } );
+            } else {
+                this.close();
+            }
         }
     }
 
-    createAlertFooter( closable: boolean, buttons?: Array<any> ): any {
+    createAlertFooter( closable?: boolean, buttons?: Array<any> ): any {
         const { lang } = this.state;
         if ( closable ) {
             return (
@@ -122,7 +129,7 @@ export default class Modal extends PureComponent<ModalProps, any> {
         }
     }
 
-    createTitle( title: string ): any {
+    createTitle( title?: string ): any {
         const { prefixCls } = this.props;
         if ( title && title !== '' ) {
             return (
@@ -143,6 +150,14 @@ export default class Modal extends PureComponent<ModalProps, any> {
         );
     }
 
+    closeCallback() {
+        this.setState( {
+            isRenderModal: false
+        }, () => {
+            this.props.closeCallback();
+        } );
+    }
+
     render() {
         const {
             children,
@@ -150,16 +165,16 @@ export default class Modal extends PureComponent<ModalProps, any> {
             transitionName,
             maskTransitionName,
             prefixCls,
-            closeCallback,
             className,
             style,
             maskStyle,
             title,
-            visible,
-            transparent
+            transparent,
+            buttons,
+            closable
         } = this.props;
 
-        if ( visible ) {
+        if ( this.state.isRenderModal ) {
             return (
                 <Dialog
                     transparent={transparent}
@@ -170,9 +185,9 @@ export default class Modal extends PureComponent<ModalProps, any> {
                     maskClose={maskClose}
                     transitionName={transitionName}
                     boxClassName={classNames( `${prefixCls}-box`, className )}
-                    closeCallback={closeCallback}
+                    closeCallback={() => { this.closeCallback(); }}
                     title={this.createTitle( title )}
-                    footer={this.createFooter()}
+                    footer={closable || ( buttons && buttons.length > 0 ) ? this.createFooter() : null}
                 >
                     <div className={classNames( `${prefixCls}-body` )}>
                         {children}

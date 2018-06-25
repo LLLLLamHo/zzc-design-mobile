@@ -3,30 +3,30 @@
 exports[`Card 1`] = `
 <div>
   <div
-    class="zzc-card"
+    class="zds-card"
   >
     <div
-      class="zzc-card-box"
+      class="zds-card-box"
     >
       <div
-        class="zzc-card-header"
+        class="zds-card-header"
       >
         <div
-          class="zzc-card-header-title"
+          class="zds-card-header-title"
         >
           卡片标题
         </div>
         <div
-          class="zzc-card-header-extra"
+          class="zds-card-header-extra"
         >
           this is extra
         </div>
       </div>
       <section
-        class="zzc-card-body"
+        class="zds-card-body"
       >
         <div
-          class="zzc-card-body-box"
+          class="zds-card-body-box"
         >
           <div
             class="card-box1"
@@ -38,10 +38,10 @@ exports[`Card 1`] = `
         </div>
       </section>
       <section
-        class="zzc-card-body"
+        class="zds-card-body"
       >
         <div
-          class="zzc-card-body-box"
+          class="zds-card-body-box"
         >
           <div
             class="card-box1"
@@ -53,7 +53,7 @@ exports[`Card 1`] = `
         </div>
       </section>
       <div
-        class="zzc-card-footer"
+        class="zds-card-footer"
       >
         <a>
           按钮
@@ -62,30 +62,30 @@ exports[`Card 1`] = `
     </div>
   </div>
   <div
-    class="zzc-card zzc-card-full"
+    class="zds-card zds-card-full"
   >
     <div
-      class="zzc-card-box"
+      class="zds-card-box"
     >
       <div
-        class="zzc-card-header"
+        class="zds-card-header"
       >
         <div
-          class="zzc-card-header-title"
+          class="zds-card-header-title"
         >
           卡片标题
         </div>
         <div
-          class="zzc-card-header-extra"
+          class="zds-card-header-extra"
         >
           this is extra
         </div>
       </div>
       <section
-        class="zzc-card-body zzc-card-body-border-left"
+        class="zds-card-body zds-card-body-border-left"
       >
         <div
-          class="zzc-card-body-box"
+          class="zds-card-body-box"
         >
           <div
             class="card-box2"
@@ -97,10 +97,10 @@ exports[`Card 1`] = `
         </div>
       </section>
       <section
-        class="zzc-card-body"
+        class="zds-card-body"
       >
         <div
-          class="zzc-card-body-box"
+          class="zds-card-body-box"
         >
           <div
             class="card-box2"

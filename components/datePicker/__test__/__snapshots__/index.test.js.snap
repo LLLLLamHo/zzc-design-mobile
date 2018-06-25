@@ -2,32 +2,32 @@
 
 exports[`Modal 1`] = `
 <div
-  class="zzc-popup"
+  class="zds-popup"
 >
   <div
-    class="zzc-popup-mask"
+    class="zds-popup-mask"
   />
   <div
-    class="zzc-popup-box zzc-popup-bottom"
+    class="zds-popup-box zds-popup-bottom"
   >
     <div
-      class="zzc-datepicker"
+      class="zds-datepicker"
     >
       <div
-        class="zzc-datepicker-header"
+        class="zds-datepicker-header"
       >
         <div
-          class="zzc-datepicker-header-close"
+          class="zds-datepicker-header-close"
         >
           取消
         </div>
         <div
-          class="zzc-datepicker-header-title"
+          class="zds-datepicker-header-title"
         >
           请选择时间
         </div>
         <div
-          class="zzc-datepicker-header-submit"
+          class="zds-datepicker-header-submit"
         >
           确认
         </div>

@@ -3,21 +3,21 @@
 exports[`Modal 1`] = `
 <div>
   <div
-    class="zzc-dialog"
+    class="zds-dialog"
   >
     <div
-      class="zzc-dialog-mask"
+      class="zds-dialog-mask"
     />
     <div
-      class="zzc-dialog-box zzc-modal-box"
+      class="zds-dialog-box zds-modal-box"
     >
       <div
-        class="zzc-modal-header"
+        class="zds-modal-header"
       >
         标题
       </div>
       <div
-        class="zzc-modal-body"
+        class="zds-modal-body"
       >
         <div
           class="modal-text"
@@ -26,10 +26,10 @@ exports[`Modal 1`] = `
         </div>
       </div>
       <div
-        class="zzc-modal-footer"
+        class="zds-modal-footer"
       >
         <a
-          class="zzc-button zzc-button-full zzc-button-default zzc-button-noborder"
+          class="zds-button zds-button-full zds-button-default zds-button-noborder"
         >
           关闭
         </a>

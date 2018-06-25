@@ -831,11 +831,13 @@ var Dialog = function (_PureComponent) {
                 footer = _props2.footer,
                 closeCallback = _props2.closeCallback;
 
+            console.log(boxClassName);
             var newBoxClassName = (0, _classnames2.default)(prefixCls + '-box', boxClassName);
             if (transitionName && transitionName !== '') {
                 return _react2.default.createElement(
                     _Animate2.default,
                     { visible: visible, animationName: this.getAnimationClass(transitionName), onEnd: function onEnd(type) {
+                            debugger;
                             // 当选择不创建mask或者mask不使用动画的时候，body动画结束触发closeCallback
                             type === 'leave' && (transparent || maskTransitionName === '') && closeCallback && closeCallback();
                         } },
@@ -10611,7 +10613,7 @@ var App = function (_Component) {
                     this.state.visible4 && _react2.default.createElement(
                         _zzcDesignMobile.Dialog,
                         {
-                            maskTransitionName: 'zzc-fade',
+                            maskTransitionName: 'zds-fade',
                             transitionName: '',
                             maskClose: true,
                             title: _react2.default.createElement(
@@ -10648,12 +10650,13 @@ var App = function (_Component) {
                             } },
                         '\u5E26\u81EA\u5B9A\u4E49\u52A8\u753B\u7684dialog'
                     ),
-                    this.state.visible6 && _react2.default.createElement(
+                    this.state.visible7 && _react2.default.createElement(
                         _zzcDesignMobile.Dialog,
                         {
-                            maskTransitionName: 'zzc-fade',
-                            transitionName: 'custom-an',
                             className: 'custom-dialog',
+                            maskTransitionName: 'zds-fade',
+                            transitionName: 'custom-an',
+                            boxClassName: 'custom-dialog-box',
                             maskClose: true,
                             title: _react2.default.createElement(
                                 'div',
@@ -10666,14 +10669,14 @@ var App = function (_Component) {
                                 _react2.default.createElement(
                                     _zzcDesignMobile.Button,
                                     { onClick: function onClick() {
-                                            _this2.setState({ visible7: false });
+                                            _this2.setState({ visible6: false });
                                         } },
                                     '\u5173\u95ED'
                                 )
                             ),
-                            visible: this.state.visible7,
+                            visible: this.state.visible6,
                             closeCallback: function closeCallback() {
-                                _this2.setState({ visible6: false });
+                                _this2.setState({ visible7: false });
                             }
                         },
                         _react2.default.createElement(

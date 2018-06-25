@@ -46,7 +46,7 @@ export default class App extends Component {
     }
 
     loading() {
-        Toast.loading( '努力加载中...', 2 );
+        Toast.loading( '努力加载中...', 20 );
     }
 
     render() {

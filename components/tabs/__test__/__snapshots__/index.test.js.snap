@@ -2,67 +2,67 @@
 
 exports[`Modal 1`] = `
 <div
-  class="zzc-tabs-box zzc-tabs-box-top"
+  class="zds-tabs-box zds-tabs-box-top"
 >
   <div
-    class="zzc-tabs-bar-box"
+    class="zds-tabs-bar-box"
   >
     <div
-      class="zzc-tabs-bar-wrap zzc-tabs-bar-wrap-am"
+      class="zds-tabs-bar-wrap zds-tabs-bar-wrap-am"
       style="touch-action:pan-x pan-y;transform:translate3d(0, 0px, 1px);-webkit-transform:translate3d(0, 0px, 1px);-moz-transform:translate3d(0, 0px, 1px)"
     >
       <div
-        class="zzc-tabs-ls zzc-tabs-ls-horizontal"
+        class="zds-tabs-ls zds-tabs-ls-horizontal"
       >
         <div
-          class="zzc-tabs-ls-item zzc-tabs-active"
+          class="zds-tabs-ls-item zds-tabs-active"
           style="width:33.3333%"
         >
           tab 1
         </div>
         <div
-          class="zzc-tabs-ls-item"
+          class="zds-tabs-ls-item"
           style="width:33.3333%"
         >
           tab 2
         </div>
         <div
-          class="zzc-tabs-ls-item"
+          class="zds-tabs-ls-item"
           style="width:33.3333%"
         >
           tab 3
         </div>
         <div
-          class="zzc-tabs-ls-item"
+          class="zds-tabs-ls-item"
           style="width:33.3333%"
         >
           tab 4
         </div>
         <div
-          class="zzc-tabs-ls-item"
+          class="zds-tabs-ls-item"
           style="width:33.3333%"
         >
           tab 5
         </div>
         <div
-          class="zzc-tabs-ls-unline zzc-tabs-ls-unline-top zzc-tabs-ls-unline-am"
+          class="zds-tabs-ls-unline zds-tabs-ls-unline-top zds-tabs-ls-unline-am"
           style="width:33.3333%;transform:translate3d(0.0000%,0,0)"
         />
       </div>
     </div>
   </div>
   <div
-    class="zzc-tabs-content-box zzc-tabs-content-box-horizontal"
+    class="zds-tabs-content-box zds-tabs-content-box-horizontal"
   >
     <div
-      class="zzc-tabs-content-wrap zzc-tabs-content-wrap-am"
+      class="zds-tabs-content-wrap zds-tabs-content-wrap-am"
       style="touch-action:pan-x pan-y;transform:translate3d(0, 0px, 1px);-webkit-transform:translate3d(0, 0px, 1px);-moz-transform:translate3d(0, 0px, 1px)"
     >
       <div
-        class="zzc-tabs-content"
+        class="zds-tabs-content"
       >
         <div
-          class="zzc-tabs-content-item"
+          class="zds-tabs-content-item"
         >
           <div
             class="item-content"
@@ -73,7 +73,7 @@ exports[`Modal 1`] = `
           </div>
         </div>
         <div
-          class="zzc-tabs-content-item"
+          class="zds-tabs-content-item"
         >
           <div
             class="item-content"
@@ -84,7 +84,7 @@ exports[`Modal 1`] = `
           </div>
         </div>
         <div
-          class="zzc-tabs-content-item"
+          class="zds-tabs-content-item"
         >
           <div
             class="item-content"
@@ -95,7 +95,7 @@ exports[`Modal 1`] = `
           </div>
         </div>
         <div
-          class="zzc-tabs-content-item"
+          class="zds-tabs-content-item"
         >
           <div
             class="item-content"
@@ -106,7 +106,7 @@ exports[`Modal 1`] = `
           </div>
         </div>
         <div
-          class="zzc-tabs-content-item"
+          class="zds-tabs-content-item"
         >
           <div
             class="item-content"
