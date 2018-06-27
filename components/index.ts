@@ -12,3 +12,4 @@ export { default as Tabs } from './tabs';
 export { default as Picker } from './picker';
 export { default as DatePicker } from './datePicker';
 export { default as Loading } from './loading';
+export { default as ImageView } from './imageView';

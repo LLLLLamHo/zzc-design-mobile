@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog 1`] = `
+<div>
+  <div
+    class="zds-dialog"
+  >
+    <div
+      class="zds-dialog-mask"
+    />
+    <div
+      class="zds-dialog-box"
+    >
+      <div
+        class="modal-text"
+      >
+        这是一个文案...
+      </div>
+    </div>
+  </div>
+</div>
+`;

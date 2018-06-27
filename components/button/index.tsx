@@ -76,7 +76,7 @@ export default class Button extends PureComponent<ButtonProps, any> {
                 activeClassName={this.setActiveClassName( activeClassName, type, ghost )}
                 disabled={disabled}
             >
-                <a
+                <div
                     className={
                         btnClassNames
                     }
@@ -86,7 +86,7 @@ export default class Button extends PureComponent<ButtonProps, any> {
                     onClick={onClick}
                 >
                     {children}
-                </a>
+                </div>
             </TouchFeedback>
         );
     }

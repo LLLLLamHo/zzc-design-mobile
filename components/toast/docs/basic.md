@@ -8,7 +8,7 @@
 
 ## API
 
-适用平台：WEB、React-Native
+适用平台：WEB
 - `Toast.info(content, duration, onClose, mask)`
 - `Toast.success(content, duration, onClose, mask)`
 - `Toast.error(content, duration, onClose, mask)`

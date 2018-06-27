@@ -11,3 +11,13 @@
 | size      | 图标大小，可选值为`lg`、`md`、`sm`、`xs` | string | `md`     |
 | style     | 自定义样式                               | Object | 无       |
 | className | 样式类名                                 | string | 无       |
+
+```JavaScript
+<Icon size="lg" type="success" />
+<Icon type="success" />
+<Icon size="sm" type="success" />
+<Icon size="xs" type="success" />
+<Icon style={{ fill: 'green' }} type="success" />
+<Icon style={{ fill: 'red' }} type="error" />
+<Icon style={{ fill: 'blue' }} type="waring" />
+```

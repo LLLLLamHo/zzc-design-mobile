@@ -42,6 +42,14 @@
 | dataKey | item元素中的data-key，不传默认使用text | string | ''     |
 
 
+```JavaScript
+<Picker
+    onTouchEnd={( scrollIndex, itemIndex ) => {this.touchEnd( scrollIndex, itemIndex );}}
+    onTouchStart={( scrollIndex ) => { this.touchStart( scrollIndex );}}
+    pickerData={this.state.data}
+    renderAfter={this.renderAfter}
+/>
+```
 
 
 

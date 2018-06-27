@@ -19,13 +19,13 @@ export default class Loading extends PureComponent<LoadingProps, LoadingState> {
         visible: this.props.visible
     }
 
-    private modal;
+    private modal: any;
 
-    getModal( div ) {
+    getModal( div: any ): void {
         this.modal = div;
     }
 
-    componentWillReceiveProps( nextProps ) {
+    componentWillReceiveProps( nextProps ): void {
         if ( nextProps.visible ) {
             this.setState( {
                 visible: nextProps.visible
@@ -35,7 +35,7 @@ export default class Loading extends PureComponent<LoadingProps, LoadingState> {
         }
     }
 
-    render() {
+    render(): JSX.Element {
         const { prefixCls, text, closeCallback } = this.props;
         const { visible } = this.state;
         return (

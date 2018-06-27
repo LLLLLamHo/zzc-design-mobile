@@ -21,3 +21,11 @@
 | ghost           | 是否为空中按钮                                                                               | boolean  | false      |
 | noBorder        | 不显示边框                                                                                   | boolean  | false      |
 | noRadius        | 不显示圆角                                                                                   | boolean  | false      |
+| full        | 占满整行                                                                                   | boolean  | false      |
+
+```JavaScript
+<Button type='main'>main</Button>
+<Button size='lg' type='main'>lg main</Button>
+<Button full type='main'>full main</Button>
+<Button inline size='sm' type='sub'>inline3</Button>
+```

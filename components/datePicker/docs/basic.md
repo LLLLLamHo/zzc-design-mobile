@@ -28,3 +28,16 @@
 ## 使用方式
 
 如果使用`mode='time'`，则传入`selectTime`的格式应该为`12:30`字符串，如果使用`mode=year/month`,只需要传入对应的年份和月份即可。例如：`'2019'`或者`'8'`。其他`mode`方式钧可以使用string或者是一个字符串。
+
+```JavaScript
+<DatePicker
+    visible={this.state.isShow}
+    minuteStep={15}
+    use12hour
+    mode='date'
+    selectTime={new Date(this.state.time1)}
+    onValueChange={(date) => { console.log( date ); }}
+    onClose={() => { this.setState({isShow: false}) }}
+    onSubmit={(data) => { this.setState({isShow: false}) }}
+/>
+```
