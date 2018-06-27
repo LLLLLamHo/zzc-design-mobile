@@ -28,11 +28,11 @@ exports[`Modal 1`] = `
       <div
         class="zds-modal-footer"
       >
-        <a
+        <div
           class="zds-button zds-button-full zds-button-default zds-button-noborder"
         >
           关闭
-        </a>
+        </div>
       </div>
     </div>
   </div>
