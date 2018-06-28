@@ -5,13 +5,13 @@ import { createDateListData, createDateTimeListData, createTimeListData, createY
 import { getModeDateData, getModeTimeData, getModeDateTimeData, getModeYearData, getModeMonthData } from './util/getScrollData';
 import Picker from '../picker';
 import Popup from '../Popup';
-import { isFunction, isDate } from '../_util/typeof';
+import { isFunction, isDate, isString } from '../_util/typeof';
 import langTextObject from '../_util/i18n';
 import { DatePickerProps, DatePickerState, ListItem, BScrollArray } from './propsType';
 import config from '../_util/config';
 import './index.scss';
 
-export default class DatePicker extends React.PureComponent<DatePickerProps, DatePickerState> {
+export default class DatePicker extends React.Component<DatePickerProps, DatePickerState> {
     static defaultProps = {
         prefixCls: `${config.cls}-datepicker`,
         className: '',
@@ -40,17 +40,39 @@ export default class DatePicker extends React.PureComponent<DatePickerProps, Dat
         this.submit = this.submit.bind( this );
     }
 
-    componentWillReceiveProps() {
+    shouldComponentUpdate( nextProps ): boolean {
+        if ( JSON.stringify( nextProps ) != JSON.stringify( this.props ) ) {
+            return true;
+        }
+        return false;
+    }
+
+    componentWillReceiveProps( nextProps ) {
         this.preDatePickerStatus = this.datePickerStatus;
         if ( this.props.visible ) {
             this.datePickerStatus = 'show';
         } else {
             this.datePickerStatus = 'hide';
         }
+
+        // 当关闭状态下，如果外部传入选择参数有变化，需要重新计算当前选中的日期并渲染日期data，供下次打开渲染
+        if ( !this.props.visible ) {
+            if ( isDate( this.props.selectTime ) && isDate( nextProps.selectTime ) && this.props.selectTime.getTime() != nextProps.selectTime.getTime() ) {
+                this.reactDateState( nextProps );
+            } else if ( isString( this.props.selectTime ) && isString( nextProps.selectTime ) && this.props.selectTime != nextProps.selectTime ) {
+                this.reactDateState( nextProps );
+            }
+        }
     }
 
     componentDidUpdate() {
         this.resetPicker();
+    }
+
+    reactDateState( props ) {
+        const { selectTime, mode } = props;
+        const calcTime = this.initDateObject( null, selectTime, mode );
+        this.initDate( calcTime );
     }
 
     resetPicker(): void {
@@ -121,7 +143,6 @@ export default class DatePicker extends React.PureComponent<DatePickerProps, Dat
         case 'month': createMonthListData( listData, calcCurrDate, langData );
             break;
         }
-
         this.state = Object.assign( {}, listData, { langData } );
         time && this.setState( this.state );
     }
@@ -204,7 +225,7 @@ export default class DatePicker extends React.PureComponent<DatePickerProps, Dat
     }
 
     render (): JSX.Element {
-        const { prefixCls, className, style, visible, maskClose } = this.props;
+        const { prefixCls, className, style, visible, maskClose, renderCallback } = this.props;
         const { langData } = this.state;
         const cls = classnames(
             className,
@@ -217,6 +238,7 @@ export default class DatePicker extends React.PureComponent<DatePickerProps, Dat
                 direction='bottom'
                 visible={visible}
                 onClose={this.close}
+                renderCallback={() => { renderCallback && renderCallback(); }}
             >
                 <div
                     className={cls}

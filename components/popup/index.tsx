@@ -11,6 +11,7 @@ export interface PopupProps {
     maskStyle?: React.CSSProperties,
     maskClose?: boolean,
     onClose?: Function,
+    renderCallback?: Function,
     transparent?: boolean,
     direction?: string
 }
@@ -32,6 +33,10 @@ export default class Popup extends React.PureComponent<PopupProps> {
         animationTypeList: animateConfig
     }
 
+    private maskShowed: boolean = false;
+    private boxShowed: boolean = false;
+    private rendered: boolean = false;
+
     componentWillReceiveProps ( nextProps ) {
         if ( nextProps.visible ) {
             this.setState( {
@@ -49,6 +54,24 @@ export default class Popup extends React.PureComponent<PopupProps> {
         return direction ? direction : null;
     }
 
+    boxAnimated( type: string ): void {
+        this.boxShowed = type == 'enter';
+        if ( this.boxShowed && this.maskShowed ) {
+            this.renderCallback();
+        }
+    }
+    
+    maskAnimated( type: string ): void {
+        this.maskShowed = type == 'enter';
+        if ( this.boxShowed && this.maskShowed ) {
+            this.renderCallback();
+        }
+    }
+
+    renderCallback(): void {
+        !this.rendered && this.props.renderCallback && this.props.renderCallback();
+    }
+
     render () {
         const { visible, children, prefixCls, direction, onClose } = this.props;
         if ( this.state.showPopup ) {
@@ -59,6 +82,8 @@ export default class Popup extends React.PureComponent<PopupProps> {
                     prefixCls={prefixCls}
                     boxClassName={`${prefixCls}-${direction}`}
                     visible={visible}
+                    boxAnimated={( type ) => { this.boxAnimated( type ); }}
+                    maskAnimated={( type ) => { this.maskAnimated( type ); }}
                     closeCallback={() => {
                         this.setState( { showPopup: false } );
                         onClose && onClose();

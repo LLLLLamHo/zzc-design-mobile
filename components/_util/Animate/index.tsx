@@ -82,14 +82,19 @@ export default class Animate extends React.PureComponent<AnimateProps> {
     animationEvent ( event ): void {
         event.stopPropagation();
         const { animationName }: any = this.props;
-        const { enter, enterActive } = animationName;
+        const { enter, enterActive, leave } = animationName;
         try {
             const node = ReactDOM.findDOMNode( this );
             if ( isDOM( node ) ) {
                 let animationType = 'enter';
                 // 当传入object会清楚enter钩子，如果只是传入一个字符串，会保留class直至关闭才去掉class
                 if ( isObject( animationName ) ) {
-                    if ( hasClass( node, enter ) ) {
+                    // 当切换enter和leave速度过来会导致bug，需要判断是否会存在enter和leave的class
+                    if ( hasClass( node, enter ) && hasClass( node, leave ) ) {
+                        removeClass( node, enter );
+                        removeClass( node, enterActive );
+                        animationType = 'leave';
+                    } else if ( hasClass( node, enter ) ) {
                         removeClass( node, enter );
                         removeClass( node, enterActive );
                     } else {

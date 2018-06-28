@@ -46,6 +46,10 @@ export default class App extends Component {
         this.setState( this.state );
     }
 
+    renderCallback() {
+        console.log('showed');
+    }
+
     render () {
         return (
             <div className='zzc-demo'>
@@ -63,6 +67,7 @@ export default class App extends Component {
                         </Card.Body>
                     </Card>
                     <DatePicker
+                        renderCallback={this.renderCallback}
                         visible={this.state.isShow1}
                         minuteStep={15}
                         use12hour
@@ -152,6 +157,7 @@ export default class App extends Component {
                     </Card>
                     <DatePicker
                         visible={this.state.isShow6}
+                        maskClose={false}
                         use12hour
                         lang='hk'
                         mode='datetime'

@@ -234,13 +234,13 @@
     opacity: 0;
     transform: scale(0.3); } }
 
-.zzc-picker {
+.zds-picker {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 5.4rem; }
 
-.zzc-picker .zzc-picker-wrapper {
+.zds-picker .zds-picker-wrapper {
   display: block;
   flex: 1;
   overflow: hidden;
@@ -249,7 +249,7 @@
   background: #fff;
   position: relative; }
 
-.zzc-picker .zzc-picker-wrapper::before {
+.zds-picker .zds-picker-wrapper::before {
   display: block;
   content: '';
   position: absolute;
@@ -267,7 +267,7 @@
   box-sizing: border-box;
   background: transparent; }
 
-.zzc-picker .zzc-picker-wrapper-bg {
+.zds-picker .zds-picker-wrapper-bg {
   position: absolute;
   top: 0;
   height: 100%;
@@ -278,10 +278,10 @@
   background-size: 100% 2.04rem;
   background-repeat: no-repeat; }
 
-.zzc-picker .zzc-picker-wrapper .zzc-picker-ws {
+.zds-picker .zds-picker-wrapper .zds-picker-ws {
   margin-top: 2.3rem; }
 
-.zzc-picker .zzc-picker-wrapper .zzc-picker-ws .zzc-picker-wi {
+.zds-picker .zds-picker-wrapper .zds-picker-ws .zds-picker-wi {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -292,6 +292,6 @@
   text-overflow: ellipsis;
   white-space: nowrap; }
 
-.zzc-picker .zzc-picker-wrapper .zzc-picker-ws .zzc-picker-wi-active {
+.zds-picker .zds-picker-wrapper .zds-picker-ws .zds-picker-wi-active {
   color: #4E7CDD;
   font-size: .3rem; }

@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import Animate from '../_util/Animate';
 import { addClass } from '../_util/class';
 import animateConfig from '../_util/animateConfig';
-import config from '../_util/config';
 import { isFunction } from '../_util/typeof';
+import config from '../_util/config';
 import './index.scss';
 
 export interface ModalProps {
@@ -18,6 +18,8 @@ export interface ModalProps {
     transparent?: boolean,
     maskClose?: boolean,
     closeCallback?: Function,
+    maskAnimated?: Function,
+    boxAnimated?: Function,
     style?: React.CSSProperties,
     bodyStyle?: React.CSSProperties,
     maskStyle?: React.CSSProperties,
@@ -37,6 +39,8 @@ export default class Dialog extends PureComponent<ModalProps, any> {
         maskStyle: {},
         visible: false,
         closeCallback () { },
+        maskAnimated () { },
+        boxAnimated () { },
         title: null,
         footer: null,
         maskClose: false,
@@ -47,26 +51,32 @@ export default class Dialog extends PureComponent<ModalProps, any> {
         animationTypeList: animateConfig
     }
 
-    box
-    mask
+    private box: HTMLDivElement | null
+    private mask: HTMLDivElement | null
+    private isShowedMask: boolean = false;
+    private isShowedBox: boolean = false;
 
     componentDidMount() {
         // 当没有动画效果的时候，创建完毕后需要为mask添加点击关闭事件
         !this.props.transparent && this.props.maskClose && this.addMarkCloseEvent();
     }
 
-    componentDidUpdate() {
-        !this.props.transparent && this.props.maskClose && !isFunction( this.mask.onclick ) && this.addMarkCloseEvent();
-    }
-
     // mask关闭事件
     addMarkCloseEvent (): void {
         const _this = this;
-        const { closeCallback } = this.props;
+        const { closeCallback, transitionName, maskTransitionName, transparent } = this.props;
         if ( this.mask ) {
             const maskAnimation = _this.getAnimationClass( _this.props.maskTransitionName );
             const bodyAnimation = _this.getAnimationClass( _this.props.transitionName );
             this.mask.onclick = function () {
+                if ( transitionName && transitionName !== '' && !_this.isShowedBox ) {
+                    return false;
+                }
+
+                if ( !transparent && maskTransitionName && maskTransitionName !== '' && !_this.isShowedMask ) {
+                    return false;
+                }
+
                 if ( bodyAnimation ) {
                     addClass( _this.box, bodyAnimation.leave );
                     addClass( _this.box, bodyAnimation.leaveActive );
@@ -78,6 +88,7 @@ export default class Dialog extends PureComponent<ModalProps, any> {
                 } else {
                     closeCallback && closeCallback();
                 }
+                return false;
             };
         }
     }
@@ -104,6 +115,8 @@ export default class Dialog extends PureComponent<ModalProps, any> {
                         visible={visible}
                         animationName={this.getAnimationClass( maskTransitionName )}
                         onEnd={( type ) => {
+                            this.isShowedMask = type === 'enter';
+                            this.props.maskAnimated && isFunction( this.props.maskAnimated ) && this.props.maskAnimated( type );
                             type === 'leave' && closeCallback && closeCallback();
                         }}
                     >
@@ -129,6 +142,8 @@ export default class Dialog extends PureComponent<ModalProps, any> {
                     visible={visible}
                     animationName={this.getAnimationClass( transitionName )}
                     onEnd={( type ) => {
+                        this.isShowedBox = type === 'enter';
+                        this.props.boxAnimated && isFunction( this.props.boxAnimated ) && this.props.boxAnimated( type );
                         // 当选择不创建mask或者mask不使用动画的时候，body动画结束触发closeCallback
                         type === 'leave' && ( transparent || maskTransitionName === '' ) && closeCallback && closeCallback();
                     }}
