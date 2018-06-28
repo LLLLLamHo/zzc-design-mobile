@@ -1,9 +1,9 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { isObject, isDOM } from '../typeof';
-import { animationEvents } from '../Event';
-import { addClass, removeClass, hasClass } from '../class';
+import { isObject, isDOM } from '../_util/typeof';
+import { animationEvents } from '../_util/Event';
+import { addClass, removeClass, hasClass } from '../_util/class';
 
 export interface AnimateProps {
     animationName?: string | object,
@@ -35,6 +35,8 @@ export default class Animate extends React.PureComponent<AnimateProps> {
             this.enterEvent();
         } else if ( !isFirst && !this.props.visible && this.animateStatus == 'enter' ) {
             this.leaveEvent();
+        } else if ( !isFirst && this.props.visible ) {
+            this.enterEvent();
         }
     }
 
@@ -82,7 +84,7 @@ export default class Animate extends React.PureComponent<AnimateProps> {
     animationEvent ( event ): void {
         event.stopPropagation();
         const { animationName }: any = this.props;
-        const { enter, enterActive, leave } = animationName;
+        const { enter, enterActive, leave, leaveActive } = animationName;
         try {
             const node = ReactDOM.findDOMNode( this );
             if ( isDOM( node ) ) {
@@ -90,18 +92,23 @@ export default class Animate extends React.PureComponent<AnimateProps> {
                 // 当传入object会清楚enter钩子，如果只是传入一个字符串，会保留class直至关闭才去掉class
                 if ( isObject( animationName ) ) {
                     // 当切换enter和leave速度过来会导致bug，需要判断是否会存在enter和leave的class
-                    if ( hasClass( node, enter ) && hasClass( node, leave ) ) {
+                    if ( hasClass( node, enter ) ) {
                         removeClass( node, enter );
                         removeClass( node, enterActive );
-                        animationType = 'leave';
-                    } else if ( hasClass( node, enter ) ) {
-                        removeClass( node, enter );
-                        removeClass( node, enterActive );
+                        if ( hasClass( node, leave ) ) {
+                            animationType = 'leave';
+                            removeClass( node, leave );
+                            removeClass( node, leaveActive );
+                        }
                     } else {
                         animationType = 'leave';
+                        removeClass( node, leave );
+                        removeClass( node, leaveActive );
                     }
                 } else if ( hasClass( node, animationName ) && !!this.props.visible ) {
                     animationType = 'leave';
+                    removeClass( node, leave );
+                    removeClass( node, leaveActive );
                 }
                 this.props.onEnd && this.props.onEnd( animationType );
             }

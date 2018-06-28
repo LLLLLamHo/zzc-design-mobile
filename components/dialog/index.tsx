@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
-import Animate from '../_util/Animate';
+import Animate from '../Animate';
 import { addClass } from '../_util/class';
 import animateConfig from '../_util/animateConfig';
 import { isFunction } from '../_util/typeof';

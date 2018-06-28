@@ -39,11 +39,11 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
             // 某种情况下会出现无法滚动到指定的selectedIndex
             requestAnimationFrame( () => {
                 this.BScrollObj.wheelTo( initBScrollConfig.wheel.selectedIndex );
+                this.addActiveItem();
             } );
             this.BScrollObj.on( 'beforeScrollStart', this.touchStart );
             this.BScrollObj.on( 'scrollEnd', this.touchEnd );
             this.BScrollObj.on( 'scrollCancel', this.touchEnd );
-            this.addActiveItem();
             this.props.initBScrollCallback( scrollType, this.BScrollObj );
         }
     }
