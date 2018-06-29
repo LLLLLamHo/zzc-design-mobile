@@ -14,3 +14,4 @@ export { default as DatePicker } from './datePicker';
 export { default as Loading } from './loading';
 export { default as ImageView } from './imageView';
 export { default as Animate } from './animate';
+export { default as TouchFeedback } from './touchFeedback';
