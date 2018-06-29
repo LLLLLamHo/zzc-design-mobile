@@ -26,7 +26,10 @@ export default class Animate extends React.PureComponent<AnimateProps> {
     }
 
     componentDidUpdate (): void {
-        this.runHookEvent( false );
+        // 防止重复执行动画，必须当前状态和传入参数不一样才执行动画钩子
+        if ( ( this.props.visible && this.animateStatus !== 'enter' ) || ( !this.props.visible && this.animateStatus !== 'leave' ) ) {
+            this.runHookEvent( false );
+        }
     }
 
     // 执行触发钩子事件

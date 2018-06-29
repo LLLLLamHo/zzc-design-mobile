@@ -40,8 +40,8 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         this.submit = this.submit.bind( this );
     }
 
-    shouldComponentUpdate( nextProps ): boolean {
-        if ( JSON.stringify( nextProps ) != JSON.stringify( this.props ) ) {
+    shouldComponentUpdate( nextProps, nextState ): boolean {
+        if ( JSON.stringify( nextProps ) != JSON.stringify( this.props ) || JSON.stringify( nextState ) != JSON.stringify( this.state ) ) {
             return true;
         }
         return false;
@@ -231,7 +231,6 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
             className,
             `${prefixCls}`
         );
-
         return (
             <Popup
                 maskClose={maskClose}

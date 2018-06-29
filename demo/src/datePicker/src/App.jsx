@@ -70,6 +70,8 @@ export default class App extends Component {
                         renderCallback={this.renderCallback}
                         visible={this.state.isShow1}
                         minuteStep={15}
+                        minDate={new Date('2015-1-1')}
+                        maxDate={new Date('2020-1-1')}
                         use12hour
                         mode='date'
                         selectTime={new Date(this.state.time1)}

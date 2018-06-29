@@ -62,6 +62,20 @@ export function initSelectDate ( selectDate, minDate ): DateData {
 }
 
 export function resolveDate( dateString ): DateData {
+    if ( isDate( dateString ) ) {
+        const year = dateString.getFullYear();
+        const month = dateString.getMonth() + 1;
+        const day = dateString.getDate();
+        const hour = dateString.getHours();
+        const minute = dateString.getMinutes();
+        return {
+            year,
+            month,
+            day,
+            hour,
+            minute
+        };
+    }
     const splitDate = dateString.split( ' ' );
     const date = splitDate[0].split( '-' );
     const time = splitDate[1] ? splitDate[1].split( ':' ) : [10, 0];

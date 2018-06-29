@@ -20,10 +20,10 @@ export default class Picker extends React.Component<PickerProps> {
         super( props );
         this.initBScrollCallback = this.initBScrollCallback.bind( this );
     }
-    shouldComponentUpdate() {
-        // if ( JSON.stringify( nextProps ) != JSON.stringify( this.props ) ) {
-        //     return true;
-        // }
+    shouldComponentUpdate( nextProps ) {
+        if ( JSON.stringify( nextProps ) != JSON.stringify( this.props ) ) {
+            return true;
+        }
         return false;
     }
 
