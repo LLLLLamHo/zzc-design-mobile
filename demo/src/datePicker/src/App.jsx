@@ -8,7 +8,7 @@ export default class App extends Component {
         super( props );
         this.state = {
             isShow1: false,
-            time1: '2016-09-21',
+            time1: '1996-09-21',
             isShow2: false,
             time2: '2016-09-21 12:20',
             isShow3: false,
@@ -18,7 +18,9 @@ export default class App extends Component {
             isShow5: false,
             time5: '8',
             isShow6: false,
-            time6: '2016-09-21 12:20'
+            time6: '2016-09-21 12:20',
+            minDate: '1990-1-1',
+            maxDate: '2020-1-1'
         };
     }
 
@@ -70,8 +72,8 @@ export default class App extends Component {
                         renderCallback={this.renderCallback}
                         visible={this.state.isShow1}
                         minuteStep={15}
-                        minDate={new Date('2015-1-1')}
-                        maxDate={new Date('2020-1-1')}
+                        minDate={new Date(this.state.minDate)}
+                        maxDate={new Date(this.state.maxDate)}
                         use12hour
                         mode='date'
                         selectTime={new Date(this.state.time1)}

@@ -56,39 +56,46 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         }
 
         // 当关闭状态下，如果外部传入选择参数有变化，需要重新计算当前选中的日期并渲染日期data，供下次打开渲染
-        if ( !this.props.visible ) {
-            if ( isDate( this.props.selectTime ) && isDate( nextProps.selectTime ) && this.props.selectTime.getTime() != nextProps.selectTime.getTime() ) {
-                this.reactDateState( nextProps );
-            } else if ( isString( this.props.selectTime ) && isString( nextProps.selectTime ) && this.props.selectTime != nextProps.selectTime ) {
-                this.reactDateState( nextProps );
-            }
-        }
+        // if ( !this.props.visible ) {
+        //     if ( isDate( this.props.selectTime ) && isDate( nextProps.selectTime ) && this.props.selectTime.getTime() != nextProps.selectTime.getTime() ) {
+        //         this.reactDateState( nextProps );
+        //     } else if ( isString( this.props.selectTime ) && isString( nextProps.selectTime ) && this.props.selectTime != nextProps.selectTime ) {
+        //         this.reactDateState( nextProps );
+        //     }
+        // }
     }
 
     componentDidUpdate() {
-        this.resetPicker();
+        !this.props.visible && this.resetPicker();
     }
 
-    reactDateState( props ) {
-        const { selectTime, mode } = props;
-        const calcTime = this.initDateObject( null, selectTime, mode );
-        this.initDate( calcTime );
-    }
+    // reactDateState( props ) {
+    //     const { selectTime, mode } = props;
+    //     const calcTime = this.initDateObject( null, selectTime, mode );
+    //     this.initDate( calcTime );
+    // }
+
+    // resetPicker(): void {
+    //     if ( this.datePickerStatus === 'show' && !this.props.visible ) {
+    //         this.preDatePickerStatus = this.datePickerStatus;
+    //         this.datePickerStatus = 'hide';
+    //         const { selectTime, mode } = this.props;
+    //         // 关闭的时候，如果当前滑动框选中的日期和当前传入的时间一样，则无需进行reset
+    //         const calcTime = this.initDateObject( null, selectTime, mode );
+    //         const currPickerDate = this.initDateObject( null, this.getCurrDate().currDate, mode ).getTime();
+    //         if ( currPickerDate != calcTime.getTime() ) {
+    //             setTimeout( () => {
+    //                 this.initDate( calcTime );
+    //             }, 500 );
+    //         }
+    //     }
+    // }
 
     resetPicker(): void {
-        if ( this.datePickerStatus === 'show' && !this.props.visible ) {
-            this.preDatePickerStatus = this.datePickerStatus;
-            this.datePickerStatus = 'hide';
-            const { selectTime, mode } = this.props;
-            // 关闭的时候，如果当前滑动框选中的日期和当前传入的时间一样，则无需进行reset
-            const calcTime = this.initDateObject( null, selectTime, mode );
-            const currPickerDate = this.initDateObject( null, this.getCurrDate().currDate, mode ).getTime();
-            if ( currPickerDate != calcTime.getTime() ) {
-                setTimeout( () => {
-                    this.initDate( calcTime );
-                }, 500 );
-            }
-        }
+        const { selectTime, mode } = this.props;
+        // 关闭的时候，如果当前滑动框选中的日期和当前传入的时间一样，则无需进行reset
+        const calcTime = this.initDateObject( null, selectTime, mode );
+        this.initDate( calcTime );
     }
 
     initDateObject( time, selectTime, mode ): Date {
@@ -183,7 +190,6 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         } else if ( mode == 'month' ) {
             currDate = new Date( `1993-${this.getCurrDate( scrollKey ).currDate}-17` );
         }
-
         this.initDate( currDate );
         if ( onValueChange && isFunction( onValueChange ) ) {
             onValueChange( this.getCurrDate( scrollKey ) );

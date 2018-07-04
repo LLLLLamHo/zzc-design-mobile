@@ -36,15 +36,16 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
         const wrapperNode = this.wrapper ? ReactDOM.findDOMNode( this.wrapper ) : null;
         if ( wrapperNode ) {
             this.BScrollObj = new BScroll( wrapperNode, initBScrollConfig );
-            // 某种情况下会出现无法滚动到指定的selectedIndex
-            requestAnimationFrame( () => {
-                this.BScrollObj.wheelTo( initBScrollConfig.wheel.selectedIndex );
-                this.addActiveItem();
-            } );
             this.BScrollObj.on( 'beforeScrollStart', this.touchStart );
             this.BScrollObj.on( 'scrollEnd', this.touchEnd );
             this.BScrollObj.on( 'scrollCancel', this.touchEnd );
             this.props.initBScrollCallback( scrollType, this.BScrollObj );
+            // 某种情况下会出现无法滚动到指定的selectedIndex
+            requestAnimationFrame( () => {
+                this.BScrollObj.wheelTo( initBScrollConfig.wheel.selectedIndex );
+                this.addActiveItem();
+                this.BScrollObj.refresh();
+            } );
         }
     }
 
@@ -93,7 +94,6 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
         this.removeActiveItem();
         this.props.onTouchStart && this.props.onTouchStart( this.props.wrapperIndex );
     }
-    
     removeActiveItem (): void {
         const { prefixCls } = this.props;
         this.wheelScroll.children[this.currIndex].className = `${prefixCls}-wi`;
