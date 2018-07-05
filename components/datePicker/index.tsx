@@ -5,7 +5,7 @@ import { createDateListData, createDateTimeListData, createTimeListData, createY
 import { getModeDateData, getModeTimeData, getModeDateTimeData, getModeYearData, getModeMonthData } from './util/getScrollData';
 import Picker from '../picker';
 import Popup from '../Popup';
-import { isFunction, isDate, isString } from '../_util/typeof';
+import { isFunction, isDate } from '../_util/typeof';
 import langTextObject from '../_util/i18n';
 import { DatePickerProps, DatePickerState, ListItem, BScrollArray } from './propsType';
 import config from '../_util/config';
@@ -41,14 +41,13 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
     }
 
     shouldComponentUpdate( nextProps, nextState ): boolean {
-        console.log(123)
         if ( JSON.stringify( nextProps ) != JSON.stringify( this.props ) || JSON.stringify( nextState ) != JSON.stringify( this.state ) ) {
             return true;
         }
         return false;
     }
 
-    componentWillReceiveProps( nextProps ) {
+    componentWillReceiveProps() {
         this.preDatePickerStatus = this.datePickerStatus;
         if ( this.props.visible ) {
             this.datePickerStatus = 'show';

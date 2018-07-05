@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "../";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 214);
+/******/ 	return __webpack_require__(__webpack_require__.s = 217);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -256,14 +256,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports) {
-
-var core = module.exports = { version: '2.5.3' };
-if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
-
-
-/***/ }),
-/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -332,6 +324,14 @@ function isDOM(s) {
 }
 
 /***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+var core = module.exports = { version: '2.5.3' };
+if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+
+
+/***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -384,7 +384,7 @@ module.exports = { "default": __webpack_require__(116), __esModule: true };
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(11);
-var core = __webpack_require__(8);
+var core = __webpack_require__(9);
 var ctx = __webpack_require__(53);
 var hide = __webpack_require__(20);
 var PROTOTYPE = 'prototype';
@@ -662,7 +662,7 @@ var _animateConfig = __webpack_require__(48);
 
 var _animateConfig2 = _interopRequireDefault(_animateConfig);
 
-var _typeof = __webpack_require__(9);
+var _typeof = __webpack_require__(8);
 
 var _config = __webpack_require__(6);
 
@@ -1136,7 +1136,7 @@ exports.f = __webpack_require__(17);
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(11);
-var core = __webpack_require__(8);
+var core = __webpack_require__(9);
 var LIBRARY = __webpack_require__(33);
 var wksExt = __webpack_require__(43);
 var defineProperty = __webpack_require__(14).f;
@@ -2441,7 +2441,7 @@ module.exports = Object.getPrototypeOf || function (O) {
 
 // most Object methods by ES6 should accept primitives
 var $export = __webpack_require__(13);
-var core = __webpack_require__(8);
+var core = __webpack_require__(9);
 var fails = __webpack_require__(21);
 module.exports = function (KEY, exec) {
   var fn = (core.Object || {})[KEY] || Object[KEY];
@@ -3036,7 +3036,7 @@ var _classNames = __webpack_require__(127);
 
 var _classNames2 = _interopRequireDefault(_classNames);
 
-var _typeof = __webpack_require__(9);
+var _typeof = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3258,7 +3258,7 @@ var _pickerWrapper = __webpack_require__(155);
 
 var _pickerWrapper2 = _interopRequireDefault(_pickerWrapper);
 
-var _typeof = __webpack_require__(9);
+var _typeof = __webpack_require__(8);
 
 var _config = __webpack_require__(6);
 
@@ -3602,7 +3602,7 @@ module.exports = function (done, value) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(91);
-module.exports = __webpack_require__(8).Object.getPrototypeOf;
+module.exports = __webpack_require__(9).Object.getPrototypeOf;
 
 
 /***/ }),
@@ -3625,7 +3625,7 @@ __webpack_require__(62)('getPrototypeOf', function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(93);
-var $Object = __webpack_require__(8).Object;
+var $Object = __webpack_require__(9).Object;
 module.exports = function defineProperty(it, key, desc) {
   return $Object.defineProperty(it, key, desc);
 };
@@ -3669,7 +3669,7 @@ __webpack_require__(64);
 __webpack_require__(77);
 __webpack_require__(102);
 __webpack_require__(103);
-module.exports = __webpack_require__(8).Symbol;
+module.exports = __webpack_require__(9).Symbol;
 
 
 /***/ }),
@@ -3813,7 +3813,7 @@ module.exports = { "default": __webpack_require__(105), __esModule: true };
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(106);
-module.exports = __webpack_require__(8).Object.setPrototypeOf;
+module.exports = __webpack_require__(9).Object.setPrototypeOf;
 
 
 /***/ }),
@@ -3867,7 +3867,7 @@ module.exports = { "default": __webpack_require__(109), __esModule: true };
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(110);
-var $Object = __webpack_require__(8).Object;
+var $Object = __webpack_require__(9).Object;
 module.exports = function create(P, D) {
   return $Object.create(P, D);
 };
@@ -4091,6 +4091,8 @@ var _class = __webpack_require__(31);
 
 var _Event = __webpack_require__(46);
 
+var _typeof = __webpack_require__(8);
+
 var _icon = __webpack_require__(68);
 
 var _icon2 = _interopRequireDefault(_icon);
@@ -4153,17 +4155,22 @@ function toggleShow() {
     reset();
     _onClose();
     var item = alignment.get('first');
-    getToast(item.type, item.content, item.duration, item.onClose, item.mask);
+    getToast(item.type, item.content, item.duration, item.onClose, item.parnetNode, item.mask);
 }
-function createParentNode() {
+function createParentNode(specifiedpParnet) {
     var parentNode = document.createElement('div');
-    document.body.appendChild(parentNode);
+    if ((0, _typeof.isDOM)(specifiedpParnet)) {
+        specifiedpParnet.appendChild(parentNode);
+    } else {
+        document.body.appendChild(parentNode);
+    }
     return parentNode;
 }
 function getToast(type, content) {
     var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 2;
     var onClose = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
-    var mask = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
+    var parnetNode = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+    var mask = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : true;
 
     // only one toast to page
     if (_toastElem != null) {
@@ -4171,15 +4178,18 @@ function getToast(type, content) {
             type: type,
             content: content,
             duration: duration,
+            parnetNode: parnetNode,
             onClose: onClose,
             mask: mask
         });
         toggleShow();
     } else {
+        var _classNames;
+
         _duration = duration;
-        _parentNode = createParentNode();
+        _parentNode = createParentNode(parnetNode);
         _onClose = onClose;
-        var zzcToastCls = (0, _classnames2.default)(PREFIXCLS, (0, _defineProperty3.default)({}, PREFIXCLS + '-nomask', !mask), (0, _defineProperty3.default)({}, PREFIXCLS + '-icon', type === 'loading' || type === 'success' || type === 'error' || type === 'waring'));
+        var zzcToastCls = (0, _classnames2.default)(PREFIXCLS, (_classNames = {}, (0, _defineProperty3.default)(_classNames, PREFIXCLS + '-nomask', !mask), (0, _defineProperty3.default)(_classNames, PREFIXCLS + '-nofixed', (0, _typeof.isDOM)(parnetNode)), _classNames), (0, _defineProperty3.default)({}, PREFIXCLS + '-icon', type === 'loading' || type === 'success' || type === 'error' || type === 'waring'));
         _reactDom2.default.render(_react2.default.createElement(
             'div',
             { className: zzcToastCls },
@@ -4223,27 +4233,27 @@ var Toast = function (_Component) {
     (0, _createClass3.default)(Toast, null, [{
         key: 'info',
         value: function info() {
-            getToast('info', arguments.length <= 0 ? undefined : arguments[0], arguments.length <= 1 ? undefined : arguments[1], arguments.length <= 2 ? undefined : arguments[2], arguments.length <= 3 ? undefined : arguments[3]);
+            getToast('info', arguments.length <= 0 ? undefined : arguments[0], arguments.length <= 1 ? undefined : arguments[1], arguments.length <= 2 ? undefined : arguments[2], arguments.length <= 3 ? undefined : arguments[3], arguments.length <= 4 ? undefined : arguments[4]);
         }
     }, {
         key: 'success',
         value: function success() {
-            getToast('success', arguments.length <= 0 ? undefined : arguments[0], arguments.length <= 1 ? undefined : arguments[1], arguments.length <= 2 ? undefined : arguments[2], arguments.length <= 3 ? undefined : arguments[3]);
+            getToast('success', arguments.length <= 0 ? undefined : arguments[0], arguments.length <= 1 ? undefined : arguments[1], arguments.length <= 2 ? undefined : arguments[2], arguments.length <= 3 ? undefined : arguments[3], arguments.length <= 4 ? undefined : arguments[4]);
         }
     }, {
         key: 'error',
         value: function error() {
-            getToast('error', arguments.length <= 0 ? undefined : arguments[0], arguments.length <= 1 ? undefined : arguments[1], arguments.length <= 2 ? undefined : arguments[2], arguments.length <= 3 ? undefined : arguments[3]);
+            getToast('error', arguments.length <= 0 ? undefined : arguments[0], arguments.length <= 1 ? undefined : arguments[1], arguments.length <= 2 ? undefined : arguments[2], arguments.length <= 3 ? undefined : arguments[3], arguments.length <= 4 ? undefined : arguments[4]);
         }
     }, {
         key: 'waring',
         value: function waring() {
-            getToast('waring', arguments.length <= 0 ? undefined : arguments[0], arguments.length <= 1 ? undefined : arguments[1], arguments.length <= 2 ? undefined : arguments[2], arguments.length <= 3 ? undefined : arguments[3]);
+            getToast('waring', arguments.length <= 0 ? undefined : arguments[0], arguments.length <= 1 ? undefined : arguments[1], arguments.length <= 2 ? undefined : arguments[2], arguments.length <= 3 ? undefined : arguments[3], arguments.length <= 4 ? undefined : arguments[4]);
         }
     }, {
         key: 'loading',
         value: function loading() {
-            getToast('loading', arguments.length <= 0 ? undefined : arguments[0], arguments.length <= 1 ? undefined : arguments[1], arguments.length <= 2 ? undefined : arguments[2], arguments.length <= 3 ? undefined : arguments[3]);
+            getToast('loading', arguments.length <= 0 ? undefined : arguments[0], arguments.length <= 1 ? undefined : arguments[1], arguments.length <= 2 ? undefined : arguments[2], arguments.length <= 3 ? undefined : arguments[3], arguments.length <= 4 ? undefined : arguments[4]);
         }
     }, {
         key: 'hideToast',
@@ -4261,7 +4271,7 @@ exports.default = Toast;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(115);
-module.exports = __webpack_require__(8).Object.keys;
+module.exports = __webpack_require__(9).Object.keys;
 
 
 /***/ }),
@@ -4284,7 +4294,7 @@ __webpack_require__(62)('keys', function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(117);
-module.exports = __webpack_require__(8).Object.assign;
+module.exports = __webpack_require__(9).Object.assign;
 
 
 /***/ }),
@@ -4349,7 +4359,7 @@ module.exports = { "default": __webpack_require__(120), __esModule: true };
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(64);
-module.exports = __webpack_require__(8).Object.getOwnPropertySymbols;
+module.exports = __webpack_require__(9).Object.getOwnPropertySymbols;
 
 
 /***/ }),
@@ -4427,7 +4437,7 @@ var _createClass2 = __webpack_require__(2);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _typeof = __webpack_require__(9);
+var _typeof = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4514,7 +4524,7 @@ var _reactDom = __webpack_require__(19);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _typeof = __webpack_require__(9);
+var _typeof = __webpack_require__(8);
 
 var _Event = __webpack_require__(46);
 
@@ -5640,7 +5650,7 @@ var _tabContent = __webpack_require__(151);
 
 var _tabContent2 = _interopRequireDefault(_tabContent);
 
-var _typeof = __webpack_require__(9);
+var _typeof = __webpack_require__(8);
 
 var _config = __webpack_require__(6);
 
@@ -6164,7 +6174,7 @@ var _config = __webpack_require__(6);
 
 var _config2 = _interopRequireDefault(_config);
 
-var _typeof = __webpack_require__(9);
+var _typeof = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6382,7 +6392,7 @@ var _config = __webpack_require__(6);
 
 var _config2 = _interopRequireDefault(_config);
 
-var _typeof = __webpack_require__(9);
+var _typeof = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6626,7 +6636,7 @@ exports.default = TabsPane;
 /* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var core = __webpack_require__(8);
+var core = __webpack_require__(9);
 var $JSON = core.JSON || (core.JSON = { stringify: JSON.stringify });
 module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
   return $JSON.stringify.apply($JSON, arguments);
@@ -9746,7 +9756,7 @@ var _Popup = __webpack_require__(163);
 
 var _Popup2 = _interopRequireDefault(_Popup);
 
-var _typeof = __webpack_require__(9);
+var _typeof = __webpack_require__(8);
 
 var _i18n = __webpack_require__(72);
 
@@ -10080,7 +10090,7 @@ exports.initSelectDate = initSelectDate;
 exports.resolveDate = resolveDate;
 exports.getLastDate = getLastDate;
 
-var _typeof = __webpack_require__(9);
+var _typeof = __webpack_require__(8);
 
 var _resetDate = __webpack_require__(52);
 
@@ -10790,7 +10800,7 @@ var _Gesture = __webpack_require__(50);
 
 var _Gesture2 = _interopRequireDefault(_Gesture);
 
-var _typeof = __webpack_require__(9);
+var _typeof = __webpack_require__(8);
 
 var _util = __webpack_require__(169);
 
@@ -11120,7 +11130,7 @@ var _reactDom = __webpack_require__(19);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _typeof = __webpack_require__(9);
+var _typeof = __webpack_require__(8);
 
 var _Event = __webpack_require__(46);
 
@@ -11322,7 +11332,10 @@ Animate.defaultProps = {
 /* 211 */,
 /* 212 */,
 /* 213 */,
-/* 214 */
+/* 214 */,
+/* 215 */,
+/* 216 */,
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11336,7 +11349,7 @@ var _reactDom = __webpack_require__(19);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(215);
+var _App = __webpack_require__(218);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -11345,7 +11358,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
 /***/ }),
-/* 215 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11382,7 +11395,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _zzcDesignMobile = __webpack_require__(112);
 
-__webpack_require__(216);
+__webpack_require__(219);
 
 __webpack_require__(111);
 
@@ -11473,7 +11486,7 @@ var App = function (_Component) {
 exports.default = App;
 
 /***/ }),
-/* 216 */
+/* 219 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

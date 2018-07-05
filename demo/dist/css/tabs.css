@@ -585,6 +585,8 @@ button {
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%); }
+  .zds-toast.zds-toast-nofixed {
+    position: absolute; }
   .zds-toast.zds-toast-nomask {
     width: auto;
     max-width: 6.3rem;

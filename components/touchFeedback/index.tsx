@@ -13,8 +13,8 @@ import { isFunction } from '../_util/typeof';
 
 
 export interface TouchFeedbackProps {
-    activeStyle: React.CSSProperties
-    activeClassName: string,
+    activeStyle?: React.CSSProperties
+    activeClassName?: string,
     disabled?: boolean,
     onTouchStart?: Function;
     onTouchEnd?: Function;
