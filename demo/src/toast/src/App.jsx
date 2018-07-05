@@ -50,7 +50,7 @@ export default class App extends Component {
     }
 
     parentInfo() {
-        Toast.info( '这是一个普通的提示', 2, () => {
+        Toast.info( '指定父级显示Toast', 2, () => {
             console.log( '关闭' );
         }, document.querySelector('.box') );
     }
@@ -71,7 +71,9 @@ export default class App extends Component {
                     <Button onClick={this.loading} type="main">loading</Button>
                     <Button onClick={this.loadingInfo} type="main">再次点击关闭toast</Button>
                     <Button onClick={this.parentInfo} type="main">指定父级显示Toast</Button>
-                    <div className='box' />
+                    <div className='box'>
+                        <h1>123123</h1>
+                    </div>
                 </div>
             </div>
 

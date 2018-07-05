@@ -19,7 +19,6 @@ let _toastElem: any = null;
 let _duration: number = 2;
 let _onClose: any = () => { };
 let _parentNode: any = null;
-let _isSpecifiedParentNode: boolean = false;
 
 function closeToast(): void {
     addClass( _toastElem, `${config.cls}-fade-leave` );
@@ -38,7 +37,6 @@ function reset(): void {
     _parentNode = null;
     _toastElem = null;
     _duration = 2;
-    _isSpecifiedParentNode = false;
 }
 
 function addAnimationEnd(): void {
@@ -47,7 +45,7 @@ function addAnimationEnd(): void {
         removeClass( this, `${config.cls}-fade-enter` );
         _duration !== 0 && countdown();
     } else {
-        !_isSpecifiedParentNode && _parentNode && _parentNode.parentNode.removeChild( _parentNode );
+        _parentNode && _parentNode.parentNode.removeChild( _parentNode );
         _parentNode && ReactDOM.unmountComponentAtNode( _parentNode );
         _duration !== 0 && _onClose();
         reset();
@@ -62,17 +60,17 @@ function toggleShow(): void {
     _parentNode && ReactDOM.unmountComponentAtNode( _parentNode );
     reset();
     _onClose();
-    const item: { type: string, content: any, duration: number, onClose: any, mask: boolean } = alignment.get( 'first' );
-    getToast( item.type, item.content, item.duration, item.onClose, item.mask );
+    const item: { type: string, content: any, duration: number, onClose: any, parnetNode: any, mask: boolean } = alignment.get( 'first' );
+    getToast( item.type, item.content, item.duration, item.onClose, item.parnetNode, item.mask );
 }
 
-function createParentNode( parnetNode: any ): Element {
-    if ( isDOM( parnetNode ) ) {
-        _isSpecifiedParentNode = true;
-        return parnetNode;
-    }
+function createParentNode( specifiedpParnet: any ): Element {
     const parentNode: any = document.createElement( 'div' );
-    document.body.appendChild( parentNode );
+    if ( isDOM( specifiedpParnet ) ) {
+        specifiedpParnet.appendChild( parentNode );
+    } else {
+        document.body.appendChild( parentNode );
+    }
     return parentNode;
 }
 
@@ -83,6 +81,7 @@ function getToast( type: string, content: any, duration: number = 2, onClose: an
             type,
             content,
             duration,
+            parnetNode,
             onClose,
             mask
         } );
