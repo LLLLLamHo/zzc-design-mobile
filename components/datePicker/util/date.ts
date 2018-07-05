@@ -1,6 +1,6 @@
 
 import { isDate } from '../../_util/typeof';
-
+import { resetDate } from '../../_util/resetDate';
 export interface DateData {
     year: number
     month: number
@@ -13,7 +13,7 @@ export function initMinDate( defaultDate ): DateData {
     if ( defaultDate ) {
         return resolveDate( defaultDate );
     }
-    const currDate = new Date( `${new Date().getFullYear() - 10}-1-1` );
+    const currDate = new Date( `${new Date().getFullYear() - 10}/01/01` );
     const year = currDate.getFullYear();
     const month = currDate.getMonth() + 1;
     const day = currDate.getDate();
@@ -30,7 +30,7 @@ export function initMaxDate( defaultDate ): DateData {
     if ( defaultDate ) {
         return resolveDate( defaultDate );
     }
-    const currDate = new Date( `${new Date().getFullYear() + 10}-1-1` );
+    const currDate = new Date( `${new Date().getFullYear() + 10}/01/01` );
     const year = currDate.getFullYear();
     const month = currDate.getMonth() + 1;
     const day = currDate.getDate();
@@ -77,7 +77,7 @@ export function resolveDate( dateString ): DateData {
         };
     }
     const splitDate = dateString.split( ' ' );
-    const date = splitDate[0].split( '-' );
+    const date = splitDate[0].split( '/' );
     const time = splitDate[1] ? splitDate[1].split( ':' ) : [10, 0];
     return {
         year: date[0],
@@ -89,5 +89,5 @@ export function resolveDate( dateString ): DateData {
 }
 
 export function getLastDate( year, month ): number {
-    return new Date( new Date( `${year}-${month + 1}-1` ).setDate( 0 ) ).getDate();
+    return new Date( new Date( `${year}/${resetDate( month + 1 )}/01` ).setDate( 0 ) ).getDate();
 }

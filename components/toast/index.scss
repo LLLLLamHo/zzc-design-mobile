@@ -11,6 +11,9 @@ $cls: '.zds-toast';
     justify-content: center;
     top: 50%;
     transform: translateY(-50%);
+    &#{$cls}-nofixed{
+        position: absolute;
+    }
     &#{$cls}-nomask {
         width: auto;
         max-width: 6.3rem;

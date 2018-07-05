@@ -8,9 +8,9 @@ export default class App extends Component {
         super( props );
         this.state = {
             isShow1: false,
-            time1: '1996-09-21',
+            time1: '1996/09/21',
             isShow2: false,
-            time2: '2016-09-21 12:20',
+            time2: '2016/09/21 12:20',
             isShow3: false,
             time3: '12:30',
             isShow4: false,
@@ -18,9 +18,9 @@ export default class App extends Component {
             isShow5: false,
             time5: '8',
             isShow6: false,
-            time6: '2016-09-21 12:20',
-            minDate: '1990-1-1',
-            maxDate: '2020-1-1'
+            time6: '2016/09/21 12:20',
+            minDate: '1900/01/01',
+            maxDate: '2020/01/01'
         };
     }
 

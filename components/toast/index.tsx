@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import { addClass, removeClass, hasClass } from '../_util/class';
 import { animationEvents } from '../_util/Event';
+import { isDOM } from '../_util/typeof';
 import Icon from '../icon';
 import Alignment from '../_util/alignment';
 import config from '../_util/config';
@@ -18,6 +19,7 @@ let _toastElem: any = null;
 let _duration: number = 2;
 let _onClose: any = () => { };
 let _parentNode: any = null;
+let _isSpecifiedParentNode: boolean = false;
 
 function closeToast(): void {
     addClass( _toastElem, `${config.cls}-fade-leave` );
@@ -36,6 +38,7 @@ function reset(): void {
     _parentNode = null;
     _toastElem = null;
     _duration = 2;
+    _isSpecifiedParentNode = false;
 }
 
 function addAnimationEnd(): void {
@@ -44,7 +47,7 @@ function addAnimationEnd(): void {
         removeClass( this, `${config.cls}-fade-enter` );
         _duration !== 0 && countdown();
     } else {
-        _parentNode && _parentNode.parentNode.removeChild( _parentNode );
+        !_isSpecifiedParentNode && _parentNode && _parentNode.parentNode.removeChild( _parentNode );
         _parentNode && ReactDOM.unmountComponentAtNode( _parentNode );
         _duration !== 0 && _onClose();
         reset();
@@ -63,13 +66,17 @@ function toggleShow(): void {
     getToast( item.type, item.content, item.duration, item.onClose, item.mask );
 }
 
-function createParentNode(): Element {
+function createParentNode( parnetNode: any ): Element {
+    if ( isDOM( parnetNode ) ) {
+        _isSpecifiedParentNode = true;
+        return parnetNode;
+    }
     const parentNode: any = document.createElement( 'div' );
     document.body.appendChild( parentNode );
     return parentNode;
 }
 
-function getToast( type: string, content: any, duration: number = 2, onClose: any = () => { }, mask: boolean = true ): void {
+function getToast( type: string, content: any, duration: number = 2, onClose: any = () => { }, parnetNode: any = null, mask: boolean = true ): void {
     // only one toast to page
     if ( _toastElem != null ) {
         alignment.save( {
@@ -82,13 +89,14 @@ function getToast( type: string, content: any, duration: number = 2, onClose: an
         toggleShow();
     } else {
         _duration = duration;
-        _parentNode = createParentNode();
+        _parentNode = createParentNode( parnetNode );
         _onClose = onClose;
 
         const zzcToastCls = classNames(
             PREFIXCLS,
             {
-                [`${PREFIXCLS}-nomask`]: !mask
+                [`${PREFIXCLS}-nomask`]: !mask,
+                [`${PREFIXCLS}-nofixed`]: isDOM( parnetNode )
             },
             {
                 [`${PREFIXCLS}-icon`]: type === 'loading' || type === 'success' || type === 'error' || type === 'waring'
@@ -131,19 +139,19 @@ function addAnimationEvent(): void {
 
 export default class Toast extends Component {
     static info( ...props: Array<any> ) {
-        getToast( 'info', props[0], props[1], props[2], props[3] );
+        getToast( 'info', props[0], props[1], props[2], props[3], props[4] );
     }
     static success( ...props: Array<any> ) {
-        getToast( 'success', props[0], props[1], props[2], props[3] );
+        getToast( 'success', props[0], props[1], props[2], props[3], props[4] );
     }
     static error( ...props: Array<any> ) {
-        getToast( 'error', props[0], props[1], props[2], props[3] );
+        getToast( 'error', props[0], props[1], props[2], props[3], props[4] );
     }
     static waring( ...props: Array<any> ) {
-        getToast( 'waring', props[0], props[1], props[2], props[3] );
+        getToast( 'waring', props[0], props[1], props[2], props[3], props[4] );
     }
     static loading( ...props: Array<any> ) {
-        getToast( 'loading', props[0], props[1], props[2], props[3] );
+        getToast( 'loading', props[0], props[1], props[2], props[3], props[4] );
     }
     static hideToast() { closeToast(); }
 }

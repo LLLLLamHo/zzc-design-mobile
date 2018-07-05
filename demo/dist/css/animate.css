@@ -7847,4 +7847,100 @@ body {
   margin-bottom: .3rem;
 }
 
+.change-box {
+  margin-top: .2rem;
+  font-size: .28rem;
+  background: #fff;
+  width: 4rem;
+  height: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 1px solid #e1e1e1;
+}
+
+.change-enter {
+  position: absolute;
+  background: #fff;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+          animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.change-enter.change-enter-active {
+  -webkit-animation-name: changeEnter;
+  animation-name: changeEnter;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+}
+
+.change-leave {
+  position: absolute;
+  background: blue;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.change-leave.change-leave-active {
+  -webkit-animation-name: changeLeave;
+  animation-name: changeLeave;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+}
+
+@-webkit-keyframes changeEnter {
+  0% {
+    background: #fff;
+  }
+  100% {
+    background: blue;
+  }
+}
+
+@keyframes changeEnter {
+  0% {
+    background: #fff;
+  }
+  100% {
+    background: blue;
+  }
+}
+
+@-webkit-keyframes changeLeave {
+  0% {
+    background: blue;
+  }
+  100% {
+    background: #fff;
+  }
+}
+
+@keyframes changeLeave {
+  0% {
+    background: blue;
+  }
+  100% {
+    background: #fff;
+  }
+}
+
+.cls {
+  font-size: .24rem;
+}
+
 /*# sourceMappingURL=animate.css.map*/

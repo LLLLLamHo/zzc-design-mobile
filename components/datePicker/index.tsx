@@ -41,6 +41,7 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
     }
 
     shouldComponentUpdate( nextProps, nextState ): boolean {
+        console.log(123)
         if ( JSON.stringify( nextProps ) != JSON.stringify( this.props ) || JSON.stringify( nextState ) != JSON.stringify( this.state ) ) {
             return true;
         }
@@ -103,11 +104,11 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         if ( isDate( time ) ) {
             calcTime = time;
         } else if ( mode == 'time' ) {
-            calcTime = new Date( `1993-9-17 ${selectTime}` );
+            calcTime = new Date( `1993/09/17 ${selectTime}` );
         } else if ( mode == 'year' ) {
-            calcTime = new Date( `${selectTime}-1-1` );
+            calcTime = new Date( `${selectTime}/01/01` );
         } else if ( mode == 'month' ) {
-            calcTime = new Date( `1993-${selectTime}-1` );
+            calcTime = new Date( `1993/${selectTime}/01` );
         } else {
             calcTime = isDate( selectTime ) ? selectTime : new Date( selectTime );
         }
@@ -136,7 +137,6 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
             minuteList: null,
             hour12List: null
         };
-
         // 根据模式初始化数据
         switch ( mode ) {
         case 'date': createDateListData( listData, calcMinDate, calcMaxDate, calcCurrDate, langData );
@@ -167,11 +167,11 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         if ( mode && mode.indexOf( 'date' ) != -1 ) {
             if ( mode === 'datetime' ) {
                 const currData = this.getCurrDate( scrollKey ).currDate.split( ' ' );
-                const data = currData[0].split( '-' );
+                const data = currData[0].split( '/' );
                 const time = currData[1].split( ':' );
                 currDateData = data.concat( time );
             } else {
-                currDateData = this.getCurrDate( scrollKey ).currDate.split( '-' );
+                currDateData = this.getCurrDate( scrollKey ).currDate.split( '/' );
             }
             // 上一次选择的月份的日期在当前选中的月份的日期没有的时候，选中最后一个日期
             const currYear = parseInt( currDateData[0] );
@@ -179,16 +179,16 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
             const currDay = parseInt( currDateData[2] );
             const currDateLastDay = getLastDate( currYear, currMonth );
             if ( currDay > currDateLastDay ) {
-                currDate = new Date( `${currDateData[0]}-${currDateData[1]}-${currDateLastDay}` );
+                currDate = new Date( `${currDateData[0]}/${currDateData[1]}/${currDateLastDay}` );
             } else {
                 currDate = new Date( this.getCurrDate( scrollKey ).currDate );
             }
         } else if ( mode == 'time' ) {
-            currDate = new Date( `1993-9-17 ${this.getCurrDate( scrollKey ).currDate}` );
+            currDate = new Date( `1993/09/17 ${this.getCurrDate( scrollKey ).currDate}` );
         } else if ( mode == 'year' ) {
-            currDate = new Date( `${this.getCurrDate( scrollKey ).currDate}-9-17` );
+            currDate = new Date( `${this.getCurrDate( scrollKey ).currDate}/09/17` );
         } else if ( mode == 'month' ) {
-            currDate = new Date( `1993-${this.getCurrDate( scrollKey ).currDate}-17` );
+            currDate = new Date( `1993/${this.getCurrDate( scrollKey ).currDate}/17` );
         }
         this.initDate( currDate );
         if ( onValueChange && isFunction( onValueChange ) ) {
@@ -218,11 +218,13 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
     }
 
     close(): void {
+        const { onClose } = this.props;
+        onClose && isFunction( onClose ) && onClose();
         // 因为设计原因，点击取消按钮会导致两次取消事件触发，通过记录上一个状态为hide触发close才会触发onClose事件
-        if ( this.preDatePickerStatus === 'hide' ) {
-            const { onClose } = this.props;
-            onClose && isFunction( onClose ) && onClose();
-        }
+        // if ( this.preDatePickerStatus === 'hide' ) {
+        //     const { onClose } = this.props;
+        //     onClose && isFunction( onClose ) && onClose();
+        // }
     }
 
     submit(): void {
