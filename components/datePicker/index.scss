@@ -17,14 +17,11 @@ $cls: '.zds-datepicker';
         }
         &-close{
             padding-left: .3rem;
-            color: $main;
+            color: #848484;
         }
         &-submit{
             padding-right: .3rem;
             color: $main; 
-        }
-        &-title{
-            flex: 1;
         }
     }
 }

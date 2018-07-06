@@ -262,11 +262,8 @@
 
 .zds-datepicker-header-close {
   padding-left: .3rem;
-  color: #4E7CDD; }
+  color: #848484; }
 
 .zds-datepicker-header-submit {
   padding-right: .3rem;
   color: #4E7CDD; }
-
-.zds-datepicker-header-title {
-  flex: 1; }

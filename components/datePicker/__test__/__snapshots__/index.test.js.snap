@@ -22,11 +22,6 @@ exports[`Modal 1`] = `
           取消
         </div>
         <div
-          class="zds-datepicker-header-title"
-        >
-          请选择时间
-        </div>
-        <div
           class="zds-datepicker-header-submit"
         >
           确认

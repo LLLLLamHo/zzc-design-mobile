@@ -1,10 +1,10 @@
 @import '../style/base.scss';
 $cls: '.zds-picker';
 #{$cls} {
+    height: 5.6rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 5.4rem;
     #{$cls}-wrapper {
         display: block;
         flex: 1;
@@ -48,15 +48,16 @@ $cls: '.zds-picker';
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: .28rem;
-                height: .8rem;
+                font-size: .32rem;
+                height: 1rem;
                 box-sizing: border-box;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 &-active {
-                    color: $main;
-                    font-size: .3rem;
+                    color: #282828;
+                    font-size: .36rem;
+                    font-weight: bold;
                 }
             }
         }

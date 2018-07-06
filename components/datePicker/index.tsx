@@ -252,7 +252,6 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
                 >
                     <div className={`${cls}-header`}>
                         <div className={`${cls}-header-close`} onClick={this.close}>{langData.cancel}</div>
-                        <div className={`${cls}-header-title`}>{langData.datePickerTitle}</div>
                         <div className={`${cls}-header-submit`} onClick={this.submit}>{langData.confirm}</div>
                     </div>
                     <Picker

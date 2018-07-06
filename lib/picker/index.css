@@ -235,10 +235,10 @@
     transform: scale(0.3); } }
 
 .zds-picker {
+  height: 5.6rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 5.4rem; }
+  justify-content: center; }
 
 .zds-picker .zds-picker-wrapper {
   display: block;
@@ -285,13 +285,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: .28rem;
-  height: .8rem;
+  font-size: .32rem;
+  height: 1rem;
   box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; }
 
 .zds-picker .zds-picker-wrapper .zds-picker-ws .zds-picker-wi-active {
-  color: #4E7CDD;
-  font-size: .3rem; }
+  color: #282828;
+  font-size: .36rem;
+  font-weight: bold; }
