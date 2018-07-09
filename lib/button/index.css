@@ -252,7 +252,7 @@
   font-weight: 400;
   display: block;
   transition: background .1s;
-  border-radius: .08rem;
+  border-radius: .04rem;
   background: transparent;
   color: #333;
   border: 1px solid #ccc;
@@ -272,10 +272,10 @@
 .zds-button.zds-button-noborder:after {
   display: none !important; }
 
-.zds-button.zds-button-noradius {
+.zds-button.zds-button-noRadius {
   border-radius: 0 !important; }
 
-.zds-button.zds-button-noradius:after {
+.zds-button.zds-button-noRadius:after {
   border-radius: 0 !important; }
 
 .zds-button.zds-button-lg {
@@ -606,7 +606,7 @@
   font-weight: 400;
   display: block;
   transition: background .1s;
-  border-radius: .08rem;
+  border-radius: .04rem;
   background: transparent;
   color: #333;
   border: 1px solid #ccc;
@@ -632,10 +632,10 @@
 .zds-button-full.zds-button-noborder:after {
   display: none !important; }
 
-.zds-button-full.zds-button-noradius {
+.zds-button-full.zds-button-noRadius {
   border-radius: 0 !important; }
 
-.zds-button-full.zds-button-noradius:after {
+.zds-button-full.zds-button-noRadius:after {
   border-radius: 0 !important; }
 
 .zds-button-full.zds-button-main {

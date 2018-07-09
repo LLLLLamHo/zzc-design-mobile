@@ -19,7 +19,7 @@ export default class App extends PureComponent {
                 </div>
                 <div className='zzc-demo-body'>
                     <h5>颜色、类型</h5>
-                    <Button><div className='icon-button'><Icon style={{fill:'green'}} size='sm' className='aaa' type='success'/>default</div></Button>
+                    <Button><div className='icon-button'><Icon style={{fill:'green'}} size='ms' className='aaa' type='success'/>default</div></Button>
                     <Button type='main'>main</Button>
                     <Button type='main-lh'>main-lh</Button>
                     <Button type='main-dk'>main-dk</Button>
@@ -36,14 +36,14 @@ export default class App extends PureComponent {
                     <h5>尺寸、大小</h5>
                     <Button type='main'>default main</Button>
                     <Button size='lg' type='main'>lg main</Button>
-                    <Button size='sm' type='main'>sm main</Button>
+                    <Button size='ms' type='main'>ms main</Button>
                     <Button size='xs' type='main'>xs main</Button>
                 </div>
                 <div className='zzc-demo-body'>
                     <h5>inline</h5>
-                    <Button inline size='sm'>inline1</Button>
-                    <Button inline size='sm' type='main'>inline2</Button>
-                    <Button inline size='sm' type='sub'>inline3</Button>
+                    <Button inline size='ms'>inline1</Button>
+                    <Button inline size='ms' type='main'>inline2</Button>
+                    <Button inline size='ms' type='sub'>inline3</Button>
                     <Button ghost inline size='xs' type='main'>inline2</Button>
                     <Button ghost inline size='xs' type='sub'>inline3</Button>
                 </div>
@@ -51,7 +51,7 @@ export default class App extends PureComponent {
                     <h5>占满</h5>
                     <Button full size='lg' type='main'>full log</Button>
                     <Button full type='main'>full default</Button>
-                    <Button full size='sm' type='main'>full sm</Button>
+                    <Button full size='ms' type='main'>full ms</Button>
                     <Button full size='xs' type='main'>full xs</Button>
                 </div>
                 <div className='zzc-demo-body'>

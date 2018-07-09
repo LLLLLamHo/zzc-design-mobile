@@ -10,7 +10,7 @@
 | --------------- | -------------------------------------------------------------------------------------------- | -------- | ---------- |
 | prefixCls       | 组件的公用className前序                                                                      | string   | zds-button |
 | type            | 按钮类型，可选值为`default`、`main`、`main-lh`、`main-dk`、`sub`、`sub-lh`和`sub-dk`或者不设 | string   | `default`  |
-| size            | 按钮大小，可选值为`lg`、`sm`、`xs`                                                           | string   | 无         |
+| size            | 按钮大小，可选值为`lg`、`ms`、`xs`                                                           | string   | 无         |
 | activeStyle     | 点击反馈的自定义样式 (设为 false 时表示禁止点击反馈)                                         | {}/false | {}         |
 | activeClassName | 点击反馈的自定义类名                                                                         | string   |            |
 | disabled        | 设置禁用                                                                                     | boolean  | false      |
@@ -27,5 +27,5 @@
 <Button type='main'>main</Button>
 <Button size='lg' type='main'>lg main</Button>
 <Button full type='main'>full main</Button>
-<Button inline size='sm' type='sub'>inline3</Button>
+<Button inline size='ms' type='sub'>inline3</Button>
 ```
