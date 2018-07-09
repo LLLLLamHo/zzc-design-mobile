@@ -49,7 +49,10 @@ export default class App extends PureComponent {
                 </div>
                 <div className='zzc-demo-body full'>
                     <h5>占满</h5>
-                    <Button full type='main'>full main</Button>
+                    <Button full size='lg' type='main'>full log</Button>
+                    <Button full type='main'>full default</Button>
+                    <Button full size='sm' type='main'>full sm</Button>
+                    <Button full size='xs' type='main'>full xs</Button>
                 </div>
                 <div className='zzc-demo-body'>
                     <h5>自定义样式</h5>
