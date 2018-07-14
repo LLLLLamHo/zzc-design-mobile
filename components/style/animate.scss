@@ -1,0 +1,286 @@
+$cls: '.zds';
+
+#{$cls}-slide-bottom-enter{
+    position: absolute;
+    transform: translateY(100%);
+    animation-duration: .2s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(.47,.65,.61,.9);
+    animation-play-state: paused;
+    &#{$cls}-slide-bottom-enter-active {
+        -webkit-animation-name: zdsSlideBottomEnter;
+        animation-name: zdsSlideBottomEnter;
+        -webkit-animation-play-state: running;
+        animation-play-state: running;
+    }
+}
+
+#{$cls}-slide-bottom-leave{
+    position: absolute;
+    transform: translateY(100%);
+    animation-duration: .2s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+    &#{$cls}-slide-bottom-leave-active {
+        -webkit-animation-name: zdsSlideBottomLeave;
+        animation-name: zdsSlideBottomLeave;
+        -webkit-animation-play-state: running;
+        animation-play-state: running;
+    }
+}
+
+@keyframes zdsSlideBottomEnter {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes zdsSlideBottomLeave {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+#{$cls}-slide-top-enter{
+    position: absolute;
+    transform: translateY(-100%);
+    animation-duration: .2s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(.47,.65,.61,.9);
+    animation-play-state: paused;
+    &#{$cls}-slide-top-enter-active {
+        -webkit-animation-name: zdsSlideTopEnter;
+        animation-name: zdsSlideTopEnter;
+        -webkit-animation-play-state: running;
+        animation-play-state: running;
+    }
+}
+
+#{$cls}-slide-top-leave{
+    position: absolute;
+    transform: translateY(0);
+    animation-duration: .2s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+    &#{$cls}-slide-top-leave-active {
+        -webkit-animation-name: zdsSlideTopLeave;
+        animation-name: zdsSlideTopLeave;
+        -webkit-animation-play-state: running;
+        animation-play-state: running;
+    }
+}
+
+@keyframes zdsSlideTopEnter {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes zdsSlideTopLeave {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+#{$cls}-slide-left-enter{
+    position: absolute;
+    transform: translateX(-100%);
+    animation-duration: .2s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(.47,.65,.61,.9);
+    animation-play-state: paused;
+    &#{$cls}-slide-left-enter-active {
+        -webkit-animation-name: zdsSlideLeftEnter;
+        animation-name: zdsSlideLeftEnter;
+        -webkit-animation-play-state: running;
+        animation-play-state: running;
+    }
+}
+
+#{$cls}-slide-left-leave{
+    position: absolute;
+    transform: translateX(0);
+    animation-duration: .2s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+    &#{$cls}-slide-left-leave-active {
+        -webkit-animation-name: zdsSlideLeftLeave;
+        animation-name: zdsSlideLeftLeave;
+        -webkit-animation-play-state: running;
+        animation-play-state: running;
+    }
+}
+
+@keyframes zdsSlideLeftEnter {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes zdsSlideLeftLeave {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+#{$cls}-slide-right-enter{
+    position: absolute;
+    transform: translateX(100%);
+    animation-duration: .2s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(.47,.65,.61,.9);
+    animation-play-state: paused;
+    &#{$cls}-slide-right-enter-active {
+        -webkit-animation-name: zdsSlideRightEnter;
+        animation-name: zdsSlideRightEnter;
+        -webkit-animation-play-state: running;
+        animation-play-state: running;
+    }
+}
+
+#{$cls}-slide-right-leave{
+    position: absolute;
+    transform: translateX(0);
+    animation-duration: .2s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+    &#{$cls}-slide-right-leave-active {
+        -webkit-animation-name: zdsSlideRightLeave;
+        animation-name: zdsSlideRightLeave;
+        -webkit-animation-play-state: running;
+        animation-play-state: running;
+    }
+}
+
+@keyframes zdsSlideRightEnter {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes zdsSlideRightLeave {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+#{$cls}-fade-enter {
+    opacity: 0;
+    animation-duration: .2s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+    animation-play-state: paused;
+    &#{$cls}-fade-enter-active {
+        -webkit-animation-name: zdsFadeIn;
+        animation-name: zdsFadeIn;
+        -webkit-animation-play-state: running;
+        animation-play-state: running;
+    }
+}
+
+#{$cls}-fade-leave {
+    opacity: 0;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+    animation-play-state: paused;
+    &#{$cls}-fade-leave-active {
+        -webkit-animation-name: zdsFadeOut;
+        animation-name: zdsFadeOut;
+        -webkit-animation-play-state: running;
+        animation-play-state: running;
+    }
+}
+
+@keyframes zdsFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes zdsFadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#{$cls}-zoom-enter {
+    opacity: 0;
+    transform: scale(.3);
+    animation-duration: .3s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-play-state: paused;
+    &#{$cls}-zoom-enter-active {
+        -webkit-animation-name: zdsZoomIn;
+        animation-name: zdsZoomIn;
+        -webkit-animation-play-state: running;
+        animation-play-state: running;
+    }
+}
+
+#{$cls}-zoom-leave {
+    animation-duration: .3s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-play-state: paused;
+    &#{$cls}-zoom-leave-active {
+        -webkit-animation-name: zdsZoomOut;
+        animation-name: zdsZoomOut;
+        -webkit-animation-play-state: running;
+        animation-play-state: running;
+    }
+}
+
+@keyframes zdsZoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(.3);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes zdsZoomOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(.3);
+    }
+}

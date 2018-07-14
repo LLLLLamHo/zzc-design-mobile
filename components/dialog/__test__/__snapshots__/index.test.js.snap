@@ -3,13 +3,13 @@
 exports[`Dialog 1`] = `
 <div>
   <div
-    class="zzc-dialog"
+    class="zds-dialog"
   >
     <div
-      class="zzc-dialog-mask"
+      class="zds-dialog-mask"
     />
     <div
-      class="zzc-dialog-box"
+      class="zds-dialog-box"
     >
       <div
         class="modal-text"

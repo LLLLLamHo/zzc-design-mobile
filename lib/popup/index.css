@@ -1,3 +1,239 @@
+.zds-slide-bottom-enter {
+  position: absolute;
+  transform: translateY(100%);
+  animation-duration: .2s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+  animation-play-state: paused; }
+
+.zds-slide-bottom-enter.zds-slide-bottom-enter-active {
+  -webkit-animation-name: zdsSlideBottomEnter;
+  animation-name: zdsSlideBottomEnter;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+.zds-slide-bottom-leave {
+  position: absolute;
+  transform: translateY(100%);
+  animation-duration: .2s;
+  animation-fill-mode: both;
+  animation-play-state: paused; }
+
+.zds-slide-bottom-leave.zds-slide-bottom-leave-active {
+  -webkit-animation-name: zdsSlideBottomLeave;
+  animation-name: zdsSlideBottomLeave;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+@keyframes zdsSlideBottomEnter {
+  0% {
+    transform: translateY(100%); }
+  100% {
+    transform: translateY(0); } }
+
+@keyframes zdsSlideBottomLeave {
+  0% {
+    transform: translateY(0); }
+  100% {
+    transform: translateY(100%); } }
+
+.zds-slide-top-enter {
+  position: absolute;
+  transform: translateY(-100%);
+  animation-duration: .2s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+  animation-play-state: paused; }
+
+.zds-slide-top-enter.zds-slide-top-enter-active {
+  -webkit-animation-name: zdsSlideTopEnter;
+  animation-name: zdsSlideTopEnter;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+.zds-slide-top-leave {
+  position: absolute;
+  transform: translateY(0);
+  animation-duration: .2s;
+  animation-fill-mode: both;
+  animation-play-state: paused; }
+
+.zds-slide-top-leave.zds-slide-top-leave-active {
+  -webkit-animation-name: zdsSlideTopLeave;
+  animation-name: zdsSlideTopLeave;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+@keyframes zdsSlideTopEnter {
+  0% {
+    transform: translateY(-100%); }
+  100% {
+    transform: translateY(0); } }
+
+@keyframes zdsSlideTopLeave {
+  0% {
+    transform: translateY(0); }
+  100% {
+    transform: translateY(-100%); } }
+
+.zds-slide-left-enter {
+  position: absolute;
+  transform: translateX(-100%);
+  animation-duration: .2s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+  animation-play-state: paused; }
+
+.zds-slide-left-enter.zds-slide-left-enter-active {
+  -webkit-animation-name: zdsSlideLeftEnter;
+  animation-name: zdsSlideLeftEnter;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+.zds-slide-left-leave {
+  position: absolute;
+  transform: translateX(0);
+  animation-duration: .2s;
+  animation-fill-mode: both;
+  animation-play-state: paused; }
+
+.zds-slide-left-leave.zds-slide-left-leave-active {
+  -webkit-animation-name: zdsSlideLeftLeave;
+  animation-name: zdsSlideLeftLeave;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+@keyframes zdsSlideLeftEnter {
+  0% {
+    transform: translateX(-100%); }
+  100% {
+    transform: translateX(0); } }
+
+@keyframes zdsSlideLeftLeave {
+  0% {
+    transform: translateX(0); }
+  100% {
+    transform: translateX(-100%); } }
+
+.zds-slide-right-enter {
+  position: absolute;
+  transform: translateX(100%);
+  animation-duration: .2s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+  animation-play-state: paused; }
+
+.zds-slide-right-enter.zds-slide-right-enter-active {
+  -webkit-animation-name: zdsSlideRightEnter;
+  animation-name: zdsSlideRightEnter;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+.zds-slide-right-leave {
+  position: absolute;
+  transform: translateX(0);
+  animation-duration: .2s;
+  animation-fill-mode: both;
+  animation-play-state: paused; }
+
+.zds-slide-right-leave.zds-slide-right-leave-active {
+  -webkit-animation-name: zdsSlideRightLeave;
+  animation-name: zdsSlideRightLeave;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+@keyframes zdsSlideRightEnter {
+  0% {
+    transform: translateX(100%); }
+  100% {
+    transform: translateX(0); } }
+
+@keyframes zdsSlideRightLeave {
+  0% {
+    transform: translateX(0); }
+  100% {
+    transform: translateX(100%); } }
+
+.zds-fade-enter {
+  opacity: 0;
+  animation-duration: .2s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  animation-play-state: paused; }
+
+.zds-fade-enter.zds-fade-enter-active {
+  -webkit-animation-name: zdsFadeIn;
+  animation-name: zdsFadeIn;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+.zds-fade-leave {
+  opacity: 0;
+  animation-duration: .2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  animation-play-state: paused; }
+
+.zds-fade-leave.zds-fade-leave-active {
+  -webkit-animation-name: zdsFadeOut;
+  animation-name: zdsFadeOut;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+@keyframes zdsFadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes zdsFadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+.zds-zoom-enter {
+  opacity: 0;
+  transform: scale(0.3);
+  animation-duration: .3s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-play-state: paused; }
+
+.zds-zoom-enter.zds-zoom-enter-active {
+  -webkit-animation-name: zdsZoomIn;
+  animation-name: zdsZoomIn;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+.zds-zoom-leave {
+  animation-duration: .3s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-play-state: paused; }
+
+.zds-zoom-leave.zds-zoom-leave-active {
+  -webkit-animation-name: zdsZoomOut;
+  animation-name: zdsZoomOut;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+@keyframes zdsZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3); }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+@keyframes zdsZoomOut {
+  0% {
+    opacity: 1;
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    transform: scale(0.3); } }
+
 .zds-popup {
   position: fixed;
   top: 0;
@@ -43,159 +279,3 @@
   right: 0;
   bottom: 0;
   width: auto; }
-
-.zds-slide-bottom-enter {
-  position: absolute;
-  transform: translateY(100%);
-  animation-duration: .2s;
-  animation-fill-mode: both;
-  animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
-  animation-play-state: paused; }
-
-.zds-slide-bottom-enter.zds-slide-bottom-enter-active {
-  -webkit-animation-name: zzcSlideBottomEnter;
-  animation-name: zzcSlideBottomEnter;
-  -webkit-animation-play-state: running;
-  animation-play-state: running; }
-
-.zds-slide-bottom-leave {
-  position: absolute;
-  transform: translateY(100%);
-  animation-duration: .2s;
-  animation-fill-mode: both;
-  animation-play-state: paused; }
-
-.zds-slide-bottom-leave.zds-slide-bottom-leave-active {
-  -webkit-animation-name: zzcSlideBottomLeave;
-  animation-name: zzcSlideBottomLeave;
-  -webkit-animation-play-state: running;
-  animation-play-state: running; }
-
-@keyframes zzcSlideBottomEnter {
-  0% {
-    transform: translateY(100%); }
-  100% {
-    transform: translateY(0); } }
-
-@keyframes zzcSlideBottomLeave {
-  0% {
-    transform: translateY(0); }
-  100% {
-    transform: translateY(100%); } }
-
-.zds-slide-top-enter {
-  position: absolute;
-  transform: translateY(-100%);
-  animation-duration: .2s;
-  animation-fill-mode: both;
-  animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
-  animation-play-state: paused; }
-
-.zds-slide-top-enter.zds-slide-top-enter-active {
-  -webkit-animation-name: zzcSlideTopEnter;
-  animation-name: zzcSlideTopEnter;
-  -webkit-animation-play-state: running;
-  animation-play-state: running; }
-
-.zds-slide-top-leave {
-  position: absolute;
-  transform: translateY(0);
-  animation-duration: .2s;
-  animation-fill-mode: both;
-  animation-play-state: paused; }
-
-.zds-slide-top-leave.zds-slide-top-leave-active {
-  -webkit-animation-name: zzcSlideTopLeave;
-  animation-name: zzcSlideTopLeave;
-  -webkit-animation-play-state: running;
-  animation-play-state: running; }
-
-@keyframes zzcSlideTopEnter {
-  0% {
-    transform: translateY(-100%); }
-  100% {
-    transform: translateY(0); } }
-
-@keyframes zzcSlideTopLeave {
-  0% {
-    transform: translateY(0); }
-  100% {
-    transform: translateY(-100%); } }
-
-.zds-slide-left-enter {
-  position: absolute;
-  transform: translateX(-100%);
-  animation-duration: .2s;
-  animation-fill-mode: both;
-  animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
-  animation-play-state: paused; }
-
-.zds-slide-left-enter.zds-slide-left-enter-active {
-  -webkit-animation-name: zzcSlideLeftEnter;
-  animation-name: zzcSlideLeftEnter;
-  -webkit-animation-play-state: running;
-  animation-play-state: running; }
-
-.zds-slide-left-leave {
-  position: absolute;
-  transform: translateX(0);
-  animation-duration: .2s;
-  animation-fill-mode: both;
-  animation-play-state: paused; }
-
-.zds-slide-left-leave.zds-slide-left-leave-active {
-  -webkit-animation-name: zzcSlideLeftLeave;
-  animation-name: zzcSlideLeftLeave;
-  -webkit-animation-play-state: running;
-  animation-play-state: running; }
-
-@keyframes zzcSlideLeftEnter {
-  0% {
-    transform: translateX(-100%); }
-  100% {
-    transform: translateX(0); } }
-
-@keyframes zzcSlideLeftLeave {
-  0% {
-    transform: translateX(0); }
-  100% {
-    transform: translateX(-100%); } }
-
-.zds-slide-right-enter {
-  position: absolute;
-  transform: translateX(100%);
-  animation-duration: .2s;
-  animation-fill-mode: both;
-  animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
-  animation-play-state: paused; }
-
-.zds-slide-right-enter.zds-slide-right-enter-active {
-  -webkit-animation-name: zzcSlideRightEnter;
-  animation-name: zzcSlideRightEnter;
-  -webkit-animation-play-state: running;
-  animation-play-state: running; }
-
-.zds-slide-right-leave {
-  position: absolute;
-  transform: translateX(0);
-  animation-duration: .2s;
-  animation-fill-mode: both;
-  animation-play-state: paused; }
-
-.zds-slide-right-leave.zds-slide-right-leave-active {
-  -webkit-animation-name: zzcSlideRightLeave;
-  animation-name: zzcSlideRightLeave;
-  -webkit-animation-play-state: running;
-  animation-play-state: running; }
-
-@keyframes zzcSlideRightEnter {
-  0% {
-    transform: translateX(100%); }
-  100% {
-    transform: translateX(0); } }
-
-@keyframes zzcSlideRightLeave {
-  0% {
-    transform: translateX(0); }
-  100% {
-    transform: translateX(100%); } }

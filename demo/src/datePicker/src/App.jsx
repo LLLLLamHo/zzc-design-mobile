@@ -8,9 +8,9 @@ export default class App extends Component {
         super( props );
         this.state = {
             isShow1: false,
-            time1: '2016-09-21',
+            time1: '1996/09/21',
             isShow2: false,
-            time2: '2016-09-21 12:20',
+            time2: '2016/09/21 12:20',
             isShow3: false,
             time3: '12:30',
             isShow4: false,
@@ -18,7 +18,9 @@ export default class App extends Component {
             isShow5: false,
             time5: '8',
             isShow6: false,
-            time6: '2016-09-21 12:20'
+            time6: '2016/09/21 12:20',
+            minDate: '1900/01/01',
+            maxDate: '2020/01/01'
         };
     }
 
@@ -46,6 +48,10 @@ export default class App extends Component {
         this.setState( this.state );
     }
 
+    renderCallback() {
+        console.log('showed');
+    }
+
     render () {
         return (
             <div className='zzc-demo'>
@@ -63,8 +69,11 @@ export default class App extends Component {
                         </Card.Body>
                     </Card>
                     <DatePicker
+                        renderCallback={this.renderCallback}
                         visible={this.state.isShow1}
                         minuteStep={15}
+                        minDate={new Date(this.state.minDate)}
+                        maxDate={new Date(this.state.maxDate)}
                         use12hour
                         mode='date'
                         selectTime={new Date(this.state.time1)}
@@ -152,6 +161,7 @@ export default class App extends Component {
                     </Card>
                     <DatePicker
                         visible={this.state.isShow6}
+                        maskClose={false}
                         use12hour
                         lang='hk'
                         mode='datetime'

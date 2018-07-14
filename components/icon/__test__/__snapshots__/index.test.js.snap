@@ -3,24 +3,24 @@
 exports[`Button 1`] = `
 <div>
   <svg
-    class="zzc-icon zzc-icon-md zzc-icon-success"
+    class="zds-icon zds-icon-md zds-icon-success"
   >
     <use
-      href="#zzc-icon-success"
+      href="#zds-icon-success"
     />
   </svg>
   <svg
-    class="zzc-icon zzc-icon-md zzc-icon-error"
+    class="zds-icon zds-icon-md zds-icon-error"
   >
     <use
-      href="#zzc-icon-error"
+      href="#zds-icon-error"
     />
   </svg>
   <svg
-    class="zzc-icon zzc-icon-md zzc-icon-waring"
+    class="zds-icon zds-icon-md zds-icon-waring"
   >
     <use
-      href="#zzc-icon-waring"
+      href="#zds-icon-waring"
     />
   </svg>
 </div>

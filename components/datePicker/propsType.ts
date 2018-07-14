@@ -13,6 +13,7 @@ export interface DatePickerProps {
     onValueChange?: Function
     onClose?: Function
     onSubmit?: Function
+    renderCallback?: Function
     visible: boolean
     maskClose?: boolean
 }

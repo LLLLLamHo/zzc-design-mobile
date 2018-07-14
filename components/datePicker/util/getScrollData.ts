@@ -1,4 +1,5 @@
 import { DatePickerState, BScrollArray } from '../propsType';
+import { resetDate } from '../../_util/resetDate';
 
 export function getModeDateData( BScrollList: BScrollArray, state: DatePickerState ): string {
     const { year: yearBS, month: monthBS, day: dayBS } = BScrollList;
@@ -7,7 +8,7 @@ export function getModeDateData( BScrollList: BScrollArray, state: DatePickerSta
     const month = monthList.listData[monthBS.getSelectedIndex()].dataKey;
     const day = dayList.listData[dayBS.getSelectedIndex()].dataKey;
 
-    return `${year}-${resetDate( month )}-${resetDate( day )}`;
+    return `${year}/${resetDate( month )}/${resetDate( day )}`;
 }
 
 export function getModeTimeData( BScrollList: BScrollArray, state: DatePickerState, use12hour?:boolean ): string {
@@ -44,9 +45,4 @@ export function getModeMonthData( BScrollList: BScrollArray, state: DatePickerSt
         return month; // 如果mode等于month则不补0
     }
     return resetDate( month );
-}
-
-
-function resetDate( date ) {
-    return date < 10 ? `0${date}` : date;
 }

@@ -57,6 +57,10 @@ export default class App extends Component {
         });
     }
 
+    renderCallback() {
+        console.log('showed');
+    }
+
     render() {
         return (
             <div className='zzc-demo'>
@@ -68,7 +72,8 @@ export default class App extends Component {
                 <div className='zzc-demo-body'>
                     <Button onClick={() => {this.openButtomPopup();}}>从下弹出</Button>
                     <Popup
-                        maskClose={true}
+                        renderCallback={this.renderCallback}
+                        maskClose
                         visible={this.state.visible}
                         onClose={() => {
                             this.setState( {

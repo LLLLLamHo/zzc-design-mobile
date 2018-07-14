@@ -9,23 +9,72 @@
 
 ## Tabs
 
-| 属性                   | 说明                                                            | 类型                 | 默认值       |
-| ---------------------- | --------------------------------------------------------------- | -------------------- | ------------ |
-| prefixCls              | 组件的公用className前序                                         | string               | zds-tabs     |
-| className              | 为zzc-tabs-box添加额外class    | string               | ''   |
-| style              | 为zzc-tabs-box添加额外style样式    | object               | {}   |
-| tabBarPosition         | tabbar的位置'top'、'bottom'、'left'、'right'                    | string               | 'top'        |
-| tabs                   | 标签页组件的item数据                                            | array               | []           |
-| defaultIndex           | 默认选中的tab下标值                                             | number/string        | 0            |
-| index                  | 指定当前激活的tab（受控）                                      | number/string        | null         |
-| onChange               | 点击tab切换激活的回调事件（当使用受控tab的时候，建议配合使用） | function             |              |
-| maxTabLength           | 最多同时显示多少个tab                                          | number               | 3            |
-| animated               | 切换动画                                                        | boolean              | true         |
-| swipeable              | 内容是否可以滑动切换                                            | boolean              | true         |
+| 属性                   | 说明                                                            | 类型                               | 默认值     |
+| ---------------------- | --------------------------------------------------------------- | ---------------------------------- | ---------- |
+| prefixCls              | 组件的公用className前序                                         | string                             | zds-tabs   |
+| className              | 为zzc-tabs-box添加额外class                                     | string                             | ''         |
+| style                  | 为zzc-tabs-box添加额外style样式                                 | object                             | {}         |
+| tabBarPosition         | tabbar的位置'top'、'bottom'、'left'、'right'                    | string                             | 'top'      |
+| tabs                   | 标签页组件的item数据                                            | array                             | []         |
+| defaultIndex           | 默认选中的tab下标值                                             | number/string                      | 0          |
+| index                  | 指定当前激活的tab（受控）                                      | number/string                      | null       |
+| onChange               | 点击tab切换激活的回调事件（当使用受控tab的时候，建议配合使用） | function                           |            |
+| maxTabLength           | 最多同时显示多少个tab                                          | number                             | 3          |
+| animated               | 切换动画                                                        | boolean                            | true       |
+| swipeable              | 内容是否可以滑动切换                                            | boolean                            | true       |
 | swipeDirection         | 内容滑动方向                                                    | string（'horizontal'、'vertical'） | horizontal |
-| isOpenTabBarScroll     | 是否可以tabbar滑动滚动                                          | boolean              | true         |
-| isOpenTabContentScroll | 是否可以内容滑动滚动                                            | boolean              | true         |
-| tabBarUnderlineStyle              | 为下划线添加额外style样式    | object               | {}   |
+| isOpenTabBarScroll     | 是否可以tabbar滑动滚动                                          | boolean                            | true       |
+| isOpenTabContentScroll | 是否可以内容滑动滚动                                            | boolean                            | true       |
+| tabBarUnderlineStyle   | 为下划线添加额外style样式                                       | object                             | {}         |
+
+
+### tabs属性字段
+| 属性  | 说明       | 类型                  | 默认值 |
+| ----- | ---------- | --------------------- | ------ |
+| title | tabs的item | string/reactComponent |        |
+
+#### 基本用法
+```JavaScript
+<Tabs
+    maxTabLength={2}
+    index={0}
+    tabs={[
+        {title: 'tab 1'},
+        {title: 'tab 2'}
+    ]}
+    onChange={( key ) => {
+        this.setState( {
+            tabsIndex: key
+        } );
+    }}
+>
+    {[
+        <div>自定义主体1</div>,
+        <div>自定义主体2</div>
+    ]}
+</Tabs>
+```
+
+这种将主体包裹在`Tabs`内部，就可以提供滑动切换等功能。但是也可以用另外一种用法，就是通过当前选中的`index`决定渲染哪一个组件。
+
+
+```JavaScript
+<Tabs
+    maxTabLength={2}
+    index={this.state.tabsIndex}
+    tabs={[
+        {title: 'tab 1'},
+        {title: 'tab 2'}
+    ]}
+    onChange={( key ) => {
+        this.setState( {
+            tabsIndex: key
+        } );
+    }}
+/>
+{this.state.tabsIndex == 0 && <div>自定义主体1</div>}
+{this.state.tabsIndex == 1 &&<div>自定义主体2</div>}
+```
 
 
 

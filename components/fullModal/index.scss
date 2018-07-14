@@ -1,0 +1,107 @@
+@import '../style/base.scss';
+$cls: '.zds-full-modal';
+#{$cls} {
+    &-box {
+        height: 100%;
+        width: 100%;
+        background: #fff;
+        #{$cls}-content {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            #{$cls}-head {
+                padding: 1.28rem .3rem .18rem;
+                position: relative;
+                &::after {
+                    position: absolute;
+                    content: '';
+                    display: block;
+                    z-index: 11;
+                    bottom: 0;
+                    left: 50%;
+                    width: .47rem;
+                    border-bottom: .08rem $main solid;
+                    transform: translateX(-50%);
+                }
+                h5 {
+                    color: #282828;
+                    padding: 0;
+                    font-size: .44rem;
+                    line-height: 1.5;
+                    text-align: center;
+                }
+            }
+            #{$cls}-body {
+                flex: 1;
+                margin-top: .46rem;
+                height: 8rem;
+                padding: 0 .3rem;
+                font-size: .36rem;
+                overflow-y: scroll;
+                overflow-x: hidden;
+                word-wrap: break-word;
+                -webkit-overflow-scrolling: touch;
+            }
+            #{$cls}-footer {
+                margin: .5rem 0 .8rem;
+                display: flex;
+                justify-content: center;
+                position: relative;
+                &::after {
+                    display: block;
+                    content: '';
+                    position: absolute;
+                    top: -.45rem;
+                    transform: translateY(-100%);
+                    left: 0;
+                    width: 100%;
+                    height: .4rem;
+                    background: linear-gradient(rgba(255, 255, 255, .1), rgba(255, 255, 255, 1));
+                    ;
+                    z-index: 999;
+                }
+                #{$cls}-btn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: .92rem;
+                    width: .92rem;
+                    border-radius: 50%;
+                    @include halfPXBorder(#666, 50%);
+                    &-active {
+                        background: #e1e1e1;
+                    }
+                    span {
+                        width: .42rem;
+                        height: .42rem;
+                        position: relative;
+                        transform: rotate(45deg);
+                        &::after {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translateX(-50%) translateY(-50%);
+                            display: block;
+                            content: '';
+                            width: 100%;
+                            height: 1px;
+                            background: #666;
+                        }
+                        &::before {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translateX(-50%) translateY(-50%) rotate(90deg);
+                            display: block;
+                            content: '';
+                            width: 100%;
+                            height: 1px;
+                            background: #666;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

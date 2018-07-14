@@ -18,6 +18,7 @@ const eslintrc = {
         'typescript'
     ],
     rules: {
+        "jsx-a11y/no-noninteractive-element-interactions": 0,
         "no-restricted-syntax": 0,
         "radix": 0,
         "default-case": 0,

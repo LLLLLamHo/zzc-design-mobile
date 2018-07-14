@@ -1,5 +1,6 @@
 
 import { ListItem } from '../propsType';
+import { resetDate } from '../../_util/resetDate';
 
 export function setYearListData( minYear, maxYear, currYear, langData ): ListItem {
     const totalYearCount = maxYear - minYear;
@@ -45,6 +46,7 @@ export function setMonthListData ( currMonth, langData ): ListItem {
 
 export function setDayListData ( currDateData, langData ): ListItem {
     const { year, month, day } = currDateData;
+
     const dayListData: ListItem = {
         className: 'day-list',
         itemClassName: 'day-item',
@@ -52,9 +54,7 @@ export function setDayListData ( currDateData, langData ): ListItem {
         selectIndex: day - 1,
         listData: []
     };
-
-    const curDate = new Date( `${year}-${month}-${day}` );
-
+    const curDate = new Date( `${year}-${resetDate( month )}-${resetDate( day )}` );
     const calcDate = new Date( curDate.setDate( 1 ) );
     const dayCount = new Date( new Date( calcDate.setMonth( month ) ).setDate( 0 ) ).getDate();
     let dayText: number = 1;

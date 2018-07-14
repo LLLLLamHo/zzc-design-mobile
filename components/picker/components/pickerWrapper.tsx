@@ -1,12 +1,13 @@
 import React from 'react';
 import BScroll from 'better-scroll';
 import ReactDOM from 'react-dom';
-import classnames from 'classnames'
+import classnames from 'classnames';
+import config from '../../_util/config';
 import { PickerWrapperProps } from '../propsType';
 
 export default class PickerWrapper extends React.PureComponent<PickerWrapperProps> {
     static defaultProps = {
-        prefixCls: 'zzc-picker',
+        prefixCls: `${config.cls}-picker`,
         wrapperKey: '',
         data: []
     }
@@ -23,7 +24,6 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
     }
 
     componentDidUpdate(): void {
-        console.log(this.props.data.selectedIndex);
         if ( this.props.data.selectedIndex ) {
             this.BScrollObj.wheelTo( this.props.data.selectedIndex );
         }
@@ -36,10 +36,15 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
         const wrapperNode = this.wrapper ? ReactDOM.findDOMNode( this.wrapper ) : null;
         if ( wrapperNode ) {
             this.BScrollObj = new BScroll( wrapperNode, initBScrollConfig );
+            // 某种情况下会出现无法滚动到指定的selectedIndex
+            requestAnimationFrame( () => {
+                this.BScrollObj.wheelTo( initBScrollConfig.wheel.selectedIndex );
+                this.addActiveItem();
+                this.BScrollObj.refresh();
+            } );
             this.BScrollObj.on( 'beforeScrollStart', this.touchStart );
             this.BScrollObj.on( 'scrollEnd', this.touchEnd );
             this.BScrollObj.on( 'scrollCancel', this.touchEnd );
-            this.addActiveItem();
             this.props.initBScrollCallback( scrollType, this.BScrollObj );
         }
     }
@@ -54,8 +59,8 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
         const { prefixCls, data } = this.props;
         const wheel = {
             selectedIndex: data.selectIndex ? data.selectIndex : 0,
-            rotate: 25,
-            adjustTime: 400,
+            rotate: 0,
+            adjustTime: 0,
             wheelWrapperClass: `${prefixCls}-ws`,
             wheelItemClass: `${prefixCls}-wi`
         };
@@ -89,7 +94,6 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
         this.removeActiveItem();
         this.props.onTouchStart && this.props.onTouchStart( this.props.wrapperIndex );
     }
-    
     removeActiveItem (): void {
         const { prefixCls } = this.props;
         this.wheelScroll.children[this.currIndex].className = `${prefixCls}-wi`;

@@ -129,3 +129,14 @@
     margin-top: -7px;
     border-width: 7px 7px 7px 0
 }
+
+.logo-box{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    .add{
+        margin: 0 20px;
+        font-size: 24px;
+        color:#666;
+    }
+}
