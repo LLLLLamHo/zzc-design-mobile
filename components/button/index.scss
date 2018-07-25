@@ -43,7 +43,7 @@ $default_border_color: #ccc;
     font-weight: 400;
     display: block;
     transition: background .1s;
-    border-radius: .04rem; //默认样式
+    border-radius: .02rem; //默认样式
     background: transparent;
     color: $c_333;
     @include pxBorder($default_border_color, .16rem);

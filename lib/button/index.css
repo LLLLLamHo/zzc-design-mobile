@@ -252,7 +252,7 @@
   font-weight: 400;
   display: block;
   transition: background .1s;
-  border-radius: .04rem;
+  border-radius: .02rem;
   background: transparent;
   color: #333;
   border: 1px solid #ccc;
@@ -606,7 +606,7 @@
   font-weight: 400;
   display: block;
   transition: background .1s;
-  border-radius: .04rem;
+  border-radius: .02rem;
   background: transparent;
   color: #333;
   border: 1px solid #ccc;
