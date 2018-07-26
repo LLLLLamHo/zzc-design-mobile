@@ -25,7 +25,11 @@ export function setYearListData( minYear, maxYear, currYear, langData ): ListIte
     return yearListData;
 }
 
-export function setMonthListData ( currMonth, langData ): ListItem {
+export function setMonthListData ( calcCurrDate, calcMinDate, calcMaxDate, langData ): ListItem {
+    const { year: currYear, month: currMonth } = calcCurrDate;
+    const { year: minYear, month: minMonth } = calcMinDate;
+    const { year: maxYear, month: maxMonth } = calcMaxDate;
+
     const monthListData: ListItem = {
         className: 'month-list',
         itemClassName: 'month-item',
@@ -34,37 +38,114 @@ export function setMonthListData ( currMonth, langData ): ListItem {
         listData: []
     };
     let monthText: number = 1;
-    for ( let i = 0; i < 12; i++ ) {
-        monthListData.listData.push( {
-            text: `${monthText}${langData.month}`,
-            dataKey: monthText
-        } );
-        monthText++;
+    // 当前年份是限制范围内，直接全部月份循环出来
+    if ( currYear > minYear && currYear < maxYear ) {
+        for ( let i = 0; i < 12; i++ ) {
+            if ( monthText == i ) {
+                monthListData.selectIndex = i;
+            }
+            monthListData.listData.push( {
+                text: `${monthText}${langData.month}`,
+                dataKey: monthText
+            } );
+            monthText++;
+        }
+    // 小于等于限制最小月份
+    } else if ( currYear <= minYear ) {
+        const startMonth = minMonth;
+        monthText = startMonth;
+        // 默认为0
+        monthListData.selectIndex = 0;
+        for ( let i = startMonth; i <= 12; i++ ) {
+            if ( currMonth == i ) {
+                monthListData.selectIndex = i - startMonth;
+            }
+            monthListData.listData.push( {
+                text: `${monthText}${langData.month}`,
+                dataKey: monthText
+            } );
+            monthText++;
+        }
+
+    // 大于等于限制的最大月份
+    } else if ( currYear >= maxYear ) {
+        const startMonth = 0;
+        // 默认为最后一个
+        monthListData.selectIndex = maxMonth;
+        for ( let i = startMonth; i < maxMonth; i++ ) {
+            if ( monthText <= maxMonth ) {
+                if ( currMonth == i + 1 ) {
+                    monthListData.selectIndex = i;
+                }
+                monthListData.listData.push( {
+                    text: `${monthText}${langData.month}`,
+                    dataKey: monthText
+                } );
+            }
+            monthText++;
+        }
     }
     return monthListData;
 }
 
-export function setDayListData ( currDateData, langData ): ListItem {
-    const { year, month, day } = currDateData;
+export function setDayListData ( currDateData, calcMinDate, calcMaxDate, langData ): ListItem {
+    const { year: currYear, month: currMonth, day: currDay } = currDateData;
+    const { year: minYear, month: minMonth, day: minDay } = calcMinDate;
+    const { year: maxYear, month: maxMonth, day: maxDay } = calcMaxDate;
 
     const dayListData: ListItem = {
         className: 'day-list',
         itemClassName: 'day-item',
         scrollType: 'day',
-        selectIndex: day - 1,
+        selectIndex: currDay - 1,
         listData: []
     };
-    const curDate = new Date( `${year}-${resetDate( month )}-${resetDate( day )}` );
+    const curDate = new Date( `${currYear}/${resetDate( currMonth )}/${resetDate( currDay )}` );
     const calcDate = new Date( curDate.setDate( 1 ) );
-    const dayCount = new Date( new Date( calcDate.setMonth( month ) ).setDate( 0 ) ).getDate();
+    const dayCount = new Date( new Date( calcDate.setMonth( currMonth ) ).setDate( 0 ) ).getDate();
     let dayText: number = 1;
-    for ( let i = 0; i < dayCount; i++ ) {
-        dayListData.listData.push( {
-            text: `${dayText}${langData.day}`,
-            dataKey: dayText
-        } );
-        dayText++;
+    // 到达最小时间边界
+    if ( currYear <= minYear && currMonth <= minMonth ) {
+        const startDay = minDay;
+        dayText = startDay;
+        // 默认为0
+        dayListData.selectIndex = 0;
+        for ( let i = startDay; i <= dayCount; i++ ) {
+            if ( currDay == i ) {
+                dayListData.selectIndex = i - startDay;
+            }
+            dayListData.listData.push( {
+                text: `${dayText}${langData.day}`,
+                dataKey: dayText
+            } );
+            dayText++;
+        }
+    } else if ( currYear >= maxYear && currMonth >= maxMonth ) {
+        const startMonth = 0;
+        // 默认为最后一个
+        dayListData.selectIndex = maxDay;
+        for ( let i = startMonth; i < maxDay; i++ ) {
+            if ( dayText <= maxDay ) {
+                if ( currDay == i + 1 ) {
+                    dayListData.selectIndex = i;
+                }
+                dayListData.listData.push( {
+                    text: `${dayText}${langData.day}`,
+                    dataKey: dayText
+                } );
+            }
+            dayText++;
+        }
+    } else {
+        for ( let i = 0; i < dayCount; i++ ) {
+            dayListData.listData.push( {
+                text: `${dayText}${langData.day}`,
+                dataKey: dayText
+            } );
+            dayText++;
+        }
     }
+    console.log(dayListData);
     return dayListData;
 }
 
