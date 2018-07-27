@@ -7,7 +7,7 @@ test( 'Modal', () => {
         <DatePicker
             visible
             mode='datetime'
-            selectTime='2019-1-2 12:30'
+            selectTime='2019/01/02 12:30'
         />
     );
     expect( renderToJson( wrapper ) ).toMatchSnapshot();

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button 1`] = `
+<div>
+  <div
+    class="touch-btn"
+  >
+    点击添加ClassName
+  </div>
+  <div
+    class="touch-btn"
+  >
+    点击添加Style
+  </div>
+  <div
+    class="touch-btn"
+  >
+    禁止触发touch
+  </div>
+</div>
+`;

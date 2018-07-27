@@ -2,13 +2,13 @@
 
 exports[`Modal 1`] = `
 <div
-  class="zzc-popup"
+  class="zds-popup"
 >
   <div
-    class="zzc-popup-mask"
+    class="zds-popup-mask"
   />
   <div
-    class="zzc-popup-box zzc-popup-bottom"
+    class="zds-popup-box zds-popup-bottom"
   >
     <h1>
       123

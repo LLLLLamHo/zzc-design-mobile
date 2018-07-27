@@ -41,8 +41,7 @@
 npm run svgo //清除多余的svg标识
 npm run build //编译整个component到es目录（es6文件）
 npm run watch //动态编译整个component到es目录（es6文件）
-npm run publish //编译整个es到lib目录（es5文件）
-npm run build_demo //相当于执行publish并将lib文件复制到demo文件中的node_modlues文件中
+npm run compile //编译整个es到lib目录（es5文件），并将lib文件复制到demo文件中的node_modlues文件中
 npm run test //运行单元测试
 ```
 

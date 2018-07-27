@@ -8,18 +8,19 @@
 
 ## Modal
 
-| 属性               | 说明                               | 类型                              | 默认值              |
-| ------------------ | ---------------------------------- | --------------------------------- | ------------------- |
-| prefixCls          | 组件的公用className前序            | string                            | zds-popup           |
-| className          | 定义popup的body class              | string                            | 无                  |
-| style              | 自定义样式                         | object                            | {}                  |
-| bodyStyle          | 弹框主题样式                         | object                            | {}                  |
-| maskStyle          | 遮罩层样式                         | object                            | {}                  |
-| maskClose          | 点击遮罩层关闭popup                | boolean                           | false               |
-| onClose            | 关闭popup后的回调函数（必填）      | function                          | 无                  |
-| visible            | 控制popup是否显示                  | boolean                           | false               |
-| transparent        | 是否不创建mask                     | boolean                           | false               |
-| direction          | 弹出的方向                         | string(可选top,bottom,left,right) | bottom              |
+| 属性           | 说明                          | 类型                              | 默认值    |
+| -------------- | ----------------------------- | --------------------------------- | --------- |
+| prefixCls      | 组件的公用className前序       | string                            | zds-popup |
+| className      | 定义popup的body class         | string                            | 无        |
+| style          | 自定义样式                    | object                            | {}        |
+| bodyStyle      | 弹框主题样式                  | object                            | {}        |
+| maskStyle      | 遮罩层样式                    | object                            | {}        |
+| maskClose      | 点击遮罩层关闭popup           | boolean                           | false     |
+| onClose        | 关闭popup后的回调函数（必填） | function                          | 无        |
+| renderCallback | 渲染完成并动画结束的回调函数  | function                          | 无        |
+| visible        | 控制popup是否显示             | boolean                           | false     |
+| transparent    | 是否不创建mask                | boolean                           | false     |
+| direction      | 弹出的方向                    | string(可选top,bottom,left,right) | bottom    |
 
 
 简单的调用demo

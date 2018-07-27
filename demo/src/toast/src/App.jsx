@@ -14,16 +14,16 @@ export default class App extends Component {
     maskInfo() {
         Toast.info( '这是一个无mask的info', 2, () => {
             console.log( '关闭' );
-        }, false );
+        }, null, false );
     }
 
     loadingInfo() {
         if ( isClose ) {
             isClose = false;
             Toast.hideToast();
-        } else { 
+        } else {
             isClose = true;
-            Toast.info( '再次点击关闭toast', 0, () => {},false );
+            Toast.info( '再次点击关闭toast', 0, () => {}, null, false );
         }
     }
 
@@ -49,6 +49,12 @@ export default class App extends Component {
         Toast.loading( '努力加载中...', 2 );
     }
 
+    parentInfo() {
+        Toast.info( '指定父级显示Toast', 2, () => {
+            console.log( '关闭' );
+        }, document.querySelector('.box') );
+    }
+
     render() {
 
         return (
@@ -64,6 +70,10 @@ export default class App extends Component {
                     <Button onClick={this.waring} type="sub">waring</Button>
                     <Button onClick={this.loading} type="main">loading</Button>
                     <Button onClick={this.loadingInfo} type="main">再次点击关闭toast</Button>
+                    <Button onClick={this.parentInfo} type="main">指定父级显示Toast</Button>
+                    <div className='box'>
+                        <h1>123123</h1>
+                    </div>
                 </div>
             </div>
 

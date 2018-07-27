@@ -2,13 +2,14 @@ import React from 'react';
 import classnames from 'classnames';
 import PickerWrapper from './components/pickerWrapper';
 import { isFunction } from '../_util/typeof';
+import config from '../_util/config';
 import { PickerProps } from './propsType';
 import './index.scss';
 
 
 export default class Picker extends React.Component<PickerProps> {
     static defaultProps = {
-        prefixCls: 'zzc-picker',
+        prefixCls: `${config.cls}-picker`,
         className: '',
         style: {},
         pickerData: []
@@ -19,7 +20,7 @@ export default class Picker extends React.Component<PickerProps> {
         super( props );
         this.initBScrollCallback = this.initBScrollCallback.bind( this );
     }
-    shouldComponentUpdate( nextState, nextProps ) {
+    shouldComponentUpdate( nextProps ) {
         if ( JSON.stringify( nextProps ) != JSON.stringify( this.props ) ) {
             return true;
         }

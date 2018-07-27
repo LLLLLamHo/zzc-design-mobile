@@ -1,15 +1,14 @@
 {
   "name": "zzc-design-mobile",
   "name_cn": "租租车主流程UI规范",
-  "version": "1.0.9",
+  "version": "1.3.5",
   "description": "",
   "main": "./lib/index.js",
   "scripts": {
     "svgo": "./node_modules/.bin/svgo -f ./components/icon/svg",
     "build": "rm -rf ./es && gulp build",
     "watch": "rm -rf ./es && gulp watch",
-    "publish": "rm -rf ./lib && gulp compile",
-    "build_demo": "npm run publish && node ./config/copy.js",
+    "compile": "rm -rf ./lib && gulp compile && node ./config/copy.js",
     "test": "BABEL_ENV=test ./node_modules/.bin/jest -u --config .jest.js",
     "start": "cross-env NODE_ENV=development concurrently \"cross-env DEMO_ENV=react bisheng start -c ./bisheng.config.js\"",
     "site": "cross-env NODE_ENV=production concurrently \"cross-env DEMO_ENV=react bisheng build -c ./bisheng.config.js\""
