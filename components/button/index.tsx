@@ -8,7 +8,7 @@ import './index.scss';
 
 export interface ButtonProps {
         prefixCls?: string,
-        size?: boolean,
+        size?: string,
         inline?: boolean,
         full?: boolean,
         disabled?: boolean,
