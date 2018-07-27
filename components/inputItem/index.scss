@@ -1,0 +1,82 @@
+@import '../style/base.scss';
+$cls: '.zzc-input-item';
+
+//输入框基本样式
+@mixin inputBase() {
+    border: .01rem solid #dde0e6;
+    padding: 0 .3rem;
+    border-radius: .08rem;
+    background-color: #fafafa;
+}
+
+//input 颜色
+@mixin inputColor() {
+    color: #333;
+    &::-webkit-input-placeholder { /* WebKit browsers */
+        color: #999;
+    }
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: #999;
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: #999;
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: #999;
+    }
+}
+
+//input尺寸
+@mixin inputSize() {
+    //默认尺寸
+    height: .7rem;
+    width: 100%;
+    line-height: .7rem;
+    font-size: $fs28rem;
+}
+
+//禁用形式
+@mixin disabled() {
+    &#{$cls}-disabled {
+        opacity: .5;
+        // pointer-events: none; 兼容问题
+        cursor: not-allowed;
+    }
+}
+
+//不要边框
+@mixin noBorder() {
+    &#{$cls}-noborder {
+        border: none;
+        padding: 0;
+        background-color: transparent;
+    }
+}
+
+//不要圆角
+@mixin noBorderRadius() {
+    &#{$cls}-noRadius {
+        border-radius: 0;
+    }
+}
+
+// 错误状态
+@mixin error() {
+    &#{$cls}-error {
+        position: relative;
+        &:after {
+
+        }
+    }
+}
+
+//input class
+#{$cls} {
+    @include inputBase();
+    @include inputColor();
+    @include inputSize();
+    @include noBorder();
+    @include noBorderRadius();
+    @include disabled();
+}
+

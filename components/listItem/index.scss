@@ -1,0 +1,66 @@
+@import '../style/base.scss';
+$cls: '.zzc-list-item';
+
+//列表项基本样式
+@mixin listItemBase() {
+    #{$cls}-box {
+        display: flex;
+        min-height: 1rem;
+        box-sizing: border-box;
+        align-items: center;
+        font-size: $fs28rem;
+        border-bottom: 1px solid #dde0e6;
+    }
+}
+
+// 列表项左边标题样式
+@mixin listItemLabel {
+    #{$cls}-label {
+        margin-right: .3rem;
+    }
+}
+
+// 列表项内容样式
+@mixin listItemContent {
+    #{$cls}-content {
+        flex: 1 50%;
+    }
+}
+
+@mixin listItemExtra {
+    #{$cls}-extra {
+        margin: 0 .3rem;
+    }
+}
+
+//左右留空
+@mixin space() {
+    &#{$cls}-left {
+        padding-left: .3rem;
+    }
+    &#{$cls}-right {
+        padding-right: .3rem;
+    }
+    &#{$cls}-none {
+        padding: 0;
+    }
+}
+
+// 去掉下边框
+@mixin noBorder() {
+    #{$cls}-no-border {
+        border-bottom: none;
+    }
+}
+
+//listItem class
+#{$cls} {
+    background-color: #fff;
+    @include listItemBase();
+    @include listItemLabel();
+    @include listItemContent();
+    @include listItemExtra();
+    @include noBorder();
+    @include space();
+}
+
