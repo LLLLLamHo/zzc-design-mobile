@@ -37,7 +37,7 @@ let config = {
     devServer: {
         // host: '172.16.201.160',
         // host: '172.16.200.229',
-        host: '172.16.204.170', // zzc-ap
+        host: '172.16.201.47', // zuzuche
         port: '4321'
     }
 };
