@@ -79,6 +79,7 @@ export default class Modal extends PureComponent<ModalProps, any> {
                 <Button
                     noBorder
                     full
+                    size='lg'
                     onClick={
                         () => {
                             // 防止enter动画没有结束就点击关闭引起bug
@@ -115,6 +116,7 @@ export default class Modal extends PureComponent<ModalProps, any> {
         return React.cloneElement( <Button
             noBorder
             full
+            size='lg'
             onClick={( event ) => {
                 // 防止enter动画没有结束就点击关闭引起bug
                 if ( transitionName && transitionName !== '' && !this.boxShowed ) {
