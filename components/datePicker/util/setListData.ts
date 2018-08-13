@@ -10,18 +10,18 @@ export function createDateTimeListData( obj, calcMinDate, calcMaxDate, calcCurrD
     obj.yearList = setYearListData( calcMinDate.year, calcMaxDate.year, calcCurrDate.year, langData );
     obj.monthList = setMonthListData( calcCurrDate, calcMinDate, calcMaxDate, langData );
     obj.dayList = setDayListData( calcCurrDate, calcMinDate, calcMaxDate, langData );
-    obj.hourList = setHoursListData( calcCurrDate, use12hour, calcMinDate, calcMaxDate, langData );
-    obj.minuteList = setMinuteListData( calcCurrDate, minuteStep, calcMinDate, calcMaxDate, langData );
+    obj.hourList = setHoursListData( calcCurrDate, use12hour, langData );
+    obj.minuteList = setMinuteListData( calcCurrDate, minuteStep, langData );
     if ( use12hour ) {
-        createHour12ListData( obj, calcCurrDate, calcMinDate, calcMaxDate, langData );
+        createHour12ListData( obj, calcCurrDate, langData );
     }
 }
 
-export function createTimeListData( obj, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData ) {
-    obj.hourList = setHoursListData( calcCurrDate, use12hour, calcMinDate, calcMaxDate, langData );
-    obj.minuteList = setMinuteListData( calcCurrDate, minuteStep, calcMinDate, calcMaxDate, langData );
+export function createTimeListData( obj, calcCurrDate, use12hour, minuteStep, langData ) {
+    obj.hourList = setHoursListData( calcCurrDate, use12hour, langData );
+    obj.minuteList = setMinuteListData( calcCurrDate, minuteStep, langData );
     if ( use12hour ) {
-        createHour12ListData( obj, calcCurrDate, calcMinDate, calcMaxDate, langData );
+        createHour12ListData( obj, calcCurrDate, langData );
     }
 }
 
@@ -33,6 +33,6 @@ export function createMonthListData( obj, calcMinDate, calcMaxDate, calcCurrDate
     obj.monthList = setMonthListData( calcCurrDate, calcMinDate, calcMaxDate, langData );
 }
 
-export function createHour12ListData( obj, calcCurrDate, calcMinDate, calcMaxDate, langData ) {
-    obj.hour12List = setHour12ListData( calcCurrDate, calcMinDate, calcMaxDate, langData );
+export function createHour12ListData( obj, calcCurrDate, langData ) {
+    obj.hour12List = setHour12ListData( calcCurrDate.hour, langData );
 }
