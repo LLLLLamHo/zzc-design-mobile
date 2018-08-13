@@ -80,11 +80,11 @@ export function resolveDate( dateString ): DateData {
     const date = splitDate[0].split( '/' );
     const time = splitDate[1] ? splitDate[1].split( ':' ) : [10, 0];
     return {
-        year: parseInt(date[0]),
-        month: parseInt(date[1]),
-        day: parseInt(date[2]),
-        hour: parseInt(time[0]),
-        minute: parseInt(time[1])
+        year: date[0],
+        month: date[1],
+        day: date[2],
+        hour: time[0],
+        minute: time[1]
     };
 }
 

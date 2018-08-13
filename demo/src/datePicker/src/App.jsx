@@ -27,11 +27,7 @@ export default class App extends Component {
             isShow7: false,
             time7: `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`,
             minDate2: new Date( minDay.setFullYear( minDay.getFullYear() - 1 ) ),
-            maxDate2: new Date( maxDay.setFullYear( maxDay.getFullYear() + 1 ) ),
-            isShow8: false,
-            time8: '2018/8/10 10:30:00',
-            minDate3: '2018/8/8 10:03:00',
-            maxDate3: '2018/8/11 00:01:00'
+            maxDate2: new Date( maxDay.setFullYear( maxDay.getFullYear() + 1 ) )
         };
     }
 
@@ -117,23 +113,23 @@ export default class App extends Component {
                 <div className='zzc-demo-body full'>
                     <Card full>
                         <Card.Body borderDirection='left'>
-                            <div className='card-box2' onClick={() => {this.show( 8 );}}>
-                                <p>限制时间,当前日期：{this.state.time8}</p>
+                            <div className='card-box2' onClick={() => {this.show( 7 );}}>
+                                <p>限制时间,当前日期：{this.state.time7}</p>
                             </div>
                         </Card.Body>
                     </Card>
                     <DatePicker
                         renderCallback={this.renderCallback}
-                        visible={this.state.isShow8}
+                        visible={this.state.isShow7}
                         minuteStep={15}
-                        minDate={this.state.minDate3}
-                        maxDate={this.state.maxDate3}
-                        use12hour={false}
-                        mode='datetime'
-                        selectTime={this.state.time8}
+                        minDate={this.state.minDate2}
+                        maxDate={this.state.maxDate2}
+                        use12hour
+                        mode='date'
+                        selectTime={this.state.time7}
                         onValueChange={( date ) => {this.onValueChange( date );}}
-                        onClose={() => {this.close( 8 );}}
-                        onSubmit={( data ) => {this.submit( data, 8 );}}
+                        onClose={() => {this.close( 7 );}}
+                        onSubmit={( data ) => {this.submit( data, 7 );}}
                     />
                 </div>
                 <div className='zzc-demo-body full'>
