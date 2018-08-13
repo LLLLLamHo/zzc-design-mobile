@@ -145,7 +145,6 @@ export function setDayListData ( currDateData, calcMinDate, calcMaxDate, langDat
             dayText++;
         }
     }
-    console.log(dayListData);
     return dayListData;
 }
 
