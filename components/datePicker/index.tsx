@@ -142,7 +142,7 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
             break;
         case 'datetime': createDateTimeListData( listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData );
             break;
-        case 'time': createTimeListData( listData, calcCurrDate, use12hour, minuteStep, langData );
+        case 'time': createTimeListData( listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData );
             break;
         case 'year': createYearListData( listData, calcMinDate, calcMaxDate, calcCurrDate, langData );
             break;
