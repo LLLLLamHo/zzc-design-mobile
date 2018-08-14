@@ -145,74 +145,163 @@ export function setDayListData ( currDateData, calcMinDate, calcMaxDate, langDat
             dayText++;
         }
     }
-    console.log(dayListData);
     return dayListData;
 }
 
-export function setHoursListData ( currDateData, use12hour, langData ): ListItem {
-    const { hour } = currDateData;
+export function setHoursListData ( currDateData, use12hour, calcMinDate, calcMaxDate, langData ): ListItem {
+    const { year: currYear, month: currMonth, day: currDay, hour: curHour } = currDateData;
+    const { year: minYear, month: minMonth, day: minDay, hour: minHour } = calcMinDate;
+    const { year: maxYear, month: maxMonth, day: maxDay, hour: maxHour } = calcMaxDate;
     const hourListData: ListItem = {
         className: 'hour-list',
         itemClassName: 'hour-item',
         scrollType: 'hour',
-        selectIndex: use12hour && hour >= 12 ? hour - 12 : hour,
+        selectIndex: use12hour && curHour >= 12 ? curHour - 12 : curHour,
         listData: []
     };
 
-    const step = use12hour ? 12 : 24;
+    let step = use12hour ? 12 : 24;
     let hourText: number = 0;
-    for ( let i = 0; i < step; i++ ) {
-        hourListData.listData.push( {
-            text: `${hourText}${langData.hour}`,
-            dataKey: hourText
-        } );
-        hourText++;
+    
+    if ( currYear <= minYear && currMonth <= minMonth && currDay <= minDay) {
+        let startHour = minHour
+        if (use12hour) {
+            startHour = minHour > 12 ? minHour - 12 : (curHour > 12 ? 0 : minHour)
+        }
+
+        hourText = startHour;
+        // 默认为0
+        hourListData.selectIndex = 0;
+        for ( let i = startHour; i < step; i++ ) {
+            if ( (use12hour && curHour > 12 ? curHour - 12 : curHour) == i ) {
+                hourListData.selectIndex = i - startHour;
+            }
+            hourListData.listData.push( {
+                text: `${use12hour && hourText === 0 && curHour >= 12 ? 12 : hourText}${langData.hour}`,
+                dataKey: hourText
+            } );
+            hourText++;
+        }
+    } else if ( currYear >= maxYear && currMonth >= maxMonth && currDay >= maxDay ) {
+        const startHour = 0;
+        let endHour
+        if (use12hour) {
+            endHour = maxHour > 12 ? (curHour <= 12 ? 12 : maxHour - 12) : maxHour
+        }
+        // 默认为最后一个
+        hourListData.selectIndex = endHour - 1;
+        for ( let i = startHour; i < step; i++ ) {
+            if ( hourText <= endHour ) {
+                if ( (use12hour && curHour > 12 ? curHour - 12 : curHour) == i + 1 ) {
+                    hourListData.selectIndex = i;
+                }
+                hourListData.listData.push( {
+                    text: `${use12hour && hourText === 0 && curHour >= 12 ? 12 : hourText}${langData.hour}`,
+                    dataKey: hourText
+                } );
+            }
+            hourText++;
+        }
+    } else {
+        for ( let i = 0; i < step; i++ ) {
+            hourListData.listData.push( {
+                text: `${use12hour && hourText === 0 && curHour >= 12 ? 12 : hourText}${langData.hour}`,
+                dataKey: hourText
+            } );
+            hourText++;
+        }
     }
 
     return hourListData;
 }
 
-export function setMinuteListData ( currDateData, minuteStep, langData ): ListItem {
-    const { minute } = currDateData;
+export function setMinuteListData ( currDateData, minuteStep, calcMinDate, calcMaxDate, langData ): ListItem {
+    const { year: currYear, month: currMonth, day: currDay, hour: curHour, minute: curMinute } = currDateData;
+    const { year: minYear, month: minMonth, day: minDay, hour: minHour, minute: minMinute } = calcMinDate;
+    const { year: maxYear, month: maxMonth, day: maxDay, hour: maxHour, minute: maxMinute } = calcMaxDate;
     const minuteListData: ListItem = {
         className: 'minute-list',
         itemClassName: 'minute-item',
         scrollType: 'minute',
-        selectIndex: minuteStep == 1 ? minute : 0, // 当step不等于1的时候，默认选中未0，之后通过循环获取到对应的时间index
+        selectIndex: minuteStep == 1 ? curMinute : 0, // 当step不等于1的时候，默认选中未0，之后通过循环获取到对应的时间index
         listData: []
     };
-    const step = 60 / minuteStep;
+    let step = 60 / minuteStep;
     let minuteText: number = 0;
-    for ( let i = 0; i < step; i++ ) {
-        if ( minuteText == minute ) {
-            minuteListData.selectIndex = i;
+
+    if ( currYear <= minYear && currMonth <= minMonth && currDay <= minDay && curHour <= minHour ) {
+        let startMinute = Math.floor(minMinute/minuteStep);
+        minuteText = startMinute * minuteStep;
+        // 默认为0
+        minuteListData.selectIndex = 0;
+        for ( let i = startMinute; i < step; i++ ) {
+            if ( curMinute == i ) {
+                minuteListData.selectIndex = i - startMinute;
+            }
+            minuteListData.listData.push( {
+                text: `${minuteText}${langData.minutes}`,
+                dataKey: minuteText
+            } );
+            minuteText += minuteStep;
         }
-        minuteListData.listData.push( {
-            text: `${minuteText}${langData.minutes}`,
-            dataKey: minuteText
-        } );
-        minuteText += minuteStep;
+    } else if ( currYear >= maxYear && currMonth >= maxMonth && currDay >= maxDay && curHour >= maxHour ) {
+        const startMinute = 0;
+        step = Math.ceil(maxMinute /minuteStep)
+        // 默认为最后一个
+        minuteListData.selectIndex = step - 1;
+        for ( let i = startMinute; i < step; i++ ) {
+            if ( minuteText <= maxHour ) {
+                if ( curMinute == i + 1 ) {
+                    minuteListData.selectIndex = i;
+                }
+                minuteListData.listData.push( {
+                    text: `${minuteText}${langData.minutes}`,
+                    dataKey: minuteText
+                } );
+            }
+            minuteText += minuteStep;
+        }
+    } else {
+        for ( let i = 0; i < step; i++ ) {
+            if ( minuteText == curMinute ) {
+                minuteListData.selectIndex = i;
+            }
+            minuteListData.listData.push( {
+                text: `${minuteText}${langData.minutes}`,
+                dataKey: minuteText
+            } );
+            minuteText += minuteStep;
+        }
     }
+    
     return minuteListData;
 }
 
-export function setHour12ListData( hour, langData ): ListItem {
+export function setHour12ListData( currDateData, calcMinDate, calcMaxDate, langData ): ListItem {
+    const { year: curYear, month: curMonth, day: currDay, hour: curHour } = currDateData;
+    const { year: minYear, month: minMonth, day: minDay, hour: minHour } = calcMinDate;
+    const { year: maxYear, month: maxMonth, day: maxDay, hour: maxHour } = calcMaxDate;
+    const am = {
+        text: langData.am,
+        dataKey: 'am'
+    }
+    const pm = {
+        text: langData.pm,
+        dataKey: 'pm'
+    }
     const hour12ListData: ListItem = {
         className: 'minute-list',
         itemClassName: 'minute-item',
         scrollType: 'hour12',
-        selectIndex: hour < 12 ? 0 : 1,
-        listData: [
-            {
-                text: langData.am,
-                dataKey: 'am'
-            },
-            {
-                text: langData.pm,
-                dataKey: 'pm'
-            }
-        ]
+        selectIndex: curHour < 12 ? 0 : 1,
+        listData: [am, pm]
     };
+    if (curYear <= minYear && curMonth <= minMonth && currDay <= minDay && minHour >= 12) {
+        hour12ListData.listData = [pm]
+    }
+    if (curYear >= maxYear && curMonth >= maxMonth && currDay >= maxDay && maxHour < 12) {
+        hour12ListData.listData = [am]
+    }
 
     return hour12ListData;
 }
