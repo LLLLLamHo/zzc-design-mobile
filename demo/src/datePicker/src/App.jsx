@@ -33,9 +33,9 @@ export default class App extends Component {
             minDate3: '2017/8/8 14:45:00',
             maxDate3: '2019/8/1 00:01:00',
             isShow9: false,
-            time9: '2016/10/10 10:30:00',
-            minDate4: '2017/8/8 14:16:00',
-            maxDate4: '2019/8/1 00:01:00'
+            time9: '2020/10/10 12:00:00',
+            minDate4: '2017/8/8 12:00:00',
+            maxDate4: '2019/8/1 00:00:00'
         };
     }
 
