@@ -11,7 +11,7 @@ export default class App extends Component {
         const maxDay = new Date();
         this.state = {
             isShow1: false,
-            time1: '1996/09/21',
+            time1: '2019/07/19',
             isShow2: false,
             time2: '2016/09/21 12:20',
             isShow3: false,
@@ -22,12 +22,18 @@ export default class App extends Component {
             time5: '8',
             isShow6: false,
             time6: '2016/09/21 12:20',
-            minDate: '1900/01/01',
-            maxDate: '2020/01/01',
             isShow7: false,
             time7: `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`,
             minDate2: new Date( minDay.setFullYear( minDay.getFullYear() - 1 ) ),
-            maxDate2: new Date( maxDay.setFullYear( maxDay.getFullYear() + 1 ) )
+            maxDate2: new Date( maxDay.setFullYear( maxDay.getFullYear() + 1 ) ),
+            isShow8: false,
+            time8: '2017/8/8 10:30:00',
+            minDate3: '2017/8/8',
+            maxDate3: '2017/8/8',
+            isShow9: false,
+            time9: '2020/10/10 12:00:00',
+            minDate4: '2017/8/8 12:00:00',
+            maxDate4: '2019/8/1 00:00:00'
         };
     }
 
@@ -78,9 +84,6 @@ export default class App extends Component {
                         renderCallback={this.renderCallback}
                         visible={this.state.isShow1}
                         minuteStep={15}
-                        minDate={new Date( this.state.minDate )}
-                        maxDate={new Date( this.state.maxDate )}
-                        use12hour
                         mode='date'
                         selectTime={new Date( this.state.time1 )}
                         onValueChange={( date ) => {this.onValueChange( date );}}
@@ -113,8 +116,8 @@ export default class App extends Component {
                 <div className='zzc-demo-body full'>
                     <Card full>
                         <Card.Body borderDirection='left'>
-                            <div className='card-box2' onClick={() => {this.show( 7 );}}>
-                                <p>限制时间,当前日期：{this.state.time7}</p>
+                            <div className='card-box2' onClick={() => {this.show( 8 );}}>
+                                <p>限制时间-24小时,当前日期：{this.state.time8}</p>
                             </div>
                         </Card.Body>
                     </Card>
@@ -130,6 +133,28 @@ export default class App extends Component {
                         onValueChange={( date ) => {this.onValueChange( date );}}
                         onClose={() => {this.close( 7 );}}
                         onSubmit={( data ) => {this.submit( data, 7 );}}
+                    />
+                </div>
+                <div className='zzc-demo-body full'>
+                    <Card full>
+                        <Card.Body borderDirection='left'>
+                            <div className='card-box2' onClick={() => {this.show( 9 );}}>
+                                <p>限制时间-12小时,当前日期：{this.state.time9}</p>
+                            </div>
+                        </Card.Body>
+                    </Card>
+                    <DatePicker
+                        renderCallback={this.renderCallback}
+                        visible={this.state.isShow9}
+                        minuteStep={15}
+                        minDate={this.state.minDate4}
+                        maxDate={this.state.maxDate4}
+                        use12hour={true}
+                        mode='datetime'
+                        selectTime={this.state.time9}
+                        onValueChange={( date ) => {this.onValueChange( date );}}
+                        onClose={() => {this.close( 9 );}}
+                        onSubmit={( data ) => {this.submit( data, 9 );}}
                     />
                 </div>
                 <div className='zzc-demo-body full'>
