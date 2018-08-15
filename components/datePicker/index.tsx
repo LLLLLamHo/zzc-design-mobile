@@ -29,7 +29,6 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
 
     private BScrollList: BScrollArray = {};
     private datePickerStatus: 'show' | 'hide' = 'hide';
-    private preDatePickerStatus: 'show' | 'hide' = 'hide';
 
     constructor( props ) {
         super( props );
