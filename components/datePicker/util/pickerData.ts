@@ -184,14 +184,20 @@ export function setHoursListData ( currDateData, use12hour, calcMinDate, calcMax
         listData: []
     };
 
-    const step = use12hour ? 12 : 24;
+    let step = use12hour ? 12 : 24;
     let hourText: number = 0;
+
     if ( currYear <= minYear && currMonth <= minMonth && currDay <= minDay ) {
         let startHour = minHour;
         let isNoon = false;
         if ( use12hour ) {
             startHour = minHour >= 12 ? minHour - 12 : ( curHour >= 12 ? 0 : minHour );
             startHour === 0 && curHour >= 12 && ( isNoon = true );
+        }
+        // 最大最小范围在同一天
+        if ( minYear === maxYear && minMonth === maxMonth && minDay === maxDay ) {
+            step = ( !use12hour || maxHour < 12 ) ? maxHour : ( curHour >= 12 ? maxHour - 12 : 11 );
+            step += 1;
         }
 
         hourText = startHour;
@@ -259,6 +265,10 @@ export function setMinuteListData ( currDateData, minuteStep, calcMinDate, calcM
     if ( currYear <= minYear && currMonth <= minMonth && currDay <= minDay && curHour <= minHour ) {
         const startMinute = Math.floor( minMinute / minuteStep );
         minuteText = startMinute * minuteStep;
+        // 最大最小范围在同一天
+        if ( minYear === maxYear && minMonth === maxMonth && minDay === maxDay && minHour === maxHour ) {
+            step = Math.ceil( maxMinute / minuteStep );
+        }
         // 默认为0
         minuteListData.selectIndex = 0;
         for ( let i = startMinute; i < step; i++ ) {
@@ -277,7 +287,7 @@ export function setMinuteListData ( currDateData, minuteStep, calcMinDate, calcM
         // 默认为最后一个
         minuteListData.selectIndex = step - 1;
         for ( let i = startMinute; i < step; i++ ) {
-            if ( minuteText <= maxHour ) {
+            if ( minuteText <= maxMinute ) {
                 if ( curMinute == i + 1 ) {
                     minuteListData.selectIndex = i;
                 }
