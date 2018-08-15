@@ -29,7 +29,6 @@ export function setMonthListData ( calcCurrDate, calcMinDate, calcMaxDate, langD
     const { year: currYear, month: currMonth } = calcCurrDate;
     const { year: minYear, month: minMonth } = calcMinDate;
     const { year: maxYear, month: maxMonth } = calcMaxDate;
-
     const monthListData: ListItem = {
         className: 'month-list',
         itemClassName: 'month-item',
@@ -53,10 +52,12 @@ export function setMonthListData ( calcCurrDate, calcMinDate, calcMaxDate, langD
     // 小于等于限制最小月份
     } else if ( currYear <= minYear ) {
         const startMonth = minMonth;
+        // 限制时间为同一年使用最大月份作为结束，否则循环到12月
+        const endMonth = minYear == maxYear ? maxMonth : 12;
         monthText = startMonth;
         // 默认为0
         monthListData.selectIndex = 0;
-        for ( let i = startMonth; i <= 12; i++ ) {
+        for ( let i = startMonth; i <= endMonth; i++ ) {
             if ( currMonth == i ) {
                 monthListData.selectIndex = i - startMonth;
             }
@@ -69,7 +70,9 @@ export function setMonthListData ( calcCurrDate, calcMinDate, calcMaxDate, langD
 
     // 大于等于限制的最大月份
     } else if ( currYear >= maxYear ) {
-        const startMonth = 0;
+        // 限制时间为同一年使用最小月份作为循环开始，从1月开始
+        const startMonth = minYear == maxYear ? minMonth - 1 : 0;
+        monthText = minYear == maxYear ? minMonth : 1;
         // 默认为最后一个
         monthListData.selectIndex = maxMonth;
         for ( let i = startMonth; i < maxMonth; i++ ) {
@@ -92,7 +95,6 @@ export function setDayListData ( currDateData, calcMinDate, calcMaxDate, langDat
     const { year: currYear, month: currMonth, day: currDay } = currDateData;
     const { year: minYear, month: minMonth, day: minDay } = calcMinDate;
     const { year: maxYear, month: maxMonth, day: maxDay } = calcMaxDate;
-
     const dayListData: ListItem = {
         className: 'day-list',
         itemClassName: 'day-item',
@@ -104,13 +106,13 @@ export function setDayListData ( currDateData, calcMinDate, calcMaxDate, langDat
     const calcDate = new Date( curDate.setDate( 1 ) );
     const dayCount = new Date( new Date( calcDate.setMonth( currMonth ) ).setDate( 0 ) ).getDate();
     let dayText: number = 1;
-    // 到达最小时间边界
-    if ( currYear <= minYear && currMonth <= minMonth ) {
+    // 当限制范围是同年同日，则取minDay和maxDay来进行循环
+    if ( minYear == maxYear && minMonth == maxMonth ) {
         const startDay = minDay;
-        dayText = startDay;
-        // 默认为0
+        const endDay = maxDay;
+        dayText = minDay;
         dayListData.selectIndex = 0;
-        for ( let i = startDay; i <= dayCount; i++ ) {
+        for ( let i = startDay; i <= endDay; i++ ) {
             if ( currDay == i ) {
                 dayListData.selectIndex = i - startDay;
             }
@@ -120,11 +122,33 @@ export function setDayListData ( currDateData, calcMinDate, calcMaxDate, langDat
             } );
             dayText++;
         }
-    } else if ( currYear >= maxYear && currMonth >= maxMonth ) {
-        const startMonth = 0;
+
+    // 到达最小时间边界
+    } else if ( currYear == minYear && currMonth == minMonth ) {
+        const startDay = minDay;
+        const endDay = dayCount;
+        dayText = startDay;
+
+        // 默认为0
+        dayListData.selectIndex = 0;
+        for ( let i = startDay; i <= endDay; i++ ) {
+            if ( currDay == i ) {
+                dayListData.selectIndex = i - startDay;
+            }
+            dayListData.listData.push( {
+                text: `${dayText}${langData.day}`,
+                dataKey: dayText
+            } );
+            dayText++;
+        }
+    // 到达最大边界
+    } else if ( currYear == maxYear && currMonth == maxMonth ) {
+        const startDay = 0;
+        const endDay = dayCount;
+
         // 默认为最后一个
         dayListData.selectIndex = maxDay;
-        for ( let i = startMonth; i < maxDay; i++ ) {
+        for ( let i = startDay; i <= endDay; i++ ) {
             if ( dayText <= maxDay ) {
                 if ( currDay == i + 1 ) {
                     dayListData.selectIndex = i;

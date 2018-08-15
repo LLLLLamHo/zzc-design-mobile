@@ -11,7 +11,7 @@ export default class App extends Component {
         const maxDay = new Date();
         this.state = {
             isShow1: false,
-            time1: '1996/09/21',
+            time1: '2019/07/19',
             isShow2: false,
             time2: '2016/09/21 12:20',
             isShow3: false,
@@ -22,16 +22,14 @@ export default class App extends Component {
             time5: '8',
             isShow6: false,
             time6: '2016/09/21 12:20',
-            minDate: '1900/01/01',
-            maxDate: '2020/01/01',
             isShow7: false,
             time7: `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`,
             minDate2: new Date( minDay.setFullYear( minDay.getFullYear() - 1 ) ),
             maxDate2: new Date( maxDay.setFullYear( maxDay.getFullYear() + 1 ) ),
             isShow8: false,
-            time8: '2016/10/10 10:30:00',
-            minDate3: '2017/8/8 14:45:00',
-            maxDate3: '2019/8/1 00:01:00',
+            time8: '2017/8/8 10:30:00',
+            minDate3: '2017/8/8',
+            maxDate3: '2017/8/8',
             isShow9: false,
             time9: '2020/10/10 12:00:00',
             minDate4: '2017/8/8 12:00:00',
@@ -86,9 +84,6 @@ export default class App extends Component {
                         renderCallback={this.renderCallback}
                         visible={this.state.isShow1}
                         minuteStep={15}
-                        minDate={new Date( this.state.minDate )}
-                        maxDate={new Date( this.state.maxDate )}
-                        use12hour
                         mode='date'
                         selectTime={new Date( this.state.time1 )}
                         onValueChange={( date ) => {this.onValueChange( date );}}
@@ -129,7 +124,7 @@ export default class App extends Component {
                     <DatePicker
                         renderCallback={this.renderCallback}
                         visible={this.state.isShow8}
-                        minuteStep={30}
+                        minuteStep={15}
                         minDate={this.state.minDate3}
                         maxDate={this.state.maxDate3}
                         use12hour={false}

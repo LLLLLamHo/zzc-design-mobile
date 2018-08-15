@@ -92,13 +92,16 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
     // }
 
     resetPicker(): void {
-        const { selectTime, mode } = this.props;
+        const { selectTime, mode, minDate, maxDate } = this.props;
+        const calcMinDate = initMinDate( minDate );
+        const calcMaxDate = initMaxDate( maxDate );
         // 关闭的时候，如果当前滑动框选中的日期和当前传入的时间一样，则无需进行reset
-        const calcTime = this.initDateObject( null, selectTime, mode );
+        const calcTime = this.initDateObject( null, selectTime, mode, calcMinDate, calcMaxDate );
         this.initDate( calcTime );
     }
 
-    initDateObject( time, selectTime, mode ): Date {
+    initDateObject( time, selectTime, mode, minDate, maxDate ): Date {
+
         let calcTime;
         if ( isDate( time ) ) {
             calcTime = time;
@@ -111,16 +114,31 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         } else {
             calcTime = isDate( selectTime ) ? selectTime : new Date( selectTime );
         }
+
+        // 只有在一开始初始化和reset的时候才出发强制重置
+        if ( time == null ) {
+            // 当初始化时间时，如果当前选中时间超出了限制范围，则强制重置
+            const minDateTime = new Date( `${minDate.year}/${minDate.month}/${minDate.day} ${minDate.hour}:${minDate.minute}` );
+            const maxDateTime = new Date( `${maxDate.year}/${maxDate.month}/${maxDate.day} ${maxDate.hour}:${maxDate.minute}` );
+
+            if ( calcTime < minDateTime ) {
+                return minDateTime;
+            }
+
+            if ( calcTime > maxDateTime ) {
+                return maxDateTime;
+            }
+        }
         return calcTime;
     }
 
     initDate( time: Date | null ): void {
         const { minDate, maxDate, selectTime, lang, mode, minuteStep, use12hour } = this.props;
-        const calcTime = this.initDateObject( time, selectTime, mode );
-        const langData = langTextObject[lang];
         const calcMinDate = initMinDate( minDate );
         const calcMaxDate = initMaxDate( maxDate );
-        const calcCurrDate = initSelectDate( calcTime, calcMinDate );
+        const calcTime = this.initDateObject( time, selectTime, mode, calcMinDate, calcMaxDate );
+        const langData = langTextObject[lang];
+        const calcCurrDate = initSelectDate( calcTime, calcMinDate, calcMaxDate );
         const listData: {
         yearList: null | ListItem
         monthList: null | ListItem

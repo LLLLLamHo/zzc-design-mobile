@@ -42,3 +42,6 @@
     onSubmit={(data) => { this.setState({isShow: false}) }}
 />
 ```
+
+* 在使用时，如果定义了`minDate`,`maxDate`的情况下，需要注意`selectTime`请保证在限制时间内。
+* 如果需要定义`minDate`,`maxDate`，建议使用字符串类型参数传入，并保证传入时分，如：`2017/8/8 12:00`，否则将不限制小时和分钟。
