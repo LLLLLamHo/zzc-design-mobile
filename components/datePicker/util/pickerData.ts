@@ -184,43 +184,42 @@ export function setHoursListData ( currDateData, use12hour, calcMinDate, calcMax
         listData: []
     };
 
-    let step = use12hour ? 12 : 24;
+    const step = use12hour ? 12 : 24;
     let hourText: number = 0;
-    
-    if ( currYear <= minYear && currMonth <= minMonth && currDay <= minDay) {
-        let startHour = minHour
-        let isNoon = false
-        if (use12hour) {
-            startHour = minHour >= 12 ? minHour - 12 : (curHour >= 12 ? 0 : minHour)
-            startHour === 0 && curHour >= 12 && (isNoon = true)
+    if ( currYear <= minYear && currMonth <= minMonth && currDay <= minDay ) {
+        let startHour = minHour;
+        let isNoon = false;
+        if ( use12hour ) {
+            startHour = minHour >= 12 ? minHour - 12 : ( curHour >= 12 ? 0 : minHour );
+            startHour === 0 && curHour >= 12 && ( isNoon = true );
         }
 
         hourText = startHour;
         // 默认为0
         hourListData.selectIndex = 0;
         for ( let i = startHour; i < step; i++ ) {
-            if ( (use12hour && curHour >= 12 ? curHour - 12 : curHour) == i ) {
+            if ( ( use12hour && curHour >= 12 ? curHour - 12 : curHour ) == i ) {
                 hourListData.selectIndex = i - startHour;
             }
             hourListData.listData.push( {
-                text: `${ hourText === 0 && isNoon ? 12 : hourText}${langData.hour}`,
+                text: `${hourText === 0 && isNoon ? 12 : hourText}${langData.hour}`,
                 dataKey: hourText
             } );
             hourText++;
         }
     } else if ( currYear >= maxYear && currMonth >= maxMonth && currDay >= maxDay ) {
         const startHour = 0;
-        let endHour = maxHour
-        let isNoon = false
-        if (use12hour) {
-            endHour = maxHour >= 12 ? (curHour < 12 ? 12 : maxHour - 12) : maxHour
-            maxHour >= 12 && curHour >= 12 && (isNoon = true)
+        let endHour = maxHour;
+        let isNoon = false;
+        if ( use12hour ) {
+            endHour = maxHour >= 12 ? ( curHour < 12 ? 12 : maxHour - 12 ) : maxHour;
+            maxHour >= 12 && curHour >= 12 && ( isNoon = true );
         }
         // 默认为最后一个
         hourListData.selectIndex = endHour;
         for ( let i = startHour; i < step; i++ ) {
             if ( hourText <= endHour ) {
-                if ( (use12hour && curHour >= 12 ? curHour - 12 : curHour) == i ) {
+                if ( ( use12hour && curHour >= 12 ? curHour - 12 : curHour ) == i ) {
                     hourListData.selectIndex = i;
                 }
                 hourListData.listData.push( {
@@ -258,7 +257,7 @@ export function setMinuteListData ( currDateData, minuteStep, calcMinDate, calcM
     let minuteText: number = 0;
 
     if ( currYear <= minYear && currMonth <= minMonth && currDay <= minDay && curHour <= minHour ) {
-        let startMinute = Math.floor(minMinute / minuteStep);
+        const startMinute = Math.floor( minMinute / minuteStep );
         minuteText = startMinute * minuteStep;
         // 默认为0
         minuteListData.selectIndex = 0;
@@ -274,7 +273,7 @@ export function setMinuteListData ( currDateData, minuteStep, calcMinDate, calcM
         }
     } else if ( currYear >= maxYear && currMonth >= maxMonth && currDay >= maxDay && curHour >= maxHour ) {
         const startMinute = 0;
-        step = maxMinute === 0 ? 1 : Math.ceil(maxMinute / minuteStep)
+        step = maxMinute === 0 ? 1 : Math.ceil( maxMinute / minuteStep );
         // 默认为最后一个
         minuteListData.selectIndex = step - 1;
         for ( let i = startMinute; i < step; i++ ) {
@@ -301,7 +300,6 @@ export function setMinuteListData ( currDateData, minuteStep, calcMinDate, calcM
             minuteText += minuteStep;
         }
     }
-    
     return minuteListData;
 }
 
@@ -312,11 +310,11 @@ export function setHour12ListData( currDateData, calcMinDate, calcMaxDate, langD
     const am = {
         text: langData.am,
         dataKey: 'am'
-    }
+    };
     const pm = {
         text: langData.pm,
         dataKey: 'pm'
-    }
+    };
     const hour12ListData: ListItem = {
         className: 'minute-list',
         itemClassName: 'minute-item',
@@ -324,11 +322,11 @@ export function setHour12ListData( currDateData, calcMinDate, calcMaxDate, langD
         selectIndex: curHour < 12 ? 0 : 1,
         listData: [am, pm]
     };
-    if (curYear <= minYear && curMonth <= minMonth && currDay <= minDay && minHour >= 12) {
-        hour12ListData.listData = [pm]
+    if ( curYear <= minYear && curMonth <= minMonth && currDay <= minDay && minHour >= 12 ) {
+        hour12ListData.listData = [pm];
     }
-    if (curYear >= maxYear && curMonth >= maxMonth && currDay >= maxDay && maxHour < 12) {
-        hour12ListData.listData = [am]
+    if ( curYear >= maxYear && curMonth >= maxMonth && currDay >= maxDay && maxHour < 12 ) {
+        hour12ListData.listData = [am];
     }
 
     return hour12ListData;
