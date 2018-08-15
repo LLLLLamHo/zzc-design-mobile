@@ -47,7 +47,6 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
     }
 
     componentWillReceiveProps() {
-        this.preDatePickerStatus = this.datePickerStatus;
         if ( this.props.visible ) {
             this.datePickerStatus = 'show';
         } else {
@@ -100,7 +99,6 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
     }
 
     initDateObject( time, selectTime, mode, minDate, maxDate ): Date {
-
         let calcTime;
         if ( isDate( time ) ) {
             calcTime = time;
