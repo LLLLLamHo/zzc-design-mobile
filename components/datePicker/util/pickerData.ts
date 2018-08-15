@@ -169,6 +169,7 @@ export function setDayListData ( currDateData, calcMinDate, calcMaxDate, langDat
             dayText++;
         }
     }
+    console.log(dayListData);
     return dayListData;
 }
 
@@ -251,10 +252,10 @@ export function setMinuteListData ( currDateData, minuteStep, calcMinDate, calcM
         className: 'minute-list',
         itemClassName: 'minute-item',
         scrollType: 'minute',
-        selectIndex: minuteStep == 1 ? curMinute : 0, // 当step不等于1的时候，默认选中未0，之后通过循环获取到对应的时间index
+        selectIndex: minuteStep == 1 ? minute : 0, // 当step不等于1的时候，默认选中未0，之后通过循环获取到对应的时间index
         listData: []
     };
-    let step = 60 / minuteStep;
+    const step = 60 / minuteStep;
     let minuteText: number = 0;
 
     if ( currYear <= minYear && currMonth <= minMonth && currDay <= minDay && curHour <= minHour ) {
@@ -305,31 +306,29 @@ export function setMinuteListData ( currDateData, minuteStep, calcMinDate, calcM
     return minuteListData;
 }
 
-export function setHour12ListData( currDateData, calcMinDate, calcMaxDate, langData ): ListItem {
-    const { year: curYear, month: curMonth, day: currDay, hour: curHour } = currDateData;
-    const { year: minYear, month: minMonth, day: minDay, hour: minHour } = calcMinDate;
-    const { year: maxYear, month: maxMonth, day: maxDay, hour: maxHour } = calcMaxDate;
-    const am = {
-        text: langData.am,
-        dataKey: 'am'
-    }
-    const pm = {
-        text: langData.pm,
-        dataKey: 'pm'
-    }
+export function setHour12ListData( hour, langData ): ListItem {
     const hour12ListData: ListItem = {
         className: 'minute-list',
         itemClassName: 'minute-item',
         scrollType: 'hour12',
-        selectIndex: curHour < 12 ? 0 : 1,
-        listData: [am, pm]
+        selectIndex: hour < 12 ? 0 : 1,
+        listData: [
+            {
+                text: langData.am,
+                dataKey: 'am'
+            },
+            {
+                text: langData.pm,
+                dataKey: 'pm'
+            }
+        ]
     };
+
     if (curYear <= minYear && curMonth <= minMonth && currDay <= minDay && minHour >= 12) {
         hour12ListData.listData = [pm]
     }
     if (curYear >= maxYear && curMonth >= maxMonth && currDay >= maxDay && maxHour < 12) {
         hour12ListData.listData = [am]
     }
-
     return hour12ListData;
 }

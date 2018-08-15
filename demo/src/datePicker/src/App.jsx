@@ -123,16 +123,16 @@ export default class App extends Component {
                     </Card>
                     <DatePicker
                         renderCallback={this.renderCallback}
-                        visible={this.state.isShow8}
+                        visible={this.state.isShow7}
                         minuteStep={15}
-                        minDate={this.state.minDate3}
-                        maxDate={this.state.maxDate3}
-                        use12hour={false}
-                        mode='datetime'
-                        selectTime={this.state.time8}
+                        minDate={this.state.minDate2}
+                        maxDate={this.state.maxDate2}
+                        use12hour
+                        mode='date'
+                        selectTime={this.state.time7}
                         onValueChange={( date ) => {this.onValueChange( date );}}
-                        onClose={() => {this.close( 8 );}}
-                        onSubmit={( data ) => {this.submit( data, 8 );}}
+                        onClose={() => {this.close( 7 );}}
+                        onSubmit={( data ) => {this.submit( data, 7 );}}
                     />
                 </div>
                 <div className='zzc-demo-body full'>
