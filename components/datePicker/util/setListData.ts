@@ -34,5 +34,5 @@ export function createMonthListData( obj, calcMinDate, calcMaxDate, calcCurrDate
 }
 
 export function createHour12ListData( obj, calcMinDate, calcMaxDate, calcCurrDate, langData ) {
-    obj.hour12List = setHour12ListData( calcCurrDate.hour, calcMinDate, calcMaxDate, langData );
+    obj.hour12List = setHour12ListData( calcCurrDate, calcMinDate, calcMaxDate, langData );
 }
