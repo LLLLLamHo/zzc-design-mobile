@@ -33,9 +33,9 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
     componentDidMount (): void {
         const { scrollType = new Date().getTime() } = this.props.data;
         const initBScrollConfig = this.resetBScrollConfig();
-        const wrapperNode = this.wrapper ? ReactDOM.findDOMNode( this.wrapper ) : null;
+        const wrapperNode: any = this.wrapper ? ReactDOM.findDOMNode( this.wrapper ) : null;
         if ( wrapperNode ) {
-            this.BScrollObj = new BScroll( wrapperNode, initBScrollConfig );
+            this.BScrollObj = wrapperNode && new BScroll( wrapperNode, initBScrollConfig );
             // 某种情况下会出现无法滚动到指定的selectedIndex
             requestAnimationFrame( () => {
                 this.BScrollObj.wheelTo( initBScrollConfig.wheel.selectedIndex );

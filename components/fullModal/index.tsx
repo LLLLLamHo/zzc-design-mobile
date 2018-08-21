@@ -3,7 +3,10 @@ import classNames from 'classnames';
 import Dialog from '../dialog';
 import TouchFeedback from '../touchFeedback';
 import config from '../_util/config';
+import { initGtag, zzcComponentUse } from '../_util/gtag';
 import './index.scss';
+
+initGtag( 'FullModal' );
 
 export interface FullModalProps {
     prefixCls?: string
@@ -15,6 +18,11 @@ export interface FullModalProps {
 }
 
 export default class FullModal extends PureComponent<FullModalProps, any> {
+    constructor( props ) {
+        super( props );
+        zzcComponentUse( 'FullModal', 'use' );
+    }
+
     static defaultProps = {
         prefixCls: `${config.cls}-full-modal`,
         style: {},

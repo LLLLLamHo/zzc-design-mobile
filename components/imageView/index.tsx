@@ -5,16 +5,19 @@ import Dialog from '../dialog';
 import Gesture from '../_util/Gesture';
 import { isFunction } from '../_util/typeof';
 import { setLayoutScroll } from './util';
+import { initGtag, zzcComponentUse } from '../_util/gtag';
 import './index.scss';
 
-import { IamgeViewProps } from './propsType';
+import { ImageViewProps } from './propsType';
+
+initGtag( 'ImageView' );
 
 export interface IamgeViewState {
     isRender: boolean
     index: number
 }
 
-export default class IamgeView extends PureComponent<IamgeViewProps, IamgeViewState> {
+export default class IamgeView extends PureComponent<ImageViewProps, IamgeViewState> {
     static defaultProps = {
         prefixCls: `${config.cls}-imageview`,
         className: '',
@@ -28,9 +31,14 @@ export default class IamgeView extends PureComponent<IamgeViewProps, IamgeViewSt
         animate: true
     }
 
-    state = {
-        isRender: this.props.visible,
-        index: this.props.defaultIndex
+    constructor( props ) {
+        super( props );
+        const { visible, defaultIndex } = this.props;
+        this.state = {
+            isRender: visible,
+            index: defaultIndex ? defaultIndex : 0
+        };
+        zzcComponentUse( 'ImageView', 'use' );
     }
 
     private dialog: any;
@@ -38,7 +46,6 @@ export default class IamgeView extends PureComponent<IamgeViewProps, IamgeViewSt
 
     componentWillReceiveProps( nextProps ): void {
         if ( nextProps.visible != this.props.visible && nextProps.visible ) {
-
             if ( nextProps.defaultIndex != this.state.index ) {
                 this.setState( {
                     isRender: nextProps.visible,
@@ -112,7 +119,7 @@ export default class IamgeView extends PureComponent<IamgeViewProps, IamgeViewSt
                     this.setState( {
                         index
                     }, () => {
-                        isFunction( this.props.onChange ) && this.props.onChange( this.state.index );
+                        this.props.onChange && isFunction( this.props.onChange ) && this.props.onChange( this.state.index );
                     } );
                     this.layout.style.transform = `translate3d(-${( index ) * 100}%, 0px, 0px)`;
                 } else {
@@ -120,7 +127,7 @@ export default class IamgeView extends PureComponent<IamgeViewProps, IamgeViewSt
                         this.setState( {
                             index: swiperIndex
                         }, () => {
-                            isFunction( this.props.onChange ) && this.props.onChange( this.state.index );
+                            this.props.onChange && isFunction( this.props.onChange ) && this.props.onChange( this.state.index );
                         } );
                     }
                     this.layout.style.transform = `translate3d(-${swiperIndex * 100}%, 0px, 0px)`;
@@ -200,7 +207,7 @@ export default class IamgeView extends PureComponent<IamgeViewProps, IamgeViewSt
                 isRender: false
             } );
         }
-        isFunction( this.props.onClose ) && this.props.onClose( this.state.index );
+        this.props.onClose && isFunction( this.props.onClose ) && this.props.onClose( this.state.index );
     }
 
     render(): JSX.Element | null {

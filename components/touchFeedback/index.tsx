@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classNames';
 import { isFunction } from '../_util/typeof';
+import { initGtag, zzcComponentUse } from '../_util/gtag';
 
+initGtag( 'TouchFeedback' );
 /*
     <TouchFeedback
         activeStyle={disabled ? false : activeStyle}
@@ -25,6 +27,10 @@ export interface TouchFeedbackProps {
 }
 
 export default class TouchFeedback extends PureComponent<TouchFeedbackProps, any> {
+    constructor( props ) {
+        super( props );
+        zzcComponentUse( 'TouchFeedback', 'use' );
+    }
     state = {
         active: false
     }

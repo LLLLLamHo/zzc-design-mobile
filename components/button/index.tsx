@@ -2,9 +2,12 @@ import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import TouchFeedback from '../touchFeedback';
 import config from '../_util/config';
-
+import { initGtag, zzcComponentUse } from '../_util/gtag';
 import '../style/index';
 import './index.scss';
+
+initGtag( 'Button' );
+let isSend = false;
 
 export interface ButtonProps {
         prefixCls?: string,
@@ -42,6 +45,13 @@ export default class Button extends PureComponent<ButtonProps, any> {
         },
         activeClassName: ''
     };
+
+    componentWillMount() {
+        if ( !isSend ) {
+            isSend = true;
+            zzcComponentUse( 'Button', 'use' );
+        }
+    }
 
     setActiveClassName( activeClassName?: string, type?: string, ghost?: boolean ): string {
         const activeClassNameIsNone:boolean = activeClassName === '';

@@ -4,7 +4,10 @@ import Dialog from '../dialog';
 import Button from '../button';
 import langTextObject from '../_util/i18n';
 import config from '../_util/config';
+import { initGtag, zzcComponentUse } from '../_util/gtag';
 import './index.scss';
+
+initGtag( 'Modal' );
 
 export interface ModalProps {
     prefixCls?: string,
@@ -32,6 +35,10 @@ export interface ModalProps {
 }
 
 export default class Modal extends PureComponent<ModalProps, any> {
+    constructor( props ) {
+        super( props );
+        zzcComponentUse( 'Modal', 'use' );
+    }
     static defaultProps = {
         prefixCls: `${config.cls}-modal`,
         maskTransitionName: `${config.cls}-fade`,

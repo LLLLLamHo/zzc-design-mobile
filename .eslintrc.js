@@ -18,6 +18,7 @@ const eslintrc = {
         'typescript'
     ],
     rules: {
+        "dot-notation" : 0,
         "no-nested-ternary": 0,
         "jsx-a11y/no-noninteractive-element-interactions": 0,
         "no-restricted-syntax": 0,

@@ -2,8 +2,10 @@ import React from 'react';
 import Dialog from '../dialog';
 import animateConfig from '../_util/animateConfig';
 import config from '../_util/config';
+import { initGtag, zzcComponentUse } from '../_util/gtag';
 import './index.scss';
 
+initGtag( 'Popup' );
 export interface PopupProps {
     prefixCls?: string,
     visible: boolean,
@@ -17,6 +19,10 @@ export interface PopupProps {
 }
 
 export default class Popup extends React.PureComponent<PopupProps> {
+    constructor( props ) {
+        super( props );
+        zzcComponentUse( 'Popup', 'use' );
+    }
     static defaultProps = {
         prefixCls: `${config.cls}-popup`,
         visible: false,

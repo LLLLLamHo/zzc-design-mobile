@@ -8,8 +8,12 @@ import { isDOM } from '../_util/typeof';
 import Icon from '../icon';
 import Alignment from '../_util/alignment';
 import config from '../_util/config';
+import { initGtag, zzcComponentUse } from '../_util/gtag';
+
 import '../style/index';
 import './index.scss';
+
+initGtag( 'Toast' );
 
 const PREFIXCLS: string = `${config.cls}-toast`;
 const alignment: any = new Alignment();
@@ -75,6 +79,7 @@ function createParentNode( specifiedpParnet: any ): Element {
 }
 
 function getToast( type: string, content: any, duration: number = 2, onClose: any = () => { }, parnetNode: any = null, mask: boolean = true ): void {
+    zzcComponentUse( 'Toast', 'use' );
     // only one toast to page
     if ( _toastElem != null ) {
         alignment.save( {

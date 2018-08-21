@@ -5,7 +5,10 @@ import { addClass } from '../_util/class';
 import animateConfig from '../_util/animateConfig';
 import { isFunction } from '../_util/typeof';
 import config from '../_util/config';
+import { initGtag, zzcComponentUse } from '../_util/gtag';
 import './index.scss';
+
+initGtag( 'Dialog' );
 
 export interface ModalProps {
     prefixCls?: string,
@@ -28,6 +31,10 @@ export interface ModalProps {
 }
 
 export default class Dialog extends PureComponent<ModalProps, any> {
+    constructor( props ) {
+        super( props );
+        zzcComponentUse( 'Dialog', 'use' );
+    }
     static defaultProps = {
         prefixCls: `${config.cls}-dialog`,
         className: '',
@@ -63,28 +70,28 @@ export default class Dialog extends PureComponent<ModalProps, any> {
 
     // mask关闭事件
     addMarkCloseEvent (): void {
-        const _this = this;
+        const _self = this;
         const { closeCallback, transitionName, maskTransitionName, transparent } = this.props;
         if ( this.mask ) {
-            const maskAnimation = _this.getAnimationClass( _this.props.maskTransitionName );
-            const bodyAnimation = _this.getAnimationClass( _this.props.transitionName );
+            const maskAnimation = this.getAnimationClass( this.props.maskTransitionName );
+            const bodyAnimation = this.getAnimationClass( this.props.transitionName );
             this.mask.onclick = function () {
-                if ( transitionName && transitionName !== '' && !_this.isShowedBox ) {
+                if ( transitionName && transitionName !== '' && !_self.isShowedBox ) {
                     return false;
                 }
 
-                if ( !transparent && maskTransitionName && maskTransitionName !== '' && !_this.isShowedMask ) {
+                if ( !transparent && maskTransitionName && maskTransitionName !== '' && !_self.isShowedMask ) {
                     return false;
                 }
 
                 if ( bodyAnimation ) {
-                    addClass( _this.box, bodyAnimation.leave );
-                    addClass( _this.box, bodyAnimation.leaveActive );
+                    addClass( _self.box, bodyAnimation.leave );
+                    addClass( _self.box, bodyAnimation.leaveActive );
                 }
                 // 当没有配置动画点击mask关闭dialog，直接调用
                 if ( maskAnimation ) {
-                    addClass( _this.mask, maskAnimation.leave );
-                    addClass( _this.mask, maskAnimation.leaveActive );
+                    addClass( _self.mask, maskAnimation.leave );
+                    addClass( _self.mask, maskAnimation.leaveActive );
                 } else {
                     closeCallback && closeCallback();
                 }

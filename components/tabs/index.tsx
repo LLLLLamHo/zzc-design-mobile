@@ -5,7 +5,10 @@ import TabContent from './components/tabContent';
 import { isFunction, isNull } from '../_util/typeof';
 import { TabsProps } from './propsType';
 import config from '../_util/config';
+import { initGtag, zzcComponentUse } from '../_util/gtag';
 import './index.scss';
+
+initGtag( 'Tabs' );
 
 export interface TabsState {
     currIndex: number
@@ -38,6 +41,7 @@ export default class Tabs extends React.PureComponent<TabsProps, TabsState> {
             preIndex: index
         };
         this.onChange = this.onChange.bind( this );
+        zzcComponentUse( 'Tabs', 'use' );
     }
 
     componentWillReceiveProps ( nextPros: any ): void {

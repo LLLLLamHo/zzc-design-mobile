@@ -3,7 +3,7 @@ export interface ImageViewProps {
     className?: string
     visible: boolean
     style?: React.CSSProperties
-    imageList?: Array<any>
+    imageList: Array<any>
     defaultIndex?: number
     onClose?: Function
     onChange?: Function

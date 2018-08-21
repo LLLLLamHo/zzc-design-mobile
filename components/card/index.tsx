@@ -4,8 +4,11 @@ import Header from './components/header';
 import Body from './components/body';
 import Footer from './components/footer';
 import config from '../_util/config';
+import { initGtag, zzcComponentUse } from '../_util/gtag';
 import '../style/index';
 import './index.scss';
+
+initGtag( 'Card' );
 
 export interface CardProps {
     prefixCls: string,
@@ -15,6 +18,10 @@ export interface CardProps {
 }
 
 export default class Card extends PureComponent<CardProps, any> {
+    constructor( props ) {
+        super( props );
+        zzcComponentUse( 'Card', 'use' );
+    }
     static defaultProps = {
         prefixCls: `${config.cls}-card`,
         className: '',
