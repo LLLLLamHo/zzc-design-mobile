@@ -24,7 +24,7 @@ class Alert {
             closable: false,
             closeCallback() { }
         };
-        zzcComponentUse( 'Alert', 'use' );
+        zzcComponentUse( 'Alert', '组件渲染' );
         this.opt = Object.assign( defaultPorps, opt );
         const { title, content, prefixCls, className } = this.opt;
         this.parentNode = this.createParentNode( className );

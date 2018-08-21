@@ -21,7 +21,7 @@ export interface PopupProps {
 export default class Popup extends React.PureComponent<PopupProps> {
     constructor( props ) {
         super( props );
-        zzcComponentUse( 'Popup', 'use' );
+        zzcComponentUse( 'Popup', '组件渲染' );
     }
     static defaultProps = {
         prefixCls: `${config.cls}-popup`,

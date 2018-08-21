@@ -20,7 +20,7 @@ export interface CardProps {
 export default class Card extends PureComponent<CardProps, any> {
     constructor( props ) {
         super( props );
-        zzcComponentUse( 'Card', 'use' );
+        zzcComponentUse( 'Card', '组件渲染' );
     }
     static defaultProps = {
         prefixCls: `${config.cls}-card`,

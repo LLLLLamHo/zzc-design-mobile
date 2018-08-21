@@ -41,7 +41,7 @@ export default class Tabs extends React.PureComponent<TabsProps, TabsState> {
             preIndex: index
         };
         this.onChange = this.onChange.bind( this );
-        zzcComponentUse( 'Tabs', 'use' );
+        zzcComponentUse( 'Tabs', '组件渲染' );
     }
 
     componentWillReceiveProps ( nextPros: any ): void {

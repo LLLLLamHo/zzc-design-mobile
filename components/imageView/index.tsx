@@ -38,7 +38,7 @@ export default class IamgeView extends PureComponent<ImageViewProps, IamgeViewSt
             isRender: visible,
             index: defaultIndex ? defaultIndex : 0
         };
-        zzcComponentUse( 'ImageView', 'use' );
+        zzcComponentUse( 'ImageView', '组件渲染' );
     }
 
     private dialog: any;

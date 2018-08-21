@@ -37,7 +37,7 @@ export interface ModalProps {
 export default class Modal extends PureComponent<ModalProps, any> {
     constructor( props ) {
         super( props );
-        zzcComponentUse( 'Modal', 'use' );
+        zzcComponentUse( 'Modal', '组件渲染' );
     }
     static defaultProps = {
         prefixCls: `${config.cls}-modal`,

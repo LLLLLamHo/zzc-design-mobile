@@ -10,7 +10,7 @@ initGtag( 'Loading' );
 export default class Loading extends PureComponent<LoadingProps, LoadingState> {
     constructor( props ) {
         super( props );
-        zzcComponentUse( 'Loading', 'use' );
+        zzcComponentUse( 'Loading', '组件渲染' );
     }
     static defaultProps = {
         prefixCls: `${config.cls}-loading`,

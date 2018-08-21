@@ -20,7 +20,7 @@ export interface FullModalProps {
 export default class FullModal extends PureComponent<FullModalProps, any> {
     constructor( props ) {
         super( props );
-        zzcComponentUse( 'FullModal', 'use' );
+        zzcComponentUse( 'FullModal', '组件渲染' );
     }
 
     static defaultProps = {

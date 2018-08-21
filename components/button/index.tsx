@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import TouchFeedback from '../touchFeedback';
 import config from '../_util/config';
+// import errorComponent from '../_util/Error';
 import { initGtag, zzcComponentUse } from '../_util/gtag';
 import '../style/index';
 import './index.scss';
@@ -27,6 +28,10 @@ export interface ButtonProps {
 }
 
 export default class Button extends PureComponent<ButtonProps, any> {
+    constructor( props ) {
+        super( props );
+        zzcComponentUse( 'Button', '组件渲染' );
+    }
     static defaultProps = {
         prefixCls: `${config.cls}-button`,
         size: false,
@@ -45,13 +50,6 @@ export default class Button extends PureComponent<ButtonProps, any> {
         },
         activeClassName: ''
     };
-
-    componentWillMount() {
-        if ( !isSend ) {
-            isSend = true;
-            zzcComponentUse( 'Button', 'use' );
-        }
-    }
 
     setActiveClassName( activeClassName?: string, type?: string, ghost?: boolean ): string {
         const activeClassNameIsNone:boolean = activeClassName === '';
@@ -101,3 +99,5 @@ export default class Button extends PureComponent<ButtonProps, any> {
         );
     }
 }
+
+// export default errorComponent( Button, 'Button' );

@@ -39,7 +39,7 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         this.renderAfter = this.renderAfter.bind( this );
         this.close = this.close.bind( this );
         this.submit = this.submit.bind( this );
-        zzcComponentUse( 'DatePicker', 'use' );
+        zzcComponentUse( 'DatePicker', '组件渲染' );
     }
 
     shouldComponentUpdate( nextProps, nextState ): boolean {

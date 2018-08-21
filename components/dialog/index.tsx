@@ -33,7 +33,7 @@ export interface ModalProps {
 export default class Dialog extends PureComponent<ModalProps, any> {
     constructor( props ) {
         super( props );
-        zzcComponentUse( 'Dialog', 'use' );
+        zzcComponentUse( 'Dialog', '组件渲染' );
     }
     static defaultProps = {
         prefixCls: `${config.cls}-dialog`,

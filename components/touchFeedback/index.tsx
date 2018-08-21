@@ -29,7 +29,7 @@ export interface TouchFeedbackProps {
 export default class TouchFeedback extends PureComponent<TouchFeedbackProps, any> {
     constructor( props ) {
         super( props );
-        zzcComponentUse( 'TouchFeedback', 'use' );
+        zzcComponentUse( 'TouchFeedback', '组件渲染' );
     }
     state = {
         active: false
