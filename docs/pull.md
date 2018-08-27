@@ -23,6 +23,7 @@
 - 所有的组件都应该写在components里面
 - 每一个组件内部都必须提供以下的文件
     - \_\_test\_\_ 用于测试
+    - components 子组件和当前开发组件的入口js文件
     - docs 当前组件的文档说明
         - config.json 文档配置，用于生成网站
     - index.scss
@@ -31,6 +32,47 @@
 - 所有的js文件必须使用ts或者tsx进行编写，要符合typescript和eslint的规范
 - demo文件中必须提供对应开发组件的demo页面，可以参考现有的demo页面进行复制，然后二次开发
 - 所有组件只要提供到默认文案，都需要在i18n中提供相对应的字段，要求支持中文简体、中文繁体和英文
+
+### 组件统计
+
+每一个组件必须有2处统计代码，分别是统计调用情况和错误情况。
+
+##### 统计组件调用代码：
+
+```JavaScript
+// 组件入口js   ./components/button.tsx
+import { zzcComponentUse } from '../../_util/gtag'; // 引入统计代码
+
+constructor( props ) {
+    super( props );
+    zzcComponentUse( 'Button', '组件渲染' );
+}
+```
+
+##### 统计代码报错代码：
+
+在组件文件下的`index.tsx`是作为容错组件进行包裹。
+
+```JavaScript
+import React, { PureComponent } from 'react';
+import Error from '../_util/Error'; // 引用容错组件
+import Button from './components/button';
+import {ButtonProps} from './propsType';
+
+export default class ButtonEntrance extends PureComponent<ButtonProps, any> {
+    render() {
+        return (
+            <Error componentName='Button'>
+                <Button {...this.props} />
+            </Error>
+        );
+    }
+}
+```
+
+* 容错组件使用的`typescript`的`props`统一使用组件自身的`propsType`。
+* 需要组件的是class的命名统一使用`<组件名>Entrance`,Error组件接收的参数`componentName = <组件名>`。
+* 理论上直接将传入的参数全数传入对应组件即可。
 
 ### 开发流程
 

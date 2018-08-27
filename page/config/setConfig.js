@@ -49,7 +49,7 @@ async function setComponentConfig( componentList ) {
             categoryData[currData.config.category].push( currData.config );
         }
         configData.index = {
-            mdContent: marked( fs.readFileSync( path.join( __dirname, '../../README.md' ), 'utf8' ), mdOptions )
+            mdContent: marked( fs.readFileSync( path.join( __dirname, '../../docs/index.md' ), 'utf8' ), mdOptions )
         };
         configData.change = {
             mdContent: marked( fs.readFileSync( path.join( __dirname, '../../docs/change.md' ), 'utf8' ), mdOptions )

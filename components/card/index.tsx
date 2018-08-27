@@ -1,53 +1,23 @@
 import React, { PureComponent } from 'react';
-import classNames from 'classnames';
+import Error from '../_util/Error';
+import Card from './components/card';
 import Header from './components/header';
 import Body from './components/body';
 import Footer from './components/footer';
-import config from '../_util/config';
-import { initGtag, zzcComponentUse } from '../_util/gtag';
+import { CardProps } from './propsType';
 import '../style/index';
 import './index.scss';
 
-initGtag( 'Card' );
-
-export interface CardProps {
-    prefixCls: string,
-    className: string,
-    full: boolean,
-    style: React.CSSProperties
-}
-
-export default class Card extends PureComponent<CardProps, any> {
-    constructor( props ) {
-        super( props );
-        zzcComponentUse( 'Card', '组件渲染' );
-    }
-    static defaultProps = {
-        prefixCls: `${config.cls}-card`,
-        className: '',
-        full: false,
-        style: {}
-    };
+export default class CardEntrance extends PureComponent<CardProps, any> {
     static Header = Header;
     static Body = Body;
     static Footer = Footer;
 
     render() {
-        const { style, prefixCls, full, children, className } = this.props;
-        const cardClassName: string = classNames(
-            prefixCls,
-            className,
-            {
-                [`${prefixCls}-full`]: full
-            }
-        );
-
         return (
-            <div style={style} className={cardClassName}>
-                <div className={`${prefixCls}-box`}>
-                    {children}
-                </div>
-            </div>
+            <Error componentName='Card'>
+                <Card {...this.props} />
+            </Error>
         );
     }
 }

@@ -1,39 +1,14 @@
 import React, { PureComponent } from 'react';
-import classNames from 'classnames';
-import config from '../../../_util/config';
-import './index.scss';
+import Error from '../../../_util/Error';
+import Footer from './footer';
+import { CardFooterProps } from './propsType';
 
-export interface CardFooterProps {
-    prefixCls: string,
-    className: string,
-    borderDirection: string,
-    children: any,
-    noBorder: boolean,
-    style: React.CSSProperties
-}
-
-export default class Footer extends PureComponent<CardFooterProps, any> {
-    static defaultProps = {
-        prefixCls: `${config.cls}-card-footer`,
-        className: '',
-        children: null,
-        noBorder: false,
-        style: {}
-    }
-
+export default class CardFooterEntrance extends PureComponent<CardFooterProps, any> {
     render() {
-        const { style, className, prefixCls, noBorder, children } = this.props;
-        const footerClassName:string = classNames(
-            prefixCls,
-            className,
-            {
-                [`${prefixCls}-noborder`]: noBorder
-            }
-        );
         return (
-            <div style={style} className={footerClassName}>
-                {children && children}
-            </div>
+            <Error componentName='Card-Footer'>
+                <Footer {...this.props} />
+            </Error>
         );
     }
 }

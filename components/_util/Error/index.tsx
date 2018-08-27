@@ -1,15 +1,14 @@
 import React, { PureComponent } from 'react';
 import { zzcComponetError } from '../gtag';
 
-export default function errorComponent( WrappedComponent, componentName ) {
-    return class HLError extends PureComponent {
-        componentDidCatch( error, info ) {
-            zzcComponetError( componentName, error, info );
-        }
-        render() {
-            return (
-                <WrappedComponent {...this.props} />
-            );
-        }
-    };
+
+export default class Error extends PureComponent<any, any> {
+    componentDidCatch( error, info ) {
+        zzcComponetError( this.props.componentName ? this.props.componentName : 'component', error, info );
+    }
+    render() {
+        return (
+            this.props.children
+        );
+    }
 }

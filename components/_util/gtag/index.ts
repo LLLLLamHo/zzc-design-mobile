@@ -1,17 +1,16 @@
 
 import config from './config';
 
-let gtagStatus = 'no-install';
-let isInit = false;
-const useList = [];
-export function initGtag( componentName ) {
+let gtagStatus: string = 'no-install';
+let isInit: boolean = false;
+const useList: Array<string> = [];
+
+export function initGtag() {
     window['dataLayer'] = window['dataLayer'] || [];
     window['gtag'] = function() {
         window['dataLayer'].push( arguments );
     };
-    if ( true ) {
-    // if ( config.isOpen ) {
-
+    if ( config.isOpen ) {
         if ( !isInit ) {
             const scriptList = document.getElementsByTagName( 'script' );
             for ( let i = 0; i < scriptList.length; i++ ) {
@@ -37,8 +36,9 @@ export function initGtag( componentName ) {
                     dimension3: 'componentUseLocation',
                     dimension4: 'componentUseHost',
                     dimension5: 'errorComponentName',
-                    dimension6: 'errorInfo',
+                    dimension6: 'errorMsg',
                     dimension7: 'errorPath',
+                    dimension8: 'errorInfo',
                     metric1: 'count',
                     metric2: 'errorCount'
                 }
@@ -59,8 +59,10 @@ export function initGtag( componentName ) {
     }
 }
 
-export function zzcComponentUse ( componentName, action ) {
-    if ( useList.indexOf( componentName ) == -1 ) {
+initGtag();
+
+export function zzcComponentUse ( componentName: string, action: string ) {
+    if ( useList.indexOf( componentName ) != -1 ) {
         useList.push( componentName );
         window['gtag'](
             'event',
@@ -86,16 +88,18 @@ export function zzcComponentUse ( componentName, action ) {
         );
     }
 }
-export function zzcComponetError ( componentName, error, info ) {
+export function zzcComponetError ( componentName: string, error: string, info: any ) {
     window['gtag'](
         'event',
-        'component_error',
+        '组件报错',
         {
             send_to: config.id,
             errorComponentName: componentName,
-            errorInfo: `${error}-${info.componentStack}`,
+            errorMsg: error,
+            errorInfo: info.componentStack,
             errorPath: window.location.href,
-            errorCount: 1
+            errorCount: 1,
+            app_version: config.version
         }
     );
 }

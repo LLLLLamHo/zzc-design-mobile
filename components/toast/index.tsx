@@ -8,12 +8,10 @@ import { isDOM } from '../_util/typeof';
 import Icon from '../icon';
 import Alignment from '../_util/alignment';
 import config from '../_util/config';
-import { initGtag, zzcComponentUse } from '../_util/gtag';
+import { zzcComponentUse } from '../_util/gtag';
 
 import '../style/index';
 import './index.scss';
-
-initGtag( 'Toast' );
 
 const PREFIXCLS: string = `${config.cls}-toast`;
 const alignment: any = new Alignment();

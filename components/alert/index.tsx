@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import Modal from '../modal';
 import config from '../_util/config';
-import { initGtag, zzcComponentUse } from '../_util/gtag';
+import { zzcComponentUse } from '../_util/gtag';
 import './index.scss';
 
-initGtag( 'Alert' );
 class Alert {
     opt: any
     parentNode: Element
