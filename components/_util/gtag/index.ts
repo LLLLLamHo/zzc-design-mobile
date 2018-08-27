@@ -62,7 +62,7 @@ export function initGtag() {
 initGtag();
 
 export function zzcComponentUse ( componentName: string, action: string ) {
-    if ( useList.indexOf( componentName ) != -1 ) {
+    if ( useList.indexOf( componentName ) == -1 ) {
         useList.push( componentName );
         window['gtag'](
             'event',
