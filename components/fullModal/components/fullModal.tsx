@@ -27,10 +27,20 @@ export default class FullModal extends PureComponent<FullModalProps, any> {
     private body: HTMLDivElement | null;
 
     componentDidMount() {
+        this.initScroll();
+    }
+
+    initScroll() {
         const { isUseBScroll, BScrollOpt, BScrollInitCallback } = this.props;
-        if ( isUseBScroll && this.body ) {
-            const scroll = new BScroll( this.body, BScrollOpt );
-            BScrollInitCallback && BScrollInitCallback( scroll );
+        if ( this.body ) {
+            if ( isUseBScroll ) {
+                const scroll = new BScroll( this.body, BScrollOpt );
+                BScrollInitCallback && BScrollInitCallback( scroll );
+            }
+        } else {
+            requestAnimationFrame( () => {
+                this.initScroll();
+            } );
         }
     }
 
