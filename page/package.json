@@ -5,7 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "build": "node ./config/setConfig.js && ./node_modules/.bin/guido build",
-    "watch": "node ./config/setConfig.js && ./node_modules/.bin/guido watch"
+    "watch": "node ./config/setConfig.js && ./node_modules/.bin/guido watch",
+    "publish": "node ./config/setConfig.js && ./node_modules/.bin/guido publish"
   },
   "author": "",
   "license": "ISC",

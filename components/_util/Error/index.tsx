@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { zzcComponetError } from '../gtag';
 
 
-export default class Error extends PureComponent<any, any> {
+export default class Error extends React.PureComponent<any, any> {
     componentDidCatch( error, info ) {
         zzcComponetError( this.props.componentName ? this.props.componentName : 'component', error, info );
     }

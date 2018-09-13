@@ -278,6 +278,9 @@
   word-wrap: break-word;
   -webkit-overflow-scrolling: touch; }
 
+.zds-full-modal-box .zds-full-modal-content .zds-full-modal-body.zds-full-modal-wrapper {
+  overflow-y: hidden; }
+
 .zds-full-modal-box .zds-full-modal-content .zds-full-modal-footer {
   margin: .5rem 0 .8rem;
   display: flex;

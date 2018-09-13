@@ -5,5 +5,8 @@ export interface FullModalProps {
     title?: string
     visible: boolean
     closeCallback: Function
+    BScrollInitCallback: Function
     style?: React.CSSProperties
+    isUseBScroll?: boolean
+    BScrollOpt?: Object
 }

@@ -39,5 +39,46 @@ exports[`Modal 1`] = `
       </div>
     </div>
   </div>
+  <div
+    class="zds-dialog"
+  >
+    <div
+      class="zds-dialog-box zds-full-modal-box"
+    >
+      <div
+        class="zds-full-modal-content"
+      >
+        <div
+          class="zds-full-modal-head"
+        >
+          <h5>
+            这是一个标题
+          </h5>
+        </div>
+        <div
+          class="zds-full-modal-body zds-full-modal-wrapper"
+        >
+          <div
+            class="zds-full-modal-wrapper-content"
+          >
+            <div
+              class="modal-text"
+            >
+              这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案，这里是说明文案
+            </div>
+          </div>
+        </div>
+        <div
+          class="zds-full-modal-footer"
+        >
+          <div
+            class="zds-full-modal-btn"
+          >
+            <span />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;

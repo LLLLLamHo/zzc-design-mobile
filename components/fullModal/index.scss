@@ -42,6 +42,9 @@ $cls: '.zds-full-modal';
                 overflow-x: hidden;
                 word-wrap: break-word;
                 -webkit-overflow-scrolling: touch;
+                &#{$cls}-wrapper{
+                    overflow-y: hidden;
+                }
             }
             #{$cls}-footer {
                 margin: .5rem 0 .8rem;

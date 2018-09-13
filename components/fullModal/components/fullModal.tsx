@@ -1,5 +1,6 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, ReactNode } from 'react';
 import classNames from 'classnames';
+import BScroll from 'better-scroll'
 import Dialog from '../../dialog';
 import TouchFeedback from '../../touchFeedback';
 import config from '../../_util/config';
@@ -17,7 +18,49 @@ export default class FullModal extends PureComponent<FullModalProps, any> {
         style: {},
         visible: false,
         title: '',
-        className: ''
+        className: '',
+        isUseBScroll: false,
+        BScrollOpt: {},
+        BScrollInitCallback: () => {}
+    }
+
+    private body: HTMLDivElement | null;
+
+    componentDidMount() {
+        const { isUseBScroll, BScrollOpt, BScrollInitCallback } = this.props;
+        if ( isUseBScroll && this.body ) {
+            const scroll = new BScroll( this.body, BScrollOpt );
+            BScrollInitCallback && BScrollInitCallback( scroll );
+        }
+    }
+
+    createBScrollElem( children?: ReactNode ): ReactNode {
+        const { prefixCls } = this.props;
+        return (
+            <div
+                className={`${prefixCls}-body ${prefixCls}-wrapper`}
+                ref={
+                    ( elem ) => {
+                        this.body = elem;
+                    }
+                }
+            >
+                <div
+                    className={`${prefixCls}-wrapper-content`}
+                >
+                    {children}
+                </div>
+            </div>
+        );
+    }
+
+    createDefaultElem( children?: ReactNode ): ReactNode {
+        const { prefixCls } = this.props;
+        return (
+            <div className={`${prefixCls}-body`}>
+                {children}
+            </div>
+        );
     }
 
     render() {
@@ -28,7 +71,8 @@ export default class FullModal extends PureComponent<FullModalProps, any> {
             style,
             visible,
             title,
-            closeCallback
+            closeCallback,
+            isUseBScroll
         } = this.props;
 
         if ( visible ) {
@@ -44,9 +88,7 @@ export default class FullModal extends PureComponent<FullModalProps, any> {
                         <div className={`${prefixCls}-head`}>
                             <h5>{title}</h5>
                         </div>
-                        <div className={`${prefixCls}-body`}>
-                            {children}
-                        </div>
+                        {isUseBScroll ? this.createBScrollElem( children ) : this.createDefaultElem( children )}
                         <div className={`${prefixCls}-footer`}>
                             <TouchFeedback
                                 activeClassName={`${prefixCls}-btn-active`}

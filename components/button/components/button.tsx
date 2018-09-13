@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import TouchFeedback from '../../touchFeedback';
 import config from '../../_util/config';
 import { zzcComponentUse } from '../../_util/gtag';
-import {ButtonProps} from '../propsType';
+import { ButtonProps } from '../propsType';
 
 export default class Button extends PureComponent<ButtonProps, any> {
     constructor( props ) {

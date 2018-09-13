@@ -29,7 +29,7 @@ exports[`Modal 1`] = `
         class="zds-modal-footer"
       >
         <div
-          class="zds-button zds-button-full zds-button-default zds-button-noborder"
+          class="zds-button zds-button-lg zds-button-full zds-button-default zds-button-noborder"
         >
           关闭
         </div>

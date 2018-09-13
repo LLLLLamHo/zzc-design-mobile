@@ -11,6 +11,10 @@
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+`2018-09-13`
+
+- 🌟 为fullModal添加better-scroll滚动的功能，添加三个参数`isUseBScroll`,`BScrollOpt`和`BScrollInitCallback`。
+
 `2018-08-27`
 
 - 🌟 添加组件报错埋点
