@@ -7,5 +7,6 @@ export interface PopupProps {
     onClose?: Function,
     renderCallback?: Function,
     transparent?: boolean,
-    direction?: string
+    direction?: string,
+    preRender?: boolean
 }

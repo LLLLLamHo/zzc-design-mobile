@@ -182,21 +182,21 @@ export default class Modal extends PureComponent<ModalProps, any> {
             maskTransitionName,
             prefixCls,
             className,
-            style,
             maskStyle,
             title,
             transparent,
             buttons,
-            closable
+            closable,
+            style
         } = this.props;
-
+        console.log(this.props.style)
         if ( this.state.isRenderModal ) {
             return (
                 <Dialog
+                    style={style}
                     transparent={transparent}
                     maskTransitionName={maskTransitionName}
                     visible={this.state.visible}
-                    style={style}
                     maskStyle={maskStyle}
                     maskClose={maskClose}
                     maskAnimated={( type ) => { this.maskAnimated( type ); }}

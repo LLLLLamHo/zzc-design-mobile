@@ -27,7 +27,7 @@ class Alert {
         this.opt = Object.assign( defaultPorps, opt );
         const { title, content, prefixCls, className } = this.opt;
         this.parentNode = this.createParentNode( className );
-
+        console.log(this.opt);
         this._alert = ReactDOM.render(
             <Modal
                 transitionName={`${config.cls}-zoom`}

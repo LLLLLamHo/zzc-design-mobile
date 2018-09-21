@@ -69,6 +69,8 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
             calcTime = new Date( `${selectTime}/01/01` );
         } else if ( mode == 'month' ) {
             calcTime = new Date( `1993/${selectTime}/01` );
+        } else if ( selectTime == '' ) {
+            calcTime = new Date();
         } else {
             calcTime = isDate( selectTime ) ? selectTime : new Date( selectTime );
         }

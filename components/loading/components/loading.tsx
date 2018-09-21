@@ -30,13 +30,9 @@ export default class Loading extends PureComponent<LoadingProps, LoadingState> {
     }
 
     componentWillReceiveProps( nextProps ): void {
-        if ( nextProps.visible ) {
-            this.setState( {
-                visible: nextProps.visible
-            } );
-        } else {
-            this.modal.close();
-        }
+        this.setState( {
+            visible: nextProps.visible
+        } );
     }
 
     render(): JSX.Element {

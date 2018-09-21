@@ -19,7 +19,8 @@ export default class Popup extends React.PureComponent<PopupProps> {
         maskClose: false,
         onClose () { },
         transparent: false,
-        direction: 'bottom'
+        direction: 'bottom',
+        preRender: false
     }
 
     state = {
@@ -66,8 +67,10 @@ export default class Popup extends React.PureComponent<PopupProps> {
     }
 
     render () {
-        const { visible, children, prefixCls, direction, onClose } = this.props;
-        if ( this.state.showPopup ) {
+        const { visible, children, prefixCls, direction, onClose, preRender } = this.props;
+
+        // 如果使用了预渲染模式的话，就直接渲染出Dialog
+        if ( this.state.showPopup || preRender ) {
             return (
                 <Dialog
                     maskTransitionName={`${config.cls}-fade`}

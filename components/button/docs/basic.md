@@ -15,13 +15,13 @@
 | activeClassName | 点击反馈的自定义类名                                                                         | string   |            |
 | disabled        | 设置禁用                                                                                     | boolean  | false      |
 | onClick         | 点击按钮的点击回调函数                                                                       | function | 无         |
-| style           | 自定义样式                                                                                   | Object   | 无         |
+| style           | 自定义样式                                                                      | Object   | 无         |
 | inline          | 是否设置为行内按钮                                                                           | boolean  | false      |
 | className       | 样式类名                                                                                     | string   | 无         |
 | ghost           | 是否为空中按钮                                                                               | boolean  | false      |
 | noBorder        | 不显示边框                                                                                   | boolean  | false      |
 | noRadius        | 不显示圆角                                                                                   | boolean  | false      |
-| full        | 占满整行                                                                                   | boolean  | false      |
+| full            | 占满整行                                                                                     | boolean  | false      |
 
 ```JavaScript
 <Button type='main'>main</Button>

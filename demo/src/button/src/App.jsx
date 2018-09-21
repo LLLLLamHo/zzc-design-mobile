@@ -19,7 +19,7 @@ export default class App extends PureComponent {
                 </div>
                 <div className='zzc-demo-body'>
                     <h5>颜色、类型</h5>
-                    <Button><div className='icon-button'><Icon style={{fill:'green'}} size='ms' className='aaa' type='success'/>default</div></Button>
+                    <Button style={{background: 'red'}}><div className='icon-button'><Icon style={{fill:'green'}} size='ms' className='aaa' type='success'/>default</div></Button>
                     <Button type='main'>main</Button>
                     <Button type='main-lh'>main-lh</Button>
                     <Button type='main-dk'>main-dk</Button>

@@ -16,7 +16,7 @@
 | buttons       | 弹窗的按钮组            | array                  | []        |
 | maskClose     | 点击遮罩层关闭Alert     | boolean                | false     |
 | closable      | 是否使用默认的按钮      | boolean                | false     |
-| closeCallback | 关闭Alert后的回调函数   | function               | 无     |
+| closeCallback | 关闭Alert后的回调函数   | function               | 无        |
 
 
 

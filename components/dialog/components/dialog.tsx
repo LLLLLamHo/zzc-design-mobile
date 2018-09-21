@@ -21,7 +21,7 @@ export default class Dialog extends PureComponent<DialogProps, any> {
         boxClassName: '',
         maskTransitionName: '',
         transitionName: '',
-        style: {},
+        dialogStyle: {},
         maskStyle: {},
         visible: false,
         closeCallback () { },

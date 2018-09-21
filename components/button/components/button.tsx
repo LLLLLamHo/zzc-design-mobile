@@ -66,9 +66,7 @@ export default class Button extends PureComponent<ButtonProps, any> {
                     className={
                         btnClassNames
                     }
-                    style={
-                        style
-                    }
+                    style={style}
                     onClick={onClick}
                 >
                     {children}
