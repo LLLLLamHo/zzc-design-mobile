@@ -73,6 +73,7 @@ export default class Popup extends React.PureComponent<PopupProps> {
         if ( this.state.showPopup || preRender ) {
             return (
                 <Dialog
+                    preRender={preRender}
                     maskTransitionName={`${config.cls}-fade`}
                     transitionName={this.getAnimationClass( direction )}
                     prefixCls={prefixCls}

@@ -52,7 +52,10 @@ export default class Animate extends React.PureComponent<AnimateProps> {
         const node = ReactDOM.findDOMNode( this );
         if ( isDOM( node ) ) {
             if ( isObject( animationName ) ) {
-                const { enter, enterActive } = animationName;
+                const { enter, enterActive, leave, leaveActive } = animationName;
+                // 在进行动画进入钩子之前，先确定如果存在离开钩子，先进行清除
+                hasClass( node, leave ) && removeClass( node, leave );
+                hasClass( node, leaveActive ) && removeClass( node, leaveActive );
                 addClass( node, enter );
                 addClass( node, enterActive );
             } else {
@@ -80,7 +83,6 @@ export default class Animate extends React.PureComponent<AnimateProps> {
 
     // 动画完成触发事件
     animationEvent ( event ): void {
-
         event.stopPropagation();
         const { animationName }: any = this.props;
         const { enter, enterActive, leave, leaveActive } = animationName;
@@ -88,7 +90,7 @@ export default class Animate extends React.PureComponent<AnimateProps> {
             const node = ReactDOM.findDOMNode( this );
             if ( isDOM( node ) ) {
                 let animationType = 'enter';
-                // 当传入object会清楚enter钩子，如果只是传入一个字符串，会保留class直至关闭才去掉class
+                // 当传入object会清除enter钩子，如果只是传入一个字符串，会保留class直至关闭才去掉class
                 if ( isObject( animationName ) ) {
                     // 当切换enter和leave速度过来会导致bug，需要判断是否会存在enter和leave的class
                     if ( hasClass( node, enter ) ) {
@@ -111,7 +113,9 @@ export default class Animate extends React.PureComponent<AnimateProps> {
                 }
                 this.props.onEnd && this.props.onEnd( animationType );
             }
-        } catch ( err ){}
+        } catch ( err ) {
+            console.log( err );
+        }
     }
 
     render (): any {

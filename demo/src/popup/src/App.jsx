@@ -3,6 +3,25 @@ import {Popup, Button, Card, Icon} from 'zzc-design-mobile';
 import './index.scss';
 import '../../../style/style.scss';
 
+class Content extends Component {
+    setContent() {
+        const arr = [];
+        for (let i = 0; i < 2000; i++ ) {
+            arr.push(<p key={`${i}`}>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</p>);
+        }
+        return arr;
+    }
+    render () {
+        return [
+            <p>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</p>,
+            <p>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</p>,
+            <p>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</p>,
+            <p>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</p>,
+            <p>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</p>
+        ];
+    }
+}
+
 export default class App extends Component {
     constructor( props ) {
         super( props );
@@ -14,6 +33,7 @@ export default class App extends Component {
             visible4: false,
             visible5: false,
             visible6: false,
+            visible7: false,
             countryList: ['美国', '英国', '法国', '德国', '巴西', '中国', '韩国', '朝鲜', '日本', '俄罗斯', '新西兰', '澳大利亚', '印度', '泰国', '缅甸', '老挝']
         };
     }
@@ -59,6 +79,12 @@ export default class App extends Component {
 
     renderCallback() {
         console.log('showed');
+    }
+
+    openPreRenderPopup() {
+        this.setState( {
+            visible7: true
+        } );
     }
 
     render() {
@@ -415,7 +441,47 @@ export default class App extends Component {
                             </Card.Body>
                         </Card>
                     </Popup>
+                </div>
 
+                <div className='zzc-demo-body'>
+                    <Button onClick={() => {this.openPreRenderPopup();}}>预渲染popup</Button>
+                    <Popup
+                        maskClose
+                        preRender
+                        visible={this.state.visible7}
+                        onClose={() => {
+                            this.setState( {
+                                visible7: false
+                            } );
+                        }}
+                    >
+                        <Card full>
+                            <Card.Header
+                                className='cursor-car-head'
+                            >
+                                <div
+                                    className='cursor-car-close'
+                                    onClick={
+                                        () => {
+                                            this.setState( {
+                                                visible7: false
+                                            } );
+                                        }
+                                    }
+                                >
+                                    关闭
+                                </div>
+                            </Card.Header>
+                            <Card.Body borderDirection='left'>
+                                <div className='card-box2'>
+                                    <p>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</p>
+                                    <p>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</p>
+                                    <p>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</p>
+                                    <Content/>
+                                </div>
+                            </Card.Body>
+                        </Card>
+                    </Popup>
                 </div>
             </div>
         );

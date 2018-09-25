@@ -1,18 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Modal 1`] = `
-<div
-  class="zds-popup"
->
+<div>
   <div
-    class="zds-popup-mask"
-  />
-  <div
-    class="zds-popup-box zds-popup-bottom"
+    class="zds-popup"
   >
-    <h1>
-      123
-    </h1>
+    <div
+      class="zds-popup-mask"
+    />
+    <div
+      class="zds-popup-box zds-popup-bottom"
+    >
+      <h1>
+        123
+      </h1>
+    </div>
+  </div>
+  <div
+    class="pre-render-box"
+    style="display:none"
+  >
+    <div
+      class="zds-popup"
+    >
+      <div
+        class="zds-popup-mask"
+      />
+      <div
+        class="zds-popup-box zds-popup-bottom"
+      >
+        <div
+          class="card-box2"
+        >
+          <p>
+            文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容
+          </p>
+          <p>
+            文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容
+          </p>
+          <p>
+            文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;

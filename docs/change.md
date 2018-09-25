@@ -11,6 +11,12 @@
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+`2018-09-25`
+
+- 🌟 popup添加新参数`preRender`进行预加载。[#21](https://github.com/LLLLLamHo/zzc-design-mobile/issues/21)
+- 🐞 修复loading报错问题[#22](https://github.com/LLLLLamHo/zzc-design-mobile/issues/22)
+- 🐞 修复datePicker组件传入参数selectTime为空字符串时的错误[#19](https://github.com/LLLLLamHo/zzc-design-mobile/issues/19)
+
 `2018-09-13`
 
 - 🌟 为fullModal添加better-scroll滚动的功能，添加三个参数`isUseBScroll`,`BScrollOpt`和`BScrollInitCallback`。

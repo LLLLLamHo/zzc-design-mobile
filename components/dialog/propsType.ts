@@ -7,6 +7,7 @@ export interface DialogProps {
     maskTransitionName?: string,
     visible: boolean,
     transparent?: boolean,
+    preRender?: boolean,
     maskClose?: boolean,
     closeCallback?: Function,
     maskAnimated?: Function,
