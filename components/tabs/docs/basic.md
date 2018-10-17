@@ -76,7 +76,94 @@
 {this.state.tabsIndex == 1 &&<div>自定义主体2</div>}
 ```
 
+## 异步渲染tab的主体内容如何实现
 
+### 异步渲染函数
+```jsx
+lazyRender ( key ) {
+    if ( key == 1 ) {
+        new Promise( ( resolve, reject ) => {
+            setTimeout( () => {
+                const component = ( <div className='item-content2'>
+                    <h1>车辆详情</h1>
+                    <ul>
+                        <li>车辆详情.....</li>
+                        <li>车辆详情.....</li>
+                    </ul>
+                </div> );
+                resolve( component );
+            }, 3000 );
+        } ).then( ( component ) => {
+            this.setState( {
+                lazyComponent1: component
+            } );
+        } );
+    } else {
+        new Promise( ( resolve, reject ) => {
+            setTimeout( () => {
+                const component = ( <div className='item-content2'>
+                    <h1>用户评论</h1>
+                    <ul>
+                        <li>用户评论.....</li>
+                        <li>用户评论.....</li>
+                        </ul>
+                    </div> );
+                    resolve( component );
+                }, 3000 );
+            } ).then( ( component ) => {
+                this.setState( {
+                    lazyComponent2: component
+                } );
+            } );
+        }
+    }
+}
+```
+
+### 组件代码实例
+```jsx
+<Tabs
+    maxTabLength={3}
+    defaultIndex={this.state.tabsIndex8}
+    tabs={this.state.tabs3}
+    onChange={( key ) => {
+        this.lazyRender( key );
+    }}
+>
+    <div key='test1' className='item-content2'>
+        <div className='item-content-box'>
+            <h1>驾车须知</h1>
+            <ul>
+                <li>驾车须知.....</li>
+                <li>驾车须知.....</li>
+                <li>驾车须知.....</li>
+                <li>驾车须知.....</li>
+                <li>驾车须知.....</li>
+                <li>驾车须知.....</li>
+                <li>驾车须知.....</li>
+            </ul>
+        </div>
+    </div>
+    <div key='test2' className='item-content2'>
+        {
+            lazyComponent1 ?
+                lazyComponent1 :
+                <div className='loading-box'>
+                    <Icon type='loading' />
+                </div>
+                            }
+    </div>
+    <div key='test3' className='item-content2'>
+        {
+            lazyComponent2 ?
+                lazyComponent2 :
+                <div className='loading-box'>
+                    <Icon type='loading' />
+                </div>
+        }
+    </div>
+</Tabs>
+```
 
 ## Tabs主体内容
 

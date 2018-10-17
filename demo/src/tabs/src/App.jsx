@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Tabs} from 'zzc-design-mobile';
+import {Tabs, Icon} from 'zzc-design-mobile';
 import './index.scss';
 import '../../../style/style.scss';
 
@@ -20,6 +20,17 @@ export default class App extends Component {
                 {title: 'tab 5'},
                 {title: 'tab 6'},
                 {title: 'tab 7'}
+            ],
+            tabs3: [
+                {
+                    title: '驾车须知'
+                },
+                {
+                    title: '车辆详情',
+                },
+                {
+                    title: '用户评论',
+                }
             ],
             tabs: [
                 <div>自定义1</div>,
@@ -42,18 +53,60 @@ export default class App extends Component {
             tabsIndex4: 0,
             tabsIndex5: 0,
             tabsIndex6: 0,
-            tabsIndex7: 0
+            tabsIndex7: 0,
+            tabsIndex8: 0,
+            lazyComponent1: null,
+            lazyComponent2: null
         };
     }
 
-    renderContent( tabs ) {
+    renderContent ( tabs ) {
         return tabs.map( ( item, key ) => (
             <div className='item-content' key={key}>
                 <p>this is {item.title} content</p>
             </div> ) );
     }
 
-    render() {
+    lazyRender ( key ) {
+        if ( key == 1 ) {
+            new Promise( ( resolve, reject ) => {
+                setTimeout( () => {
+                    const component = ( <div className='item-content2'>
+                        <h1>车辆详情</h1>
+                        <ul>
+                            <li>车辆详情.....</li>
+                            <li>车辆详情.....</li>
+                        </ul>
+                    </div> );
+                    resolve( component );
+                }, 3000 );
+            } ).then( ( component ) => {
+                this.setState( {
+                    lazyComponent1: component
+                } );
+            } );
+        } else {
+            new Promise( ( resolve, reject ) => {
+                setTimeout( () => {
+                    const component = ( <div className='item-content2'>
+                        <h1>用户评论</h1>
+                        <ul>
+                            <li>用户评论.....</li>
+                            <li>用户评论.....</li>
+                        </ul>
+                    </div> );
+                    resolve( component );
+                }, 3000 );
+            } ).then( ( component ) => {
+                this.setState( {
+                    lazyComponent2: component
+                } );
+            } );
+        }
+    }
+
+    render () {
+        const {lazyComponent1, lazyComponent2 } = this.state;
         return (
             <div className='zzc-demo'>
                 <div className='zzc-demo-header'>
@@ -188,6 +241,61 @@ export default class App extends Component {
                         }}
                     >
                         {this.renderContent( this.state.tabs2 )}
+                    </Tabs>
+                </div>
+                <div className='zzc-demo-body full'>
+                    <h1 className='zzc-component-title'>异步加载tab内容进行渲染</h1>
+                    <Tabs
+                        maxTabLength={3}
+                        defaultIndex={this.state.tabsIndex8}
+                        tabs={this.state.tabs3}
+                        onChange={( key ) => {
+                            this.lazyRender( key );
+                        }}
+                    >
+                        <div key='test1' className='item-content2'>
+                            <div className='item-content-box'>
+                                <h1>驾车须知</h1>
+                                <ul>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                    <li>驾车须知.....</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div key='test2' className='item-content2'>
+                            {
+                                lazyComponent1 ?
+                                    lazyComponent1 :
+                                    <div className='loading-box'>
+                                        <Icon type='loading' />
+                                    </div>
+                            }
+                        </div>
+                        <div key='test3' className='item-content2'>
+                            {
+                                lazyComponent2 ?
+                                    lazyComponent2 :
+                                    <div className='loading-box'>
+                                        <Icon type='loading' />
+                                    </div>
+                            }
+                        </div>
                     </Tabs>
                 </div>
             </div>

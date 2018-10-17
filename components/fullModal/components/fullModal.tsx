@@ -102,7 +102,10 @@ export default class FullModal extends PureComponent<FullModalProps, any> {
                         <div className={`${prefixCls}-footer`}>
                             <TouchFeedback
                                 activeClassName={`${prefixCls}-btn-active`}
-                                onTouchEnd={() => { closeCallback(); }}
+                                onTouchEnd={( event ) => {
+                                    closeCallback();
+                                    event.preventDefault();
+                                }}
                             >
                                 <div className={`${prefixCls}-btn`}>
                                     <span />

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classnames from 'classnames';
 import TabsPane from './tabPane';
 import Gesture from '../../_util/Gesture';
@@ -24,19 +25,18 @@ export default class TabrContent extends React.PureComponent<TabContentProps> {
                 [`${prefixCls}-content-wrap-am`]: animated
             }
         );
-
         return (
             <div className={warpCls} style={this.setContentWrapStyle()} ref={( refs ) => { this.setLayout( refs ); }}>
                 <div className={`${prefixCls}-content`}>
-                    {children && children instanceof Array && children.map( ( ( item, key ) => (
-                        <TabsPane
+                    {children && children instanceof Array && children.map( ( ( item, key ) => {
+                        return ( <TabsPane
                             prefixCls={prefixCls}
-                            key={`tabspane-${key}-${new Date().getTime()}`}
-                            itemKey={`${config.cls}-tabs-content-item-${key}-${new Date().getTime()}`}
+                            key={`tabspane-${key}`}
+                            itemKey={`${config.cls}-tabs-content-item-${key}`}
                         >
                             {item}
-                        </TabsPane>
-                    ) ) )}
+                        </TabsPane> );
+                    } ) )}
                 </div>
             </div>
         );

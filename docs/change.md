@@ -11,6 +11,11 @@
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+`2018-10-17`
+
+- 🐞 修复fullModal点击穿透的问题 [#23](https://github.com/LLLLLamHo/zzc-design-mobile/issues/23)
+- :clipboard: 新增Tabs组件异步渲染说明
+
 `2018-09-25`
 
 - 🌟 popup添加新参数`preRender`进行预加载。[#21](https://github.com/LLLLLamHo/zzc-design-mobile/issues/21)
