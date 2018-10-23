@@ -51,4 +51,3 @@ import Alert from 'zzc-design-mobile/lib/alert';
 UI组件每一个的调用和报错都会提交统计。如果不是十分必要，请勿关闭统计功能。这样我们会更好定位错误位置以及组件的使用情况。
 
 如果必须关闭组件的统计功能的话，可以在window作用域下注入变量：`ZDS_STOP_TJ = true`,即可禁用统计。
-
