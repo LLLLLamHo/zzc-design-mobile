@@ -15,12 +15,5 @@ $cls: '.zds-card';
         margin: 0 .2rem;
         border-radius: .16rem;
         box-shadow: 0 .04rem .12rem 0 rgba(0, 0, 0, 0.15);
-        section:last-of-type {
-            #{$cls}-body-box{
-                &:after{
-                    display: none;
-                }
-            }
-        }
     }
 }

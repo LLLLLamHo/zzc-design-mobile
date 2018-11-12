@@ -1032,10 +1032,6 @@ mark {
   padding: .2em;
   background-color: #feffe6;
 }
-::-moz-selection {
-  background: #1890ff;
-  color: #fff;
-}
 ::selection {
   background: #1890ff;
   color: #fff;

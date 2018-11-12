@@ -13,6 +13,11 @@
 ---
 `2018-10-17`
 
+- 🐞 修改Card.Body默认最后一个的边线去掉的逻辑，每一个Card.Body都需要手动去除边线。 [#26](https://github.com/LLLLLamHo/zzc-design-mobile/issues/26)
+
+
+`2018-10-17`
+
 - 🐞 修复fullModal点击穿透的问题 [#23](https://github.com/LLLLLamHo/zzc-design-mobile/issues/23)
 - :clipboard: 新增Tabs组件异步渲染说明
 

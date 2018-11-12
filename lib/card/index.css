@@ -248,6 +248,3 @@
   margin: 0 .2rem;
   border-radius: .16rem;
   box-shadow: 0 0.04rem 0.12rem 0 rgba(0, 0, 0, 0.15); }
-
-.zds-card-box section:last-of-type .zds-card-body-box:after {
-  display: none; }

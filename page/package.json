@@ -6,13 +6,12 @@
   "scripts": {
     "build": "node ./config/setConfig.js && ./node_modules/.bin/guido build",
     "watch": "node ./config/setConfig.js && ./node_modules/.bin/guido watch",
-    "publish": "node ./config/setConfig.js && ./node_modules/.bin/guido publish"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "github-markdown-css": "2.10.0",
-    "guido": "3.7.4",
+    "guido": "3.6.6",
     "highlight.js": "9.7.0",
     "html-loader": "0.5.5",
     "json-loader": "0.5.7",
@@ -24,7 +23,7 @@
   },
   "dependencies": {
     "antd": "3.6.2",
-    "react-markdown": "^3.3.3",
-    "react-syntax-highlighter": "^7.0.4"
+    "react-markdown": "3.3.3",
+    "react-syntax-highlighter": "7.0.4"
   }
 }

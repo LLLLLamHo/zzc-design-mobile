@@ -25,7 +25,7 @@ export default class App extends PureComponent {
                                 <p>文本内容</p>
                             </div>
                         </Card.Body>
-                        <Card.Body>
+                        <Card.Body noBorder>
                             <div className='card-box1'>
                                 <p>文本内容</p>
                             </div>
@@ -58,7 +58,7 @@ export default class App extends PureComponent {
                                 <p>下划线右留空</p>
                             </div>
                         </Card.Body>
-                        <Card.Body>
+                        <Card.Body noBorder>
                             <div className='card-box1'>
                                 <p>文本内容............</p>
                             </div>
@@ -80,7 +80,7 @@ export default class App extends PureComponent {
                                 <Icon size='sm' type='success' />
                             </div>
                         </Card.Body>
-                        <Card.Body>
+                        <Card.Body noBorder>
                             <div className='card-box2'>
                                 <p>文本内容</p>
                                 <Icon size='sm' type='success' />
@@ -119,7 +119,7 @@ export default class App extends PureComponent {
                                 <Icon size='sm' type='success' />
                             </div>
                         </Card.Body>
-                        <Card.Body>
+                        <Card.Body noBorder>
                             <div className='card-box2'>
                                 <p>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</p>
                             </div>
