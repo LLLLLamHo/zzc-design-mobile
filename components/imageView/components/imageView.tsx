@@ -142,7 +142,7 @@ export default class IamgeView extends PureComponent<ImageViewProps, IamgeViewSt
                 style={{ transform: `translate3d(-${this.state.index * 100}%, 0px, 0px)` }}
                 className={`${prefixCls}-content`}
                 ref={( div ) => { this.getLayout( div ); }}
-                onClick={() => { this.dialog.mask.click(); }}
+                onClick={() => { this.dialog.mask && this.dialog.mask.click(); }}
             >
                 {this.createImageList()}
             </div>
@@ -223,6 +223,7 @@ export default class IamgeView extends PureComponent<ImageViewProps, IamgeViewSt
                     className={classNames( prefixCls, className )}
                     style={style}
                     closeCallback={() => { this.close(); }}
+                    onClick={() => {}}
                 >
                     {this.createImageContent()}
                 </Dialog>

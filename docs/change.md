@@ -11,6 +11,11 @@
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+`2019-2-27`
+
+- 🐞 修改picker组件，当外部数据更改时不会更改里面滚动数据
+
+
 `2018-10-17`
 
 - 🐞 修改Card.Body默认最后一个的边线去掉的逻辑，每一个Card.Body都需要手动去除边线。 [#26](https://github.com/LLLLLamHo/zzc-design-mobile/issues/26)

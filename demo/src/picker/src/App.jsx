@@ -7,6 +7,8 @@ export default class App extends Component {
     constructor( props ) {
         super( props );
         this.state = {
+            province: 1,
+            city: 1,
             data1: [
                 {
                     className: 'year-list',
@@ -105,6 +107,83 @@ export default class App extends Component {
                         text: '7日'
                     }]
                 }
+            ],
+            data2: [
+                {
+                    className: 'province-list',
+                    itemClassName: 'province-item',
+                    scrollType: 'province',
+                    selectIndex: 0,
+                    listData: [
+                        {
+                            text: '省份1',
+                            dataKey: '省份1'
+                        },
+                        {
+                            text: '省份2',
+                            dataKey: '省份2'
+                        },
+                        {
+                            text: '省份3',
+                            dataKey: '省份3'
+                        }
+                    ],
+                    scrollData: {
+                        wheel: {
+                            selectedIndex: 2,
+                            rotate: 25,
+                            adjustTime: 33333
+                        }
+                    }
+                },
+                {
+                    className: 'city-list',
+                    itemClassName: 'city-item',
+                    scrollType: 'city',
+                    selectIndex: 0,
+                    listData: [
+                        {
+                            text: '市区1-1',
+                            dataKey: '市区1-1'
+                        },
+                        {
+                            text: '市区1-2',
+                            dataKey: '市区1-2'
+                        },
+                        {
+                            text: '市区1-3',
+                            dataKey: '市区1-3'
+                        },
+                        {
+                            text: '市区1-4',
+                            dataKey: '市区1-4'
+                        }
+                    ],
+                    scrollData: {
+                        wheel: {
+                            selectedIndex: 2
+                        }
+                    }
+                },
+                {
+                    className: 'area-list',
+                    itemClassName: 'area-item',
+                    scrollType: 'area',
+                    listData: [
+                        {
+                            text: '区1-1-1',
+                            dataKey: '区1-1-1'
+                        },
+                        {
+                            text: '区1-1-2',
+                            dataKey: '区1-1-2'
+                        },
+                        {
+                            text: '区1-1-2',
+                            dataKey: '区1-1-2'
+                        }
+                    ]
+                }
             ]
         };
     }
@@ -121,6 +200,53 @@ export default class App extends Component {
         console.log( scrollObj );
     }
 
+    touchEnd2 ( scrollIndex, itemIndex ) {
+        console.log( `touchEnd: scroll序号${scrollIndex}` );
+        console.log( `touchEnd: item序号${itemIndex}` );
+        if ( scrollIndex == 'province' ) {
+            const newData = JSON.parse(JSON.stringify(this.state.data2));
+            const data = newData[1].listData;
+            for ( let i = 0; i < data.length; i++ ) {
+                data[i].text = `市区${itemIndex + 1}-${i + 1}`;
+                data[i].dataKey = `市区${itemIndex + 1}-${i + 1}`;
+            }
+            const cityList = newData[2].listData;
+            for ( let i = 0; i < cityList.length; i++ ) {
+                cityList[i].text = `区${itemIndex + 1}-${this.state.city}-${i + 1}`;
+                cityList[i].dataKey = `区${itemIndex + 1}-${this.state.city}-${i + 1}`;
+            }
+            newData[0].selectIndex = itemIndex;
+            // newData[0].scrollData.wheel.selectIndex = itemIndex;
+            newData[1].selectIndex = this.state.city - 1;
+            // newData[1].scrollData.wheel.selectIndex = itemIndex;
+            this.setState({
+                province: itemIndex + 1,
+                data2: newData
+            });
+        } else if ( scrollIndex == 'city' ) {
+            const newData = JSON.parse(JSON.stringify(this.state.data2));
+            const data = newData[2].listData;
+            for ( let i = 0; i < data.length; i++ ) {
+                data[i].text = `区${this.state.province}-${itemIndex + 1}-${i + 1}`;
+                data[i].dataKey = `区${this.state.province}-${itemIndex + 1}-${i + 1}`;
+            }
+            newData[0].selectIndex = this.state.province - 1;
+            newData[1].selectIndex = itemIndex;
+            this.setState({
+                data2: newData,
+                city: itemIndex + 1
+            });
+        }
+        
+    }
+    touchStart2 ( scrollIndex ) {
+        console.log( `touchStart: scroll序号${scrollIndex}` );
+    }
+
+    renderAfter2 ( scrollObj ) {
+        console.log( scrollObj );
+    }
+
     render () {
         return (
             <div className='zzc-demo'>
@@ -134,6 +260,17 @@ export default class App extends Component {
                         onTouchStart={( scrollIndex ) => { this.touchStart( scrollIndex );}}
                         pickerData={this.state.data1}
                         renderAfter={this.renderAfter}
+                    />
+                </div>
+                <div className='zzc-demo-header'>
+                    <h1 className='zzc-demo-title'>城市选择</h1>
+                </div>
+                <div className='zzc-demo-body full'>
+                    <Picker
+                        onTouchEnd={( scrollIndex, itemIndex ) => {this.touchEnd2( scrollIndex, itemIndex );}}
+                        onTouchStart={( scrollIndex ) => { this.touchStart2( scrollIndex );}}
+                        pickerData={this.state.data2}
+                        renderAfter={this.renderAfter2}
                     />
                 </div>
             </div>

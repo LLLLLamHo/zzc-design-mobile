@@ -23,6 +23,10 @@ export default class Picker extends React.Component<PickerProps> {
         if ( JSON.stringify( nextProps ) != JSON.stringify( this.props ) ) {
             return true;
         }
+        // 更新渲染数据的时候需要做判断，如果数据不一样将会重新渲染
+        if ( JSON.stringify(nextProps.pickerData) != JSON.stringify( this.props.pickerData ) ) {
+            return true;
+        }
         return false;
     }
 
