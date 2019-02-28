@@ -9,7 +9,7 @@ export default class DialogEntrance extends PureComponent<DialogProps, any> {
     render() {
         return (
             <Error componentName='Dialog'>
-                <Dialog {...this.props} />
+                <Dialog ref={(dialog) => { this.props.getRef && this.props.getRef(dialog) }} {...this.props} />
             </Error>
         );
     }

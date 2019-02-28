@@ -16,6 +16,7 @@ export default class Dialog extends PureComponent<DialogProps, any> {
     }
     static defaultProps = {
         prefixCls: `${config.cls}-dialog`,
+        getRef: () => {},
         className: '',
         maskClassName: '',
         boxClassName: '',
@@ -152,7 +153,7 @@ export default class Dialog extends PureComponent<DialogProps, any> {
     }
 
     render(): JSX.Element {
-        const { prefixCls, className, style, preRender, visible } = this.props;
+        const { prefixCls, className, style, preRender, visible, getRef } = this.props;
         // preRender预渲染
         if ( preRender ) {
             return (

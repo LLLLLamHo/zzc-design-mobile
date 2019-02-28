@@ -142,7 +142,7 @@ export default class IamgeView extends PureComponent<ImageViewProps, IamgeViewSt
                 style={{ transform: `translate3d(-${this.state.index * 100}%, 0px, 0px)` }}
                 className={`${prefixCls}-content`}
                 ref={( div ) => { this.getLayout( div ); }}
-                onClick={() => { this.dialog.mask && this.dialog.mask.click(); }}
+                onClick={() => { this.dialog.mask && this.dialog.mask.click && this.dialog.mask.click(); }}
             >
                 {this.createImageList()}
             </div>
@@ -174,7 +174,7 @@ export default class IamgeView extends PureComponent<ImageViewProps, IamgeViewSt
                 {
                     imageList.map( ( item, key ) => (
                         <section key={`imageView-${key}-${hash}`}>
-                            <img alt='' src={item} />
+                            <img onClick={() => {this.dialog.mask.click();}} alt='' src={item} />
                         </section>
                     ) )
                 }
@@ -185,9 +185,9 @@ export default class IamgeView extends PureComponent<ImageViewProps, IamgeViewSt
     lazyImage( item, key ): JSX.Element {
         const { index } = this.state;
         if ( index == key || index == key - 1 || index == key + 1 ) {
-            return ( <img alt='' src={item} /> );
+            return ( <img alt='' onClick={() => {this.dialog.mask.click();}} src={item} /> );
         }
-        return ( <img alt='' /> );
+        return ( <img alt='' onClick={() => {this.dialog.mask.click();}} /> );
     }
 
     getDialog( dialog ): void {
@@ -213,7 +213,7 @@ export default class IamgeView extends PureComponent<ImageViewProps, IamgeViewSt
         if ( isRender ) {
             return (
                 <Dialog
-                    ref={( dialog ) => { this.getDialog( dialog ); }}
+                    getRef={( dialog ) => { console.log(dialog);this.getDialog( dialog ); }}
                     maskClose
                     maskClassName={`${prefixCls}-mask`}
                     boxClassName={`${prefixCls}-box`}

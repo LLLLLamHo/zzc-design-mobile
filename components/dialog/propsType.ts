@@ -17,4 +17,5 @@ export interface DialogProps {
     maskStyle?: React.CSSProperties,
     title?: JSX.Element,
     footer?: JSX.Element | null,
+    getRef?: Function
 }
