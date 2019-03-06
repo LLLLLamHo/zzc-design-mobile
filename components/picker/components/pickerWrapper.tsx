@@ -97,10 +97,9 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
     }
 
     removeActiveItem (): void {
-        const { prefixCls, data } = this.props;
+        const { prefixCls } = this.props;
         if ( this.wheelScroll.children[this.currIndex] ) {
-            const liCls = data[this.currIndex] && data[this.currIndex].className ? data[this.currIndex].className : '';
-            this.wheelScroll.children[this.currIndex].className = `${prefixCls}-wi ${liCls}`;
+            this.wheelScroll.children[this.currIndex].className = this.wheelScroll.children[this.currIndex].className.replace(` ${prefixCls}-wi-active`, '');
         }
     }
 
