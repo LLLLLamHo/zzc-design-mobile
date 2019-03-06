@@ -144,7 +144,8 @@ export default class App extends Component {
                     listData: [
                         {
                             text: '市区1-1',
-                            dataKey: '市区1-1'
+                            dataKey: '市区1-1',
+                            className: 'test-class'
                         },
                         {
                             text: '市区1-2',

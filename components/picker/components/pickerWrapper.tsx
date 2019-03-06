@@ -95,18 +95,21 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
         this.removeActiveItem();
         this.props.onTouchStart && this.props.onTouchStart( this.props.wrapperIndex );
     }
+
     removeActiveItem (): void {
-        const { prefixCls } = this.props;
+        const { prefixCls, data } = this.props;
         if ( this.wheelScroll.children[this.currIndex] ) {
-            this.wheelScroll.children[this.currIndex].className = `${prefixCls}-wi`;
+            const liCls = data[this.currIndex] && data[this.currIndex].className ? data[this.currIndex].className : '';
+            this.wheelScroll.children[this.currIndex].className = `${prefixCls}-wi ${liCls}`;
         }
     }
 
     addActiveItem (): void {
-        const { prefixCls } = this.props;
+        const { prefixCls, data } = this.props;
         this.currIndex = this.BScrollObj.getSelectedIndex();
         if ( this.wheelScroll && this.wheelScroll.children[this.currIndex] ) {
-            this.wheelScroll.children[this.currIndex].className = `${prefixCls}-wi ${prefixCls}-wi-active`;
+            const liCls = data[this.currIndex] && data[this.currIndex].className ? data[this.currIndex].className : '';
+            this.wheelScroll.children[this.currIndex].className = `${prefixCls}-wi ${prefixCls}-wi-active ${liCls}`;
         }
     }
 
@@ -119,7 +122,7 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
         const timestamp = new Date().getTime();
         const liNodeList = data.listData.map( ( item, key ) => (
             <li
-                className={liCls}
+                className={item.className ? classnames(liCls, item.className) : liCls}
                 data-key={item.dataKey ? item.dataKey : item.text}
                 key={`${timestamp}-${key}-item`}
             >

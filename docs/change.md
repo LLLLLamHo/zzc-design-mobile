@@ -11,6 +11,11 @@
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+`2019-3-6`
+
+- 🌟 新增Picker的listData添加className配置，自定义每个item的className
+
+
 `2019-2-28`
 
 - 🐞 修改ImageView组件的关闭BUG

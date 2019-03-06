@@ -40,6 +40,7 @@
 | ------- | -------------------------------------- | ------ | ------ |
 | text    | item显示的文案                         | string | ''     |
 | dataKey | item元素中的data-key，不传默认使用text | string | ''     |
+| className | 单独配置每个item的class | string | ''     |
 
 
 ```JavaScript
