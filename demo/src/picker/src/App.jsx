@@ -117,15 +117,18 @@ export default class App extends Component {
                     listData: [
                         {
                             text: '省份1',
-                            dataKey: '省份1'
+                            dataKey: '省份1',
+                            className: 'test-class'
                         },
                         {
                             text: '省份2',
-                            dataKey: '省份2'
+                            dataKey: '省份2',
+                            className: 'test-class'
                         },
                         {
                             text: '省份3',
-                            dataKey: '省份3'
+                            dataKey: '省份3',
+                            className: 'test-class'
                         }
                     ],
                     scrollData: {
@@ -149,15 +152,18 @@ export default class App extends Component {
                         },
                         {
                             text: '市区1-2',
-                            dataKey: '市区1-2'
+                            dataKey: '市区1-2',
+                            className: 'test-class'
                         },
                         {
                             text: '市区1-3',
-                            dataKey: '市区1-3'
+                            dataKey: '市区1-3',
+                            className: 'test-class'
                         },
                         {
                             text: '市区1-4',
-                            dataKey: '市区1-4'
+                            dataKey: '市区1-4',
+                            className: 'test-class'
                         }
                     ],
                     scrollData: {
@@ -173,15 +179,18 @@ export default class App extends Component {
                     listData: [
                         {
                             text: '区1-1-1',
-                            dataKey: '区1-1-1'
+                            dataKey: '区1-1-1',
+                            className: 'test-class'
                         },
                         {
                             text: '区1-1-2',
-                            dataKey: '区1-1-2'
+                            dataKey: '区1-1-2',
+                            className: 'test-class'
                         },
                         {
                             text: '区1-1-2',
-                            dataKey: '区1-1-2'
+                            dataKey: '区1-1-2',
+                            className: 'test-class'
                         }
                     ]
                 }

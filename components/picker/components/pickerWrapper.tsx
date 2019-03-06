@@ -105,11 +105,10 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
     }
 
     addActiveItem (): void {
-        const { prefixCls, data } = this.props;
+        const { prefixCls } = this.props;
         this.currIndex = this.BScrollObj.getSelectedIndex();
         if ( this.wheelScroll && this.wheelScroll.children[this.currIndex] ) {
-            const liCls = data[this.currIndex] && data[this.currIndex].className ? data[this.currIndex].className : '';
-            this.wheelScroll.children[this.currIndex].className = `${prefixCls}-wi ${prefixCls}-wi-active ${liCls}`;
+            this.wheelScroll.children[this.currIndex].className = `${this.wheelScroll.children[this.currIndex].className} ${prefixCls}-wi-active`;
         }
     }
 
