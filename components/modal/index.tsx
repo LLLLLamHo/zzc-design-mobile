@@ -6,9 +6,11 @@ import './index.scss';
 
 export default class ModalEntrance extends PureComponent<ModalProps, any> {
     render() {
+        // 外部调用setState传入props中
+        const props = {...this.props, ...this.state};
         return (
             <Error componentName='Modal'>
-                <Modal {...this.props} />
+                <Modal {...props} />
             </Error>
         );
     }

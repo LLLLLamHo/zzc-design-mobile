@@ -114,7 +114,7 @@ export default class Animate extends React.PureComponent<AnimateProps> {
                 this.props.onEnd && this.props.onEnd( animationType );
             }
         } catch ( err ) {
-            console.log( err );
+            // console.log( err );
         }
     }
 

@@ -135,6 +135,7 @@ export default class App extends Component {
         } );
 
         setTimeout( () => {
+            console.log(closeEvent)
             closeEvent();
         }, 2000 );
     }

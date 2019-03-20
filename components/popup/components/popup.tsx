@@ -25,6 +25,8 @@ export default class Popup extends React.PureComponent<PopupProps> {
 
     state = {
         showPopup: this.props.visible,
+        lastShowPopup: this.props.visible,
+        isClose: false,
         animationTypeList: animateConfig
     }
 
@@ -35,7 +37,12 @@ export default class Popup extends React.PureComponent<PopupProps> {
     componentWillReceiveProps ( nextProps ) {
         if ( nextProps.visible ) {
             this.setState( {
+                lastShowPopup: true,
                 showPopup: true
+            } );
+        } else if ( this.state.lastShowPopup && !nextProps.visible ) {
+            this.setState( {
+                isClose: true
             } );
         }
     }
@@ -68,9 +75,9 @@ export default class Popup extends React.PureComponent<PopupProps> {
 
     render () {
         const { visible, children, prefixCls, direction, onClose, preRender } = this.props;
-
+        const { isClose, showPopup } = this.state;
         // 如果使用了预渲染模式的话，就直接渲染出Dialog
-        if ( this.state.showPopup || preRender ) {
+        if ( showPopup || (!isClose && preRender) ) {
             return (
                 <Dialog
                     preRender={preRender}

@@ -189,7 +189,6 @@ export default class Modal extends PureComponent<ModalProps, any> {
             closable,
             style
         } = this.props;
-        console.log(this.props.style)
         if ( this.state.isRenderModal ) {
             return (
                 <Dialog

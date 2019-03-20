@@ -213,7 +213,7 @@ export default class IamgeView extends PureComponent<ImageViewProps, IamgeViewSt
         if ( isRender ) {
             return (
                 <Dialog
-                    getRef={( dialog ) => { console.log(dialog);this.getDialog( dialog ); }}
+                    getRef={( dialog ) => { this.getDialog( dialog ); }}
                     maskClose
                     maskClassName={`${prefixCls}-mask`}
                     boxClassName={`${prefixCls}-box`}
