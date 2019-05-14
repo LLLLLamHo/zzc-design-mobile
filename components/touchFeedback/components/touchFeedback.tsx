@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import classNames from 'classNames';
+import classNames from 'classnames';
 import { isFunction } from '../../_util/typeof';
 import { zzcComponentUse } from '../../_util/gtag';
 import { TouchFeedbackProps } from '../propstype';
