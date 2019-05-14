@@ -4,7 +4,7 @@ import { initMinDate, initMaxDate, initSelectDate, getLastDate } from '../util/d
 import { createDateListData, createDateTimeListData, createTimeListData, createYearListData, createMonthListData } from '../util/setListData';
 import { getModeDateData, getModeTimeData, getModeDateTimeData, getModeYearData, getModeMonthData } from '../util/getScrollData';
 import Picker from '../../picker';
-import Popup from '../../Popup';
+import Popup from '../../popup';
 import { isFunction, isDate } from '../../_util/typeof';
 import langTextObject from '../../_util/i18n';
 import { DatePickerProps, DatePickerState, ListItem, BScrollArray } from '../propsType';
