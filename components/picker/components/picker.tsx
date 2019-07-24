@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import PickerWrapper from './pickerWrapper';
+import PickerWrapper from './PickerWrapper';
 import { isFunction } from '../../_util/typeof';
 import config from '../../_util/config';
 import { PickerProps } from '../propsType';

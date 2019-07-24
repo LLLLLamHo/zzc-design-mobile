@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Error from '../../../_util/Error';
-import Body from './body';
+import Body from './Body';
 import { CardBodyProps } from './propsType';
 
 export default class CardBodyEntrance extends PureComponent<CardBodyProps, any> {
