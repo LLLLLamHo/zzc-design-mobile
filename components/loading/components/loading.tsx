@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import Modal from '../../modal';
+import Modal from '../../Modal';
 import config from '../../_util/config';
 import { zzcComponentUse } from '../../_util/gtag';
 import { LoadingProps, LoadingState } from '../propsType';

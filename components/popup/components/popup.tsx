@@ -1,5 +1,5 @@
 import React from 'react';
-import Dialog from '../../dialog';
+import Dialog from '../../Dialog';
 import animateConfig from '../../_util/animateConfig';
 import config from '../../_util/config';
 import { zzcComponentUse } from '../../_util/gtag';

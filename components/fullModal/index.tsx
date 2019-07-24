@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Error from '../_util/Error';
-import FullModal from './components/fullModal';
+import FullModal from './components/FullModal';
 import { FullModalProps } from './propsTyps';
 import './index.scss';
 

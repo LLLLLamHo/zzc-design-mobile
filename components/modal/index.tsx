@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Error from '../_util/Error';
-import Modal from './components/modal';
+import Modal from './components/Modal';
 import { ModalProps } from './porpsType';
 import './index.scss';
 

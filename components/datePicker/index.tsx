@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Error from '../_util/Error';
-import DatePicker from './components/datePicker';
+import DatePicker from './components/DatePicker';
 import { DatePickerProps } from './propsType';
 import './index.scss';
 

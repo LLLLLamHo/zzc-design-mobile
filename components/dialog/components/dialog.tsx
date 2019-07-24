@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
-import Animate from '../../animate';
+import Animate from '../../Animate';
 import { addClass } from '../../_util/class';
 import animateConfig from '../../_util/animateConfig';
 import { isFunction } from '../../_util/typeof';
@@ -153,7 +153,7 @@ export default class Dialog extends PureComponent<DialogProps, any> {
     }
 
     render(): JSX.Element {
-        const { prefixCls, className, style, preRender, visible, getRef } = this.props;
+        const { prefixCls, className, style, preRender, visible } = this.props;
         // preRender预渲染
         if ( preRender ) {
             return (

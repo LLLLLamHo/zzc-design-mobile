@@ -1,8 +1,8 @@
 import React, { PureComponent, ReactNode } from 'react';
 import classNames from 'classnames';
 import BScroll from 'better-scroll'
-import Dialog from '../../dialog';
-import TouchFeedback from '../../touchFeedback';
+import Dialog from '../../Dialog';
+import TouchFeedback from '../../TouchFeedback';
 import config from '../../_util/config';
 import { zzcComponentUse } from '../../_util/gtag';
 import { FullModalProps } from '../propsTyps';

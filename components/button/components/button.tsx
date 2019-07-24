@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
-import TouchFeedback from '../../touchFeedback';
+import TouchFeedback from '../../TouchFeedback';
 import config from '../../_util/config';
 import { zzcComponentUse } from '../../_util/gtag';
 import { ButtonProps } from '../propsType';

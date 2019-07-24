@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Error from '../_util/Error';
-import Tabs from './components/tabs';
+import Tabs from './components/Tabs';
 import { TabsProps } from './propsType';
 import './index.scss';
 

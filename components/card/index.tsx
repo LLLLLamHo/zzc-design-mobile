@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Error from '../_util/Error';
-import Card from './components/card';
+import Card from './components/Card';
 import Header from './components/header';
 import Body from './components/body';
 import Footer from './components/footer';

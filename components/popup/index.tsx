@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Error from '../_util/Error';
-import Popup from './components/popup';
+import Popup from './components/Popup';
 import { PopupProps } from './porpsType';
 import './index.scss';
 

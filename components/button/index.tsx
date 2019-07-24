@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Error from '../_util/Error';
-import Button from './components/button';
+import Button from './components/Button';
 import {ButtonProps} from './propsType';
 import '../style/index';
 import './index.scss';

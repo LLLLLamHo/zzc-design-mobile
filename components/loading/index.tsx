@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Error from '../_util/Error';
-import Loading from './components/loading';
+import Loading from './components/Loading';
 import { LoadingProps } from './propsType';
 import './index.scss';
 

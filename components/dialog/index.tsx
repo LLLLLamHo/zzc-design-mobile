@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Error from '../_util/Error';
-import Dialog from './components/dialog';
+import Dialog from './components/Dialog';
 import { DialogProps } from './propsType';
 import '../style/index';
 import './index.scss';

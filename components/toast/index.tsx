@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { addClass, removeClass, hasClass } from '../_util/class';
 import { animationEvents } from '../_util/Event';
 import { isDOM } from '../_util/typeof';
-import Icon from '../icon';
+import Icon from '../Icon';
 import Alignment from '../_util/alignment';
 import config from '../_util/config';
 import { zzcComponentUse } from '../_util/gtag';

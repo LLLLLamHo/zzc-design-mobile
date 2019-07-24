@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
-import Dialog from '../../dialog';
-import Button from '../../button';
+import Dialog from '../../Dialog';
+import Button from '../../Button';
 import langTextObject from '../../_util/i18n';
 import config from '../../_util/config';
 import { zzcComponentUse } from '../../_util/gtag';

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Error from '../_util/Error';
-import Animate from './animate';
+import Animate from './Animate';
 import { AnimateProps } from './propsType';
 
 export default class AnimateEntrance extends PureComponent<AnimateProps, any> {

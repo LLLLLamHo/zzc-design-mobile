@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Error from '../_util/Error';
-import ImageView from './components/imageView';
+import ImageView from './components/ImageView';
 import { ImageViewProps } from './propsType';
 import './index.scss';
 

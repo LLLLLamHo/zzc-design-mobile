@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import config from '../../_util/config';
-import Dialog from '../../dialog';
+import Dialog from '../../Dialog';
 import Gesture from '../../_util/Gesture';
 import { isFunction } from '../../_util/typeof';
 import { setLayoutScroll } from '../util';
@@ -223,7 +223,6 @@ export default class IamgeView extends PureComponent<ImageViewProps, IamgeViewSt
                     className={classNames( prefixCls, className )}
                     style={style}
                     closeCallback={() => { this.close(); }}
-                    onClick={() => {}}
                 >
                     {this.createImageContent()}
                 </Dialog>

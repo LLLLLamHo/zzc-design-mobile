@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Error from '../_util/Error';
-import Picker from './components/picker';
+import Picker from './components/Picker';
 import { PickerProps } from './propsType';
 import './index.scss';
 

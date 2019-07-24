@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import TouchFeedback from './components/touchFeedback';
+import TouchFeedback from './components/TouchFeedback';
 import Error from '../_util/Error';
 import { TouchFeedbackProps } from './propstype';
 
