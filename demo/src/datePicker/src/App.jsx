@@ -82,6 +82,7 @@ export default class App extends Component {
                         </Card.Body>
                     </Card>
                     <DatePicker
+                        reverse
                         renderCallback={this.renderCallback}
                         visible={this.state.isShow1}
                         minuteStep={15}

@@ -129,3 +129,7 @@ export function resolveDate( dateString, type ): DateData {
 export function getLastDate( year, month ): number {
     return new Date( new Date( `${year}/${resetDate( month + 1 )}/01` ).setDate( 0 ) ).getDate();
 }
+
+export function getFirstDate( year, month ): number {
+    return new Date( new Date( `${year}/${resetDate( month + 1 )}/01` ) ).getDate();
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { initMinDate, initMaxDate, initSelectDate, getLastDate } from '../util/date';
+import { initMinDate, initMaxDate, initSelectDate, getLastDate, getFirstDate } from '../util/date';
 import { createDateListData, createDateTimeListData, createTimeListData, createYearListData, createMonthListData } from '../util/setListData';
 import { getModeDateData, getModeTimeData, getModeDateTimeData, getModeYearData, getModeMonthData } from '../util/getScrollData';
 import Picker from '../../Picker';
@@ -24,7 +24,8 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         minuteStep: 1,
         use12hour: false,
         visible: false,
-        maskClose: true
+        maskClose: true,
+        reverse: false
     }
 
     private BScrollList: BScrollArray = {};
@@ -136,7 +137,7 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
     }
 
     touchEnd( scrollKey ): void {
-        const { onValueChange, mode } = this.props;
+        const { onValueChange, mode, reverse } = this.props;
 
         let currDateData;
         let currDate;
@@ -150,16 +151,18 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
             } else {
                 currDateData = this.getCurrDate( scrollKey ).currDate.split( '/' );
             }
-            // 上一次选择的月份的日期在当前选中的月份的日期没有的时候，选中最后一个日期
+            // 上一次选择的月份的日期在当前选中的月份的日期没有的时候，选中最后一个日期（通过参数确定是选中当前月份的第一日还是最后一日）
             const currYear = parseInt( currDateData[0] );
             const currMonth = parseInt( currDateData[1] );
             const currDay = parseInt( currDateData[2] );
-            const currDateLastDay = getLastDate( currYear, currMonth );
-            if ( currDay > currDateLastDay ) {
+            const currDateLastDay = reverse ? getFirstDate(currYear, currMonth) : getLastDate( currYear, currMonth );
+            // 当只有反转模式下才会判断当前天数会不大于当前月份的最后一天
+            if ( !reverse && currDay > currDateLastDay ) {
                 currDate = new Date( `${currDateData[0]}/${currDateData[1]}/${currDateLastDay}` );
             } else {
                 currDate = new Date( this.getCurrDate( scrollKey ).currDate );
             }
+            console.log(currDate);
         } else if ( mode == 'time' ) {
             currDate = new Date( `1993/09/17 ${this.getCurrDate( scrollKey ).currDate}` );
         } else if ( mode == 'year' ) {

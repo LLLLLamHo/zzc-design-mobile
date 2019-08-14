@@ -16,6 +16,7 @@ export interface DatePickerProps {
     renderCallback?: Function
     visible: boolean
     maskClose?: boolean
+    reverse: boolean
 }
 
 export interface DatePickerState {
