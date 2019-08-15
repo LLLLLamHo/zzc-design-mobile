@@ -155,14 +155,16 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
             const currYear = parseInt( currDateData[0] );
             const currMonth = parseInt( currDateData[1] );
             const currDay = parseInt( currDateData[2] );
-            const currDateLastDay = reverse ? getFirstDate(currYear, currMonth) : getLastDate( currYear, currMonth );
+            const currHour = parseInt( currDateData[3] );
+            const currMinute = parseInt( currDateData[4] );
+            const currDateLastDay = getLastDate( currYear, currMonth );
             // 当只有反转模式下才会判断当前天数会不大于当前月份的最后一天
-            if ( !reverse && currDay > currDateLastDay ) {
-                currDate = new Date( `${currDateData[0]}/${currDateData[1]}/${currDateLastDay}` );
+            const setCurrDateLastDay = reverse ? `${getFirstDate(currYear, currMonth)} ${currHour}:${currMinute}` : currDateLastDay;
+            if (currDay > currDateLastDay ) {
+                currDate = new Date( `${currDateData[0]}/${currDateData[1]}/${setCurrDateLastDay}` );
             } else {
                 currDate = new Date( this.getCurrDate( scrollKey ).currDate );
             }
-            console.log(currDate);
         } else if ( mode == 'time' ) {
             currDate = new Date( `1993/09/17 ${this.getCurrDate( scrollKey ).currDate}` );
         } else if ( mode == 'year' ) {
