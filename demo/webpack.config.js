@@ -20,20 +20,20 @@ let config = {
     output: {
         publicPath: "../"
     },
-    externals: [
-        function ( context, request, callback ) {
-            if ( context !== ROOT_PATH ) {
-                if ( /^zepto/.test( request ) && /fastclick/.test( context ) === false ) {
-                    return callback( null, 'root window.Zepto' );
-                } else if ( /^react-dom$/.test( request ) ) {
-                    return callback( null, 'root window.ReactDOM' );
-                } else if ( /^react$/.test( request ) && /react\-dom\/umd$/.test( context ) === false ) {
-                    return callback( null, 'root window.React' );
-                }
-            }
-            callback();
-        }
-    ],
+    // externals: [
+    //     function ( context, request, callback ) {
+    //         if ( context !== ROOT_PATH ) {
+    //             if ( /^zepto/.test( request ) && /fastclick/.test( context ) === false ) {
+    //                 return callback( null, 'root window.Zepto' );
+    //             } else if ( /^react-dom$/.test( request ) ) {
+    //                 return callback( null, 'root window.ReactDOM' );
+    //             } else if ( /^react$/.test( request ) && /react\-dom\/umd$/.test( context ) === false ) {
+    //                 return callback( null, 'root window.React' );
+    //             }
+    //         }
+    //         callback();
+    //     }
+    // ],
     devServer: {
         // host: '172.16.201.160',
         // host: '172.16.200.229',

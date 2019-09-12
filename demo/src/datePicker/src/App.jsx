@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {DatePicker, Card} from 'zzc-design-mobile';
 import './index.scss';
 import '../../../style/style.scss';
-
 export default class App extends Component {
     constructor( props ) {
         super( props );

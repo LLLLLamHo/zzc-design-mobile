@@ -42,7 +42,7 @@ export default class DemoBox extends Component {
                         </div>
                     </div>
                     <div className='zzc-demo-box-body'>
-                        <iframe ref={( iframe ) => { this.getFirame( iframe ); }} title='demo-iframe' src={`./demo/dist/html/${index.toLowerCase()}.html`} />
+                        <iframe ref={( iframe ) => { this.getFirame( iframe ); }} title='demo-iframe' src={`./demo/dist/html/${index}.html`} />
                     </div>
                 </div>
             </div>
