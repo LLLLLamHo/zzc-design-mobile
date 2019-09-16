@@ -16,7 +16,7 @@ $cls: '.zds-toast';
     }
     &#{$cls}-nomask {
         width: auto;
-        max-width: 6.3rem;
+        max-width: 218.5px;
         height: auto;
         top: 50%;
         left: 50%;
@@ -24,23 +24,23 @@ $cls: '.zds-toast';
     }
     &#{$cls}-icon {
         #{$cls}-notice-content {
-            min-width: 2rem;
+            min-width: 100px;
             #{$cls}-text-content {
-                margin-top: .2rem;
+                margin-top: 10px;
             }
         }
     }
     #{$cls}-notice-content {
-        background: rgba(51, 51, 51, 0.8);
-        @include borderRadius(.16rem);
+        background: rgba(65, 72, 93, 0.8);
+        border-radius: 8px;
         text-align: center;
-        padding: .3rem;
+        padding: 10px 20px;
         box-sizing: border-box;
-        max-width: 6.3rem;
+        max-width: 218.5px;
         #{$cls}-text {
             color: $c_fff;
-            font-size: $fs28rem;
-            word-wrap: break-word;
+            font-size: $fs_h2;
+            word-break: break-all;
         }
     }
 }
