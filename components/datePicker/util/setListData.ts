@@ -10,7 +10,7 @@ export function createDateTimeListData( obj, calcMinDate, calcMaxDate, calcCurrD
     obj.yearList = setYearListData( calcMinDate.year, calcMaxDate.year, calcCurrDate.year, langData );
     obj.monthList = setMonthListData( calcCurrDate, calcMinDate, calcMaxDate, langData );
     obj.dayList = setDayListData( calcCurrDate, calcMinDate, calcMaxDate, langData );
-    obj.hourList = setHoursListData( calcCurrDate, use12hour, calcMinDate, calcMaxDate, langData );
+    obj.hourList = setHoursListData( calcCurrDate, use12hour, calcMinDate, calcMaxDate );
     obj.minuteList = setMinuteListData( calcCurrDate, minuteStep, calcMinDate, calcMaxDate, langData );
     if ( use12hour ) {
         createHour12ListData( obj, calcMinDate, calcMaxDate, calcCurrDate, langData );
@@ -18,8 +18,15 @@ export function createDateTimeListData( obj, calcMinDate, calcMaxDate, calcCurrD
 }
 
 export function createTimeListData( obj, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData ) {
-    obj.hourList = setHoursListData( calcCurrDate, use12hour, calcMinDate, calcMaxDate, langData );
+    obj.hourList = setHoursListData( calcCurrDate, use12hour, calcMinDate, calcMaxDate );
     obj.minuteList = setMinuteListData( calcCurrDate, minuteStep, calcMinDate, calcMaxDate, langData );
+    if ( use12hour ) {
+        createHour12ListData( obj, calcMinDate, calcMaxDate, calcCurrDate, langData );
+    }
+}
+
+export function createHourListData( obj, calcMinDate, calcMaxDate, calcCurrDate, use12hour, langData ) {
+    obj.hourList = setHoursListData( calcCurrDate, use12hour, calcMinDate, calcMaxDate );
     if ( use12hour ) {
         createHour12ListData( obj, calcMinDate, calcMaxDate, calcCurrDate, langData );
     }

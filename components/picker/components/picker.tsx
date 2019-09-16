@@ -44,7 +44,7 @@ export default class Picker extends React.Component<PickerProps> {
         const timestamp = new Date().getTime();
         const pickerWrapperNodes = pickerData.map((item, key) => (
             item ? <PickerWrapper
-                height={height}
+                height={height ? height : 187}
                 key={`${timestamp}-${key}-cm`}
                 wrapperIndex={key}
                 wrapperKey={`${timestamp}-${key}-node`}

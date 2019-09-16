@@ -23,6 +23,17 @@ export function getModeTimeData( BScrollList: BScrollArray, state: DatePickerSta
     return `${resetDate( hour )}:${resetDate( minute )}`;
 }
 
+export function getModeHourData( BScrollList: BScrollArray, state: DatePickerState, use12hour?:boolean ): string {
+    const { hour: hourBS, hour12: hour12BS } = BScrollList;
+    const { hourList, hour12List } = state;
+    const hour = hourList.listData[hourBS.getSelectedIndex()].dataKey;
+    if ( use12hour ) {
+        const isPM = hour12List.listData[hour12BS.getSelectedIndex()].dataKey == 'pm';
+        return `${resetDate( isPM ? hour + 12 : hour )}:00`;
+    }
+    return `${resetDate( hour )}:00`;
+}
+
 export function getModeDateTimeData( BScrollList: BScrollArray, state: DatePickerState, use12hour?:boolean ): string {
     const dateText = getModeDateData( BScrollList, state );
     const timeText = getModeTimeData( BScrollList, state, use12hour );

@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {DatePicker, Card} from 'zzc-design-mobile';
+import React, { Component } from 'react';
+import { DatePicker, Card } from 'zzc-design-mobile';
 import './index.scss';
 import '../../../style/style.scss';
 export default class App extends Component {
@@ -33,7 +33,10 @@ export default class App extends Component {
             time9: '2020/10/10 12:00:00',
             time10: '2020/10/10 12:00:00',
             minDate4: '2017/8/8 12:00:00',
-            maxDate4: '2019/8/1 00:00:00'
+            maxDate4: '2019/8/1 00:00:00',
+            isShow11: false,
+            time11: '12:30',
+            warningText: null
         };
     }
 
@@ -75,7 +78,7 @@ export default class App extends Component {
                 <div className='zzc-demo-body full'>
                     <Card full>
                         <Card.Body borderDirection='left'>
-                            <div className='card-box2' onClick={() => {this.show( 1 );}}>
+                            <div className='card-box2' onClick={() => { this.show( 1 ); }}>
                                 <p>日期选择框,当前日期：{this.state.time1}</p>
                             </div>
                         </Card.Body>
@@ -87,15 +90,15 @@ export default class App extends Component {
                         minuteStep={15}
                         mode='date'
                         selectTime={new Date( this.state.time1 )}
-                        onValueChange={( date ) => {this.onValueChange( date );}}
-                        onClose={() => {this.close( 1 );}}
-                        onSubmit={( data ) => {this.submit( data, 1 );}}
+                        onValueChange={( date ) => { this.onValueChange( date ); }}
+                        onClose={() => { this.close( 1 ); }}
+                        onSubmit={( data ) => { this.submit( data, 1 ); }}
                     />
                 </div>
                 <div className='zzc-demo-body full'>
                     <Card full>
                         <Card.Body borderDirection='left'>
-                            <div className='card-box2' onClick={() => {this.show( 7 );}}>
+                            <div className='card-box2' onClick={() => { this.show( 7 ); }}>
                                 <p>限制时间,当前日期：{this.state.time7}</p>
                             </div>
                         </Card.Body>
@@ -109,15 +112,15 @@ export default class App extends Component {
                         use12hour
                         mode='date'
                         selectTime={this.state.time7}
-                        onValueChange={( date ) => {this.onValueChange( date );}}
-                        onClose={() => {this.close( 7 );}}
-                        onSubmit={( data ) => {this.submit( data, 7 );}}
+                        onValueChange={( date ) => { this.onValueChange( date ); }}
+                        onClose={() => { this.close( 7 ); }}
+                        onSubmit={( data ) => { this.submit( data, 7 ); }}
                     />
                 </div>
                 <div className='zzc-demo-body full'>
                     <Card full>
                         <Card.Body borderDirection='left'>
-                            <div className='card-box2' onClick={() => {this.show( 9 );}}>
+                            <div className='card-box2' onClick={() => { this.show( 9 ); }}>
                                 <p>限制时间-24小时,当前日期：{this.state.time9}</p>
                             </div>
                         </Card.Body>
@@ -131,15 +134,15 @@ export default class App extends Component {
                         use12hour={true}
                         mode='datetime'
                         selectTime={this.state.time9}
-                        onValueChange={( date ) => {this.onValueChange( date );}}
-                        onClose={() => {this.close( 9 );}}
-                        onSubmit={( data ) => {this.submit( data, 9 );}}
+                        onValueChange={( date ) => { this.onValueChange( date ); }}
+                        onClose={() => { this.close( 9 ); }}
+                        onSubmit={( data ) => { this.submit( data, 9 ); }}
                     />
                 </div>
                 <div className='zzc-demo-body full'>
                     <Card full>
                         <Card.Body borderDirection='left'>
-                            <div className='card-box2' onClick={() => {this.show( 10 );}}>
+                            <div className='card-box2' onClick={() => { this.show( 10 ); }}>
                                 <p>限制时间-12小时,当前日期：{this.state.time10}</p>
                             </div>
                         </Card.Body>
@@ -150,18 +153,18 @@ export default class App extends Component {
                         minuteStep={15}
                         minDate={this.state.minDate4}
                         maxDate={this.state.maxDate4}
-                        use12hour={true}
+                        use12hour
                         mode='datetime'
                         selectTime={this.state.time10}
-                        onValueChange={( date ) => {this.onValueChange( date );}}
-                        onClose={() => {this.close( 10 );}}
-                        onSubmit={( data ) => {this.submit( data, 10 );}}
+                        onValueChange={( date ) => { this.onValueChange( date ); }}
+                        onClose={() => { this.close( 10 ); }}
+                        onSubmit={( data ) => { this.submit( data, 10 ); }}
                     />
                 </div>
                 <div className='zzc-demo-body full'>
                     <Card full>
                         <Card.Body borderDirection='left'>
-                            <div className='card-box2' onClick={() => {this.show( 2 );}}>
+                            <div className='card-box2' onClick={() => { this.show( 2 ); }}>
                                 <p>日期时间选择框,当前日期：{this.state.time2}</p>
                             </div>
                         </Card.Body>
@@ -170,15 +173,15 @@ export default class App extends Component {
                         visible={this.state.isShow2}
                         mode='datetime'
                         selectTime={this.state.time2}
-                        onValueChange={( date ) => {this.onValueChange( date );}}
-                        onClose={() => {this.close( 2 );}}
-                        onSubmit={( data ) => {this.submit( data, 2 );}}
+                        onValueChange={( date ) => { this.onValueChange( date ); }}
+                        onClose={() => { this.close( 2 ); }}
+                        onSubmit={( data ) => { this.submit( data, 2 ); }}
                     />
                 </div>
                 <div className='zzc-demo-body full'>
                     <Card full>
                         <Card.Body borderDirection='left'>
-                            <div className='card-box2' onClick={() => {this.show( 3 );}}>
+                            <div className='card-box2' onClick={() => { this.show( 3 ); }}>
                                 <p>时间选择框,当前日期：{this.state.time3}</p>
                             </div>
                         </Card.Body>
@@ -188,15 +191,39 @@ export default class App extends Component {
                         mode='time'
                         minuteStep={15}
                         selectTime={this.state.time3}
-                        onValueChange={( date ) => {this.onValueChange( date );}}
-                        onClose={() => {this.close( 3 );}}
-                        onSubmit={( data ) => {this.submit( data, 3 );}}
+                        onValueChange={( date ) => { this.onValueChange( date ); }}
+                        onClose={() => { this.close( 3 ); }}
+                        onSubmit={( data ) => { this.submit( data, 3 ); }}
                     />
                 </div>
                 <div className='zzc-demo-body full'>
                     <Card full>
                         <Card.Body borderDirection='left'>
-                            <div className='card-box2' onClick={() => {this.show( 4 );}}>
+                            <div className='card-box2' onClick={() => { this.show( 11 ); }}>
+                                <p>小时选择框,当前日期：{this.state.time11}</p>
+                            </div>
+                        </Card.Body>
+                    </Card>
+                    <DatePicker
+                        visible={this.state.isShow11}
+                        warningText={this.state.warningText}
+                        mode='hour'
+                        use12hour
+                        selectTime={this.state.time11}
+                        onValueChange={( date ) => { 
+                            this.setState({
+                                warningText: '该时间非营业时间，需要支付额外服务费'
+                            });
+                            this.onValueChange( date ); 
+                        }}
+                        onClose={() => { this.close( 11 ); }}
+                        onSubmit={( data ) => { this.submit( data, 11 ); }}
+                    />
+                </div>
+                <div className='zzc-demo-body full'>
+                    <Card full>
+                        <Card.Body borderDirection='left'>
+                            <div className='card-box2' onClick={() => { this.show( 4 ); }}>
                                 <p>年份选择框,当前年份：{this.state.time4}</p>
                             </div>
                         </Card.Body>
@@ -205,15 +232,15 @@ export default class App extends Component {
                         visible={this.state.isShow4}
                         mode='year'
                         selectTime={this.state.time4}
-                        onValueChange={( date ) => {this.onValueChange( date );}}
-                        onClose={() => {this.close( 4 );}}
-                        onSubmit={( data ) => {this.submit( data, 4 );}}
+                        onValueChange={( date ) => { this.onValueChange( date ); }}
+                        onClose={() => { this.close( 4 ); }}
+                        onSubmit={( data ) => { this.submit( data, 4 ); }}
                     />
                 </div>
                 <div className='zzc-demo-body full'>
                     <Card full>
                         <Card.Body borderDirection='left'>
-                            <div className='card-box2' onClick={() => {this.show( 5 );}}>
+                            <div className='card-box2' onClick={() => { this.show( 5 ); }}>
                                 <p>月份选择,当前月份：{this.state.time5}</p>
                             </div>
                         </Card.Body>
@@ -222,15 +249,15 @@ export default class App extends Component {
                         visible={this.state.isShow5}
                         mode='month'
                         selectTime={this.state.time5}
-                        onValueChange={( date ) => {this.onValueChange( date );}}
-                        onClose={() => {this.close( 5 );}}
-                        onSubmit={( data ) => {this.submit( data, 5 );}}
+                        onValueChange={( date ) => { this.onValueChange( date ); }}
+                        onClose={() => { this.close( 5 ); }}
+                        onSubmit={( data ) => { this.submit( data, 5 ); }}
                     />
                 </div>
                 <div className='zzc-demo-body full'>
                     <Card full>
                         <Card.Body borderDirection='left'>
-                            <div className='card-box2' onClick={() => {this.show( 6 );}}>
+                            <div className='card-box2' onClick={() => { this.show( 6 ); }}>
                                 <p>多语言版本,当前时间：{this.state.time6}</p>
                             </div>
                         </Card.Body>
@@ -242,9 +269,9 @@ export default class App extends Component {
                         lang='hk'
                         mode='datetime'
                         selectTime={this.state.time6}
-                        onValueChange={( date ) => {this.onValueChange( date );}}
-                        onClose={() => {this.close( 6 );}}
-                        onSubmit={( data ) => {this.submit( data, 6 );}}
+                        onValueChange={( date ) => { this.onValueChange( date ); }}
+                        onClose={() => { this.close( 6 ); }}
+                        onSubmit={( data ) => { this.submit( data, 6 ); }}
                     />
                 </div>
 

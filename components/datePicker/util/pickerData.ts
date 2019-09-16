@@ -172,7 +172,7 @@ export function setDayListData ( currDateData, calcMinDate, calcMaxDate, langDat
     return dayListData;
 }
 
-export function setHoursListData ( currDateData, use12hour, calcMinDate, calcMaxDate, langData ): ListItem {
+export function setHoursListData ( currDateData, use12hour, calcMinDate, calcMaxDate ): ListItem {
     const { year: currYear, month: currMonth, day: currDay, hour: curHour } = currDateData;
     const { year: minYear, month: minMonth, day: minDay, hour: minHour } = calcMinDate;
     const { year: maxYear, month: maxMonth, day: maxDay, hour: maxHour } = calcMaxDate;
@@ -208,7 +208,8 @@ export function setHoursListData ( currDateData, use12hour, calcMinDate, calcMax
                 hourListData.selectIndex = i - startHour;
             }
             hourListData.listData.push( {
-                text: `${hourText === 0 && isNoon ? 12 : hourText}${langData.hour}`,
+                // text: `${hourText === 0 && isNoon ? 12 : hourText}${langData.hour}`,
+                text: `${hourText === 0 && isNoon ? 12 : hourText}:00`,
                 dataKey: hourText
             } );
             hourText++;
@@ -229,7 +230,8 @@ export function setHoursListData ( currDateData, use12hour, calcMinDate, calcMax
                     hourListData.selectIndex = i;
                 }
                 hourListData.listData.push( {
-                    text: `${hourText === 0 && isNoon ? 12 : hourText}${langData.hour}`,
+                    // text: `${hourText === 0 && isNoon ? 12 : hourText}${langData.hour}`,
+                    text: `${hourText === 0 && isNoon ? 12 : hourText}:00`,
                     dataKey: hourText
                 } );
             }
@@ -238,7 +240,8 @@ export function setHoursListData ( currDateData, use12hour, calcMinDate, calcMax
     } else {
         for ( let i = 0; i < step; i++ ) {
             hourListData.listData.push( {
-                text: `${hourText === 0 && use12hour && curHour >= 12 ? 12 : hourText}${langData.hour}`,
+                // text: `${hourText === 0 && use12hour && curHour >= 12 ? 12 : hourText}${langData.hour}`,
+                text: `${hourText === 0 && use12hour && curHour >= 12 ? 12 : hourText}:00`,
                 dataKey: hourText
             } );
             hourText++;
