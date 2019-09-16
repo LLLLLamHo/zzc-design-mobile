@@ -112,8 +112,8 @@
                 setTimeout( resolve, 1000 );
             } ),
             props: {
-                type: 'main',
-                className: 'aaaa'
+                type: 'special',
+                style: { color: '#696E7C', border: 'none' }
             }
 
         }
