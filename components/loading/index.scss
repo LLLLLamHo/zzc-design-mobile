@@ -3,13 +3,13 @@ $cls: '.zds-loading';
 
 #{$cls}{
     &-box{
-        width: 4rem;
-        height: 2.8rem;
+        width:200px;
+        height: 140px;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        @include borderRadius(.08rem);
+        border-radius: 4px;
     }
     &-body{
         width: 100%;
@@ -27,8 +27,8 @@ $cls: '.zds-loading';
         }
     }
     &-text{
-        margin-top:.3rem;
+        margin-top:15px;
         color:$c_333;
-        font-size: .26rem;
+        font-size: $fs_text;
     }
 }
