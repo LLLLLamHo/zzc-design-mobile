@@ -242,8 +242,8 @@
   width: 100%;
   z-index: 1003;
   display: flex;
-  align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  align-items: center; }
 
 .zds-dialog .zds-dialog-mask {
   background: rgba(0, 0, 0, 0.8);

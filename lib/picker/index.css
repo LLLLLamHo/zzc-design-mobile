@@ -235,10 +235,9 @@
     transform: scale(0.3); } }
 
 .zds-picker {
-  height: 5.6rem;
   display: flex;
-  align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  align-items: center; }
 
 .zds-picker .zds-picker-wrapper {
   display: block;
@@ -249,23 +248,16 @@
   background: #fff;
   position: relative; }
 
-.zds-picker .zds-picker-wrapper::before {
-  display: block;
+.zds-picker .zds-picker-wrapper:not(:first-child)::before {
   content: '';
   position: absolute;
-  left: 0;
   top: 50%;
-  right: 0;
-  width: 200%;
-  height: 1.6rem;
-  border-top: 1px solid #e8e8e8;
-  border-bottom: 1px solid #e8e8e8;
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-  -webkit-transform: scale(0.5, 0.5) translateY(-50%);
-  transform: scale(0.5, 0.5) translateY(-50%);
-  box-sizing: border-box;
-  background: transparent; }
+  left: 0;
+  transform: translateY(-50%);
+  display: block;
+  width: 1px;
+  height: 37px;
+  background: linear-gradient(180deg, rgba(238, 238, 238, 0) 0%, #d8d8d8 48%, rgba(192, 192, 192, 0) 100%); }
 
 .zds-picker .zds-picker-wrapper-bg {
   position: absolute;
@@ -273,26 +265,23 @@
   height: 100%;
   width: 100%;
   margin: 0 auto;
-  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), linear-gradient(0deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
   background-position: top, bottom;
-  background-size: 100% 2.04rem;
+  background-size: 100% 102px;
   background-repeat: no-repeat; }
-
-.zds-picker .zds-picker-wrapper .zds-picker-ws {
-  margin-top: 2.3rem; }
 
 .zds-picker .zds-picker-wrapper .zds-picker-ws .zds-picker-wi {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: .32rem;
-  height: 1rem;
+  font-size: 18px;
+  color: #9EA1B0;
+  height: 50px;
   box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; }
 
 .zds-picker .zds-picker-wrapper .zds-picker-ws .zds-picker-wi-active {
-  color: #282828;
-  font-size: .36rem;
+  color: #333;
+  font-size: 21px;
   font-weight: bold; }

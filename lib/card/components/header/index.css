@@ -239,8 +239,8 @@
   width: 100%;
   min-height: 1rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: .26rem .3rem;
   box-sizing: border-box; }
 

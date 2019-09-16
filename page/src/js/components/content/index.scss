@@ -70,7 +70,9 @@
                     margin: 0 auto;
                     border-radius: 4px;
                     white-space: nowrap;
-                    @include flex(center, flex-start);
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
                     p {
                         margin: 0;
                         padding: 0;

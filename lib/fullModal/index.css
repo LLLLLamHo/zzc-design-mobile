@@ -246,7 +246,7 @@
   flex-direction: column; }
 
 .zds-full-modal-box .zds-full-modal-content .zds-full-modal-head {
-  padding: 1.28rem .3rem .18rem;
+  padding: 64px 15px 9px;
   position: relative; }
 
 .zds-full-modal-box .zds-full-modal-content .zds-full-modal-head::after {
@@ -256,23 +256,23 @@
   z-index: 11;
   bottom: 0;
   left: 50%;
-  width: .47rem;
-  border-bottom: 0.08rem #4E7CDD solid;
+  width: 23.5px;
+  border-bottom: 4px solid #2871F7;
   transform: translateX(-50%); }
 
 .zds-full-modal-box .zds-full-modal-content .zds-full-modal-head h5 {
   color: #282828;
   padding: 0;
-  font-size: .44rem;
+  font-size: 22px;
   line-height: 1.5;
   text-align: center; }
 
 .zds-full-modal-box .zds-full-modal-content .zds-full-modal-body {
   flex: 1;
-  margin-top: .46rem;
-  height: 8rem;
-  padding: 0 .3rem;
-  font-size: .36rem;
+  margin-top: 23px;
+  height: 400px;
+  padding: 0 15px;
+  font-size: 18px;
   overflow-y: scroll;
   overflow-x: hidden;
   word-wrap: break-word;
@@ -282,7 +282,7 @@
   overflow-y: hidden; }
 
 .zds-full-modal-box .zds-full-modal-content .zds-full-modal-footer {
-  margin: .5rem 0 .8rem;
+  margin: 25px 0 40px;
   display: flex;
   justify-content: center;
   position: relative; }
@@ -291,11 +291,11 @@
   display: block;
   content: '';
   position: absolute;
-  top: -.45rem;
+  top: -22.5px;
   transform: translateY(-100%);
   left: 0;
   width: 100%;
-  height: .4rem;
+  height: 20px;
   background: linear-gradient(rgba(255, 255, 255, 0.1), white);
   z-index: 999; }
 
@@ -303,35 +303,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: .92rem;
-  width: .92rem;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  border: none;
-  position: relative; }
-
-.zds-full-modal-box .zds-full-modal-content .zds-full-modal-footer .zds-full-modal-btn::after {
-  display: block;
-  border-radius: 50%;
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 200%;
-  height: 200%;
-  border: 1px solid #666;
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-  -webkit-transform: scale(0.5, 0.5);
-  transform: scale(0.5, 0.5);
-  box-sizing: border-box;
-  background: transparent; }
+  border: 1px solid #666; }
 
 .zds-full-modal-box .zds-full-modal-content .zds-full-modal-footer .zds-full-modal-btn-active {
   background: #e1e1e1; }
 
 .zds-full-modal-box .zds-full-modal-content .zds-full-modal-footer .zds-full-modal-btn span {
-  width: .42rem;
-  height: .42rem;
+  width: 46px;
+  height: 46px;
   position: relative;
   transform: rotate(45deg); }
 
@@ -342,7 +324,7 @@
   transform: translateX(-50%) translateY(-50%);
   display: block;
   content: '';
-  width: 100%;
+  width: 50%;
   height: 1px;
   background: #666; }
 
@@ -353,6 +335,6 @@
   transform: translateX(-50%) translateY(-50%) rotate(90deg);
   display: block;
   content: '';
-  width: 100%;
+  width: 50%;
   height: 1px;
   background: #666; }

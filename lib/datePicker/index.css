@@ -236,34 +236,32 @@
 
 .zds-datepicker-header {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  height: 1rem;
-  font-size: .32rem;
+  height: 56px;
   box-sizing: border-box;
-  position: relative; }
+  border-bottom: 1px solid #ECECEC; }
 
-.zds-datepicker-header::after {
-  content: "";
-  position: absolute;
-  display: block;
-  z-index: 11;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  border-bottom: 1px solid #DDE0E6;
-  transform: scaleY(0.5) translateY(50%); }
+.zds-datepicker-header p {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 17px;
+  text-align: center; }
 
-.zds-datepicker-header > div {
-  height: 100%;
+.zds-datepicker-body {
+  padding: 15px 15px 0; }
+
+.zds-datepicker-footer {
+  padding: 15px; }
+
+.zds-datepicker-footer .zds-datepicker-warning {
+  margin-bottom: 10px;
   display: flex;
-  align-items: center;
-  justify-content: center; }
+  justify-content: flex-start;
+  align-items: center; }
 
-.zds-datepicker-header-close {
-  padding-left: .3rem;
-  color: #848484; }
-
-.zds-datepicker-header-submit {
-  padding-right: .3rem;
-  color: #4E7CDD; }
+.zds-datepicker-footer .zds-datepicker-warning p {
+  margin-left: 5px;
+  font-size: 11px;
+  line-height: 11px;
+  color: #696E7C; }
