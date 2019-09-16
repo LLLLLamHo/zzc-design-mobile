@@ -6,6 +6,7 @@ export interface PickerProps {
     renderAfter?: Function
     onTouchEnd?: Function
     onTouchStart?: Function
+    height: number | 187
 }
 
 export interface PickerWrapperProps {
@@ -17,6 +18,7 @@ export interface PickerWrapperProps {
     data?: any
     onTouchEnd?: Function
     onTouchStart?: Function
+    height: number | 187
 }
 
 export declare type PickerData = {
