@@ -8,9 +8,7 @@ $cls: '.zds-dialog';
     height: 100%;
     width: 100%;
     z-index: 1003;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex();
     #{$cls}-mask {
         background: rgba(0, 0, 0, .8);
         height: 100%;

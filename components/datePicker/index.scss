@@ -3,9 +3,7 @@ $cls: '.zds-datepicker';
 
 #{$cls} {
     &-header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex();
         height: 56px;
         box-sizing: border-box;
         border-bottom: 1px solid $datePicker_border;

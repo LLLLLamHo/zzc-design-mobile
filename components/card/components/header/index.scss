@@ -10,9 +10,7 @@ $cls: '.zds-card-header';
     }
     width: 100%;
     min-height: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flex(center, space-between);
     padding: .26rem .3rem;
     box-sizing: border-box;
     &-title{

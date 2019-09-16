@@ -17,9 +17,7 @@ $cls: '.zds-imageview';
         }
     }
     &-swiper{
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
+        @include flex(center,  flex-start);
         section{
             width: 100%;
             flex-shrink: 0;

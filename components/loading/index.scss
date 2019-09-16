@@ -5,9 +5,7 @@ $cls: '.zds-loading';
     &-box{
         width:200px;
         height: 140px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex();
         flex-direction: column;
         border-radius: 4px;
     }
@@ -18,9 +16,7 @@ $cls: '.zds-loading';
     &-content{
         width: 100%;
         height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex();
         flex-direction: column;
         img{
             display: block;

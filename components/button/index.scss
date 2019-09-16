@@ -48,9 +48,7 @@ $cls-group: #{$cls}-group;
     text-align: center;
     border: 1px solid $button_border_main;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex();
     border-radius: 2px;
     box-sizing: border-box;
 

@@ -2,9 +2,7 @@
 $cls: '.zds-picker';
 
 #{$cls} {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex();
 
     #{$cls}-wrapper {
         display: block;

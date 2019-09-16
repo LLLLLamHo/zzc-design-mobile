@@ -42,9 +42,7 @@ $cls_button: '.zds-button';
         overflow: hidden;
         height: 50px;
         border-top: 1px solid $modal_border_color;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex();
         #{$cls}-btn {
             flex: 1;
             color: #2871F7;
