@@ -38,3 +38,39 @@ $error_dk: #B90013;
 $link: #20ABD9;
 $link_lh: #69DDFF;
 $link_dk: #007CA7;
+
+// 新ui规范
+$main: #2871F7; // 主色调
+$poi: #FF5424; // poi使用色调
+$title_black: #333333;// 标题黑色
+$bg: #EFF2F8; // 大背景颜色
+$tips: #FF8500; // 提示
+$error: #CA0808; // 错误
+
+// Button 默认
+$button_background_main: $main;// 按钮默认颜色
+$buton_main_background_active: #1F58C0;// 按钮点击颜色
+$button_border_main: $main;// 按钮默认颜色
+$buton_main_border_active: #1F58C0;// 按钮点击颜色
+$button_text_color: $c_fff;
+$button_background_inactive: #276FF1;// 未激活
+$button_background_disabled: #696E7C;// 禁用
+$button_border_disabled: #696E7C;// 禁用
+// Button 次级
+$button_sub_background_color: $c_fff;
+$button_sub_border_color: $main;
+$button_sub_text_color: $main;
+
+$button_sub_active_background_color: rgba(40, 113, 247, 0.12);
+$button_sub_active_border_color: $main;
+$button_sub_text_color: $main;
+
+$button_sub_disabled_background_color: $c_fff;
+$button_sub_disabled_border_color: #696E7C;
+$button_sub_disabled_text_color: #696E7C;
+// Button 特殊
+$button_special_background_color: $c_fff;
+$button_special_text_color: $c_333;
+$button_special_border_color: $c_333;
+$button_special_active_border_color: rgba(105, 110, 124, 0.5);
+

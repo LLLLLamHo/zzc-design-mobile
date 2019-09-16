@@ -2,15 +2,19 @@ export interface ButtonProps {
     prefixCls?: string,
     size?: string,
     inline?: boolean,
-    full?: boolean,
     disabled?: boolean,
-    noBorder?: boolean,
-    noRadius?: boolean,
+    inactive?: boolean,
     type?: string,
-    ghost?: boolean,
     onClick?: any,
     className?: string,
     style?: React.CSSProperties,
     activeStyle?: React.CSSProperties,
     activeClassName?: string
+}
+
+export interface ButtonGroupProps {
+    prefixCls?: string,
+    className?: string,
+    style?: React.CSSProperties,
+    direction?: string
 }

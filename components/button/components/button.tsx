@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import TouchFeedback from '../../TouchFeedback';
 import config from '../../_util/config';
+import ButtonGroup from './ButtonGroup';
 import { zzcComponentUse } from '../../_util/gtag';
 import { ButtonProps } from '../propsType';
-
 export default class Button extends PureComponent<ButtonProps, any> {
     constructor( props ) {
         super( props );
@@ -14,11 +14,8 @@ export default class Button extends PureComponent<ButtonProps, any> {
         prefixCls: `${config.cls}-button`,
         size: false,
         inline: false,
-        full: false,
         disabled: false,
-        noBorder: false,
-        noRadius: false,
-        ghost: false,
+        inactive: false,
         type: 'default',
         onClick() { },
         className: '',
@@ -29,38 +26,48 @@ export default class Button extends PureComponent<ButtonProps, any> {
         activeClassName: ''
     };
 
-    setActiveClassName( activeClassName?: string, type?: string, ghost?: boolean ): string {
+    static ButtonGroup = ButtonGroup;
+
+    setActiveClassName( activeClassName?: string, type?: string ): string {
         const activeClassNameIsNone:boolean = activeClassName === '';
         const className = classNames( {
-            [`${this.props.prefixCls}-active-${type}`]: activeClassNameIsNone && !ghost,
-            [`${this.props.prefixCls}-active-${type}-ghost`]: activeClassNameIsNone && ghost,
+            [`${this.props.prefixCls}-active-${type}`]: activeClassNameIsNone,
             [`${this.props.prefixCls}-active-${activeClassName}`]: !activeClassNameIsNone
         } );
-
         return className;
     }
 
     render() {
-        const { ghost, noBorder, noRadius, children, className, prefixCls, type, full, size, inline, disabled, style, activeStyle, activeClassName, onClick } = this.props;
-        const btnClassNames: string = classNames(
-            prefixCls,
-            className,
-            {
-                [`${prefixCls}-${size}`]: size,
-                [`${prefixCls}-full`]: full,
-                [`${prefixCls}-${type}`]: type !== '',
-                [`${prefixCls}-inline`]: inline,
-                [`${prefixCls}-disabled`]: disabled,
-                [`${prefixCls}-ghost`]: ghost,
-                [`${prefixCls}-noborder`]: noBorder,
-                [`${prefixCls}-noradius`]: noRadius
-            }
-        );
+        const { inactive, children, className, prefixCls, type, size, inline, disabled, style, activeStyle, activeClassName, onClick } = this.props;
+        let btnClassNames: string = '';
+        if ( inline ) {
+            btnClassNames = classNames(
+                prefixCls,
+                `${prefixCls}-inline`,
+                className,
+                {
+                    [`${prefixCls}-${size}`]: size,
+                    [`${prefixCls}-${type}`]: type !== '',
+                    [`${prefixCls}-disabled`]: disabled,
+                    [`${prefixCls}-inactive`]: inactive
+                }
+            );
+        } else {
+            btnClassNames = classNames(
+                prefixCls,
+                className,
+                {
+                    [`${prefixCls}-${type}`]: type !== '',
+                    [`${prefixCls}-disabled`]: disabled,
+                    [`${prefixCls}-inactive`]: inactive
+                }
+            );
+        }
         return (
             <TouchFeedback
                 activeStyle={activeStyle ? activeStyle : {}}
-                activeClassName={this.setActiveClassName( activeClassName, type, ghost )}
-                disabled={disabled}
+                activeClassName={this.setActiveClassName( activeClassName, type )}
+                disabled={inactive || disabled}
             >
                 <div
                     className={

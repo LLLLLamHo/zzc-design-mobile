@@ -3,61 +3,80 @@ import './index.scss';
 import '../../../style/style.scss';
 import { Button, Icon } from 'zzc-design-mobile';
 
-let isClose = false;
+const { ButtonGroup } = Button;
 
 export default class App extends PureComponent {
     state = {
-        title: 'Button 按钮',
-        disabled: true
+        title: 'Button 按钮'
     }
-    render() {
+    render () {
         return (
             <div className='zzc-demo'>
                 <div className='zzc-demo-header'>
                     <h1 className='zzc-demo-title'>{this.state.title}</h1>
-                    <h2>租租车主流程主要分为两个颜色按钮，一个是main，蓝色，一个是sub，红色，附带2个颜色的高亮和加深的颜色。</h2>
+                    <h2>租租车主流程按钮样式</h2>
                 </div>
                 <div className='zzc-demo-body'>
-                    <h5>颜色、类型</h5>
-                    <Button style={{background: 'red'}}><div className='icon-button'><Icon style={{fill:'green'}} size='ms' className='aaa' type='success'/>default</div></Button>
-                    <Button type='main'>main</Button>
-                    <Button type='main-lh'>main-lh</Button>
-                    <Button type='main-dk'>main-dk</Button>
-                    <Button type='sub'>sub</Button>
-                    <Button type='sub-lh'>sub-lh</Button>
-                    <Button type='sub-dk'>sub-dk</Button>
-                    <Button ghost type='main'>空心main</Button>
-                    <Button ghost type='sub'>空心sub</Button>
-                    <Button disabled>disabled</Button>
-                    <Button type='main' noRadius>没有圆角按钮</Button>
-                    <Button ghost type='sub' noRadius>没有圆角按钮</Button>
+                    <h5>全局按钮基础样式</h5>
+                    <Button>默认按钮</Button>
+                    <Button><Icon style={{ marginRight: '5px', width: '18px', height: '18px' }} type='success' />默认按钮</Button>
+                    <Button inactive>未激活按钮</Button>
+                    <Button disabled>禁用按钮</Button>
+                    <h5>全局次级按钮</h5>
+                    <Button type='sub'>默认按钮</Button>
+                    <Button type='sub' disabled>禁用按钮</Button>
+                    <h5>特殊全局按钮</h5>
+                    <Button type='special'>默认按钮</Button>
+                    <h5>自定义按钮</h5>
+                    <Button style={{ background: 'red' }}>自定义style</Button>
+                    <Button className='blue'>自定义class</Button>
+                    <Button activeStyle={{ background: 'red', color: 'blue' }}>自定义激活style</Button>
                 </div>
                 <div className='zzc-demo-body'>
-                    <h5>尺寸、大小</h5>
-                    <Button type='main'>default main</Button>
-                    <Button size='lg' type='main'>lg main</Button>
-                    <Button size='ms' type='main'>ms main</Button>
-                    <Button size='xs' type='main'>xs main</Button>
+                    <h5>行内按钮(默认大小)</h5>
+                    <Button inline>确认</Button>
+                    <Button inline type='sub'>确认</Button>
+                    <Button inline type='special'>确认</Button>
+                    <Button inline inactive>确认</Button>
+                    <Button inline disabled>确认</Button>
+                    <h5>行内按钮(middle)</h5>
+                    <Button inline size='middle'>确认</Button>
+                    <Button inline size='middle' type='sub'>确认</Button>
+                    <Button inline size='middle' type='special'>确认</Button>
+                    <Button inline size='middle' inactive>确认</Button>
+                    <Button inline size='middle' disabled>确认</Button>
+                    <h5>行内按钮(small)</h5>
+                    <Button inline size='small'>确认</Button>
+                    <Button inline size='small' type='sub'>确认</Button>
+                    <Button inline size='small' type='special'>确认</Button>
+                    <Button inline size='small' inactive>确认</Button>
+                    <Button inline size='small' disabled>确认</Button>
                 </div>
                 <div className='zzc-demo-body'>
-                    <h5>inline</h5>
-                    <Button inline size='ms'>inline1</Button>
-                    <Button inline size='ms' type='main'>inline2</Button>
-                    <Button inline size='ms' type='sub'>inline3</Button>
-                    <Button ghost inline size='xs' type='main'>inline2</Button>
-                    <Button ghost inline size='xs' type='sub'>inline3</Button>
-                </div>
-                <div className='zzc-demo-body full'>
-                    <h5>占满</h5>
-                    <Button full size='lg' type='main'>full log</Button>
-                    <Button full type='main'>full default</Button>
-                    <Button full size='ms' type='main'>full ms</Button>
-                    <Button full size='xs' type='main'>full xs</Button>
-                </div>
-                <div className='zzc-demo-body'>
-                    <h5>自定义样式</h5>
-                    <Button activeStyle={{ background: 'blue' }} style={{ background: 'green', color: '#fff' }}>自定义样式</Button>
-                    <Button activeClassName='custom'>自定义active</Button>
+                    <h5>按钮块</h5>
+                    <ButtonGroup>
+                        <Button>确认</Button>
+                        <Button type='sub'>确认</Button>
+                    </ButtonGroup>
+                    <ButtonGroup>
+                        <Button type='special'>重置</Button>
+                        <Button style={{ flex: 2 }}>确认</Button>
+                    </ButtonGroup>
+                    <ButtonGroup>
+                        <Button inline size='small'>确认</Button>
+                        <Button inline size='small' type='sub'>确认</Button>
+                        <Button inline size='small' type='special'>确认</Button>
+                    </ButtonGroup>
+                    <ButtonGroup direction='left'>
+                        <Button inline size='small'>确认</Button>
+                        <Button inline size='small' type='sub'>确认</Button>
+                        <Button inline size='small' type='special'>确认</Button>
+                    </ButtonGroup>
+                    <ButtonGroup direction='right'>
+                        <Button inline size='small'>确认</Button>
+                        <Button inline size='small' type='sub'>确认</Button>
+                        <Button inline size='small' type='special'>确认</Button>
+                    </ButtonGroup>
                 </div>
             </div>
 

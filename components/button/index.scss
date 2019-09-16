@@ -1,34 +1,59 @@
 @import '../style/base.scss';
 $cls: '.zds-button';
-//按钮active颜色
-$main_active: #3e63b0;
-$main-lh_active: #6b88cc;
-$main-dk_active: #1d3fa2;
-$sub_active: #c30144;
-$sub-lh_active: #cc4868;
-$sub-dk_active: #a30028;
-$default_active: #cccccc;
-//空心带颜色按钮的active状态
-$main_ghost_active: #edf1fb;
-$main_lh_ghost_active: #f2f6ff;
-$main_dk_ghost_active: #e9edf9;
-$sub_ghost_active: #fde5ee;
-$sub_lh_ghost_active: #ffeef2;
-$sub_dk_ghost_active: #f9e5ea;
-//默认按钮的边框颜色
-$default_border_color: #ccc;
+$cls-group: #{$cls}-group;
+
 //按钮active
-@mixin btnActive($color: #fff, $type: 'default') {
+@mixin btnActive($color: #fff, $borderColor: #fff, $type: 'default') {
     &#{$cls}-active-#{$type} {
         background: $color;
+        border-color: $borderColor;
+    }
+}
+
+@mixin btnSubStyle() {
+    &#{$cls}-sub {
+        background-color: $button_sub_background_color;
+        color: $button_sub_text_color;
+        border: 1px solid $button_sub_border_color;
+        @include btnActive($button_sub_active_background_color, $button_sub_border_color, 'sub');
+
+        &#{$cls}-disabled {
+            opacity: 0.3;
+            background-color: $button_sub_disabled_background_color;
+            color: $button_sub_disabled_text_color;
+            border: 1px solid $button_sub_disabled_border_color;
+        }
+    }
+}
+
+@mixin btnSpecialStyle() {
+    &#{$cls}-special {
+        background-color: $button_special_background_color;
+        color: $button_special_text_color;
+        border: 1px solid $button_special_border_color;
+        @include btnActive($button_special_background_color, $button_special_active_border_color, 'special');
     }
 }
 
 //按钮基本样式
 @mixin btnBase() {
     cursor: pointer;
-    font-size: $fs22rem;
+    font-size: $fs_h1;
+    font-weight: 500;
+    padding: 11.5px 0;
+    line-height: 26px;
+
+    background-color: $button_background_main;
+    color: $button_text_color;
     text-align: center;
+    border: 1px solid $button_border_main;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    box-sizing: border-box;
+
     white-space: nowrap;
     vertical-align: middle;
     -ms-touch-action: manipulation;
@@ -37,249 +62,127 @@ $default_border_color: #ccc;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-image: none;
-    box-sizing: border-box;
-    padding: 0 .2rem;
-    font-weight: 400;
-    display: block;
-    transition: background .1s;
-    border-radius: .02rem; //默认样式
-    background: transparent;
-    color: $c_333;
-    @include pxBorder($default_border_color, .16rem);
-    @include btnActive($default_active, 'default');
-    @include inline();
-    &#{$cls}-noborder {
-        border: none !important;
-        &:after {
-            display: none !important;
-        }
-    }
-    &#{$cls}-noRadius {
-        border-radius: 0 !important;
-        &:after {
-            border-radius: 0 !important;
-        }
-    }
-}
 
-//inline
-@mixin inline() {
-    &#{$cls}-inline {
-        display: inline-block;
-    }
-}
+    // 点击反馈
+    @include btnActive($buton_main_background_active, $buton_main_border_active, 'default');
+    // 次级按钮样式
+    @include btnSubStyle();
+    // 特殊按钮样式
+    @include btnSpecialStyle();
 
-//按钮尺寸
-@mixin btnSize() {
-    //默认尺寸
-    height: .88rem;
-    line-height: .88rem;
-    font-size: $fs32rem;
-    &#{$cls}-lg {
-        height: 1rem;
-        line-height: 1rem;
-        font-size: $fs32rem;
+    &#{$cls}-inactive {
+        opacity: 0.3;
+        background-color: $button_background_inactive;
     }
-    &#{$cls}-ms {
-        height: .7rem;
-        line-height: .7rem;
-        font-size: $fs28rem;
-    }
-    &#{$cls}-xs {
-        height: .6rem;
-        line-height: .6rem;
-        font-size: $fs24rem;
-        @include halfPXBorder($default_border_color, .16rem);
-    }
-}
 
-//禁用形式
-@mixin disabled() {
     &#{$cls}-disabled {
-        opacity: .5;
-        // pointer-events: none; 兼容问题
-        cursor: not-allowed;
+        opacity: 0.2;
+        background-color: $button_background_disabled;
+        border: 1px solid $button_border_disabled;
     }
 }
 
-//按钮颜色
-@mixin btnColor($type) {
-    //full 状态下所有颜色按钮都没有边框
-    @if($type=='full') {
-        &#{$cls}-main {
-            background: $main;
-            color: $c_fff;
-            @include btnActive($main_active, 'main');
-            @include halfPXBorder('none');
-        }
-        &#{$cls}-main-lh {
-            background: $main_lh;
-            color: $c_fff;
-            @include btnActive($main-lh_active, 'main-lh');
-            @include halfPXBorder('none');
-        }
-        &#{$cls}-main-dk {
-            background: $main_dk;
-            color: $c_fff;
-            @include btnActive($main-dk_active, 'main-dk');
-            @include halfPXBorder('none');
-        }
-        &#{$cls}-sub {
-            background: $sub;
-            color: $c_fff;
-            @include btnActive($sub_active, 'sub');
-            @include halfPXBorder('none');
-        }
-        &#{$cls}-sub-lh {
-            background: $sub_lh;
-            color: $c_fff;
-            @include btnActive($sub-lh_active, 'sub-lh');
-            @include halfPXBorder('none');
-        }
-        &#{$cls}-sub-dk {
-            background: $sub_dk;
-            color: $c_fff;
-            @include btnActive($sub-dk_active, 'sub-dk');
-            @include halfPXBorder('none');
-        }
+@mixin btnSize() {
+    font-size: $fs_text;
+    height: 36px;
+    font-weight: 500;
+    padding: 7.5px 34.5px;
+    line-height: 20px;
+
+    &#{$cls}-middle {
+        font-size: $fs_text;
+        height: 30px;
+        font-weight: 500;
+        padding: 4.5px 18px;
+        line-height: 20px;
     }
-    @else {
-        &#{$cls}-main {
-            background: $main;
-            color: $c_fff;
-            &::after {
-                display: none;
-            }
-            @include disabled();
-            @include btnActive($main_active, 'main');
-            @include backgroundGhost($main);
-            @include pxBorder('none');
-        }
-        &#{$cls}-main-lh {
-            &::after {
-                display: none;
-            }
-            background: $main_lh;
-            color: $c_fff;
-            @include disabled();
-            @include btnActive($main-lh_active, 'main-lh');
-            @include backgroundGhost($main_lh);
-            @include pxBorder('none');
-        }
-        &#{$cls}-main-dk {
-            &::after {
-                display: none;
-            }
-            background: $main_dk;
-            color: $c_fff;
-            @include disabled();
-            @include btnActive($main-dk_active, 'main-dk');
-            @include backgroundGhost($main_dk);
-            @include pxBorder('none');
-        }
-        &#{$cls}-sub {
-            &::after {
-                display: none;
-            }
-            background: $sub;
-            color: $c_fff;
-            @include disabled();
-            @include btnActive($sub_active, 'sub');
-            @include backgroundGhost($sub);
-            @include pxBorder('none');
-        }
-        &#{$cls}-sub-lh {
-            &::after {
-                display: none;
-            }
-            background: $sub_lh;
-            color: $c_fff;
-            @include disabled();
-            @include btnActive($sub-lh_active, 'sub-lh');
-            @include backgroundGhost($sub_lh);
-            @include pxBorder('none');
-        }
-        &#{$cls}-sub-dk {
-            &::after {
-                display: none;
-            }
-            background: $sub_dk;
-            color: $c_fff;
-            @include disabled();
-            @include btnActive($sub-dk_active, 'sub-dk');
-            @include backgroundGhost($sub_dk);
-            @include pxBorder('none');
-        }
+
+    &#{$cls}-small {
+        font-size: $fs_text;
+        height: 24px;
+        font-weight: 500;
+        padding: 1.5px 18px;
+        line-height: 20px;
     }
 }
 
-//空心按钮
-@mixin backgroundGhost($color) {
-    &#{$cls}-ghost {
-        background: transparent;
-        color: $color;
-        @if($color==$main) {
-            @include btnActive($main_ghost_active, 'main-ghost');
-        }
-        @else if($color==$main_lh) {
-            @include btnActive($main_lh_ghost_active, 'main-lh-ghost');
-        }
-        @else if($color==$main_dk) {
-            @include btnActive($main_dk_ghost_active, 'main-dk-ghost');
-        }
-        @else if($color==$sub) {
-            @include btnActive($sub_ghost_active, 'sub-ghost');
-        }
-        @else if($color==$sub_lh) {
-            @include btnActive($sub_lh_ghost_active, 'sub-lh-ghost');
-        }
-        @else if($color==$sub_dk) {
-            @include btnActive($sub_dk_ghost_active, 'sub-dk-ghost');
-        }
-        @else {
-            @include btnActive($default_active);
-        } //其他按钮用1px做边框
-        @include pxBorder($color, .16rem);
-         //xs尺寸用半像素做边框
-        &#{$cls}-xs {
-            @include halfPXBorder($color, .16rem);
-        }
+// 行内按钮组件样式
+@mixin btnInlineBase() {
+    cursor: pointer;
+
+    background-color: $button_background_main;
+    color: $button_text_color;
+    text-align: center;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    box-sizing: border-box;
+    border: 1px solid $button_border_main;
+
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    // 按钮大少
+    @include btnSize();
+
+    // 点击反馈
+    @include btnActive($buton_main_background_active, $button_border_main, 'default');
+    // 次级按钮样式
+    @include btnSubStyle();
+    // 特殊按钮样式
+    @include btnSpecialStyle();
+
+    &#{$cls}-inactive {
+        opacity: 0.3;
+        background-color: $button_background_inactive;
+    }
+
+    &#{$cls}-disabled {
+        opacity: 0.2;
+        background-color: $button_background_disabled;
     }
 }
 
-//不要圆角
-@mixin noBorderRadius() {
-    &#{$cls}-noRadius {
-        border-radius: 0;
-        -webkit-border-radius: 0;
-        &::after {
-            border-radius: 0;
-            -webkit-border-radius: 0;
-        }
-    }
-}
-
-//按钮块
 //按钮class
 #{$cls} {
     @include btnBase();
-    @include btnSize();
-    @include btnColor('nomal');
-    @include noBorderRadius();
-    @include disabled();
 }
 
-//占满
-#{$cls}-full {
-    @include btnBase();
-    width: 100%;
-    border-radius: 0;
-    display: block;
-    height: 1rem;
-    line-height: 1rem;
-    font-size: $fs32rem;
-    @include btnColor('full');
-    @include btnSize();
-    @include disabled();
+//按钮class
+#{$cls}-inline {
+    @include btnInlineBase();
+}
+
+// 按钮快
+#{$cls-group} {
+    display: flex;
+    align-items: center;
+    &#{$cls-group}-center{
+        justify-content: space-between;
+    }
+    &#{$cls-group}-left{
+        justify-content: flex-start;
+    }
+    &#{$cls-group}-right{
+        justify-content: flex-end;
+    }
+    #{$cls} {
+        flex: 1;
+        &:not(:first-child) {
+            margin-left: 12px;
+        }
+        &#{$cls}-inline {
+            width: auto;
+            flex: 0!important;
+        }
+    }
+    
 }
