@@ -1,32 +1,22 @@
 @import '../style/base.scss';
 $cls: '.zds-modal';
 #{$cls}-box {
-    width: 6.3rem;
+    width: 304px;
     overflow: hidden;
-    @include borderRadius(.16rem);
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-        width: 315px;
-    }
-    /* ipad横屏 */
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        width: 315px;
-    }
-    /* ipad竖屏 */
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-        width: 315px;
-    }
+    border-radius: 8px;
+
     #{$cls}-header {
-        height: 1rem;
-        color:#333333;
-        font-size: .32rem;
-        @include halfPXLine('bottom', $border_color);
+        height: 50px;
+        color:$c_333;
+        font-size: $fs_h1;
+        border-bottom: 1px solid #E7EBF0;
         @include flex();        
     }
 
     #{$cls}-body {
         word-wrap: break-word;
-        max-height: 7rem;
-        min-height: 5.76rem;
+        max-height: 350px;
+        min-height: 288px;
         overflow-x: hidden;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
@@ -35,15 +25,25 @@ $cls: '.zds-modal';
     #{$cls}-footer{
         width: 100%;
         overflow: hidden;
-        height: 1rem;
-        @include halfPXLine('top', $border_color);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        height: 50px;
+        border-top: 1px solid #E7EBF0;
+        @include flex();        
         #{$cls}-btn {
             flex: 1;
+            color: #2871F7;
             &:not(:first-child) {
-                @include halfPXLine('left', $border_color);
+                border-left: 1px solid #E7EBF0;
+            }
+        }
+        &#{$cls}-vertical-footer{
+            flex-direction: column;
+            height: auto;
+            #{$cls}-btn {
+                width: 100%;
+                &:not(:first-child) {
+                    border-left: none;
+                    border-top: 1px solid #E7EBF0;
+                }
             }
         }
     }

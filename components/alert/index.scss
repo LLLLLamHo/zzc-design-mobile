@@ -2,53 +2,65 @@
 $cls: '.zds-alert';
 $cls_button: '.zds-button';
 #{$cls}-box {
-    width: 6.3rem;
+    width: 304px;
     overflow: hidden;
-    @include borderRadius(.16rem);
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-        width: 315px;
-    }
-    /* ipad横屏 */
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        width: 315px;
-    }
-    /* ipad竖屏 */
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-        width: 315px;
-    }
+    border-radius: 8px;
     
     #{$cls}-header{
-        padding: .3rem;
-        #{$cls}-title {
-            color: #333;
-            font-size: .32rem;
-            text-align: center;
-            &#{$cls}-only-title{
-                padding: .34rem 0;
+        #{$cls}-title-img {
+            width: 100%;
+            height: 129px;
+            position: relative;
+            overflow: hidden;
+            img{
+                width: 100%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
             }
+        }
+        #{$cls}-title {
+            padding: 23.5px 20px 19.5px;
+            color: $c_333;
+            font-size: $fs_h1;
+            text-align: center;
         }
     }
     #{$cls}-body {
+        padding: 0 20px;
         &-content {
-            padding-bottom: .3rem;
-            color: #333;
-            font-size: .28rem;
+            padding-bottom: 20px;
+            color: $c_333;
+            font-size: $fs_h2;
             word-wrap: break-word;
-            text-align: center;
+            text-align: left;
         }
     }
     #{$cls}-footer {
         width: 100%;
         overflow: hidden;
-        height: 1rem;
-        @include halfPXLine('top', $border_color);
+        height: 50px;
+        border-top: 1px solid #E7EBF0;
         display: flex;
         align-items: center;
         justify-content: center;
         #{$cls}-btn {
             flex: 1;
+            color: #2871F7;
             &:not(:first-child) {
-                @include halfPXLine('left', $border_color);
+                border-left: 1px solid #E7EBF0;
+            }
+        }
+        &#{$cls}-vertical-footer{
+            flex-direction: column;
+            height: auto;
+            #{$cls}-btn {
+                width: 100%;
+                &:not(:first-child) {
+                    border-left: none;
+                    border-top: 1px solid #E7EBF0;
+                }
             }
         }
     }

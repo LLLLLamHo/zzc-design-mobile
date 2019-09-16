@@ -6,17 +6,19 @@
 
 ## Alert
 
-| 属性          | 说明                    | 类型                   | 默认值    |
-| ------------- | ----------------------- | ---------------------- | --------- |
-| prefixCls     | 组件的公用className前序 | string                 | zds-alert |
-| className     | 定义最外层父元素的class | string                 | 无        |
-| style         | 自定义样式              | object                 | {}        |
-| title         | 弹窗显示的title         | string                 | 无        |
-| content       | 弹窗显示的内容          | string/react component | null      |
-| buttons       | 弹窗的按钮组            | array                  | []        |
-| maskClose     | 点击遮罩层关闭Alert     | boolean                | false     |
-| closable      | 是否使用默认的按钮      | boolean                | false     |
-| closeCallback | 关闭Alert后的回调函数   | function               | 无        |
+| 属性            | 说明                    | 类型                          | 默认值         |
+| --------------- | ----------------------- | ----------------------------- | -------------- |
+| prefixCls       | 组件的公用className前序 | string                        | zds-alert      |
+| className       | 定义最外层父元素的class | string                        | 无             |
+| style           | 自定义样式              | object                        | {}             |
+| title           | 弹窗显示的title         | string                        | 无             |
+| titleImg        | 头部图片路径            | string                        | 无             |
+| content         | 弹窗显示的内容          | string/react component        | null           |
+| buttons         | 弹窗的按钮组            | array                         | []             |
+| maskClose       | 点击遮罩层关闭Alert     | boolean                       | false          |
+| closable        | 是否使用默认的按钮      | boolean                       | false          |
+| closeCallback   | 关闭Alert后的回调函数   | function                      | 无             |
+| buttonDirection | 按钮排列方向            | 'horizontally'  \| 'vertical' | 'horizontally' |
 
 
 
@@ -35,18 +37,7 @@
 ```js
 Alert( {
     title: '标题',
-    content: <p>asdasdasdasd</p>,
-    buttons: [
-        {
-            text: '取消',
-            onPress: () => {
-                console.log( '点击取' )
-            },
-            props: {
-                style: { color:'#254FCB' }
-            }
-        }
-    ]
+    content: <p>asdasdasdasd</p>
 } );
 ```
 
@@ -55,18 +46,19 @@ Alert( {
 ```js
 Alert( {
     title: '发起一个请求',
+    maskClose: true,
     buttons: [
         {
             text: '确认',
             onPress: () => new Promise( ( resolve ) => {
-                Toast.info( 'onPresPromise', 1 );
+                Toast.info( 'onPress Promise', 1 );
                 setTimeout( resolve, 1000 );
             } ),
             props: {
-                type: 'main',
-                className: 'aaaa'
+                type: 'special',
+                className: 'aaaa',
+                style: { color: '#254FCB', border: 'none' }
             }
-
         }
     ]
 } );

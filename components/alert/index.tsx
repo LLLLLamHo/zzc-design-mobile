@@ -6,7 +6,7 @@ import config from '../_util/config';
 import { zzcComponentUse } from '../_util/gtag';
 import './index.scss';
 
-class Alert {
+class Alert{
     opt: any
     parentNode: Element
     _alert: any
@@ -18,21 +18,23 @@ class Alert {
             style: {},
             title: '',
             content: null,
+            titleImg: null,
             buttons: [],
+            buttonDirection: 'horizontally',
             maskClose: false,
-            closable: false,
+            closable: true,
             closeCallback() { }
         };
         zzcComponentUse( 'Alert', '组件渲染' );
         this.opt = Object.assign( defaultPorps, opt );
-        const { title, content, prefixCls, className } = this.opt;
+        const { title, content, prefixCls, className, titleImg } = this.opt;
         this.parentNode = this.createParentNode( className );
         this._alert = ReactDOM.render(
             <Modal
                 transitionName={`${config.cls}-zoom`}
                 visible
                 {...this.opt}
-                title={this.createTitle( title, prefixCls, content )}
+                title={this.createTitle( title, prefixCls, titleImg )}
                 closeCallback={() => { this.removeAlert(); }}
             >
                 {content && <div className={classNames( `${prefixCls}-body-content` )}>{content}</div>}
@@ -48,22 +50,32 @@ class Alert {
         return parentNode;
     }
 
-    createTitle( title: string, prefixCls: string, content: any ): JSX.Element | null {
+    createTitle( title: string, prefixCls: string, titleImg: string ): JSX.Element | null {
+        let titleComponent: JSX.Element | null = null;
         if ( title !== '' ) {
-            return ( <h1
+            titleComponent = ( <h1
                 className={
                     classNames(
-                        `${prefixCls}-title`,
-                        {
-                            [`${prefixCls}-only-title`]: !content
-                        }
+                        `${prefixCls}-title`
                     )
                 }
             >
                 {title}
             </h1> );
         }
-        return null;
+
+        if ( titleImg ) {
+            titleComponent = (
+                <React.Fragment>
+                    <div className={`${prefixCls}-title-img`}>
+                        <img src={titleImg} />
+                    </div>
+                    {titleComponent}
+                </React.Fragment>
+            );
+        }
+
+        return titleComponent;
     }
 
     removeAlert(): void {

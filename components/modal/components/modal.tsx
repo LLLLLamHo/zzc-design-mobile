@@ -9,9 +9,9 @@ import { ModalProps } from '../porpsType';
 
 
 export default class Modal extends PureComponent<ModalProps, any> {
-    constructor( props ) {
-        super( props );
-        zzcComponentUse( 'Modal', '组件渲染' );
+    constructor(props) {
+        super(props);
+        zzcComponentUse('Modal', '组件渲染');
     }
     static defaultProps = {
         prefixCls: `${config.cls}-modal`,
@@ -25,6 +25,7 @@ export default class Modal extends PureComponent<ModalProps, any> {
         title: '',
         transitionName: `${config.cls}-zoom`,
         buttons: [],
+        buttonDirection: 'horizontally',
         maskClose: false,
         transparent: false,
         lang: 'cn'
@@ -39,36 +40,38 @@ export default class Modal extends PureComponent<ModalProps, any> {
     private maskShowed: boolean = false;
     private boxShowed: boolean = false;
 
-    componentWillReceiveProps( newProps ): void {
-        if ( this.state.visible !== newProps.visible ) {
-            if ( newProps.visible ) {
-                this.setState( {
+    componentWillReceiveProps(newProps): void {
+        if (this.state.visible !== newProps.visible) {
+            if (newProps.visible) {
+                this.setState({
                     isRenderModal: newProps.visible,
                     visible: newProps.visible
-                } );
-            } else if ( this.props.visible !== newProps.visible ) {
+                });
+            } else if (this.props.visible !== newProps.visible) {
                 this.close();
             }
         }
     }
 
-    createAlertFooter( closable?: boolean, buttons?: Array<any> ): any {
-        const { transitionName, maskTransitionName, transparent } = this.props;
+    createAlertFooter(closable?: boolean, buttons?: Array<any>): any {
+        const { transitionName, maskTransitionName, transparent, prefixCls } = this.props;
         const { lang } = this.state;
-        if ( closable ) {
+        if (closable && (!buttons || buttons.length == 0)) {
             return (
                 <Button
-                    noBorder
-                    full
-                    size='lg'
+                    type='special'
+                    className={`${prefixCls}-btn`}
+                    style={{
+                        border: 'none'
+                    }}
                     onClick={
                         () => {
                             // 防止enter动画没有结束就点击关闭引起bug
-                            if ( transitionName && transitionName !== '' && !this.boxShowed ) {
+                            if (transitionName && transitionName !== '' && !this.boxShowed) {
                                 return false;
                             }
 
-                            if ( !transparent && maskTransitionName && maskTransitionName !== '' && !this.maskShowed ) {
+                            if (!transparent && maskTransitionName && maskTransitionName !== '' && !this.maskShowed) {
                                 return false;
                             }
                             this.close();
@@ -79,40 +82,37 @@ export default class Modal extends PureComponent<ModalProps, any> {
                     {lang.close}
                 </Button>
             );
-        } else if ( buttons && buttons.length > 0 ) {
+        } else if (buttons && buttons.length > 0) {
             return (
-                buttons.map( ( item, key ) => (
-                    <div key={`${this.props.prefixCls}-btn-${new Date().getTime()}-${key}`} className={classNames( `${this.props.prefixCls}-btn` )}>
-                        {this.createBtn( item )}
+                buttons.map((item, key) => (
+                    <div key={`${this.props.prefixCls}-btn-${new Date().getTime()}-${key}`} className={classNames(`${this.props.prefixCls}-btn`)}>
+                        {this.createBtn(item)}
                     </div>
-                ) )
+                ))
             );
         }
         return null;
     }
 
-    createBtn ( btn: {text:string, onPress:any, props: any} ): JSX.Element {
+    createBtn(btn: { text: string, onPress: any, props: any }): JSX.Element {
         const onPress = btn.onPress ? btn.onPress : () => { };
         const { transitionName, maskTransitionName, transparent } = this.props;
-        return React.cloneElement( <Button
-            noBorder
-            full
-            size='lg'
-            onClick={( event ) => {
+        return React.cloneElement(<Button
+            onClick={(event) => {
                 // 防止enter动画没有结束就点击关闭引起bug
-                if ( transitionName && transitionName !== '' && !this.boxShowed ) {
+                if (transitionName && transitionName !== '' && !this.boxShowed) {
                     return false;
                 }
 
-                if ( !transparent && maskTransitionName && maskTransitionName !== '' && !this.maskShowed ) {
+                if (!transparent && maskTransitionName && maskTransitionName !== '' && !this.maskShowed) {
                     return false;
                 }
                 event.stopPropagation();
                 const res = onPress();
-                if ( res && res.then ) {
-                    res.then( () => {
+                if (res && res.then) {
+                    res.then(() => {
                         this.close();
-                    } ).catch( () => { } );
+                    }).catch(() => { });
                 } else {
                     this.close();
                 }
@@ -120,26 +120,26 @@ export default class Modal extends PureComponent<ModalProps, any> {
             }}
         >
             {btn.text}
-        </Button>, { ...btn.props } );
+        </Button>, { ...btn.props });
     }
 
-    close (): void {
+    close(): void {
         const { transitionName, maskTransitionName } = this.props;
         // 当没有提供动画，无法触发动画事件触发外部传入的closeCallback，所以当没有动画则主动触发外部closeCallback
-        if ( transitionName === '' && maskTransitionName === '' ) {
+        if (transitionName === '' && maskTransitionName === '') {
             this.closeCallback();
         } else {
-            this.setState( {
+            this.setState({
                 visible: false
-            } );
+            });
         }
     }
 
-    createTitle( title?: string ): any {
+    createTitle(title?: string): any {
         const { prefixCls } = this.props;
-        if ( title && title !== '' ) {
+        if (title && title !== '') {
             return (
-                <div className={classNames( `${prefixCls}-header` )}>
+                <div className={classNames(`${prefixCls}-header`)}>
                     {title}
                 </div>
             );
@@ -148,29 +148,29 @@ export default class Modal extends PureComponent<ModalProps, any> {
     }
 
     createFooter() {
-        const { prefixCls, buttons, closable } = this.props;
+        const { prefixCls, buttons, closable, buttonDirection } = this.props;
         return (
-            <div className={classNames( `${prefixCls}-footer` )}>
-                {this.createAlertFooter( closable, buttons )}
+            <div className={classNames([`${prefixCls}-footer`, `${prefixCls}-${buttonDirection}-footer`])}>
+                {this.createAlertFooter(closable, buttons)}
             </div>
         );
     }
 
     closeCallback() {
-        this.setState( {
+        this.setState({
             isRenderModal: false,
             visible: false
         }, () => {
             this.props.closeCallback();
-        } );
+        });
     }
 
     // 防止enter动画没有结束就点击关闭引起bug
-    maskAnimated( type: string ): void {
+    maskAnimated(type: string): void {
         this.maskShowed = type === 'enter';
     }
     // 防止enter动画没有结束就点击关闭引起bug
-    boxAnimated( type: string ): void {
+    boxAnimated(type: string): void {
         this.boxShowed = type === 'enter';
     }
 
@@ -189,7 +189,7 @@ export default class Modal extends PureComponent<ModalProps, any> {
             closable,
             style
         } = this.props;
-        if ( this.state.isRenderModal ) {
+        if (this.state.isRenderModal) {
             return (
                 <Dialog
                     style={style}
@@ -198,15 +198,15 @@ export default class Modal extends PureComponent<ModalProps, any> {
                     visible={this.state.visible}
                     maskStyle={maskStyle}
                     maskClose={maskClose}
-                    maskAnimated={( type ) => { this.maskAnimated( type ); }}
-                    boxAnimated={( type ) => { this.boxAnimated( type ); }}
+                    maskAnimated={(type) => { this.maskAnimated(type); }}
+                    boxAnimated={(type) => { this.boxAnimated(type); }}
                     transitionName={transitionName}
-                    boxClassName={classNames( `${prefixCls}-box`, className )}
+                    boxClassName={classNames(`${prefixCls}-box`, className)}
                     closeCallback={() => { this.closeCallback(); }}
-                    title={this.createTitle( title )}
-                    footer={closable || ( buttons && buttons.length > 0 ) ? this.createFooter() : null}
+                    title={this.createTitle(title)}
+                    footer={closable || (buttons && buttons.length > 0) ? this.createFooter() : null}
                 >
-                    <div className={classNames( `${prefixCls}-body` )}>
+                    <div className={classNames(`${prefixCls}-body`)}>
                         {children}
                     </div>
                 </Dialog>

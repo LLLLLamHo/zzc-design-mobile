@@ -15,6 +15,7 @@
 | style              | 自定义样式                    | object                   | {}        |
 | title              | model显示的title              | string                   | 无        |
 | buttons            | model的按钮组                 | array                    | []        |
+| buttonDirection | 按钮排列方向            | 'horizontally'  \| 'vertical' | 'horizontally' |
 | maskClose          | 点击遮罩层关闭Modal           | boolean                  | false     |
 | closable           | 是否使用默认的按钮            | boolean                  | false     |
 | closeCallback      | 关闭Modal后的回调函数（必填） | function                 | 无        |
