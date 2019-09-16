@@ -21,7 +21,7 @@ $cls: '.zds-dialog';
         z-index: 999;
     }
     #{$cls}-box {
-        background: #fff;
+        background: $c_fff;
         z-index: 1001;
         position: relative;
     }
