@@ -9,7 +9,7 @@ $cls: '.zds-modal';
         height: 50px;
         color:$c_333;
         font-size: $fs_h1;
-        border-bottom: 1px solid #E7EBF0;
+        border-bottom: 1px solid $modal_border_color;
         @include flex();        
     }
 
@@ -26,13 +26,13 @@ $cls: '.zds-modal';
         width: 100%;
         overflow: hidden;
         height: 50px;
-        border-top: 1px solid #E7EBF0;
+        border-top: 1px solid $modal_border_color;
         @include flex();        
         #{$cls}-btn {
             flex: 1;
             color: #2871F7;
             &:not(:first-child) {
-                border-left: 1px solid #E7EBF0;
+                border-left: 1px solid $modal_border_color;
             }
         }
         &#{$cls}-vertical-footer{
@@ -42,7 +42,7 @@ $cls: '.zds-modal';
                 width: 100%;
                 &:not(:first-child) {
                     border-left: none;
-                    border-top: 1px solid #E7EBF0;
+                    border-top: 1px solid $modal_border_color;
                 }
             }
         }
