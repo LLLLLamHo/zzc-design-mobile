@@ -13,7 +13,7 @@ let entry = {};
 for ( let i = 0; i < dirs.length; i++ ) {
     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
 }
-
+console.log(entry)
 let config = {
     devtool: 'source-map',
     entry: entry,
