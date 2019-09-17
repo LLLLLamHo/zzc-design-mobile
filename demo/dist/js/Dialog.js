@@ -27816,6 +27816,7 @@ var TabBar = function (_React$PureComponent) {
 
         var _this = (0, _possibleConstructorReturn3.default)(this, (TabBar.__proto__ || (0, _getPrototypeOf2.default)(TabBar)).call(this, props));
 
+        _this.tabItems = [];
         _this.onPan = function () {
             // 默认是0
             var lastOffset = 0;
@@ -27864,13 +27865,22 @@ var TabBar = function (_React$PureComponent) {
             };
         }();
         _this.state = {
+            status: 'noReady',
             canScroll: props.tabs && props.tabs.length > props.maxTabLength,
             wrapStyle: _this.getWarpContentStyle(props.currIndex)
         };
+        _this.saveTabItem = _this.saveTabItem.bind(_this);
         return _this;
     }
 
     (0, _createClass3.default)(TabBar, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.setState({
+                status: 'ready'
+            });
+        }
+    }, {
         key: 'componentWillReceiveProps',
         value: function componentWillReceiveProps(nextProps) {
             if (this.props.currIndex != nextProps.currIndex) {
@@ -27878,6 +27888,11 @@ var TabBar = function (_React$PureComponent) {
                     wrapStyle: this.getWarpContentStyle(nextProps.currIndex)
                 });
             }
+        }
+    }, {
+        key: 'saveTabItem',
+        value: function saveTabItem(index, item) {
+            this.tabItems[index] = item;
         }
     }, {
         key: 'getWarpContentStyle',
@@ -27888,6 +27903,7 @@ var TabBar = function (_React$PureComponent) {
 
             var offset = '0';
             var calcMaxTabLength = maxTabLength - 1;
+            // todo 计算px，还需要计算前几个的px用来相减
             if (index >= calcMaxTabLength - 1 && index < tabs.length - 1) {
                 offset = '-' + (0, _util.getTabItemSize)(maxTabLength) * (index - (calcMaxTabLength - 1)) + '%';
             }
@@ -27915,6 +27931,7 @@ var TabBar = function (_React$PureComponent) {
         value: function renderTabbar() {
             var _this2 = this;
 
+            var status = this.state.status;
             var _props2 = this.props,
                 currIndex = _props2.currIndex,
                 prefixCls = _props2.prefixCls,
@@ -27931,9 +27948,9 @@ var TabBar = function (_React$PureComponent) {
                 { className: cls, ref: function ref(refs) {
                         _this2.setLayout(refs);
                     }, style: this.setWrapStyle(wrapStyle) },
-                _react2.default.createElement(_tabList2.default, { tabBarUnderlineStyle: tabBarUnderlineStyle, tabBarPosition: tabBarPosition, animated: animated, maxTabLength: maxTabLength, prefixCls: prefixCls, tabs: tabs, currIndex: currIndex, onChange: function onChange(key) {
+                _react2.default.createElement(_tabList2.default, { status: status, tabBarUnderlineStyle: tabBarUnderlineStyle, tabBarPosition: tabBarPosition, animated: animated, maxTabLength: maxTabLength, prefixCls: prefixCls, tabs: tabs, currIndex: currIndex, onChange: function onChange(key) {
                         _this2.onChange(key);
-                    } })
+                    }, tabItems: this.tabItems, saveTabItem: this.saveTabItem })
             );
         }
     }, {
@@ -28202,13 +28219,14 @@ var TabsList = function (_React$PureComponent) {
                 prefixCls = _props.prefixCls,
                 tabs = _props.tabs,
                 currIndex = _props.currIndex,
-                tabBarPosition = _props.tabBarPosition;
+                tabBarPosition = _props.tabBarPosition,
+                saveTabItem = _props.saveTabItem;
 
             var style = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? { width: size + '%' } : { height: size + '%' };
             return tabs && tabs.map(function (item, key) {
-                return _react2.default.createElement(_tabItem2.default, { key: _config2.default.cls + '-tabitem-' + key, itemKey: _config2.default.cls + '-tab-' + key, className: _this2.setTabIsActive(prefixCls, currIndex, key), clickEvent: function clickEvent() {
+                return _react2.default.createElement(_tabItem2.default, { prefixCls: prefixCls, saveTabItem: saveTabItem, key: _config2.default.cls + '-tabitem-' + key, itemKey: _config2.default.cls + '-tab-' + key, className: _this2.setTabIsActive(prefixCls, currIndex, key), clickEvent: function clickEvent() {
                         _this2.onChange(key);
-                    }, style: style, item: item });
+                    }, style: style, index: key, item: item });
             });
         }
     }, {
@@ -28221,18 +28239,31 @@ var TabsList = function (_React$PureComponent) {
                 maxTabLength = _props2.maxTabLength,
                 animated = _props2.animated,
                 tabBarPosition = _props2.tabBarPosition,
-                tabBarUnderlineStyle = _props2.tabBarUnderlineStyle;
+                tabBarUnderlineStyle = _props2.tabBarUnderlineStyle,
+                tabItems = _props2.tabItems,
+                status = _props2.status;
 
             if ((0, _typeof.isArray)(tabs)) {
                 var _classnames2;
 
                 var size = (0, _util.getTabItemSize)(maxTabLength);
+                var lineSize = size;
+                var linePosition = size;
                 var cls = (0, _classnames4.default)(prefixCls + '-ls', (_classnames2 = {}, (0, _defineProperty3.default)(_classnames2, prefixCls + '-ls-horizontal', tabBarPosition == 'top' || tabBarPosition == 'bottom'), (0, _defineProperty3.default)(_classnames2, prefixCls + '-ls-vertical', tabBarPosition == 'left' || tabBarPosition == 'right'), _classnames2));
+                if (tabItems[currIndex]) {
+                    if (tabBarPosition == 'top' || tabBarPosition == 'bottom') {
+                        lineSize = tabItems[currIndex].offsetWidth;
+                        linePosition = tabItems[currIndex].offsetLeft;
+                    } else {
+                        lineSize = tabItems[currIndex].offsetHeight;
+                        linePosition = tabItems[currIndex].offsetTop;
+                    }
+                }
                 return _react2.default.createElement(
                     'div',
                     { className: cls },
                     this.setTabItem(size),
-                    _react2.default.createElement(_tabsListUnserline2.default, { tabBarUnderlineStyle: tabBarUnderlineStyle, currIndex: currIndex, tabBarPosition: tabBarPosition, animated: animated, prefixCls: prefixCls, size: size })
+                    status == 'ready' && _react2.default.createElement(_tabsListUnserline2.default, { tabBarUnderlineStyle: tabBarUnderlineStyle, currIndex: currIndex, tabBarPosition: tabBarPosition, animated: animated, prefixCls: prefixCls, size: lineSize, linePosition: linePosition })
                 );
             }
             return null;
@@ -28267,18 +28298,27 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function TabsItem(props) {
-    var itemKey = props.itemKey,
+    var index = props.index,
+        itemKey = props.itemKey,
         className = props.className,
         clickEvent = props.clickEvent,
         style = props.style,
-        item = props.item;
+        item = props.item,
+        saveTabItem = props.saveTabItem,
+        prefixCls = props.prefixCls;
 
     return _react2.default.createElement(
         'div',
         { key: itemKey, className: className, style: style, onClick: function onClick() {
                 clickEvent();
             } },
-        _react2.default.isValidElement(item) ? item : item.title
+        _react2.default.createElement(
+            'div',
+            { className: prefixCls + '-item-box', ref: function ref(item) {
+                    item && saveTabItem(index, item);
+                } },
+            _react2.default.isValidElement(item) ? item : item.title
+        )
     );
 }
 
@@ -28313,19 +28353,16 @@ var _classnames3 = _interopRequireDefault(_classnames2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function setPosition(currIndex) {
-    return (currIndex * 100).toFixed(4);
-}
 function TabsListUnserlineProps(props) {
     var prefixCls = props.prefixCls,
         size = props.size,
         animated = props.animated,
         tabBarPosition = props.tabBarPosition,
-        currIndex = props.currIndex,
-        tabBarUnderlineStyle = props.tabBarUnderlineStyle;
+        tabBarUnderlineStyle = props.tabBarUnderlineStyle,
+        linePosition = props.linePosition;
 
-    var unlineTransform = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? 'translate3d(' + setPosition(currIndex) + '%,0,0)' : 'translate3d(0,' + setPosition(currIndex) + '%,0)';
-    var style = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? { width: size + '%', transform: unlineTransform } : { height: size + '%', transform: unlineTransform };
+    var unlineTransform = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? 'translate3d(' + linePosition + 'px,0,0)' : 'translate3d(0,' + linePosition + 'px,0)';
+    var style = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? { width: size + 'px', transform: unlineTransform } : { height: size + 'px', transform: unlineTransform };
     style = (0, _assign2.default)({}, style, tabBarUnderlineStyle);
     var cls = (0, _classnames3.default)(prefixCls + '-ls-unline', prefixCls + '-ls-unline-' + tabBarPosition, (0, _defineProperty3.default)({}, prefixCls + '-ls-unline-am', animated));
     return _react2.default.createElement('div', { className: cls, style: style });

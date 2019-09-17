@@ -305,19 +305,27 @@
   padding: 0 5px; }
 
 .zds-tabs-box .zds-tabs-bar-box .zds-tabs-ls-item {
+  box-sizing: border-box;
+  padding: 0 16px;
   overflow: hidden;
-  height: 100%;
   flex-shrink: 0;
   color: #666;
   font-size: 14px;
   text-align: center;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   white-space: nowrap; }
 
 .zds-tabs-box .zds-tabs-bar-box .zds-tabs-ls-item.zds-tabs-active {
   color: #2871F7; }
+
+.zds-tabs-box .zds-tabs-bar-box .zds-tabs-ls-item .zds-tabs-item-box {
+  display: inline-block;
+  max-width: 100%;
+  white-space: pre-wrap;
+  text-align: left;
+  word-break: break-all; }
 
 .zds-tabs-box .zds-tabs-bar-box .zds-tabs-ls-unline {
   position: absolute;
