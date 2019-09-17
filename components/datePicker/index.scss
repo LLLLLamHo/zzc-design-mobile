@@ -25,7 +25,7 @@ $cls: '.zds-datepicker';
                 margin-left: 5px;
                 font-size: $fs_stext;
                 line-height: $fs_stext;
-                color: #696E7C;
+                color: $datePicker_footer_text_color;
             }
         }
         padding: 15px;

@@ -30,7 +30,7 @@ $cls: '.zds-modal';
         @include flex();        
         #{$cls}-btn {
             flex: 1;
-            color: #2871F7;
+            color: $main;
             &:not(:first-child) {
                 border-left: 1px solid $modal_border_color;
             }

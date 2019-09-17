@@ -41,9 +41,7 @@ $cls: '.zds-picker';
 
         #{$cls}-ws {
             #{$cls}-wi {
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                @include flex();
                 font-size: 18px;
                 color: #9EA1B0;
                 height: 50px;

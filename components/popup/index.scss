@@ -7,9 +7,7 @@ $cls: '.zds-popup';
     z-index: 1001;
     height: 100%;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex();
     
     #{$cls}-mask {
         background: rgba(0, 0, 0, .8);
