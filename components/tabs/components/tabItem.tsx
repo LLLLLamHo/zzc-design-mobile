@@ -8,7 +8,7 @@ export interface TabsItemProps {
     item: itemObject
     index: number
     saveTabItem: Function
-    prefixCls: string
+    prefixCls?: string
 }
 
 export interface itemObject {
