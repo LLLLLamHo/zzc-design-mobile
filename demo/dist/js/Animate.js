@@ -30314,11 +30314,6 @@ var Loading = function (_PureComponent) {
     }
 
     (0, _createClass3.default)(Loading, [{
-        key: 'getModal',
-        value: function getModal(div) {
-            this.modal = div;
-        }
-    }, {
         key: 'componentWillReceiveProps',
         value: function componentWillReceiveProps(nextProps) {
             this.setState({
@@ -30328,8 +30323,6 @@ var Loading = function (_PureComponent) {
     }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
-
             var _props = this.props,
                 prefixCls = _props.prefixCls,
                 text = _props.text,
@@ -30338,9 +30331,7 @@ var Loading = function (_PureComponent) {
 
             return _react2.default.createElement(
                 _Modal2.default,
-                (0, _extends3.default)({ ref: function ref(div) {
-                        _this2.getModal(div);
-                    }, prefixCls: prefixCls, visible: visible, closeCallback: function closeCallback() {
+                (0, _extends3.default)({ prefixCls: prefixCls, visible: visible, closeCallback: function closeCallback() {
                         _closeCallback && _closeCallback();
                     } }, this.props),
                 _react2.default.createElement(

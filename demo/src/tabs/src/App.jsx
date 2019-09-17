@@ -16,7 +16,7 @@ export default class App extends Component {
                 { title: 'tab 1' },
                 { title: 'tab 2' },
                 { title: 'tab 3' },
-                { title: 'tab 4' },
+                { title: <div style={{ width: '50px', whiteSpace: 'pre-wrap' }}>自定义内容1</div> },
                 { title: 'tab 5' },
                 { title: 'tab 6' },
                 { title: 'tab 7' }
@@ -115,12 +115,13 @@ export default class App extends Component {
                 </div>
                 <div className='zzc-demo-body full'>
                     <Tabs
+                        defaultIndex={4}
                         maxTabLength={4}
                         tabs={[
                             { title: 'tab 1' },
-                            { title: 'tab 2' },
+                            { title: <div>tab 2</div> },
                             { title: 'tab 3' },
-                            { title: 'tab 4' },
+                            { title: 'tab 44444444444' },
                             { title: 'tab 5' },
                             { title: 'tab 6' },
                             { title: 'tab 7' }

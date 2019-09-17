@@ -23,12 +23,6 @@ export default class Loading extends PureComponent<LoadingProps, LoadingState> {
         visible: this.props.visible
     }
 
-    private modal: any;
-
-    getModal( div: any ): void {
-        this.modal = div;
-    }
-
     componentWillReceiveProps( nextProps ): void {
         this.setState( {
             visible: nextProps.visible
@@ -40,7 +34,6 @@ export default class Loading extends PureComponent<LoadingProps, LoadingState> {
         const { visible } = this.state;
         return (
             <Modal
-                ref={( div ) => { this.getModal( div ); }}
                 prefixCls={prefixCls}
                 visible={visible}
                 closeCallback={() => { closeCallback && closeCallback(); }}
