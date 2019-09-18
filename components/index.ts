@@ -4,6 +4,7 @@ export { default as Toast } from './Toast';
 export { default as Icon } from './Icon';
 export { default as Dialog } from './Dialog';
 export { default as Button } from './Button';
+export { default as List } from './List';
 export { default as Card } from './Card';
 export { default as Alert } from './Alert';
 export { default as Modal } from './Modal';
