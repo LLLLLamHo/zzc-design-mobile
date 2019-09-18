@@ -6,6 +6,7 @@ export { default as Dialog } from './Dialog';
 export { default as Button } from './Button';
 export { default as List } from './List';
 export { default as Card } from './Card';
+export { default as Card2 } from './Card2';
 export { default as Alert } from './Alert';
 export { default as Modal } from './Modal';
 export { default as Popup } from './Popup';

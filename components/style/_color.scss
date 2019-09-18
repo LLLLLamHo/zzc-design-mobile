@@ -47,6 +47,9 @@ $bg: #EFF2F8; // 大背景颜色
 $tips: #FF8500; // 提示
 $error: #CA0808; // 错误
 
+$page_bg: #DDDDDD;
+$block_bg: #EFF2F8;
+
 // Button 默认
 $button_background_main: $main;// 按钮默认颜色
 $buton_main_background_active: #1F58C0;// 按钮点击颜色
@@ -84,3 +87,7 @@ $datePicker_footer_text_color: #696E7C;
 $list_item_border_color: #E7EBF0;
 $list_item_title_color: $c_333;
 $list_item_body_color: #696E7C;
+// card
+$card2_head_title_color: $c_333;
+$card2_head_body_color: #696E7C;
+$card2_body_bg: #F9FBFE;

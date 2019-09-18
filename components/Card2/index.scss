@@ -1,0 +1,44 @@
+@import '../style/base.scss';
+$cls: '.zds-card2';
+
+#{$cls} {
+    background: $c_fff;
+    padding: 0 15px 20px;
+
+    &-head {
+        padding: 20px 0 0;
+
+        #{$cls}-head-header {
+            @include flex(center, flex-start);
+
+            #{$cls}-head-header-top {
+                align-items: flex-start;
+            }
+
+            #{$cls}-head-header-bottom {
+                align-items: flex-start;
+            }
+
+            #{$cls}-head-header-title{
+                flex: 1;
+                color: $card2_head_title_color;
+                font-size: $fs_h1;
+                font-weight: 600;
+            }
+            #{$cls}-head-header-extra{
+                margin-left: 10px;
+            }
+        }
+        #{$cls}-head-body{
+            color: $card2_head_body_color;
+            font-size: $fs_h2;
+            margin-top: 12px;
+        }
+    }
+    &-body{
+        margin-top: 12px;
+        background: $card2_body_bg;
+        border-radius:2px;
+        padding: 15px 10px;
+    }
+}
