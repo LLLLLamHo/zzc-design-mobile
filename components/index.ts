@@ -18,3 +18,4 @@ export { default as ImageView } from './ImageView';
 export { default as Animate } from './Animate';
 export { default as TouchFeedback } from './TouchFeedback';
 export { default as FullModal } from './FullModal';
+export { default as Select } from './Select';

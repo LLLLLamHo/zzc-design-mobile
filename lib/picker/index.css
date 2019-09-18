@@ -271,8 +271,8 @@
 
 .zds-picker .zds-picker-wrapper .zds-picker-ws .zds-picker-wi {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   font-size: 18px;
   color: #9EA1B0;
   height: 50px;

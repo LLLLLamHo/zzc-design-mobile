@@ -22,6 +22,7 @@
 | title      | title内容               | string                        \| JSX.Element | null     |
 | extra      | title右边内容           | string                        \| JSX.Element | null     |
 | align      | 自定义样式              | 'center' \| 'top' \| 'bottom'                | 'center' |
+| onClick    | 整个头部的点击事件回调  | Function                                     | null     |
 | extraClick | extra点击回调           | Function                                     | null     |
 
 ## Card.Body

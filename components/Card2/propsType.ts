@@ -11,6 +11,7 @@ export interface CardHeaderProps {
     extra?: string | JSX.Element
     align?: 'center' | 'top' | 'bottom'
     extraClick?: Function
+    onClick?: Function
 }
 export interface CardBodyProps {
     prefixCls: string,

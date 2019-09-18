@@ -15,10 +15,11 @@ export default class ListItem extends PureComponent<ListItemProps, any> {
         title: null,
         extra: null,
         align: 'center',
-        extraClick: null
+        extraClick: null,
+        onClick: null
     };
 
-    createHeader(title: string | JSX.Element, extra?: string | JSX.Element): JSX.Element {
+    createHeader(title: string | JSX.Element, extra?: string | JSX.Element | null): JSX.Element {
         const { prefixCls, align, extraClick } = this.props;
         const classname: string = classNames(
             `${prefixCls}-header`,
@@ -46,7 +47,7 @@ export default class ListItem extends PureComponent<ListItemProps, any> {
     }
 
     render() {
-        const { style, prefixCls, children, className, title, extra } = this.props;
+        const { style, prefixCls, children, className, title, extra, onClick } = this.props;
 
         const cardClassName: string = classNames(
             prefixCls,
@@ -54,7 +55,11 @@ export default class ListItem extends PureComponent<ListItemProps, any> {
         );
 
         return (
-            <div style={style} className={cardClassName}>
+            <div style={style} className={cardClassName} onClick={() => {
+                if (onClick) {
+                    onClick();
+                }
+            }}>
                 {title && this.createHeader(title, extra)}
                 {children && this.createBody(children)}
             </div>
