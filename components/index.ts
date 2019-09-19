@@ -19,3 +19,4 @@ export { default as Animate } from './Animate';
 export { default as TouchFeedback } from './TouchFeedback';
 export { default as FullModal } from './FullModal';
 export { default as Select } from './Select';
+export { default as Input } from './Input';
