@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button 1`] = `
+<div>
+  <div
+    class="zds-button zds-button-default"
+  >
+    defualt
+  </div>
+  <div
+    class="zds-button zds-button-main"
+  >
+    main
+  </div>
+  <div
+    class="zds-button zds-button-main-lh"
+  >
+    main-lh
+  </div>
+  <div
+    class="zds-button zds-button-main-dk"
+  >
+    main-dk
+  </div>
+  <div
+    class="zds-button zds-button-sub"
+  >
+    sub
+  </div>
+  <div
+    class="zds-button zds-button-sub-lh"
+  >
+    sub-lh
+  </div>
+  <div
+    class="zds-button zds-button-sub-dk"
+  >
+    sub-dk
+  </div>
+  <div
+    class="zds-button zds-button-default zds-button-disabled"
+  >
+    disabled
+  </div>
+  <div
+    class="zds-button zds-button-main"
+  >
+    default main
+  </div>
+  <div
+    class="zds-button zds-button-lg zds-button-main"
+  >
+    lg main
+  </div>
+  <div
+    class="zds-button zds-button-sm zds-button-main"
+  >
+    sm main
+  </div>
+  <div
+    class="zds-button zds-button-xs zds-button-main"
+  >
+    xs main
+  </div>
+  <div
+    class="zds-button zds-button-sm zds-button-default zds-button-inline"
+  >
+    inline1
+  </div>
+  <div
+    class="zds-button zds-button-sm zds-button-main zds-button-inline"
+  >
+    inline2
+  </div>
+  <div
+    class="zds-button zds-button-sm zds-button-sub zds-button-inline"
+  >
+    inline3
+  </div>
+  <div
+    class="zds-button zds-button-xs zds-button-main zds-button-inline zds-button-ghost"
+  >
+    inline2
+  </div>
+  <div
+    class="zds-button zds-button-xs zds-button-sub zds-button-inline zds-button-ghost"
+  >
+    inline3
+  </div>
+  <div
+    class="zds-button zds-button-full zds-button-main"
+  >
+    full main
+  </div>
+  <div
+    class="zds-button zds-button-default"
+    style="background:green;color:#fff"
+  >
+    自定义样式
+  </div>
+  <div
+    class="zds-button zds-button-default"
+  >
+    自定义active
+  </div>
+  <div
+    class="zds-button zds-button-default"
+  >
+    禁止active
+  </div>
+</div>
+`;
