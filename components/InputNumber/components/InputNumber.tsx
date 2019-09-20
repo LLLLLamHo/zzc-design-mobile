@@ -16,8 +16,7 @@ export default class InputNumber extends PureComponent<InputNumberProps, any> {
     }
 
     static defaultProps = {
-        step: 1,
-        min: 0
+        step: 1
     }
 
     getValidValue(props): number {
@@ -40,6 +39,8 @@ export default class InputNumber extends PureComponent<InputNumberProps, any> {
             value = this.toPrecision((value * precisionFactor) / precisionFactor);
             this.setState({
                 inputValue: value
+            }, () => {
+                typeof this.props.onChange === 'function' && this.props.onChange(this.state.inputValue);
             });
         }
     }
@@ -50,7 +51,7 @@ export default class InputNumber extends PureComponent<InputNumberProps, any> {
         const precisionFactor = Math.pow(10, this.getNumPrecision());
         let value = this.toPrecision((inputValue * precisionFactor -  precisionFactor * step) / precisionFactor);
         const { isDecreaseDisabled, isIncreaseDisabled } = this.getButtonStatus(value);
-        value = this.getValidValue({ value });
+        value = this.getValidValue({ value, ...this.props });
         this.setState({
             inputValue: value,
             isDecreaseDisabled,
@@ -61,7 +62,7 @@ export default class InputNumber extends PureComponent<InputNumberProps, any> {
     }
 
     getButtonStatus(val) {
-        const { min = 0, max = Infinity } = this.props;
+        const { min = -Infinity, max = Infinity } = this.props;
         return {
             isIncreaseDisabled: val >= max,
             isDecreaseDisabled: val <= min
@@ -73,7 +74,7 @@ export default class InputNumber extends PureComponent<InputNumberProps, any> {
         let step = this.props.step || 1;
         const precisionFactor = Math.pow(10, this.getNumPrecision());
         let value = this.toPrecision((inputValue * precisionFactor + precisionFactor * step) / precisionFactor);
-        value = this.getValidValue({ value });
+        value = this.getValidValue({ value, ...this.props });
         this.setState({
             inputValue: value,
             ...this.getButtonStatus(value)

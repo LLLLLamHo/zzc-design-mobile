@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import ReactDom from 'react-dom';
+// import ReactDom from 'react-dom';
 // import classnames from 'classnames';
 import { zzcComponentUse } from '../../_util/gtag';
 import { TooltipProps } from '../propsType';
@@ -40,7 +40,7 @@ export default class Tooltip extends PureComponent<TooltipProps, any> {
 
     render() {
         const { children } = this.props;
-        const { visible } = this.state;
+        // const { visible } = this.state;
         const Portal = TooltipContent;
         let child = React.Children.only(children);
         let newChildProps: newChildProps;

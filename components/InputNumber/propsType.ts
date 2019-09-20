@@ -1,5 +1,4 @@
 export interface InputNumberProps {
-    prefixCls?: string,
     step?: number,
     min?: number,
     max?: number,

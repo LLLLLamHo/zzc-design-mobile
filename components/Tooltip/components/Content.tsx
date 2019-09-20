@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import ReactDom from 'react-dom';
 import PopperJS from './popper.js';
 import { zzcComponentUse } from '../../_util/gtag';
-interface TooltipContentProps {
+export interface TooltipContentProps {
     placement?: string,
     referenceEle?: HTMLElement | null,
     visible?: boolean

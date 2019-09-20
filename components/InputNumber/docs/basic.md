@@ -6,28 +6,22 @@
 
 适用平台：WEB
 
-### Button
+### InputNumber
 
 | 属性            | 说明                                       | 类型     | 默认值     |
-| --------------- | ------------------------------------------ | -------- | ---------- |
-| prefixCls       | 组件的公用className前序                    | string   | zds-button |
-| type            | 按钮类型，可选值为`default`、`sub`、`special`或者不设 | string   | `default`  |
-| size            | 按钮大小，可选值为`lg`、`ms`、`xs`         | string   | 无         |
-| activeStyle     | 点击反馈的自定义样式                       | {}       | {}         |
-| activeClassName | 点击反馈的自定义类名                       | string   |            |
-| disabled        | 设置禁用                                   | boolean  | false      |
-| inactive        | 未激活                                     | boolean  | false      |
-| onClick         | 点击按钮的点击回调函数                     | function | 无         |
-| style           | 自定义样式                                 | Object   | 无         |
-| inline          | 是否设置为行内按钮                         | boolean  | false      |
-| className       | 样式类名                                   | string   | 无         |
+| --------------- | ------------------------------------------| -------- | ---------- |
+| defaultValue    | 初始值                                     | number   |          |
+| min              | 最小值                                     | number   | Infinity       |
+| max               | 最大值                                   | number  | -Infinity      |
+| precision        | 数值精度                                     | number  |       |
+| step         | 每次改变步数，可以为小数                           | number | 1         |
+| value           | 当前值                                  | number   | 无         |
+| onChange          | 变化回调                              | number  | Function(value: number | string)      |
 
 ```JavaScript
-<Button>默认按钮</Button>
-<Button><Icon style={{ marginRight: '5px', width: '18px', height: '18px' }} type='success' />默认按钮</Button>
-<Button inactive>未激活按钮</Button>
-<Button disabled>禁用按钮</Button>
-<Button inline>确认</Button>
-<Button inline type='sub'>确认</Button>
-<Button inline type='special'>确认</Button>
+<InputNumber defaultValue={0} onChange={this.onChange} />
+
+<InputNumber defaultValue={3} step={2} min={0} max={10} onChange={this.onChange} />
+
+<InputNumber defaultValue={1.2} step={0.2} min={0} max={10} onChange={this.onChange} />
 ```
