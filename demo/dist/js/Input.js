@@ -476,7 +476,7 @@ function initGtag() {
         }
     }
 }
-// initGtag();
+initGtag();
 function zzcComponentUse(componentName, action) {
     if (useList.indexOf(componentName) == -1) {
         useList.push(componentName);

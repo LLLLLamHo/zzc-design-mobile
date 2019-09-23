@@ -59,7 +59,7 @@ export function initGtag() {
     }
 }
 
-// initGtag();
+initGtag();
 
 export function zzcComponentUse ( componentName: string, action: string ) {
     if ( useList.indexOf( componentName ) == -1 ) {
