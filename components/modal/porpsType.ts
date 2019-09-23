@@ -18,6 +18,7 @@ export interface ModalProps {
     onClick?: any,
     lang?: 'cn' | 'hk' | 'en'
     buttons?: Array<any>,
+    buttonDirection?: 'horizontally' | 'vertical',
     style?: React.CSSProperties,
     maskStyle?: React.CSSProperties,
     footer?: JSX.Element,

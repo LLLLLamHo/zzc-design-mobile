@@ -88,7 +88,8 @@ export default class App extends Component {
                                     console.log( '点击取消' )
                                 },
                                 props: {
-                                    style: { color: '#254FCB' }
+                                    type: 'special',
+                                    style: { color: '#696E7C', border: 'none' }
                                 }
                             },
                             {
@@ -97,10 +98,11 @@ export default class App extends Component {
                                     console.log( '点击确认' )
                                 },
                                 props: {
-                                    type: 'main',
-                                    className: 'aaaa'
+                                    type: 'special',
+                                    className: 'aaaa',
+                                    style: { color: '#254FCB', border: 'none' }
                                 }
-
+            
                             }
                         ]}
                         closeCallback={() => { this.setState( { visible2: false } ); }}
@@ -119,8 +121,8 @@ export default class App extends Component {
                                     setTimeout( resolve, 1000 );
                                 } ),
                                 props: {
-                                    type: 'main',
-                                    className: 'aaaa'
+                                    type: 'special',
+                                    style: { color: '#696E7C', border: 'none' }
                                 }
 
                             }

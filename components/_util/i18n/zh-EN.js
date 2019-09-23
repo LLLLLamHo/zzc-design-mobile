@@ -10,5 +10,6 @@ export default {
     cancel: 'cancel',
     close: 'close',
     open: 'open',
-    datePickerTitle: 'Please select'
+    datePickerTitle: 'Please select',
+    datePickerButtomText: 'submit select'
 };

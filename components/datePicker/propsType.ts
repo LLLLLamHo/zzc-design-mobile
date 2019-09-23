@@ -2,8 +2,11 @@ export interface DatePickerProps {
     prefixCls?: string
     className?: string
     style?: React.CSSProperties
+    title?: string,
+    buttonText?: string,
+    warningText?: string,
     onChange?: Function
-    mode?: 'date' | 'time' | 'datetime' | 'year' | 'month'
+    mode?: 'date' | 'time' | 'datetime' | 'year' | 'month' | 'hour'
     minDate?: string
     maxDate?: string
     selectTime?: any

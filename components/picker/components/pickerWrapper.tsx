@@ -9,6 +9,7 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
     static defaultProps = {
         prefixCls: `${config.cls}-picker`,
         wrapperKey: '',
+        height: 187,
         data: []
     }
 
@@ -132,7 +133,7 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
     }
 
     render (): JSX.Element {
-        const { prefixCls, data, wrapperKey } = this.props;
+        const { prefixCls, data, wrapperKey, height } = this.props;
         const ulCls = classnames(
             data.className,
             `${prefixCls}-ws`,
@@ -146,6 +147,9 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
                 <ul
                     className={ulCls}
                     ref={( refs ) => { this.getWheelScroll( refs ); }}
+                    style={{
+                        marginTop: `${height/2-25}px`
+                    }}
                 >
                     {this.renderItem()}
                 </ul>

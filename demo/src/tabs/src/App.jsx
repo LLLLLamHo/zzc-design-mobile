@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Tabs, Icon} from 'zzc-design-mobile';
+import React, { Component } from 'react';
+import { Tabs, Icon } from 'zzc-design-mobile';
 import './index.scss';
 import '../../../style/style.scss';
 
@@ -8,18 +8,18 @@ export default class App extends Component {
         super( props );
         this.state = {
             tabs1: [
-                {title: 'tab 1'},
-                {title: 'tab 2'},
-                {title: 'tab 3'}
+                { title: 'tab 1' },
+                { title: 'tab 2' },
+                { title: 'tab 3' }
             ],
             tabs2: [
-                {title: 'tab 1'},
-                {title: 'tab 2'},
-                {title: 'tab 3'},
-                {title: 'tab 4'},
-                {title: 'tab 5'},
-                {title: 'tab 6'},
-                {title: 'tab 7'}
+                { title: 'tab 1' },
+                { title: 'tab 2' },
+                { title: 'tab 3' },
+                { title: <div style={{ width: '50px', whiteSpace: 'pre-wrap' }}>自定义内容1</div> },
+                { title: 'tab 5' },
+                { title: 'tab 6' },
+                { title: 'tab 7' }
             ],
             tabs3: [
                 {
@@ -106,12 +106,55 @@ export default class App extends Component {
     }
 
     render () {
-        const {lazyComponent1, lazyComponent2 } = this.state;
+        const { lazyComponent1, lazyComponent2 } = this.state;
         return (
             <div className='zzc-demo'>
                 <div className='zzc-demo-header'>
                     <h1 className='zzc-demo-title'>Tabs 标签页</h1>
                     <h2>提供多个标签页面切换功能</h2>
+                </div>
+                <div className='zzc-demo-body full'>
+                    <Tabs
+                        defaultIndex={4}
+                        maxTabLength={4}
+                        tabs={[
+                            { title: 'tab 1' },
+                            { title: <div>tab 2</div> },
+                            { title: 'tab 3' },
+                            { title: 'tab 44444444444' },
+                            { title: 'tab 5' },
+                            { title: 'tab 6' },
+                            { title: 'tab 7' }
+                        ]}
+                    />
+                </div>
+                <div className='zzc-demo-body full'>
+                    <Tabs
+                        maxTabLength={3}
+                        tabs={[
+                            { title: 'tab 1' },
+                            { title: 'tab 2' },
+                            { title: 'tab 3' },
+                            { title: 'tab 4' },
+                            { title: 'tab 5' },
+                            { title: 'tab 6' },
+                            { title: 'tab 7' }
+                        ]}
+                    />
+                </div>
+                <div className='zzc-demo-body full'>
+                    <Tabs
+                        maxTabLength={2}
+                        tabs={[
+                            { title: 'tab 1' },
+                            { title: 'tab 2' },
+                            { title: 'tab 3' },
+                            { title: 'tab 4' },
+                            { title: 'tab 5' },
+                            { title: 'tab 6' },
+                            { title: 'tab 7' }
+                        ]}
+                    />
                 </div>
                 <div className='zzc-demo-body full'>
                     <h1 className='zzc-component-title'>基本用法</h1>
@@ -161,7 +204,7 @@ export default class App extends Component {
                 </div>
                 <div className='zzc-demo-body full'>
                     <h1 className='zzc-component-title'>垂直布局(左边)</h1>
-                    <div style={{height: '4rem'}}>
+                    <div style={{ height: '4rem' }}>
                         <Tabs
                             swipeDirection='vertical'
                             isOpenTabBarScroll={false}
@@ -180,7 +223,7 @@ export default class App extends Component {
                         </Tabs>
                     </div>
                     <h1 className='zzc-component-title'>垂直布局(右边)</h1>
-                    <div style={{height: '200px'}}>
+                    <div style={{ height: '200px' }}>
                         <Tabs
                             swipeDirection='vertical'
                             isOpenTabBarScroll={false}

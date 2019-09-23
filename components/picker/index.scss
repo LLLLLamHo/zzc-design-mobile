@@ -1,62 +1,60 @@
 @import '../style/base.scss';
 $cls: '.zds-picker';
+
 #{$cls} {
-    height: 5.6rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex();
+
     #{$cls}-wrapper {
         display: block;
         flex: 1;
         overflow: hidden;
         height: 100%;
         width: 100%;
-        background: #fff;
+        background: $c_fff;
         position: relative;
-        &::before {
-            display: block;
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            right: 0;
-            width: 200%;
-            height: 1.6rem;
-            border-top: 1px solid #e8e8e8;
-            border-bottom: 1px solid #e8e8e8;
-            -webkit-transform-origin: 0 0;
-            transform-origin: 0 0;
-            -webkit-transform: scale(0.5, 0.5) translateY(-50%);
-            transform: scale(0.5, 0.5) translateY(-50%);
-            box-sizing: border-box;
-            background: transparent;
+
+        &:not(:first-child) {
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                display: block;
+                width: 1px;
+                height: 37px;
+                background: linear-gradient(180deg, rgba(238, 238, 238, 0) 0%, rgba(216, 216, 216, 1) 48%, rgba(192, 192, 192, 0) 100%);
+            }
         }
+
         &-bg {
             position: absolute;
             top: 0;
             height: 100%;
             width: 100%;
             margin: 0 auto;
-            background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .6)), linear-gradient(0deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .6));
+            // background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .6)), linear-gradient(0deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .6));
             background-position: top, bottom;
-            background-size: 100% 2.04rem;
+            background-size: 100% 102px;
             background-repeat: no-repeat;
         }
+
         #{$cls}-ws {
-            margin-top: 2.3rem;
             #{$cls}-wi {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: .32rem;
-                height: 1rem;
+                @include flex();
+                font-size: 18px;
+                color: #9EA1B0;
+                height: 50px;
                 box-sizing: border-box;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
+
+
+
                 &-active {
-                    color: #282828;
-                    font-size: .36rem;
+                    color: $c_333;
+                    font-size: 21px;
                     font-weight: bold;
                 }
             }

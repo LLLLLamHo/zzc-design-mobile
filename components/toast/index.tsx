@@ -110,7 +110,7 @@ function getToast( type: string, content: any, duration: number = 2, onClose: an
                 <div className={classNames( `${PREFIXCLS}-notice-content` )}>
                     <div className={classNames( `${PREFIXCLS}-text` )}>
                         {
-                            ( type === 'success' || type === 'error' || type === 'waring' || type === 'loading' ) && <Icon style={{ fill: '#fff' }} size='lg' type={type} />
+                            ( type === 'success' || type === 'error' || type === 'waring' || type === 'loading' ) && <Icon style={{ fill: '#fff', width: '36px', height: '36px' }} type={type} />
                         }
                         <div className={classNames( `${PREFIXCLS}-text-content` )}
                             dangerouslySetInnerHTML={{

@@ -10,5 +10,6 @@ export default {
     cancel: '取消',
     close: '關閉',
     open: '打開',
-    datePickerTitle: '請選擇時間'
+    datePickerTitle: '選擇時間',
+    datePickerButtomText: '確認日期'
 };

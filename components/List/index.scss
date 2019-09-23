@@ -1,0 +1,42 @@
+@import '../style/base.scss';
+$cls: '.zds-list';
+
+#{$cls} {
+    background: $c_fff;
+    padding: 0 15px;
+
+    &-item {
+        padding: 20px 0;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $list_item_border_color;
+        }
+
+        #{$cls}-item-header {
+            @include flex(center, flex-start);
+
+            #{$cls}-item-header-top {
+                align-items: flex-start;
+            }
+
+            #{$cls}-item-header-bottom {
+                align-items: flex-start;
+            }
+
+            #{$cls}-item-header-title{
+                flex: 1;
+                color: $list_item_title_color;
+                font-size: $fs_h1;
+                font-weight: 600;
+            }
+            #{$cls}-item-header-extra{
+                margin-left: 10px;
+            }
+        }
+        #{$cls}-item-body{
+            color: $list_item_body_color;
+            font-size: $fs_h2;
+            margin-top: 12px;
+        }
+    }
+}

@@ -3,13 +3,11 @@ $cls: '.zds-loading';
 
 #{$cls}{
     &-box{
-        width: 4rem;
-        height: 2.8rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        width:200px;
+        height: 140px;
+        @include flex();
         flex-direction: column;
-        @include borderRadius(.08rem);
+        border-radius: 4px;
     }
     &-body{
         width: 100%;
@@ -18,17 +16,15 @@ $cls: '.zds-loading';
     &-content{
         width: 100%;
         height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex();
         flex-direction: column;
         img{
             display: block;
         }
     }
     &-text{
-        margin-top:.3rem;
+        margin-top:15px;
         color:$c_333;
-        font-size: .26rem;
+        font-size: $fs_text;
     }
 }

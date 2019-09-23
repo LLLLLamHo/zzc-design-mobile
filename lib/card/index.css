@@ -245,6 +245,6 @@
 .zds-card-box {
   overflow: hidden;
   background: #fff;
-  margin: 0 .2rem;
-  border-radius: .16rem;
-  box-shadow: 0 0.04rem 0.12rem 0 rgba(0, 0, 0, 0.15); }
+  margin: 0 1px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15); }

@@ -13,35 +13,23 @@ export default class App extends Component {
         super( props );
     }
 
-    defaultBtn() {
+    defaultBtn () {
         Alert( {
-            title: '标题',
-            closable: true
+            title: '标题'
         } );
     }
 
-    titleAlert() {
+    titleAlert () {
         Alert( {
             title: '标题',
-            buttons: [
-                {
-                    text: '取消',
-                    onPress: () => {
-                        return false;
-                    },
-                    props: {
-                        style: { color: '#254FCB' }
-                    }
-                }
-            ],
             style: {
-                color:'blue'
+                color: 'blue'
             },
             className: 'a233'
         } );
     }
 
-    contentAlert() {
+    contentAlert () {
         Alert( {
             title: '标题',
             content: <p>asdadasdas</p>,
@@ -49,20 +37,21 @@ export default class App extends Component {
                 {
                     text: '取消',
                     onPress: () => {
-                        console.log( '点击取消' )
+                        return false;
                     },
                     props: {
-                        style: { color: '#254FCB' }
+                        type: 'sub',
+                        style: { color: '#254FCB', border: 'none' }
                     }
                 }
-            ]
+            ],
         } );
     }
 
-    doubleBtnAlert() {
+    doubleBtnAlert () {
         Alert( {
             title: '标题',
-            content: <p>asdasdasdasd</p>,
+            content: <p>对话框正文对话框正文对话框正文对话框正文对话框正文对话框正文对话框正文对话框正文对话框正文</p>,
             buttons: [
                 {
                     text: '取消',
@@ -70,7 +59,8 @@ export default class App extends Component {
                         console.log( '点击取消' )
                     },
                     props: {
-                        style: { color: '#254FCB' }
+                        type: 'special',
+                        style: { color: '#696E7C', border: 'none' }
                     }
                 },
                 {
@@ -79,8 +69,9 @@ export default class App extends Component {
                         console.log( '点击确认' )
                     },
                     props: {
-                        type: 'main',
-                        className: 'aaaa'
+                        type: 'special',
+                        className: 'aaaa',
+                        style: { color: '#254FCB', border: 'none' }
                     }
 
                 }
@@ -88,59 +79,26 @@ export default class App extends Component {
         } );
     }
 
-    maskCloseAlert() {
+    maskCloseAlert () {
         Alert( {
             title: '标题',
             content: <p>asdasdasdasd</p>,
-            maskClose: true,
-            buttons: [
-                {
-                    text: '取消',
-                    onPress: () => {
-                        console.log( '点击取消' )
-                    },
-                    props: {
-                        style: { color: '#254FCB' }
-                    }
-                },
-                {
-                    text: '确认',
-                    onPress: () => {
-                        console.log( '点击确认' )
-                    },
-                    props: {
-                        type: 'main',
-                        className: 'aaaa'
-                    }
-
-                }
-            ]
+            maskClose: true
         } );
     }
 
-    autoCloseAlert() {
-        let closeEvent = Alert( {
-            title: '标题',
-            buttons: [
-                {
-                    text: '取消',
-                    onPress: () => {
-                        console.log( '点击取消' )
-                    },
-                    props: {
-                        style: { color: '#254FCB' }
-                    }
-                }
-            ]
+    autoCloseAlert () {
+        const closeEvent = Alert( {
+            title: '标题'
         } );
 
         setTimeout( () => {
-            console.log(closeEvent)
+            console.log( closeEvent );
             closeEvent();
         }, 2000 );
     }
 
-    promiseAlert() {
+    promiseAlert () {
         Alert( {
             title: '发起一个请求',
             maskClose: true,
@@ -152,41 +110,81 @@ export default class App extends Component {
                         setTimeout( resolve, 1000 );
                     } ),
                     props: {
-                        type: 'main',
-                        className: 'aaaa'
+                        type: 'special',
+                        className: 'aaaa',
+                        style: { color: '#254FCB', border: 'none' }
                     }
-
                 }
             ]
         } );
     }
 
-    imgAlert() {
+    imgAlert () {
         Alert( {
             title: '标题',
             content: <div><img src="http://imgcdn50.zuzuche.com/world/base/329/214/556/f89e270b09ef8651fa4fea12867543d5.jpg!/fw/150/quality/100/format/png" /></div>,
-            closeCallback: function () { console.log('Alert关闭了') },
+            closeCallback: function () { console.log( 'Alert关闭了' ) },
+        } );
+    }
+
+    radioAlert () {
+        Alert( {
+            title: '标题',
+            content: <p>asdasdasdasd</p>,
+            maskClose: true,
+            buttonDirection: 'vertical',
             buttons: [
                 {
-                    text: '取消',
+                    text: '推荐操作',
                     onPress: () => {
-                        console.log( '点击取消' )
                     },
                     props: {
-                        style: { color: '#254FCB' }
+                        type: 'special',
+                        style: { color: '#696E7C', border: 'none' }
                     }
+                },
+                {
+                    text: '推荐操作',
+                    onPress: () => {
+                    },
+                    props: {
+                        type: 'special',
+                        className: 'aaaa',
+                        style: { color: '#696E7C', border: 'none' }
+                    }
+                },
+                {
+                    text: '推荐操作',
+                    onPress: () => {
+                    },
+                    props: {
+                        type: 'special',
+                        className: 'aaaa',
+                        style: { color: '#2871F7', border: 'none' }
+                    }
+
                 }
             ]
         } );
     }
 
-    render() {
+    headImgAlert() {
+        Alert( {
+            title: '标题',
+            titleImg: "http://imgcdn5.zuzuche.com/static/37/11/71f75d009747cdd10e19160f2650b3b2.jpg!/fwfh/350x350/quality/100/format/png",
+            content: <p>asdasdasdasd</p>,
+            maskClose: true
+        } );
+    }
+
+    render () {
         return (
             <div className="zzc-demo">
                 <div className="zzc-demo-header">
                     <h1 className="zzc-demo-title">Alert 警告弹窗</h1>
                 </div>
                 <div className="zzc-demo-body">
+                    <h5>基本使用</h5>
                     <Button onClick={this.defaultBtn}>使用默认按钮</Button>
                     <Button onClick={this.titleAlert}>只有标题的Alert</Button>
                     <Button onClick={this.contentAlert}>带有内容的Alert</Button>
@@ -195,6 +193,10 @@ export default class App extends Component {
                     <Button onClick={this.autoCloseAlert}>2秒后自动关闭Alert</Button>
                     <Button onClick={this.promiseAlert}>延迟关闭Alert</Button>
                     <Button onClick={this.imgAlert}>带图片的Alert</Button>
+                    <h5>单选框</h5>
+                    <Button onClick={this.radioAlert}>Alert单选框</Button>
+                    <h5>头部带有图片的Alert</h5>
+                    <Button onClick={this.headImgAlert}>点击</Button>
                 </div>
             </div>
 

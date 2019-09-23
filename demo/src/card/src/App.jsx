@@ -31,7 +31,7 @@ export default class App extends PureComponent {
                             </div>
                         </Card.Body>
                         <Card.Footer>
-                            <Button noBorder full>按钮</Button>
+                            <Button>按钮</Button>
                         </Card.Footer>
                     </Card>
                 </div>
@@ -65,8 +65,7 @@ export default class App extends PureComponent {
                         </Card.Body>
                         <Card.Footer>
                             <div className='btn-group'>
-                                <Button noRadius noBorder inline>按钮1</Button>
-                                <Button noRadius noBorder inline type='main'>按钮2</Button>
+                                <Button>按钮</Button>
                             </div>
                         </Card.Footer>
                     </Card>

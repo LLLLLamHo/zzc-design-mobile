@@ -10,5 +10,6 @@ export default {
     cancel: '取消',
     close: '关闭',
     open: '打开',
-    datePickerTitle: '请选择时间'
+    datePickerTitle: '选择时间',
+    datePickerButtomText: '确认日期'
 };

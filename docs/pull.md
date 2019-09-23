@@ -97,3 +97,8 @@ npm run publish //编译demo
 `publish`和`build`、`watch`有一点不一样，因为`build`和`watch`是开发环境，所以webpack打包的时候会将`zzc-design-mobile`指向外层文件的es文件中去获取。
 
 所以在开发中需要在根目录运行watch，demo目录中也要同时运行watch
+
+#### 本地开发
+
+- 在根目录下运行watch编译ts文件为js文件。
+- 在demo目录下运行server动态编译demo文件进行调试。

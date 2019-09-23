@@ -12,7 +12,7 @@ export default class App extends Component {
     }
 
     maskInfo() {
-        Toast.info( '这是一个无mask的info', 2, () => {
+        Toast.info( '两行toast文案两行toast文案最长不超过2行', 2, () => {
             console.log( '关闭' );
         }, null, false );
     }
@@ -34,7 +34,7 @@ export default class App extends Component {
     }
 
     success() {
-        Toast.success( '提交成功！', 2 );
+        Toast.success( '提交成功', 2 );
     }
 
     error() {

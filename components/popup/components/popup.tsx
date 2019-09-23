@@ -57,6 +57,7 @@ export default class Popup extends React.PureComponent<PopupProps> {
     }
 
     boxAnimated( type: string ): void {
+        console.log(type)
         this.boxShowed = type == 'enter';
         if ( this.boxShowed && this.maskShowed ) {
             this.renderCallback();

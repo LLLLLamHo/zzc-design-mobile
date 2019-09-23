@@ -1,154 +1,200 @@
 @import '../style/base.scss';
 $cls: '.zds-tabs';
+
 #{$cls} {
-    background: #fff;
+    background: $c_fff;
     width: 100%;
+
     &-box {
-        background: #fff;
+        background: $c_fff;
         overflow: hidden;
         display: flex;
+
         &-top {
             flex-direction: column;
+
             #{$cls}-bar-box {
-                @include halfPXLine('bottom', $border_color);
+                border-bottom: 1px solid $tabs_border_color;
+
                 &::after {
                     z-index: 9;
                 }
             }
         }
+
         &-bottom {
             flex-direction: column-reverse;
+
             #{$cls}-bar-box {
-                @include halfPXLine('top', $border_color);
+                border-top: 1px solid $tabs_border_color;
+
                 &::after {
                     z-index: 9;
                 }
             }
         }
+
         &-left {
             flex-direction: row;
             height: 100%;
+
             #{$cls}-bar-box {
-                @include halfPXLine('right', $border_color);
+                border-right: 1px solid $tabs_border_color;
+
                 &::after {
                     z-index: 9;
                 }
             }
         }
+
         &-right {
             height: 100%;
             flex-direction: row-reverse;
+
             #{$cls}-bar-box {
-                @include halfPXLine('left', $border_color);
+                border-left: 1px solid $tabs_border_color;
+
                 &::after {
                     z-index: 9;
                 }
             }
         }
+
         #{$cls}-bar-wrap {
             width: 100%;
             overflow: visible;
+
             &-am {
                 @include setTransition();
             }
         }
+
         #{$cls}-bar-box {
             #{$cls}-ls {
-                background: #fff;
-                height: 1rem;
+                background: $c_fff;
+                height: 50px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 flex-direction: row;
                 position: relative;
+
                 &-vertical {
                     height: 100%;
                     flex-direction: column;
+
                     #{$cls}-ls-item {
-                        padding: 0 .1rem;
+                        padding: 0 5px;
                     }
                 }
+
                 &-item {
-                    height: 100%;
+                    box-sizing: border-box;
+                    padding: 0 16px;
+                    overflow: hidden;
                     flex-shrink: 0;
-                    color: #666666;
-                    font-size: $fs28rem;
+                    color: $c_666;
+                    font-size: $fs_h2;
                     text-align: center;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    @include flex();
                     white-space: nowrap;
+
                     &#{$cls}-active {
                         color: $main;
                     }
+
+
+                    #{$cls}-item-box {
+                        display: inline-block;
+                        max-width: 100%;
+                        white-space: pre-wrap;
+                        text-align: left;
+                        word-break: break-all;
+                    }
                 }
+
                 &-unline {
                     position: absolute;
                     z-index: 12;
                     background: $main;
+
                     &-am {
                         @include setTransition();
                     }
+
                     &-top {
                         left: 0;
                         bottom: 0;
-                        height: .04rem;
+                        height: 2px;
                     }
+
                     &-bottom {
                         left: 0;
                         bottom: 0;
-                        height: .04rem;
+                        height: 2px;
                     }
+
                     &-left {
                         top: 0;
                         right: 0;
-                        width: .04rem;
+                        width: 2px;
                     }
+
                     &-right {
                         left: 0;
                         right: 0;
-                        width: .04rem;
+                        width: 2px;
                     }
                 }
             }
         }
+
         #{$cls}-content-wrap {
             width: 100%;
             overflow: visible;
+
             &-am {
                 @include setTransition();
             }
         }
-        #{$cls}-content-box{
+
+        #{$cls}-content-box {
             overflow: hidden;
             width: 100%;
-            &-vertical{
+
+            &-vertical {
                 height: 100%;
-                #{$cls}-content-wrap{
+
+                #{$cls}-content-wrap {
                     height: 100%;
                 }
-                #{$cls}-content{
+
+                #{$cls}-content {
                     flex-direction: column;
                 }
             }
-            &-horizontal{
-                #{$cls}-content{
+
+            &-horizontal {
+                #{$cls}-content {
                     flex-direction: row;
                 }
             }
+
             #{$cls}-content {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 height: auto;
-                background: #fff;
+                background: $c_fff;
+
                 &-item {
                     height: auto;
                     width: 100%;
                     flex-shrink: 0;
+
                 }
             }
         }
-        
+
     }
 }

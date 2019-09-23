@@ -6,20 +6,17 @@ export interface TabsListUnserlineProps {
     currIndex?: number,
     size: string,
     animated?: boolean,
-    tabBarPosition?: string
+    tabBarPosition?: string,
+    linePosition: number
 }
 export interface itemObject {
     title: string | JSX.Element
 }
 
-function setPosition ( currIndex: any ): string {
-    return ( currIndex * 100 ).toFixed( 4 );
-}
-
 export default function TabsListUnserlineProps( props: TabsListUnserlineProps ) {
-    const { prefixCls, size, animated, tabBarPosition, currIndex, tabBarUnderlineStyle } = props;
-    const unlineTransform = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? `translate3d(${setPosition(currIndex)}%,0,0)` : `translate3d(0,${setPosition(currIndex)}%,0)`;
-    let style = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? { width: `${size}%`,transform: unlineTransform } : { height: `${size}%`,transform: unlineTransform };
+    const { prefixCls, size, animated, tabBarPosition, tabBarUnderlineStyle, linePosition } = props;
+    const unlineTransform = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? `translate3d(${linePosition}px,0,0)` : `translate3d(0,${linePosition}px,0)`;
+    let style = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? { width: `${size}px`,transform: unlineTransform } : { height: `${size}px`,transform: unlineTransform };
     style = Object.assign( {}, style, tabBarUnderlineStyle );
     const cls = classnames(
         `${prefixCls}-ls-unline`,
