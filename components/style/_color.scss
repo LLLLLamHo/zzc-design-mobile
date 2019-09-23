@@ -19,7 +19,7 @@ $main_lh: #86ABFF;
 $main_dk: #254FCB;
 
 $sub: #F40256;
-$sub_lh: #FF5A82;
+$sub_lh: rgb(19, 12, 14);
 $sub_dk: #CC0033;
 
 //功能颜色
@@ -99,3 +99,9 @@ $select_body_active_item_color: $main;
 $select_body_disabled_item_color: #696E7C;
 // input
 $input_color: $c_333;
+
+// EasyCalculator
+$calculator_active_background: rgba(40, 113, 247, .2);
+$calculator_active_color: #3266FF;
+$calculator_disabled_background: rgba(226,228,234,1);
+$calculator_disabled_color: #ffffff;

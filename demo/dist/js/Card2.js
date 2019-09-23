@@ -31970,27 +31970,20 @@ var EasyCalculator = function (_PureComponent) {
                 inputValue = _state.inputValue,
                 isDecreaseDisabled = _state.isDecreaseDisabled,
                 isIncreaseDisabled = _state.isIncreaseDisabled;
-            var _props3 = this.props,
-                min = _props3.min,
-                max = _props3.max;
 
             return _react2.default.createElement(
                 'div',
                 { className: 'zds-calculator' },
-                _react2.default.createElement(
-                    'span',
-                    { role: 'button', className: (0, _classnames2.default)('zds-calculator__decrease', { 'is-disabled': isDecreaseDisabled }), onClick: this.onDecrease },
-                    '-'
-                ),
-                _react2.default.createElement(
-                    'span',
-                    { role: 'button', className: (0, _classnames2.default)('zds-calculator__increase', { 'is-disabled': isIncreaseDisabled }), onClick: this.onIncrease },
-                    '+'
-                ),
+                _react2.default.createElement('span', { role: 'button', className: (0, _classnames2.default)('zds-calculator__decrease', { 'is-disabled': isDecreaseDisabled }), onClick: this.onDecrease }),
+                _react2.default.createElement('span', { role: 'button', className: (0, _classnames2.default)('zds-calculator__increase', { 'is-disabled': isIncreaseDisabled }), onClick: this.onIncrease }),
                 _react2.default.createElement(
                     'div',
                     { className: 'zds-calculator__input' },
-                    _react2.default.createElement('input', { className: 'zds-calculator__input--inner', min: min, max: max, type: 'number', value: inputValue, readOnly: true })
+                    _react2.default.createElement(
+                        'span',
+                        { className: 'zds-calculator__input--inner' },
+                        inputValue
+                    )
                 )
             );
         }

@@ -8826,7 +8826,7 @@ button {
     display: inline-block;
     width: 22px;
     height: 22px;
-    line-height: 20px;
+    line-height: 22px;
     text-align: center;
     font-size: 16px;
     font-weight: bold;
@@ -8836,21 +8836,48 @@ button {
     -webkit-transition: background-color .3s;
     transition: background-color .3s; }
     .zds-calculator__decrease:active, .zds-calculator__increase:active {
-      background-color: rgba(40, 113, 247, 0.28); }
+      background-color: rgba(45, 108, 251, 0.28); }
     .zds-calculator__decrease.is-disabled, .zds-calculator__increase.is-disabled {
       pointer-events: none;
-      color: #fff;
+      color: #ffffff;
       background-color: #e2e4ea; }
+      .zds-calculator__decrease.is-disabled::after, .zds-calculator__decrease.is-disabled::before, .zds-calculator__increase.is-disabled::after, .zds-calculator__increase.is-disabled::before {
+        background: #ffffff; }
   .zds-calculator__decrease {
     left: 0; }
+    .zds-calculator__decrease::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 9px;
+      height: 2px;
+      background: #3266FF;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); }
   .zds-calculator__increase {
     right: 0; }
+    .zds-calculator__increase::after, .zds-calculator__increase::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 9px;
+      height: 2px;
+      background: #3266FF;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); }
+    .zds-calculator__increase::after {
+      -webkit-transform: translate(-50%, -50%) rotate(90deg);
+          -ms-transform: translate(-50%, -50%) rotate(90deg);
+              transform: translate(-50%, -50%) rotate(90deg); }
   .zds-calculator__input {
     display: block;
     width: 100%; }
     .zds-calculator__input--inner {
       -webkit-appearance: none;
-      background-color: #fff;
       background-image: none;
       outline: none;
       box-sizing: border-box;

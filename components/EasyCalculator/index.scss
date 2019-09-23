@@ -14,28 +14,56 @@ $cls: '.zds-calculator';
         display: inline-block;
         width: 22px;
         height: 22px;
-        line-height: 20px;
+        line-height: 22px;
         text-align: center;
         font-size: 16px;
         font-weight: bold;
         border-radius: 50%;
-        color: #3266FF;
-        background-color: rgba(40, 113, 247, .2);
+        color: $calculator_active_color;
+        background-color: $calculator_active_background;
         transition: background-color .3s;
         &:active {
-            background-color: mix(rgba(40, 113, 247, 1), rgba(40, 113, 247, .2), 10);
+            background-color: mix($calculator_active_color, $calculator_active_background, 10);
         }
         &.is-disabled {
             pointer-events: none;
-            color: #fff;
-            background-color: rgba(226,228,234,1);
+            color: $calculator_disabled_color;
+            background-color: $calculator_disabled_background;
+            &::after,
+            &::before {
+                background: $calculator_disabled_color;
+            }
         }
     }
     &__decrease {
         left: 0;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 9px;
+            height: 2px;
+            background: $calculator_active_color;
+            transform: translate(-50%, -50%);
+        }
     }
     &__increase {
         right: 0;
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 9px;
+            height: 2px;
+            background: $calculator_active_color;
+            transform: translate(-50%, -50%);
+        }
+        &::after {
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
     }
 
     &__input {
@@ -43,7 +71,6 @@ $cls: '.zds-calculator';
         width: 100%;
         &--inner {
             -webkit-appearance: none;
-            background-color: #fff;
             background-image: none;
             outline: none;
             box-sizing: border-box;
