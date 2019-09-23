@@ -1,0 +1,15 @@
+@import '../style/base.scss';
+$cls: '.zds-input';
+#{$cls} {
+    background: transparent;
+    color: $input_color;
+    font-size: $fs_h2;
+    display: block;
+    flex: 1;
+    width: 100%;
+    line-height: $fs_h2;
+    &::placeholder{
+        line-height: 16px;
+        vertical-align: middle;
+    }
+}

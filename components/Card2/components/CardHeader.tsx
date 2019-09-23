@@ -15,7 +15,8 @@ export default class CardHeader extends PureComponent<CardHeaderProps, any> {
         title: null,
         extra: null,
         align: 'center',
-        extraClick: null
+        extraClick: null,
+        onClick: null
     };
 
     createHeader(title: string | JSX.Element, extra?: string | JSX.Element): JSX.Element {
@@ -46,7 +47,7 @@ export default class CardHeader extends PureComponent<CardHeaderProps, any> {
     }
 
     render() {
-        const { style, prefixCls, children, className, title, extra } = this.props;
+        const { style, prefixCls, children, className, title, extra, onClick } = this.props;
 
         const cardClassName: string = classNames(
             prefixCls,
@@ -54,7 +55,11 @@ export default class CardHeader extends PureComponent<CardHeaderProps, any> {
         );
 
         return (
-            <div style={style} className={cardClassName}>
+            <div style={style} className={cardClassName} onClick={() => {
+                if ( onClick ) {
+                    onClick();
+                }
+            }}>
                 {title && this.createHeader(title, extra)}
                 {children && this.createBody(children)}
             </div>

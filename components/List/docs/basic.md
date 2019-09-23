@@ -23,6 +23,7 @@
 | extra      | title右边内容           | string                        \| JSX.Element | null     |
 | align      | 自定义样式              | 'center' \| 'top' \| 'bottom'                | 'center' |
 | extraClick | extra点击回调           | Function                                     | null     |
+| onClick    | item点击回调            | Function                                     | null     |
 
 *注意：只有List和ListItem配合使用才会显示ListItem的特有样式
 
