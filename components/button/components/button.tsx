@@ -41,16 +41,18 @@ export default class Button extends PureComponent<ButtonProps, any> {
         const { inactive, children, className, prefixCls, type, size, inline, disabled, style, activeStyle, activeClassName, onClick } = this.props;
         let btnClassNames: string = '';
         if ( inline ) {
+            interface classType { [propName: string]: any };
+            let classes: classType = {
+                [`${prefixCls}-${size}`]: size,
+                [`${prefixCls}-${type}`]: type !== '',
+                [`${prefixCls}-disabled`]: disabled,
+                [`${prefixCls}-inactive`]: inactive
+            };
             btnClassNames = classNames(
                 prefixCls,
                 `${prefixCls}-inline`,
                 className,
-                {
-                    [`${prefixCls}-${size}`]: size,
-                    [`${prefixCls}-${type}`]: type !== '',
-                    [`${prefixCls}-disabled`]: disabled,
-                    [`${prefixCls}-inactive`]: inactive
-                }
+                classes
             );
         } else {
             btnClassNames = classNames(
