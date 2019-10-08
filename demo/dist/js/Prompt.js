@@ -33810,7 +33810,7 @@ var Prompt = function (_PureComponent) {
                 children = _props.children,
                 className = _props.className;
 
-            var theme = this.getTheme(type);
+            var theme = this.getTheme(type || '');
             var classname = (0, _classnames2.default)(prefixCls, className);
             switch (mode) {
                 case 'info':
@@ -34127,7 +34127,7 @@ var App = function (_Component) {
                         _react2.default.createElement(
                             'p',
                             null,
-                            '\u4E2D\u7ACB\u63D0\u793A\u6587\u6848'
+                            '\u8B66\u544A\u63D0\u793A\u6587\u6848'
                         )
                     ),
                     _react2.default.createElement(
@@ -34136,7 +34136,7 @@ var App = function (_Component) {
                         _react2.default.createElement(
                             'p',
                             null,
-                            '\u4E2D\u7ACB\u63D0\u793A\u6587\u6848'
+                            '\u597D\u7684\u63D0\u793A\u6587\u6848'
                         )
                     )
                 )

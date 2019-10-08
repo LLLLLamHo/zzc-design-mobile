@@ -51,10 +51,10 @@ export default class App extends Component {
                 <div className="zzc-demo-body">
                     <h5>其余样式</h5>
                     <Prompt type='warn'>
-                        <p>中立提示文案</p>
+                        <p>警告提示文案</p>
                     </Prompt>
                     <Prompt type='success'>
-                        <p>中立提示文案</p>
+                        <p>好的提示文案</p>
                     </Prompt>
                 </div>
             </div>

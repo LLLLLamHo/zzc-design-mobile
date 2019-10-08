@@ -21,14 +21,14 @@ export default class Prompt extends PureComponent<PromptProps, any> {
         contextText: ''
     };
 
-    handlerClickEvent() {
+    handlerClickEvent(): void {
         const { onClick } = this.props;
         if (onClick && isFunction(onClick)) {
             onClick();
         }
     }
 
-    getTheme(type) {
+    getTheme(type?: string): string {
         switch (type) {
             case 'success':
                 return "success-theme";
@@ -39,9 +39,9 @@ export default class Prompt extends PureComponent<PromptProps, any> {
         }
     }
 
-    renderTypeElement() {
+    renderTypeElement(): JSX.Element {
         const { prefixCls, style, mode, contextText, lineClamp, type, children, className } = this.props;
-        const theme = this.getTheme(type);
+        const theme = this.getTheme(type || '');
         const classname = classNames(prefixCls, className);
         switch (mode) {
             case 'info':

@@ -33810,7 +33810,7 @@ var Prompt = function (_PureComponent) {
                 children = _props.children,
                 className = _props.className;
 
-            var theme = this.getTheme(type);
+            var theme = this.getTheme(type || '');
             var classname = (0, _classnames2.default)(prefixCls, className);
             switch (mode) {
                 case 'info':

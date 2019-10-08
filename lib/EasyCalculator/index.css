@@ -261,11 +261,11 @@
 
 .zds-calculator-decrease.is-disabled, .zds-calculator-increase.is-disabled {
   pointer-events: none;
-  color: #ffffff;
+  color: #fff;
   background-color: #e2e4ea; }
 
 .zds-calculator-decrease.is-disabled::after, .zds-calculator-decrease.is-disabled::before, .zds-calculator-increase.is-disabled::after, .zds-calculator-increase.is-disabled::before {
-  background: #ffffff; }
+  background: #fff; }
 
 .zds-calculator-decrease {
   left: 0; }
