@@ -126,12 +126,13 @@ export default class EasyCalculator extends PureComponent<EasyCalculatorProps, a
         const { inputValue,
                 isDecreaseDisabled,
                 isIncreaseDisabled } = this.state;
+        const { prefixCls = 'zds-calculator', className, style } = this.props;
         return (
-            <div className="zds-calculator">
-                <span role="button" className={classnames('zds-calculator__decrease', { 'is-disabled': isDecreaseDisabled })} onClick={this.onDecrease}></span>
-                <span role="button" className={classnames('zds-calculator__increase', { 'is-disabled': isIncreaseDisabled })} onClick={this.onIncrease}></span>
-                <div className="zds-calculator__input">
-                    <span className="zds-calculator__input--inner" >{inputValue}</span>
+            <div className={classnames(`${prefixCls}`, className ? className : '')} style={style}>
+                <span role="button" className={classnames(`${prefixCls}-decrease`, { 'is-disabled': isDecreaseDisabled })} onClick={this.onDecrease}></span>
+                <span role="button" className={classnames(`${prefixCls}-increase`, { 'is-disabled': isIncreaseDisabled })} onClick={this.onIncrease}></span>
+                <div className={`${prefixCls}-input`}>
+                    <span className={`${prefixCls}-input-inner`}>{inputValue}</span>
                 </div>
             </div>
         )

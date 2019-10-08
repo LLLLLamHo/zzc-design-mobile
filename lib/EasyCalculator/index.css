@@ -241,13 +241,13 @@
   line-height: 22px;
   font-size: 14px; }
 
-.zds-calculator__decrease, .zds-calculator__increase {
+.zds-calculator-decrease, .zds-calculator-increase {
   position: absolute;
   top: 0;
   display: inline-block;
   width: 22px;
   height: 22px;
-  line-height: 20px;
+  line-height: 22px;
   text-align: center;
   font-size: 16px;
   font-weight: bold;
@@ -256,27 +256,52 @@
   background-color: rgba(40, 113, 247, 0.2);
   transition: background-color .3s; }
 
-.zds-calculator__decrease:active, .zds-calculator__increase:active {
-  background-color: rgba(40, 113, 247, 0.28); }
+.zds-calculator-decrease:active, .zds-calculator-increase:active {
+  background-color: rgba(45, 108, 251, 0.28); }
 
-.zds-calculator__decrease.is-disabled, .zds-calculator__increase.is-disabled {
+.zds-calculator-decrease.is-disabled, .zds-calculator-increase.is-disabled {
   pointer-events: none;
-  color: #fff;
+  color: #ffffff;
   background-color: #e2e4ea; }
 
-.zds-calculator__decrease {
+.zds-calculator-decrease.is-disabled::after, .zds-calculator-decrease.is-disabled::before, .zds-calculator-increase.is-disabled::after, .zds-calculator-increase.is-disabled::before {
+  background: #ffffff; }
+
+.zds-calculator-decrease {
   left: 0; }
 
-.zds-calculator__increase {
+.zds-calculator-decrease::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 2px;
+  background: #3266FF;
+  transform: translate(-50%, -50%); }
+
+.zds-calculator-increase {
   right: 0; }
 
-.zds-calculator__input {
+.zds-calculator-increase::after, .zds-calculator-increase::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 2px;
+  background: #3266FF;
+  transform: translate(-50%, -50%); }
+
+.zds-calculator-increase::after {
+  transform: translate(-50%, -50%) rotate(90deg); }
+
+.zds-calculator-input {
   display: block;
   width: 100%; }
 
-.zds-calculator__input--inner {
+.zds-calculator-input-inner {
   -webkit-appearance: none;
-  background-color: #fff;
   background-image: none;
   outline: none;
   box-sizing: border-box;

@@ -1,6 +1,4 @@
-按钮组件
-
-点击后会触发一个操作。
+简易计算器组件
 
 ## API
 
@@ -10,6 +8,9 @@
 
 | 属性            | 说明                                       | 类型     | 默认值     |
 | --------------- | ------------------------------------------| -------- | ---------- |
+| prefixCls    | 初始值                                     | string   | zds-calculator     |
+| className    | 初始值                                     | string   | 无     |
+| style    | 初始值                                     | object   | 无     |
 | defaultValue    | 初始值                                     | number   |          |
 | min              | 最小值                                     | number   | Infinity       |
 | max               | 最大值                                   | number  | -Infinity      |

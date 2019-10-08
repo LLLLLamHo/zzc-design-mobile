@@ -7,8 +7,8 @@ $cls: '.zds-calculator';
     width: 90px;
     line-height: 22px;
     font-size: 14px;
-    &__decrease,
-    &__increase {
+    &-decrease,
+    &-increase {
         position: absolute;
         top: 0;
         display: inline-block;
@@ -35,7 +35,7 @@ $cls: '.zds-calculator';
             }
         }
     }
-    &__decrease {
+    &-decrease {
         left: 0;
         &::after {
             content: '';
@@ -48,7 +48,7 @@ $cls: '.zds-calculator';
             transform: translate(-50%, -50%);
         }
     }
-    &__increase {
+    &-increase {
         right: 0;
         &::after,
         &::before {
@@ -66,10 +66,10 @@ $cls: '.zds-calculator';
         }
     }
 
-    &__input {
+    &-input {
         display: block;
         width: 100%;
-        &--inner {
+        &-inner {
             -webkit-appearance: none;
             background-image: none;
             outline: none;
