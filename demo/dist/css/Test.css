@@ -2,6 +2,11 @@ body {
   background: #DDE0E6;
 }
 
+#root {
+  height: 100%;
+  background: #fff;
+}
+
 .zzc-demo {
   background: #fff;
 }

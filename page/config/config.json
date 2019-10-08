@@ -7,6 +7,7 @@
         "Card2",
         "DatePicker",
         "Dialog",
+        "EasyCalculator",
         "FullModal",
         "Icon",
         "ImageView",
@@ -90,6 +91,16 @@
                 "subTitle": "对话框",
                 "category": "Feedback",
                 "categoryName": "Feedback"
+            }
+        },
+        "EasyCalculator": {
+            "mdContent": "<p>按钮组件</p>\n<p>点击后会触发一个操作。</p>\n<h2 id=\"api\">API</h2>\n<p>适用平台：WEB</p>\n<h3 id=\"easycalculator\">EasyCalculator</h3>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>defaultValue</td>\n<td>初始值</td>\n<td>number</td>\n<td></td>\n</tr>\n<tr>\n<td>min</td>\n<td>最小值</td>\n<td>number</td>\n<td>Infinity</td>\n</tr>\n<tr>\n<td>max</td>\n<td>最大值</td>\n<td>number</td>\n<td>-Infinity</td>\n</tr>\n<tr>\n<td>precision</td>\n<td>数值精度</td>\n<td>number</td>\n<td></td>\n</tr>\n<tr>\n<td>step</td>\n<td>每次改变步数，可以为小数</td>\n<td>number</td>\n<td>1</td>\n</tr>\n<tr>\n<td>value</td>\n<td>当前值</td>\n<td>number</td>\n<td>无</td>\n</tr>\n<tr>\n<td>onChange</td>\n<td>变化回调</td>\n<td>number</td>\n<td>Function(value: number</td>\n</tr>\n</tbody></table>\n<pre><code class=\"language-JavaScript\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">EasyCalculator</span> <span class=\"hljs-attr\">defaultValue</span>=<span class=\"hljs-string\">{0}</span> /&gt;</span>\n\n<span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">EasyCalculator</span> <span class=\"hljs-attr\">defaultValue</span>=<span class=\"hljs-string\">{3}</span> <span class=\"hljs-attr\">step</span>=<span class=\"hljs-string\">{2}</span> <span class=\"hljs-attr\">min</span>=<span class=\"hljs-string\">{0}</span> <span class=\"hljs-attr\">max</span>=<span class=\"hljs-string\">{10}</span> /&gt;</span>\n\n<span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">EasyCalculator</span> <span class=\"hljs-attr\">defaultValue</span>=<span class=\"hljs-string\">{1.2}</span> <span class=\"hljs-attr\">step</span>=<span class=\"hljs-string\">{0.2}</span> <span class=\"hljs-attr\">min</span>=<span class=\"hljs-string\">{0}</span> <span class=\"hljs-attr\">max</span>=<span class=\"hljs-string\">{10}</span> /&gt;</span></code></pre>\n",
+            "config": {
+                "title": "EasyCalculator",
+                "key": "EasyCalculator",
+                "subTitle": "简易计算器",
+                "category": "DataEntry",
+                "categoryName": "Data Entry"
             }
         },
         "FullModal": {
@@ -349,6 +360,13 @@
                 "title": "DatePicker",
                 "key": "DatePicker",
                 "subTitle": "日期选择",
+                "category": "DataEntry",
+                "categoryName": "Data Entry"
+            },
+            {
+                "title": "EasyCalculator",
+                "key": "EasyCalculator",
+                "subTitle": "简易计算器",
                 "category": "DataEntry",
                 "categoryName": "Data Entry"
             },
