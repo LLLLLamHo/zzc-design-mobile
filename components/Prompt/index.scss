@@ -1,0 +1,65 @@
+@import '../style/base.scss';
+$cls: '.zds-prompt';
+
+#{$cls} {
+    padding: 6px 15px;
+    display: flex;
+    position: relative;
+    font-size: 11px;
+    line-height: 17px;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    svg {
+        width: 11px;
+        height: 11px;
+
+        &#{$cls}-icon-info {
+            margin-right: 6px;
+            margin-top: 2.4px;
+        }
+        &#{$cls}-icon-right {
+            margin-left: 6px;
+            margin-top: 2.4px;
+        }
+    }
+
+    &.type-defautl {
+        border-left-width: 3px;
+        border-left-style: solid;
+    }
+
+    &.neutral-theme {
+        color: $prompt_neutralColor;
+        background: $prompt_neutralBg;
+        fill: $prompt_neutralColor;
+        border-left-color: $prompt_neutralColor;
+    }
+
+    &.warn-theme {
+        color: $prompt_warnColor;
+        background: $prompt_warnBg;
+        fill: $prompt_warnColor;
+        border-left-color: $prompt_warnColor;
+    }
+
+    &.success-theme {
+        color: $prompt_successColor;
+        background: $prompt_successBg;
+        fill: $prompt_successColor;
+        border-left-color: $prompt_successColor;
+    }
+
+    #{$cls}-content {
+        flex: 1;
+
+        p {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+        }
+    }
+
+
+}

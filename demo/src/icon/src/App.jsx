@@ -23,6 +23,8 @@ export default class App extends Component {
                     <Icon type="waring" />
                     <Icon type="arrow-right" />
                     <Icon type="confirm" />
+                    <Icon type="info" />
+                    <Icon type="right" />
                 </div>
                 <div className="zzc-demo-body">
                     <h5>不同大小的图标</h5>
