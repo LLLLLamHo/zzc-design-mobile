@@ -21,9 +21,12 @@ export default class Input extends PureComponent<InputProps, any> {
 
     componentDidMount(): void {
         // 渲染完成后，需要通知form组件记录value，完成数据绑定
-        const { id, value, _zds_form_initValue } = this.props;
+        const { id, value, _zds_form_initValue, setFormItemId, formOpt } = this.props;
         if (_zds_form_initValue && isFunction(_zds_form_initValue)) {
-            _zds_form_initValue(id, value);
+            _zds_form_initValue(id, value, formOpt);
+        }
+        if (setFormItemId && isFunction(setFormItemId)) {
+            setFormItemId(id);
         }
     }
 
@@ -45,6 +48,7 @@ export default class Input extends PureComponent<InputProps, any> {
         delete newProps.formInputOnChange;
         delete newProps.formInputOnBlur;
         delete newProps.formInputOnFocus;
+        delete newProps.setFormItemId;
 
         return (<input
             {...newProps}
@@ -57,14 +61,14 @@ export default class Input extends PureComponent<InputProps, any> {
             }}
             onBlur={(e) => {
                 if (formInputOnBlur && isFunction(formInputOnBlur)) {
-                    formInputOnBlur(e.target.value, formOpt || null);
+                    formInputOnBlur( formOpt || null);
                 } else if (onBlur && isFunction(onBlur)) {
                     onBlur(e);
                 }
             }}
             onFocus={(e) => {
                 if (formInputOnFocus && isFunction(formInputOnFocus)) {
-                    formInputOnFocus(e.target.value, formOpt || null);
+                    formInputOnFocus( formOpt || null);
                 } else if (onFocus && isFunction(onFocus)) {
                     onFocus(e);
                 }

@@ -10,6 +10,7 @@ export interface ButtonProps {
     style?: React.CSSProperties,
     activeStyle?: React.CSSProperties,
     activeClassName?: string
+    htmlType?: string
 }
 
 export interface ButtonGroupProps {

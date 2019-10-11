@@ -1,6 +1,7 @@
 export interface FormProps {
     prefixCls?: string,
     className?: string,
+    onSubmit?: Function
 }
 
 export interface FormComponentProps {
@@ -24,6 +25,7 @@ export interface FormItemProps {
 export interface FormContext {
     itemStatus: any,
     updateFormItemStatus: Function
+    validation: Function
 }
 
 export interface FormItemState {

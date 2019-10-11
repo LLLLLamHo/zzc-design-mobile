@@ -6,9 +6,9 @@ import ButtonGroup from './ButtonGroup';
 import { zzcComponentUse } from '../../_util/gtag';
 import { ButtonProps } from '../propsType';
 export default class Button extends PureComponent<ButtonProps, any> {
-    constructor( props ) {
-        super( props );
-        zzcComponentUse( 'Button', '组件渲染' );
+    constructor(props) {
+        super(props);
+        zzcComponentUse('Button', '组件渲染');
     }
     static defaultProps = {
         prefixCls: `${config.cls}-button`,
@@ -17,6 +17,7 @@ export default class Button extends PureComponent<ButtonProps, any> {
         disabled: false,
         inactive: false,
         type: 'default',
+        htmlType: null,
         onClick() { },
         className: '',
         style: {
@@ -28,19 +29,19 @@ export default class Button extends PureComponent<ButtonProps, any> {
 
     static ButtonGroup = ButtonGroup;
 
-    setActiveClassName( activeClassName?: string, type?: string ): string {
-        const activeClassNameIsNone:boolean = activeClassName === '';
-        const className = classNames( {
+    setActiveClassName(activeClassName?: string, type?: string): string {
+        const activeClassNameIsNone: boolean = activeClassName === '';
+        const className = classNames({
             [`${this.props.prefixCls}-active-${type}`]: activeClassNameIsNone,
             [`${this.props.prefixCls}-active-${activeClassName}`]: !activeClassNameIsNone
-        } );
+        });
         return className;
     }
 
     render() {
-        const { inactive, children, className, prefixCls, type, size, inline, disabled, style, activeStyle, activeClassName, onClick } = this.props;
+        const { inactive, children, className, prefixCls, type, size, inline, disabled, style, activeStyle, activeClassName, onClick, htmlType } = this.props;
         let btnClassNames: string = '';
-        if ( inline ) {
+        if (inline) {
             interface classType { [propName: string]: any };
             let classes: classType = {
                 [`${prefixCls}-${size}`]: size,
@@ -68,18 +69,32 @@ export default class Button extends PureComponent<ButtonProps, any> {
         return (
             <TouchFeedback
                 activeStyle={activeStyle ? activeStyle : {}}
-                activeClassName={this.setActiveClassName( activeClassName, type )}
+                activeClassName={this.setActiveClassName(activeClassName, type)}
                 disabled={inactive || disabled}
             >
-                <div
-                    className={
-                        btnClassNames
-                    }
-                    style={style}
-                    onClick={onClick}
-                >
-                    {children}
-                </div>
+                {
+                    htmlType ?
+                        <button
+                            type={htmlType}
+                            className={
+                                btnClassNames
+                            }
+                            style={style}
+                            onClick={onClick}
+                        >
+                            {children}
+                        </button> :
+                        <div
+                            className={
+                                btnClassNames
+                            }
+                            style={style}
+                            onClick={onClick}
+                        >
+                            {children}
+                        </div>
+                }
+
             </TouchFeedback>
         );
     }

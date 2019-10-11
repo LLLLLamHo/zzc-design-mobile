@@ -1,16 +1,25 @@
 @import '../style/base.scss';
 $cls: '.zds-form';
-$cls2: '.zds-form-item';
+$cls2: '.zds-form-item-box';
+$cls3: '.zds-form-item';
 #{$cls} {
     padding: 0 15px;
     background: #fff;
     #{$cls2}{
+        transition: border .1s;
         &:not(:last-child) {
-            border-bottom: 1px solid rgba(105,110,124,.15);
+            #{$cls3}{
+                border-bottom: 1px solid rgba(105,110,124,.15);
+            }
+        }
+        &-error{
+            #{$cls3}{
+                border-bottom: 1px solid #CA0808!important;
+            }
         }
     }
 }
-#{$cls2} {
+#{$cls3} {
     padding: 21px 0;
     background: #fff;
     display: flex;
@@ -23,7 +32,31 @@ $cls2: '.zds-form-item';
         margin-right: 30px;
         text-align: left;
     }
-    #{$cls2}-extra-box{
-
+    #{$cls3}-extra-box{
+        svg{
+            width: 18px;
+            height: 18px;
+            color: #696E7C;
+        }
     }
+    .zds-button{
+        width: 100%;
+    }
+}
+#{$cls3}-error-box{
+    padding: 4px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    color: #CA0808;
+    p{
+        font-size: 12px;
+        flex: 1;
+    }
+    svg{
+        margin-top: 2px;
+        width: 14px;
+        height: 14px;
+    }
+    
 }

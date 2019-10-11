@@ -8,19 +8,20 @@
 
 ### Button
 
-| 属性            | 说明                                       | 类型     | 默认值     |
-| --------------- | ------------------------------------------ | -------- | ---------- |
-| prefixCls       | 组件的公用className前序                    | string   | zds-button |
+| 属性            | 说明                                                  | 类型     | 默认值     |
+| --------------- | ----------------------------------------------------- | -------- | ---------- |
+| prefixCls       | 组件的公用className前序                               | string   | zds-button |
 | type            | 按钮类型，可选值为`default`、`sub`、`special`或者不设 | string   | `default`  |
-| size            | 按钮大小，可选值为`lg`、`ms`、`xs`         | string   | 无         |
-| activeStyle     | 点击反馈的自定义样式                       | {}       | {}         |
-| activeClassName | 点击反馈的自定义类名                       | string   |            |
-| disabled        | 设置禁用                                   | boolean  | false      |
-| inactive        | 未激活                                     | boolean  | false      |
-| onClick         | 点击按钮的点击回调函数                     | function | 无         |
-| style           | 自定义样式                                 | Object   | 无         |
-| inline          | 是否设置为行内按钮                         | boolean  | false      |
-| className       | 样式类名                                   | string   | 无         |
+| size            | 按钮大小，可选值为`lg`、`ms`、`xs`                    | string   | 无         |
+| htmlType        | 按钮类别，例如：submit                                | string   | 无         |
+| activeStyle     | 点击反馈的自定义样式                                  | {}       | {}         |
+| activeClassName | 点击反馈的自定义类名                                  | string   |            |
+| disabled        | 设置禁用                                              | boolean  | false      |
+| inactive        | 未激活                                                | boolean  | false      |
+| onClick         | 点击按钮的点击回调函数                                | function | 无         |
+| style           | 自定义样式                                            | Object   | 无         |
+| inline          | 是否设置为行内按钮                                    | boolean  | false      |
+| className       | 样式类名                                              | string   | 无         |
 
 ```JavaScript
 <Button>默认按钮</Button>

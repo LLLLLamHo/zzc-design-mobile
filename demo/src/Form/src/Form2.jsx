@@ -1,35 +1,97 @@
 import React, { Component } from 'react';
-import { Form, Input, Icon } from 'zzc-design-mobile';
+import { Form, Input, Button } from 'zzc-design-mobile';
 
-class Form1 extends Component {
-    componentDidMount() {
-        // setTimeout(() => {
-        //     this.props.form.setFormAssignValue('label22', '123123123')
-        // },2000);
+class MyForm extends Component {
+    onSubmit(data) {
+        console.log(data);
     }
+
     render () {
         return (
-            <Form>
+            <Form onSubmit={this.onSubmit}>
                 <Form.Item
                     label='必填选项'
                     htmlFor='label1'
                 >
-                    {this.props.form.getFieldDecorator('label11', {
-                        initialValue: 123,
+                    {this.props.form.getFieldDecorator( 'label11', {
                         rules: [
                             {
                                 required: true,
                                 message: '信息不能为空'
                             }
                         ]
-                    }, <Input placeholder='请输入姓名' id='label1' />)}
+                    }, <Input placeholder='请输入' /> )}
                 </Form.Item>
                 <Form.Item
-                    label='姓名'
+                    label='最小值为2个字符串'
                 >
-                    {this.props.form.getFieldDecorator('label22', {}, <Input placeholder='请输入姓名' id='label2' />)}
+                    {this.props.form.getFieldDecorator( 'label22', {
+                        rules: [
+                            {
+                                required: true,
+                                message: '信息不能为空'
+                            },
+                            {
+                                min: 2,
+                                message: '最小值为2个字符串'
+                            }
+                        ]
+                    }, <Input placeholder='请输入' /> )}
+                </Form.Item>
+                <Form.Item
+                    label='最大值为5个字符串'
+                >
+                    {this.props.form.getFieldDecorator( 'label23', {
+                        rules: [
+                            {
+                                required: true,
+                                message: '信息不能为空'
+                            },
+                            {
+                                max: 5,
+                                message: '最大值为5个字符串'
+                            }
+                        ]
+                    }, <Input placeholder='请输入' /> )}
+                </Form.Item>
+                <Form.Item
+                    label='输入一定为5个字符串'
+                >
+                    {this.props.form.getFieldDecorator( 'label24', {
+                        rules: [
+                            {
+                                required: true,
+                                message: '信息不能为空'
+                            },
+                            {
+                                len: 5,
+                                message: '输入一定为5个字符串'
+                            }
+                        ]
+                    }, <Input placeholder='请输入' /> )}
+                </Form.Item>
+                <Form.Item
+                    label='正则表达式'
+                >
+                    {this.props.form.getFieldDecorator( 'label25', {
+                        rules: [
+                            {
+                                required: true,
+                                message: '信息不能为空'
+                            },
+                            {
+                                message: '邮箱格式不正确',
+                                pattern: /(.)+@(.)+\.(.)+/
+                            }
+                        ]
+                    }, <Input placeholder='请输入' /> )}
+                </Form.Item>
+                <Form.Item>
+                    <Button htmlType='submit'>
+                        提交
+                    </Button>
                 </Form.Item>
             </Form> );
     }
 }
-export default Form.create( 'form1', Form1 );
+export default Form.create( MyForm );

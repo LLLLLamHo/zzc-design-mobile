@@ -18,5 +18,6 @@ export interface InputProps {
     formInputOnFocus?: Function
     maxLength?: number
     _zds_form_initValue?: Function
+    setFormItemId?: Function
     formOpt?: getFieldDecoratorOption
 }

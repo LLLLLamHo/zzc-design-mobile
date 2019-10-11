@@ -1,10 +1,10 @@
 import React from 'react';
 import FormComponent from './Form';
 
-export default function create(id: string, FormElement: any) {
+export default function create( FormElement: any) {
     return function () {
         return (
-            <FormComponent id={id}>
+            <FormComponent>
                 <FormElement/>
             </FormComponent>
         )

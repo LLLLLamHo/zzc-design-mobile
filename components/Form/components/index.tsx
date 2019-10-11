@@ -4,6 +4,8 @@ import config from '../../_util/config';
 import FormItem from './FormItem';
 import create from './create';
 import { FormProps } from '../propsType';
+import { FormHOC } from './context';
+import { isFunction } from '../../_util/typeof';
 
 
 export default class Form extends PureComponent<FormProps, any> {
@@ -15,21 +17,42 @@ export default class Form extends PureComponent<FormProps, any> {
     }
     static defaultProps = {
         prefixCls: `${config.cls}-form`,
-        className: ''
+        className: '',
+        onSubmit: null
     };
 
     static create = create;
     static Item = FormItem;
 
     render(): any {
-        const { prefixCls, className, children } = this.props;
+        const { prefixCls, className, children, onSubmit } = this.props;
         if (!children) {
             return null;
         }
         return (
-            <div className={classnames(prefixCls, className)}>
-                {children}
-            </div>
+            <FormHOC.Consumer>
+                {(data) => {
+                    return <form
+                        ref={(formComponent) => {
+                            if (data && isFunction(data.getFormComponent)) {
+                                data.getFormComponent(formComponent);
+                            }
+                        }}
+                        onSubmit={(e) => {
+                            if ( onSubmit && isFunction(onSubmit) ) {
+                                if (data && isFunction(data.formOnSubmit)) {
+                                    onSubmit(data.formOnSubmit());
+                                }
+                                e.preventDefault();
+                            }
+                        }}
+                        className={classnames(prefixCls, className)}
+                    >
+                        {children}
+                    </form>
+                }}
+            </FormHOC.Consumer>
+
         )
     }
 }
