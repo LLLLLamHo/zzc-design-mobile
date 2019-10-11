@@ -19,36 +19,54 @@ export default class Input extends PureComponent<InputProps, any> {
         disabled: false,
     };
 
+    componentDidMount(): void {
+        // 渲染完成后，需要通知form组件记录value，完成数据绑定
+        const { id, value, _zds_form_initValue } = this.props;
+        if (_zds_form_initValue && isFunction(_zds_form_initValue)) {
+            _zds_form_initValue(id, value);
+        }
+    }
+
     createInput() {
-        const { prefixCls, className, htmlType, onChange, onBlur, onFocus } = this.props;
-        
+        const { prefixCls, className, htmlType, onChange, onBlur, onFocus, formInputOnChange, formInputOnBlur, formInputOnFocus, formOpt } = this.props;
         const inputClassName: string = classNames(
             prefixCls,
             className
         );
-
         const newProps = {
-            ...this.props,
+            ...this.props
         };
-
         delete newProps.prefixCls;
         delete newProps.className;
         delete newProps.htmlType;
+        // 清楚一些托管到form中传入的的props
+        delete newProps._zds_form_initValue;
+        delete newProps.formOpt;
+        delete newProps.formInputOnChange;
+        delete newProps.formInputOnBlur;
+        delete newProps.formInputOnFocus;
+
         return (<input
             {...newProps}
             onChange={(e) => {
-                if (onChange && isFunction(onChange)) {
-                    onChange(e)
+                if (formInputOnChange && isFunction(formInputOnChange)) {
+                    formInputOnChange(e.target.value, formOpt || null);
+                } else if (onChange && isFunction(onChange)) {
+                    onChange(e);
                 }
             }}
             onBlur={(e) => {
-                if (onBlur && isFunction(onBlur)) {
-                    onBlur(e)
+                if (formInputOnBlur && isFunction(formInputOnBlur)) {
+                    formInputOnBlur(e.target.value, formOpt || null);
+                } else if (onBlur && isFunction(onBlur)) {
+                    onBlur(e);
                 }
             }}
             onFocus={(e) => {
-                if (onFocus && isFunction(onFocus)) {
-                    onFocus(e)
+                if (formInputOnFocus && isFunction(formInputOnFocus)) {
+                    formInputOnFocus(e.target.value, formOpt || null);
+                } else if (onFocus && isFunction(onFocus)) {
+                    onFocus(e);
                 }
             }}
             type={htmlType}

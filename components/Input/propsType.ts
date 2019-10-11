@@ -1,3 +1,4 @@
+import {getFieldDecoratorOption} from '../Form/propsType';
 export interface InputProps {
     prefixCls: string,
     className: string,
@@ -12,5 +13,10 @@ export interface InputProps {
     onChange?: Function
     onBlur?: Function
     onFocus?: Function
+    formInputOnChange?: Function
+    formInputOnBlur?: Function
+    formInputOnFocus?: Function
     maxLength?: number
+    _zds_form_initValue?: Function
+    formOpt?: getFieldDecoratorOption
 }

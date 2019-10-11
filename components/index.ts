@@ -23,3 +23,4 @@ export { default as EasyCalculator } from './EasyCalculator';
 export { default as Select } from './Select';
 export { default as Input } from './Input';
 export { default as Prompt } from './Prompt';
+export { default as Form } from './Form';
