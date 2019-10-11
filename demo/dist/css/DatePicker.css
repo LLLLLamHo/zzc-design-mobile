@@ -10223,7 +10223,7 @@ button {
     .zds-prompt svg.zds-prompt-icon-right {
       margin-left: 6px;
       margin-top: 2.4px; }
-  .zds-prompt.type-defautl {
+  .zds-prompt.border-notice {
     border-left-width: 3px;
     border-left-style: solid; }
   .zds-prompt.neutral-theme {
