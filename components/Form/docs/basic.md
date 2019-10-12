@@ -28,7 +28,7 @@ Form表单
 
 该使用方式仅仅只是提供了基本的样式，并不会帮你进行任何的验证，提示等功能。
 
-```JavaScript
+```jsx
 <Form>
     <Form.Item
         label='标签1'
@@ -51,7 +51,7 @@ Form表单
 
 以下是DEMO中的使用方式。
 
-```JavaScript
+```jsx
 import React, { Component } from 'react';
 import { Form, Input, Button } from 'zzc-design-mobile';
 
@@ -169,7 +169,7 @@ form对象会额外提供一些api给你去扩展你的input组件
 
 用于扩展input组件，只要通过`getFieldDecorator`函数包裹的input组件，将会托管给Form组件进行验证，`需要确保id是唯一`。
 
-```JavaScript
+```jsx
 <Form.Item
     label='最小值为2个字符串'
 >
@@ -211,7 +211,7 @@ form对象会额外提供一些api给你去扩展你的input组件
 
 ### 添加Button组件触发Form的submit事件
 
-```JavaScript
+```jsx
 <Form.Item>
     <Button htmlType='submit'>
         提交

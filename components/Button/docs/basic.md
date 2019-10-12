@@ -23,7 +23,7 @@
 | inline          | 是否设置为行内按钮                                    | boolean  | false      |
 | className       | 样式类名                                              | string   | 无         |
 
-```JavaScript
+```jsx
 <Button>默认按钮</Button>
 <Button><Icon style={{ marginRight: '5px', width: '18px', height: '18px' }} type='success' />默认按钮</Button>
 <Button inactive>未激活按钮</Button>
@@ -41,7 +41,7 @@
 | className | 样式类名                | string | 无         |
 | direction | 排序方向                | string | 'center'   |
 
-```JavaScript
+```jsx
 <ButtonGroup>
     <Button>确认</Button>
     <Button type='sub'>确认</Button>

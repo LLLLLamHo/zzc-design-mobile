@@ -34,7 +34,7 @@
 
 ## 示例
 
-```js
+```jsx
 Alert( {
     title: '标题',
     content: <p>asdasdasdasd</p>
@@ -43,7 +43,7 @@ Alert( {
 
 有时候我们需要进行一些异步操作之后才决定是否关闭`Alert`，这个时候在按钮的点击事件传入一个`Promise`。Alert会在你的`Promise`中调用`resolve`的时候进行关闭，从而实现异步关闭`Alert`。
 
-```js
+```jsx
 Alert( {
     title: '发起一个请求',
     maskClose: true,

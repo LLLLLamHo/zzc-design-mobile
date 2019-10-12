@@ -18,7 +18,7 @@
 | onMouseUp       | 事件                        | Function | null   |
 | onMouseLeave    | 事件                        | Function | null   |
 
-```JavaScript
+```jsx
 <TouchFeedback
     activeClassName='active-class'
 >

@@ -27,7 +27,7 @@
 
 简单的例子
 
-```JavaScript
+```jsx
 <FullModal
     visible={this.state.visible}
     title='这是一个标题'

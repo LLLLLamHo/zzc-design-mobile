@@ -32,7 +32,7 @@
 
 简单的例子
 
-```JavaScript
+```jsx
 <Dialog
     visible={true}
     maskClose={true}

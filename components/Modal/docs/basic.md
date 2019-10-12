@@ -86,7 +86,7 @@
 
 ## 示例
 
-```js
+```jsx
 <Modal
     title={this.state.title}
     closable={true}
@@ -99,7 +99,7 @@
 
 有时候我们需要进行一些异步操作之后才决定是否关闭`Modal`，这个时候在按钮的点击事件传入一个`Promise`。Modal会在你的`Promise`中调用`resolve`的时候进行关闭，从而实现异步关闭`Modal`。
 
-```js
+```jsx
 <Modal
     title={this.state.title}
     visible={this.state.visible}

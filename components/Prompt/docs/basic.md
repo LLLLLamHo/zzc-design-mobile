@@ -24,7 +24,7 @@
 
 简单的调用demo
 
-```JavaScript
+```jsx
 <Prompt
     lineClamp={3}
     mode='info'

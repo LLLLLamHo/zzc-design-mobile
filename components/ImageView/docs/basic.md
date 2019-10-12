@@ -26,7 +26,7 @@
 
 简单的例子
 
-```JavaScript
+```jsx
 <ImageView
     defaultIndex={this.state.index}
     onClose={( index ) => { this.closeImageView( index ); }}

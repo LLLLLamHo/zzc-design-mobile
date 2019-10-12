@@ -44,7 +44,7 @@
 | className | 单独配置每个item的class                | string | ''     |
 
 
-```JavaScript
+```jsx
 <Picker
     onTouchEnd={( scrollIndex, itemIndex ) => {this.touchEnd( scrollIndex, itemIndex );}}
     onTouchStart={( scrollIndex ) => { this.touchStart( scrollIndex );}}

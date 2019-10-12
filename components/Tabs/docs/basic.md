@@ -34,7 +34,7 @@
 | title | tabs的item | string/reactComponent |        |
 
 #### 基本用法
-```JavaScript
+```jsx
 <Tabs
     maxTabLength={2}
     index={0}
@@ -58,7 +58,7 @@
 这种将主体包裹在`Tabs`内部，就可以提供滑动切换等功能。但是也可以用另外一种用法，就是通过当前选中的`index`决定渲染哪一个组件。
 
 
-```JavaScript
+```jsx
 <Tabs
     maxTabLength={2}
     index={this.state.tabsIndex}

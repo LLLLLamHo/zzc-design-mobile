@@ -18,7 +18,7 @@
 
 jsx
 
-```JavaScript
+```jsx
 import React, {Component} from 'react';
 import './index.scss';
 import '../../../style/style.scss';

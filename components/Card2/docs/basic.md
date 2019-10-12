@@ -34,7 +34,7 @@
 | style     | 自定义样式              | object | {}       |
 
 
-```JavaScript
+```jsx
 <Card2>
     <Card2.Header
         title={<p>只有标题</p>}

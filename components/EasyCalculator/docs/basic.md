@@ -19,7 +19,7 @@
 | value        | 当前值                   | number |                        |
 | onChange     | 变化回调                 | number | Function(value: number | string) |
 
-```JavaScript
+```jsx
 <EasyCalculator defaultValue={0} />
 
 <EasyCalculator defaultValue={3} step={2} min={0} max={10} />

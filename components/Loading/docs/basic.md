@@ -20,7 +20,7 @@
 
 ## 示例
 
-```js
+```jsx
 <Loading
     visible={true}
     text='努力加载中....'

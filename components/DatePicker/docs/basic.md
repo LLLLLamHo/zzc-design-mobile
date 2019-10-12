@@ -34,7 +34,7 @@
 
 如果使用`mode='time'`，则传入`selectTime`的格式应该为`12:30`字符串，如果使用`mode=year/month`,只需要传入对应的年份和月份即可。例如：`'2019'`或者`'8'`。其他`mode`方式钧可以使用string或者是一个字符串。
 
-```JavaScript
+```jsx
 <DatePicker
     visible={this.state.isShow}
     minuteStep={15}

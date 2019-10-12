@@ -25,7 +25,7 @@
 
 简单的调用demo
 
-```JavaScript
+```jsx
 <Popup
     maskClose={true}
     visible={this.state.visible}

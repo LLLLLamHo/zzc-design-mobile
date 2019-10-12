@@ -12,7 +12,7 @@
 | style     | 自定义样式                               | Object | 无       |
 | className | 样式类名                                 | string | 无       |
 
-```JavaScript
+```jsx
 <Icon size="lg" type="success" />
 <Icon type="success" />
 <Icon size="sm" type="success" />

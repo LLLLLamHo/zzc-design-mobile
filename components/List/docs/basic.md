@@ -27,7 +27,7 @@
 
 *注意：只有List和ListItem配合使用才会显示ListItem的特有样式
 
-```JavaScript
+```jsx
 <ListItem
     title={<p>只有标题</p>}
 />

@@ -26,7 +26,7 @@
 | onFocus      | onFocus事件             | Function | null     |
 
 
-```JavaScript
+```jsx
 <Input placeholder='请输入姓名' />
 <Input onChange={( e ) => { this.onChange( 'name', e ); }} value={name} placeholder='请输入姓名' />
 <Input disabled placeholder='请输入姓名' />

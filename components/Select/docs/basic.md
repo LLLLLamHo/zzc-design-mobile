@@ -27,7 +27,7 @@
 | type  | 类型     | 'normal' \| 'active' \| 'disabled' |        |
 | value | 值       | any                             |        |
 
-```JavaScript
+```jsx
 export default class App extends PureComponent {
     constructor( props ) {
         super( props );

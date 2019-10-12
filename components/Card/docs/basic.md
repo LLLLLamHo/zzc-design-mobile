@@ -26,7 +26,7 @@
 
 *注意：如果再Header中传入子元素，则会不渲染`title`和`extra`。
 
-```js
+```jsx
 //这时只渲染h1标签
 <Card.Header title="卡片标题" extra="this is extra"><h1>自定义标题</h1></Card.Header>
 ```
@@ -42,7 +42,7 @@
 | style           | 自定义样式                                     | object  | {}            |
 | borderDirection | 定义分割线开口位置（默认居中）, `left`/`right` | string  | 无            |
 
-```JavaScript
+```jsx
 <Card>
     <Card.Header title="卡片标题" extra="this is extra" />
     <Card.Body>
@@ -67,7 +67,7 @@
 | className | 样式类名                | string  | 无              |
 | style     | 自定义样式              | object  | {}              |
 
-```JavaScript
+```jsx
 <Card.Footer>
     <Button noBorder full>按钮</Button>
 </Card.Footer>
