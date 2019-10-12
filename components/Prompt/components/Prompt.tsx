@@ -74,7 +74,7 @@ export default class Prompt extends PureComponent<PromptProps, any> {
                 )
             default:
                 return (
-                    <div className={`${classname} type-notice ${theme}`} onClick={this.handlerClickEvent} style={style}>
+                    <div className={`${classname} type-notice border-notice ${theme}`} onClick={this.handlerClickEvent} style={style}>
                         <div className={`${prefixCls}-content`}>
                             {!!children ? children : <p style={{ 'WebkitLineClamp': lineClamp }} dangerouslySetInnerHTML={{ __html: contextText || '' }}></p>}
                         </div>
