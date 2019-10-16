@@ -26,7 +26,6 @@ $cls: '.zds-popup';
         &#{$cls}-bottom{
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
-            overflow: hidden;
             bottom:0;
             left: 0;
         }
@@ -35,14 +34,12 @@ $cls: '.zds-popup';
             left: 0;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
-            overflow: hidden;
         }
         &#{$cls}-left{
             top:0;
             left: 0;
             bottom: 0;
             width: auto;
-            overflow: hidden;
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
         }
@@ -51,7 +48,6 @@ $cls: '.zds-popup';
             right: 0;
             bottom: 0;
             width: auto;
-            overflow: hidden;
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
         }

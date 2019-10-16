@@ -5561,21 +5561,18 @@ button {
     .zds-popup .zds-popup-box.zds-popup-bottom {
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
-      overflow: hidden;
       bottom: 0;
       left: 0; }
     .zds-popup .zds-popup-box.zds-popup-top {
       top: 0;
       left: 0;
       border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      overflow: hidden; }
+      border-bottom-right-radius: 10px; }
     .zds-popup .zds-popup-box.zds-popup-left {
       top: 0;
       left: 0;
       bottom: 0;
       width: auto;
-      overflow: hidden;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px; }
     .zds-popup .zds-popup-box.zds-popup-right {
@@ -5583,7 +5580,6 @@ button {
       right: 0;
       bottom: 0;
       width: auto;
-      overflow: hidden;
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px; }
 .zds-slide-bottom-enter {
