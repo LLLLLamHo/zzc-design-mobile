@@ -10,13 +10,13 @@ import { DialogProps } from '../propsType';
 
 
 export default class Dialog extends PureComponent<DialogProps, any> {
-    constructor( props ) {
-        super( props );
-        zzcComponentUse( 'Dialog', '组件渲染' );
+    constructor(props) {
+        super(props);
+        zzcComponentUse('Dialog', '组件渲染');
     }
     static defaultProps = {
         prefixCls: `${config.cls}-dialog`,
-        getRef: () => {},
+        getRef: () => { },
         className: '',
         maskClassName: '',
         boxClassName: '',
@@ -25,9 +25,9 @@ export default class Dialog extends PureComponent<DialogProps, any> {
         dialogStyle: {},
         maskStyle: {},
         visible: false,
-        closeCallback () { },
-        maskAnimated () { },
-        boxAnimated () { },
+        closeCallback() { },
+        maskAnimated() { },
+        boxAnimated() { },
         title: null,
         footer: null,
         maskClose: false,
@@ -49,29 +49,29 @@ export default class Dialog extends PureComponent<DialogProps, any> {
     }
 
     // mask关闭事件
-    addMarkCloseEvent (): void {
+    addMarkCloseEvent(): void {
         const _self = this;
         const { closeCallback, transitionName, maskTransitionName, transparent } = this.props;
-        if ( this.mask ) {
-            const maskAnimation = this.getAnimationClass( this.props.maskTransitionName );
-            const bodyAnimation = this.getAnimationClass( this.props.transitionName );
+        if (this.mask) {
+            const maskAnimation = this.getAnimationClass(this.props.maskTransitionName);
+            const bodyAnimation = this.getAnimationClass(this.props.transitionName);
             this.mask.onclick = function () {
-                if ( transitionName && transitionName !== '' && !_self.isShowedBox ) {
+                if (transitionName && transitionName !== '' && !_self.isShowedBox) {
                     return false;
                 }
 
-                if ( !transparent && maskTransitionName && maskTransitionName !== '' && !_self.isShowedMask ) {
+                if (!transparent && maskTransitionName && maskTransitionName !== '' && !_self.isShowedMask) {
                     return false;
                 }
 
-                if ( bodyAnimation ) {
-                    addClass( _self.box, bodyAnimation.leave );
-                    addClass( _self.box, bodyAnimation.leaveActive );
+                if (bodyAnimation) {
+                    addClass(_self.box, bodyAnimation.leave);
+                    addClass(_self.box, bodyAnimation.leaveActive);
                 }
                 // 当没有配置动画点击mask关闭dialog，直接调用
-                if ( maskAnimation ) {
-                    addClass( _self.mask, maskAnimation.leave );
-                    addClass( _self.mask, maskAnimation.leaveActive );
+                if (maskAnimation) {
+                    addClass(_self.mask, maskAnimation.leave);
+                    addClass(_self.mask, maskAnimation.leaveActive);
                 } else {
                     closeCallback && closeCallback();
                 }
@@ -81,61 +81,61 @@ export default class Dialog extends PureComponent<DialogProps, any> {
     }
 
     // 获取指定样式
-    getAnimationClass ( transitionName: any ): any {
-        if ( this.state.animationTypeList[transitionName] ) {
+    getAnimationClass(transitionName: any): any {
+        if (this.state.animationTypeList[transitionName]) {
             return this.state.animationTypeList[transitionName];
         }
         return transitionName ? transitionName : null;
     }
 
     // mask是否加入动画
-    createDialogMask (): JSX.Element | any {
+    createDialogMask(): JSX.Element | any {
         const { prefixCls, transparent, maskTransitionName, closeCallback, maskStyle, maskClassName, visible } = this.props;
         const newMaskClassName: string = classNames(
             `${prefixCls}-mask`,
             maskClassName
         );
-        if ( !transparent ) {
-            if ( maskTransitionName && maskTransitionName !== '' ) {
+        if (!transparent) {
+            if (maskTransitionName && maskTransitionName !== '') {
                 return (
                     <Animate
                         visible={visible}
-                        animationName={this.getAnimationClass( maskTransitionName )}
-                        onEnd={( type ) => {
+                        animationName={this.getAnimationClass(maskTransitionName)}
+                        onEnd={(type) => {
                             this.isShowedMask = type === 'enter';
-                            this.props.maskAnimated && isFunction( this.props.maskAnimated ) && this.props.maskAnimated( type );
+                            this.props.maskAnimated && isFunction(this.props.maskAnimated) && this.props.maskAnimated(type);
                             type === 'leave' && closeCallback && closeCallback();
                         }}
                     >
-                        <div style={maskStyle} ref={( ref ) => { this.mask = ref; }} className={newMaskClassName} />
+                        <div style={maskStyle} ref={(ref) => { this.mask = ref; }} className={newMaskClassName} onTouchMove={(e) => { e.preventDefault(); }} />
                     </Animate>
                 );
             }
-            return ( <div style={maskStyle} ref={( ref ) => { this.mask = ref; }} className={newMaskClassName} /> );
+            return (<div style={maskStyle} ref={(ref) => { this.mask = ref; }} className={newMaskClassName} onTouchMove={(e) => { e.preventDefault(); }} />);
         }
         return null;
     }
 
     // dialog主题是否加入动画
-    createDialogBody (): JSX.Element | any {
+    createDialogBody(): JSX.Element | any {
         const { prefixCls, visible, bodyStyle, transparent, boxClassName, transitionName, maskTransitionName, children, title, footer, closeCallback } = this.props;
         const newBoxClassName: string = classNames(
             `${prefixCls}-box`,
             boxClassName
         );
-        if ( transitionName && transitionName !== '' ) {
+        if (transitionName && transitionName !== '') {
             return (
                 <Animate
                     visible={visible}
-                    animationName={this.getAnimationClass( transitionName )}
-                    onEnd={( type ) => {
+                    animationName={this.getAnimationClass(transitionName)}
+                    onEnd={(type) => {
                         this.isShowedBox = type === 'enter';
-                        this.props.boxAnimated && isFunction( this.props.boxAnimated ) && this.props.boxAnimated( type );
+                        this.props.boxAnimated && isFunction(this.props.boxAnimated) && this.props.boxAnimated(type);
                         // 当选择不创建mask或者mask不使用动画的时候，body动画结束触发closeCallback
-                        type === 'leave' && ( transparent || maskTransitionName === '' ) && closeCallback && closeCallback();
+                        type === 'leave' && (transparent || maskTransitionName === '') && closeCallback && closeCallback();
                     }}
                 >
-                    <div style={bodyStyle} ref={( ref ) => { this.box = ref; }} className={newBoxClassName}>
+                    <div style={bodyStyle} ref={(ref) => { this.box = ref; }} className={newBoxClassName}>
                         {title && title}
                         {children}
                         {footer && footer}
@@ -144,7 +144,7 @@ export default class Dialog extends PureComponent<DialogProps, any> {
             );
         }
         return (
-            <div style={bodyStyle} ref={( ref ) => { this.box = ref; }} className={newBoxClassName}>
+            <div style={bodyStyle} ref={(ref) => { this.box = ref; }} className={newBoxClassName}>
                 {title && title}
                 {children}
                 {footer && footer}
@@ -155,10 +155,10 @@ export default class Dialog extends PureComponent<DialogProps, any> {
     render(): JSX.Element {
         const { prefixCls, className, style, preRender, visible } = this.props;
         // preRender预渲染
-        if ( preRender ) {
+        if (preRender) {
             return (
-                <div className='pre-render-box' style={ !visible && !this.isShowedBox ? { display: 'none' } : {}}>
-                    <div style={style} className={classNames( `${prefixCls}`, className )}>
+                <div className='pre-render-box' style={!visible && !this.isShowedBox ? { display: 'none' } : {}}>
+                    <div style={style} className={classNames(`${prefixCls}`, className)}>
                         {this.createDialogMask()}
                         {this.createDialogBody()}
                     </div>
@@ -166,7 +166,7 @@ export default class Dialog extends PureComponent<DialogProps, any> {
             );
         }
         return (
-            <div style={style} className={classNames( `${prefixCls}`, className )}>
+            <div style={style} className={classNames(`${prefixCls}`, className)}>
                 {this.createDialogMask()}
                 {this.createDialogBody()}
             </div>

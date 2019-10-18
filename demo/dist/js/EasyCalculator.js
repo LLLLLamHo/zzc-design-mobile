@@ -26698,12 +26698,16 @@ var Dialog = function (_PureComponent) {
                             } },
                         _react2.default.createElement('div', { style: maskStyle, ref: function ref(_ref) {
                                 _this2.mask = _ref;
-                            }, className: newMaskClassName })
+                            }, className: newMaskClassName, onTouchMove: function onTouchMove(e) {
+                                e.preventDefault();
+                            } })
                     );
                 }
                 return _react2.default.createElement('div', { style: maskStyle, ref: function ref(_ref2) {
                         _this2.mask = _ref2;
-                    }, className: newMaskClassName });
+                    }, className: newMaskClassName, onTouchMove: function onTouchMove(e) {
+                        e.preventDefault();
+                    } });
             }
             return null;
         }
@@ -33116,6 +33120,18 @@ var _gtag = __webpack_require__(9);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function getButtonStatus(val, props) {
+    var _props$min = props.min,
+        min = _props$min === undefined ? -Infinity : _props$min,
+        _props$max = props.max,
+        max = _props$max === undefined ? Infinity : _props$max;
+
+    return {
+        isIncreaseDisabled: val >= max,
+        isDecreaseDisabled: val <= min
+    };
+}
+
 var EasyCalculator = function (_PureComponent) {
     (0, _inherits3.default)(EasyCalculator, _PureComponent);
 
@@ -33131,18 +33147,22 @@ var EasyCalculator = function (_PureComponent) {
             var precisionFactor = Math.pow(10, _this.getNumPrecision());
             var value = _this.toPrecision((inputValue * precisionFactor - precisionFactor * step) / precisionFactor);
 
-            var _this$getButtonStatus = _this.getButtonStatus(value),
-                isDecreaseDisabled = _this$getButtonStatus.isDecreaseDisabled,
-                isIncreaseDisabled = _this$getButtonStatus.isIncreaseDisabled;
+            var _getButtonStatus = getButtonStatus(value, _this.props),
+                isDecreaseDisabled = _getButtonStatus.isDecreaseDisabled,
+                isIncreaseDisabled = _getButtonStatus.isIncreaseDisabled;
 
-            value = _this.getValidValue((0, _assign2.default)({ value: value }, _this.props));
-            _this.setState({
-                inputValue: value,
-                isDecreaseDisabled: isDecreaseDisabled,
-                isIncreaseDisabled: isIncreaseDisabled
-            }, function () {
-                typeof _this.props.onChange === 'function' && _this.props.onChange(_this.state.inputValue);
-            });
+            value = _this.getValidValue((0, _assign2.default)({}, _this.props, { value: value }));
+            if (!('value' in _this.props)) {
+                _this.setState({
+                    inputValue: value,
+                    isDecreaseDisabled: isDecreaseDisabled,
+                    isIncreaseDisabled: isIncreaseDisabled
+                }, function () {
+                    typeof _this.props.onChange === 'function' && _this.props.onChange(_this.state.inputValue);
+                });
+                return;
+            }
+            typeof _this.props.onChange === 'function' && _this.props.onChange(value);
         };
         _this.onIncrease = function () {
             var inputValue = _this.state.inputValue;
@@ -33150,17 +33170,22 @@ var EasyCalculator = function (_PureComponent) {
             var step = _this.props.step || 1;
             var precisionFactor = Math.pow(10, _this.getNumPrecision());
             var value = _this.toPrecision((inputValue * precisionFactor + precisionFactor * step) / precisionFactor);
-            value = _this.getValidValue((0, _assign2.default)({ value: value }, _this.props));
-            _this.setState((0, _assign2.default)({ inputValue: value }, _this.getButtonStatus(value)), function () {
-                typeof _this.props.onChange === 'function' && _this.props.onChange(_this.state.inputValue);
-            });
+            value = _this.getValidValue((0, _assign2.default)({}, _this.props, { value: value }));
+            if (!('value' in _this.props)) {
+                _this.setState((0, _assign2.default)({ inputValue: value }, getButtonStatus(value, _this.props)), function () {
+                    typeof _this.props.onChange === 'function' && _this.props.onChange(_this.state.inputValue);
+                });
+                return;
+            }
+            typeof _this.props.onChange === 'function' && _this.props.onChange(value);
         };
         (0, _gtag.zzcComponentUse)('EasyCalculator', '组件渲染');
         var value = _this.getValidValue(props);
+        var obj = getButtonStatus(value, props);
         _this.state = {
             inputValue: value,
-            isDecreaseDisabled: false,
-            isIncreaseDisabled: false
+            isDecreaseDisabled: obj.isDecreaseDisabled,
+            isIncreaseDisabled: obj.isIncreaseDisabled
         };
         return _this;
     }
@@ -33183,37 +33208,21 @@ var EasyCalculator = function (_PureComponent) {
         value: function componentWillReceiveProps(nextProps) {
             var _this2 = this;
 
-            if ('value' in nextProps && nextProps.value !== this.props.value) {
+            if ('value' in nextProps && nextProps.value !== this.state.inputValue) {
                 var value = this.getValidValue(nextProps);
                 var precisionFactor = Math.pow(10, this.getNumPrecision());
                 value = this.toPrecision(value * precisionFactor / precisionFactor);
-                this.setState({
-                    inputValue: value
-                }, function () {
+                this.setState((0, _assign2.default)({ inputValue: value }, getButtonStatus(value, nextProps)), function () {
                     typeof _this2.props.onChange === 'function' && _this2.props.onChange(_this2.state.inputValue);
                 });
             }
         }
     }, {
-        key: 'getButtonStatus',
-        value: function getButtonStatus(val) {
-            var _props = this.props,
-                _props$min = _props.min,
-                min = _props$min === undefined ? -Infinity : _props$min,
-                _props$max = _props.max,
-                max = _props$max === undefined ? Infinity : _props$max;
-
-            return {
-                isIncreaseDisabled: val >= max,
-                isDecreaseDisabled: val <= min
-            };
-        }
-    }, {
         key: 'getNumPrecision',
         value: function getNumPrecision() {
-            var _props2 = this.props,
-                precision = _props2.precision,
-                step = _props2.step;
+            var _props = this.props,
+                precision = _props.precision,
+                step = _props.step;
             var inputValue = this.state.inputValue;
 
             var stepPrecision = this.getPrecision(step);
@@ -33258,11 +33267,11 @@ var EasyCalculator = function (_PureComponent) {
                 inputValue = _state.inputValue,
                 isDecreaseDisabled = _state.isDecreaseDisabled,
                 isIncreaseDisabled = _state.isIncreaseDisabled;
-            var _props3 = this.props,
-                _props3$prefixCls = _props3.prefixCls,
-                prefixCls = _props3$prefixCls === undefined ? 'zds-calculator' : _props3$prefixCls,
-                className = _props3.className,
-                style = _props3.style;
+            var _props2 = this.props,
+                _props2$prefixCls = _props2.prefixCls,
+                prefixCls = _props2$prefixCls === undefined ? 'zds-calculator' : _props2$prefixCls,
+                className = _props2.className,
+                style = _props2.style;
 
             return _react2.default.createElement(
                 'div',
@@ -34762,6 +34771,7 @@ var App = function (_PureComponent) {
         var _this = (0, _possibleConstructorReturn3.default)(this, (App.__proto__ || (0, _getPrototypeOf2.default)(App)).call(this, props));
 
         _this.onChange = function (val) {
+            console.log('val: ', val);
             _this.setState({
                 value: val
             });
@@ -34804,7 +34814,7 @@ var App = function (_PureComponent) {
                         _react2.default.createElement(
                             'div',
                             { className: 'wrapper' },
-                            _react2.default.createElement(_zzcDesignMobile.EasyCalculator, { defaultValue: 0, onChange: this.onChange })
+                            _react2.default.createElement(_zzcDesignMobile.EasyCalculator, { defaultValue: 0 })
                         ),
                         _react2.default.createElement('p', { className: 'desc' })
                     ),
@@ -34819,7 +34829,7 @@ var App = function (_PureComponent) {
                         _react2.default.createElement(
                             'div',
                             { className: 'wrapper' },
-                            _react2.default.createElement(_zzcDesignMobile.EasyCalculator, { defaultValue: 3, step: 2, min: 0, max: 10, onChange: this.onChange })
+                            _react2.default.createElement(_zzcDesignMobile.EasyCalculator, { defaultValue: 0, step: 2, min: 0, max: 10, onChange: this.onChange })
                         ),
                         _react2.default.createElement(
                             'p',

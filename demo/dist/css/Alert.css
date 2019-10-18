@@ -10204,7 +10204,7 @@ button {
             transform: scale(0.3); } }
 
 .zds-prompt {
-  padding: 6px 15px;
+  padding: 6.5px 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
