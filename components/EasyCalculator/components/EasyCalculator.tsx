@@ -3,15 +3,23 @@ import classnames from 'classnames';
 import { zzcComponentUse } from '../../_util/gtag';
 import { EasyCalculatorProps } from '../propsType';
 
+function getButtonStatus(val, props) {
+    const { min = -Infinity, max = Infinity } = props;
+    return {
+        isIncreaseDisabled: val >= max,
+        isDecreaseDisabled: val <= min
+    };
+}
 export default class EasyCalculator extends PureComponent<EasyCalculatorProps, any> {
     constructor( props ) {
         super( props );
         zzcComponentUse( 'EasyCalculator', '组件渲染' );
         let value: number = this.getValidValue(props);
+        const obj = getButtonStatus(value, props);
         this.state = {
             inputValue: value,
-            isDecreaseDisabled: false,
-            isIncreaseDisabled: false,
+            isDecreaseDisabled: obj.isDecreaseDisabled,
+            isIncreaseDisabled: obj.isIncreaseDisabled,
         };
     }
 
@@ -33,12 +41,13 @@ export default class EasyCalculator extends PureComponent<EasyCalculatorProps, a
     }
 
     componentWillReceiveProps(nextProps) {
-        if ('value' in nextProps && nextProps.value !== this.props.value) {
+        if (('value' in nextProps) && nextProps.value !== this.state.inputValue) {
             let value = this.getValidValue(nextProps);
             const precisionFactor = Math.pow(10, this.getNumPrecision());
             value = this.toPrecision((value * precisionFactor) / precisionFactor);
             this.setState({
-                inputValue: value
+                inputValue: value,
+                ...getButtonStatus(value, nextProps)
             }, () => {
                 typeof this.props.onChange === 'function' && this.props.onChange(this.state.inputValue);
             });
@@ -50,23 +59,19 @@ export default class EasyCalculator extends PureComponent<EasyCalculatorProps, a
         const step = this.props.step || 1;
         const precisionFactor = Math.pow(10, this.getNumPrecision());
         let value = this.toPrecision((inputValue * precisionFactor -  precisionFactor * step) / precisionFactor);
-        const { isDecreaseDisabled, isIncreaseDisabled } = this.getButtonStatus(value);
-        value = this.getValidValue({ value, ...this.props });
-        this.setState({
-            inputValue: value,
-            isDecreaseDisabled,
-            isIncreaseDisabled
-        }, () => {
-            typeof this.props.onChange === 'function' && this.props.onChange(this.state.inputValue);
-        });
-    }
-
-    getButtonStatus(val) {
-        const { min = -Infinity, max = Infinity } = this.props;
-        return {
-            isIncreaseDisabled: val >= max,
-            isDecreaseDisabled: val <= min
-        };
+        const { isDecreaseDisabled, isIncreaseDisabled } = getButtonStatus(value, this.props);
+        value = this.getValidValue({ ...this.props, value });
+        if (!('value' in this.props)) {
+            this.setState({
+                inputValue: value,
+                isDecreaseDisabled,
+                isIncreaseDisabled
+            }, () => {
+                typeof this.props.onChange === 'function' && this.props.onChange(this.state.inputValue);
+            });
+            return;
+        }
+        typeof this.props.onChange === 'function' && this.props.onChange(value);
     }
 
     onIncrease = () => {
@@ -74,13 +79,17 @@ export default class EasyCalculator extends PureComponent<EasyCalculatorProps, a
         let step = this.props.step || 1;
         const precisionFactor = Math.pow(10, this.getNumPrecision());
         let value = this.toPrecision((inputValue * precisionFactor + precisionFactor * step) / precisionFactor);
-        value = this.getValidValue({ value, ...this.props });
-        this.setState({
-            inputValue: value,
-            ...this.getButtonStatus(value)
-        }, () => {
-            typeof this.props.onChange === 'function' && this.props.onChange(this.state.inputValue);
-        });
+        value = this.getValidValue({ ...this.props, value });
+        if (!('value' in this.props)) {
+            this.setState({
+                inputValue: value,
+                ...getButtonStatus(value, this.props)
+            }, () => {
+                typeof this.props.onChange === 'function' && this.props.onChange(this.state.inputValue);
+            });
+            return;
+        }
+        typeof this.props.onChange === 'function' && this.props.onChange(value);
     }
 
     getNumPrecision(): number {
