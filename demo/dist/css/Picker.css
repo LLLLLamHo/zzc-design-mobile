@@ -5539,7 +5539,7 @@ button {
       -ms-flex-align: center;
           align-items: center; }
   .zds-popup .zds-popup-mask {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(23, 22, 41, 0.7);
     height: 100%;
     width: 100%;
     top: 0;

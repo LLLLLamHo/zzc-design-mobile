@@ -10,7 +10,7 @@ $cls: '.zds-popup';
     @include flex();
     
     #{$cls}-mask {
-        background: rgba(0, 0, 0, .8);
+        background: rgba(23, 22, 41, .7);
         height: 100%;
         width: 100%;
         top: 0;
