@@ -173,7 +173,7 @@ export default class App extends PureComponent {
                     <Card2>
                         <Card2.Header
                             title={<p>点击选择</p>}
-                            extra={<Icon type='arrow-right' style={{ width: '20px', height: '30px' }} />}
+                            extra={<Icon type='arrow' style={{ width: '20px', height: '30px' }} />}
                             extraClick={() => {
                                 this.toggleSelect1( true );
                             }}
@@ -196,7 +196,7 @@ export default class App extends PureComponent {
                     <Card2>
                         <Card2.Header
                             title={<p>选择香港驾照才关闭</p>}
-                            extra={<Icon type='arrow-right' style={{ width: '20px', height: '30px' }} />}
+                            extra={<Icon type='arrow' style={{ width: '20px', height: '30px' }} />}
                             extraClick={() => {
                                 this.toggleSelect2( true );
                             }}

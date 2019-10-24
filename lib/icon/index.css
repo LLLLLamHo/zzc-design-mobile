@@ -7,16 +7,20 @@
   height: 40px; }
 
 .zds-icon-md {
-  width: 30px;
-  height: 30px; }
+  width: 36px;
+  height: 36px; }
+
+.zds-icon-normal {
+  width: 28px;
+  height: 28px; }
 
 .zds-icon-sm {
-  width: 20px;
-  height: 20px; }
+  width: 24px;
+  height: 24px; }
 
 .zds-icon-xs {
-  width: 10px;
-  height: 10px; }
+  width: 20px;
+  height: 20px; }
 
 .zds-icon-loading {
   animation: cirle-zzc 1s linear infinite; }

@@ -253,7 +253,7 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
                         />
                     </div>
                     <div className={`${cls}-footer`}>
-                        {warningText && <div className={`${cls}-warning`}><Icon style={{ fill: '#696E7C', width: '11px', height: '11px' }} type='waring'/><p>{warningText}</p></div>}
+                        {warningText && <div className={`${cls}-warning`}><Icon type="warning_outline" style={{ color: '#696E7C', width: '11px', height: '11px' }}/><p>{warningText}</p></div>}
                         <Button onClick={this.submit}>{buttonText ? buttonText : langData.datePickerButtomText}</Button>
                     </div>
                 </div>

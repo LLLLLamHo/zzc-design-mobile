@@ -7,7 +7,7 @@ const sass = require( 'gulp-sass' );
 const through2 = require( 'through2' );
 const ts = require( 'gulp-typescript' );
 
-function transformJSStaticSCSSToCss() {
+function transformJSStaticSCSSToCss () {
     return through2.obj( function ( file, encoding, cb ) {
         // 如果文件为空，不做任何操作，转入下一个操作，即下一个pipe
         if ( file.isNull() ) {
@@ -42,7 +42,8 @@ gulp.task( 'compile', function () {
     gulp.src( './es/**/*.css', { base: './es' } )
         .pipe( sass() )
         .pipe( gulp.dest( 'lib' ) );
-
+    gulp.src( './es/**/*.json', { base: './es' } )
+        .pipe( gulp.dest( 'lib' ) );
     gulp.src( './es/**/*.svg', { base: './es' } )
         .pipe( gulp.dest( 'lib' ) );
 } );
@@ -82,8 +83,11 @@ gulp.task( 'build', function () {
 
     gulp.src( './components/**/*.svg', { base: './components' } )
         .pipe( gulp.dest( 'es' ) );
+
+    gulp.src( './components/**/*.json', { base: './components' } )
+        .pipe( gulp.dest( 'es' ) );
 } );
 
 gulp.task( 'watch', function () {
-    gulp.watch( ['!./components/**/*.test.js', './components/**/*.tsx', './components/**/*.ts', './components/**/*.jsx', './components/**/*.js', './components/**/*.scss', './components/**/*.svg'], ['build'] );
+    gulp.watch( ['!./components/**/*.test.js', './components/**/*.tsx', './components/**/*.ts', './components/**/*.jsx', './components/**/*.js', './components/**/*.scss', './components/**/*.svg', './components/**/*.json'], ['build'] );
 } );

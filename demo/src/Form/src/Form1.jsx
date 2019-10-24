@@ -13,7 +13,7 @@ class Form1 extends Component {
                 </Form.Item>
                 <Form.Item
                     label='姓名'
-                    extra={<Icon type='info' />}
+                    extra={<Icon type='info_outline' />}
                 >
                     <Input placeholder='请输入姓名' id='label2' />
                 </Form.Item>

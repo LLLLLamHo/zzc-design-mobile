@@ -11,6 +11,16 @@
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+#### 3.0.8
+`2019-10-24`
+
+- 🌟 新增Icon组件内的规范svg
+- 🐞 修改各组件的Icon引用，更改为新规范的svg
+- 🐞 修复bug[#32](https://github.com/LLLLLamHo/zzc-design-mobile/issues/32)
+- 🐞 修复bug[#33](https://github.com/LLLLLamHo/zzc-design-mobile/issues/33)
+- 🐞 修复bug[#34](https://github.com/LLLLLamHo/zzc-design-mobile/issues/34)
+
+
 #### 3.0.6~3.0.7
 `2019-10-21`
 

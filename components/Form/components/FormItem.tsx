@@ -85,8 +85,8 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
                     </div>
                     {
                         currItemStatus && currItemStatus.status == 'error' && <div className={`${prefixCls}-error-box`}>
+                            <Icon type="warning_outline" />
                             <p>{currItemStatus.message}</p>
-                            <Icon type='info'/>
                         </div>
                     }
                 </div>

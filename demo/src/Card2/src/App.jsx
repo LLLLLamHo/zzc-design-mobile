@@ -23,7 +23,7 @@ export default class App extends PureComponent {
                     <Card2>
                         <Card2.Header
                             title={<p>标题加上图标</p>}
-                            extra={<Icon type='success' style={{ width: '20px', height: '30px' }} />}
+                            extra={<Icon type='success_outline' style={{ width: '20px', height: '30px' }} />}
                         />
                     </Card2>
                 </div>
@@ -31,7 +31,7 @@ export default class App extends PureComponent {
                     <Card2>
                         <Card2.Header
                             title={<p>图标点击</p>}
-                            extra={<Icon type='success' style={{ width: '20px', height: '30px' }} />}
+                            extra={<Icon type='success_outline' style={{ width: '20px', height: '30px' }} />}
                             extraClick={() => {
                                 Toast.info( '点击图标', 2 );
                             }}
@@ -42,7 +42,7 @@ export default class App extends PureComponent {
                     <Card2>
                         <Card2.Header
                             title={<p>带有内容的Item</p>}
-                            extra={<Icon type='success' style={{ width: '20px', height: '30px' }} />}
+                            extra={<Icon type='success_outline' style={{ width: '20px', height: '30px' }} />}
                             extraClick={() => {
                                 Toast.info( '点击图标', 2 );
                             }}

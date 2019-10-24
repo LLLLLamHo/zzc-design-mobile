@@ -23,7 +23,7 @@ export default class Icon extends React.PureComponent<IconProps,any> {
     static defaultProps = {
         prefixCls: `${config.cls}-icon`,
         type: undefined,
-        size: 'md',
+        size: 'normal',
         className: '',
         style: {}
     }

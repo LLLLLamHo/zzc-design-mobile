@@ -34,6 +34,7 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
 
     componentDidMount (): void {
         const { scrollType = new Date().getTime() } = this.props.data;
+        console.log(scrollType)
         const initBScrollConfig = this.resetBScrollConfig();
         const wrapperNode: any = this.wrapper ? ReactDOM.findDOMNode( this.wrapper ) : null;
         if ( wrapperNode ) {
@@ -89,7 +90,7 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
     touchEnd(): void {
         const { wrapperIndex, scrollType } = this.props.data;
         this.addActiveItem();
-        this.props.onTouchEnd && this.props.onTouchEnd( scrollType ? scrollType : wrapperIndex, this.BScrollObj.getSelectedIndex() );
+        this.props.onTouchEnd && this.props.onTouchEnd( scrollType != null ? scrollType : wrapperIndex, this.BScrollObj.getSelectedIndex() );
     }
 
     touchStart(): void {

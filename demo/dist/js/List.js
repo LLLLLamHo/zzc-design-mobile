@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "../";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 304);
+/******/ 	return __webpack_require__(__webpack_require__.s = 305);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -346,7 +346,7 @@ exports.initGtag = initGtag;
 exports.zzcComponentUse = zzcComponentUse;
 exports.zzcComponetError = zzcComponetError;
 
-var _config = __webpack_require__(153);
+var _config = __webpack_require__(154);
 
 var _config2 = _interopRequireDefault(_config);
 
@@ -511,7 +511,7 @@ if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(145), __esModule: true };
+module.exports = { "default": __webpack_require__(146), __esModule: true };
 
 /***/ }),
 /* 13 */
@@ -994,7 +994,7 @@ var _inherits2 = __webpack_require__(5);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _getOwnPropertySymbols = __webpack_require__(148);
+var _getOwnPropertySymbols = __webpack_require__(149);
 
 var _getOwnPropertySymbols2 = _interopRequireDefault(_getOwnPropertySymbols);
 
@@ -1006,7 +1006,7 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _loadSprite = __webpack_require__(150);
+var _loadSprite = __webpack_require__(151);
 
 var _loadSprite2 = _interopRequireDefault(_loadSprite);
 
@@ -1014,7 +1014,7 @@ var _config = __webpack_require__(7);
 
 var _config2 = _interopRequireDefault(_config);
 
-__webpack_require__(151);
+__webpack_require__(152);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1068,7 +1068,7 @@ exports.default = Icon;
 Icon.defaultProps = {
     prefixCls: _config2.default.cls + '-icon',
     type: undefined,
-    size: 'md',
+    size: 'normal',
     className: '',
     style: {}
 };
@@ -1240,13 +1240,13 @@ var _Error = __webpack_require__(10);
 
 var _Error2 = _interopRequireDefault(_Error);
 
-var _Dialog = __webpack_require__(155);
+var _Dialog = __webpack_require__(156);
 
 var _Dialog2 = _interopRequireDefault(_Dialog);
 
 __webpack_require__(14);
 
-__webpack_require__(157);
+__webpack_require__(158);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1704,6 +1704,12 @@ exports.f = Object.getOwnPropertySymbols;
 /* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = { "default": __webpack_require__(144), __esModule: true };
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
@@ -1737,12 +1743,6 @@ function removeClass(node, className) {
 }
 
 /***/ }),
-/* 55 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(143), __esModule: true };
-
-/***/ }),
 /* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1753,13 +1753,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Button = __webpack_require__(158);
+var _Button = __webpack_require__(159);
 
 var _Button2 = _interopRequireDefault(_Button);
 
 __webpack_require__(14);
 
-__webpack_require__(161);
+__webpack_require__(162);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1801,7 +1801,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _TouchFeedback = __webpack_require__(159);
+var _TouchFeedback = __webpack_require__(160);
 
 var _TouchFeedback2 = _interopRequireDefault(_TouchFeedback);
 
@@ -1878,11 +1878,11 @@ var _Error = __webpack_require__(10);
 
 var _Error2 = _interopRequireDefault(_Error);
 
-var _Modal = __webpack_require__(183);
+var _Modal = __webpack_require__(184);
 
 var _Modal2 = _interopRequireDefault(_Modal);
 
-__webpack_require__(187);
+__webpack_require__(188);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1951,11 +1951,11 @@ var _Error = __webpack_require__(10);
 
 var _Error2 = _interopRequireDefault(_Error);
 
-var _Popup = __webpack_require__(189);
+var _Popup = __webpack_require__(190);
 
 var _Popup2 = _interopRequireDefault(_Popup);
 
-__webpack_require__(190);
+__webpack_require__(191);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2022,7 +2022,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _util = __webpack_require__(194);
+var _util = __webpack_require__(195);
 
 var _config = __webpack_require__(91);
 
@@ -3497,7 +3497,7 @@ setToStringTag(global.JSON, 'JSON', true);
 /* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(202), __esModule: true };
+module.exports = { "default": __webpack_require__(203), __esModule: true };
 
 /***/ }),
 /* 85 */
@@ -3511,7 +3511,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.animationEvents = exports.transitionEvents = undefined;
 
-var _keys = __webpack_require__(55);
+var _keys = __webpack_require__(54);
 
 var _keys2 = _interopRequireDefault(_keys);
 
@@ -3662,7 +3662,7 @@ var _Error = __webpack_require__(10);
 
 var _Error2 = _interopRequireDefault(_Error);
 
-var _Animate = __webpack_require__(156);
+var _Animate = __webpack_require__(157);
 
 var _Animate2 = _interopRequireDefault(_Animate);
 
@@ -3751,13 +3751,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _List = __webpack_require__(162);
+var _List = __webpack_require__(163);
 
 var _List2 = _interopRequireDefault(_List);
 
 __webpack_require__(14);
 
-__webpack_require__(164);
+__webpack_require__(165);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3774,15 +3774,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _zhCN = __webpack_require__(184);
+var _zhCN = __webpack_require__(185);
 
 var _zhCN2 = _interopRequireDefault(_zhCN);
 
-var _zhHK = __webpack_require__(185);
+var _zhHK = __webpack_require__(186);
 
 var _zhHK2 = _interopRequireDefault(_zhHK);
 
-var _zhEN = __webpack_require__(186);
+var _zhEN = __webpack_require__(187);
 
 var _zhEN2 = _interopRequireDefault(_zhEN);
 
@@ -3865,11 +3865,11 @@ var _Error = __webpack_require__(10);
 
 var _Error2 = _interopRequireDefault(_Error);
 
-var _Picker = __webpack_require__(201);
+var _Picker = __webpack_require__(202);
 
 var _Picker2 = _interopRequireDefault(_Picker);
 
-__webpack_require__(204);
+__webpack_require__(205);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25855,7 +25855,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Form = exports.Prompt = exports.Input = exports.Select = exports.EasyCalculator = exports.FullModal = exports.TouchFeedback = exports.Animate = exports.ImageView = exports.Loading = exports.DatePicker = exports.Picker = exports.Tabs = exports.Popup = exports.Modal = exports.Alert = exports.Card2 = exports.Card = exports.List = exports.Button = exports.Dialog = exports.Icon = exports.Toast = undefined;
 
-var _Toast = __webpack_require__(142);
+var _Toast = __webpack_require__(143);
 
 Object.defineProperty(exports, 'Toast', {
   enumerable: true,
@@ -25900,7 +25900,7 @@ Object.defineProperty(exports, 'List', {
   }
 });
 
-var _Card = __webpack_require__(165);
+var _Card = __webpack_require__(166);
 
 Object.defineProperty(exports, 'Card', {
   enumerable: true,
@@ -25909,7 +25909,7 @@ Object.defineProperty(exports, 'Card', {
   }
 });
 
-var _Card2 = __webpack_require__(177);
+var _Card2 = __webpack_require__(178);
 
 Object.defineProperty(exports, 'Card2', {
   enumerable: true,
@@ -25918,7 +25918,7 @@ Object.defineProperty(exports, 'Card2', {
   }
 });
 
-var _Alert = __webpack_require__(182);
+var _Alert = __webpack_require__(183);
 
 Object.defineProperty(exports, 'Alert', {
   enumerable: true,
@@ -25945,7 +25945,7 @@ Object.defineProperty(exports, 'Popup', {
   }
 });
 
-var _Tabs = __webpack_require__(191);
+var _Tabs = __webpack_require__(192);
 
 Object.defineProperty(exports, 'Tabs', {
   enumerable: true,
@@ -25963,7 +25963,7 @@ Object.defineProperty(exports, 'Picker', {
   }
 });
 
-var _DatePicker = __webpack_require__(205);
+var _DatePicker = __webpack_require__(206);
 
 Object.defineProperty(exports, 'DatePicker', {
   enumerable: true,
@@ -25972,7 +25972,7 @@ Object.defineProperty(exports, 'DatePicker', {
   }
 });
 
-var _Loading = __webpack_require__(212);
+var _Loading = __webpack_require__(213);
 
 Object.defineProperty(exports, 'Loading', {
   enumerable: true,
@@ -25981,7 +25981,7 @@ Object.defineProperty(exports, 'Loading', {
   }
 });
 
-var _ImageView = __webpack_require__(215);
+var _ImageView = __webpack_require__(216);
 
 Object.defineProperty(exports, 'ImageView', {
   enumerable: true,
@@ -26008,7 +26008,7 @@ Object.defineProperty(exports, 'TouchFeedback', {
   }
 });
 
-var _FullModal = __webpack_require__(219);
+var _FullModal = __webpack_require__(220);
 
 Object.defineProperty(exports, 'FullModal', {
   enumerable: true,
@@ -26017,7 +26017,7 @@ Object.defineProperty(exports, 'FullModal', {
   }
 });
 
-var _EasyCalculator = __webpack_require__(222);
+var _EasyCalculator = __webpack_require__(223);
 
 Object.defineProperty(exports, 'EasyCalculator', {
   enumerable: true,
@@ -26026,7 +26026,7 @@ Object.defineProperty(exports, 'EasyCalculator', {
   }
 });
 
-var _Select = __webpack_require__(225);
+var _Select = __webpack_require__(226);
 
 Object.defineProperty(exports, 'Select', {
   enumerable: true,
@@ -26035,7 +26035,7 @@ Object.defineProperty(exports, 'Select', {
   }
 });
 
-var _Input = __webpack_require__(228);
+var _Input = __webpack_require__(229);
 
 Object.defineProperty(exports, 'Input', {
   enumerable: true,
@@ -26044,7 +26044,7 @@ Object.defineProperty(exports, 'Input', {
   }
 });
 
-var _Prompt = __webpack_require__(231);
+var _Prompt = __webpack_require__(232);
 
 Object.defineProperty(exports, 'Prompt', {
   enumerable: true,
@@ -26053,7 +26053,7 @@ Object.defineProperty(exports, 'Prompt', {
   }
 });
 
-var _Form = __webpack_require__(234);
+var _Form = __webpack_require__(235);
 
 Object.defineProperty(exports, 'Form', {
   enumerable: true,
@@ -26068,6 +26068,76 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 /* 142 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    "zds-icon-address_book": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M27 11v4H9v-4zm-8 8v4H9v-4zm10.5 2a3.5 3.5 0 1 0 3.5 3.5 3.5 3.5 0 0 0-3.5-3.5zm2.3-18A2.19 2.19 0 0 1 34 5.2V15h-4V6.78H6V33h12v4H4.2A2.19 2.19 0 0 1 2 34.8V5.2A2.19 2.19 0 0 1 4.2 3zm-2.3 14a7.5 7.5 0 0 1 5.21 12.89A9.17 9.17 0 0 1 38 37h-4a4.77 4.77 0 0 0-4.5-5 4.77 4.77 0 0 0-4.5 5h-4a9.17 9.17 0 0 1 3.29-7.11A7.5 7.5 0 0 1 29.5 17z' fill-rule='evenodd'/></svg>",
+    "zds-icon-arrows": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M18 8h-5l9.3 12L13 32h5l8.79-11.34a1 1 0 0 0 .21-.55v-.22a1 1 0 0 0-.14-.45l-.07-.1z' fill-rule='evenodd'/></svg>",
+    "zds-icon-arrows_fill": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M6 8.67h28a2 2 0 0 1 1.6 3.2l-14 18.66a2 2 0 0 1-2.8.4 1.9 1.9 0 0 1-.4-.4l-14-18.66A2 2 0 0 1 6 8.67z' fill-rule='evenodd'/></svg>",
+    "zds-icon-auto": "<svg data-name='图层 1'  viewBox='0 0 40 40'><circle cx='20' cy='20' r='20'/><path d='M20.46 14.78L17.93 20h4.72zM19 10a1.76 1.76 0 0 1 3.17.08L30 28.92h-3.6L23.91 23h-7.44l-2.91 6-3.56-.08 4.21-8.87V20z' fill='#fff'/></svg>",
+    "zds-icon-box": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M20.83 1.37l16.49 9.22-17.46 9.77-17.57-9.77 16.59-9.22a2 2 0 0 1 1.95 0zM2 14.23L17.94 23v14.6a1 1 0 0 1-1 1 1 1 0 0 1-.54-.16L2.47 29.62a1 1 0 0 1-.47-.85zM38 14v14.6a1 1 0 0 1-.47.84l-14.75 9.29a1 1 0 0 1-.53.15 1 1 0 0 1-1-1V23.47z' fill-rule='evenodd'/></svg>",
+    "zds-icon-call_center": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M25.9 22.33l2.2 3.34A14.76 14.76 0 0 1 20 28a14.73 14.73 0 0 1-8.1-2.33l2.2-3.34A10.72 10.72 0 0 0 20 24a10.72 10.72 0 0 0 5.9-1.67zM20 1a15 15 0 0 1 14.15 10h.38A3.48 3.48 0 0 1 38 14.47v8.06A3.47 3.47 0 0 1 35 26h-.14A15.16 15.16 0 0 1 20 39v-4a11.14 11.14 0 0 0 11-11v-8a11 11 0 0 0-22 0v10H5a3.48 3.48 0 0 1-3-3.44v-8.09A3.48 3.48 0 0 1 5.47 11h.38A15 15 0 0 1 20 1z' fill-rule='evenodd'/></svg>",
+    "zds-icon-camera": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M18 3v4H6V3zm5 16a4 4 0 1 0 4 4 4 4 0 0 0-4-4zm0-4a8 8 0 1 1-8 8 8 8 0 0 1 8-8zm11-2H6v20h28zm2.21-4A1.77 1.77 0 0 1 38 10.75v24.5A1.78 1.78 0 0 1 36.21 37H3.79a1.84 1.84 0 0 1-1.27-.51A1.72 1.72 0 0 1 2 35.25v-24.5A1.78 1.78 0 0 1 3.79 9z' fill-rule='evenodd'/></svg>",
+    "zds-icon-car": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M30.64 27.34a2.45 2.45 0 1 0-2.46-2.45 2.45 2.45 0 0 0 2.46 2.45zm-21.28 0a2.45 2.45 0 1 0-2.45-2.45 2.45 2.45 0 0 0 2.45 2.45zM5.5 17.55h29l-3.68-9.79H9.18zm27.59 14.69H6.91v1.63a1.63 1.63 0 0 1-1.64 1.63H3.64A1.63 1.63 0 0 1 2 33.87V17.55L6.11 6.62A3.27 3.27 0 0 1 9.18 4.5h21.64a3.27 3.27 0 0 1 3.07 2.12L38 17.55v16.32a1.63 1.63 0 0 1-1.64 1.63h-1.63a1.63 1.63 0 0 1-1.64-1.63z' fill-rule='evenodd'/></svg>",
+    "zds-icon-car_seat": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M16 1a5 5 0 1 1-5 5 5 5 0 0 1 5-5zm7 11.07a2 2 0 0 1 2 2v4.33h-5.89l.6 4.4H32.3a3.12 3.12 0 0 1 2.85 1.85l3 8.11a2 2 0 0 1-1 2.5l-4 1.86-2.78-8H17a3.16 3.16 0 0 1-3.11-2.73L12.4 15.67a3.17 3.17 0 0 1 3.11-3.6zM7.62 13.66l3.25 19h14.34A2 2 0 0 1 27 33.85L29.35 39H8.22a3.14 3.14 0 0 1-3.09-2.63L1.77 16a1.73 1.73 0 0 1 0-.32 2 2 0 0 1 2-2z' fill-rule='evenodd'/></svg>",
+    "zds-icon-change_user": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M20.5 6.5a7 7 0 1 0 7 7 7 7 0 0 0-7-7zm12.12 17l-2.4 3h7.28v3H25.59a1 1 0 0 1-.63-.22 1 1 0 0 1-.15-1.41l3.53-4.36zm3.79 8a1 1 0 0 1 .63.22 1 1 0 0 1 .15 1.41l-3.53 4.36H30.1l2.4-3h-8v-3zM20.5 2.5a11 11 0 0 1 0 22h-1a13 13 0 0 0-13 13h-4a17 17 0 0 1 10.68-15.79A11 11 0 0 1 20.5 2.5z' fill-rule='evenodd'/></svg>",
+    "zds-icon-checkbox_no_select": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M20 36a16 16 0 1 1 16-16 16 16 0 0 1-16 16zm0 4A20 20 0 1 0 0 20a20 20 0 0 0 20 20z' fill-rule='evenodd'/></svg>",
+    "zds-icon-checkbox_select": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M8.5 21h-3v12h3zm4-1v13H30l4.5-10.81V19H24a3.41 3.41 0 0 1-2.86-1.32 3.35 3.35 0 0 1-.47-3l1.61-5.51c.09-.36-.29-.73-.6-1l-.45-.35zm11.87-4.73h10.77a3.36 3.36 0 0 1 3.36 3.34v3.52a3.5 3.5 0 0 1-.25 1.27L33 36a1.68 1.68 0 0 1-1.55 1H3.18a1.68 1.68 0 0 1-1.68-1.67v-16.7A1.68 1.68 0 0 1 3.18 17H9a1.68 1.68 0 0 0 1.37-.7l9.21-12.95a.85.85 0 0 1 1.07-.26L23.7 4.6a4.16 4.16 0 0 1 2.19 4.77z' fill-rule='evenodd'/></svg>",
+    "zds-icon-collected": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M20 32.21l-9 4.92A2 2 0 0 1 8 35l1.93-10.11-7.47-7.07a2 2 0 0 1 1.11-3.44l10.21-1.33 4.41-9.29a2 2 0 0 1 3.62 0l4.41 9.29 10.21 1.33a2 2 0 0 1 1.11 3.44l-7.47 7.07L32 35a2 2 0 0 1-3 2.13z' fill-rule='evenodd'/></svg>",
+    "zds-icon-collection": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M12.74 31.61L19 28.18a2 2 0 0 1 1.92 0l6.3 3.43-1.32-7a2 2 0 0 1 .59-1.82l5.21-4.93-7.11-.93a2 2 0 0 1-1.55-1.13L20 9.28l-3.08 6.47a2 2 0 0 1-1.55 1.13l-7.11.93 5.21 4.93a2 2 0 0 1 .59 1.82zm7.26.6l-9 4.92A2 2 0 0 1 8 35l1.93-10.11-7.47-7.07a2 2 0 0 1 1.11-3.44l10.21-1.33 4.41-9.29a2 2 0 0 1 3.62 0l4.41 9.29 10.21 1.33a2 2 0 0 1 1.11 3.44l-7.47 7.07L32 35a2 2 0 0 1-3 2.13z' fill-rule='evenodd'/></svg>",
+    "zds-icon-edit": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M17.39 22.61v-2.82L32.45 4.72l2.83 2.83-15.06 15.06zm9.33-16.33l-4 4h-14v21h21v-14l4-4v20a1.81 1.81 0 0 1-2 2h-25a1.81 1.81 0 0 1-2-2v-25a1.81 1.81 0 0 1 2-2z' fill-rule='evenodd'/></svg>",
+    "zds-icon-emoji": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M26.5 13a2.5 2.5 0 1 1-2.5 2.5 2.5 2.5 0 0 1 2.5-2.5zm-13 0a2.5 2.5 0 1 1-2.5 2.5 2.5 2.5 0 0 1 2.5-2.5zm2.61 10a3.89 3.89 0 0 0 7.78 0H27a7 7 0 0 1-14 0zM20 4a16 16 0 1 0 16 16A16 16 0 0 0 20 4zm0-4A20 20 0 1 1 0 20 20 20 0 0 1 20 0z' fill-rule='evenodd'/></svg>",
+    "zds-icon-error": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path fill-rule='evenodd' d='M31 5.86L34.14 9l-11 11 11 11L31 34.14l-11-11-11 11L5.86 31l11-11-11-11L9 5.86l11 11 11-11z'/></svg>",
+    "zds-icon-error_fill": "<svg data-name='图层 1'  viewBox='0 0 40 40'><circle cx='20' cy='20' r='20'/><path fill='#fff' d='M26 11l3 3-6 6 6 6-3 3-6-6-6 6-3-3 6-6-6-6 3-3 6 6 6-6z'/></svg>",
+    "zds-icon-error_outline": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M26 11l3 3-6 6 6 6-3 3-6-6-6 6-3-3 6-6-6-6 3-3 6 6zm-6-7a16 16 0 1 0 16 16A16 16 0 0 0 20 4zm0-4A20 20 0 1 1 0 20 20 20 0 0 1 20 0z' fill-rule='evenodd'/></svg>",
+    "zds-icon-error_outline_s": "<svg data-name='图层 1'  viewBox='0 0 72 72'><path d='M36 4a32 32 0 1 0 32 32A32 32 0 0 0 36 4zm0-4A36 36 0 1 1 0 36 36 36 0 0 1 36 0z'/><path d='M48 21.17L50.83 24l-12 12 12 12L48 50.83l-12-12-12 12L21.17 48l12-12-12-12L24 21.17l12 12 12-12z'/></svg>",
+    "zds-icon-goback": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M25.56 3L10.38 18h26.19v4H10.09L25 37h-5.66L4 21.57a2 2 0 0 1-.1-2.71l.1-.13L20 3z' fill-rule='evenodd'/></svg>",
+    "zds-icon-hot": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M28.49 17.08a14.94 14.94 0 0 0-.69-4.28c2.07 1.12 6.2 3.82 6.2 11.93C34 31.92 27.8 38 20 38S6 31.92 6 24.73a13.55 13.55 0 0 1 4.36-10.13C18.85 6.5 18.62 2.23 18.85 2c3 2.25 5 5.17 4.82 9 0 3.15-2.52 9 1.84 9.67 2.06.23 2.98-2.25 2.98-3.59z' fill-rule='evenodd'/></svg>",
+    "zds-icon-index": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M1.84 23.4zm18.3-17.19L8 17.61V34h24V17.53zm0-6.21l15.73 15H36v.12l4 3.82h-4V35.8a2.2 2.2 0 0 1-2 2.2H6.2A2.19 2.19 0 0 1 4 35.8V18.94H0l4-3.76V15h.19z' fill-rule='evenodd'/></svg>",
+    "zds-icon-info_fill": "<svg data-name='图层 1'  viewBox='0 0 40 40'><circle cx='20' cy='20' r='20'/><path d='M22 10v4h-4v-4zm0 8v12h-4V18z' fill='#fff' fill-rule='evenodd'/></svg>",
+    "zds-icon-info_outline": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M22 10v4h-4v-4zm0 8v12h-4V18zM20 4a16 16 0 1 0 16 16A16 16 0 0 0 20 4zm0-4A20 20 0 1 1 0 20 20 20 0 0 1 20 0z' fill-rule='evenodd'/></svg>",
+    "zds-icon-keyboard": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M30 12v4h-4v-4zm-8 0v4h-4v-4zm-8 0v4h-4v-4zm16 7v4h-4v-4zm-8 0v4h-4v-4zm-8 0v4h-4v-4zm16 7v4H10v-4zm4-19H6v26h28zm2-4a2 2 0 0 1 2 2v30a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z' fill-rule='evenodd'/></svg>",
+    "zds-icon-lightning": "<svg data-name='图层 1'  viewBox='0 0 40 40'><circle cx='20' cy='20' r='20'/><path d='M17 31.67h6L26.6 20a3.42 3.42 0 0 0-2.4-3.75h-4.8L23 8.33h-6l-3.59 10.42a2 2 0 0 0 2.39 2.5h4.8z' fill='#fff' fill-rule='evenodd'/></svg>",
+    "zds-icon-like_fill": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M11.51 14.22l11.2-11a.91.91 0 0 1 1.15-.08l1.49 1.1a2.54 2.54 0 0 1 1 2.69l-2 7.76H35.5a3.47 3.47 0 0 1 3.5 3.46v3.6a3.44 3.44 0 0 1-.26 1.31l-5.42 12.88A1.75 1.75 0 0 1 31.7 37H12.75A1.73 1.73 0 0 1 11 35.29V15.43a1.69 1.69 0 0 1 .51-1.21zM2.75 16H8v21H2.75A1.75 1.75 0 0 1 1 35.25v-17.5A1.75 1.75 0 0 1 2.75 16z' fill-rule='evenodd'/></svg>",
+    "zds-icon-list": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M8 6v4H4V6zm28 0v4H13V6zM8 18v4H4v-4zm28 0v4H13v-4zM8 30v4H4v-4zm28 0v4H13v-4z' fill-rule='evenodd'/></svg>",
+    "zds-icon-loading": "<svg id='图层_1' data-name='图层 1'  viewBox='0 0 72 72'><defs><style>.cls-1{fill:none}</style><clipPath id='clip-path'><path class='cls-1' d='M71.94 39.08c.45-11-2.76-20.4-9.49-27.46l-2.9 2.76c6 6.24 8.8 14.58 8.39 24.54z'/></clipPath><clipPath id='clip-path-2'><path class='cls-1' d='M-339-752h750V872h-750z'/></clipPath></defs><path d='M36 4a32 32 0 1 0 32 32A32 32 0 0 0 36 4zm0-4A36 36 0 1 1 0 36 36 36 0 0 1 36 0z'/><g clip-path='url(#clip-path)'><g clip-path='url(#clip-path-2)'><path fill='#2871f7' d='M54.55 6.62h22.43v37.46H54.55z'/></g></g></svg>",
+    "zds-icon-location_fill": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M20 10.8a6 6 0 1 0 6 6 6 6 0 0 0-6-6zm0-9a15.11 15.11 0 0 1 15 15.43q0 7.59-13.8 20.49a1.76 1.76 0 0 1-2.4 0l-.45-.42Q5 24.7 5 17.23A15.11 15.11 0 0 1 20 1.8z' fill-rule='evenodd'/></svg>",
+    "zds-icon-location_outline": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M20 12a5 5 0 1 1-5 5 5 5 0 0 1 5-5zm0-6.49A11.53 11.53 0 0 0 8.53 17.29c0 3.78 3.79 9.39 11.47 16.56 7.68-7.17 11.47-12.78 11.47-16.56A11.53 11.53 0 0 0 20 5.51zM20 2a15 15 0 0 1 15 15.29c0 5.28-4.64 11.93-13.81 20.25a1.78 1.78 0 0 1-2.38 0C9.64 29.22 5 22.57 5 17.29A15 15 0 0 1 20 2z' fill-rule='evenodd'/></svg>",
+    "zds-icon-man": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M21.73 18.14a9.28 9.28 0 1 0 0 13.13 9.29 9.29 0 0 0 0-13.13zM38.41 1.72v17.14h-4.29v-10l-8 7.9a13.56 13.56 0 1 1-3-3L30.91 6h-9.64V1.72h17.14z' fill-rule='evenodd'/></svg>",
+    "zds-icon-map": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M20 9.27a3 3 0 1 1-3 3 3 3 0 0 1 3-3zm0-3a6.18 6.18 0 0 0-6 6.33c0 2.11 2 5.17 6 9 4-3.8 6-6.86 6-9a6.18 6.18 0 0 0-6-6.33zm0-4A10.17 10.17 0 0 1 30 12.6c0 3.81-2.95 8.11-8.68 13.17l-.66.58a1 1 0 0 1-1.32 0l-.66-.58C13 20.71 10 16.41 10 12.6A10.17 10.17 0 0 1 20 2.27zm17 8V31.8a2 2 0 0 1-1.29 1.87L25.4 37.6a2 2 0 0 1-1.6-.08l-8.7-4.32-9.33 3.91A2 2 0 0 1 3 35.26v-22h4v18.87l8.24-3.35L25 33.52l8-3.07V10.28z' fill-rule='evenodd'/></svg>",
+    "zds-icon-message": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M20 4.5A3.43 3.43 0 0 0 16.78 7l-.24.79-.72.31A11.68 11.68 0 0 0 9 18.84V29.5h22V18.84a11.68 11.68 0 0 0-6.82-10.78l-.72-.31-.24-.75A3.43 3.43 0 0 0 20 4.5zm3.46 29h-6.92a4 4 0 0 0 6.92 0zM20 .5a7.06 7.06 0 0 1 6.4 4.12A15.19 15.19 0 0 1 35 18.34V29.5h3v4H27.75a8 8 0 0 1-15.5 0H2v-4h3V18.34a15.19 15.19 0 0 1 8.6-13.72A7.06 7.06 0 0 1 20 .5z' fill-rule='evenodd'/></svg>",
+    "zds-icon-more": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M39 17v6h-6v-6zm-16 0v6h-6v-6zM7 17v6H1v-6z' fill-rule='evenodd'/></svg>",
+    "zds-icon-order": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M28 11v4H12v-4zm0 7v4H12v-4zm-7 7v4h-9v-4zM32 7H8v26h24zm2-4a2 2 0 0 1 2 2v30a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z' fill-rule='evenodd'/></svg>",
+    "zds-icon-package": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M36.86.55L39 3a1 1 0 0 1-.1 1.4L31.35 11A1 1 0 0 1 30 11l-.09-.1-2.06-2.44A1 1 0 0 1 28 7.05L35.45.46a1 1 0 0 1 1.41.09zM17.14 24.79a6 6 0 1 0 6 6 6 6 0 0 0-6-6zm4.09-18A5.6 5.6 0 0 1 25.67 9l7.4 9.65h3.11A2.8 2.8 0 0 1 39 21.17l.88 9.56a2.8 2.8 0 0 1-2.53 3.05H25.62a9 9 0 0 1-17 0H2.14a2 2 0 0 1-2-2v-23a2 2 0 0 1 2-2z' fill-rule='evenodd'/></svg>",
+    "zds-icon-pen": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M28.94 6.93l4.13 4.13a.9.9 0 0 1 0 1.27l-3.18 3.18-5.4-5.4 3.18-3.18a.9.9 0 0 1 1.27 0zM22.58 12l5.4 5.4-15.91 15.93h-5.4v-5.4z' fill-rule='evenodd'/></svg>",
+    "zds-icon-photo": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M13 11a3 3 0 1 1-3 3 3 3 0 0 1 3-3zm21-4H6v23.17l16-16 1 1 11 11zM22 19.83L8.83 33H34v-1.17zM36 3a2 2 0 0 1 2 2v30a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z' fill-rule='evenodd'/></svg>",
+    "zds-icon-play": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M16.37 12.33a1 1 0 0 1 .53.15l10.64 6.67a1 1 0 0 1 .31 1.38 1 1 0 0 1-.31.32L16.9 27.52a1 1 0 0 1-1.38-.32 1 1 0 0 1-.15-.53V13.33a1 1 0 0 1 1-1zM20 4a16 16 0 1 0 16 16A16 16 0 0 0 20 4zm0-4A20 20 0 1 1 0 20 20 20 0 0 1 20 0z' fill-rule='evenodd'/></svg>",
+    "zds-icon-radio_no_select": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M4 4v32h32V4zm32-4a4 4 0 0 1 4 4v32a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z' fill-rule='evenodd'/></svg>",
+    "zds-icon-radio_select": "<svg data-name='图层 1'  viewBox='0 0 40 40'><rect width='40' height='40' rx='4' ry='4'/><path d='M18.64 26.65L31 14.67 28.25 12l-11 10.67-5.5-5.34L9 20l6.86 6.65a2 2 0 0 0 2.78 0z' fill='#fff' fill-rule='evenodd'/></svg>",
+    "zds-icon-screen": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M10.54 7.86L18 19.45v12.7h4V19.32l7.37-11.46zm3.39 12.87L5.66 7.86H3.81V3.81h32.37v4.05h-1.92L26.09 20.6v14.48A1.11 1.11 0 0 1 25 36.19H15a1.11 1.11 0 0 1-1.11-1.11z' fill-rule='evenodd'/></svg>",
+    "zds-icon-search": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M17.59 6.59a11 11 0 1 0 11 11 11 11 0 0 0-11-11zm0-4a15 15 0 0 1 11.92 24.09l7.9 7.91-2.82 2.82-7.91-7.9a15 15 0 1 1-9.09-26.92z' fill-rule='evenodd'/></svg>",
+    "zds-icon-setting": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M20 17a3 3 0 1 0 3 3 3 3 0 0 0-3-3zm0-4a7 7 0 1 1-7 7 7 7 0 0 1 7-7zm0-8L7 12.71v14.58L20 35l13-7.71V12.71zm1-4.4l15 8.82a2 2 0 0 1 1 1.72v17.72a2 2 0 0 1-1 1.72L21 39.4a2 2 0 0 1-2 0L4 30.58a2 2 0 0 1-1-1.72V11.14a2 2 0 0 1 1-1.72L19 .6a2 2 0 0 1 2 0z' fill-rule='evenodd'/></svg>",
+    "zds-icon-share": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M24.21 12.5a3 3 0 0 0-3 3v10h-4v-10a7 7 0 0 1 7-7h5.3l-5-5h5.67l5 5 2.29 2.29a1 1 0 0 1 .29.71 1 1 0 0 1-1 1zm-10-6v4h-8v22h25v-14h4v16a1.84 1.84 0 0 1-2 2h-29a1.84 1.84 0 0 1-2-2v-26a1.84 1.84 0 0 1 2-2z' fill-rule='evenodd'/></svg>",
+    "zds-icon-success": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M18.18 29L33 13.77l-3.25-3.34-13 13.34-6.5-6.67L7 20.43 15.32 29a2 2 0 0 0 2.83 0z' fill-rule='evenodd'/></svg>",
+    "zds-icon-success_fill": "<svg data-name='图层 1'  viewBox='0 0 40 40'><circle cx='20.14' cy='20' r='20'/><path d='M18.78 26.65l12.36-12L28.39 12l-11 10.67-5.5-5.34L9.14 20 16 26.65a2 2 0 0 0 2.78 0z' fill='#fff' fill-rule='evenodd'/></svg>",
+    "zds-icon-success_outline": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M28.39 12l2.75 2.67-12.36 12a2 2 0 0 1-2.79 0L9.14 20l2.75-2.67 5.5 5.34zm-8.25-8a16 16 0 1 0 16 16 16 16 0 0 0-16-16zm0-4a20 20 0 1 1-20 20 20 20 0 0 1 20-20z' fill-rule='evenodd'/></svg>",
+    "zds-icon-success_outline_s": "<svg data-name='图层 1'  viewBox='0 0 72 72'><path d='M36 4a32 32 0 1 0 32 32A32 32 0 0 0 36 4zm0-4A36 36 0 1 1 0 36 36 36 0 0 1 36 0z'/><path d='M21.65 34.74l-2.88 2.78 10.85 11.2a3 3 0 0 0 4.26 0L55.44 27l-2.84-2.82-20.83 21z'/></svg>",
+    "zds-icon-type_big": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M32.24 7.73H7.76v6.54h24.48zM34 4a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm-1.76 21.73H7.76v6.54h24.48zM34 22a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V24a2 2 0 0 1 2-2z' fill-rule='evenodd'/></svg>",
+    "zds-icon-type_small": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M36.5 4v4h-15V4zm-22 3h-7v7h7zm22 6v4h-15v-4zM16.24 3a2.26 2.26 0 0 1 2.26 2.26v10.48A2.26 2.26 0 0 1 16.24 18H5.76a2.26 2.26 0 0 1-2.26-2.26V5.26A2.26 2.26 0 0 1 5.76 3zM36.5 23v4h-15v-4zm-22 3h-7v7h7zm22 6v4h-15v-4zM16.24 22a2.26 2.26 0 0 1 2.26 2.26v10.48A2.26 2.26 0 0 1 16.24 37H5.76a2.26 2.26 0 0 1-2.26-2.26V24.26A2.26 2.26 0 0 1 5.76 22z' fill-rule='evenodd'/></svg>",
+    "zds-icon-warn_outline_s": "<svg data-name='图层 1'  viewBox='0 0 72 72'><path d='M36 4a32 32 0 1 0 32 32A32 32 0 0 0 36 4zm0-4A36 36 0 1 1 0 36 36 36 0 0 1 36 0z'/><path d='M38 19v24h-4V19zm0 30v4h-4v-4z' fill-rule='evenodd'/></svg>",
+    "zds-icon-warning_fill": "<svg data-name='图层 1'  viewBox='0 0 40 40'><circle cx='20' cy='20' r='20'/><path d='M22 10v12h-4V10zm0 16v4h-4v-4z' fill='#fff' fill-rule='evenodd'/></svg>",
+    "zds-icon-warning_outline": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M22 10v12h-4V10zm0 16v4h-4v-4zM20 4a16 16 0 1 0 16 16A16 16 0 0 0 20 4zm0-4A20 20 0 1 1 0 20 20 20 0 0 1 20 0z' fill-rule='evenodd'/></svg>",
+    "zds-icon-women": "<svg data-name='图层 1'  viewBox='0 0 40 40'><path d='M17.61 22.39a9.26 9.26 0 1 0-.06-13.15 9.3 9.3 0 0 0 .06 13.15zM5.35 37.6l-3-3.07 4.48-4.44-4.58-4.54 3-3 4.55 4.56 3.36-3.33a13.52 13.52 0 0 1 20.56-17.5 13.52 13.52 0 0 1-17.5 20.53l-3.35 3.33 4.6 4.59-3 3-4.63-4.59z' fill-rule='evenodd'/></svg>"
+};
+
+/***/ }),
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26114,7 +26184,7 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _class = __webpack_require__(54);
+var _class = __webpack_require__(55);
 
 var _Event = __webpack_require__(85);
 
@@ -26124,7 +26194,7 @@ var _Icon = __webpack_require__(27);
 
 var _Icon2 = _interopRequireDefault(_Icon);
 
-var _alignment = __webpack_require__(152);
+var _alignment = __webpack_require__(153);
 
 var _alignment2 = _interopRequireDefault(_alignment);
 
@@ -26136,7 +26206,7 @@ var _gtag = __webpack_require__(9);
 
 __webpack_require__(14);
 
-__webpack_require__(154);
+__webpack_require__(155);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26164,15 +26234,15 @@ function reset() {
     _duration = 2;
 }
 function addAnimationEnd() {
-    if ((0, _class.hasClass)(this, _config2.default.cls + '-fade-enter')) {
-        (0, _class.removeClass)(this, _config2.default.cls + '-fade-enter-active');
-        (0, _class.removeClass)(this, _config2.default.cls + '-fade-enter');
-        _duration !== 0 && countdown();
-    } else {
+    if ((0, _class.hasClass)(this, _config2.default.cls + '-fade-leave')) {
         _parentNode && _parentNode.parentNode.removeChild(_parentNode);
         _parentNode && _reactDom2.default.unmountComponentAtNode(_parentNode);
         _duration !== 0 && _onClose();
         reset();
+    } else {
+        (0, _class.removeClass)(this, _config2.default.cls + '-fade-enter-active');
+        (0, _class.removeClass)(this, _config2.default.cls + '-fade-enter');
+        _duration !== 0 && countdown();
     }
 }
 function toggleShow() {
@@ -26229,7 +26299,18 @@ function getToast(type, content) {
                 _react2.default.createElement(
                     'div',
                     { className: (0, _classnames2.default)(PREFIXCLS + '-text') },
-                    (type === 'success' || type === 'error' || type === 'waring' || type === 'loading') && _react2.default.createElement(_Icon2.default, { style: { fill: '#fff', width: '36px', height: '36px' }, type: type }),
+                    (type === 'success' || type === 'error' || type === 'waring' || type === 'loading') && _react2.default.createElement(_Icon2.default, { style: { color: '#fff', width: '36px', height: '36px' }, type: function () {
+                            switch (type) {
+                                case 'success':
+                                    return 'success_outline_s';
+                                case 'error':
+                                    return 'error_outline_s';
+                                case 'waring':
+                                    return 'warn_outline_s';
+                                case 'loading':
+                                    return 'loading';
+                            }
+                        }() }),
                     _react2.default.createElement('div', { className: (0, _classnames2.default)(PREFIXCLS + '-text-content'), dangerouslySetInnerHTML: {
                             __html: content
                         } })
@@ -26297,15 +26378,15 @@ var Toast = function (_Component) {
 exports.default = Toast;
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(144);
+__webpack_require__(145);
 module.exports = __webpack_require__(11).Object.keys;
 
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 Object.keys(O)
@@ -26320,25 +26401,25 @@ __webpack_require__(81)('keys', function () {
 
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(146);
+__webpack_require__(147);
 module.exports = __webpack_require__(11).Object.assign;
 
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.3.1 Object.assign(target, source)
 var $export = __webpack_require__(19);
 
-$export($export.S + $export.F, 'Object', { assign: __webpack_require__(147) });
+$export($export.S + $export.F, 'Object', { assign: __webpack_require__(148) });
 
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26383,13 +26464,13 @@ module.exports = !$assign || __webpack_require__(26)(function () {
 
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(149), __esModule: true };
+module.exports = { "default": __webpack_require__(150), __esModule: true };
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(83);
@@ -26397,7 +26478,7 @@ module.exports = __webpack_require__(11).Object.getOwnPropertySymbols;
 
 
 /***/ }),
-/* 150 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26407,9 +26488,13 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _keys = __webpack_require__(55);
+var _keys = __webpack_require__(54);
 
 var _keys2 = _interopRequireDefault(_keys);
+
+var _icon = __webpack_require__(142);
+
+var _icon2 = _interopRequireDefault(_icon);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26419,20 +26504,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var svgSprite = function svgSprite(contents) {
     return '\n    <svg\n      xmlns="http://www.w3.org/2000/svg"\n      xmlns:xlink="http://www.w3.org/1999/xlink"\n      id="__ZZC_MOBILE_SVG_SPRITE_NODE__"\n      style="position:absolute;width:0;height:0"\n    >\n      <defs>\n        ' + contents + '\n      </defs>\n    </svg>\n';
 };
-// both minified by https://github.com/svg/svgo
-var icons = {
-    'zds-icon-loading': '<svg viewBox="0 -2 59.75 60.25"><path fill="#ccc" d="M29.69-.527C14.044-.527 1.36 12.158 1.36 27.806S14.043 56.14 29.69 56.14c15.65 0 28.334-12.686 28.334-28.334S45.34-.527 29.69-.527zm.185 53.75c-14.037 0-25.417-11.38-25.417-25.417S15.838 2.39 29.875 2.39s25.417 11.38 25.417 25.417-11.38 25.416-25.417 25.416z"/><path fill="none" stroke="#108ee9" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M56.587 29.766c.37-7.438-1.658-14.7-6.393-19.552"/></svg>',
-    'zds-icon-waring': '<svg viewBox="0 0 52 52"><path d="M26 0a26 26 0 1 0 26 26A26 26 0 0 0 26 0zm0 49a23 23 0 1 1 23-23 23 23 0 0 1-23 23z"/><path d="M23.5 12.25h5v18h-5zM23.5 34.75h5v5h-5z"/></svg>',
-    'zds-icon-error': '<svg viewBox="0 0 52 52"><path d="M26 0a26 26 0 1 0 26 26A26 26 0 0 0 26 0zm0 50a24 24 0 1 1 24-24 24 24 0 0 1-24 24z"/><path d="M33.07 16.1L26 23.17l-7.07-7.07-2.83 2.83L23.17 26l-7.07 7.07 2.83 2.83L26 28.83l7.07 7.07 2.83-2.83L28.83 26l7.07-7.07-2.83-2.83z"/></svg>',
-    'zds-icon-success': '<svg viewBox="0 0 52 52"><path d="M26 0a26 26 0 1 0 26 26A26 26 0 0 0 26 0zm0 49a23 23 0 1 1 23-23 23 23 0 0 1-23 23z"/><path d="M19.99 32.67l-7.07-7.07-2.83 2.83 9.9 9.89L41.91 16.4l-2.83-2.82-19.09 19.09z"/></svg>',
-    'zds-icon-arrow-right': '<svg viewBox="0 0 24 24"><path d="M6 4.3L8.3 2 18 12 8.3 22 6 19.7l7.5-7.7z"/></svg>',
-    'zds-icon-confirm': '<svg viewBox="0 0 52 52"><circle fill="#000" cx="18" cy="18" r="18"/><path stroke="#FFF" stroke-width="3" stroke-linejoin="round" d="M9.86 18.1l5.9 6.3L26.8 11.8"/></svg>',
-    'zds-icon-info': '<svg class="icon" viewBox="0 0 1024 1024"><defs><style/></defs><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"/><path d="M464 336a48 48 0 1 0 96 0 48 48 0 1 0-96 0zM536 448h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"/></svg>',
-    'zds-icon-right': '<svg class="icon" viewBox="0 0 1024 1024"><defs><style/></defs><path d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"/></svg>'
-};
 var renderSvgSprite = function renderSvgSprite() {
-    var symbols = (0, _keys2.default)(icons).map(function (iconName) {
-        var svgContent = icons[iconName].split('svg')[1];
+    var symbols = (0, _keys2.default)(_icon2.default).map(function (iconName) {
+        var svgContent = _icon2.default[iconName].split('svg')[1];
         return '<symbol id=' + iconName + svgContent + 'symbol>';
     }).join('');
     return svgSprite(symbols);
@@ -26450,13 +26524,13 @@ var loadSprite = function loadSprite() {
 exports.default = loadSprite;
 
 /***/ }),
-/* 151 */
+/* 152 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 152 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26517,7 +26591,7 @@ var Alignment = function () {
 exports.default = Alignment;
 
 /***/ }),
-/* 153 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26535,13 +26609,13 @@ exports.default = {
 };
 
 /***/ }),
-/* 154 */
+/* 155 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 155 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26584,7 +26658,7 @@ var _Animate = __webpack_require__(87);
 
 var _Animate2 = _interopRequireDefault(_Animate);
 
-var _class = __webpack_require__(54);
+var _class = __webpack_require__(55);
 
 var _animateConfig = __webpack_require__(88);
 
@@ -26820,7 +26894,7 @@ Dialog.defaultProps = {
 };
 
 /***/ }),
-/* 156 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26863,7 +26937,7 @@ var _typeof = __webpack_require__(8);
 
 var _Event = __webpack_require__(85);
 
-var _class = __webpack_require__(54);
+var _class = __webpack_require__(55);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27026,13 +27100,13 @@ Animate.defaultProps = {
 };
 
 /***/ }),
-/* 157 */
+/* 158 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 158 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27083,7 +27157,7 @@ var _config = __webpack_require__(7);
 
 var _config2 = _interopRequireDefault(_config);
 
-var _ButtonGroup = __webpack_require__(160);
+var _ButtonGroup = __webpack_require__(161);
 
 var _ButtonGroup2 = _interopRequireDefault(_ButtonGroup);
 
@@ -27180,7 +27254,7 @@ Button.defaultProps = {
 Button.ButtonGroup = _ButtonGroup2.default;
 
 /***/ }),
-/* 159 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27339,7 +27413,7 @@ TouchFeedback.defaultProps = {
 };
 
 /***/ }),
-/* 160 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27423,13 +27497,13 @@ ButtonGroup.defaultProps = {
 };
 
 /***/ }),
-/* 161 */
+/* 162 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 162 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27468,7 +27542,7 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _ListItem = __webpack_require__(163);
+var _ListItem = __webpack_require__(164);
 
 var _ListItem2 = _interopRequireDefault(_ListItem);
 
@@ -27516,7 +27590,7 @@ List.defaultProps = {
 List.ListItem = _ListItem2.default;
 
 /***/ }),
-/* 163 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27652,13 +27726,13 @@ ListItem.defaultProps = {
 };
 
 /***/ }),
-/* 164 */
+/* 165 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 165 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27697,25 +27771,25 @@ var _Error = __webpack_require__(10);
 
 var _Error2 = _interopRequireDefault(_Error);
 
-var _Card = __webpack_require__(166);
+var _Card = __webpack_require__(167);
 
 var _Card2 = _interopRequireDefault(_Card);
 
-var _Header = __webpack_require__(167);
+var _Header = __webpack_require__(168);
 
 var _Header2 = _interopRequireDefault(_Header);
 
-var _Body = __webpack_require__(170);
+var _Body = __webpack_require__(171);
 
 var _Body2 = _interopRequireDefault(_Body);
 
-var _Footer = __webpack_require__(173);
+var _Footer = __webpack_require__(174);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
 __webpack_require__(14);
 
-__webpack_require__(176);
+__webpack_require__(177);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27747,7 +27821,7 @@ CardEntrance.Body = _Body2.default;
 CardEntrance.Footer = _Footer2.default;
 
 /***/ }),
-/* 166 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27845,7 +27919,7 @@ Card.defaultProps = {
 };
 
 /***/ }),
-/* 167 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27884,7 +27958,7 @@ var _Error = __webpack_require__(10);
 
 var _Error2 = _interopRequireDefault(_Error);
 
-var _Header = __webpack_require__(168);
+var _Header = __webpack_require__(169);
 
 var _Header2 = _interopRequireDefault(_Header);
 
@@ -27914,7 +27988,7 @@ var CardHeaderEntrance = function (_PureComponent) {
 exports.default = CardHeaderEntrance;
 
 /***/ }),
-/* 168 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27961,7 +28035,7 @@ var _config = __webpack_require__(7);
 
 var _config2 = _interopRequireDefault(_config);
 
-__webpack_require__(169);
+__webpack_require__(170);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28041,13 +28115,13 @@ Header.defaultProps = {
 };
 
 /***/ }),
-/* 169 */
+/* 170 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 170 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28086,7 +28160,7 @@ var _Error = __webpack_require__(10);
 
 var _Error2 = _interopRequireDefault(_Error);
 
-var _Body = __webpack_require__(171);
+var _Body = __webpack_require__(172);
 
 var _Body2 = _interopRequireDefault(_Body);
 
@@ -28116,7 +28190,7 @@ var CardBodyEntrance = function (_PureComponent) {
 exports.default = CardBodyEntrance;
 
 /***/ }),
-/* 171 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28163,7 +28237,7 @@ var _config = __webpack_require__(7);
 
 var _config2 = _interopRequireDefault(_config);
 
-__webpack_require__(172);
+__webpack_require__(173);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28215,13 +28289,13 @@ BodyEntrance.defaultProps = {
 };
 
 /***/ }),
-/* 172 */
+/* 173 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 173 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28260,7 +28334,7 @@ var _Error = __webpack_require__(10);
 
 var _Error2 = _interopRequireDefault(_Error);
 
-var _Footer = __webpack_require__(174);
+var _Footer = __webpack_require__(175);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
@@ -28290,7 +28364,7 @@ var CardFooterEntrance = function (_PureComponent) {
 exports.default = CardFooterEntrance;
 
 /***/ }),
-/* 174 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28337,7 +28411,7 @@ var _config = __webpack_require__(7);
 
 var _config2 = _interopRequireDefault(_config);
 
-__webpack_require__(175);
+__webpack_require__(176);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28381,12 +28455,6 @@ Footer.defaultProps = {
 };
 
 /***/ }),
-/* 175 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 176 */
 /***/ (function(module, exports) {
 
@@ -28394,6 +28462,12 @@ Footer.defaultProps = {
 
 /***/ }),
 /* 177 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28403,20 +28477,20 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Card = __webpack_require__(178);
+var _Card = __webpack_require__(179);
 
 var _Card2 = _interopRequireDefault(_Card);
 
 __webpack_require__(14);
 
-__webpack_require__(181);
+__webpack_require__(182);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _Card2.default;
 
 /***/ }),
-/* 178 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28455,11 +28529,11 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _CardHeader = __webpack_require__(179);
+var _CardHeader = __webpack_require__(180);
 
 var _CardHeader2 = _interopRequireDefault(_CardHeader);
 
-var _CardBody = __webpack_require__(180);
+var _CardBody = __webpack_require__(181);
 
 var _CardBody2 = _interopRequireDefault(_CardBody);
 
@@ -28508,7 +28582,7 @@ Card.Header = _CardHeader2.default;
 Card.Body = _CardBody2.default;
 
 /***/ }),
-/* 179 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28644,7 +28718,7 @@ CardHeader.defaultProps = {
 };
 
 /***/ }),
-/* 180 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28726,13 +28800,13 @@ CardBody.defaultProps = {
 };
 
 /***/ }),
-/* 181 */
+/* 182 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 182 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28785,7 +28859,7 @@ var _config2 = _interopRequireDefault(_config);
 
 var _gtag = __webpack_require__(9);
 
-__webpack_require__(188);
+__webpack_require__(189);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28889,7 +28963,7 @@ var Alert = function () {
 }();
 
 /***/ }),
-/* 183 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29196,7 +29270,7 @@ Modal.defaultProps = {
 };
 
 /***/ }),
-/* 184 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29222,7 +29296,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 185 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29248,7 +29322,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 186 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29274,12 +29348,6 @@ exports.default = {
 };
 
 /***/ }),
-/* 187 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 188 */
 /***/ (function(module, exports) {
 
@@ -29287,6 +29355,12 @@ exports.default = {
 
 /***/ }),
 /* 189 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29462,13 +29536,13 @@ Popup.defaultProps = {
 };
 
 /***/ }),
-/* 190 */
+/* 191 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 191 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29507,11 +29581,11 @@ var _Error = __webpack_require__(10);
 
 var _Error2 = _interopRequireDefault(_Error);
 
-var _Tabs = __webpack_require__(192);
+var _Tabs = __webpack_require__(193);
 
 var _Tabs2 = _interopRequireDefault(_Tabs);
 
-__webpack_require__(200);
+__webpack_require__(201);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29539,7 +29613,7 @@ var TabsEntrance = function (_PureComponent) {
 exports.default = TabsEntrance;
 
 /***/ }),
-/* 192 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29582,11 +29656,11 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _tabBar = __webpack_require__(193);
+var _tabBar = __webpack_require__(194);
 
 var _tabBar2 = _interopRequireDefault(_tabBar);
 
-var _tabContent = __webpack_require__(198);
+var _tabContent = __webpack_require__(199);
 
 var _tabContent2 = _interopRequireDefault(_tabContent);
 
@@ -29697,7 +29771,7 @@ Tabs.defaultProps = {
 };
 
 /***/ }),
-/* 193 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29744,7 +29818,7 @@ var _Gesture = __webpack_require__(60);
 
 var _Gesture2 = _interopRequireDefault(_Gesture);
 
-var _tabList = __webpack_require__(195);
+var _tabList = __webpack_require__(196);
 
 var _tabList2 = _interopRequireDefault(_tabList);
 
@@ -29937,7 +30011,7 @@ var TabBar = function (_React$PureComponent) {
 exports.default = TabBar;
 
 /***/ }),
-/* 194 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30075,7 +30149,7 @@ function shouldTriggerSwipe(delta, velocity) {
 }
 
 /***/ }),
-/* 195 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30118,11 +30192,11 @@ var _classnames3 = __webpack_require__(6);
 
 var _classnames4 = _interopRequireDefault(_classnames3);
 
-var _tabItem = __webpack_require__(196);
+var _tabItem = __webpack_require__(197);
 
 var _tabItem2 = _interopRequireDefault(_tabItem);
 
-var _tabsListUnserline = __webpack_require__(197);
+var _tabsListUnserline = __webpack_require__(198);
 
 var _tabsListUnserline2 = _interopRequireDefault(_tabsListUnserline);
 
@@ -30224,7 +30298,7 @@ var TabsList = function (_React$PureComponent) {
 exports.default = TabsList;
 
 /***/ }),
-/* 196 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30267,7 +30341,7 @@ function TabsItem(props) {
 }
 
 /***/ }),
-/* 197 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30313,7 +30387,7 @@ function TabsListUnserlineProps(props) {
 }
 
 /***/ }),
-/* 198 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30356,7 +30430,7 @@ var _classnames2 = __webpack_require__(6);
 
 var _classnames3 = _interopRequireDefault(_classnames2);
 
-var _tabPane = __webpack_require__(199);
+var _tabPane = __webpack_require__(200);
 
 var _tabPane2 = _interopRequireDefault(_tabPane);
 
@@ -30539,7 +30613,7 @@ var TabrContent = function (_React$PureComponent) {
 exports.default = TabrContent;
 
 /***/ }),
-/* 199 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30605,13 +30679,13 @@ var TabsPane = function (_React$PureComponent) {
 exports.default = TabsPane;
 
 /***/ }),
-/* 200 */
+/* 201 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 201 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30658,7 +30732,7 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _PickerWrapper = __webpack_require__(203);
+var _PickerWrapper = __webpack_require__(204);
 
 var _PickerWrapper2 = _interopRequireDefault(_PickerWrapper);
 
@@ -30755,7 +30829,7 @@ Picker.defaultProps = {
 };
 
 /***/ }),
-/* 202 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var core = __webpack_require__(11);
@@ -30766,7 +30840,7 @@ module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
 
 
 /***/ }),
-/* 203 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30853,6 +30927,7 @@ var PickerWrapper = function (_React$PureComponent) {
             var _props$data$scrollTyp = this.props.data.scrollType,
                 scrollType = _props$data$scrollTyp === undefined ? new Date().getTime() : _props$data$scrollTyp;
 
+            console.log(scrollType);
             var initBScrollConfig = this.resetBScrollConfig();
             var wrapperNode = this.wrapper ? _reactDom2.default.findDOMNode(this.wrapper) : null;
             if (wrapperNode) {
@@ -30919,7 +30994,7 @@ var PickerWrapper = function (_React$PureComponent) {
                 scrollType = _props$data.scrollType;
 
             this.addActiveItem();
-            this.props.onTouchEnd && this.props.onTouchEnd(scrollType ? scrollType : wrapperIndex, this.BScrollObj.getSelectedIndex());
+            this.props.onTouchEnd && this.props.onTouchEnd(scrollType != null ? scrollType : wrapperIndex, this.BScrollObj.getSelectedIndex());
         }
     }, {
         key: 'touchStart',
@@ -31007,13 +31082,13 @@ PickerWrapper.defaultProps = {
 };
 
 /***/ }),
-/* 204 */
+/* 205 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 205 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31052,11 +31127,11 @@ var _Error = __webpack_require__(10);
 
 var _Error2 = _interopRequireDefault(_Error);
 
-var _DatePicker = __webpack_require__(206);
+var _DatePicker = __webpack_require__(207);
 
 var _DatePicker2 = _interopRequireDefault(_DatePicker);
 
-__webpack_require__(211);
+__webpack_require__(212);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31084,7 +31159,7 @@ var DatePickerEntrance = function (_PureComponent) {
 exports.default = DatePickerEntrance;
 
 /***/ }),
-/* 206 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31131,11 +31206,11 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _date = __webpack_require__(207);
+var _date = __webpack_require__(208);
 
-var _setListData = __webpack_require__(208);
+var _setListData = __webpack_require__(209);
 
-var _getScrollData = __webpack_require__(210);
+var _getScrollData = __webpack_require__(211);
 
 var _Picker = __webpack_require__(92);
 
@@ -31438,7 +31513,7 @@ var DatePicker = function (_React$Component) {
                         warningText && _react2.default.createElement(
                             'div',
                             { className: cls + '-warning' },
-                            _react2.default.createElement(_Icon2.default, { style: { fill: '#696E7C', width: '11px', height: '11px' }, type: 'waring' }),
+                            _react2.default.createElement(_Icon2.default, { type: 'warning_outline', style: { color: '#696E7C', width: '11px', height: '11px' } }),
                             _react2.default.createElement(
                                 'p',
                                 null,
@@ -31480,7 +31555,7 @@ DatePicker.defaultProps = {
 };
 
 /***/ }),
-/* 207 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31618,7 +31693,7 @@ function getFirstDate(year, month) {
 }
 
 /***/ }),
-/* 208 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31635,7 +31710,7 @@ exports.createYearListData = createYearListData;
 exports.createMonthListData = createMonthListData;
 exports.createHour12ListData = createHour12ListData;
 
-var _pickerData = __webpack_require__(209);
+var _pickerData = __webpack_require__(210);
 
 function createDateListData(obj, calcMinDate, calcMaxDate, calcCurrDate, langData) {
     obj.yearList = (0, _pickerData.setYearListData)(calcMinDate.year, calcMaxDate.year, calcCurrDate.year, langData);
@@ -31676,7 +31751,7 @@ function createHour12ListData(obj, calcMinDate, calcMaxDate, calcCurrDate, langD
 }
 
 /***/ }),
-/* 209 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32067,7 +32142,7 @@ function setHour12ListData(currDateData, calcMinDate, calcMaxDate, langData) {
 }
 
 /***/ }),
-/* 210 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32151,13 +32226,13 @@ function getModeMonthData(BScrollList, state, mode) {
 }
 
 /***/ }),
-/* 211 */
+/* 212 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 212 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32196,11 +32271,11 @@ var _Error = __webpack_require__(10);
 
 var _Error2 = _interopRequireDefault(_Error);
 
-var _Loading = __webpack_require__(213);
+var _Loading = __webpack_require__(214);
 
 var _Loading2 = _interopRequireDefault(_Loading);
 
-__webpack_require__(214);
+__webpack_require__(215);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32228,7 +32303,7 @@ var LoadingEntrance = function (_PureComponent) {
 exports.default = LoadingEntrance;
 
 /***/ }),
-/* 213 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32345,13 +32420,13 @@ Loading.defaultProps = {
 };
 
 /***/ }),
-/* 214 */
+/* 215 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 215 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32390,11 +32465,11 @@ var _Error = __webpack_require__(10);
 
 var _Error2 = _interopRequireDefault(_Error);
 
-var _ImageView = __webpack_require__(216);
+var _ImageView = __webpack_require__(217);
 
 var _ImageView2 = _interopRequireDefault(_ImageView);
 
-__webpack_require__(218);
+__webpack_require__(219);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32422,7 +32497,7 @@ var FullModalEntrance = function (_PureComponent) {
 exports.default = FullModalEntrance;
 
 /***/ }),
-/* 216 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32475,7 +32550,7 @@ var _Gesture2 = _interopRequireDefault(_Gesture);
 
 var _typeof = __webpack_require__(8);
 
-var _util = __webpack_require__(217);
+var _util = __webpack_require__(218);
 
 var _gtag = __webpack_require__(9);
 
@@ -32734,7 +32809,7 @@ IamgeView.defaultProps = {
 };
 
 /***/ }),
-/* 217 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32771,13 +32846,13 @@ function setTransfrom(style, value) {
 }
 
 /***/ }),
-/* 218 */
+/* 219 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 219 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32816,11 +32891,11 @@ var _Error = __webpack_require__(10);
 
 var _Error2 = _interopRequireDefault(_Error);
 
-var _FullModal = __webpack_require__(220);
+var _FullModal = __webpack_require__(221);
 
 var _FullModal2 = _interopRequireDefault(_FullModal);
 
-__webpack_require__(221);
+__webpack_require__(222);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32848,7 +32923,7 @@ var FullModalEntrance = function (_PureComponent) {
 exports.default = FullModalEntrance;
 
 /***/ }),
-/* 220 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33044,13 +33119,13 @@ FullModal.defaultProps = {
 };
 
 /***/ }),
-/* 221 */
+/* 222 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 222 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33060,20 +33135,20 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _EasyCalculator = __webpack_require__(223);
+var _EasyCalculator = __webpack_require__(224);
 
 var _EasyCalculator2 = _interopRequireDefault(_EasyCalculator);
 
 __webpack_require__(14);
 
-__webpack_require__(224);
+__webpack_require__(225);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _EasyCalculator2.default;
 
 /***/ }),
-/* 223 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33300,13 +33375,13 @@ EasyCalculator.defaultProps = {
 };
 
 /***/ }),
-/* 224 */
+/* 225 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 225 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33316,20 +33391,20 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Select = __webpack_require__(226);
+var _Select = __webpack_require__(227);
 
 var _Select2 = _interopRequireDefault(_Select);
 
 __webpack_require__(14);
 
-__webpack_require__(227);
+__webpack_require__(228);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _Select2.default;
 
 /***/ }),
-/* 226 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33518,7 +33593,7 @@ var Select = function (_PureComponent) {
                                     'div',
                                     { className: classname },
                                     item.text
-                                ), extra: _react2.default.createElement(_Icon2.default, { style: { width: '18px', height: '18px', fill: '#2871F7' }, type: 'success' }) });
+                                ), extra: _react2.default.createElement(_Icon2.default, { style: { width: '18px', height: '18px', color: '#2871F7' }, type: 'success_fill' }) });
                         }
                         return _react2.default.createElement(_List2.default.ListItem, { onClick: function onClick() {
                                 _this2.clickItem(key);
@@ -33585,13 +33660,13 @@ Select.defaultProps = {
 };
 
 /***/ }),
-/* 227 */
+/* 228 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 228 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33601,20 +33676,20 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Input = __webpack_require__(229);
+var _Input = __webpack_require__(230);
 
 var _Input2 = _interopRequireDefault(_Input);
 
 __webpack_require__(14);
 
-__webpack_require__(230);
+__webpack_require__(231);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _Input2.default;
 
 /***/ }),
-/* 229 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33765,13 +33840,13 @@ Input.defaultProps = {
 };
 
 /***/ }),
-/* 230 */
+/* 231 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 231 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33781,20 +33856,20 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Prompt = __webpack_require__(232);
+var _Prompt = __webpack_require__(233);
 
 var _Prompt2 = _interopRequireDefault(_Prompt);
 
 __webpack_require__(14);
 
-__webpack_require__(233);
+__webpack_require__(234);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _Prompt2.default;
 
 /***/ }),
-/* 232 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33898,7 +33973,7 @@ var Prompt = function (_PureComponent) {
                     return _react2.default.createElement(
                         'div',
                         { className: classname + ' type-notice ' + theme, onClick: this.handlerClickEvent, style: style },
-                        _react2.default.createElement(_Icon2.default, { type: 'info', className: prefixCls + '-icon-info' }),
+                        _react2.default.createElement(_Icon2.default, { type: 'warning_outline', className: prefixCls + '-icon-info' }),
                         _react2.default.createElement(
                             'div',
                             { className: prefixCls + '-content' },
@@ -33914,19 +33989,19 @@ var Prompt = function (_PureComponent) {
                             { className: prefixCls + '-content' },
                             !!children ? children : _react2.default.createElement('p', { style: { 'WebkitLineClamp': lineClamp }, dangerouslySetInnerHTML: { __html: contextText || '' } })
                         ),
-                        _react2.default.createElement(_Icon2.default, { type: 'right', className: prefixCls + '-icon-right' })
+                        _react2.default.createElement(_Icon2.default, { type: 'arrows', className: prefixCls + '-icon-right' })
                     );
                 case 'info*click':
                     return _react2.default.createElement(
                         'div',
                         { className: classname + ' type-notice ' + theme, onClick: this.handlerClickEvent, style: style },
-                        _react2.default.createElement(_Icon2.default, { type: 'info', className: prefixCls + '-icon-info' }),
+                        _react2.default.createElement(_Icon2.default, { type: 'warning_outline', className: prefixCls + '-icon-info' }),
                         _react2.default.createElement(
                             'div',
                             { className: prefixCls + '-content' },
                             !!children ? children : _react2.default.createElement('p', { style: { 'WebkitLineClamp': lineClamp }, dangerouslySetInnerHTML: { __html: contextText || '' } })
                         ),
-                        _react2.default.createElement(_Icon2.default, { type: 'right', className: prefixCls + '-icon-right' })
+                        _react2.default.createElement(_Icon2.default, { type: 'arrows', className: prefixCls + '-icon-right' })
                     );
                 default:
                     return _react2.default.createElement(
@@ -33962,13 +34037,13 @@ Prompt.defaultProps = {
 };
 
 /***/ }),
-/* 233 */
+/* 234 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 234 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33978,20 +34053,20 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(235);
+var _index = __webpack_require__(236);
 
 var _index2 = _interopRequireDefault(_index);
 
 __webpack_require__(14);
 
-__webpack_require__(239);
+__webpack_require__(240);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _index2.default;
 
 /***/ }),
-/* 235 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34034,11 +34109,11 @@ var _config = __webpack_require__(7);
 
 var _config2 = _interopRequireDefault(_config);
 
-var _FormItem = __webpack_require__(236);
+var _FormItem = __webpack_require__(237);
 
 var _FormItem2 = _interopRequireDefault(_FormItem);
 
-var _create = __webpack_require__(237);
+var _create = __webpack_require__(238);
 
 var _create2 = _interopRequireDefault(_create);
 
@@ -34110,7 +34185,7 @@ Form.create = _create2.default;
 Form.Item = _FormItem2.default;
 
 /***/ }),
-/* 236 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34293,12 +34368,12 @@ var FormItem = function (_PureComponent) {
                     currItemStatus && currItemStatus.status == 'error' && _react2.default.createElement(
                         'div',
                         { className: prefixCls + '-error-box' },
+                        _react2.default.createElement(_Icon2.default, { type: 'warning_outline' }),
                         _react2.default.createElement(
                             'p',
                             null,
                             currItemStatus.message
-                        ),
-                        _react2.default.createElement(_Icon2.default, { type: 'info' })
+                        )
                     )
                 )
             );
@@ -34317,7 +34392,7 @@ FormItem.defaultProps = {
 };
 
 /***/ }),
-/* 237 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34332,7 +34407,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Form = __webpack_require__(238);
+var _Form = __webpack_require__(239);
 
 var _Form2 = _interopRequireDefault(_Form);
 
@@ -34349,7 +34424,7 @@ function create(FormElement) {
 }
 
 /***/ }),
-/* 238 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34360,7 +34435,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _keys = __webpack_require__(55);
+var _keys = __webpack_require__(54);
 
 var _keys2 = _interopRequireDefault(_keys);
 
@@ -34646,13 +34721,12 @@ var Form = function (_PureComponent) {
 exports.default = Form;
 
 /***/ }),
-/* 239 */
+/* 240 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 240 */,
 /* 241 */,
 /* 242 */,
 /* 243 */,
@@ -34716,7 +34790,8 @@ exports.default = Form;
 /* 301 */,
 /* 302 */,
 /* 303 */,
-/* 304 */
+/* 304 */,
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34730,7 +34805,7 @@ var _reactDom = __webpack_require__(30);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(305);
+var _App = __webpack_require__(306);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -34739,7 +34814,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
 /***/ }),
-/* 305 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34776,7 +34851,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _zzcDesignMobile = __webpack_require__(141);
 
-__webpack_require__(306);
+__webpack_require__(307);
 
 __webpack_require__(140);
 
@@ -34836,7 +34911,7 @@ var App = function (_PureComponent) {
                                 null,
                                 '\u6807\u9898\u52A0\u4E0A\u56FE\u6807'
                             ),
-                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'success', style: { width: '20px', height: '30px' } })
+                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'success_outline', style: { width: '20px', height: '30px' } })
                         }),
                         _react2.default.createElement(ListItem, {
                             title: _react2.default.createElement(
@@ -34844,7 +34919,7 @@ var App = function (_PureComponent) {
                                 null,
                                 '\u8D85\u7EA7\u957F\u7684\u56FE\u6807\u8D85\u7EA7\u957F\u7684\u56FE\u6807\u8D85\u7EA7\u957F\u7684\u56FE\u6807\u8D85\u7EA7\u957F\u7684\u56FE\u6807'
                             ),
-                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'success', style: { width: '20px', height: '30px' } })
+                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'success_outline', style: { width: '20px', height: '30px' } })
                         }),
                         _react2.default.createElement(ListItem, {
                             title: _react2.default.createElement(
@@ -34852,7 +34927,7 @@ var App = function (_PureComponent) {
                                 null,
                                 '\u56FE\u6807\u70B9\u51FB'
                             ),
-                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'success', style: { width: '20px', height: '30px' } }),
+                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'success_outline', style: { width: '20px', height: '30px' } }),
                             extraClick: function extraClick() {
                                 _zzcDesignMobile.Toast.info('点击图标', 2);
                             }
@@ -34865,7 +34940,7 @@ var App = function (_PureComponent) {
                                     null,
                                     '\u5E26\u6709\u5185\u5BB9\u7684Item'
                                 ),
-                                extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'success', style: { width: '20px', height: '30px' } }),
+                                extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'success_outline', style: { width: '20px', height: '30px' } }),
                                 extraClick: function extraClick() {
                                     _zzcDesignMobile.Toast.info('点击图标', 2);
                                 }
@@ -34887,7 +34962,7 @@ var App = function (_PureComponent) {
 exports.default = App;
 
 /***/ }),
-/* 306 */
+/* 307 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

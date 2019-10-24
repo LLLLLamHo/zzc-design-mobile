@@ -58,14 +58,17 @@ body {
     width: 40px;
     height: 40px; }
   .zds-icon-md {
-    width: 30px;
-    height: 30px; }
+    width: 36px;
+    height: 36px; }
+  .zds-icon-normal {
+    width: 28px;
+    height: 28px; }
   .zds-icon-sm {
+    width: 24px;
+    height: 24px; }
+  .zds-icon-xs {
     width: 20px;
     height: 20px; }
-  .zds-icon-xs {
-    width: 10px;
-    height: 10px; }
 
 .zds-icon-loading {
   -webkit-animation: cirle-zzc 1s linear infinite;
@@ -10215,7 +10218,7 @@ button {
     height: 11px; }
     .zds-prompt svg.zds-prompt-icon-info {
       margin-right: 6px;
-      margin-top: 2.4px; }
+      margin-top: 2.9px; }
     .zds-prompt svg.zds-prompt-icon-right {
       margin-left: 6px;
       margin-top: 2.4px; }
@@ -10703,6 +10706,7 @@ button {
             flex: 1; }
   .zds-form-item-error-box svg {
     margin-top: 2px;
+    margin-right: 8px;
     width: 14px;
     height: 14px; }
 .zds-button, .zds-button-inline {
