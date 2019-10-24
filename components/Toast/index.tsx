@@ -42,15 +42,15 @@ function reset(): void {
 }
 
 function addAnimationEnd(): void {
-    if ( hasClass( this, `${config.cls}-fade-enter` ) ) {
-        removeClass( this, `${config.cls}-fade-enter-active` );
-        removeClass( this, `${config.cls}-fade-enter` );
-        _duration !== 0 && countdown();
-    } else {
+    if ( hasClass( this, `${config.cls}-fade-leave` ) ) {
         _parentNode && _parentNode.parentNode.removeChild( _parentNode );
         _parentNode && ReactDOM.unmountComponentAtNode( _parentNode );
         _duration !== 0 && _onClose();
         reset();
+    } else {
+        removeClass( this, `${config.cls}-fade-enter-active` );
+        removeClass( this, `${config.cls}-fade-enter` );
+        _duration !== 0 && countdown();
     }
 }
 
@@ -110,7 +110,14 @@ function getToast( type: string, content: any, duration: number = 2, onClose: an
                 <div className={classNames( `${PREFIXCLS}-notice-content` )}>
                     <div className={classNames( `${PREFIXCLS}-text` )}>
                         {
-                            ( type === 'success' || type === 'error' || type === 'waring' || type === 'loading' ) && <Icon style={{ fill: '#fff', width: '36px', height: '36px' }} type={type} />
+                            ( type === 'success' || type === 'error' || type === 'waring' || type === 'loading' ) && <Icon style={{ color: '#fff', width: '36px', height: '36px' }} type={(() => {
+                                switch (type) {
+                                    case 'success': return 'success_outline_s';
+                                    case 'error': return 'error_outline_s';
+                                    case 'waring': return 'warn_outline_s';
+                                    case 'loading': return 'loading';
+                                }
+                            })()} />
                         }
                         <div className={classNames( `${PREFIXCLS}-text-content` )}
                             dangerouslySetInnerHTML={{

@@ -58,14 +58,17 @@ body {
     width: 40px;
     height: 40px; }
   .zds-icon-md {
-    width: 30px;
-    height: 30px; }
+    width: 36px;
+    height: 36px; }
+  .zds-icon-normal {
+    width: 28px;
+    height: 28px; }
   .zds-icon-sm {
+    width: 24px;
+    height: 24px; }
+  .zds-icon-xs {
     width: 20px;
     height: 20px; }
-  .zds-icon-xs {
-    width: 10px;
-    height: 10px; }
 
 .zds-icon-loading {
   -webkit-animation: cirle-zzc 1s linear infinite;
@@ -10215,7 +10218,7 @@ button {
     height: 11px; }
     .zds-prompt svg.zds-prompt-icon-info {
       margin-right: 6px;
-      margin-top: 2.4px; }
+      margin-top: 2.9px; }
     .zds-prompt svg.zds-prompt-icon-right {
       margin-left: 6px;
       margin-top: 2.4px; }
@@ -10703,14 +10706,87 @@ button {
             flex: 1; }
   .zds-form-item-error-box svg {
     margin-top: 2px;
+    margin-right: 8px;
     width: 14px;
     height: 14px; }
+.zzc-demo {
+  width: 100%;
+}
+
+.queIdInput {
+  border: none;
+  width: 1px;
+  height: 1px;
+  outline: none;
+  opacity: 0;
+}
+
 .zzc-demo-body {
   margin-top: .5rem;
 }
 
-.zzc-demo-body .zzc-icon {
+.zzc-demo-body .zds-icon {
   margin-right: .2rem;
+  margin-top: .2rem;
+}
+
+.zzc-demo-body .icon-box-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.zzc-demo-body .icon-box-list .icon-box {
+  margin-top: .4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 33%;
+  cursor: pointer;
+}
+
+.zzc-demo-body .icon-box-list .icon-box:hover .zds-icon {
+  -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+.zzc-demo-body .icon-box-list .icon-box p {
+  margin-top: .2rem;
+  font-size: 12px;
+  color: #333;
+  text-overflow: ellipsis;
+  width: 100%;
+  word-break: keep-all;
+  overflow: hidden;
+  text-align: center;
+}
+
+.zzc-demo-body .icon-box-list .icon-box .zds-icon {
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+  margin-right: 0;
+  margin-top: 0;
 }
 
 /*# sourceMappingURL=Icon.css.map*/

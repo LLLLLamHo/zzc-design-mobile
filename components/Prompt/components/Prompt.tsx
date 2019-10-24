@@ -47,7 +47,7 @@ export default class Prompt extends PureComponent<PromptProps, any> {
             case 'info':
                 return (
                     <div className={`${classname} type-notice ${theme}`} onClick={this.handlerClickEvent} style={style}>
-                        <Icon type='info' className={`${prefixCls}-icon-info`} />
+                        <Icon type='warning_outline' className={`${prefixCls}-icon-info`} />
                         <div className={`${prefixCls}-content`}>
                             {!!children ? children : <p style={{ 'WebkitLineClamp': lineClamp }} dangerouslySetInnerHTML={{ __html: contextText || '' }}></p>}
                         </div>
@@ -59,17 +59,17 @@ export default class Prompt extends PureComponent<PromptProps, any> {
                         <div className={`${prefixCls}-content`}>
                             {!!children ? children : <p style={{ 'WebkitLineClamp': lineClamp }} dangerouslySetInnerHTML={{ __html: contextText || '' }}></p>}
                         </div>
-                        <Icon type='right' className={`${prefixCls}-icon-right`} />
+                        <Icon type='arrows' className={`${prefixCls}-icon-right`} />
                     </div>
                 )
             case 'info*click':
                 return (
                     <div className={`${classname} type-notice ${theme}`} onClick={this.handlerClickEvent} style={style}>
-                        <Icon type='info' className={`${prefixCls}-icon-info`} />
+                        <Icon type='warning_outline' className={`${prefixCls}-icon-info`} />
                         <div className={`${prefixCls}-content`}>
                             {!!children ? children : <p style={{ 'WebkitLineClamp': lineClamp }} dangerouslySetInnerHTML={{ __html: contextText || '' }}></p>}
                         </div>
-                        <Icon type='right' className={`${prefixCls}-icon-right`} />
+                        <Icon type='arrows' className={`${prefixCls}-icon-right`} />
                     </div>
                 )
             default:

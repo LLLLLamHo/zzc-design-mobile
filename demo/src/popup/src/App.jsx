@@ -128,19 +128,19 @@ export default class App extends Component {
                                 <Card.Body borderDirection='left'>
                                     <div className='card-box2' onClick={this.clickEvent.bind(this)}>
                                         <p>{this.state.text}</p>
-                                        <Icon size='sm' type='success' />
+                                        <Icon size='sm' type='success_outline' />
                                     </div>
                                 </Card.Body>
                                 <Card.Body borderDirection='right'>
                                     <div className='card-box2'>
                                         <p>右边留空</p>
-                                        <Icon size='sm' type='success' />
+                                        <Icon size='sm' type='success_outline' />
                                     </div>
                                 </Card.Body>
                                 <Card.Body>
                                     <div className='card-box2'>
                                         <p>两边留空</p>
-                                        <Icon size='sm' type='success' />
+                                        <Icon size='sm' type='success_outline' />
                                     </div>
                                 </Card.Body>
                                 <Card.Body>
@@ -207,19 +207,19 @@ export default class App extends Component {
                                 <Card.Body borderDirection='left'>
                                     <div className='card-box2'>
                                         <p>左边留空</p>
-                                        <Icon size='sm' type='success' />
+                                        <Icon size='sm' type='success_outline' />
                                     </div>
                                 </Card.Body>
                                 <Card.Body borderDirection='right'>
                                     <div className='card-box2'>
                                         <p>右边留空</p>
-                                        <Icon size='sm' type='success' />
+                                        <Icon size='sm' type='success_outline' />
                                     </div>
                                 </Card.Body>
                                 <Card.Body>
                                     <div className='card-box2'>
                                         <p>两边留空</p>
-                                        <Icon size='sm' type='success' />
+                                        <Icon size='sm' type='success_outline' />
                                     </div>
                                 </Card.Body>
                                 <Card.Body>
@@ -288,7 +288,7 @@ export default class App extends Component {
                                             <Card.Body borderDirection='left' key={`left-${key}`}>
                                                 <div className='card-box2'>
                                                     <p>{item}</p>
-                                                    <Icon size='sm' type='success' />
+                                                    <Icon size='sm' type='success_outline' />
                                                 </div>
                                             </Card.Body>
                                         );
@@ -334,7 +334,7 @@ export default class App extends Component {
                                             <Card.Body borderDirection='left' key={`right-${key}`}>
                                                 <div className='card-box2'>
                                                     <p>{item}</p>
-                                                    <Icon size='sm' type='success' />
+                                                    <Icon size='sm' type='success_outline' />
                                                 </div>
                                             </Card.Body>
                                         );
@@ -374,19 +374,19 @@ export default class App extends Component {
                             <Card.Body borderDirection='left'>
                                 <div className='card-box2'>
                                     <p>左边留空</p>
-                                    <Icon size='sm' type='success' />
+                                    <Icon size='sm' type='success_outline' />
                                 </div>
                             </Card.Body>
                             <Card.Body borderDirection='right'>
                                 <div className='card-box2'>
                                     <p>右边留空</p>
-                                    <Icon size='sm' type='success' />
+                                    <Icon size='sm' type='success_outline' />
                                 </div>
                             </Card.Body>
                             <Card.Body>
                                 <div className='card-box2'>
                                     <p>两边留空</p>
-                                    <Icon size='sm' type='success' />
+                                    <Icon size='sm' type='success_outline' />
                                 </div>
                             </Card.Body>
                         </Card>
@@ -424,19 +424,19 @@ export default class App extends Component {
                             <Card.Body borderDirection='left'>
                                 <div className='card-box2'>
                                     <p>左边留空</p>
-                                    <Icon size='sm' type='success' />
+                                    <Icon size='sm' type='success_outline' />
                                 </div>
                             </Card.Body>
                             <Card.Body borderDirection='right'>
                                 <div className='card-box2'>
                                     <p>右边留空</p>
-                                    <Icon size='sm' type='success' />
+                                    <Icon size='sm' type='success_outline' />
                                 </div>
                             </Card.Body>
                             <Card.Body>
                                 <div className='card-box2'>
                                     <p>两边留空</p>
-                                    <Icon size='sm' type='success' />
+                                    <Icon size='sm' type='success_outline' />
                                 </div>
                             </Card.Body>
                         </Card>

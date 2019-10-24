@@ -121,7 +121,7 @@ export default class Select extends PureComponent<SelectProps, SelectState> {
                                     onClick={() => { this.clickItem(key) }}
                                     key={key}
                                     title={<div className={classname}>{item.text}</div>}
-                                    extra={<Icon style={{ width: '18px', height: '18px', fill: '#2871F7' }} type='success' />}
+                                    extra={<Icon style={{ width: '18px', height: '18px', color: '#2871F7' }} type='success_fill' />}
                                 />)
                             }
                             return (

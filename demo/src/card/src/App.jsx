@@ -40,7 +40,7 @@ export default class App extends PureComponent {
                         <Card.Header
                             className='cursor-car-head'
                             title='点击头部'
-                            extra={<Icon size='sm' type='waring' />}
+                            extra={<Icon size='sm' type='warning_outline' />}
                             titleOnClick={() => {
                                 Toast.info( '点击title回调事件', 1 );
                             }}
@@ -76,13 +76,13 @@ export default class App extends PureComponent {
                         <Card.Body borderDirection='left'>
                             <div className='card-box2'>
                                 <p>文本内容</p>
-                                <Icon size='sm' type='success' />
+                                <Icon size='sm' type='success_outline' />
                             </div>
                         </Card.Body>
                         <Card.Body noBorder>
                             <div className='card-box2'>
                                 <p>文本内容</p>
-                                <Icon size='sm' type='success' />
+                                <Icon size='sm' type='success_outline' />
                             </div>
                         </Card.Body>
                     </Card>
@@ -92,7 +92,7 @@ export default class App extends PureComponent {
                         <Card.Header
                             className='cursor-car-head'
                             title='点击头部'
-                            extra={<Icon size='sm' type='waring' />}
+                            extra={<Icon size='sm' type='warning_outline' />}
                             titleOnClick={() => {
                                 Toast.info( '点击title回调事件', 1 );
                             }}
@@ -103,19 +103,19 @@ export default class App extends PureComponent {
                         <Card.Body borderDirection='left'>
                             <div className='card-box2'>
                                 <p>左边留空</p>
-                                <Icon size='sm' type='success' />
+                                <Icon size='sm' type='success_outline' />
                             </div>
                         </Card.Body>
                         <Card.Body borderDirection='right'>
                             <div className='card-box2'>
                                 <p>右边留空</p>
-                                <Icon size='sm' type='success' />
+                                <Icon size='sm' type='success_outline' />
                             </div>
                         </Card.Body>
                         <Card.Body>
                             <div className='card-box2'>
                                 <p>两边留空</p>
-                                <Icon size='sm' type='success' />
+                                <Icon size='sm' type='success_outline' />
                             </div>
                         </Card.Body>
                         <Card.Body noBorder>
