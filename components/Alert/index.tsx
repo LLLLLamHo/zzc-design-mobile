@@ -34,7 +34,7 @@ class Alert{
                 transitionName={`${config.cls}-zoom`}
                 visible
                 {...this.opt}
-                title={this.createTitle( title, prefixCls, titleImg )}
+                title={this.createTitle( title, prefixCls, titleImg, content )}
                 closeCallback={() => { this.removeAlert(); }}
             >
                 {content && <div className={classNames( `${prefixCls}-body-content` )}>{content}</div>}
@@ -50,13 +50,14 @@ class Alert{
         return parentNode;
     }
 
-    createTitle( title: string, prefixCls: string, titleImg: string ): JSX.Element | null {
+    createTitle( title: string, prefixCls: string, titleImg: string, content: any ): JSX.Element | null {
         let titleComponent: JSX.Element | null = null;
         if ( title !== '' ) {
             titleComponent = ( <h1
                 className={
                     classNames(
-                        `${prefixCls}-title`
+                        `${prefixCls}-title`,
+                        !content && `${prefixCls}-title-only`
                     )
                 }
             >

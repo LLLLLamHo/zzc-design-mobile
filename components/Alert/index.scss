@@ -4,7 +4,7 @@ $cls_button: '.zds-button';
 #{$cls}-box {
     width: 304px;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 4px;
     
     #{$cls}-header{
         #{$cls}-title-img {
@@ -21,10 +21,16 @@ $cls_button: '.zds-button';
             }
         }
         #{$cls}-title {
-            padding: 23.5px 20px 19.5px;
+            padding: 20px 20px 18px;
+            line-height: 1;
             color: $c_333;
+            font-weight: 600;
             font-size: $fs_h1;
             text-align: center;
+        }
+        #{$cls}-title-only {
+            padding-top: 27px;
+            padding-bottom: 27px;
         }
     }
     #{$cls}-body {
@@ -35,19 +41,45 @@ $cls_button: '.zds-button';
             font-size: $fs_h2;
             word-wrap: break-word;
             text-align: left;
+            font-weight: 400;
+            line-height: 21px;
         }
     }
     #{$cls}-footer {
+        position: relative;
         width: 100%;
         overflow: hidden;
         height: 50px;
-        border-top: 1px solid $modal_border_color;
+        &::after {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            right: 0;;
+            height: 1px;
+            background: $modal_border_color;
+            transform: scaleY(.5) translateZ(0);
+            transform-origin: top center;
+        }
         @include flex();
         #{$cls}-btn {
             flex: 1;
             color: #2871F7;
+            font-weight: 400;
+            height: 100%;
             &:not(:first-child) {
-                border-left: 1px solid $modal_border_color;
+                position: relative;
+                &::after {
+                    position: absolute;
+                    content: '';
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    width: 1px;
+                    background: $modal_border_color;
+                    transform: scaleX(.5) translateZ(0);
+                    transform-origin: left center;
+                }
             }
         }
         &#{$cls}-vertical-footer{

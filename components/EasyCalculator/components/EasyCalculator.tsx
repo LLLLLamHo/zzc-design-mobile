@@ -48,8 +48,6 @@ export default class EasyCalculator extends PureComponent<EasyCalculatorProps, a
             this.setState({
                 inputValue: value,
                 ...getButtonStatus(value, nextProps)
-            }, () => {
-                typeof this.props.onChange === 'function' && this.props.onChange(this.state.inputValue);
             });
         }
     }

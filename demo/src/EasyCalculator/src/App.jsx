@@ -11,7 +11,6 @@ export default class App extends PureComponent {
         }
     }
     onChange = (val) => {
-        console.log('val: ', val);
         this.setState({
             value: val
         })
@@ -34,14 +33,14 @@ export default class App extends PureComponent {
                     <div className="demo-item">
                         <h5>严格步数</h5>
                         <div className='wrapper'>
-                            <EasyCalculator defaultValue={0} step={2} min={0} max={10} onChange={this.onChange} />
+                            <EasyCalculator value={value} step={2} min={0} max={10} onChange={this.onChange} />
                         </div>
                         <p className="desc">value 步数设置由step决定</p>
                     </div>
                     <div className="demo-item">
                         <h5>精度</h5>
                         <div className='wrapper'>
-                            <EasyCalculator defaultValue={1.2} step={0.2} min={0} max={10} onChange={this.onChange} />
+                            <EasyCalculator defaultValue={1.2} step={0.2} min={0} max={10} />
                         </div>
                         <p className="desc">value 精度设置由step小位数决定</p>
                     </div>

@@ -32,7 +32,7 @@ export default class App extends Component {
     contentAlert () {
         Alert( {
             title: '标题',
-            content: <p>asdadasdas</p>,
+            content: <p>对话框正文对话框正文对话框正文对话框正文对话框正文对话框正文对话框正文对话框正文对话框正文</p>,
             buttons: [
                 {
                     text: '取消',
