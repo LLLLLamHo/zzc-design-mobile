@@ -88,8 +88,19 @@ $cls_button: '.zds-button';
             #{$cls}-btn {
                 width: 100%;
                 &:not(:first-child) {
+                    position: relative;
                     border-left: none;
-                    border-top: 1px solid $modal_border_color;
+                    &::after {
+                        position: absolute;
+                        content: '';
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 1px;
+                        background: $modal_border_color;
+                        transform: scaleY(.5) translateZ(0);
+                        transform-origin: top center;
+                    }
                 }
             }
         }
