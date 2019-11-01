@@ -41,7 +41,7 @@ export default class App extends Component {
                     },
                     props: {
                         type: 'sub',
-                        style: { color: '#254FCB', border: 'none' }
+                        style: { color: '##2871F7', fontWeight: 400, border: 'none' }
                     }
                 }
             ],
@@ -60,7 +60,7 @@ export default class App extends Component {
                     },
                     props: {
                         type: 'special',
-                        style: { color: '#696E7C', border: 'none' }
+                        style: { color: '#696E7C', fontWeight: 400,border: 'none' }
                     }
                 },
                 {
@@ -71,7 +71,7 @@ export default class App extends Component {
                     props: {
                         type: 'special',
                         className: 'aaaa',
-                        style: { color: '#254FCB', border: 'none' }
+                        style: { color: '#2871F7', fontWeight: 500, border: 'none' }
                     }
 
                 }
@@ -112,7 +112,7 @@ export default class App extends Component {
                     props: {
                         type: 'special',
                         className: 'aaaa',
-                        style: { color: '#254FCB', border: 'none' }
+                        style: { color: '#2871F7', fontWeight: 400, border: 'none' }
                     }
                 }
             ]
@@ -140,7 +140,7 @@ export default class App extends Component {
                     },
                     props: {
                         type: 'special',
-                        style: { color: '#696E7C', border: 'none' }
+                        style: { color: '#696E7C', fontWeight: 400,border: 'none' }
                     }
                 },
                 {
@@ -150,7 +150,7 @@ export default class App extends Component {
                     props: {
                         type: 'special',
                         className: 'aaaa',
-                        style: { color: '#696E7C', border: 'none' }
+                        style: { color: '#696E7C', fontWeight: 400,border: 'none' }
                     }
                 },
                 {
@@ -160,7 +160,7 @@ export default class App extends Component {
                     props: {
                         type: 'special',
                         className: 'aaaa',
-                        style: { color: '#2871F7', border: 'none' }
+                        style: { color: '#2871F7', fontWeight: 500,border: 'none' }
                     }
 
                 }
