@@ -81,7 +81,7 @@ $cls-group: #{$cls}-group;
 }
 
 @mixin btnSize() {
-    font-size: $fs_text;
+    font-size: $fs_h2;
     height: 36px;
     font-weight: 500;
     padding: 7.5px 34.5px;

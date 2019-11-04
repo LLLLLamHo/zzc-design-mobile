@@ -47,7 +47,7 @@ export default class Prompt extends PureComponent<PromptProps, any> {
             case 'info':
                 return (
                     <div className={`${classname} type-notice ${theme}`} onClick={this.handlerClickEvent} style={style}>
-                        <Icon type='warning_outline' className={`${prefixCls}-icon-info`} />
+                        <Icon type='info_outline' className={`${prefixCls}-icon-info`} />
                         <div className={`${prefixCls}-content`}>
                             {!!children ? children : <p style={{ 'WebkitLineClamp': lineClamp }} dangerouslySetInnerHTML={{ __html: contextText || '' }}></p>}
                         </div>
@@ -65,7 +65,7 @@ export default class Prompt extends PureComponent<PromptProps, any> {
             case 'info*click':
                 return (
                     <div className={`${classname} type-notice ${theme}`} onClick={this.handlerClickEvent} style={style}>
-                        <Icon type='warning_outline' className={`${prefixCls}-icon-info`} />
+                        <Icon type='info_outline' className={`${prefixCls}-icon-info`} />
                         <div className={`${prefixCls}-content`}>
                             {!!children ? children : <p style={{ 'WebkitLineClamp': lineClamp }} dangerouslySetInnerHTML={{ __html: contextText || '' }}></p>}
                         </div>

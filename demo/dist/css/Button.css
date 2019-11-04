@@ -1474,7 +1474,7 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-radius: 2px;
+  border-radius: 4px;
   box-sizing: border-box;
   white-space: nowrap;
   vertical-align: middle;
@@ -1528,7 +1528,7 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border-radius: 2px;
+  border-radius: 4px;
   box-sizing: border-box;
   border: 1px solid #2871F7;
   white-space: nowrap;
@@ -1539,7 +1539,7 @@ button {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  font-size: 13px;
+  font-size: 14px;
   height: 36px;
   font-weight: 500;
   padding: 7.5px 34.5px;
