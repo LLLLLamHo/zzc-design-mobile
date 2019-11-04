@@ -17,8 +17,8 @@
     "json-loader": "0.5.7",
     "markdown-loader": "3.0.0",
     "marked": "0.4.0",
-    "react": "16.3.2",
-    "react-dom": "16.3.2",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
     "react-markdown-loader": "1.1.14"
   },
   "dependencies": {

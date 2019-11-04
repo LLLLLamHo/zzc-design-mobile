@@ -112,9 +112,9 @@ function getToast( type: string, content: any, duration: number = 2, onClose: an
                         {
                             ( type === 'success' || type === 'error' || type === 'waring' || type === 'loading' ) && <Icon style={{ color: '#fff', width: '36px', height: '36px' }} type={(() => {
                                 switch (type) {
-                                    case 'success': return 'success_outline_s';
-                                    case 'error': return 'error_outline_s';
-                                    case 'waring': return 'warn_outline_s';
+                                    case 'success': return 'success_outline';
+                                    case 'error': return 'error_outline';
+                                    case 'waring': return 'warning_outline';
                                     case 'loading': return 'loading';
                                 }
                             })()} />

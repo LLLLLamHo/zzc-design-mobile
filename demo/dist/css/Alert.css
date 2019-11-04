@@ -3761,7 +3761,6 @@ button {
   .zds-card-box {
     overflow: hidden;
     background: #fff;
-    margin: 0 1px;
     border-radius: 8px;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15); }
 .zds-slide-bottom-enter {
