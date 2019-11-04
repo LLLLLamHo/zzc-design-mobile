@@ -105,9 +105,14 @@ function getToast( type: string, content: any, duration: number = 2, onClose: an
             }
         );
 
+        let isIconToast = false;
+        if ( type === 'success' || type === 'error' || type === 'waring' || type === 'loading' ) {
+            isIconToast = true;
+        }
+
         ReactDOM.render(
             <div className={zzcToastCls}>
-                <div className={classNames( `${PREFIXCLS}-notice-content` )}>
+                <div className={classNames( `${PREFIXCLS}-notice-content`, isIconToast ? 'logo-box' : '' )}>
                     <div className={classNames( `${PREFIXCLS}-text` )}>
                         {
                             ( type === 'success' || type === 'error' || type === 'waring' || type === 'loading' ) && <Icon style={{ color: '#fff', width: '36px', height: '36px' }} type={(() => {

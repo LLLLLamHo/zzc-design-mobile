@@ -28318,12 +28318,16 @@ function getToast(type, content) {
         _parentNode = createParentNode(parnetNode);
         _onClose = onClose;
         var zzcToastCls = (0, _classnames2.default)(PREFIXCLS, (_classNames = {}, (0, _defineProperty3.default)(_classNames, PREFIXCLS + '-nomask', !mask), (0, _defineProperty3.default)(_classNames, PREFIXCLS + '-nofixed', (0, _typeof.isDOM)(parnetNode)), _classNames), (0, _defineProperty3.default)({}, PREFIXCLS + '-icon', type === 'loading' || type === 'success' || type === 'error' || type === 'waring'));
+        var isIconToast = false;
+        if (type === 'success' || type === 'error' || type === 'waring' || type === 'loading') {
+            isIconToast = true;
+        }
         _reactDom2.default.render(_react2.default.createElement(
             'div',
             { className: zzcToastCls },
             _react2.default.createElement(
                 'div',
-                { className: (0, _classnames2.default)(PREFIXCLS + '-notice-content') },
+                { className: (0, _classnames2.default)(PREFIXCLS + '-notice-content', isIconToast ? 'logo-box' : '') },
                 _react2.default.createElement(
                     'div',
                     { className: (0, _classnames2.default)(PREFIXCLS + '-text') },
@@ -36947,22 +36951,22 @@ var App = function (_Component) {
     }, {
         key: 'success',
         value: function success() {
-            _zzcDesignMobile.Toast.success('提交成功', 2);
+            _zzcDesignMobile.Toast.success('成功提示', 2);
         }
     }, {
         key: 'error',
         value: function error() {
-            _zzcDesignMobile.Toast.error('信息错误', 2);
+            _zzcDesignMobile.Toast.error('失败提示', 2);
         }
     }, {
         key: 'waring',
         value: function waring() {
-            _zzcDesignMobile.Toast.waring('警告，数据完不整', 2);
+            _zzcDesignMobile.Toast.waring('警示信息', 2);
         }
     }, {
         key: 'loading',
         value: function loading() {
-            _zzcDesignMobile.Toast.loading('努力加载中...', 2);
+            _zzcDesignMobile.Toast.loading('正在加载', 2);
         }
     }, {
         key: 'parentInfo',

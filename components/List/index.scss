@@ -7,9 +7,19 @@ $cls: '.zds-list';
 
     &-item {
         padding: 20px 0;
+        position: relative;
 
         &:not(:last-child) {
-            border-bottom: 1px solid $list_item_border_color;
+            &::after{
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 200%;
+                height: 2px;
+                border-bottom: 1px solid $list_item_border_color;
+                transform: scale(.5) translateX(-50%) translateY(-50%);
+            }
         }
 
         #{$cls}-item-header {
@@ -31,12 +41,13 @@ $cls: '.zds-list';
             }
             #{$cls}-item-header-extra{
                 margin-left: 10px;
+                color: #9EA1B0;
             }
         }
         #{$cls}-item-body{
             color: $list_item_body_color;
             font-size: $fs_h2;
-            margin-top: 12px;
+            margin-top: 12.5px;
         }
     }
 }

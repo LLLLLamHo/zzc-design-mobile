@@ -33,7 +33,7 @@ body {
   box-sizing: border-box;
 }
 
-.zzc-demo .zzc-demo-body h5 {
+.zzc-demo .zzc-demo-body > h5 {
   font-size: .28rem;
   color: #666;
   padding: .2rem 0;
@@ -43,7 +43,7 @@ body {
   padding: 0;
 }
 
-.zzc-demo .zzc-demo-body.full h5 {
+.zzc-demo .zzc-demo-body.full > h5 {
   padding: .2rem .3rem;
 }
 
@@ -615,6 +615,10 @@ button {
     padding: 10px 20px;
     box-sizing: border-box;
     max-width: 218.5px; }
+    .zds-toast .zds-toast-notice-content.logo-box {
+      width: 100px;
+      height: 100px;
+      padding: 18px 0; }
     .zds-toast .zds-toast-notice-content .zds-toast-text {
       color: #fff;
       font-size: 14px;
@@ -2017,9 +2021,19 @@ button {
   background: #fff;
   padding: 0 15px; }
   .zds-list-item {
-    padding: 20px 0; }
-    .zds-list-item:not(:last-child) {
-      border-bottom: 1px solid #E7EBF0; }
+    padding: 20px 0;
+    position: relative; }
+    .zds-list-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 200%;
+      height: 2px;
+      border-bottom: 1px solid #E7EBF0;
+      -webkit-transform: scale(0.5) translateX(-50%) translateY(-50%);
+          -ms-transform: scale(0.5) translateX(-50%) translateY(-50%);
+              transform: scale(0.5) translateX(-50%) translateY(-50%); }
     .zds-list-item .zds-list-item-header {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -2046,11 +2060,12 @@ button {
         font-size: 17px;
         font-weight: 600; }
       .zds-list-item .zds-list-item-header .zds-list-item-header-extra {
-        margin-left: 10px; }
+        margin-left: 10px;
+        color: #9EA1B0; }
     .zds-list-item .zds-list-item-body {
       color: #696E7C;
       font-size: 14px;
-      margin-top: 12px; }
+      margin-top: 12.5px; }
 .zds-slide-bottom-enter {
   position: absolute;
   -webkit-transform: translateY(100%);
@@ -4190,7 +4205,8 @@ button {
         font-size: 17px;
         font-weight: 600; }
       .zds-card2-head .zds-card2-head-header .zds-card2-head-header-extra {
-        margin-left: 10px; }
+        margin-left: 10px;
+        color: #9EA1B0; }
     .zds-card2-head .zds-card2-head-body {
       color: #696E7C;
       font-size: 14px;
@@ -5086,8 +5102,8 @@ button {
     font-size: 17px;
     text-align: center; }
   .zds-alert-box .zds-alert-header .zds-alert-title-only {
-    padding-top: 27px;
-    padding-bottom: 27px; }
+    padding-top: 27.5px;
+    padding-bottom: 27.5px; }
   .zds-alert-box .zds-alert-body {
     padding: 0 20px; }
     .zds-alert-box .zds-alert-body-content {
@@ -10248,7 +10264,7 @@ button {
             transform: scale(0.3); } }
 
 .zds-prompt {
-  padding: 6.5px 15px;
+  padding: 6.5px 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10262,16 +10278,17 @@ button {
       -ms-flex-align: start;
           align-items: flex-start; }
   .zds-prompt svg {
-    width: 11px;
-    height: 11px; }
+    width: 10px;
+    height: 10px; }
     .zds-prompt svg.zds-prompt-icon-info {
-      margin-right: 6px;
+      margin-right: 5px;
       margin-top: 2.9px; }
     .zds-prompt svg.zds-prompt-icon-right {
-      margin-left: 6px;
-      margin-top: 2.4px; }
+      margin-left: 5px;
+      margin-top: 2.6px;
+      margin-right: 5px; }
   .zds-prompt.border-notice {
-    border-left-width: 3px;
+    border-left-width: 2.5px;
     border-left-style: solid; }
   .zds-prompt.neutral-theme {
     color: #576CBA;
