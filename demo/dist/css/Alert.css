@@ -40,7 +40,7 @@ body {
   box-sizing: border-box;
 }
 
-.zzc-demo .zzc-demo-body h5 {
+.zzc-demo .zzc-demo-body > h5 {
   font-size: .28rem;
   color: #666;
   padding: .2rem 0;
@@ -50,7 +50,7 @@ body {
   padding: 0;
 }
 
-.zzc-demo .zzc-demo-body.full h5 {
+.zzc-demo .zzc-demo-body.full > h5 {
   padding: .2rem .3rem;
 }
 
