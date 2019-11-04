@@ -36001,7 +36001,7 @@ var Prompt = function (_PureComponent) {
                     return _react2.default.createElement(
                         'div',
                         { className: classname + ' type-notice ' + theme, onClick: this.handlerClickEvent, style: style },
-                        _react2.default.createElement(_Icon2.default, { type: 'warning_outline', className: prefixCls + '-icon-info' }),
+                        _react2.default.createElement(_Icon2.default, { type: 'info_outline', className: prefixCls + '-icon-info' }),
                         _react2.default.createElement(
                             'div',
                             { className: prefixCls + '-content' },
@@ -36023,7 +36023,7 @@ var Prompt = function (_PureComponent) {
                     return _react2.default.createElement(
                         'div',
                         { className: classname + ' type-notice ' + theme, onClick: this.handlerClickEvent, style: style },
-                        _react2.default.createElement(_Icon2.default, { type: 'warning_outline', className: prefixCls + '-icon-info' }),
+                        _react2.default.createElement(_Icon2.default, { type: 'info_outline', className: prefixCls + '-icon-info' }),
                         _react2.default.createElement(
                             'div',
                             { className: prefixCls + '-content' },
