@@ -60,11 +60,7 @@
 /******/ 	__webpack_require__.p = "../";
 /******/
 /******/ 	// Load entry module and return exports
-<<<<<<< HEAD
-/******/ 	return __webpack_require__(__webpack_require__.s = 282);
-=======
 /******/ 	return __webpack_require__(__webpack_require__.s = 321);
->>>>>>> v3.0.0
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -207,7 +203,7 @@ exports.default = function (subClass, superClass) {
 /* 11 */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.10' };
+var core = module.exports = { version: '2.6.9' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -23350,9 +23346,6 @@ $export($export.S, 'Object', { create: __webpack_require__(43) });
 /* 279 */,
 /* 280 */,
 /* 281 */,
-<<<<<<< HEAD
-/* 282 */
-=======
 /* 282 */,
 /* 283 */,
 /* 284 */,
@@ -23393,7 +23386,6 @@ $export($export.S, 'Object', { create: __webpack_require__(43) });
 /* 319 */,
 /* 320 */,
 /* 321 */
->>>>>>> v3.0.0
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23407,11 +23399,7 @@ var _reactDom = __webpack_require__(29);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-<<<<<<< HEAD
-var _App = __webpack_require__(283);
-=======
 var _App = __webpack_require__(322);
->>>>>>> v3.0.0
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -23420,11 +23408,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
 /***/ }),
-<<<<<<< HEAD
-/* 283 */
-=======
 /* 322 */
->>>>>>> v3.0.0
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23459,15 +23443,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
-__webpack_require__(284);
-
-var _themes = __webpack_require__(285);
-=======
 __webpack_require__(323);
 
 var _themes = __webpack_require__(324);
->>>>>>> v3.0.0
 
 __webpack_require__(132);
 
@@ -23563,21 +23541,13 @@ var App = function (_Component3) {
 exports.default = App;
 
 /***/ }),
-<<<<<<< HEAD
-/* 284 */
-=======
 /* 323 */
->>>>>>> v3.0.0
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-<<<<<<< HEAD
-/* 285 */
-=======
 /* 324 */
->>>>>>> v3.0.0
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
