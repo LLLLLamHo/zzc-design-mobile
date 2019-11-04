@@ -23,7 +23,7 @@ export default class App extends PureComponent {
                     <Card2>
                         <Card2.Header
                             title={<p>标题加上图标</p>}
-                            extra={<Icon type='success_outline' style={{ width: '20px', height: '30px' }} />}
+                            extra={<Icon type='arrows' style={{ width: '18px', height: '18px' }} />}
                         />
                     </Card2>
                 </div>
@@ -31,7 +31,7 @@ export default class App extends PureComponent {
                     <Card2>
                         <Card2.Header
                             title={<p>图标点击</p>}
-                            extra={<Icon type='success_outline' style={{ width: '20px', height: '30px' }} />}
+                            extra={<Icon type='arrows' style={{ width: '18px', height: '18px' }} />}
                             extraClick={() => {
                                 Toast.info( '点击图标', 2 );
                             }}
@@ -42,12 +42,11 @@ export default class App extends PureComponent {
                     <Card2>
                         <Card2.Header
                             title={<p>带有内容的Item</p>}
-                            extra={<Icon type='success_outline' style={{ width: '20px', height: '30px' }} />}
+                            extra={<Icon type='arrows' style={{ width: '18px', height: '18px' }} />}
                             extraClick={() => {
                                 Toast.info( '点击图标', 2 );
                             }}
                         >
-                            <div>内容项描述内容项描述内容项描述内容项描述</div>
                         </Card2.Header>
                         <Card2.Body>
                             <ol>
@@ -56,6 +55,19 @@ export default class App extends PureComponent {
                                 <li><p>文本信息</p></li>
                             </ol>
                         </Card2.Body>
+                    </Card2>
+                </div>
+                <div className='zzc-demo-body full'>
+                    <Card2>
+                        <Card2.Header
+                            title={<p>带有内容的Item</p>}
+                            extra={<Icon type='arrows' style={{ width: '18px', height: '18px' }} />}
+                            extraClick={() => {
+                                Toast.info( '点击图标', 2 );
+                            }}
+                        >
+                            <div>在头部添加额外文案</div>
+                        </Card2.Header>
                     </Card2>
                 </div>
             </div>

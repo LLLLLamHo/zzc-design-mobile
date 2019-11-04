@@ -2,7 +2,7 @@
 $cls: '.zds-prompt';
 
 #{$cls} {
-    padding: 6.5px 15px;
+    padding: 6.5px 10px;
     display: flex;
     position: relative;
     font-size: 11px;
@@ -11,21 +11,22 @@ $cls: '.zds-prompt';
     align-items: flex-start;
 
     svg {
-        width: 11px;
-        height: 11px;
+        width: 10px;
+        height: 10px;
 
         &#{$cls}-icon-info {
-            margin-right: 6px;
+            margin-right: 5px;
             margin-top: 2.9px;
         }
         &#{$cls}-icon-right {
-            margin-left: 6px;
-            margin-top: 2.4px;
+            margin-left: 5px;
+            margin-top: 2.6px;
+            margin-right: 5px;
         }
     }
 
     &.border-notice {
-        border-left-width: 3px;
+        border-left-width: 2.5px;
         border-left-style: solid;
     }
 

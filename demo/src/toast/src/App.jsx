@@ -34,19 +34,19 @@ export default class App extends Component {
     }
 
     success() {
-        Toast.success( '提交成功', 2 );
+        Toast.success( '成功提示', 2 );
     }
 
     error() {
-        Toast.error( '信息错误', 2);
+        Toast.error( '失败提示', 2);
     }
 
     waring() {
-        Toast.waring( '警告，数据完不整', 2 );
+        Toast.waring( '警示信息', 2 );
     }
 
     loading() {
-        Toast.loading( '努力加载中...', 2 );
+        Toast.loading( '正在加载', 2 );
     }
 
     parentInfo() {
