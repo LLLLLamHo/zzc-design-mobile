@@ -6,7 +6,7 @@ import ButtonGroup from './ButtonGroup';
 import { zzcComponentUse } from '../../_util/gtag';
 import { ButtonProps } from '../propsType';
 export default class Button extends PureComponent<ButtonProps, any> {
-    constructor(props) {
+    constructor(props) {        
         super(props);
         zzcComponentUse('Button', '组件渲染');
     }
@@ -38,7 +38,7 @@ export default class Button extends PureComponent<ButtonProps, any> {
         return className;
     }
 
-    render() {
+    render() {        
         const { inactive, children, className, prefixCls, type, size, inline, disabled, style, activeStyle, activeClassName, onClick, htmlType } = this.props;
         let btnClassNames: string = '';
         if (inline) {
