@@ -270,6 +270,11 @@
   box-sizing: border-box;
   max-width: 218.5px; }
 
+.zds-toast .zds-toast-notice-content.logo-box {
+  width: 100px;
+  height: 100px;
+  padding: 18px 0; }
+
 .zds-toast .zds-toast-notice-content .zds-toast-text {
   color: #fff;
   font-size: 14px;

@@ -28318,12 +28318,16 @@ function getToast(type, content) {
         _parentNode = createParentNode(parnetNode);
         _onClose = onClose;
         var zzcToastCls = (0, _classnames2.default)(PREFIXCLS, (_classNames = {}, (0, _defineProperty3.default)(_classNames, PREFIXCLS + '-nomask', !mask), (0, _defineProperty3.default)(_classNames, PREFIXCLS + '-nofixed', (0, _typeof.isDOM)(parnetNode)), _classNames), (0, _defineProperty3.default)({}, PREFIXCLS + '-icon', type === 'loading' || type === 'success' || type === 'error' || type === 'waring'));
+        var isIconToast = false;
+        if (type === 'success' || type === 'error' || type === 'waring' || type === 'loading') {
+            isIconToast = true;
+        }
         _reactDom2.default.render(_react2.default.createElement(
             'div',
             { className: zzcToastCls },
             _react2.default.createElement(
                 'div',
-                { className: (0, _classnames2.default)(PREFIXCLS + '-notice-content') },
+                { className: (0, _classnames2.default)(PREFIXCLS + '-notice-content', isIconToast ? 'logo-box' : '') },
                 _react2.default.createElement(
                     'div',
                     { className: (0, _classnames2.default)(PREFIXCLS + '-text') },
@@ -36912,7 +36916,7 @@ var App = function (_PureComponent) {
                                 null,
                                 '\u6807\u9898\u52A0\u4E0A\u56FE\u6807'
                             ),
-                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'success_outline', style: { width: '20px', height: '30px' } })
+                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'arrows', style: { width: '18px', height: '18px' } })
                         })
                     )
                 ),
@@ -36928,7 +36932,7 @@ var App = function (_PureComponent) {
                                 null,
                                 '\u56FE\u6807\u70B9\u51FB'
                             ),
-                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'success_outline', style: { width: '20px', height: '30px' } }),
+                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'arrows', style: { width: '18px', height: '18px' } }),
                             extraClick: function extraClick() {
                                 _zzcDesignMobile.Toast.info('点击图标', 2);
                             }
@@ -36941,25 +36945,17 @@ var App = function (_PureComponent) {
                     _react2.default.createElement(
                         _zzcDesignMobile.Card2,
                         null,
-                        _react2.default.createElement(
-                            _zzcDesignMobile.Card2.Header,
-                            {
-                                title: _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    '\u5E26\u6709\u5185\u5BB9\u7684Item'
-                                ),
-                                extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'success_outline', style: { width: '20px', height: '30px' } }),
-                                extraClick: function extraClick() {
-                                    _zzcDesignMobile.Toast.info('点击图标', 2);
-                                }
-                            },
-                            _react2.default.createElement(
-                                'div',
+                        _react2.default.createElement(_zzcDesignMobile.Card2.Header, {
+                            title: _react2.default.createElement(
+                                'p',
                                 null,
-                                '\u5185\u5BB9\u9879\u63CF\u8FF0\u5185\u5BB9\u9879\u63CF\u8FF0\u5185\u5BB9\u9879\u63CF\u8FF0\u5185\u5BB9\u9879\u63CF\u8FF0'
-                            )
-                        ),
+                                '\u5E26\u6709\u5185\u5BB9\u7684Item'
+                            ),
+                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'arrows', style: { width: '18px', height: '18px' } }),
+                            extraClick: function extraClick() {
+                                _zzcDesignMobile.Toast.info('点击图标', 2);
+                            }
+                        }),
                         _react2.default.createElement(
                             _zzcDesignMobile.Card2.Body,
                             null,
@@ -36993,6 +36989,33 @@ var App = function (_PureComponent) {
                                         '\u6587\u672C\u4FE1\u606F'
                                     )
                                 )
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'zzc-demo-body full' },
+                    _react2.default.createElement(
+                        _zzcDesignMobile.Card2,
+                        null,
+                        _react2.default.createElement(
+                            _zzcDesignMobile.Card2.Header,
+                            {
+                                title: _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    '\u5E26\u6709\u5185\u5BB9\u7684Item'
+                                ),
+                                extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'arrows', style: { width: '18px', height: '18px' } }),
+                                extraClick: function extraClick() {
+                                    _zzcDesignMobile.Toast.info('点击图标', 2);
+                                }
+                            },
+                            _react2.default.createElement(
+                                'div',
+                                null,
+                                '\u5728\u5934\u90E8\u6DFB\u52A0\u989D\u5916\u6587\u6848'
                             )
                         )
                     )
