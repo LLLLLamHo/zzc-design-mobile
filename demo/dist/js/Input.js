@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "../";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 294);
+/******/ 	return __webpack_require__(__webpack_require__.s = 295);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -29242,11 +29242,11 @@ var Button = function (_PureComponent) {
 
                 ;
                 var classes = (_classes = {}, (0, _defineProperty3.default)(_classes, prefixCls + '-' + size, size), (0, _defineProperty3.default)(_classes, prefixCls + '-' + type, type !== ''), (0, _defineProperty3.default)(_classes, prefixCls + '-disabled', disabled), (0, _defineProperty3.default)(_classes, prefixCls + '-inactive', inactive), _classes);
-                btnClassNames = (0, _classnames2.default)(prefixCls, prefixCls + '-inline', className, classes);
+                btnClassNames = (0, _classnames2.default)(prefixCls, prefixCls + '-inline', prefixCls + '-' + type + '-inline', className, classes);
             } else {
                 var _classNames2;
 
-                btnClassNames = (0, _classnames2.default)(prefixCls, className, (_classNames2 = {}, (0, _defineProperty3.default)(_classNames2, prefixCls + '-' + type, type !== ''), (0, _defineProperty3.default)(_classNames2, prefixCls + '-disabled', disabled), (0, _defineProperty3.default)(_classNames2, prefixCls + '-inactive', inactive), _classNames2));
+                btnClassNames = (0, _classnames2.default)(prefixCls, className, (_classNames2 = {}, (0, _defineProperty3.default)(_classNames2, prefixCls + '-' + type, type !== ''), (0, _defineProperty3.default)(_classNames2, prefixCls + '-' + type + '-' + size, size !== ''), (0, _defineProperty3.default)(_classNames2, prefixCls + '-disabled', disabled), (0, _defineProperty3.default)(_classNames2, prefixCls + '-inactive', inactive), _classNames2));
             }
             return _react2.default.createElement(
                 _TouchFeedback2.default,
@@ -35818,7 +35818,7 @@ var Input = function (_PureComponent) {
             delete newProps.prefixCls;
             delete newProps.className;
             delete newProps.htmlType;
-            // 清楚一些托管到form中传入的的props
+            // 清除一些托管到form中传入的的props
             delete newProps._zds_form_initValue;
             delete newProps.formOpt;
             delete newProps.formInputOnChange;
@@ -36293,7 +36293,7 @@ var FormItem = function (_PureComponent) {
 
         var _this = (0, _possibleConstructorReturn3.default)(this, (FormItem.__proto__ || (0, _getPrototypeOf2.default)(FormItem)).call(this, props));
 
-        _this.inputId = null;
+        _this.inputId = [];
         _this.validationTime = null;
         _this.inputChange = _this.inputChange.bind(_this);
         _this.inputBlur = _this.inputBlur.bind(_this);
@@ -36339,10 +36339,59 @@ var FormItem = function (_PureComponent) {
                 formContext.validation(id);
             }, 100);
         }
+        // 设置当前的formItem是那个id所使用
+
     }, {
         key: 'setFormItemId',
         value: function setFormItemId(id) {
-            this.inputId = id;
+            // 兼容多个input的情况
+            this.inputId.push(id);
+        }
+    }, {
+        key: 'getCurrFormItemStatus',
+        value: function getCurrFormItemStatus(itemStatus) {
+            var isSuccess = false;
+            var isWarning = false;
+            var isError = false;
+            var message = '';
+            for (var i = 0; i < this.inputId.length; i++) {
+                var currItemStatusData = itemStatus[this.inputId[i]];
+                if (currItemStatusData.status == 'success') {
+                    isSuccess = true;
+                    message = currItemStatusData.message;
+                } else if (currItemStatusData.status == 'warning') {
+                    isSuccess = false;
+                    isWarning = true;
+                    message = currItemStatusData.message;
+                    break;
+                } else if (currItemStatusData.status == 'error') {
+                    isWarning = false;
+                    isSuccess = false;
+                    isError = true;
+                    message = currItemStatusData.message;
+                    break;
+                }
+            }
+            return {
+                message: message,
+                isSuccess: isSuccess,
+                isWarning: isWarning,
+                isError: isError
+            };
+        }
+        // 获取当前formItem的状态
+
+    }, {
+        key: 'getCurrFormItemClassName',
+        value: function getCurrFormItemClassName(statusData) {
+            var _classnames;
+
+            var prefixCls = this.props.prefixCls;
+            var isError = statusData.isError,
+                isSuccess = statusData.isSuccess,
+                isWarning = statusData.isWarning;
+
+            return (0, _classnames3.default)(prefixCls + '-box', (_classnames = {}, (0, _defineProperty3.default)(_classnames, prefixCls + '-box-error', isError), (0, _defineProperty3.default)(_classnames, prefixCls + '-box-success', isSuccess), (0, _defineProperty3.default)(_classnames, prefixCls + '-box-warning', isWarning), _classnames));
         }
     }, {
         key: 'render',
@@ -36361,11 +36410,8 @@ var FormItem = function (_PureComponent) {
             // 错误样式
             var itemStatus = this.props.formContext.itemStatus;
 
-            var currItemStatus = this.inputId ? itemStatus[this.inputId] : null;
-            var itemBoxClassName = (0, _classnames3.default)(prefixCls + '-box');
-            if (currItemStatus) {
-                itemBoxClassName = (0, _classnames3.default)(itemBoxClassName, (0, _defineProperty3.default)({}, prefixCls + '-box-error', currItemStatus.status == 'error'));
-            }
+            var currFormItemStatusData = this.getCurrFormItemStatus(itemStatus);
+            var itemBoxClassName = this.getCurrFormItemClassName(currFormItemStatusData);
             return _react2.default.createElement(
                 _context.FormItemContext.Provider,
                 { value: {
@@ -36393,14 +36439,34 @@ var FormItem = function (_PureComponent) {
                             extra
                         )
                     ),
-                    currItemStatus && currItemStatus.status == 'error' && _react2.default.createElement(
+                    currFormItemStatusData && currFormItemStatusData.isError && _react2.default.createElement(
                         'div',
                         { className: prefixCls + '-error-box' },
                         _react2.default.createElement(_Icon2.default, { type: 'warning_outline' }),
                         _react2.default.createElement(
                             'p',
                             null,
-                            currItemStatus.message
+                            currFormItemStatusData.message
+                        )
+                    ),
+                    currFormItemStatusData && currFormItemStatusData.isWarning && _react2.default.createElement(
+                        'div',
+                        { className: prefixCls + '-warning-box' },
+                        _react2.default.createElement(_Icon2.default, { type: 'warning_outline' }),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            currFormItemStatusData.message
+                        )
+                    ),
+                    currFormItemStatusData && currFormItemStatusData.isSuccess && _react2.default.createElement(
+                        'div',
+                        { className: prefixCls + '-success-box' },
+                        _react2.default.createElement(_Icon2.default, { type: 'success_outline' }),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            currFormItemStatusData.message
                         )
                     )
                 )
@@ -36415,7 +36481,7 @@ FormItem.defaultProps = {
     className: '',
     style: {},
     htmlFor: null,
-    colon: true,
+    colon: false,
     extra: null
 };
 
@@ -36583,14 +36649,20 @@ var Form = function (_PureComponent) {
     }, {
         key: 'getAllData',
         value: function getAllData() {
-            var formData = this.state.formData;
+            var _state = this.state,
+                formData = _state.formData,
+                itemStatus = _state.itemStatus;
 
             var ids = (0, _keys2.default)(formData);
             var outputData = {};
             for (var i = 0; i < ids.length; i++) {
                 var value = formData[ids[i]].value;
 
-                outputData[ids[i]] = value;
+                if (!outputData[ids[i]]) {
+                    outputData[ids[i]] = {};
+                }
+                outputData[ids[i]] = (0, _assign2.default)({}, itemStatus[ids[i]]);
+                outputData[ids[i]].value = value;
             }
             return outputData;
         }
@@ -36599,9 +36671,9 @@ var Form = function (_PureComponent) {
     }, {
         key: 'initFormItemValue',
         value: function initFormItemValue(id, value, formOpt) {
-            var _state = this.state,
-                itemStatus = _state.itemStatus,
-                formData = _state.formData;
+            var _state2 = this.state,
+                itemStatus = _state2.itemStatus,
+                formData = _state2.formData;
 
             itemStatus[id] = {
                 status: 'normal',
@@ -36639,9 +36711,9 @@ var Form = function (_PureComponent) {
         key: 'setValue',
         value: function setValue(id) {
             var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-            var _state2 = this.state,
-                formData = _state2.formData,
-                itemStatus = _state2.itemStatus;
+            var _state3 = this.state,
+                formData = _state3.formData,
+                itemStatus = _state3.itemStatus;
 
             formData[id]['value'] = value;
             // 当前item如果是错误状态需要进行验证
@@ -36661,7 +36733,9 @@ var Form = function (_PureComponent) {
             var formData = this.state.formData;
 
             var itemInfo = formData[id];
-            var rules = itemInfo.rules;
+            var rules = itemInfo.rules,
+                isShowSuccess = itemInfo.isShowSuccess,
+                successText = itemInfo.successText;
 
             var validationValue = value || itemInfo.value;
             // 对当前发生错误的规则进行验证，一般用于在发生错误的input中输入
@@ -36673,13 +36747,18 @@ var Form = function (_PureComponent) {
             } else if (rules && (0, _typeof.isArray)(rules)) {
                 for (var i = 0; i < rules.length; i++) {
                     var _currRule = rules[i];
+                    var validationType = rules[i].validationType || 'error';
                     // 必填
                     if (!this.validationRule(validationValue, _currRule)) {
-                        this.updateFormItemStatus(id, 'error', _currRule.message, i);
-                        break;
+                        this.updateFormItemStatus(id, validationType, _currRule.message, i);
+                        return;
                     } else {
                         this.updateFormItemStatus(id, 'normal');
                     }
+                }
+                // 最终验证完成没有错误，当配置了成功提示，那么将显示成功提示
+                if (isShowSuccess && successText != '') {
+                    this.updateFormItemStatus(id, 'success', successText);
                 }
             }
         }
@@ -36816,7 +36895,8 @@ exports.default = Form;
 /* 291 */,
 /* 292 */,
 /* 293 */,
-/* 294 */
+/* 294 */,
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36830,7 +36910,7 @@ var _reactDom = __webpack_require__(29);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(295);
+var _App = __webpack_require__(296);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -36839,7 +36919,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
 /***/ }),
-/* 295 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36876,7 +36956,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _zzcDesignMobile = __webpack_require__(133);
 
-__webpack_require__(296);
+__webpack_require__(297);
 
 __webpack_require__(132);
 
@@ -36947,32 +37027,23 @@ var App = function (_Component) {
                         { style: { padding: 0 } },
                         _react2.default.createElement(_zzcDesignMobile.Card2.Header, { style: { paddingLeft: '15px', paddingRight: '15px' }, title: '\u975E\u53D7\u63A7Input' }),
                         _react2.default.createElement(
-                            _zzcDesignMobile.List,
+                            _zzcDesignMobile.Form,
                             null,
-                            _react2.default.createElement(ListItem, {
-                                title: _react2.default.createElement(
-                                    'div',
-                                    { className: 'inputItem' },
-                                    _react2.default.createElement(
-                                        'p',
-                                        null,
-                                        '\u8F93\u5165\u59D3\u540D\uFF1A '
-                                    ),
-                                    _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u59D3\u540D' })
-                                )
-                            }),
-                            _react2.default.createElement(ListItem, {
-                                title: _react2.default.createElement(
-                                    'div',
-                                    { className: 'inputItem' },
-                                    _react2.default.createElement(
-                                        'p',
-                                        null,
-                                        '\u8F93\u5165\u5E74\u9F84\uFF1A  '
-                                    ),
-                                    _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u5E74\u9F84' })
-                                )
-                            })
+                            _react2.default.createElement(
+                                _zzcDesignMobile.Form.Item,
+                                {
+                                    label: '\u59D3\u540D',
+                                    htmlFor: 'label1'
+                                },
+                                _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u59D3\u540D', id: 'label1' })
+                            ),
+                            _react2.default.createElement(
+                                _zzcDesignMobile.Form.Item,
+                                {
+                                    label: '\u5E74\u9F84'
+                                },
+                                _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u5E74\u9F84', id: 'label2' })
+                            )
                         )
                     )
                 ),
@@ -36984,36 +37055,28 @@ var App = function (_Component) {
                         { style: { padding: 0 } },
                         _react2.default.createElement(_zzcDesignMobile.Card2.Header, { style: { paddingLeft: '15px', paddingRight: '15px' }, title: '\u53D7\u63A7Input' }),
                         _react2.default.createElement(
-                            _zzcDesignMobile.List,
+                            _zzcDesignMobile.Form,
                             null,
-                            _react2.default.createElement(ListItem, {
-                                title: _react2.default.createElement(
-                                    'div',
-                                    { className: 'inputItem' },
-                                    _react2.default.createElement(
-                                        'p',
-                                        null,
-                                        '\u8F93\u5165\u59D3\u540D\uFF1A '
-                                    ),
-                                    _react2.default.createElement(_zzcDesignMobile.Input, { onChange: function onChange(e) {
-                                            _this2.onChange('name', e);
-                                        }, value: name, placeholder: '\u8BF7\u8F93\u5165\u59D3\u540D' })
-                                )
-                            }),
-                            _react2.default.createElement(ListItem, {
-                                title: _react2.default.createElement(
-                                    'div',
-                                    { className: 'inputItem' },
-                                    _react2.default.createElement(
-                                        'p',
-                                        null,
-                                        '\u8F93\u5165\u5E74\u9F84\uFF1A  '
-                                    ),
-                                    _react2.default.createElement(_zzcDesignMobile.Input, { onChange: function onChange(e) {
-                                            _this2.onChange('age', e);
-                                        }, value: age, placeholder: '\u8BF7\u8F93\u5165\u5E74\u9F84' })
-                                )
-                            })
+                            _react2.default.createElement(
+                                _zzcDesignMobile.Form.Item,
+                                {
+                                    label: '\u59D3\u540D',
+                                    htmlFor: 'label3'
+                                },
+                                _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u59D3\u540D', id: 'label3', value: name, onChange: function onChange(e) {
+                                        _this2.onChange('name', e);
+                                    } })
+                            ),
+                            _react2.default.createElement(
+                                _zzcDesignMobile.Form.Item,
+                                {
+                                    label: '\u5E74\u9F84',
+                                    htmlFor: 'label4'
+                                },
+                                _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u5E74\u9F84', id: 'label4', value: age, onChange: function onChange(e) {
+                                        _this2.onChange('age', e);
+                                    } })
+                            )
                         )
                     )
                 ),
@@ -37025,32 +37088,24 @@ var App = function (_Component) {
                         { style: { padding: 0 } },
                         _react2.default.createElement(_zzcDesignMobile.Card2.Header, { style: { paddingLeft: '15px', paddingRight: '15px' }, title: '\u5176\u4ED6\u8BBE\u7F6E' }),
                         _react2.default.createElement(
-                            _zzcDesignMobile.List,
+                            _zzcDesignMobile.Form,
                             null,
-                            _react2.default.createElement(ListItem, {
-                                title: _react2.default.createElement(
-                                    'div',
-                                    { className: 'inputItem' },
-                                    _react2.default.createElement(
-                                        'p',
-                                        null,
-                                        '\u7981\u6B62\u8F93\u5165\uFF1A'
-                                    ),
-                                    _react2.default.createElement(_zzcDesignMobile.Input, { disabled: true, placeholder: '\u8BF7\u8F93\u5165\u59D3\u540D' })
-                                )
-                            }),
-                            _react2.default.createElement(ListItem, {
-                                title: _react2.default.createElement(
-                                    'div',
-                                    { className: 'inputItem' },
-                                    _react2.default.createElement(
-                                        'p',
-                                        null,
-                                        '\u9650\u5236\u6700\u5927\u957F\u5EA6\uFF1A'
-                                    ),
-                                    _react2.default.createElement(_zzcDesignMobile.Input, { maxLength: 20, placeholder: '\u8BF7\u8F93\u5165\u59D3\u540D' })
-                                )
-                            })
+                            _react2.default.createElement(
+                                _zzcDesignMobile.Form.Item,
+                                {
+                                    label: '\u59D3\u540D',
+                                    htmlFor: 'label5'
+                                },
+                                _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u59D3\u540D', id: 'label5', disabled: true })
+                            ),
+                            _react2.default.createElement(
+                                _zzcDesignMobile.Form.Item,
+                                {
+                                    label: '\u5E74\u9F84',
+                                    htmlFor: 'label6'
+                                },
+                                _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u5E74\u9F84', id: 'label6', maxLength: 20 })
+                            )
                         )
                     )
                 )
@@ -37063,7 +37118,7 @@ var App = function (_Component) {
 exports.default = App;
 
 /***/ }),
-/* 296 */
+/* 297 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
