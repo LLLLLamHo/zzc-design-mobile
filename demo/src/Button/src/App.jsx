@@ -48,9 +48,9 @@ export default class App extends PureComponent {
                     <h5>行内按钮(small)</h5>
                     <Button inline size='small'>确认</Button>
                     <Button inline size='small' type='sub'>确认</Button>
+                    <Button inline size='small' type='sub' disabled>确认</Button>
                     <Button inline size='small' type='special'>确认</Button>
-                    <Button inline size='small' inactive>确认</Button>
-                    <Button inline size='small' disabled>确认</Button>
+                    <Button inline size='small' inactive>确认</Button>                    
                 </div>
                 <div className='zzc-demo-body'>
                     <h5>按钮块</h5>
@@ -73,9 +73,10 @@ export default class App extends PureComponent {
                         <Button inline size='small' type='special'>确认</Button>
                     </ButtonGroup>
                     <ButtonGroup direction='right'>
-                        <Button inline size='small'>确认</Button>
-                        <Button inline size='small' type='sub'>确认</Button>
+                        <Button inline size='small'>确认</Button>                        
                         <Button inline size='small' type='special'>确认</Button>
+                        <Button inline size='small' disabled>禁用</Button>
+                        <Button inline size='small' type='sub' disabled>禁用</Button>
                     </ButtonGroup>
                 </div>
             </div>
