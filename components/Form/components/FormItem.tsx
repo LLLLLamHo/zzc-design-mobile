@@ -21,7 +21,7 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
         colon: false,
         extra: null
     };
-    inputId: string | null = null;
+    inputId: Array<string> = [];
     validationTime: any = null;
 
     inputChange(id: string, value: any, noticeFormFn: Function, formOpt: getFieldDecoratorOption): void {
@@ -54,8 +54,55 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
         }, 100);
     }
 
+    // 设置当前的formItem是那个id所使用
     setFormItemId(id: string): void {
-        this.inputId = id;
+        // 兼容多个input的情况
+        this.inputId.push(id);
+    }
+
+    getCurrFormItemStatus(itemStatus: Object): { isSuccess: boolean, isWarning: boolean, isError: boolean, message: string } {
+        let isSuccess: boolean = false;
+        let isWarning: boolean = false;
+        let isError: boolean = false;
+        let message: string = '';
+
+        for (let i = 0; i < this.inputId.length; i++) {
+            const currItemStatusData = itemStatus[this.inputId[i]];
+            if (currItemStatusData.status == 'success') {
+                isSuccess = true;
+                message = currItemStatusData.message;
+            } else if (currItemStatusData.status == 'warning') {
+                isSuccess = false;
+                isWarning = true;
+                message = currItemStatusData.message;
+                break;
+            } else if (currItemStatusData.status == 'error') {
+                isWarning = false;
+                isSuccess = false;
+                isError = true;
+                message = currItemStatusData.message;
+                break;
+            }
+        }
+
+        return {
+            message,
+            isSuccess,
+            isWarning,
+            isError
+        }
+    }
+
+    // 获取当前formItem的状态
+    getCurrFormItemClassName(statusData: { isSuccess: boolean, isWarning: boolean, isError: boolean, message: string }): string {
+        const { prefixCls } = this.props;
+        const { isError, isSuccess, isWarning } = statusData;
+
+        return classnames(`${prefixCls}-box`, {
+            [`${prefixCls}-box-error`]: isError,
+            [`${prefixCls}-box-success`]: isSuccess,
+            [`${prefixCls}-box-warning`]: isWarning,
+        });
     }
 
     render(): JSX.Element {
@@ -63,15 +110,9 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
         let classname = classnames(prefixCls, className);
         // 错误样式
         const { itemStatus } = this.props.formContext;
-        let currItemStatus = this.inputId ? itemStatus[this.inputId] : null;
-        let itemBoxClassName = classnames(`${prefixCls}-box`);
-        if ( currItemStatus ) {
-            itemBoxClassName = classnames(itemBoxClassName, {
-                [`${prefixCls}-box-error`]: currItemStatus.status == 'error',
-                [`${prefixCls}-box-success`]: currItemStatus.status == 'success',
-                [`${prefixCls}-box-warning`]: currItemStatus.status == 'warning',
-            });
-        }
+        const currFormItemStatusData = this.getCurrFormItemStatus(itemStatus);
+        const itemBoxClassName = this.getCurrFormItemClassName(currFormItemStatusData);
+
         return (
             <FormItemContext.Provider value={{
                 formInputOnChange: this.inputChange,
@@ -86,21 +127,21 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
                         {extra && <div className={`${prefixCls}-extra-box`}>{extra}</div>}
                     </div>
                     {
-                        currItemStatus && currItemStatus.status == 'error' && <div className={`${prefixCls}-error-box`}>
+                        currFormItemStatusData && currFormItemStatusData.isError && <div className={`${prefixCls}-error-box`}>
                             <Icon type="warning_outline" />
-                            <p>{currItemStatus.message}</p>
+                            <p>{currFormItemStatusData.message}</p>
                         </div>
                     }
                     {
-                        currItemStatus && currItemStatus.status == 'warning' && <div className={`${prefixCls}-warning-box`}>
+                        currFormItemStatusData && currFormItemStatusData.isWarning && <div className={`${prefixCls}-warning-box`}>
                             <Icon type="warning_outline" />
-                            <p>{currItemStatus.message}</p>
+                            <p>{currFormItemStatusData.message}</p>
                         </div>
                     }
                     {
-                        currItemStatus && currItemStatus.status == 'success' && <div className={`${prefixCls}-success-box`}>
+                        currFormItemStatusData && currFormItemStatusData.isSuccess && <div className={`${prefixCls}-success-box`}>
                             <Icon type="success_outline" />
-                            <p>{currItemStatus.message}</p>
+                            <p>{currFormItemStatusData.message}</p>
                         </div>
                     }
                 </div>

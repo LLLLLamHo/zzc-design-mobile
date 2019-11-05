@@ -28,7 +28,7 @@ export default class Form extends PureComponent<FormComponentProps, any> {
             return this.formComponent;
         },
         // 将input托管给form
-        getFieldDecorator: (id: string, opt: getFieldDecoratorOption, item: JSX.Element): JSX.Element => {
+        getFieldDecorator: (id: string, opt: getFieldDecoratorOption, item: any): JSX.Element => {
             // todo
             const defaultOpt = {
                 initialValue: '',
@@ -38,6 +38,40 @@ export default class Form extends PureComponent<FormComponentProps, any> {
             };
 
             const newOpt = Object.assign(defaultOpt, opt);
+
+            // 如果传入的是数组
+            if (isArray(item)) {
+                return item.map((itemInput, key) => {
+                    return (
+                        <FormItemContext.Consumer>
+                            {(state) => {
+                                const { formData } = this.state;
+                                const changeFun = (value: any, formOpt: getFieldDecoratorOption) => {
+                                    state.formInputOnChange && state.formInputOnChange(id, value, this.setValue, formOpt);
+                                };
+                                const blurFun = (formOpt: getFieldDecoratorOption) => {
+                                    state.formInputOnBlur && state.formInputOnBlur(id, formOpt);
+                                };
+                                const focusFun = (formOpt: getFieldDecoratorOption) => {
+                                    state.formInputOnFocus && state.formInputOnFocus(id, formOpt);
+                                };
+                                const value = formData[id] != null ? formData[id]['value'] : newOpt.initialValue || '';
+                                return React.cloneElement(itemInput, {
+                                    ...state,
+                                    id,
+                                    key,
+                                    formInputOnChange: changeFun,
+                                    formInputOnBlur: blurFun,
+                                    formInputOnFocus: focusFun,
+                                    _zds_form_initValue: this.initFormItemValue,
+                                    value,
+                                    formOpt: newOpt
+                                });
+                            }}
+                        </FormItemContext.Consumer>
+                    );
+                })
+            }
 
             return (
                 <FormItemContext.Consumer>
@@ -53,7 +87,6 @@ export default class Form extends PureComponent<FormComponentProps, any> {
                             state.formInputOnFocus && state.formInputOnFocus(id, formOpt);
                         };
                         const value = formData[id] != null ? formData[id]['value'] : newOpt.initialValue || '';
-
                         return React.cloneElement(item, {
                             ...state,
                             id,
@@ -92,10 +125,10 @@ export default class Form extends PureComponent<FormComponentProps, any> {
         const outputData = {};
         for (let i = 0; i < ids.length; i++) {
             const { value } = formData[ids[i]];
-            if ( !outputData[ids[i]] ) {
+            if (!outputData[ids[i]]) {
                 outputData[ids[i]] = {};
             }
-            outputData[ids[i]] = {...itemStatus[ids[i]]};
+            outputData[ids[i]] = { ...itemStatus[ids[i]] };
             outputData[ids[i]].value = value;
         }
         return outputData;
@@ -177,7 +210,7 @@ export default class Form extends PureComponent<FormComponentProps, any> {
                 }
             }
             // 最终验证完成没有错误，当配置了成功提示，那么将显示成功提示
-            if ( isShowSuccess && successText != '' ) {
+            if (isShowSuccess && successText != '') {
                 this.updateFormItemStatus(id, 'success', successText);
             }
         }
