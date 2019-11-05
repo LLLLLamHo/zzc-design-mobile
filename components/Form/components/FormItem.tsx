@@ -18,7 +18,7 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
         className: '',
         style: {},
         htmlFor: null,
-        colon: true,
+        colon: false,
         extra: null
     };
     inputId: string | null = null;
@@ -67,7 +67,9 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
         let itemBoxClassName = classnames(`${prefixCls}-box`);
         if ( currItemStatus ) {
             itemBoxClassName = classnames(itemBoxClassName, {
-                [`${prefixCls}-box-error`]: currItemStatus.status == 'error'
+                [`${prefixCls}-box-error`]: currItemStatus.status == 'error',
+                [`${prefixCls}-box-success`]: currItemStatus.status == 'success',
+                [`${prefixCls}-box-warning`]: currItemStatus.status == 'warning',
             });
         }
         return (
@@ -86,6 +88,18 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
                     {
                         currItemStatus && currItemStatus.status == 'error' && <div className={`${prefixCls}-error-box`}>
                             <Icon type="warning_outline" />
+                            <p>{currItemStatus.message}</p>
+                        </div>
+                    }
+                    {
+                        currItemStatus && currItemStatus.status == 'warning' && <div className={`${prefixCls}-warning-box`}>
+                            <Icon type="warning_outline" />
+                            <p>{currItemStatus.message}</p>
+                        </div>
+                    }
+                    {
+                        currItemStatus && currItemStatus.status == 'success' && <div className={`${prefixCls}-success-box`}>
+                            <Icon type="success_outline" />
                             <p>{currItemStatus.message}</p>
                         </div>
                     }

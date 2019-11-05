@@ -6,15 +6,22 @@ $cls3: '.zds-form-item';
     padding: 0 15px;
     background: #fff;
     #{$cls2}{
-        transition: border .1s;
-        &:not(:last-child) {
+        #{$cls3}{
+            @include halfPXLine('bottom')
+        }
+        &-success{
             #{$cls3}{
-                border-bottom: 1px solid rgba(105,110,124,.15);
+                @include halfPXLine('bottom', $form_success_box_color);
+            }
+        }
+        &-warning{
+            #{$cls3}{
+                @include halfPXLine('bottom', $form_warning_box_color);
             }
         }
         &-error{
             #{$cls3}{
-                border-bottom: 1px solid #CA0808!important;
+                @include halfPXLine('bottom', $form_error_box_color);
             }
         }
     }
@@ -29,7 +36,7 @@ $cls3: '.zds-form-item';
         color: #333;
         font-size: 14px;
         font-weight: bold;
-        margin-right: 30px;
+        margin-right: 16px;
         text-align: left;
     }
     #{$cls3}-extra-box{
@@ -43,12 +50,48 @@ $cls3: '.zds-form-item';
         width: 100%;
     }
 }
+#{$cls3}-success-box{
+    padding: 4px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    color: $form_success_box_color;
+    p{
+        font-size: 12px;
+        flex: 1;
+    }
+    svg{
+        margin-top: 2px;
+        margin-right: 8px;
+        width: 14px;
+        height: 14px;
+    }
+    
+}
+#{$cls3}-warning-box{
+    padding: 4px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    color: $form_warning_box_color;
+    p{
+        font-size: 12px;
+        flex: 1;
+    }
+    svg{
+        margin-top: 2px;
+        margin-right: 8px;
+        width: 14px;
+        height: 14px;
+    }
+    
+}
 #{$cls3}-error-box{
     padding: 4px 0;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    color: #CA0808;
+    color: $form_error_box_color;
     p{
         font-size: 12px;
         flex: 1;

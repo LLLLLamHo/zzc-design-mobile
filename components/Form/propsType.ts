@@ -35,12 +35,15 @@ export interface FormItemState {
 }
 
 export interface getFieldDecoratorOption {
+    isShowSuccess?: boolean
+    successText?: String
     initialValue?: any
     rules?: Array<rules>
     validateTrigger?: 'onChange' | 'onFocus' | 'onBlur',
 }
 
 export interface rules{
+    validationType?: 'error' | 'warning'
     required?: boolean
     message?: string
     len?: number

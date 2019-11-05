@@ -21,7 +21,7 @@ Form表单
 | style     | 样式对象                   | Object                | {}       |
 | htmlFor   | 用于label标签的htmlFor属性 | string                | null     |
 | label     | 用label标签的展示          | string                | null     |
-| colon     | label标签文案后是否添加":" | boolean               | true     |
+| colon     | label标签文案后是否添加":" | boolean               | false    |
 | extra     | input后是否添加额外元素    | JSX.Element \| string | null     |
 
 ### 普通的使用方式
@@ -190,24 +190,27 @@ form对象会额外提供一些api给你去扩展你的input组件
 
 ### getFieldDecoratorOption
 
-| 属性            | 说明          | 类型                                 | 默认值   |
-| --------------- | ------------- | ------------------------------------ | -------- |
-| initialValue    | Input初始化值 | any                                  | ''       |
-| rules           | 验证规则      | Array<rules>                         | null     |
-| validateTrigger | 验证时机      | 'onChange'  \| 'onFocus' \| 'onBlur' | 'onBlur' |
+| 属性            | 说明                 | 类型                                 | 默认值   |
+| --------------- | -------------------- | ------------------------------------ | -------- |
+| initialValue    | Input初始化值        | any                                  | ''       |
+| isShowSuccess   | 是否显示验证成功提示 | boolean                              | false    |
+| successText     | 验证通过文案提示     | String                               | null     |
+| rules           | 验证规则             | Array<rules>                         | null     |
+| validateTrigger | 验证时机             | 'onChange'  \| 'onFocus' \| 'onBlur' | 'onBlur' |
 
 ### rules
 
 注意除了message之外，其余的条件在每一个规则中只能选择一个
 
-| 属性     | 说明                   | 类型    | 默认值 |
-| -------- | ---------------------- | ------- | ------ |
-| required | 是否必填               | boolean | 无     |
-| message  | 规则不通过输出警告信息 | string  | 无     |
-| len      | 规定长度               | number  | 无     |
-| max      | 最大长度               | number  | 无     |
-| min      | 最小长度               | number  | 无     |
-| pattern  | 正则                   | RegExp  | 无     |
+| 属性           | 说明                                 | 类型    | 默认值  |
+| -------------- | ------------------------------------ | ------- | ------- |
+| validationType | 验证提示的样式('error' \| 'warning') | string  | 'error' |
+| required       | 是否必填                             | boolean | 无      |
+| message        | 规则不通过输出警告信息               | string  | 无      |
+| len            | 规定长度                             | number  | 无      |
+| max            | 最大长度                             | number  | 无      |
+| min            | 最小长度                             | number  | 无      |
+| pattern        | 正则                                 | RegExp  | 无      |
 
 ### 添加Button组件触发Form的submit事件
 

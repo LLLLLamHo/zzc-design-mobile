@@ -42,7 +42,7 @@ export default class Input extends PureComponent<InputProps, any> {
         delete newProps.prefixCls;
         delete newProps.className;
         delete newProps.htmlType;
-        // 清楚一些托管到form中传入的的props
+        // 清除一些托管到form中传入的的props
         delete newProps._zds_form_initValue;
         delete newProps.formOpt;
         delete newProps.formInputOnChange;
