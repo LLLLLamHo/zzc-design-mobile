@@ -1,0 +1,186 @@
+@import '../style/base.scss';
+$cls: '.zds-button';
+$cls-group: #{$cls}-group;
+
+//按钮active
+@mixin btnActive($color: #fff, $borderColor: #fff, $type: 'default') {
+    &#{$cls}-active-#{$type} {
+        background: $color;
+        border-color: $borderColor;
+    }
+}
+
+@mixin btnSubStyle() {
+    &#{$cls}-sub {
+        background-color: $button_sub_background_color;
+        color: $button_sub_text_color;
+        border: 1px solid $button_sub_border_color;
+        @include btnActive($button_sub_active_background_color, $button_sub_border_color, 'sub');
+
+        &#{$cls}-disabled {
+            opacity: 0.3;
+            background-color: $button_sub_disabled_background_color;
+            color: $button_sub_disabled_text_color;
+            border: 1px solid $button_sub_disabled_border_color;
+        }
+    }
+}
+
+@mixin btnSpecialStyle() {
+    &#{$cls}-special {
+        background-color: $button_special_background_color;
+        color: $button_special_text_color;
+        border: 1px solid $button_special_border_color;
+        @include btnActive($button_special_background_color, $button_special_active_border_color, 'special');
+    }
+}
+
+//按钮基本样式
+@mixin btnBase() {
+    cursor: pointer;
+    font-size: $fs_h1;
+    font-weight: 500;
+    padding: 11.5px 0;
+    line-height: 26px;
+
+    background-color: $button_background_main;
+    color: $button_text_color;
+    text-align: center;
+    border: 1px solid $button_border_main;
+
+    @include flex();
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    // 点击反馈
+    @include btnActive($buton_main_background_active, $buton_main_border_active, 'default');
+    // 次级按钮样式
+    @include btnSubStyle();
+    // 特殊按钮样式
+    @include btnSpecialStyle();
+
+    &#{$cls}-inactive {
+        opacity: 0.3;
+        background-color: $button_background_inactive;
+    }
+
+    &#{$cls}-disabled {
+        opacity: 0.2;
+        background-color: $button_background_disabled;
+        border: 1px solid $button_border_disabled;
+    }
+}
+
+@mixin btnSize() {
+    font-size: $fs_text;
+    height: 36px;
+    font-weight: 500;
+    padding: 7.5px 34.5px;
+    line-height: 20px;
+
+    &#{$cls}-middle {
+        font-size: $fs_text;
+        height: 30px;
+        font-weight: 500;
+        padding: 4.5px 18px;
+        line-height: 20px;
+    }
+
+    &#{$cls}-small {
+        font-size: $fs_text;
+        height: 24px;
+        font-weight: 500;
+        padding: 1.5px 18px;
+        line-height: 20px;
+    }
+}
+
+// 行内按钮组件样式
+@mixin btnInlineBase() {
+    cursor: pointer;
+
+    background-color: $button_background_main;
+    color: $button_text_color;
+    text-align: center;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid $button_border_main;
+
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    // 按钮大少
+    @include btnSize();
+
+    // 点击反馈
+    @include btnActive($buton_main_background_active, $button_border_main, 'default');
+    // 次级按钮样式
+    @include btnSubStyle();
+    // 特殊按钮样式
+    @include btnSpecialStyle();
+
+    &#{$cls}-inactive {
+        opacity: 0.3;
+        background-color: $button_background_inactive;
+    }
+
+    &#{$cls}-disabled {
+        opacity: 0.2;
+        background-color: $button_background_disabled;
+    }
+}
+
+//按钮class
+#{$cls} {
+    @include btnBase();
+}
+
+//按钮class
+#{$cls}-inline {
+    @include btnInlineBase();
+}
+
+// 按钮快
+#{$cls-group} {
+    display: flex;
+    align-items: center;
+    &#{$cls-group}-center{
+        justify-content: space-between;
+    }
+    &#{$cls-group}-left{
+        justify-content: flex-start;
+    }
+    &#{$cls-group}-right{
+        justify-content: flex-end;
+    }
+    #{$cls} {
+        flex: 1;
+        &:not(:first-child) {
+            margin-left: 12px;
+        }
+        &#{$cls}-inline {
+            width: auto;
+            flex: 0!important;
+        }
+    }
+    
+}

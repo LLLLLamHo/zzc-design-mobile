@@ -74,7 +74,8 @@ $button_sub_disabled_text_color: #696E7C;
 // Button 特殊
 $button_special_background_color: $c_fff;
 $button_special_text_color: $c_333;
-$button_special_border_color: $c_333;
+$button_special_small_text_color: #696E7C;
+$button_special_border_color: #696E7C;
 $button_special_active_border_color: rgba(105, 110, 124, 0.5);
 // modal
 $modal_border_color: #E7EBF0;
@@ -112,3 +113,8 @@ $calculator_active_background: rgba(40, 113, 247, .2);
 $calculator_active_color: #3266FF;
 $calculator_disabled_background: rgba(226,228,234,1);
 $calculator_disabled_color: $c_fff;
+
+// form
+$form_success_box_color: #2CB989;
+$form_warning_box_color: #FF8500;
+$form_error_box_color: #CA0808;

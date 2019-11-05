@@ -1,0 +1,22 @@
+.zds-button, .zds-button-inline{
+    margin-bottom: .2rem;
+    
+}
+.zds-button-inline{
+    margin-right: .1rem;
+}
+.zds-button-active-custom{
+    background: red;
+    color:#fff;
+}
+.icon-button{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .zds-icon{
+        width: .28rem;
+        margin-right: .1rem;
+    }
+}

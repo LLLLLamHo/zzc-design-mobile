@@ -1,0 +1,41 @@
+.zzc-demo {
+    background: transparent;
+}
+
+.card-box1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .28rem;
+    color: #333;
+    height: 2rem;
+}
+
+.card-box2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: .28rem;
+    color: #333;
+    padding: .3rem 0;
+}
+
+.cursor-car-head {
+    .zds-card-header-title {
+        color: #666;
+        font-size: .32rem;
+    }
+    .zds-icon {
+        fill: red;
+        width: .3rem;
+        height: .3rem;
+    }
+}
+
+.btn-group{
+    display: flex;
+    .zds-button{
+        width: 50%;
+        flex: 1;
+    }
+}

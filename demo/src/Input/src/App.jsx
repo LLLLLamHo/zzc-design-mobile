@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, List, Card2 } from 'zzc-design-mobile';
+import { Input, Form, List, Card2 } from 'zzc-design-mobile';
 import './index.scss';
 import '../../../style/style.scss';
 
@@ -38,40 +38,57 @@ export default class App extends Component {
                 <div className='zzc-demo-body'>
                     <Card2 style={{ padding: 0 }}>
                         <Card2.Header style={{ paddingLeft: '15px', paddingRight: '15px' }} title='非受控Input' />
-                        <List>
-                            <ListItem
-                                title={<div className='inputItem'><p>输入姓名： </p><Input placeholder='请输入姓名' /></div>}
-                            />
-                            <ListItem
-                                title={<div className='inputItem'><p>输入年龄：  </p><Input placeholder='请输入年龄' /></div>}
-                            />
-                        </List>
+                        <Form>
+                            <Form.Item
+                                label='姓名'
+                                htmlFor='label1'
+                            >
+                                <Input placeholder='请输入姓名' id='label1' />
+                            </Form.Item>
+                            <Form.Item
+                                label='年龄'
+                            >
+                                <Input placeholder='请输入年龄' id='label2' />
+                            </Form.Item>
+                        </Form>
                     </Card2>
                 </div>
                 <div className='zzc-demo-body'>
                     <Card2 style={{ padding: 0 }}>
                         <Card2.Header style={{ paddingLeft: '15px', paddingRight: '15px' }} title='受控Input' />
-                        <List>
-                            <ListItem
-                                title={<div className='inputItem'><p>输入姓名： </p><Input onChange={( e ) => { this.onChange( 'name', e ); }} value={name} placeholder='请输入姓名' /></div>}
-                            />
-                            <ListItem
-                                title={<div className='inputItem'><p>输入年龄：  </p><Input onChange={( e ) => { this.onChange( 'age', e ); }} value={age} placeholder='请输入年龄' /></div>}
-                            />
-                        </List>
+                        <Form>
+                            <Form.Item
+                                label='姓名'
+                                htmlFor='label3'
+                            >
+                                <Input placeholder='请输入姓名' id='label3' value={name} onChange={( e ) => { this.onChange( 'name', e ); }} />
+                            </Form.Item>
+                            <Form.Item
+                                label='年龄'
+                                htmlFor='label4'
+                            >
+                                <Input placeholder='请输入年龄' id='label4' value={age} onChange={( e ) => { this.onChange( 'age', e ); }} />
+                            </Form.Item>
+                        </Form>
                     </Card2>
                 </div>
                 <div className='zzc-demo-body'>
                     <Card2 style={{ padding: 0 }}>
                         <Card2.Header style={{ paddingLeft: '15px', paddingRight: '15px' }} title='其他设置' />
-                        <List>
-                            <ListItem
-                                title={<div className='inputItem'><p>禁止输入：</p><Input disabled placeholder='请输入姓名' /></div>}
-                            />
-                            <ListItem
-                                title={<div className='inputItem'><p>限制最大长度：</p><Input maxLength={20} placeholder='请输入姓名' /></div>}
-                            />
-                        </List>
+                        <Form>
+                            <Form.Item
+                                label='姓名'
+                                htmlFor='label5'
+                            >
+                                <Input placeholder='请输入姓名' id='label5' disabled />
+                            </Form.Item>
+                            <Form.Item
+                                label='年龄'
+                                htmlFor='label6'
+                            >
+                                <Input placeholder='请输入年龄' id='label6' maxLength={20} />
+                            </Form.Item>
+                        </Form>
                     </Card2>
                 </div>
             </div>

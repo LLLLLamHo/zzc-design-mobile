@@ -2,13 +2,42 @@ import React, { Component } from 'react';
 import { Form, Input, Button } from 'zzc-design-mobile';
 
 class MyForm extends Component {
-    onSubmit(data) {
-        console.log(data);
+    onSubmit ( data ) {
+        console.log( data );
     }
 
     render () {
         return (
             <Form onSubmit={this.onSubmit}>
+                <Form.Item
+                    label='验证通过显示提示'
+                    htmlFor='label0'
+                >
+                    {this.props.form.getFieldDecorator( 'label0', {
+                        isShowSuccess: true,
+                        successText: '验证成功',
+                        rules: [
+                            {
+                                required: true,
+                                message: '信息不能为空'
+                            }
+                        ]
+                    }, <Input placeholder='请输入' /> )}
+                </Form.Item>
+                <Form.Item
+                    label='验证失败显示警告'
+                    htmlFor='label0-1'
+                >
+                    {this.props.form.getFieldDecorator( 'label0-1', {
+                        rules: [
+                            {
+                                required: true,
+                                validationType: 'warning',
+                                message: '信息不能为空'
+                            }
+                        ]
+                    }, <Input placeholder='请输入' /> )}
+                </Form.Item>
                 <Form.Item
                     label='必填选项'
                     htmlFor='label1'

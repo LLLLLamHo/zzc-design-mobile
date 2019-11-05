@@ -53,7 +53,6 @@ export default class Form extends PureComponent<FormComponentProps, any> {
                             state.formInputOnFocus && state.formInputOnFocus(id, formOpt);
                         };
                         const value = formData[id] != null ? formData[id]['value'] : newOpt.initialValue || '';
-
                         return React.cloneElement(item, {
                             ...state,
                             id,
@@ -87,12 +86,16 @@ export default class Form extends PureComponent<FormComponentProps, any> {
 
     // 获取所有数据
     getAllData() {
-        const { formData } = this.state;
+        const { formData, itemStatus } = this.state;
         const ids = Object.keys(formData);
         const outputData = {};
         for (let i = 0; i < ids.length; i++) {
             const { value } = formData[ids[i]];
-            outputData[ids[i]] = value;
+            if (!outputData[ids[i]]) {
+                outputData[ids[i]] = {};
+            }
+            outputData[ids[i]] = { ...itemStatus[ids[i]] };
+            outputData[ids[i]].value = value;
         }
         return outputData;
     }
@@ -118,7 +121,7 @@ export default class Form extends PureComponent<FormComponentProps, any> {
     }
 
     // 更新状态
-    updateFormItemStatus(id: string, status: 'normal' | 'error', message?: string, errorRuleIndex?: number) {
+    updateFormItemStatus(id: string, status: 'normal' | 'error' | 'success', message?: string, errorRuleIndex?: number) {
         const { itemStatus } = this.state;
         itemStatus[id] = {
             status,
@@ -151,7 +154,7 @@ export default class Form extends PureComponent<FormComponentProps, any> {
     validation(id: string, value?: any, rulesIndex?: number) {
         const { formData } = this.state;
         const itemInfo = formData[id];
-        const { rules } = itemInfo;
+        const { rules, isShowSuccess, successText } = itemInfo;
         const validationValue = value || itemInfo.value;
 
         // 对当前发生错误的规则进行验证，一般用于在发生错误的input中输入
@@ -163,13 +166,18 @@ export default class Form extends PureComponent<FormComponentProps, any> {
         } else if (rules && isArray(rules)) {
             for (let i = 0; i < rules.length; i++) {
                 const currRule = rules[i];
+                const validationType = rules[i].validationType || 'error';
                 // 必填
                 if (!this.validationRule(validationValue, currRule)) {
-                    this.updateFormItemStatus(id, 'error', currRule.message, i);
-                    break;
+                    this.updateFormItemStatus(id, validationType, currRule.message, i);
+                    return;
                 } else {
                     this.updateFormItemStatus(id, 'normal');
                 }
+            }
+            // 最终验证完成没有错误，当配置了成功提示，那么将显示成功提示
+            if (isShowSuccess && successText != '') {
+                this.updateFormItemStatus(id, 'success', successText);
             }
         }
     }
