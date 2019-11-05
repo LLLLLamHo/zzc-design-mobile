@@ -36938,11 +36938,6 @@ __webpack_require__(133);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// <div className='zzc-demo-body'>
-//                     <h5>普通使用</h5>
-//                     <Form1 />
-//                 </div>
-
 var App = function (_Component) {
     (0, _inherits3.default)(App, _Component);
 
@@ -36970,6 +36965,16 @@ var App = function (_Component) {
                         null,
                         'Form\u8868\u5355\uFF0C\u7EC4\u5408Input\u548C\u5404\u79CD\u8F93\u5165\u7EC4\u4EF6\u4F7F\u7528'
                     )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'zzc-demo-body' },
+                    _react2.default.createElement(
+                        'h5',
+                        null,
+                        '\u666E\u901A\u4F7F\u7528'
+                    ),
+                    _react2.default.createElement(_Form2.default, null)
                 ),
                 _react2.default.createElement(
                     'div',
