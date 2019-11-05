@@ -503,7 +503,7 @@ exports.default = Error;
 /* 11 */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.9' };
+var core = module.exports = { version: '2.6.10' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -37060,4 +37060,4 @@ exports.default = App;
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=Toast.js.map
+//# sourceMappingURL=toast.js.map

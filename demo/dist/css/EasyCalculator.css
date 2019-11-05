@@ -10774,12 +10774,17 @@ button {
     margin-right: 8px;
     width: 14px;
     height: 14px; }
-body {
+#root {
   background: #fff;
 }
 
 .zzc-demo {
   background: transparent;
+}
+
+.zzc-demo h5 {
+  font-size: 16px;
+  padding: 0 .3rem .3rem;
 }
 
 .zzc-demo p {
@@ -10792,7 +10797,7 @@ body {
 }
 
 .zzc-demo .demo-item {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .zzc-demo .desc {
