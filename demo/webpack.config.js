@@ -11,7 +11,7 @@ const CWD = process.cwd();
 let dirs = fs.readdirSync( path.join( CWD, './src' ) );
 let entry = {};
 for ( let i = 0; i < dirs.length; i++ ) {
-    if ( dirs[i] == 'Input' ) {
+    if ( dirs[i] == 'Button' ) {
         entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     }
     if ( dirs[i] == 'Form' ) {

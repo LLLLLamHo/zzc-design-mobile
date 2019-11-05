@@ -33,6 +33,9 @@ $cls-group: #{$cls}-group;
         border: 1px solid $button_special_border_color;
         @include btnActive($button_special_background_color, $button_special_active_border_color, 'special');
     }
+    &#{$cls}-special-inline, &#{$cls}-special-small{
+        color: $button_special_small_text_color;
+    }
 }
 
 //按钮基本样式

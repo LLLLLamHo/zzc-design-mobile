@@ -4,6 +4,8 @@ node_modules/
 npm-debug.log
 /dist
 .vscode
+.history
 npm-debug.log*
 /es/
 package-lock.json
+demo/.guido-cache
