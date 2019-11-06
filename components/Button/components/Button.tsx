@@ -40,7 +40,7 @@ export default class Button extends PureComponent<ButtonProps, any> {
 
     render() {                
         const { inactive, children, className, prefixCls, type, size, inline, disabled, style, activeStyle, activeClassName, onClick, htmlType } = this.props;
-        let btnClassNames: string = '';
+        let btnClassNames: string = '';        
         if (inline) {
             interface classType { [propName: string]: any };
             let classes: classType = {
@@ -51,8 +51,7 @@ export default class Button extends PureComponent<ButtonProps, any> {
             };
             btnClassNames = classNames(
                 prefixCls,
-                `${prefixCls}-inline`,
-                `${prefixCls}-${type}-inline`,
+                `${prefixCls}-inline`,                
                 className,
                 classes
             );
@@ -61,12 +60,11 @@ export default class Button extends PureComponent<ButtonProps, any> {
                 prefixCls,
                 className,
                 {
-                    [`${prefixCls}-${type}`]: type !== '',
-                    [`${prefixCls}-${type}-${size}`]: size !== '',
+                    [`${prefixCls}-${type}`]: type !== '',                    
                     [`${prefixCls}-disabled`]: disabled,
                     [`${prefixCls}-inactive`]: inactive
                 }
-            );
+            );                        
         }
         return (
             <TouchFeedback
