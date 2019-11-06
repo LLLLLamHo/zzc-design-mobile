@@ -1,8 +1,12 @@
-body {
+#root {
     background: #fff;
 }
 .zzc-demo {
     background: transparent;
+    h5 {
+        font-size: 16px;
+        padding: 0 .3rem .3rem;
+    }
     p{
         line-height: 1;
         font-size: 18px;
@@ -11,7 +15,7 @@ body {
         padding: 0 .3rem;
     }
     .demo-item {
-        margin-bottom: 20px
+        margin-bottom: 10px
     }
     .desc {
         padding: .3rem;

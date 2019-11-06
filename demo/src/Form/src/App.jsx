@@ -4,10 +4,7 @@ import Form2 from './Form2';
 import Form3 from './Form3';
 import './index.scss';
 import '../../../style/style.scss';
-// <div className='zzc-demo-body'>
-//                     <h5>普通使用</h5>
-//                     <Form1 />
-//                 </div>
+
 
 export default class App extends Component {
     render () {
@@ -17,7 +14,10 @@ export default class App extends Component {
                     <h1 className='zzc-demo-title'>Form</h1>
                     <h2>Form表单，组合Input和各种输入组件使用</h2>
                 </div>
-                
+                <div className='zzc-demo-body'>
+                    <h5>普通使用</h5>
+                    <Form1 />
+                </div>
                 <div className='zzc-demo-body'>
                     <h5>多种input</h5>
                     <Form3 />
