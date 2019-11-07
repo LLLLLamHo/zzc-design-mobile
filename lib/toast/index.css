@@ -260,11 +260,15 @@
   min-width: 100px; }
 
 .zds-toast.zds-toast-icon .zds-toast-notice-content .zds-toast-text-content {
-  margin-top: 10px; }
+  margin-top: 9px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 14px;
+  word-break: break-all; }
 
 .zds-toast .zds-toast-notice-content {
   background: rgba(65, 72, 93, 0.8);
-  border-radius: 8px;
+  border-radius: 4px;
   text-align: center;
   padding: 10px 20px;
   box-sizing: border-box;

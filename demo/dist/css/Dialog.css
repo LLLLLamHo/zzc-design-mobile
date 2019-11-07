@@ -1,3 +1,57 @@
+body {
+  background: #DDE0E6;
+  font-family: -apple-system,Helvetica,Hiragino Sans GB W3,arial,sans-serif;
+}
+
+#root {
+  height: 100%;
+  background: #EFF2F8;
+}
+
+.zzc-demo {
+  background: #fff;
+}
+
+.zzc-demo .zzc-demo-header {
+  padding: .3rem .3rem 0;
+}
+
+.zzc-demo .zzc-demo-header .zzc-demo-title {
+  font-size: .32rem;
+  color: #666;
+}
+
+.zzc-demo .zzc-demo-header h2 {
+  font-size: .24rem;
+  color: #666;
+  padding-top: .2rem;
+}
+
+.zzc-demo .zzc-demo-body {
+  margin-top: .2rem;
+  padding: 0 .3rem .3rem;
+  box-sizing: border-box;
+}
+
+.zzc-demo .zzc-demo-body > h5 {
+  font-size: .28rem;
+  color: #666;
+  padding: .2rem 0;
+}
+
+.zzc-demo .zzc-demo-body.full {
+  padding: 0;
+}
+
+.zzc-demo .zzc-demo-body.full > h5 {
+  padding: .2rem .3rem;
+}
+
+.zzc-demo .zzc-component-title {
+  color: #333;
+  font-size: .32rem;
+  padding: .3rem;
+}
 .zds-icon {
   fill: currentColor;
   background-size: cover; }
@@ -85,9 +139,8 @@ textarea {
   border-radius: 0;
   outline: medium none;
   -webkit-user-select: auto;
-  -moz-user-select: auto;
-   -ms-user-select: auto;
-       user-select: auto; }
+  -ms-user-select: auto;
+      user-select: auto; }
 
 input:disabled,
 textarea:disabled {
@@ -553,10 +606,14 @@ button {
   .zds-toast.zds-toast-icon .zds-toast-notice-content {
     min-width: 100px; }
     .zds-toast.zds-toast-icon .zds-toast-notice-content .zds-toast-text-content {
-      margin-top: 10px; }
+      margin-top: 9px;
+      color: #fff;
+      font-size: 14px;
+      line-height: 14px;
+      word-break: break-all; }
   .zds-toast .zds-toast-notice-content {
     background: rgba(65, 72, 93, 0.8);
-    border-radius: 8px;
+    border-radius: 4px;
     text-align: center;
     padding: 10px 20px;
     box-sizing: border-box;
@@ -1427,7 +1484,6 @@ button {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
   .zds-button.zds-button-active-default {
@@ -1447,13 +1503,11 @@ button {
       border: 1px solid #696E7C; }
   .zds-button.zds-button-special {
     background-color: #fff;
-    color: #333;
+    color: #696E7C;
     border: 1px solid #696E7C; }
     .zds-button.zds-button-special.zds-button-active-special {
       background: #fff;
       border-color: rgba(105, 110, 124, 0.5); }
-  .zds-button.zds-button-special-inline, .zds-button.zds-button-special-small {
-    color: #696E7C; }
   .zds-button.zds-button-inactive {
     opacity: 0.3;
     background-color: #276FF1; }
@@ -1484,11 +1538,9 @@ button {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   font-size: 14px;
-  height: 36px;
   font-weight: 500;
   padding: 7.5px 34.5px;
   line-height: 20px; }
@@ -1500,9 +1552,8 @@ button {
     line-height: 20px; }
   .zds-button-inline.zds-button-small {
     font-size: 13px;
-    height: 24px;
     font-weight: 500;
-    padding: 1.5px 18px;
+    padding: 1px 18px;
     line-height: 20px; }
   .zds-button-inline.zds-button-active-default {
     background: #1F58C0;
@@ -1521,13 +1572,11 @@ button {
       border: 1px solid #696E7C; }
   .zds-button-inline.zds-button-special {
     background-color: #fff;
-    color: #333;
+    color: #696E7C;
     border: 1px solid #696E7C; }
     .zds-button-inline.zds-button-special.zds-button-active-special {
       background: #fff;
       border-color: rgba(105, 110, 124, 0.5); }
-  .zds-button-inline.zds-button-special-inline, .zds-button-inline.zds-button-special-small {
-    color: #696E7C; }
   .zds-button-inline.zds-button-inactive {
     opacity: 0.3;
     background-color: #276FF1; }
@@ -10831,60 +10880,6 @@ button {
     width: 14px;
     height: 14px; }
 body {
-  background: #DDE0E6;
-  font-family: -apple-system,Helvetica,Hiragino Sans GB W3,arial,sans-serif;
-}
-
-#root {
-  height: 100%;
-  background: #EFF2F8;
-}
-
-.zzc-demo {
-  background: #fff;
-}
-
-.zzc-demo .zzc-demo-header {
-  padding: .3rem .3rem 0;
-}
-
-.zzc-demo .zzc-demo-header .zzc-demo-title {
-  font-size: .32rem;
-  color: #666;
-}
-
-.zzc-demo .zzc-demo-header h2 {
-  font-size: .24rem;
-  color: #666;
-  padding-top: .2rem;
-}
-
-.zzc-demo .zzc-demo-body {
-  margin-top: .2rem;
-  padding: 0 .3rem .3rem;
-  box-sizing: border-box;
-}
-
-.zzc-demo .zzc-demo-body > h5 {
-  font-size: .28rem;
-  color: #666;
-  padding: .2rem 0;
-}
-
-.zzc-demo .zzc-demo-body.full {
-  padding: 0;
-}
-
-.zzc-demo .zzc-demo-body.full > h5 {
-  padding: .2rem .3rem;
-}
-
-.zzc-demo .zzc-component-title {
-  color: #333;
-  font-size: .32rem;
-  padding: .3rem;
-}
-body {
   background: #fff !important;
 }
 
@@ -10937,4 +10932,4 @@ body {
   background: red;
 }
 
-/*# sourceMappingURL=dialog.css.map*/
+/*# sourceMappingURL=Dialog.css.map*/
