@@ -1,6 +1,6 @@
 export interface ButtonProps {
     prefixCls?: string,
-    size?: string,
+    size?: string | Boolean,
     inline?: boolean,
     disabled?: boolean,
     inactive?: boolean,

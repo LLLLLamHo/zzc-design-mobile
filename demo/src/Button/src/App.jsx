@@ -24,13 +24,13 @@ export default class App extends PureComponent {
                     <Button disabled>禁用按钮</Button>
                     <h5>全局次级按钮</h5>
                     <Button type='sub'>默认按钮</Button>
-                    <Button type='sub' disabled>禁用按钮</Button>
-                    <h5>特殊全局按钮</h5>
+                    <Button type='sub' disabled>禁用按钮</Button>                    
                     <Button type='special'>默认按钮</Button>
                     <h5>自定义按钮</h5>
+                    <Button style={{ color: '#333', background: '#fff', border: '1px solid #696E7C' }}>自定义style</Button>
                     <Button style={{ background: 'red' }}>自定义style</Button>
                     <Button className='blue'>自定义class</Button>
-                    <Button activeStyle={{ background: 'red', color: 'blue' }}>自定义激活style</Button>
+                    <Button activeStyle={{ background: 'red', color: 'blue' }}>自定义激活style</Button>                                        
                 </div>
                 <div className='zzc-demo-body'>
                     <h5>行内按钮(默认大小)</h5>
@@ -50,7 +50,8 @@ export default class App extends PureComponent {
                     <Button inline size='small' type='sub'>确认</Button>
                     <Button inline size='small' type='sub' disabled>确认</Button>
                     <Button inline size='small' type='special'>确认</Button>
-                    <Button inline size='small' inactive>确认</Button>                    
+                    <Button inline size='small' inactive>确认</Button> 
+                                       
                 </div>
                 <div className='zzc-demo-body'>
                     <h5>按钮块</h5>
