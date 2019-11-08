@@ -28331,7 +28331,7 @@ function getToast(type, content) {
                 _react2.default.createElement(
                     'div',
                     { className: (0, _classnames2.default)(PREFIXCLS + '-text') },
-                    (type === 'success' || type === 'error' || type === 'waring' || type === 'loading') && _react2.default.createElement(_Icon2.default, { style: { color: '#fff', width: '36px', height: '36px' }, type: function () {
+                    (type === 'success' || type === 'error' || type === 'waring' || type === 'loading') && _react2.default.createElement(_Icon2.default, { type: function () {
                             switch (type) {
                                 case 'success':
                                     return 'success_outline';

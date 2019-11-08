@@ -115,7 +115,7 @@ function getToast( type: string, content: any, duration: number = 2, onClose: an
                 <div className={classNames( `${PREFIXCLS}-notice-content`, isIconToast ? 'logo-box' : '' )}>
                     <div className={classNames( `${PREFIXCLS}-text` )}>
                         {
-                            ( type === 'success' || type === 'error' || type === 'waring' || type === 'loading' ) && <Icon style={{ color: '#fff', width: '36px', height: '36px' }} type={(() => {
+                            ( type === 'success' || type === 'error' || type === 'waring' || type === 'loading' ) && <Icon type={(() => {
                                 switch (type) {
                                     case 'success': return 'success_outline';
                                     case 'error': return 'error_outline';
