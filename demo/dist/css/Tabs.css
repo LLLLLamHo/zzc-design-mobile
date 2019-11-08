@@ -617,15 +617,36 @@ button {
     text-align: center;
     padding: 10px 20px;
     box-sizing: border-box;
-    max-width: 218.5px; }
+    max-width: 218.5px;
+    position: relative; }
     .zds-toast .zds-toast-notice-content.logo-box {
       width: 100px;
       height: 100px;
-      padding: 18px 0; }
+      padding: 18px 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+          -ms-transform: translateX(-50%) translateY(-50%);
+              transform: translateX(-50%) translateY(-50%); }
+      .zds-toast .zds-toast-notice-content.logo-box svg {
+        color: #fff;
+        height: 36px;
+        width: 36px; }
     .zds-toast .zds-toast-notice-content .zds-toast-text {
       color: #fff;
       font-size: 14px;
-      word-break: break-all; }
+      word-break: break-all;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
 .zds-slide-bottom-enter {
   position: absolute;
   -webkit-transform: translateY(100%);

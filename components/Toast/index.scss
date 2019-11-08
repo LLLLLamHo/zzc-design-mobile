@@ -45,17 +45,31 @@ $cls: '.zds-toast';
         padding: 10px 20px;
         box-sizing: border-box;
         max-width: 218.5px;
+        position: relative;
 
         &.logo-box {
             width: 100px;
             height: 100px;
             padding: 18px 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+
+            svg {
+                color: #fff;
+                height: 36px;
+                width: 36px;
+            }
         }
 
         #{$cls}-text {
             color: $c_fff;
             font-size: $fs_h2;
             word-break: break-all;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './index.scss';
 import '../../../style/style.scss';
-import { Toast, Button } from 'zzc-design-mobile';
+import { Icon, Toast, Button } from 'zzc-design-mobile';
 
 let isClose = false;
 
@@ -11,52 +11,51 @@ export default class App extends Component {
         super( props );
     }
 
-    maskInfo() {
+    maskInfo () {
         Toast.info( '两行toast文案两行toast文案最长不超过2行', 2, () => {
             console.log( '关闭' );
         }, null, false );
     }
 
-    loadingInfo() {
+    loadingInfo () {
         if ( isClose ) {
             isClose = false;
             Toast.hideToast();
         } else {
             isClose = true;
-            Toast.info( '再次点击关闭toast', 0, () => {}, null, false );
+            Toast.info( '再次点击关闭toast', 0, () => { }, null, false );
         }
     }
 
-    info() {
+    info () {
         Toast.info( '这是一个普通的提示', 2, () => {
             console.log( '关闭' );
         } );
     }
 
-    success() {
+    success () {
         Toast.success( '成功提示', 2 );
     }
 
-    error() {
-        Toast.error( '失败提示', 2);
+    error () {
+        Toast.error( '失败提示', 2 );
     }
 
-    waring() {
+    waring () {
         Toast.waring( '警示信息', 2 );
     }
 
-    loading() {
-        Toast.loading( '正在加载', 20 );
+    loading () {
+        Toast.loading( '正在加载', 2 );
     }
 
-    parentInfo() {
+    parentInfo () {
         Toast.info( '指定父级显示Toast', 2, () => {
             console.log( '关闭' );
-        }, document.querySelector('.box') );
+        }, document.querySelector( '.box' ) );
     }
 
-    render() {
-
+    render () {
         return (
             <div className="zzc-demo">
                 <div className="zzc-demo-header">
@@ -65,7 +64,7 @@ export default class App extends Component {
                 <div className="zzc-demo-body">
                     <Button onClick={this.maskInfo}>no mask info</Button>
                     <Button onClick={this.info} type="main">info</Button>
-                    <Button onClick={this.success} type="main">success</Button>
+                    <Button onClick={this.success} type="main"><Icon type='success_outline' style={{ color: '#fff', marginRight: '10px' }} size='xs' />success</Button>
                     <Button onClick={this.error} type="sub">error</Button>
                     <Button onClick={this.waring} type="sub">waring</Button>
                     <Button onClick={this.loading} type="main">loading</Button>

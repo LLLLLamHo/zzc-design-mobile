@@ -28331,7 +28331,7 @@ function getToast(type, content) {
                 _react2.default.createElement(
                     'div',
                     { className: (0, _classnames2.default)(PREFIXCLS + '-text') },
-                    (type === 'success' || type === 'error' || type === 'waring' || type === 'loading') && _react2.default.createElement(_Icon2.default, { style: { color: '#fff', width: '36px', height: '36px' }, type: function () {
+                    (type === 'success' || type === 'error' || type === 'waring' || type === 'loading') && _react2.default.createElement(_Icon2.default, { type: function () {
                             switch (type) {
                                 case 'success':
                                     return 'success_outline';
@@ -37046,7 +37046,7 @@ var App = function (_Component) {
     }, {
         key: 'loading',
         value: function loading() {
-            _zzcDesignMobile.Toast.loading('正在加载', 20);
+            _zzcDesignMobile.Toast.loading('正在加载', 2);
         }
     }, {
         key: 'parentInfo',
@@ -37058,7 +37058,6 @@ var App = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-
             return _react2.default.createElement(
                 'div',
                 { className: 'zzc-demo' },
@@ -37087,6 +37086,7 @@ var App = function (_Component) {
                     _react2.default.createElement(
                         _zzcDesignMobile.Button,
                         { onClick: this.success, type: 'main' },
+                        _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'success_outline', style: { color: '#fff', marginRight: '10px' }, size: 'xs' }),
                         'success'
                     ),
                     _react2.default.createElement(
