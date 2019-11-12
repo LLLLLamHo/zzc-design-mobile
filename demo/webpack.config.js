@@ -14,7 +14,7 @@ for ( let i = 0; i < dirs.length; i++ ) {
     // if ( dirs[i] == 'Toast' ) {
     //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     // }
-    // if ( dirs[i] == 'Form' ) {
+    // if ( dirs[i] == 'List' ) {
     //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     // }
     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;

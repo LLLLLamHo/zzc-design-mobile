@@ -158,7 +158,6 @@
   opacity: 0;
   animation-duration: .2s;
   animation-fill-mode: both;
-  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   animation-play-state: paused; }
 
 .zds-fade-enter.zds-fade-enter-active {
@@ -171,7 +170,6 @@
   opacity: 0;
   animation-duration: .2s;
   animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   animation-play-state: paused; }
 
 .zds-fade-leave.zds-fade-leave-active {

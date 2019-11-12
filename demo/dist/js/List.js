@@ -37019,23 +37019,31 @@ var App = function (_PureComponent) {
                                 null,
                                 '\u6807\u9898\u52A0\u4E0A\u56FE\u6807'
                             ),
-                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'arrows', style: { width: '20px', height: '30px' } })
+                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'arrows', style: { width: '18px', height: '18px' } })
                         }),
-                        _react2.default.createElement(ListItem, {
-                            title: _react2.default.createElement(
-                                'p',
+                        _react2.default.createElement(
+                            ListItem,
+                            {
+                                title: _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    '\u8D85\u7EA7\u957F\u7684\u56FE\u6807\u8D85\u7EA7\u957F\u7684\u56FE\u6807\u8D85\u7EA7\u957F\u7684\u56FE\u6807\u8D85\u7EA7\u957F\u7684\u56FE\u6807'
+                                ),
+                                extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'arrows', style: { width: '18px', height: '18px' } })
+                            },
+                            _react2.default.createElement(
+                                'div',
                                 null,
-                                '\u8D85\u7EA7\u957F\u7684\u56FE\u6807\u8D85\u7EA7\u957F\u7684\u56FE\u6807\u8D85\u7EA7\u957F\u7684\u56FE\u6807\u8D85\u7EA7\u957F\u7684\u56FE\u6807'
-                            ),
-                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'arrows', style: { width: '20px', height: '30px' } })
-                        }),
+                                '\u5185\u5BB9\u9879\u63CF\u8FF0\u5185\u5BB9\u9879\u63CF\u8FF0\u5185\u5BB9\u9879\u63CF\u8FF0\u5185\u5BB9\u9879\u63CF\u8FF0\u5185\u5BB9\u9879\u63CF\u8FF0\u5185\u5BB9\u9879\u63CF\u8FF0\u5185\u5BB9\u9879\u63CF\u8FF0\u5185\u5BB9\u9879\u63CF\u8FF0\u5185\u5BB9\u9879\u63CF\u8FF0\u5185\u5BB9\u9879\u63CF\u8FF0\u5185\u5BB9\u9879\u63CF\u8FF0\u5185\u5BB9\u9879\u63CF\u8FF0'
+                            )
+                        ),
                         _react2.default.createElement(ListItem, {
                             title: _react2.default.createElement(
                                 'p',
                                 null,
                                 '\u56FE\u6807\u70B9\u51FB'
                             ),
-                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'arrows', style: { width: '20px', height: '30px' } }),
+                            extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'arrows', style: { width: '18px', height: '18px' } }),
                             extraClick: function extraClick() {
                                 _zzcDesignMobile.Toast.info('点击图标', 2);
                             }
@@ -37048,7 +37056,7 @@ var App = function (_PureComponent) {
                                     null,
                                     '\u5E26\u6709\u5185\u5BB9\u7684Item'
                                 ),
-                                extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'arrows', style: { width: '20px', height: '30px' } }),
+                                extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'arrows', style: { width: '18px', height: '18px' } }),
                                 extraClick: function extraClick() {
                                     _zzcDesignMobile.Toast.info('点击图标', 2);
                                 }
