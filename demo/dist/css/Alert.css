@@ -458,8 +458,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -474,8 +472,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -932,8 +928,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -948,8 +942,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -1362,8 +1354,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -1378,8 +1368,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -1920,8 +1908,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -1936,8 +1922,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -2068,9 +2052,9 @@ button {
       -webkit-box-pack: start;
           -ms-flex-pack: start;
               justify-content: flex-start;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center; }
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start; }
       .zds-list-item .zds-list-item-header .zds-list-item-header-top {
         -webkit-box-align: start;
             -ms-flex-align: start;
@@ -2085,10 +2069,12 @@ button {
                 flex: 1;
         color: #333;
         font-size: 17px;
-        font-weight: 600; }
+        font-weight: 600;
+        line-height: 26px; }
       .zds-list-item .zds-list-item-header .zds-list-item-header-extra {
         margin-left: 10px;
-        color: #9EA1B0; }
+        color: #9EA1B0;
+        margin-top: 4px; }
     .zds-list-item .zds-list-item-body {
       color: #696E7C;
       font-size: 14px;
@@ -2371,8 +2357,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -2387,8 +2371,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -2810,8 +2792,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -2826,8 +2806,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -3244,8 +3222,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -3260,8 +3236,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -3664,8 +3638,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -3680,8 +3652,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -4077,8 +4047,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -4093,8 +4061,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -4521,8 +4487,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -4537,8 +4501,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -4980,8 +4942,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -4996,8 +4956,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -5492,8 +5450,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -5508,8 +5464,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -5947,8 +5901,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -5963,8 +5915,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -6517,8 +6467,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -6533,8 +6481,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -6982,8 +6928,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -6998,8 +6942,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -7424,8 +7366,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -7440,8 +7380,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -7871,8 +7809,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -7887,8 +7823,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -8312,8 +8246,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -8328,8 +8260,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -8833,8 +8763,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -8849,8 +8777,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -9312,8 +9238,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -9328,8 +9252,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -9745,8 +9667,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -9761,8 +9681,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -10175,8 +10093,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -10191,8 +10107,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {
@@ -10628,8 +10542,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-enter.zds-fade-enter-active {
@@ -10644,8 +10556,6 @@ button {
           animation-duration: .2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
   .zds-fade-leave.zds-fade-leave-active {

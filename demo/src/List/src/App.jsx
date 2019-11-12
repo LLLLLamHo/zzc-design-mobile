@@ -21,22 +21,24 @@ export default class App extends PureComponent {
                         />
                         <ListItem
                             title={<p>标题加上图标</p>}
-                            extra={<Icon type='arrows' style={{ width: '20px', height: '30px' }} />}
+                            extra={<Icon type='arrows' style={{ width: '18px', height: '18px' }} />}
                         />
                         <ListItem
                             title={<p>超级长的图标超级长的图标超级长的图标超级长的图标</p>}
-                            extra={<Icon type='arrows' style={{ width: '20px', height: '30px' }} />}
-                        />
+                            extra={<Icon type='arrows' style={{ width: '18px', height: '18px' }} />}
+                        >
+                            <div>内容项描述内容项描述内容项描述内容项描述内容项描述内容项描述内容项描述内容项描述内容项描述内容项描述内容项描述内容项描述</div>
+                        </ListItem>
                         <ListItem
                             title={<p>图标点击</p>}
-                            extra={<Icon type='arrows' style={{ width: '20px', height: '30px' }} />}
+                            extra={<Icon type='arrows' style={{ width: '18px', height: '18px' }} />}
                             extraClick={() => {
                                 Toast.info( '点击图标', 2 );
                             }}
                         />
                         <ListItem
                             title={<p>带有内容的Item</p>}
-                            extra={<Icon type='arrows' style={{ width: '20px', height: '30px' }} />}
+                            extra={<Icon type='arrows' style={{ width: '18px', height: '18px' }} />}
                             extraClick={() => {
                                 Toast.info( '点击图标', 2 );
                             }}
