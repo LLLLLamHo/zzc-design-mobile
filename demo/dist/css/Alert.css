@@ -79,6 +79,9 @@ body {
     height: 20px; }
 
 .zds-icon-loading {
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
   -webkit-animation: cirle-zzc 1s linear infinite;
           animation: cirle-zzc 1s linear infinite; }
 
