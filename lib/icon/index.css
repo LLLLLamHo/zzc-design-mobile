@@ -23,6 +23,7 @@
   height: 20px; }
 
 .zds-icon-loading {
+  transform-origin: 50% 50%;
   animation: cirle-zzc 1s linear infinite; }
 
 @keyframes cirle-zzc {

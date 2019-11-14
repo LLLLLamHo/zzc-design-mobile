@@ -57,6 +57,14 @@ export default class App extends Component {
                                 this.iconClick( 'arrows' );
                             }}
                         >
+                            <Icon type='loading' />
+                            <p>arrows</p>
+                        </div>
+                        <div className='icon-box'
+                            onClick={() => {
+                                this.iconClick( 'arrows' );
+                            }}
+                        >
                             <Icon type='arrows' />
                             <p>arrows</p>
                         </div>

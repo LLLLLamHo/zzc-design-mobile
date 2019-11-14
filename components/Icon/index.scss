@@ -26,6 +26,7 @@ $cls: '.zds-icon';
 }
 
 #{$cls}-loading {
+    transform-origin:50% 50%;  
     animation: cirle-zzc 1s linear infinite;
 }
 
