@@ -10,23 +10,18 @@
 }
 .zzc-demo-body{
     margin-top:.5rem;
-    .zds-icon{
-        margin-right: .2rem;
-        margin-top: .2rem;
-    }
-
     .icon-box-list{
         display: flex;
         align-items: center;
         justify-content: flex-start;
         flex-wrap: wrap;
         .icon-box{
-            margin-top: .4rem;
+            width: 33%;
+            margin-bottom: .4rem;
             display: flex;
             align-items: center;
             justify-content: flex-start;
             flex-direction: column;
-            width: 33%;
             cursor: pointer;
             &:hover{
                 .zds-icon{
