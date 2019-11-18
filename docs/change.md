@@ -14,9 +14,7 @@
 #### 3.0.9
 `2019-10-24`
 
-- 🐞 修改toast的success，error，warning的图标
-- 🐞 去除Icon中的3个svg
-- 🐞 修改Card组件中的样式问题
+- 🐞 修改多个样式问题https://github.com/LLLLLamHo/zzc-design-mobile/projects/2
 
 
 #### 3.0.8
