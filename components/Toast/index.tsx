@@ -8,7 +8,6 @@ import { isDOM } from '../_util/typeof';
 import Icon from '../Icon';
 import Alignment from '../_util/alignment';
 import config from '../_util/config';
-import { zzcComponentUse } from '../_util/gtag';
 
 import '../style/index';
 import './index.scss';
@@ -77,7 +76,6 @@ function createParentNode( specifiedpParnet: any ): Element {
 }
 
 function getToast( type: string, content: any, duration: number = 2, onClose: any = () => { }, parnetNode: any = null, mask: boolean = true ): void {
-    zzcComponentUse( 'Toast', '组件渲染' );
     // only one toast to page
     if ( _toastElem != null ) {
         alignment.save( {

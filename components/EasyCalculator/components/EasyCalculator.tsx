@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import classnames from 'classnames';
-import { zzcComponentUse } from '../../_util/gtag';
 import { EasyCalculatorProps } from '../propsType';
 
 function getButtonStatus(val, props) {
@@ -13,7 +12,6 @@ function getButtonStatus(val, props) {
 export default class EasyCalculator extends PureComponent<EasyCalculatorProps, any> {
     constructor( props ) {
         super( props );
-        zzcComponentUse( 'EasyCalculator', '组件渲染' );
         let value: number = this.getValidValue(props);
         const obj = getButtonStatus(value, props);
         this.state = {

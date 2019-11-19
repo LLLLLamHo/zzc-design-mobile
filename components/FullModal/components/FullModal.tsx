@@ -4,13 +4,11 @@ import BScroll from 'better-scroll'
 import Dialog from '../../Dialog';
 import TouchFeedback from '../../TouchFeedback';
 import config from '../../_util/config';
-import { zzcComponentUse } from '../../_util/gtag';
 import { FullModalProps } from '../propsTyps';
 
 export default class FullModal extends PureComponent<FullModalProps, any> {
     constructor( props ) {
         super( props );
-        zzcComponentUse( 'FullModal', '组件渲染' );
     }
 
     static defaultProps = {

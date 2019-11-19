@@ -5,14 +5,12 @@ import { addClass } from '../../_util/class';
 import animateConfig from '../../_util/animateConfig';
 import { isFunction } from '../../_util/typeof';
 import config from '../../_util/config';
-import { zzcComponentUse } from '../../_util/gtag';
 import { DialogProps } from '../propsType';
 
 
 export default class Dialog extends PureComponent<DialogProps, any> {
     constructor(props) {
         super(props);
-        zzcComponentUse('Dialog', '组件渲染');
     }
     static defaultProps = {
         prefixCls: `${config.cls}-dialog`,

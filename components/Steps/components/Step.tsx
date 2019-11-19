@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Icon } from 'zzc-design-mobile';
+import Icon from '../../Icon';
 import { StepProps } from '../propsTypes';
 export default class Step extends React.PureComponent<StepProps> {
     constructor(props: StepProps) {

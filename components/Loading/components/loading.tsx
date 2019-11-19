@@ -1,13 +1,11 @@
 import React, { PureComponent } from 'react';
 import Modal from '../../Modal';
 import config from '../../_util/config';
-import { zzcComponentUse } from '../../_util/gtag';
 import { LoadingProps, LoadingState } from '../propsType';
 
 export default class Loading extends PureComponent<LoadingProps, LoadingState> {
     constructor( props ) {
         super( props );
-        zzcComponentUse( 'Loading', '组件渲染' );
     }
     static defaultProps = {
         prefixCls: `${config.cls}-loading`,

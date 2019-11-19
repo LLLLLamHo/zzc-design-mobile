@@ -10,7 +10,6 @@ import Popup from '../../Popup';
 import { isFunction, isDate } from '../../_util/typeof';
 import langTextObject from '../../_util/i18n';
 import { DatePickerProps, DatePickerState, ListItem, BScrollArray } from '../propsType';
-import { zzcComponentUse } from '../../_util/gtag';
 import config from '../../_util/config';
 
 export default class DatePicker extends React.Component<DatePickerProps, DatePickerState> {
@@ -42,7 +41,6 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         this.renderAfter = this.renderAfter.bind(this);
         this.close = this.close.bind(this);
         this.submit = this.submit.bind(this);
-        zzcComponentUse('DatePicker', '组件渲染');
     }
 
     shouldComponentUpdate(nextProps, nextState): boolean {
