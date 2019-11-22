@@ -9,7 +9,7 @@ export interface InputProps {
     defaultValue?: any
     placeholder?: string
     htmlType?: string
-    disabled?: boolean
+    disabled?: boolean    
     onChange?: Function
     onBlur?: Function
     onFocus?: Function
@@ -20,4 +20,51 @@ export interface InputProps {
     _zds_form_initValue?: Function
     setFormItemId?: Function
     formOpt?: getFieldDecoratorOption
+}
+
+export type SortEventHandle = React.FocusEvent<HTMLInputElement | HTMLTextAreaElement> | React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> 
+export type TextareaEventHandle = (val?:string, e?:SortEventHandle ) => void;
+
+export interface TextareaProps {
+    prefixCls?: string
+    id?: string
+    className?: string   
+    value?: string
+    defaultValue?: string
+    autoHeight?: boolean    
+    count:number
+    rows?:number
+    style?:React.CSSProperties        
+    maxLength?: number | string 
+    disabled?: boolean
+    placeholder?: string
+    onFocus?: TextareaEventHandle
+    onChange?: TextareaEventHandle
+    onBlur?: TextareaEventHandle
+
+    _zds_form_initValue?: Function
+    formOpt?: getFieldDecoratorOption
+    formInputOnChange?: Function
+    formInputOnBlur?: Function
+    formInputOnFocus?: Function
+    setFormItemId?: Function
+}
+
+export interface TextareaState {
+    focus?: boolean
+    value?: string
+}
+
+export interface lengthCtrProps {
+    maxLength?:number
+}
+
+export interface resetDataProps {
+    a: string
+    b: number
+}
+
+export interface resetDataReturn {
+    a: string //
+    b: number
 }

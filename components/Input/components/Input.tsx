@@ -3,11 +3,13 @@ import classNames from 'classnames';
 import config from '../../_util/config';
 import { InputProps } from '../propsType';
 import { isFunction } from '../../_util/typeof';
+import Textarea from "./Textarea"
 
 export default class Input extends PureComponent<InputProps, any> {
     constructor(props) {
         super(props);
     }
+    static Textarea = Textarea;
     static defaultProps = {
         prefixCls: `${config.cls}-input`,
         className: '',
