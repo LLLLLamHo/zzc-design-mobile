@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import Modal from '../Modal';
 import config from '../_util/config';
-import { zzcComponentUse } from '../_util/gtag';
 import './index.scss';
 
 class Alert{
@@ -25,7 +24,6 @@ class Alert{
             closable: true,
             closeCallback() { }
         };
-        zzcComponentUse( 'Alert', '组件渲染' );
         this.opt = Object.assign( defaultPorps, opt );
         const { title, content, prefixCls, className, titleImg } = this.opt;
         this.parentNode = this.createParentNode( className );

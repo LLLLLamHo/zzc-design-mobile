@@ -49,6 +49,7 @@ export default class App extends Component {
                     <h2>点击图片可以复制使用</h2>
                 </div>
                 <textarea className='queIdInput' id='queIdInput' value='' />
+
                 <div className='zzc-demo-body'>
                     <h5>方向性图标</h5>
                     <div className='icon-box-list'>

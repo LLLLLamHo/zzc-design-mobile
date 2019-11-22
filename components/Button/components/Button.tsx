@@ -3,12 +3,10 @@ import classNames from 'classnames';
 import TouchFeedback from '../../TouchFeedback';
 import config from '../../_util/config';
 import ButtonGroup from './ButtonGroup';
-import { zzcComponentUse } from '../../_util/gtag';
 import { ButtonProps } from '../propsType';
 export default class Button extends PureComponent<ButtonProps, any> {
     constructor(props) {        
         super(props);
-        zzcComponentUse('Button', '组件渲染');
     }
     static defaultProps = {
         prefixCls: `${config.cls}-button`,

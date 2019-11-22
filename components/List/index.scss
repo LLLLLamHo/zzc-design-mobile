@@ -23,7 +23,7 @@ $cls: '.zds-list';
         }
 
         #{$cls}-item-header {
-            @include flex(center, flex-start);
+            @include flex(flex-start, flex-start);
 
             #{$cls}-item-header-top {
                 align-items: flex-start;
@@ -38,10 +38,12 @@ $cls: '.zds-list';
                 color: $list_item_title_color;
                 font-size: $fs_h1;
                 font-weight: 600;
+                line-height: 26px;
             }
             #{$cls}-item-header-extra{
                 margin-left: 10px;
                 color: #9EA1B0;
+                margin-top: 4px;
             }
         }
         #{$cls}-item-body{

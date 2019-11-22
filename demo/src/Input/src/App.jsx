@@ -26,7 +26,7 @@ export default class App extends Component {
         else if (type == 'description') {
             this.setState({
                 name: e.target.value
-            })
+            });
         } else {
             this.setState({
                 age: e.target.value
@@ -86,12 +86,12 @@ export default class App extends Component {
                         <Card2.Header style={{ paddingLeft: '15px', paddingRight: '15px', paddingBottom: '12px' }} title='非受控Textarea' />
                         <Form>
                             <Form.Item style={{ paddingTop: 0 }} >
-                                <Textarea style={{ height: '84px' }} placeholder="固定高度" />
+                                <Textarea style={{ height: '84px' }} placeholder='固定高度' />
                             </Form.Item>
                         </Form>
                         <Form>
-                            <Form.Item  >
-                                <Textarea autoHeight placeholder="高度自适应" />
+                            <Form.Item>
+                                <Textarea autoHeight placeholder='高度自适应' />
                             </Form.Item>
                         </Form>
                     </Card2>
@@ -105,14 +105,14 @@ export default class App extends Component {
                                 htmlFor='label5'
                                 style={{ paddingTop: 0, alignItems: 'self-end' }}
                             >
-                                <Textarea autoHeight placeholder="自适应高度" onChange={(e) => this.onChange('description')} />
+                                <Textarea autoHeight placeholder='自适应高度' value={description} onChange={(e) => { this.onChange('description', e); }} />
                             </Form.Item>
                             <Form.Item
                                 label='自我介绍'
                                 htmlFor='label5'
                                 style={{ alignItems: 'self-end' }}
                             >
-                                <Textarea style={{ height: '84px' }} placeholder="固定高度" onChange={(e) => this.onChange('description')} />
+                                <Textarea style={{ height: '84px' }} placeholder='固定高度' value={description} onChange={(e) => { this.onChange('description', e); }} />
                             </Form.Item>
                         </Form>
                     </Card2>

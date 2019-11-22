@@ -4,14 +4,12 @@ import Dialog from '../../Dialog';
 import Button from '../../Button';
 import langTextObject from '../../_util/i18n';
 import config from '../../_util/config';
-import { zzcComponentUse } from '../../_util/gtag';
 import { ModalProps } from '../porpsType';
 
 
 export default class Modal extends PureComponent<ModalProps, any> {
     constructor(props) {
         super(props);
-        zzcComponentUse('Modal', '组件渲染');
     }
     static defaultProps = {
         prefixCls: `${config.cls}-modal`,

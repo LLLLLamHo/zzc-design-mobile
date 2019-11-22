@@ -11,12 +11,17 @@
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+#### 3.0.10~3.0.11
+`2019-11-19`
+
+- 🌟 新增Step组件
+- 🐞 去除ga统计
+
+
 #### 3.0.9
 `2019-10-24`
 
-- 🐞 修改toast的success，error，warning的图标
-- 🐞 去除Icon中的3个svg
-- 🐞 修改Card组件中的样式问题
+- 🐞 修改多个样式问题https://github.com/LLLLLamHo/zzc-design-mobile/projects/2
 
 
 #### 3.0.8

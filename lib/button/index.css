@@ -158,7 +158,6 @@
   opacity: 0;
   animation-duration: .2s;
   animation-fill-mode: both;
-  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   animation-play-state: paused; }
 
 .zds-fade-enter.zds-fade-enter-active {
@@ -171,7 +170,6 @@
   opacity: 0;
   animation-duration: .2s;
   animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   animation-play-state: paused; }
 
 .zds-fade-leave.zds-fade-leave-active {
@@ -279,15 +277,12 @@
 
 .zds-button.zds-button-special {
   background-color: #fff;
-  color: #333;
+  color: #696E7C;
   border: 1px solid #696E7C; }
 
 .zds-button.zds-button-special.zds-button-active-special {
   background: #fff;
   border-color: rgba(105, 110, 124, 0.5); }
-
-.zds-button.zds-button-special-inline, .zds-button.zds-button-special-small {
-  color: #696E7C; }
 
 .zds-button.zds-button-inactive {
   opacity: 0.3;
@@ -318,7 +313,6 @@
   -ms-user-select: none;
   user-select: none;
   font-size: 14px;
-  height: 36px;
   font-weight: 500;
   padding: 7.5px 34.5px;
   line-height: 20px; }
@@ -332,9 +326,8 @@
 
 .zds-button-inline.zds-button-small {
   font-size: 13px;
-  height: 24px;
   font-weight: 500;
-  padding: 1.5px 18px;
+  padding: 1px 18px;
   line-height: 20px; }
 
 .zds-button-inline.zds-button-active-default {
@@ -358,15 +351,12 @@
 
 .zds-button-inline.zds-button-special {
   background-color: #fff;
-  color: #333;
+  color: #696E7C;
   border: 1px solid #696E7C; }
 
 .zds-button-inline.zds-button-special.zds-button-active-special {
   background: #fff;
   border-color: rgba(105, 110, 124, 0.5); }
-
-.zds-button-inline.zds-button-special-inline, .zds-button-inline.zds-button-special-small {
-  color: #696E7C; }
 
 .zds-button-inline.zds-button-inactive {
   opacity: 0.3;

@@ -5,7 +5,6 @@ import Dialog from '../../Dialog';
 import Gesture from '../../_util/Gesture';
 import { isFunction } from '../../_util/typeof';
 import { setLayoutScroll } from '../util';
-import { zzcComponentUse } from '../../_util/gtag';
 
 import { ImageViewProps } from '../propsType';
 
@@ -35,7 +34,6 @@ export default class IamgeView extends PureComponent<ImageViewProps, IamgeViewSt
             isRender: visible,
             index: defaultIndex ? defaultIndex : 0
         };
-        zzcComponentUse( 'ImageView', '组件渲染' );
     }
 
     private dialog: any;

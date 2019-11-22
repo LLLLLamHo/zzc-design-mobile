@@ -11,19 +11,13 @@ const CWD = process.cwd();
 let dirs = fs.readdirSync( path.join( CWD, './src' ) );
 let entry = {};
 for ( let i = 0; i < dirs.length; i++ ) {
-    // if ( dirs[i] == 'Button' ) {
+    // if ( dirs[i] == 'Toast' ) {
     //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     // }
-    if ( dirs[i] == 'Input' ) {
-        entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-    }
-    if ( dirs[i] == 'Textarea' ) {
-        entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-    }
-    if ( dirs[i] == 'Form' ) {
-        entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-    }
-    //entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+    // if ( dirs[i] == 'Step' ) {
+    //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+    // }
+    entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
 }
 let config = {
     devtool: 'source-map',

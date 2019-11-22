@@ -2,14 +2,12 @@ import React from 'react';
 import Dialog from '../../Dialog';
 import animateConfig from '../../_util/animateConfig';
 import config from '../../_util/config';
-import { zzcComponentUse } from '../../_util/gtag';
 import { PopupProps } from '../porpsType';
 
 
 export default class Popup extends React.PureComponent<PopupProps> {
     constructor( props ) {
         super( props );
-        zzcComponentUse( 'Popup', '组件渲染' );
     }
     static defaultProps = {
         prefixCls: `${config.cls}-popup`,

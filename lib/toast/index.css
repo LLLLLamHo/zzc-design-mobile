@@ -158,7 +158,6 @@
   opacity: 0;
   animation-duration: .2s;
   animation-fill-mode: both;
-  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   animation-play-state: paused; }
 
 .zds-fade-enter.zds-fade-enter-active {
@@ -171,7 +170,6 @@
   opacity: 0;
   animation-duration: .2s;
   animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   animation-play-state: paused; }
 
 .zds-fade-leave.zds-fade-leave-active {
@@ -260,22 +258,39 @@
   min-width: 100px; }
 
 .zds-toast.zds-toast-icon .zds-toast-notice-content .zds-toast-text-content {
-  margin-top: 10px; }
+  margin-top: 9px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 14px;
+  word-break: break-all; }
 
 .zds-toast .zds-toast-notice-content {
   background: rgba(65, 72, 93, 0.8);
-  border-radius: 8px;
+  border-radius: 4px;
   text-align: center;
   padding: 10px 20px;
   box-sizing: border-box;
-  max-width: 218.5px; }
+  max-width: 218.5px;
+  position: relative; }
 
 .zds-toast .zds-toast-notice-content.logo-box {
   width: 100px;
   height: 100px;
-  padding: 18px 0; }
+  padding: 18px 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%); }
+
+.zds-toast .zds-toast-notice-content.logo-box svg {
+  color: #fff;
+  height: 36px;
+  width: 36px; }
 
 .zds-toast .zds-toast-notice-content .zds-toast-text {
   color: #fff;
   font-size: 14px;
-  word-break: break-all; }
+  word-break: break-all;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
