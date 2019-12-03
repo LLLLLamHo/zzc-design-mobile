@@ -230,11 +230,11 @@
         "Skeleton": {
             "mdContent": "<p>gu骨架屏</p>\n<h2 id=\"api\">API</h2>\n<p>适用平台：WEB</p>\n<h2 id=\"skeleton\">Skeleton</h2>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>prefixCls</td>\n<td>组件的公用className前序</td>\n<td>string</td>\n<td>zzc-skeleton</td>\n</tr>\n<tr>\n<td>className</td>\n<td>样式类名</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>style</td>\n<td>自定义样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n</tbody></table>\n<h2 id=\"skeletonbox\">SkeletonBox</h2>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>prefixCls</td>\n<td>组件的公用className前序</td>\n<td>string</td>\n<td>zzc-skeleton-box</td>\n</tr>\n<tr>\n<td>className</td>\n<td>样式类名</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>style</td>\n<td>自定义样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n<tr>\n<td>justify</td>\n<td>justify-content样式</td>\n<td>string</td>\n<td>‘flex-start’</td>\n</tr>\n<tr>\n<td>align</td>\n<td>align-items样式</td>\n<td>string</td>\n<td>‘flex-start’</td>\n</tr>\n<tr>\n<td>direction</td>\n<td>flex-direction样式</td>\n<td>string</td>\n<td>‘row’</td>\n</tr>\n</tbody></table>\n<h2 id=\"skeletonitem\">SkeletonItem</h2>\n<table>\n<thead>\n<tr>\n<th>属性</th>\n<th>说明</th>\n<th>类型</th>\n<th>默认值</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>prefixCls</td>\n<td>组件的公用className前序</td>\n<td>string</td>\n<td>zzc-skeleton-box</td>\n</tr>\n<tr>\n<td>className</td>\n<td>样式类名</td>\n<td>string</td>\n<td>无</td>\n</tr>\n<tr>\n<td>style</td>\n<td>自定义样式</td>\n<td>object</td>\n<td>{}</td>\n</tr>\n<tr>\n<td>height</td>\n<td>高度</td>\n<td>string</td>\n<td>‘100%’</td>\n</tr>\n<tr>\n<td>width</td>\n<td>宽度</td>\n<td>string</td>\n<td>‘100%’</td>\n</tr>\n</tbody></table>\n<pre><code class=\"language-jsx\"><span class=\"hljs-comment\">// 通过js调用</span>\n&lt;Skeleton&gt;\n    &lt;Skeleton<span class=\"hljs-selector-class\">.Box</span> justify=<span class=\"hljs-string\">'space-between'</span>&gt;\n        &lt;Skeleton<span class=\"hljs-selector-class\">.Item</span> <span class=\"hljs-attribute\">height</span>=<span class=\"hljs-string\">'34px'</span> width=<span class=\"hljs-string\">'100px'</span> /&gt;\n        &lt;Skeleton<span class=\"hljs-selector-class\">.Item</span> <span class=\"hljs-attribute\">height</span>=<span class=\"hljs-string\">'34px'</span> width=<span class=\"hljs-string\">'80px'</span> /&gt;\n    &lt;/Skeleton.Box&gt;\n    &lt;Skeleton<span class=\"hljs-selector-class\">.Box</span> style={{ marginTop: <span class=\"hljs-string\">'20px'</span> }}&gt;\n        &lt;Skeleton<span class=\"hljs-selector-class\">.Item</span> <span class=\"hljs-attribute\">height</span>=<span class=\"hljs-string\">'34px'</span> width=<span class=\"hljs-string\">'100%'</span> /&gt;\n    &lt;/Skeleton.Box&gt;\n    &lt;Skeleton<span class=\"hljs-selector-class\">.Box</span> style={{ marginTop: <span class=\"hljs-string\">'20px'</span> }}&gt;\n        &lt;Skeleton<span class=\"hljs-selector-class\">.Item</span> <span class=\"hljs-attribute\">height</span>=<span class=\"hljs-string\">'54px'</span> width=<span class=\"hljs-string\">'100%'</span> /&gt;\n    &lt;/Skeleton.Box&gt;\n&lt;/Skeleton&gt;</code></pre>\n<pre><code class=\"language-html\"><span class=\"hljs-comment\">&lt;!-- 直接在html内编写样式和标签 --&gt;</span>\n<span class=\"hljs-comment\">&lt;!-- 注意在代码中引入样式 --&gt;</span>\n<span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span> <span class=\"hljs-attr\">class</span>=<span class=\"hljs-string\">\"zds-skeleton\"</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span> <span class=\"hljs-attr\">class</span>=<span class=\"hljs-string\">\"zds-skeleton-box\"</span> <span class=\"hljs-attr\">style</span>=<span class=\"hljs-string\">\"align-items: flex-start; justify-content: flex-start; flex-direction: row;\"</span>&gt;</span>\n        <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span> <span class=\"hljs-attr\">class</span>=<span class=\"hljs-string\">\"zds-skeleton-item\"</span> <span class=\"hljs-attr\">style</span>=<span class=\"hljs-string\">\"height: 34px; width: 222px;\"</span>&gt;</span><span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span> <span class=\"hljs-attr\">class</span>=<span class=\"hljs-string\">\"zds-skeleton-box\"</span> <span class=\"hljs-attr\">style</span>=<span class=\"hljs-string\">\"margin-top: 20px; align-items: flex-start; justify-content: flex-start; flex-direction: row;\"</span>&gt;</span>\n        <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span> <span class=\"hljs-attr\">class</span>=<span class=\"hljs-string\">\"zds-skeleton-item\"</span> <span class=\"hljs-attr\">style</span>=<span class=\"hljs-string\">\"height: 34px; width: 100%;\"</span>&gt;</span><span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span> <span class=\"hljs-attr\">class</span>=<span class=\"hljs-string\">\"zds-skeleton-box\"</span> <span class=\"hljs-attr\">style</span>=<span class=\"hljs-string\">\"margin-top: 20px; align-items: flex-start; justify-content: flex-start; flex-direction: row;\"</span>&gt;</span>\n        <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span> <span class=\"hljs-attr\">class</span>=<span class=\"hljs-string\">\"zds-skeleton-item\"</span> <span class=\"hljs-attr\">style</span>=<span class=\"hljs-string\">\"height: 54px; width: 100%;\"</span>&gt;</span><span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span>\n<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span></code></pre>\n",
             "config": {
-                "title": "Select",
-                "key": "Select",
-                "subTitle": "选择器",
-                "category": "DataEntry",
-                "categoryName": "Data Entry"
+                "title": "Skeleton",
+                "key": "Skeleton",
+                "subTitle": "骨架屏",
+                "category": "DataDisplay",
+                "categoryName": "Data Display"
             }
         },
         "Steps": {
@@ -406,6 +406,13 @@
                 "categoryName": "Data Display"
             },
             {
+                "title": "Skeleton",
+                "key": "Skeleton",
+                "subTitle": "骨架屏",
+                "category": "DataDisplay",
+                "categoryName": "Data Display"
+            },
+            {
                 "title": "Steps",
                 "key": "Steps",
                 "subTitle": "步骤条",
@@ -446,13 +453,6 @@
                 "title": "Picker",
                 "key": "Picker",
                 "subTitle": "滑动框",
-                "category": "DataEntry",
-                "categoryName": "Data Entry"
-            },
-            {
-                "title": "Select",
-                "key": "Select",
-                "subTitle": "选择器",
                 "category": "DataEntry",
                 "categoryName": "Data Entry"
             },

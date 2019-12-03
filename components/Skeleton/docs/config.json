@@ -1,7 +1,7 @@
 {
-    "title": "Select",
-    "key": "Select",
-    "subTitle": "选择器",
-    "category": "DataEntry",
-    "categoryName": "Data Entry"
+    "title": "Skeleton",
+    "key": "Skeleton",
+    "subTitle": "骨架屏",
+    "category": "DataDisplay",
+    "categoryName": "Data Display"
 }
