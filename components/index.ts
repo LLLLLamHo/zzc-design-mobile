@@ -25,3 +25,4 @@ export { default as Input } from './Input';
 export { default as Prompt } from './Prompt';
 export { default as Form } from './Form';
 export { default as Steps } from './Steps';
+export { default as Skeleton } from './Skeleton';

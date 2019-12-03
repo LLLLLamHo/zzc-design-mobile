@@ -1,0 +1,15 @@
+@import '../style/base.scss';
+$cls: '.zds-skeleton';
+
+#{$cls} {
+    background: #fff;
+    &-box{
+       background: #fff;
+       display: flex;
+       #{$cls}-item{
+           background: #EFF2F8;
+           width: 100%;
+           height: 100%;
+       }
+    }
+}
