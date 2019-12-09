@@ -46,7 +46,7 @@ export default class App extends Component {
     }
 
     loading () {
-        Toast.loading( '正在加载', 50 );
+        Toast.loading( '正在加载', 5 );
     }
 
     parentInfo () {
