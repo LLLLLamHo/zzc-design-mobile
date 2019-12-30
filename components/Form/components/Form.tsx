@@ -184,7 +184,7 @@ export default class Form extends PureComponent<FormComponentProps, any> {
 
     // 验证规则
     validationRule(value: any, currRule: rules) {
-        if ((isString(value) || isNumber(value)) && currRule.required && value == '') {
+        if ( currRule.required && (value == '' || value === null || value == undefined)) {
             return false;
         } else if ((isString(value) || isNumber(value)) && currRule.min && value.length < currRule.min) {
             return false;

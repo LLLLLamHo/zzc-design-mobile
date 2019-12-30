@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "../";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 243);
+/******/ 	return __webpack_require__(__webpack_require__.s = 252);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -37441,7 +37441,16 @@ Radio.defaultProps = {
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 243 */
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37455,7 +37464,7 @@ var _reactDom = __webpack_require__(27);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(244);
+var _App = __webpack_require__(253);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -37464,7 +37473,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
 /***/ }),
-/* 244 */
+/* 253 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37499,35 +37508,54 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Form = __webpack_require__(245);
+var _zzcDesignMobile = __webpack_require__(86);
 
-var _Form2 = _interopRequireDefault(_Form);
-
-var _Form3 = __webpack_require__(246);
-
-var _Form4 = _interopRequireDefault(_Form3);
-
-var _Form5 = __webpack_require__(247);
-
-var _Form6 = _interopRequireDefault(_Form5);
-
-__webpack_require__(248);
+__webpack_require__(254);
 
 __webpack_require__(242);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var ListItem = _zzcDesignMobile.List.ListItem;
+
 var App = function (_Component) {
     (0, _inherits3.default)(App, _Component);
 
-    function App() {
+    function App(props) {
         (0, _classCallCheck3.default)(this, App);
-        return (0, _possibleConstructorReturn3.default)(this, (App.__proto__ || (0, _getPrototypeOf2.default)(App)).apply(this, arguments));
+
+        var _this = (0, _possibleConstructorReturn3.default)(this, (App.__proto__ || (0, _getPrototypeOf2.default)(App)).call(this, props));
+
+        _this.state = {
+            name: '',
+            age: ''
+        };
+        return _this;
     }
 
     (0, _createClass3.default)(App, [{
+        key: 'onChange',
+        value: function onChange(type, e) {
+            if (type == 'name') {
+                this.setState({
+                    name: e.target.value
+                });
+            } else {
+                this.setState({
+                    age: e.target.value
+                });
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
+            var _state = this.state,
+                name = _state.name,
+                age = _state.age;
+
+
             return _react2.default.createElement(
                 'div',
                 { className: 'zzc-demo' },
@@ -37537,43 +37565,103 @@ var App = function (_Component) {
                     _react2.default.createElement(
                         'h1',
                         { className: 'zzc-demo-title' },
-                        'Form'
+                        'Input'
                     ),
                     _react2.default.createElement(
                         'h2',
                         null,
-                        'Form\u8868\u5355\uFF0C\u7EC4\u5408Input\u548C\u5404\u79CD\u8F93\u5165\u7EC4\u4EF6\u4F7F\u7528'
+                        '\u57FA\u7840\u7684Input\u7EC4\u4EF6'
                     )
                 ),
                 _react2.default.createElement(
                     'div',
                     { className: 'zzc-demo-body' },
                     _react2.default.createElement(
-                        'h5',
-                        null,
-                        '\u666E\u901A\u4F7F\u7528'
-                    ),
-                    _react2.default.createElement(_Form2.default, null)
+                        _zzcDesignMobile.Card2,
+                        { style: { padding: 0 } },
+                        _react2.default.createElement(_zzcDesignMobile.Card2.Header, { style: { paddingLeft: '15px', paddingRight: '15px' }, title: '\u975E\u53D7\u63A7Input' }),
+                        _react2.default.createElement(
+                            _zzcDesignMobile.Form,
+                            null,
+                            _react2.default.createElement(
+                                _zzcDesignMobile.Form.Item,
+                                {
+                                    label: '\u59D3\u540D',
+                                    htmlFor: 'label1'
+                                },
+                                _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u59D3\u540D', id: 'label1' })
+                            ),
+                            _react2.default.createElement(
+                                _zzcDesignMobile.Form.Item,
+                                {
+                                    label: '\u5E74\u9F84'
+                                },
+                                _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u5E74\u9F84', id: 'label2' })
+                            )
+                        )
+                    )
                 ),
                 _react2.default.createElement(
                     'div',
                     { className: 'zzc-demo-body' },
                     _react2.default.createElement(
-                        'h5',
-                        null,
-                        '\u591A\u79CDinput'
-                    ),
-                    _react2.default.createElement(_Form6.default, null)
+                        _zzcDesignMobile.Card2,
+                        { style: { padding: 0 } },
+                        _react2.default.createElement(_zzcDesignMobile.Card2.Header, { style: { paddingLeft: '15px', paddingRight: '15px' }, title: '\u53D7\u63A7Input' }),
+                        _react2.default.createElement(
+                            _zzcDesignMobile.Form,
+                            null,
+                            _react2.default.createElement(
+                                _zzcDesignMobile.Form.Item,
+                                {
+                                    label: '\u59D3\u540D',
+                                    htmlFor: 'label3'
+                                },
+                                _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u59D3\u540D', id: 'label3', value: name, onChange: function onChange(e) {
+                                        _this2.onChange('name', e);
+                                    } })
+                            ),
+                            _react2.default.createElement(
+                                _zzcDesignMobile.Form.Item,
+                                {
+                                    label: '\u5E74\u9F84',
+                                    htmlFor: 'label4'
+                                },
+                                _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u5E74\u9F84', id: 'label4', value: age, onChange: function onChange(e) {
+                                        _this2.onChange('age', e);
+                                    } })
+                            )
+                        )
+                    )
                 ),
                 _react2.default.createElement(
                     'div',
                     { className: 'zzc-demo-body' },
                     _react2.default.createElement(
-                        'h5',
-                        null,
-                        '\u6258\u7BA1\u5230form\u8FDB\u884C\u7BA1\u7406'
-                    ),
-                    _react2.default.createElement(_Form4.default, null)
+                        _zzcDesignMobile.Card2,
+                        { style: { padding: 0 } },
+                        _react2.default.createElement(_zzcDesignMobile.Card2.Header, { style: { paddingLeft: '15px', paddingRight: '15px' }, title: '\u5176\u4ED6\u8BBE\u7F6E' }),
+                        _react2.default.createElement(
+                            _zzcDesignMobile.Form,
+                            null,
+                            _react2.default.createElement(
+                                _zzcDesignMobile.Form.Item,
+                                {
+                                    label: '\u59D3\u540D',
+                                    htmlFor: 'label5'
+                                },
+                                _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u59D3\u540D', id: 'label5', disabled: true })
+                            ),
+                            _react2.default.createElement(
+                                _zzcDesignMobile.Form.Item,
+                                {
+                                    label: '\u5E74\u9F84',
+                                    htmlFor: 'label6'
+                                },
+                                _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u5E74\u9F84', id: 'label6', maxLength: 20 })
+                            )
+                        )
+                    )
                 )
             );
         }
@@ -37584,377 +37672,11 @@ var App = function (_Component) {
 exports.default = App;
 
 /***/ }),
-/* 245 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _getPrototypeOf = __webpack_require__(3);
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = __webpack_require__(1);
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = __webpack_require__(2);
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = __webpack_require__(4);
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = __webpack_require__(5);
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _zzcDesignMobile = __webpack_require__(86);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Form1 = function (_Component) {
-    (0, _inherits3.default)(Form1, _Component);
-
-    function Form1() {
-        (0, _classCallCheck3.default)(this, Form1);
-        return (0, _possibleConstructorReturn3.default)(this, (Form1.__proto__ || (0, _getPrototypeOf2.default)(Form1)).apply(this, arguments));
-    }
-
-    (0, _createClass3.default)(Form1, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                _zzcDesignMobile.Form,
-                null,
-                _react2.default.createElement(
-                    _zzcDesignMobile.Form.Item,
-                    {
-                        label: '\u6807\u7B7E1',
-                        htmlFor: 'label1'
-                    },
-                    _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u59D3\u540D', id: 'label1' })
-                ),
-                _react2.default.createElement(
-                    _zzcDesignMobile.Form.Item,
-                    {
-                        label: '\u59D3\u540D',
-                        extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'info_outline' })
-                    },
-                    _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u59D3\u540D', id: 'label2' })
-                )
-            );
-        }
-    }]);
-    return Form1;
-}(_react.Component);
-
-exports.default = Form1;
-
-/***/ }),
-/* 246 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _getPrototypeOf = __webpack_require__(3);
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = __webpack_require__(1);
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = __webpack_require__(2);
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = __webpack_require__(4);
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = __webpack_require__(5);
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _zzcDesignMobile = __webpack_require__(86);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var MyForm = function (_Component) {
-    (0, _inherits3.default)(MyForm, _Component);
-
-    function MyForm() {
-        (0, _classCallCheck3.default)(this, MyForm);
-        return (0, _possibleConstructorReturn3.default)(this, (MyForm.__proto__ || (0, _getPrototypeOf2.default)(MyForm)).apply(this, arguments));
-    }
-
-    (0, _createClass3.default)(MyForm, [{
-        key: 'onSubmit',
-        value: function onSubmit(data) {
-            console.log(data);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                _zzcDesignMobile.Form,
-                { onSubmit: this.onSubmit },
-                _react2.default.createElement(
-                    _zzcDesignMobile.Form.Item,
-                    {
-                        label: '\u9A8C\u8BC1\u901A\u8FC7\u663E\u793A\u63D0\u793A',
-                        htmlFor: 'label0'
-                    },
-                    this.props.form.getFieldDecorator('label0', {
-                        isShowSuccess: true,
-                        successText: '验证成功',
-                        rules: [{
-                            required: true,
-                            message: '信息不能为空'
-                        }]
-                    }, _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165' }))
-                ),
-                _react2.default.createElement(
-                    _zzcDesignMobile.Form.Item,
-                    {
-                        label: '\u9A8C\u8BC1\u5931\u8D25\u663E\u793A\u8B66\u544A',
-                        htmlFor: 'label0-1'
-                    },
-                    this.props.form.getFieldDecorator('label0-1', {
-                        rules: [{
-                            required: true,
-                            validationType: 'warning',
-                            message: '信息不能为空'
-                        }]
-                    }, _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165' }))
-                ),
-                _react2.default.createElement(
-                    _zzcDesignMobile.Form.Item,
-                    {
-                        label: '\u5FC5\u586B\u9009\u9879',
-                        htmlFor: 'label1'
-                    },
-                    this.props.form.getFieldDecorator('label11', {
-                        rules: [{
-                            required: true,
-                            message: '信息不能为空'
-                        }]
-                    }, _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165' }))
-                ),
-                _react2.default.createElement(
-                    _zzcDesignMobile.Form.Item,
-                    {
-                        label: '\u6700\u5C0F\u503C\u4E3A2\u4E2A\u5B57\u7B26\u4E32'
-                    },
-                    this.props.form.getFieldDecorator('label22', {
-                        rules: [{
-                            required: true,
-                            message: '信息不能为空'
-                        }, {
-                            min: 2,
-                            message: '最小值为2个字符串'
-                        }]
-                    }, _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165' }))
-                ),
-                _react2.default.createElement(
-                    _zzcDesignMobile.Form.Item,
-                    {
-                        label: '\u6700\u5927\u503C\u4E3A5\u4E2A\u5B57\u7B26\u4E32'
-                    },
-                    this.props.form.getFieldDecorator('label23', {
-                        rules: [{
-                            required: true,
-                            message: '信息不能为空'
-                        }, {
-                            max: 5,
-                            message: '最大值为5个字符串'
-                        }]
-                    }, _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165' }))
-                ),
-                _react2.default.createElement(
-                    _zzcDesignMobile.Form.Item,
-                    {
-                        label: '\u8F93\u5165\u4E00\u5B9A\u4E3A5\u4E2A\u5B57\u7B26\u4E32'
-                    },
-                    this.props.form.getFieldDecorator('label24', {
-                        rules: [{
-                            required: true,
-                            message: '信息不能为空'
-                        }, {
-                            len: 5,
-                            message: '输入一定为5个字符串'
-                        }]
-                    }, _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165' }))
-                ),
-                _react2.default.createElement(
-                    _zzcDesignMobile.Form.Item,
-                    {
-                        label: '\u6B63\u5219\u8868\u8FBE\u5F0F'
-                    },
-                    this.props.form.getFieldDecorator('label25', {
-                        rules: [{
-                            required: true,
-                            message: '信息不能为空'
-                        }, {
-                            message: '邮箱格式不正确',
-                            pattern: /(.)+@(.)+\.(.)+/
-                        }]
-                    }, _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165' }))
-                ),
-                _react2.default.createElement(
-                    _zzcDesignMobile.Form.Item,
-                    null,
-                    _react2.default.createElement(
-                        _zzcDesignMobile.Button,
-                        { htmlType: 'submit' },
-                        '\u63D0\u4EA4'
-                    )
-                )
-            );
-        }
-    }]);
-    return MyForm;
-}(_react.Component);
-
-exports.default = _zzcDesignMobile.Form.create(MyForm);
-
-/***/ }),
-/* 247 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _getPrototypeOf = __webpack_require__(3);
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = __webpack_require__(1);
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = __webpack_require__(2);
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = __webpack_require__(4);
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = __webpack_require__(5);
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _zzcDesignMobile = __webpack_require__(86);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var MyForm = function (_Component) {
-    (0, _inherits3.default)(MyForm, _Component);
-
-    function MyForm() {
-        (0, _classCallCheck3.default)(this, MyForm);
-        return (0, _possibleConstructorReturn3.default)(this, (MyForm.__proto__ || (0, _getPrototypeOf2.default)(MyForm)).apply(this, arguments));
-    }
-
-    (0, _createClass3.default)(MyForm, [{
-        key: 'onSubmit',
-        value: function onSubmit(data) {
-            console.log(data);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                _zzcDesignMobile.Form,
-                { onSubmit: this.onSubmit },
-                _react2.default.createElement(
-                    _zzcDesignMobile.Form.Item,
-                    {
-                        label: '\u666E\u901A\u6587\u672C',
-                        htmlFor: 'label0'
-                    },
-                    this.props.form.getFieldDecorator('label0', {
-                        rules: [{
-                            required: true,
-                            message: '信息不能为空'
-                        }]
-                    }, _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u8BF7\u8F93\u5165\u666E\u901A\u6587\u672C' }))
-                ),
-                _react2.default.createElement(
-                    _zzcDesignMobile.Form.Item,
-                    {
-                        label: '\u59D3\u540D',
-                        htmlFor: 'name_1',
-                        extra: _react2.default.createElement(_zzcDesignMobile.Icon, { type: 'change_user' })
-                    },
-                    this.props.form.getFieldDecorator('name_1', {
-                        isShowSuccess: true,
-                        successText: '验证成功',
-                        rules: [{
-                            required: true,
-                            message: '姓拼音不能为空'
-                        }]
-                    }, _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u59D3\u62FC\u97F3' })),
-                    this.props.form.getFieldDecorator('name_2', {
-                        isShowSuccess: true,
-                        successText: '验证成功',
-                        rules: [{
-                            required: true,
-                            message: '名拼音不能为空'
-                        }]
-                    }, _react2.default.createElement(_zzcDesignMobile.Input, { placeholder: '\u540D\u62FC\u97F3' }))
-                ),
-                _react2.default.createElement(
-                    _zzcDesignMobile.Form.Item,
-                    null,
-                    _react2.default.createElement(
-                        _zzcDesignMobile.Button,
-                        { htmlType: 'submit' },
-                        '\u63D0\u4EA4'
-                    )
-                )
-            );
-        }
-    }]);
-    return MyForm;
-}(_react.Component);
-
-exports.default = _zzcDesignMobile.Form.create(MyForm);
-
-/***/ }),
-/* 248 */
+/* 254 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=Form.js.map
+//# sourceMappingURL=Radio.js.map

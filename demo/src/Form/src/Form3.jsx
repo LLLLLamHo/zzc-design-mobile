@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Icon } from 'zzc-design-mobile';
+import { Form, Input, Button, Icon, Radio } from 'zzc-design-mobile';
 
 class MyForm extends Component {
     onSubmit ( data ) {
@@ -10,10 +10,40 @@ class MyForm extends Component {
         return (
             <Form onSubmit={this.onSubmit}>
                 <Form.Item
-                    label='普通文本'
-                    htmlFor='label0'
+                    label='单选'
+                    htmlFor='sex'
                 >
-                    {this.props.form.getFieldDecorator( 'label0', {
+                    {this.props.form.getFieldDecorator( 'sex_text', {
+                        isShowSuccess: true,
+                        successText: '验证成功',
+                        rules: [
+                            {
+                                required: true,
+                                message: '性别文案不能为空'
+                            }
+                        ]
+                    }, <Input placeholder='性别文案' /> )}
+                    {this.props.form.getFieldDecorator( 'sex', {
+                        initialValue: 'man',
+                        rules: [
+                            {
+                                required: true,
+                                message: '必选选择一个性别'
+                            }
+                        ]
+                    }, <Radio.RadioGrounp
+                        radioType='sex'
+                        onChange={( data ) => { console.log( 'gounp', data ) }}
+                    >
+                        <Radio id='man'>先生</Radio>
+                        <Radio id='women'>女士</Radio>
+                    </Radio.RadioGrounp> )}
+                </Form.Item>
+                <Form.Item
+                    label='普通文本'
+                    htmlFor='text'
+                >
+                    {this.props.form.getFieldDecorator( 'text', {
                         rules: [
                             {
                                 required: true,
