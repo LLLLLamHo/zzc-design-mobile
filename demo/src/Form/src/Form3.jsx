@@ -10,6 +10,35 @@ class MyForm extends Component {
         return (
             <Form onSubmit={this.onSubmit}>
                 <Form.Item
+                    label='手机号码'
+                    htmlFor='sex'
+                >
+                    {this.props.form.getFieldDecorator( 'phoneNum', {
+                        isShowSuccess: true,
+                        successText: '验证成功',
+                        initialValue: {
+                            phonePrefix: '',
+                            value: ''
+                        },
+                        rules: [
+                            {
+                                message: '手机前缀不能为空',
+                                validationFn: ( data ) => {
+                                    if ( !data.phonePrefix || data.phonePrefix == '' ) return false;
+                                    return true;
+                                }
+                            },
+                            {
+                                message: '手机号不能为空',
+                                validationFn: ( data ) => {
+                                    if ( !data.value || data.value == '' ) return false;
+                                    return true;
+                                }
+                            }
+                        ]
+                    }, <Input showPhonePrefix inputType='phone' placeholder='请输入手机号' /> )}
+                </Form.Item>
+                <Form.Item
                     label='单选'
                     htmlFor='sex'
                 >

@@ -53,92 +53,113 @@ Form表单
 
 ```jsx
 import React, { Component } from 'react';
-import { Form, Input, Button } from 'zzc-design-mobile';
+import { Form, Input, Button, Icon, Radio } from 'zzc-design-mobile';
 
 class MyForm extends Component {
-    onSubmit(data) {
-        console.log(data);
+    onSubmit ( data ) {
+        console.log( data );
     }
 
     render () {
         return (
             <Form onSubmit={this.onSubmit}>
                 <Form.Item
-                    label='必填选项'
-                    htmlFor='label1'
+                    label='手机号码'
+                    htmlFor='sex'
                 >
-                    {this.props.form.getFieldDecorator( 'label11', {
+                    {this.props.form.getFieldDecorator( 'phoneNum', {
+                        isShowSuccess: true,
+                        successText: '验证成功',
+                        initialValue: {
+                            phonePrefix: '',
+                            value: ''
+                        },
                         rules: [
                             {
-                                required: true,
-                                message: '信息不能为空'
-                            }
-                        ]
-                    }, <Input placeholder='请输入' /> )}
-                </Form.Item>
-                <Form.Item
-                    label='最小值为2个字符串'
-                >
-                    {this.props.form.getFieldDecorator( 'label22', {
-                        rules: [
-                            {
-                                required: true,
-                                message: '信息不能为空'
+                                message: '手机前缀不能为空',
+                                validationFn: ( data ) => {
+                                    if ( !data.phonePrefix || data.phonePrefix == '' ) return false;
+                                    return true;
+                                }
                             },
                             {
-                                min: 2,
-                                message: '最小值为2个字符串'
+                                message: '手机号不能为空',
+                                validationFn: ( data ) => {
+                                    if ( !data.value || data.value == '' ) return false;
+                                    return true;
+                                }
                             }
                         ]
-                    }, <Input placeholder='请输入' /> )}
+                    }, <Input showPhonePrefix inputType='phone' placeholder='请输入手机号' /> )}
                 </Form.Item>
                 <Form.Item
-                    label='最大值为5个字符串'
+                    label='单选'
+                    htmlFor='sex'
                 >
-                    {this.props.form.getFieldDecorator( 'label23', {
+                    {this.props.form.getFieldDecorator( 'sex_text', {
+                        isShowSuccess: true,
+                        successText: '验证成功',
+                        rules: [
+                            {
+                                required: true,
+                                message: '性别文案不能为空'
+                            }
+                        ]
+                    }, <Input placeholder='性别文案' /> )}
+                    {this.props.form.getFieldDecorator( 'sex', {
+                        initialValue: 'man',
+                        rules: [
+                            {
+                                required: true,
+                                message: '必选选择一个性别'
+                            }
+                        ]
+                    }, <Radio.RadioGrounp
+                        radioType='sex'
+                        onChange={( data ) => { console.log( 'gounp', data ) }}
+                    >
+                        <Radio id='man'>先生</Radio>
+                        <Radio id='women'>女士</Radio>
+                    </Radio.RadioGrounp> )}
+                </Form.Item>
+                <Form.Item
+                    label='普通文本'
+                    htmlFor='text'
+                >
+                    {this.props.form.getFieldDecorator( 'text', {
                         rules: [
                             {
                                 required: true,
                                 message: '信息不能为空'
-                            },
-                            {
-                                max: 5,
-                                message: '最大值为5个字符串'
                             }
                         ]
-                    }, <Input placeholder='请输入' /> )}
+                    }, <Input placeholder='请输入普通文本' /> )}
                 </Form.Item>
                 <Form.Item
-                    label='输入一定为5个字符串'
+                    label='姓名'
+                    htmlFor='name_1'
+                    extra={<Icon type='change_user' />}
                 >
-                    {this.props.form.getFieldDecorator( 'label24', {
+                    {this.props.form.getFieldDecorator( 'name_1', {
+                        isShowSuccess: true,
+                        successText: '验证成功',
                         rules: [
                             {
                                 required: true,
-                                message: '信息不能为空'
-                            },
-                            {
-                                len: 5,
-                                message: '输入一定为5个字符串'
+                                message: '姓拼音不能为空'
                             }
                         ]
-                    }, <Input placeholder='请输入' /> )}
-                </Form.Item>
-                <Form.Item
-                    label='正则表达式'
-                >
-                    {this.props.form.getFieldDecorator( 'label25', {
+                    }, <Input placeholder='姓拼音' /> )}
+                    {this.props.form.getFieldDecorator( 'name_2', {
+                        isShowSuccess: true,
+                        successText: '验证成功',
                         rules: [
                             {
                                 required: true,
-                                message: '信息不能为空'
-                            },
-                            {
-                                message: '邮箱格式不正确',
-                                pattern: /(.)+@(.)+\.(.)+/
+                                message: '名拼音不能为空'
                             }
                         ]
-                    }, <Input placeholder='请输入' /> )}
+                    }, <Input placeholder='名拼音' /> )}
                 </Form.Item>
                 <Form.Item>
                     <Button htmlType='submit'>
@@ -149,6 +170,7 @@ class MyForm extends Component {
     }
 }
 export default Form.create( MyForm );
+
 
 ```
 
@@ -198,19 +220,68 @@ form对象会额外提供一些api给你去扩展你的input组件
 | rules           | 验证规则             | Array<rules>                         | null     |
 | validateTrigger | 验证时机             | 'onChange'  \| 'onFocus' \| 'onBlur' | 'onBlur' |
 
+举个例子：如果你的组件里用到了前缀的电话号码组件，那么本来Input组件中就支持传入`value`和`phonePrefix`这两个值来控制默认的前缀和手机号码。那么也可以直接通过`initialValue`来控制。
+
+```jsx
+{this.props.form.getFieldDecorator( 'phoneNum', {
+    isShowSuccess: true,
+    successText: '验证成功',
+    initialValue: {
+        phonePrefix: '+852',
+        value: '123'
+    },
+    rules: [
+        {
+            required: true,
+            message: '手机号不能为空'
+        }
+    ]
+}, <Input showPhonePrefix inputType='phone' placeholder='请输入手机号' /> )}
+```
+
 ### rules
 
 注意除了message之外，其余的条件在每一个规则中只能选择一个
 
-| 属性           | 说明                                 | 类型    | 默认值  |
-| -------------- | ------------------------------------ | ------- | ------- |
-| validationType | 验证提示的样式('error' \| 'warning') | string  | 'error' |
-| required       | 是否必填                             | boolean | 无      |
-| message        | 规则不通过输出警告信息               | string  | 无      |
-| len            | 规定长度                             | number  | 无      |
-| max            | 最大长度                             | number  | 无      |
-| min            | 最小长度                             | number  | 无      |
-| pattern        | 正则                                 | RegExp  | 无      |
+| 属性           | 说明                                 | 类型     | 默认值  |
+| -------------- | ------------------------------------ | -------- | ------- |
+| validationType | 验证提示的样式('error' \| 'warning') | string   | 'error' |
+| required       | 是否必填                             | boolean  | 无      |
+| message        | 规则不通过输出警告信息               | string   | 无      |
+| len            | 规定长度                             | number   | 无      |
+| max            | 最大长度                             | number   | 无      |
+| min            | 最小长度                             | number   | 无      |
+| pattern        | 正则                                 | RegExp   | 无      |
+| validationFn   | 自定义验证函数                       | function | 无      |
+
+当前的Input组件如何是复合型的Input组件，如带号码前缀的组件，那么普通的验证方式将无法正确认证，因为无法知道当前Input需要多少的value来实现，所以提供`validationFn`参数，当传入的是一个函数，那么将当前要校验的值返回，但是必须返回一个`boolean`告诉Form，当前的验证结果。
+
+```jsx
+{this.props.form.getFieldDecorator( 'phoneNum', {
+    isShowSuccess: true,
+    successText: '验证成功',
+    initialValue: {
+        phonePrefix: '+86',
+        value: '123123'
+    },
+    rules: [
+        {
+            message: '手机前缀不能为空',
+            validationFn: ( data ) => {
+                if ( !data.phonePrefix || data.phonePrefix == '' ) return false;
+                return true;
+            }
+        },
+        {
+            message: '手机号不能为空',
+            validationFn: ( data ) => {
+                if ( !data.value || data.value == '' ) return false;
+                return true;
+            }
+        }
+     ]
+}, <Input showPhonePrefix inputType='phone' placeholder='请输入手机号' /> )}
+```
 
 ### 添加Button组件触发Form的submit事件
 

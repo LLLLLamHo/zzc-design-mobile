@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { FormContext, FormItemContext, FormHOC } from './context';
 import { FormComponentProps, getFieldDecoratorOption, rules } from '../propsType';
-import { isArray, isString, isRegExp, isNumber } from '../../_util/typeof';
+import { isArray, isString, isRegExp, isNumber, isObject, isFunction } from '../../_util/typeof';
 
 export default class Form extends PureComponent<FormComponentProps, any> {
     constructor(props) {
@@ -34,7 +34,7 @@ export default class Form extends PureComponent<FormComponentProps, any> {
                 initialValue: '',
                 rules: [],
                 trigger: 'onChange',
-                validateTrigger: 'onBlur'
+                validateTrigger: 'onBlur',
             };
 
             const newOpt = Object.assign(defaultOpt, opt);
@@ -52,7 +52,8 @@ export default class Form extends PureComponent<FormComponentProps, any> {
                         const focusFun = (formOpt: getFieldDecoratorOption) => {
                             state.formInputOnFocus && state.formInputOnFocus(id, formOpt);
                         };
-                        const value = formData[id] != null ? formData[id]['value'] : newOpt.initialValue || '';
+                        const value = formData[id] != null ? this.getFormInputData(id) : newOpt.initialValue || '';
+                        const consumerValue = isObject(value) ? {...value} : {value: value};
                         return React.cloneElement(item, {
                             ...state,
                             id,
@@ -60,8 +61,8 @@ export default class Form extends PureComponent<FormComponentProps, any> {
                             formInputOnBlur: blurFun,
                             formInputOnFocus: focusFun,
                             _zds_form_initValue: this.initFormItemValue,
-                            value,
-                            formOpt: newOpt
+                            formOpt: newOpt,
+                            ...consumerValue,
                         });
                     }}
                 </FormItemContext.Consumer>
@@ -98,6 +99,12 @@ export default class Form extends PureComponent<FormComponentProps, any> {
             outputData[ids[i]].value = value;
         }
         return outputData;
+    }
+
+    // 获取表单数据中的值
+    getFormInputData(id: string): any {
+        const { formData } = this.state;
+        return formData[id]['value'];
     }
 
     // 初始化数据到表单中储存
@@ -183,7 +190,7 @@ export default class Form extends PureComponent<FormComponentProps, any> {
     }
 
     // 验证规则
-    validationRule(value: any, currRule: rules) {
+    validationRule(value: any, currRule: rules): boolean {
         if ( currRule.required && (value == '' || value === null || value == undefined)) {
             return false;
         } else if ((isString(value) || isNumber(value)) && currRule.min && value.length < currRule.min) {
@@ -194,6 +201,8 @@ export default class Form extends PureComponent<FormComponentProps, any> {
             return false;
         } else if (currRule.pattern && isRegExp(currRule.pattern)) {
             return currRule.pattern.test(value);
+        } else if ( currRule.validationFn && isFunction(currRule.validationFn) ) {
+            return currRule.validationFn(value);
         }
         return true;
     }

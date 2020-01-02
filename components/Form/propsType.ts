@@ -50,4 +50,5 @@ export interface rules{
     max?: number
     min?: number
     pattern?: RegExp
+    validationFn?: Function
 }

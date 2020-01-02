@@ -14,14 +14,14 @@ export default class App extends Component {
         };
     }
 
-    onChange ( type, e ) {
+    onChange ( type, value ) {
         if ( type == 'name' ) {
             this.setState( {
-                name: e.target.value
+                name: value
             } );
         } else {
             this.setState( {
-                age: e.target.value
+                age: value
             } );
         }
     }
@@ -50,6 +50,11 @@ export default class App extends Component {
                             >
                                 <Input placeholder='请输入年龄' id='label2' />
                             </Form.Item>
+                            <Form.Item
+                                label='手机号'
+                            >
+                                <Input inputType='phone' showPhonePrefix placeholder='请输入手机号' id='phone' onChange={(value) => {console.log(value)}}/>
+                            </Form.Item>
                         </Form>
                     </Card2>
                 </div>
@@ -61,13 +66,13 @@ export default class App extends Component {
                                 label='姓名'
                                 htmlFor='label3'
                             >
-                                <Input placeholder='请输入姓名' id='label3' value={name} onChange={( e ) => { this.onChange( 'name', e ); }} />
+                                <Input placeholder='请输入姓名' id='label3' value={name} onChange={( value ) => { this.onChange( 'name', value ); }} />
                             </Form.Item>
                             <Form.Item
                                 label='年龄'
                                 htmlFor='label4'
                             >
-                                <Input placeholder='请输入年龄' id='label4' value={age} onChange={( e ) => { this.onChange( 'age', e ); }} />
+                                <Input placeholder='请输入年龄' id='label4' value={age} onChange={( value ) => { this.onChange( 'age', value ); }} />
                             </Form.Item>
                         </Form>
                     </Card2>

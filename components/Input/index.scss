@@ -1,5 +1,6 @@
 @import '../style/base.scss';
 $cls: '.zds-input';
+$cls2: '.zds-input-phone';
 #{$cls} {
     background: transparent;
     color: $input_color;
@@ -14,5 +15,82 @@ $cls: '.zds-input';
         color:rgba(51,51,51,.2);
         font-size: 14px;
         line-height: 14px;
+    }
+}
+
+#{$cls2}-box {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    #{$cls2}-prefix{
+        color: $title_black;
+        font-size: $fs14px;
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+        svg{
+            margin-left: 2px;
+            transform: rotate(90deg);
+        }
+    }
+}
+
+#{$cls2}-popup-header{
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    justify-content: center;
+    color: #333333;
+}
+#{$cls2}-popup-prefix-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+    &.active{
+        svg{
+            color: $main;
+        }
+        p{
+            color: $main;
+        }
+    }
+    p{
+        flex: 1;
+        font-size: $fs14px;
+        padding-right: 10px;
+    }
+    svg{
+        width: 18px;
+        height: 18px;
+    }
+}
+#{$cls2}-code-input-box{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    &-add{
+        width: 40px;
+        height: 40px;
+        line-height: 35px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 4px 0 0 4px;
+        box-sizing: border-box;
+        background: #EEEEEE;
+    }
+    &-input{
+        flex: 1;
+        box-sizing: border-box;
+        height: 40px;
+        border: 1px solid #ccc;
+        border-left: none;
+        border-radius: 0 4px 4px 0;
+        padding: 0 10px;
+        font-size: $fs14px;
+        background: no-repeat;
+        caret-color: $main;
     }
 }
