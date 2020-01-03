@@ -1,16 +1,57 @@
 import React, { Component } from 'react';
-import { Input, Form, List, Card2 } from 'zzc-design-mobile';
+import { Input, Form, Card2, Icon } from 'zzc-design-mobile';
 import './index.scss';
 import '../../../style/style.scss';
-
-const { ListItem } = List;
 
 export default class App extends Component {
     constructor( props ) {
         super( props );
         this.state = {
             name: '',
-            age: ''
+            age: '',
+            born: '1993/9/17',
+            getCat: new Date(),
+            selectIndex: 0,
+            selectData: {
+                title: '驾照类型',
+                data: [
+                    {
+                        text: '中国驾照',
+                        type: 'active',
+                        value: 'code1'
+                    },
+                    {
+                        text: '中国驾照+国际驾照翻译认证件',
+                        type: 'normal',
+                        value: 'code2'
+                    },
+                    {
+                        text: '中国驾照+英文公证件',
+                        type: 'normal',
+                        value: 'code3'
+                    },
+                    {
+                        text: '香港驾照',
+                        type: 'normal',
+                        value: 'code4'
+                    },
+                    {
+                        text: '台湾驾照',
+                        type: 'normal',
+                        value: 'code5'
+                    },
+                    {
+                        text: '其他驾照',
+                        type: 'normal',
+                        value: 'code6'
+                    },
+                    {
+                        text: '中国驾照+车行翻译件 (不支持)',
+                        type: 'disabled',
+                        value: 'code7'
+                    }
+                ]
+            }
         };
     }
 
@@ -24,6 +65,23 @@ export default class App extends Component {
                 age: value
             } );
         }
+    }
+
+    onChangeSelect ( item ) {
+        const { selectData } = this.state;
+        const { data } = selectData;
+        for ( let i = 0; i < data.length; i++ ) {
+            if ( i == item.key ) {
+                data[i].type = 'active';
+            } else if ( data[i].type != 'disabled' ) {
+                data[i].type = 'normal';
+            }
+        }
+
+        this.setState( {
+            selectData,
+            selectIndex: item.key
+        } );
     }
 
     render () {
@@ -53,7 +111,7 @@ export default class App extends Component {
                             <Form.Item
                                 label='手机号'
                             >
-                                <Input inputType='phone' showPhonePrefix placeholder='请输入手机号' id='phone' onChange={(value) => {console.log(value)}}/>
+                                <Input inputType='phone' showPhonePrefix placeholder='请输入手机号' id='phone' onChange={( value ) => { console.log( value ) }} />
                             </Form.Item>
                         </Form>
                     </Card2>
@@ -73,6 +131,46 @@ export default class App extends Component {
                                 htmlFor='label4'
                             >
                                 <Input placeholder='请输入年龄' id='label4' value={age} onChange={( value ) => { this.onChange( 'age', value ); }} />
+                            </Form.Item>
+                            <Form.Item
+                                label='驾照类型'
+                                extra={<Icon type='arrows' />}
+                            >
+                                <Input value={this.state.selectIndex} selectData={this.state.selectData} inputType='select' placeholder='请选择驾照类型' id='car' onChange={( item ) => { this.onChangeSelect( item ) }} />
+                            </Form.Item>
+                            <Form.Item
+                                label='生日日期'
+                                extra={<Icon type='arrows' />}
+                            >
+                                <Input
+                                    datePickerData={{
+                                        minDate: '1960/1/1',
+                                        maxDate: new Date()
+                                    }}
+                                    timeFormat='YYYY-MM-DD'
+                                    value={this.state.born}
+                                    inputType='time'
+                                    placeholder='请选择生日日期'
+                                    id='born'
+                                    onChange={( item ) => { console.log(item); this.setState( { born: item.currDate } ) }}
+                                />
+                            </Form.Item>
+                            <Form.Item
+                                label='租车日期'
+                                extra={<Icon type='arrows' />}
+                                htmlFor='getCat'
+                            >
+                                <Input
+                                    datePickerData={{
+                                        mode: 'datetime'
+                                    }}
+                                    timeFormat='YYYY-MM-DD HH:mm'
+                                    value={this.state.getCat}
+                                    inputType='time'
+                                    placeholder='租车日期'
+                                    id='getCat'
+                                    onChange={( item ) => { this.setState( { getCat: item.currDate } ) }}
+                                />
                             </Form.Item>
                         </Form>
                     </Card2>

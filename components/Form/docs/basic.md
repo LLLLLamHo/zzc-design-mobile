@@ -56,6 +56,106 @@ import React, { Component } from 'react';
 import { Form, Input, Button, Icon, Radio } from 'zzc-design-mobile';
 
 class MyForm extends Component {
+
+    constructor( props ) {
+        super( props );
+        this.state = {
+            selectData: {
+                title: '驾照类型',
+                data: [
+                    {
+                        text: '中国驾照',
+                        type: 'active',
+                        value: 'code1'
+                    },
+                    {
+                        text: '中国驾照+国际驾照翻译认证件',
+                        type: 'normal',
+                        value: 'code2'
+                    },
+                    {
+                        text: '中国驾照+英文公证件',
+                        type: 'normal',
+                        value: 'code3'
+                    },
+                    {
+                        text: '香港驾照',
+                        type: 'normal',
+                        value: 'code4'
+                    },
+                    {
+                        text: '台湾驾照',
+                        type: 'normal',
+                        value: 'code5'
+                    },
+                    {
+                        text: '其他驾照',
+                        type: 'normal',
+                        value: 'code6'
+                    },
+                    {
+                        text: '中国驾照+车行翻译件 (不支持)',
+                        type: 'disabled',
+                        value: 'code7'
+                    }
+                ]
+            }
+        };
+        this.formChange = this.formChange.bind( this );
+    }
+
+    componentDidMount () {
+        this.props.form.onValuesChange( this.formChange );
+    }
+
+    formChange ( id, value ) {
+        if ( id == 'car_license' && value.value == 3 ) {
+            this.props.form.setFormAssignValue( 'car_license', {
+                value: 4,
+                selectData: {
+                    title: '驾照类型',
+                    data: [
+                        {
+                            text: '中国驾照',
+                            type: 'disabled',
+                            value: 'code1'
+                        },
+                        {
+                            text: '中国驾照+国际驾照翻译认证件',
+                            type: 'normal',
+                            value: 'code2'
+                        },
+                        {
+                            text: '中国驾照+英文公证件',
+                            type: 'normal',
+                            value: 'code3'
+                        },
+                        {
+                            text: '香港驾照',
+                            type: 'normal',
+                            value: 'code4'
+                        },
+                        {
+                            text: '台湾驾照',
+                            type: 'active',
+                            value: 'code5'
+                        },
+                        {
+                            text: '其他驾照',
+                            type: 'disabled',
+                            value: 'code6'
+                        },
+                        {
+                            text: '中国驾照+车行翻译件 (不支持)',
+                            type: 'disabled',
+                            value: 'code7'
+                        }
+                    ]
+                }
+            } );
+        }
+    }
+
     onSubmit ( data ) {
         console.log( data );
     }
@@ -64,14 +164,70 @@ class MyForm extends Component {
         return (
             <Form onSubmit={this.onSubmit}>
                 <Form.Item
+                    label='生日日期'
+                    extra={<Icon type='arrows' />}
+                >
+                    {this.props.form.getFieldDecorator( 'born', {
+                        isShowSuccess: true,
+                        successText: '验证成功',
+                        validateTrigger: 'onChange',
+                        rules: [
+                            {
+                                required: true,
+                                message: '必须选择生日日期'
+                            },
+                            {
+                                message: '必须年满18岁',
+                                validationFn: ( data ) => {
+                                    const born = new Date( data ).getTime();
+                                    const now = Date.now();
+                                    return ( now - born ) >= 567648000000;
+                                }
+                            }
+                        ]
+                    }, <Input
+                        datePickerData={{
+                            minDate: '1960/1/1',
+                            maxDate: new Date()
+                        }}
+                        timeFormat='YYYY-MM-DD'
+                        inputType='time'
+                        placeholder='请选择日期'
+                    />
+                    )}
+                </Form.Item>
+                <Form.Item
+                    label='驾照类型'
+                    extra={<Icon type='arrows' />}
+                >
+                    {this.props.form.getFieldDecorator( 'car_license', {
+                        isShowSuccess: true,
+                        successText: '验证成功',
+                        validateTrigger: 'onChange',
+                        initialValue: {
+                            selectData: this.state.selectData,
+                            value: null
+                        },
+                        rules: [
+                            {
+                                message: '驾照必须选择',
+                                validationFn: ( data ) => {
+                                    if ( data.value == null || data.value === '' ) return false;
+                                    return true;
+                                }
+                            }
+                        ]
+                    }, <Input inputType='select' placeholder='请选择驾照类型' />
+                    )}
+                </Form.Item>
+                <Form.Item
                     label='手机号码'
-                    htmlFor='sex'
                 >
                     {this.props.form.getFieldDecorator( 'phoneNum', {
                         isShowSuccess: true,
                         successText: '验证成功',
                         initialValue: {
-                            phonePrefix: '',
+                            phonePrefix: '+86',
                             value: ''
                         },
                         rules: [
@@ -99,6 +255,7 @@ class MyForm extends Component {
                     {this.props.form.getFieldDecorator( 'sex_text', {
                         isShowSuccess: true,
                         successText: '验证成功',
+                        grounp: 'sex',
                         rules: [
                             {
                                 required: true,
@@ -108,6 +265,7 @@ class MyForm extends Component {
                     }, <Input placeholder='性别文案' /> )}
                     {this.props.form.getFieldDecorator( 'sex', {
                         initialValue: 'man',
+                        grounp: 'sex',
                         rules: [
                             {
                                 required: true,
@@ -116,7 +274,6 @@ class MyForm extends Component {
                         ]
                     }, <Radio.RadioGrounp
                         radioType='sex'
-                        onChange={( data ) => { console.log( 'gounp', data ) }}
                     >
                         <Radio id='man'>先生</Radio>
                         <Radio id='women'>女士</Radio>
@@ -126,7 +283,7 @@ class MyForm extends Component {
                     label='普通文本'
                     htmlFor='text'
                 >
-                    {this.props.form.getFieldDecorator( 'text', {
+                    {this.props.form.getFieldDecorator( 'text_1', {
                         rules: [
                             {
                                 required: true,
@@ -143,6 +300,7 @@ class MyForm extends Component {
                     {this.props.form.getFieldDecorator( 'name_1', {
                         isShowSuccess: true,
                         successText: '验证成功',
+                        grounp: 'name',
                         rules: [
                             {
                                 required: true,
@@ -153,6 +311,7 @@ class MyForm extends Component {
                     {this.props.form.getFieldDecorator( 'name_2', {
                         isShowSuccess: true,
                         successText: '验证成功',
+                        grounp: 'name',
                         rules: [
                             {
                                 required: true,
@@ -169,8 +328,9 @@ class MyForm extends Component {
             </Form> );
     }
 }
-export default Form.create( MyForm );
-
+export default Form.create( MyForm, {
+    onValuesChange: MyForm.formChange
+} );
 
 ```
 
@@ -186,6 +346,7 @@ form对象会额外提供一些api给你去扩展你的input组件
 | getFieldDecorator  | 将Input托管给Form               | getFieldDecorator(id: string, opt: getFieldDecoratorOption, item: JSX.Element) | JSX.Element     |
 | setFormAssignValue | 通知Form组件，更新指定input的值 | setFormAssignValue(id: string, value: any)                                     | void            |
 | getFormAllData     | 获取Form下所有托管的Input数据   | getFormAllData()                                                               | Object          |
+| onValuesChange     | 任一表单域的值发生改变时的回调  | onValuesChange( function )                                                     | id, value       |
 
 ## getFieldDecorator
 
@@ -212,13 +373,14 @@ form对象会额外提供一些api给你去扩展你的input组件
 
 ### getFieldDecoratorOption
 
-| 属性            | 说明                 | 类型                                 | 默认值   |
-| --------------- | -------------------- | ------------------------------------ | -------- |
-| initialValue    | Input初始化值        | any                                  | ''       |
-| isShowSuccess   | 是否显示验证成功提示 | boolean                              | false    |
-| successText     | 验证通过文案提示     | String                               | null     |
-| rules           | 验证规则             | Array<rules>                         | null     |
-| validateTrigger | 验证时机             | 'onChange'  \| 'onFocus' \| 'onBlur' | 'onBlur' |
+| 属性            | 说明                                           | 类型                                 | 默认值   |
+| --------------- | ---------------------------------------------- | ------------------------------------ | -------- |
+| initialValue    | Input初始化值                                  | any                                  | ''       |
+| grounp          | 分组（验证分组，同组Item每次验证都会验证所有同组的item） | string                               | null     |
+| isShowSuccess   | 是否显示验证成功提示                           | boolean                              | false    |
+| successText     | 验证通过文案提示                               | String                               | null     |
+| rules           | 验证规则                                       | Array<rules>                         | null     |
+| validateTrigger | 验证时机                                       | 'onChange'  \| 'onFocus' \| 'onBlur' | 'onBlur' |
 
 举个例子：如果你的组件里用到了前缀的电话号码组件，那么本来Input组件中就支持传入`value`和`phonePrefix`这两个值来控制默认的前缀和手机号码。那么也可以直接通过`initialValue`来控制。
 

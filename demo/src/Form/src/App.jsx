@@ -15,15 +15,15 @@ export default class App extends Component {
                     <h2>Form表单，组合Input和各种输入组件使用</h2>
                 </div>
                 {false && <div className='zzc-demo-body'>
-                    <h5>普通使用</h5>
+                    <h4>普通使用</h4>
                     <Form1 />
                 </div>}
                 <div className='zzc-demo-body'>
-                    <h5>多种input</h5>
+                    <h4>多种input</h4>
                     <Form3 />
                 </div>
                 {false && <div className='zzc-demo-body'>
-                    <h5>托管到form进行管理</h5>
+                    <h4>托管到form进行管理</h4>
                     <Form2 />
                 </div>}
             </div>

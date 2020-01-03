@@ -13,7 +13,6 @@
 | style     | 自定义样式                            | object                                       | {}       |
 | title     | title内容                             | string                        \| JSX.Element | null     |
 | isShow    | 是否显示                              | boolean                                      | false    |
-| autoClose | 选择完后是否自动关闭                  | boolean                                      | true     |
 | maskClose | 遮罩层是否点击关闭                    | boolean                                      | true     |
 | data      | 选择器内容                            | Array                                        | []       |
 | onChange  | 点击选择项后出发，返回对应item的data  | Function                                     | null     |
@@ -205,7 +204,6 @@ export default class App extends PureComponent {
                         </Card2.Header>
                     </Card2>
                     <Select
-                        autoClose={false}
                         onChange={( data ) => {
                             if ( data.value == 'code4' ) {
                                 this.toggleSelect2( false );

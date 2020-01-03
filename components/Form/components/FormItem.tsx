@@ -25,6 +25,7 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
     validationTime: any = null;
 
     inputChange(id: string, value: any, noticeFormFn: Function, formOpt: getFieldDecoratorOption): void {
+        debugger;
         if (formOpt.validateTrigger == 'onChange') {
             this.validationData(id);
         }
@@ -50,7 +51,7 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
         }
         this.validationTime = setTimeout(() => {
             const { formContext } = this.props;
-            formContext.validation(id);
+            formContext.validation(id, null);
         }, 100);
     }
 

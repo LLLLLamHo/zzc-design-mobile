@@ -6,7 +6,6 @@ export interface FormProps {
 
 export interface FormComponentProps {
     id?: string,
-    opt?: string,
     children: JSX.Element
 }
 
@@ -36,6 +35,7 @@ export interface FormItemState {
 
 export interface getFieldDecoratorOption {
     isShowSuccess?: boolean
+    grounp?: string
     successText?: String
     initialValue?: any
     rules?: Array<rules>

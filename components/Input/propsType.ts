@@ -1,4 +1,6 @@
 import {getFieldDecoratorOption} from '../Form/propsType';
+import {SelectProps} from '../Select/propsType';
+import {DatePickerProps} from '../DatePicker/propsType';
 export interface InputProps {
     prefixCls: string,
     className: string,
@@ -12,8 +14,11 @@ export interface InputProps {
     disabled?: boolean
     showPhonePrefix?: boolean
     phonePrefix?: string
+    selectData?: SelectProps
     lang?: 'cn' | 'hk'
-    inputType?: 'phone'
+    inputType?: 'text' | 'phone' | 'select' | 'time'
+    datePickerData?: DatePickerProps
+    timeFormat?: string
     phonePrefixList_cn?: Array<any>
     phonePrefixList_hk?: Array<any>
     onChange?: Function
@@ -30,6 +35,8 @@ export interface InputProps {
 
 export interface InputState {
     phonePrefix: string
+    isShowSelect: boolean
+    isShowDatePicker: boolean
 }
 
 export interface PhoneNumberPrefixProps{
@@ -48,6 +55,7 @@ export interface ChangePhonePrefixHandleProps {
 }
 
 export interface GetValueReturnObject {
-    phonePrefix: string
+    phonePrefix?: string
+    selectData?: SelectProps
     value: string
 }

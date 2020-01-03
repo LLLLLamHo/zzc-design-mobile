@@ -41,7 +41,7 @@
 
 | 属性               | 说明                                             | 类型                  | 默认值 |
 | ------------------ | ------------------------------------------------ | --------------------- | ------ |
-| inputType          | 'phone'                                          | string                | null   |
+| inputType          | 'phone','select','time'                          | string                | null   |
 | showPhonePrefix    | 是否显示号码前缀选择器(inputType等于phone才生效) | boolean               | false  |
 | phonePrefix        | 默认选中的号码前缀                               | string                | +86    |
 | phonePrefixList_cn | 可选前缀列表（简体），受lang参数影响             | array<PrefixListItem> | null   |
@@ -76,4 +76,132 @@
     prefix: "+853"
     value: "123"
 }
+```
+
+### 弹出选择框Input
+
+需要以下额外属性
+
+| 属性       | 说明                   | 类型        | 默认值 |
+| ---------- | ---------------------- | ----------- | ------ |
+| inputType  | 'select'               | string      | null   |
+| selectData | 提供给Select组件的参数 | SelectProps | null   |
+
+参考Select的组件说明`selectData`调用。建议只修改title和data两个属性
+
+> Select类型的Input组件一定是非受控的，所以不能使用`defaultValue`来进行赋值
+
+#### demo
+```jsx
+
+selectData: {
+    title: '驾照类型',
+    data: [
+        {
+            text: '中国驾照',
+            type: 'active',
+            value: 'code1'
+        },
+        {
+            text: '中国驾照+国际驾照翻译认证件',
+            type: 'normal',
+            value: 'code2'
+        },
+    ]
+}
+
+onChangeSelect ( item ) {
+    const { selectData } = this.state;
+    const { data } = selectData;
+    for ( let i = 0; i < data.length; i++ ) {
+        if ( i == item.key ) {
+            data[i].type = 'active';
+        } else if ( data[i].type != 'disabled' ) {
+            data[i].type = 'normal';
+        }
+    }
+    this.setState( {
+        selectData,
+        selectIndex: item.key
+    } );
+}
+
+<Form.Item
+    label='驾照类型'
+    extra={<Icon type='arrows' />}
+>
+    <Input 
+        value={this.state.selectIndex} 
+        selectData={this.state.selectData} 
+        inputType='select'
+        placeholder='请选择驾照类型' 
+        onChange={( item ) => { this.onChangeSelect( item ) }}
+    />
+</Form.Item>
+
+```
+
+### 时间选择框Input
+
+可选以下额外属性
+
+| 属性           | 说明                                           | 类型        | 默认值 |
+| -------------- | ---------------------------------------------- | ----------- | ------ |
+| datePickerData | 传递给DatePicker组件的参数，查看DatePicker文档 | object      | null   |
+| timeFormat     | 显示的格式化格式，查看moment.js文档            | string | null   |
+
+参考DatePicker的组件说明设置`datePickerData`。只能修改以下参数：
+
+```jsx
+// datePickerData默认值和可以设置的参数
+lang: 'cn',
+reverse: false,
+maskClose: true,
+use12hour: false,
+minuteStep: 15,
+minDate: null,
+maxDate: null,
+mode: 'date',
+buttonText: null,
+title: null,
+warningText: null
+```
+
+> time类型的Input组件一定是非受控的，所以不能使用`defaultValue`来进行赋值
+
+```jsx
+<Form.Item
+    label='生日日期'
+    extra={<Icon type='arrows' />}
+>
+    <Input
+        datePickerData={{
+            minDate: '1960/1/1',
+            maxDate: new Date()
+        }}
+        timeFormat='YYYY-MM-DD'
+        value={this.state.born}
+        inputType='time'
+        placeholder='请选择生日日期'
+        id='born'
+        onChange={( item ) => { console.log(item); this.setState( { born: item.currDate } ) }}
+    />
+</Form.Item>
+<Form.Item
+    label='租车日期'
+    extra={<Icon type='arrows' />}
+    htmlFor='getCat'
+>
+    <Input
+        datePickerData={{
+            mode: 'datetime'
+        }}
+        timeFormat='YYYY-MM-DD HH:mm'
+        value={this.state.getCat}
+        inputType='time'
+        placeholder='租车日期'
+        id='getCat'
+        onChange={( item ) => { this.setState( { getCat: item.currDate } ) }}
+    />
+</Form.Item>
 ```
