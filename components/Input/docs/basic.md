@@ -82,10 +82,11 @@
 
 需要以下额外属性
 
-| 属性       | 说明                   | 类型        | 默认值 |
-| ---------- | ---------------------- | ----------- | ------ |
-| inputType  | 'select'               | string      | null   |
-| selectData | 提供给Select组件的参数 | SelectProps | null   |
+| 属性            | 说明                   | 类型        | 默认值 |
+| --------------- | ---------------------- | ----------- | ------ |
+| inputType       | 'select'               | string      | null   |
+| selectData      | 提供给Select组件的参数 | SelectProps | null   |
+| selectBodyStyle | Select组件的bodyStyle  | object      | null   |
 
 参考Select的组件说明`selectData`调用。建议只修改title和data两个属性
 
@@ -145,9 +146,9 @@ onChangeSelect ( item ) {
 
 可选以下额外属性
 
-| 属性           | 说明                                           | 类型        | 默认值 |
-| -------------- | ---------------------------------------------- | ----------- | ------ |
-| datePickerData | 传递给DatePicker组件的参数，查看DatePicker文档 | object      | null   |
+| 属性           | 说明                                           | 类型   | 默认值 |
+| -------------- | ---------------------------------------------- | ------ | ------ |
+| datePickerData | 传递给DatePicker组件的参数，查看DatePicker文档 | object | null   |
 | timeFormat     | 显示的格式化格式，查看moment.js文档            | string | null   |
 
 参考DatePicker的组件说明设置`datePickerData`。只能修改以下参数：

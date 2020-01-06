@@ -36,10 +36,12 @@ export default class Input extends PureComponent<InputProps, InputState> {
         title: null,
         warningText: null
     }
+
     static defaultProps = {
         prefixCls: `${config.cls}-input`,
         className: '',
         style: {},
+        selectBodyStyle: {},
         inputType: 'text',
         htmlType: 'text',
         lang: 'cn',
@@ -110,7 +112,7 @@ export default class Input extends PureComponent<InputProps, InputState> {
 
                 formInputOnChange({
                     selectData: { data: newData, title },
-                    value: item.key
+                    value: item.value
                 }, formOpt || null);
             }
         } else if (onChange && isFunction(onChange)) {
@@ -120,7 +122,7 @@ export default class Input extends PureComponent<InputProps, InputState> {
 
     changeDatePickerInputValue(item: DatePickerChangeProps) {
         const { onChange, formInputOnChange, formOpt } = this.props;
-        if (formInputOnChange && isFunction(formInputOnChange)) { 
+        if (formInputOnChange && isFunction(formInputOnChange)) {
             formInputOnChange(item.currDate, formOpt || null);
         } else if (onChange && isFunction(onChange)) {
             onChange(item);
@@ -140,7 +142,7 @@ export default class Input extends PureComponent<InputProps, InputState> {
                 selectData: this.props.selectData,
                 value: this.props.value
             }
-        } else if ( inputType == 'time' ) {
+        } else if (inputType == 'time') {
             return this.props.value
         } else {
             return e ? e.target.value : this.input ? this.input.value : ''
@@ -155,7 +157,11 @@ export default class Input extends PureComponent<InputProps, InputState> {
         const { selectData } = data;
         if (selectData && data.value != null) {
             const { data: selectList } = selectData;
-            data.value = selectList[data.value] ? selectList[data.value].text : '';
+            for ( let i = 0; i < selectList.length; i++ ) {
+                if ( selectList[i].value == data.value ) {
+                    data.value = selectList[i].text;
+                }
+            }
         } else {
             data.value = '';// 默认为空
         }
@@ -163,7 +169,7 @@ export default class Input extends PureComponent<InputProps, InputState> {
         return data;
     }
 
-    transformDatePickerValue(data: any): any{
+    transformDatePickerValue(data: any): any {
         if (data.defaultValue != null) {
             throw Error('time 类型的input必须使用value来赋值')
         }
@@ -191,11 +197,12 @@ export default class Input extends PureComponent<InputProps, InputState> {
         delete newProps.formInputOnBlur;
         delete newProps.formInputOnFocus;
         delete newProps.setFormItemId;
+        delete newProps.selectBodyStyle;
 
         // 对select类型的input需要对value进行转换
         if (newProps.inputType == 'select') {
             newProps = this.transformSelectValue(newProps);
-        } else if ( newProps.inputType == 'time' && newProps.timeFormat && newProps.value ) {
+        } else if (newProps.inputType == 'time' && newProps.timeFormat && newProps.value) {
             newProps = this.transformDatePickerValue(newProps);
         }
         delete newProps.timeFormat;
@@ -226,7 +233,6 @@ export default class Input extends PureComponent<InputProps, InputState> {
                 }
             }}
             onBlur={(e) => {
-                if ( inputType == 'time' || inputType == 'select' ) return;
                 if (formInputOnBlur && isFunction(formInputOnBlur)) {
                     formInputOnBlur(formOpt || null);
                 } else if (onBlur && isFunction(onBlur)) {
@@ -234,7 +240,6 @@ export default class Input extends PureComponent<InputProps, InputState> {
                 }
             }}
             onFocus={(e) => {
-                if ( inputType == 'time' || inputType == 'select' ) return;
                 if (formInputOnFocus && isFunction(formInputOnFocus)) {
                     formInputOnFocus(formOpt || null);
                 } else if (onFocus && isFunction(onFocus)) {
@@ -265,7 +270,7 @@ export default class Input extends PureComponent<InputProps, InputState> {
     }
 
     render(): JSX.Element {
-        const { inputType, showPhonePrefix, phonePrefixList_cn, phonePrefixList_hk, lang, selectData, datePickerData, value } = this.props;
+        const { inputType, showPhonePrefix, phonePrefixList_cn, phonePrefixList_hk, lang, selectData, datePickerData, value, selectBodyStyle } = this.props;
         const { phonePrefix, isShowSelect, isShowDatePicker } = this.state;
         if (inputType == 'phone' && showPhonePrefix) {
             return (
@@ -283,6 +288,7 @@ export default class Input extends PureComponent<InputProps, InputState> {
             <React.Fragment>
                 {this.createInput()}
                 {inputType == 'select' && <Select
+                    bodyStyle={selectBodyStyle}
                     onChange={(data) => {
                         this.changeSelectInputValue(data);
                         this.toggleShowSelect(false);

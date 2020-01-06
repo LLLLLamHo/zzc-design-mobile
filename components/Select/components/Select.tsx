@@ -5,6 +5,7 @@ import Popup from '../../Popup';
 import List from '../../List';
 import Icon from '../../Icon';
 import { SelectProps, SelectState, data } from '../propsType';
+import { isFunction } from '../../_util/typeof';
 
 export default class Select extends PureComponent<SelectProps, SelectState> {
     constructor(props) {
@@ -55,11 +56,15 @@ export default class Select extends PureComponent<SelectProps, SelectState> {
         });
     }
 
-    clickItem(index: number): void {
+    clickItem(index: number, value?: any): void {
         const { onChange, data } = this.props;
         // 自由不自动关闭才出发onChange
         if (onChange) {
-            onChange({ key: index, ...data[index] });
+            if ( value ) {
+                onChange({ key: index, ...data[index], value });
+            } else {
+                onChange({ key: index, ...data[index] });
+            }
         }
     }
 
@@ -87,7 +92,17 @@ export default class Select extends PureComponent<SelectProps, SelectState> {
                                 }
                             );
                             return (<List.ListItem
-                                onClick={() => { item.type != 'disabled' && this.clickItem(key) }}
+                                onClick={() => { 
+                                    if ( item.type != 'disabled' ) {
+                                        if ( item.click && isFunction(item.click) ) {
+                                            item.click(item, key, (value) => {
+                                                this.clickItem(key, value);
+                                            });
+                                        } else {
+                                            this.clickItem(key);
+                                        }
+                                    }
+                                }}
                                 key={key}
                                 title={<div className={classname}>{item.text}</div>}
                                 extra={item.type == 'active' ? <Icon style={{ width: '18px', height: '18px', color: '#2871F7' }} type='success_fill' /> : null}
@@ -101,14 +116,14 @@ export default class Select extends PureComponent<SelectProps, SelectState> {
     }
 
     render() {
-        const { style, prefixCls, className, title, onClose, maskClose, data } = this.props;
+        const { style, prefixCls, className, title, onClose, maskClose, data, bodyStyle } = this.props;
         const selectClassName: string = classNames(
             prefixCls,
             className
         );
         return (
             <Popup
-                bodyStyle={{ height: '50%' }}
+                bodyStyle={{height: '60%', ...bodyStyle }}
                 maskClose={maskClose}
                 visible={this.state.visible}
                 onClose={() => {

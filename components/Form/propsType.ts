@@ -28,9 +28,7 @@ export interface FormContext {
 }
 
 export interface FormItemState {
-    formInputOnChange: Function
-    formInputOnBlur: Function
-    formInputOnFocus: Function
+    status: string
 }
 
 export interface getFieldDecoratorOption {

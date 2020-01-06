@@ -203,7 +203,6 @@ export default class Form extends PureComponent<FormComponentProps, any> {
 
     // 验证操作
     validation(id: string, value: any, type: string = 'update') {
-        debugger
         const { formData } = this.state;
         const itemInfo = formData[id];
         const { rules, isShowSuccess, successText } = itemInfo;

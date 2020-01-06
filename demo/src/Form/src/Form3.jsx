@@ -37,7 +37,10 @@ class MyForm extends Component {
                     {
                         text: '其他驾照',
                         type: 'normal',
-                        value: 'code6'
+                        value: 'code6',
+                        click: (item, key, next) => {
+                            next('日本驾照');
+                        }
                     },
                     {
                         text: '中国驾照+车行翻译件 (不支持)',
@@ -47,59 +50,6 @@ class MyForm extends Component {
                 ]
             }
         };
-        this.formChange = this.formChange.bind( this );
-    }
-
-    componentDidMount () {
-        this.props.form.onValuesChange( this.formChange );
-    }
-
-    formChange ( id, value ) {
-        if ( id == 'car_license' && value.value == 3 ) {
-            this.props.form.setFormAssignValue( 'car_license', {
-                value: 4,
-                selectData: {
-                    title: '驾照类型',
-                    data: [
-                        {
-                            text: '中国驾照',
-                            type: 'disabled',
-                            value: 'code1'
-                        },
-                        {
-                            text: '中国驾照+国际驾照翻译认证件',
-                            type: 'normal',
-                            value: 'code2'
-                        },
-                        {
-                            text: '中国驾照+英文公证件',
-                            type: 'normal',
-                            value: 'code3'
-                        },
-                        {
-                            text: '香港驾照',
-                            type: 'normal',
-                            value: 'code4'
-                        },
-                        {
-                            text: '台湾驾照',
-                            type: 'active',
-                            value: 'code5'
-                        },
-                        {
-                            text: '其他驾照',
-                            type: 'disabled',
-                            value: 'code6'
-                        },
-                        {
-                            text: '中国驾照+车行翻译件 (不支持)',
-                            type: 'disabled',
-                            value: 'code7'
-                        }
-                    ]
-                }
-            } );
-        }
     }
 
     onSubmit ( data ) {
@@ -274,6 +224,4 @@ class MyForm extends Component {
             </Form> );
     }
 }
-export default Form.create( MyForm, {
-    onValuesChange: MyForm.formChange
-} );
+export default Form.create( MyForm );

@@ -5,6 +5,7 @@ export interface InputProps {
     prefixCls: string,
     className: string,
     style: React.CSSProperties,
+    selectBodyStyle: React.CSSProperties,
     id?: string
     name: string
     value?: any,
