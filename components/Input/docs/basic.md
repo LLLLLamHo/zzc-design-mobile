@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-11-05 17:56:38
+ * @LastEditTime : 2020-01-06 13:41:52
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /zzc-design-mobile/components/Input/docs/basic.md
+ -->
 输入框布局
 
 ## API
@@ -10,7 +18,7 @@
 
 | 属性         | 说明                    | 类型     | 默认值   |
 | ------------ | ----------------------- | -------- | -------- |
-| prefixCls    | 组件的公用className前序 | string   | zzc-card |
+| prefixCls    | 组件的公用className前序 | string   | zzc-input |
 | className    | 样式类名                | string   | 无       |
 | style        | 自定义样式              | object   | {}       |
 | id           | input的id属性           | string   | null     |
@@ -205,4 +213,31 @@ warningText: null
         onChange={( item ) => { this.setState( { getCat: item.currDate } ) }}
     />
 </Form.Item>
+```
+
+## Input.Textarea
+
+最基本的多行文本输入框组件
+
+| 属性         | 说明                    | 类型     | 默认值   |
+| ------------ | ----------------------- | -------- | -------- |
+| prefixCls    | 组件的公用className前序 | string   | zzc-input-textarea |
+| className    | 样式类名                | string   | 无       |
+| style        | 自定义样式              | object   | {}       |
+| id           | Textarea的id属性           | string   | null     |
+| value        | Textarea的值（受控组件）   | any      | null     |
+| defaultValue | Textarea的值（非受控）     | any      | null     |
+| placeholder  | placeholder值    | string   | ''       |
+| autoHeight   | 高度自适应, autoHeight | boolean  | false |
+| disabled     | textarea是否禁止输入       | boolean  | false    |
+| count        | 计数功能,剩余可以输入长度,兼具最大长度,  | number  |  null |
+| maxLength    | textarea的最大值 (已输入count,不传) | number   | Infinity |   
+
+
+```jsx
+<Input.Textarea autoHeight placeholder='请输入姓名' defaultValue="姓名" />
+<Input.Textarea onChange={( e ) => { this.onChange( 'name', e ); }} value={name} placeholder='请输入姓名' />
+<Input.Textarea disabled placeholder='请输入姓名' />
+<Input.Textarea maxLength={20} placeholder='请输入姓名' />
+<Input.Textarea count={20} placeholder='请输入姓名' />
 ```
