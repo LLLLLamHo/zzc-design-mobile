@@ -275,6 +275,8 @@ export default class Form extends PureComponent<FormComponentProps, any> {
                 <FormContext.Provider value={{
                     // 提供函数给FormItem来调用form函数
                     itemStatus: this.state.itemStatus,
+                    setValue: this.setValue,
+                    formData: this.state.formData,
                     updateFormItemStatus: this.updateFormItemStatus,
                     validation: this.validation
                 }}>

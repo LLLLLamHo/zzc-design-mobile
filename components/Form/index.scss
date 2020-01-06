@@ -12,8 +12,10 @@ $cls4: '.zds-form-item-line';
         #{$cls4} {
             @include halfPXLine('bottom');
         }
+
         #{$cls3} {
             @include halfPXLine('bottom', $form_focus_box_color);
+
             &::after {
                 transform: scale(0, .5) translateY(50%);
                 transition: transform .35s cubic-bezier(.23, 1, .32, 1), background .35s cubic-bezier(.23, 1, .32, 1);
@@ -23,7 +25,8 @@ $cls4: '.zds-form-item-line';
         &-focus {
             #{$cls3} {
                 @include halfPXLine('bottom', $form_focus_box_color);
-                &::after{
+
+                &::after {
                     transform: scale(1, .5) translateY(50%);
                 }
             }
@@ -70,8 +73,14 @@ $cls4: '.zds-form-item-line';
         svg {
             width: 18px;
             height: 18px;
-            color: #696E7C;
+            color: #9EA1B0;
+
+            &.clear-input-btn {
+                width: 16px;
+                height: 16px;
+            }
         }
+
     }
 
     .zds-button {

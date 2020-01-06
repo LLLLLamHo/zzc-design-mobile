@@ -81,13 +81,12 @@ class MyForm extends Component {
                                 }
                             }
                         ]
-                    }, <Input
+                    }, <Input.DatePicker
                         datePickerData={{
                             minDate: '1960/1/1',
                             maxDate: new Date()
                         }}
                         timeFormat='YYYY-MM-DD'
-                        inputType='time'
                         placeholder='请选择日期'
                     />
                     )}
@@ -113,7 +112,7 @@ class MyForm extends Component {
                                 }
                             }
                         ]
-                    }, <Input inputType='select' placeholder='请选择驾照类型' />
+                    }, <Input.Select placeholder='请选择驾照类型' />
                     )}
                 </Form.Item>
                 <Form.Item
@@ -178,6 +177,7 @@ class MyForm extends Component {
                 <Form.Item
                     label='普通文本'
                     htmlFor='text'
+                    clearBtn
                 >
                     {this.props.form.getFieldDecorator( 'text_1', {
                         rules: [
@@ -215,6 +215,24 @@ class MyForm extends Component {
                             }
                         ]
                     }, <Input placeholder='名拼音' /> )}
+                </Form.Item>
+                <Form.Item
+                    label='普通多行文本'
+                    htmlFor='label1'
+                    style={{ alignItems: 'self-end' }}
+                >
+                    {this.props.form.getFieldDecorator( 'label1', {
+                        rules: [
+                            {
+                                required: true,
+                                message: '信息不能为空'
+                            },
+                            {
+                                max: 10,
+                                message: '长度不能超过10个字符'
+                            }
+                        ]
+                    }, <Input.Textarea autoHeight placeholder='请输入普通多行文本' /> )}
                 </Form.Item>
                 <Form.Item>
                     <Button htmlType='submit'>

@@ -21,6 +21,7 @@ _config.yml
 .eslintrc.js
 .jest.js
 .gitignore
+.history
 gulpfile.js
 tsconfig.json
 webpack.config.js

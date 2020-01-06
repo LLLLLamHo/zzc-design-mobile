@@ -9,22 +9,26 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
     constructor(props) {
         super(props);
         this.state = {
-            status: 'blur'
+            status: 'blur',
+            clearBtnStatus: false
         };
         this.inputChange = this.inputChange.bind(this)
         this.inputBlur = this.inputBlur.bind(this)
         this.inputFocus = this.inputFocus.bind(this)
         this.setFormItemId = this.setFormItemId.bind(this)
+        this.clearTextInputValue = this.clearTextInputValue.bind(this)
     }
+    private delayHideClearBtnTimer;
     static defaultProps = {
         prefixCls: `${config.cls}-form-item`,
         className: '',
         style: {},
         htmlFor: null,
         colon: false,
-        extra: null
+        extra: null,
+        clearBtn: false
     };
-    inputId: Array<{id: string, inputType: string}> = [];
+    inputId: Array<{ id: string, inputType: string }> = [];
     validationTime: any = null;
 
     inputChange(id: string, value: any, noticeFormFn: Function, formOpt: getFieldDecoratorOption): void {
@@ -48,9 +52,21 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
         this.changeItemStatus('focus');
     }
 
-    private changeItemStatus(type: string): void {
+    private changeItemStatus(type: 'focus' | 'blur'): void {
+        this.delayHideClearBtnTimer && clearTimeout(this.delayHideClearBtnTimer);
         this.setState({
-            status: type
+            status: type,
+            clearBtnStatus: type == 'focus' ? true : this.state.clearBtnStatus
+        }, () => {
+            if (this.state.status == 'blur') {
+                // 同步设置clearBtnStatus为false会导致无法点击，需要延迟更改
+                this.delayHideClearBtnTimer = setTimeout(() => {
+                    this.setState({
+                        clearBtnStatus: false
+                    })
+                }, 200);
+            }
+
         })
     }
 
@@ -68,7 +84,7 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
     // 设置当前的formItem是那个id所使用
     setFormItemId(id: string, type: string): void {
         // 兼容多个input的情况
-        this.inputId.push({id, inputType: type});
+        this.inputId.push({ id, inputType: type });
     }
 
     getCurrFormItemStatus(itemStatus: Object): { isSuccess: boolean, isWarning: boolean, isError: boolean, message: string } {
@@ -106,7 +122,6 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
 
     // 获取当前formItem的状态
     getCurrFormItemClassName(statusData: { isSuccess: boolean, isWarning: boolean, isError: boolean, message: string }): string {
-        debugger;
         const { prefixCls } = this.props;
         const { isError, isSuccess, isWarning } = statusData;
         const { status } = this.state;
@@ -119,14 +134,38 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
         });
     }
 
-    render(): JSX.Element {
-        const { prefixCls, className, style, htmlFor, label, colon, children, extra } = this.props;
-        let classname = classnames(prefixCls, className);
+    private checkIsShowClearBtn(): boolean {
+        const { formContext } = this.props;
+        const { formData } = formContext;
+        for (let i = 0; i < this.inputId.length; i++) {
+            if (this.inputId[i].inputType == 'text' && formData[this.inputId[i].id].value != null && formData[this.inputId[i].id].value != '') {
+                return true;
+            }
+        }
+        return false;
+    }
 
+    private clearTextInputValue() {
+        const { formContext } = this.props;
+        const { formData, setValue } = formContext;
+        for (let i = 0; i < this.inputId.length; i++) {
+            if (this.inputId[i].inputType == 'text' && formData[this.inputId[i].id].value != null && formData[this.inputId[i].id].value != '') {
+                setValue(this.inputId[i].id, '');
+                this.validationData(this.inputId[i].id);
+            }
+        }
+    }
+
+    render(): JSX.Element {
+        const { prefixCls, className, style, htmlFor, label, colon, children, extra, clearBtn } = this.props;
+        const { clearBtnStatus } = this.state;
+        let classname = classnames(prefixCls, className);
         // 错误样式
         const { itemStatus } = this.props.formContext;
         const currFormItemStatusData = this.getCurrFormItemStatus(itemStatus);
         const itemBoxClassName = this.getCurrFormItemClassName(currFormItemStatusData);
+
+        const isShowClearBtn = clearBtn ? this.checkIsShowClearBtn() : false;
 
         return (
             <FormItemContext.Provider value={{
@@ -140,6 +179,7 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
                         <div className={classname} style={style}>
                             {label && <label htmlFor={htmlFor}>{label}{colon && ':'}</label>}
                             {children}
+                            {clearBtn && isShowClearBtn && clearBtnStatus && <div onClick={this.clearTextInputValue} className={`${prefixCls}-extra-box`}><Icon className='clear-input-btn' type='error_fill' /></div>}
                             {extra && <div className={`${prefixCls}-extra-box`}>{extra}</div>}
                         </div>
                     </div>

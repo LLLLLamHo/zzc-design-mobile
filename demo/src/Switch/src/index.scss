@@ -1,0 +1,41 @@
+body,
+#root {
+    background: #fff !important;
+}
+
+.zzc-demo {
+    background: transparent;
+
+    .zzc-demo-body {
+        border-bottom: 4px solid #F6F6F6;
+    }
+
+    h5 {
+        font-size: 16px;
+        margin-bottom: 20px;
+        padding: 0 .3rem .3rem;
+    }
+
+    p {
+        line-height: 1;
+        font-size: 18px;
+    }
+
+    .wrapper {
+        padding: 0 .3rem;
+    }
+
+    .demo-item {
+        margin-bottom: 10px
+    }
+
+    .list {
+        font-size: .3rem;
+        display: flex;
+        justify-content: space-between;
+        color: #666;
+        border-bottom: 1px solid #dde0e6;
+        margin-bottom: 0.4rem;
+        padding-bottom: 0.2rem;
+    }
+}

@@ -42,6 +42,12 @@ Form表单
     >
         <Input placeholder='请输入姓名' id='label2' />
     </Form.Item>
+    <Form.Item
+        label='多行输入'
+        extra={<Icon type='info' />}
+    >
+        <Input.Textarea placeholder='请输入自我介绍' id='label3' />
+    </Form.Item>
 </Form>
 ```
 
@@ -91,7 +97,10 @@ class MyForm extends Component {
                     {
                         text: '其他驾照',
                         type: 'normal',
-                        value: 'code6'
+                        value: 'code6',
+                        click: (item, key, next) => {
+                            next('日本驾照');
+                        }
                     },
                     {
                         text: '中国驾照+车行翻译件 (不支持)',
@@ -101,59 +110,6 @@ class MyForm extends Component {
                 ]
             }
         };
-        this.formChange = this.formChange.bind( this );
-    }
-
-    componentDidMount () {
-        this.props.form.onValuesChange( this.formChange );
-    }
-
-    formChange ( id, value ) {
-        if ( id == 'car_license' && value.value == 3 ) {
-            this.props.form.setFormAssignValue( 'car_license', {
-                value: 4,
-                selectData: {
-                    title: '驾照类型',
-                    data: [
-                        {
-                            text: '中国驾照',
-                            type: 'disabled',
-                            value: 'code1'
-                        },
-                        {
-                            text: '中国驾照+国际驾照翻译认证件',
-                            type: 'normal',
-                            value: 'code2'
-                        },
-                        {
-                            text: '中国驾照+英文公证件',
-                            type: 'normal',
-                            value: 'code3'
-                        },
-                        {
-                            text: '香港驾照',
-                            type: 'normal',
-                            value: 'code4'
-                        },
-                        {
-                            text: '台湾驾照',
-                            type: 'active',
-                            value: 'code5'
-                        },
-                        {
-                            text: '其他驾照',
-                            type: 'disabled',
-                            value: 'code6'
-                        },
-                        {
-                            text: '中国驾照+车行翻译件 (不支持)',
-                            type: 'disabled',
-                            value: 'code7'
-                        }
-                    ]
-                }
-            } );
-        }
     }
 
     onSubmit ( data ) {
@@ -185,13 +141,12 @@ class MyForm extends Component {
                                 }
                             }
                         ]
-                    }, <Input
+                    }, <Input.DatePicker
                         datePickerData={{
                             minDate: '1960/1/1',
                             maxDate: new Date()
                         }}
                         timeFormat='YYYY-MM-DD'
-                        inputType='time'
                         placeholder='请选择日期'
                     />
                     )}
@@ -217,7 +172,7 @@ class MyForm extends Component {
                                 }
                             }
                         ]
-                    }, <Input inputType='select' placeholder='请选择驾照类型' />
+                    }, <Input.Select placeholder='请选择驾照类型' />
                     )}
                 </Form.Item>
                 <Form.Item
@@ -282,6 +237,7 @@ class MyForm extends Component {
                 <Form.Item
                     label='普通文本'
                     htmlFor='text'
+                    clearBtn
                 >
                     {this.props.form.getFieldDecorator( 'text_1', {
                         rules: [
@@ -320,6 +276,24 @@ class MyForm extends Component {
                         ]
                     }, <Input placeholder='名拼音' /> )}
                 </Form.Item>
+                <Form.Item
+                    label='普通多行文本'
+                    htmlFor='label1'
+                    style={{ alignItems: 'self-end' }}
+                >
+                    {this.props.form.getFieldDecorator( 'label1', {
+                        rules: [
+                            {
+                                required: true,
+                                message: '信息不能为空'
+                            },
+                            {
+                                max: 10,
+                                message: '长度不能超过10个字符'
+                            }
+                        ]
+                    }, <Input.Textarea autoHeight placeholder='请输入普通多行文本' /> )}
+                </Form.Item>
                 <Form.Item>
                     <Button htmlType='submit'>
                         提交
@@ -328,9 +302,8 @@ class MyForm extends Component {
             </Form> );
     }
 }
-export default Form.create( MyForm, {
-    onValuesChange: MyForm.formChange
-} );
+export default Form.create( MyForm );
+
 
 ```
 

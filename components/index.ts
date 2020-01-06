@@ -27,3 +27,4 @@ export { default as Form } from './Form';
 export { default as Steps } from './Steps';
 export { default as Skeleton } from './Skeleton';
 export { default as Radio } from './Radio';
+export { default as Switch } from './Switch';
