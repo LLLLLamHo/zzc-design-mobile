@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-22 11:23:07
- * @LastEditTime : 2020-01-06 14:26:39
+ * @LastEditTime : 2020-01-06 14:49:04
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /zzc-design-mobile/demo/webpack.config.js
@@ -19,25 +19,25 @@ const CWD = process.cwd();
 let dirs = fs.readdirSync( path.join( CWD, './src' ) );
 let entry = {};
 for ( let i = 0; i < dirs.length; i++ ) {
-    if ( dirs[i] == 'Form' ) {
-        entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-    }
-    if ( dirs[i] == 'Input' ) {
-        entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-    }
-    if ( dirs[i] == 'Radio' ) {
-        entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-    }
-    if ( dirs[i] == 'Steps' ) {
-        entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-    }
-    if ( dirs[i] == 'Switch' ) {
-        entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-    }
-    if ( dirs[i] == 'Select' ) {
-        entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-    }
-    // entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+    // if ( dirs[i] == 'Form' ) {
+    //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+    // }
+    // if ( dirs[i] == 'Input' ) {
+    //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+    // }
+    // if ( dirs[i] == 'Radio' ) {
+    //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+    // }
+    // if ( dirs[i] == 'Steps' ) {
+    //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+    // }
+    // if ( dirs[i] == 'Switch' ) {
+    //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+    // }
+    // if ( dirs[i] == 'Select' ) {
+    //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+    // }
+     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
 }
 let config = {
     devtool: 'source-map',
