@@ -29,19 +29,20 @@ export interface TextareaProps {
     prefixCls?: string
     id?: string
     className?: string   
-    value?: string
+    value?: any,
     defaultValue?: string
     autoHeight?: boolean    
     count:number
     rows?:number
     style?:React.CSSProperties        
-    maxLength?: number | string 
+    maxLength?: number
     disabled?: boolean
+    readonly?:boolean|string
     placeholder?: string
     onFocus?: TextareaEventHandle
     onChange?: TextareaEventHandle
     onBlur?: TextareaEventHandle
-
+    
     _zds_form_initValue?: Function
     formOpt?: getFieldDecoratorOption
     formInputOnChange?: Function

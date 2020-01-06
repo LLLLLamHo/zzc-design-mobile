@@ -247,3 +247,40 @@
   color: rgba(51, 51, 51, 0.2);
   font-size: 14px;
   line-height: 14px; }
+
+.zds-input-textarea {
+  color: red;
+  display: block;
+  flex: 1;
+  width: 100%; }
+
+.zds-input-textarea-count {
+  text-align: right;
+  color: #9EA1B0;
+  font-size: 11px;
+  line-height: 11px;
+  margin-top: 25px; }
+
+.zds-input-textarea textarea {
+  overflow: visible;
+  word-break: break-word;
+  word-wrap: break-word;
+  color: #333;
+  font-size: 14px;
+  width: 100%;
+  line-height: 21px;
+  display: block; }
+
+.zds-input-textarea textarea:disabled {
+  color: #696E7C; }
+
+.zds-input-textarea textarea::placeholder {
+  color: rgba(51, 51, 51, 0.2);
+  line-height: 21px; }
+
+.zds-input-textarea textarea::-webkit-scrollbar {
+  display: none; }
+
+.zds-input-textarea-auto-height textarea {
+  overflow: hidden;
+  min-height: 11px; }

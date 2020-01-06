@@ -42,6 +42,12 @@ Form表单
     >
         <Input placeholder='请输入姓名' id='label2' />
     </Form.Item>
+    <Form.Item
+        label='多行输入'
+        extra={<Icon type='info' />}
+    >
+        <Input.Textarea placeholder='请输入自我介绍' id='label3' />
+    </Form.Item>
 </Form>
 ```
 
@@ -139,6 +145,24 @@ class MyForm extends Component {
                             }
                         ]
                     }, <Input placeholder='请输入' /> )}
+                </Form.Item>
+                <Form.Item
+                    label='普通多行文本'
+                    htmlFor='label1'
+                    style={{ alignItems: 'self-end' }}
+                >
+                    {this.props.form.getFieldDecorator( 'label1', {
+                        rules: [
+                            {
+                                required: true,
+                                message: '信息不能为空'
+                            },
+                            {
+                                max: 10,
+                                message: '长度不能超过10个字符'
+                            }
+                        ]
+                    }, <Input.Textarea count='10' autoHeight placeholder='请输入普通多行文本' /> )}
                 </Form.Item>
                 <Form.Item>
                     <Button htmlType='submit'>

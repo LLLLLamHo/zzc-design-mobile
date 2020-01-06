@@ -13,7 +13,7 @@ export default class App extends Component {
             name: '',
             age: '',
             description: ''
-        };
+        };  
     }
 
     onChange(type, e) {
@@ -23,9 +23,9 @@ export default class App extends Component {
             });
 
         }
-        else if (type == 'description') {
+        else if (type == 'description') {            
             this.setState({
-                name: e.target.value
+                description: e.target.value
             });
         } else {
             this.setState({
@@ -35,7 +35,7 @@ export default class App extends Component {
     }
 
     render() {
-        const { name, age } = this.state;
+        const { name, age, description } = this.state;
 
         return (
             <div className='zzc-demo'>
@@ -86,7 +86,7 @@ export default class App extends Component {
                         <Card2.Header style={{ paddingLeft: '15px', paddingRight: '15px', paddingBottom: '12px' }} title='非受控Textarea' />
                         <Form>
                             <Form.Item style={{ paddingTop: 0 }} >
-                                <Textarea style={{ height: '84px' }} placeholder='固定高度' />
+                                <Textarea style={{ height: '84px' }} placeholder='固定高度' defaultValue = "这是一段默认文案" />
                             </Form.Item>
                         </Form>
                         <Form>

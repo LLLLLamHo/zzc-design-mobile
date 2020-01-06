@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2019-11-22 11:23:07
+ * @LastEditTime : 2020-01-06 11:55:45
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /zzc-design-mobile/demo/webpack.config.js
+ */
 const path = require( 'path' );
 const fs = require( 'fs' );
 
@@ -11,6 +19,12 @@ const CWD = process.cwd();
 let dirs = fs.readdirSync( path.join( CWD, './src' ) );
 let entry = {};
 for ( let i = 0; i < dirs.length; i++ ) {
+    // if ( dirs[i] == 'Input' ) {
+    //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+    // }
+    // if ( dirs[i] == 'Form' ) {
+    //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+    // }
     // if ( dirs[i] == 'Toast' ) {
     //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     // }
