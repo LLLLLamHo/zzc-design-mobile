@@ -20,12 +20,6 @@ for ( let i = 0; i < dirs.length; i++ ) {
     if ( dirs[i] == 'Radio' ) {
         entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     }
-    if ( dirs[i] == 'Steps' ) {
-        entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-    }
-    if ( dirs[i] == 'Switch' ) {
-        entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-    }
     if ( dirs[i] == 'Select' ) {
         entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     }

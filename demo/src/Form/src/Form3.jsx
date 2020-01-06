@@ -178,6 +178,7 @@ class MyForm extends Component {
                 <Form.Item
                     label='普通文本'
                     htmlFor='text'
+                    clearBtn
                 >
                     {this.props.form.getFieldDecorator( 'text_1', {
                         rules: [

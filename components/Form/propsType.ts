@@ -17,6 +17,7 @@ export interface FormItemProps {
     htmlFor?: string
     label?: string
     colon?: boolean
+    clearBtn?: boolean
     extra?: JSX.Element | string | null
     formContext: FormContext
 }

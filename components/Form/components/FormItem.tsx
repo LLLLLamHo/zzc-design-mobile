@@ -22,12 +22,14 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
         style: {},
         htmlFor: null,
         colon: false,
-        extra: null
+        extra: null,
+        clearBtn: false
     };
     inputId: Array<{id: string, inputType: string}> = [];
     validationTime: any = null;
 
     inputChange(id: string, value: any, noticeFormFn: Function, formOpt: getFieldDecoratorOption): void {
+        console.log(formOpt);
         if (formOpt.validateTrigger == 'onChange') {
             this.validationData(id);
         }
@@ -120,14 +122,13 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
     }
 
     render(): JSX.Element {
-        const { prefixCls, className, style, htmlFor, label, colon, children, extra } = this.props;
+        const { prefixCls, className, style, htmlFor, label, colon, children, extra, clearBtn } = this.props;
         let classname = classnames(prefixCls, className);
 
         // 错误样式
         const { itemStatus } = this.props.formContext;
         const currFormItemStatusData = this.getCurrFormItemStatus(itemStatus);
         const itemBoxClassName = this.getCurrFormItemClassName(currFormItemStatusData);
-
         return (
             <FormItemContext.Provider value={{
                 formInputOnChange: this.inputChange,
@@ -141,6 +142,7 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
                             {label && <label htmlFor={htmlFor}>{label}{colon && ':'}</label>}
                             {children}
                             {extra && <div className={`${prefixCls}-extra-box`}>{extra}</div>}
+                            {clearBtn && <div className={`${prefixCls}-extra-box`}><Icon className='clear-input-btn' type='error_fill' /></div>}
                         </div>
                     </div>
                     {
