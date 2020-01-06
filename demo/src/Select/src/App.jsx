@@ -44,6 +44,14 @@ export default class App extends PureComponent {
                     text: '中国驾照+车行翻译件 (不支持)',
                     type: 'disabled',
                     value: 'code7'
+                },
+                {
+                    text: '其他',
+                    type: 'normal',
+                    value: 'code8',
+                    click: (item, key, next) => {
+                        next('xxxx国驾照');
+                    }
                 }
             ],
             showSelect2: false,
@@ -95,20 +103,21 @@ export default class App extends PureComponent {
         } );
     }
 
-    changeData1 ( index ) {
+    changeData1 ( item ) {
         const { data1 } = this.state;
         let select1 = null;
         for ( let i = 0; i < data1.length; i++ ) {
-            if ( i == index ) {
-                data1[i].type === 'active';
+            if ( i == item.key ) {
+                data1[i].type = 'active';
                 select1 = data1[i].text;
             } else if ( data1[i].type != 'disabled' ) {
-                data1[i].type === 'normal';
+                data1[i].type = 'normal';
             }
         }
         this.setState( {
             data1: [].concat( data1 ),
-            select1
+            select1,
+            showSelect1: false
         } );
     }
 
@@ -118,20 +127,21 @@ export default class App extends PureComponent {
         } );
     }
 
-    changeData2 ( index ) {
+    changeData2 ( item ) {
         const { data2 } = this.state;
         let select2 = null;
         for ( let i = 0; i < data2.length; i++ ) {
-            if ( i == index ) {
-                data2[i].type === 'active';
+            if ( i == item.key ) {
+                data2[i].type = 'active';
                 select2 = data2[i].text;
             } else if ( data2[i].type != 'disabled' ) {
-                data2[i].type === 'normal';
+                data2[i].type = 'normal';
             }
         }
         this.setState( {
             data2: [].concat( data2 ),
-            select2
+            select2,
+            showSelect2: false
         } );
     }
 
@@ -140,8 +150,8 @@ export default class App extends PureComponent {
         return (
             <div className='zzc-demo'>
                 <div className='zzc-demo-header'>
-                    <h1 className='zzc-demo-title'>List 列表</h1>
-                    <h2>列表布局，主要分为List组件和List.Item组件配合使用</h2>
+                    <h1 className='zzc-demo-title'>Select 选择器</h1>
+                    <h2>从下往上弹出的单选选择器</h2>
                 </div>
                 <div className='zzc-demo-body full'>
                     <h5>基本使用</h5>
@@ -159,9 +169,9 @@ export default class App extends PureComponent {
                     <Select
                         isShow={showSelect1}
                         title='驾照类型'
-                        onClose={( index ) => {
-                            this.changeData1( index );
-                            this.toggleSelect1( false );
+                        onChange={(item) => {
+                            console.log(item);
+                            this.changeData1( item );
                         }}
                         data={data1}
                     />
@@ -183,15 +193,11 @@ export default class App extends PureComponent {
                         autoClose={false}
                         onChange={( data ) => {
                             if ( data.value == 'code4' ) {
-                                this.toggleSelect2( false );
+                                this.changeData2( data );
                             }
                         }}
                         isShow={showSelect2}
                         title='驾照类型'
-                        onClose={( index ) => {
-                            this.changeData2( index );
-                            this.toggleSelect2( false );
-                        }}
                         data={data2}
                     />
                 </div>

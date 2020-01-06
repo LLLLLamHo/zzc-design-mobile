@@ -73,7 +73,7 @@ class Textarea extends PureComponent<TextareaProps, TextareaState> {
             formInputOnChange(e.target.value, formOpt || null);
 
         } else if (onChange && isFunction(onChange)) {
-            onChange(e);
+            onChange(e.target.value);
             if(!('value' in this.props)) {
                 this.setState({
                     value

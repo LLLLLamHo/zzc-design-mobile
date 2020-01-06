@@ -1,0 +1,41 @@
+@import '../style/base.scss';
+$cls: '.zds-radio';
+$cls2: '.zds-radio-grounp';
+
+#{$cls} {
+    display: flex;
+    align-items: center;
+    font-size: $fs28rem;
+    font-weight: 400;
+    color: #696E7C;
+
+
+    &.checked {
+        color: #2871F7;
+    }
+    &.disabled {
+        opacity: .3;
+    }
+
+    svg{
+        margin-right: 4px;
+    }
+
+    input[type='radio'] {
+        appearance: none;
+        -webkit-appearance: none;
+        outline: none;
+        vertical-align: text-bottom;
+    }
+}
+
+#{$cls2} {
+    display: flex;
+    align-items: center;
+
+    #{$cls} {
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
+}

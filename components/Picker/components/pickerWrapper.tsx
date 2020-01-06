@@ -25,7 +25,6 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
     }
 
     componentDidUpdate(): void {
-        debugger;
         if ( this.props.data.selectedIndex ) {
             this.BScrollObj.wheelTo( this.props.data.selectedIndex );
         }
@@ -34,7 +33,6 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
 
     componentDidMount (): void {
         const { scrollType = new Date().getTime() } = this.props.data;
-        console.log(scrollType)
         const initBScrollConfig = this.resetBScrollConfig();
         const wrapperNode: any = this.wrapper ? ReactDOM.findDOMNode( this.wrapper ) : null;
         if ( wrapperNode ) {
