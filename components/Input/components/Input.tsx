@@ -77,7 +77,7 @@ export default class Input extends PureComponent<InputProps, InputState> {
             _zds_form_initValue(id, this.getValue(), formOpt);
         }
         if (setFormItemId && isFunction(setFormItemId)) {
-            setFormItemId(id);
+            setFormItemId(id, this.props.inputType);
         }
     }
 
