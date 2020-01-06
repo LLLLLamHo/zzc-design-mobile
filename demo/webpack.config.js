@@ -26,6 +26,9 @@ for ( let i = 0; i < dirs.length; i++ ) {
     if ( dirs[i] == 'Switch' ) {
         entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     }
+    if ( dirs[i] == 'Select' ) {
+        entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+    }
     // entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
 }
 let config = {

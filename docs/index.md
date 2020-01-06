@@ -39,7 +39,7 @@
 
 这是一个基于React实现的UI组件框架。
 
-[了解更多](https://lllllamho.github.io/zzc-design-mobile/)
+[进入官网](https://lllllamho.github.io/zzc-design-mobile/)
 
 #### 简介
 zzc-design-mobile是基于react开发的ui框架，用于租租车移动端的ui框架。

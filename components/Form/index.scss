@@ -2,36 +2,60 @@
 $cls: '.zds-form';
 $cls2: '.zds-form-item-box';
 $cls3: '.zds-form-item';
+$cls4: '.zds-form-item-line';
+
 #{$cls} {
     padding: 0 15px;
     background: #fff;
-    #{$cls2}{
-        #{$cls3}{
-            @include halfPXLine('bottom')
+
+    #{$cls2} {
+        #{$cls4} {
+            @include halfPXLine('bottom');
         }
-        &-success{
-            #{$cls3}{
+        #{$cls3} {
+            @include halfPXLine('bottom', $form_focus_box_color);
+            &::after {
+                transform: scale(0, .5) translateY(50%);
+                transition: transform .35s cubic-bezier(.23, 1, .32, 1), background .35s cubic-bezier(.23, 1, .32, 1);
+            }
+        }
+
+        &-focus {
+            #{$cls3} {
+                @include halfPXLine('bottom', $form_focus_box_color);
+                &::after{
+                    transform: scale(1, .5) translateY(50%);
+                }
+            }
+        }
+
+        &-success {
+            #{$cls3} {
                 @include halfPXLine('bottom', $form_success_box_color);
             }
         }
-        &-warning{
-            #{$cls3}{
+
+        &-warning {
+            #{$cls3} {
                 @include halfPXLine('bottom', $form_warning_box_color);
             }
         }
-        &-error{
-            #{$cls3}{
+
+        &-error {
+            #{$cls3} {
                 @include halfPXLine('bottom', $form_error_box_color);
             }
         }
     }
 }
+
 #{$cls3} {
     padding: 21px 0;
     background: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     label {
         color: #333;
         font-size: 14px;
@@ -39,69 +63,81 @@ $cls3: '.zds-form-item';
         margin-right: 16px;
         text-align: left;
     }
-    #{$cls3}-extra-box{
+
+    #{$cls3}-extra-box {
         margin-left: 10px;
-        svg{
+
+        svg {
             width: 18px;
             height: 18px;
             color: #696E7C;
         }
     }
-    .zds-button{
+
+    .zds-button {
         width: 100%;
     }
 }
-#{$cls3}-success-box{
+
+#{$cls3}-success-box {
     padding: 4px 0;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     color: $form_success_box_color;
-    p{
+
+    p {
         font-size: 12px;
         flex: 1;
     }
-    svg{
+
+    svg {
         margin-top: 2px;
         margin-right: 8px;
         width: 14px;
         height: 14px;
     }
-    
+
 }
-#{$cls3}-warning-box{
+
+#{$cls3}-warning-box {
     padding: 4px 0;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     color: $form_warning_box_color;
-    p{
+
+    p {
         font-size: 12px;
         flex: 1;
     }
-    svg{
+
+    svg {
         margin-top: 2px;
         margin-right: 8px;
         width: 14px;
         height: 14px;
     }
-    
+
 }
-#{$cls3}-error-box{
+
+#{$cls3}-error-box {
     padding: 4px 0;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     color: $form_error_box_color;
-    p{
+
+    p {
         font-size: 12px;
         flex: 1;
     }
-    svg{
+
+    svg {
         margin-top: 2px;
         margin-right: 8px;
         width: 14px;
         height: 14px;
     }
-    
+
 }

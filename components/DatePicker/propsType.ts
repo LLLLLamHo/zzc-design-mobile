@@ -19,7 +19,7 @@ export interface DatePickerProps {
     renderCallback?: Function
     visible: boolean
     maskClose?: boolean
-    reverse: boolean
+    reverse?: boolean
 }
 
 export interface DatePickerState {
@@ -53,3 +53,8 @@ export declare type BScrollArray = {
     minute?: any
     hour12?: any
 };
+
+export interface DatePickerChangeProps {
+    scrollKey: string
+    currDate: string
+}

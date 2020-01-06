@@ -20,6 +20,7 @@ export default class Form extends PureComponent<FormComponentProps, any> {
     }
 
     formComponent: HTMLFormElement | null = null;
+    private onValuesChange?: Function;
 
     // 扩展给业务组件调用的函数
     form = {
@@ -53,7 +54,7 @@ export default class Form extends PureComponent<FormComponentProps, any> {
                             state.formInputOnFocus && state.formInputOnFocus(id, formOpt);
                         };
                         const value = formData[id] != null ? this.getFormInputData(id) : newOpt.initialValue || '';
-                        const consumerValue = isObject(value) ? {...value} : {value: value};
+                        const consumerValue = isObject(value) ? { ...value } : { value: value };
                         return React.cloneElement(item, {
                             ...state,
                             id,
@@ -77,6 +78,10 @@ export default class Form extends PureComponent<FormComponentProps, any> {
         },
         getFormAllData: () => {
             return this.getAllData()
+        },
+        // 绑定form表单值变更是回调函数
+        onValuesChange: (fn: Function): void => {
+            this.onValuesChange = fn;
         }
     }
 
@@ -154,23 +159,56 @@ export default class Form extends PureComponent<FormComponentProps, any> {
         const newFormData = Object.assign({}, formData);
         this.setState({
             formData: newFormData
+        }, () => {
+            if (this.onValuesChange && isFunction(this.onValuesChange)) {
+                this.onValuesChange(id, value);
+            }
         });
     }
 
+    private grounpValidation(currId: string, grounpName: string): void {
+        const { formData } = this.state;
+        const ids: Array<string> = Object.keys(formData);
+        for (let i = 0; i < ids.length; i++) {
+
+            if (ids[i] == currId) continue;
+
+            const item = formData[ids[i]];
+            const { grounp, rules, isShowSuccess, successText, value } = item;
+
+            if (grounp == null) continue;
+
+            const validationValue = value;
+            if (grounp == grounpName) {
+                if (rules && isArray(rules)) {
+                    for (let n = 0; n < rules.length; n++) {
+                        const currRule = rules[n];
+                        const validationType = rules[n].validationType || 'error';
+                        // 必填
+                        if (!this.validationRule(validationValue, currRule)) {
+                            this.updateFormItemStatus(ids[i], validationType, currRule.message, n);
+                            return;
+                        } else {
+                            this.updateFormItemStatus(ids[i], 'normal');
+                        }
+                    }
+                    // 最终验证完成没有错误，当配置了成功提示，那么将显示成功提示
+                    if (isShowSuccess && successText != '') {
+                        this.updateFormItemStatus(ids[i], 'success', successText);
+                    }
+                }
+            }
+        }
+    }
+
     // 验证操作
-    validation(id: string, value?: any, rulesIndex?: number) {
+    validation(id: string, value: any, type: string = 'update') {
         const { formData } = this.state;
         const itemInfo = formData[id];
         const { rules, isShowSuccess, successText } = itemInfo;
         const validationValue = value || itemInfo.value;
 
-        // 对当前发生错误的规则进行验证，一般用于在发生错误的input中输入
-        if (rulesIndex) {
-            const currRule = itemInfo.rules[rulesIndex];
-            if (this.validationRule(validationValue, currRule)) {
-                this.updateFormItemStatus(id, 'normal');
-            }
-        } else if (rules && isArray(rules)) {
+        if (rules && isArray(rules)) {
             for (let i = 0; i < rules.length; i++) {
                 const currRule = rules[i];
                 const validationType = rules[i].validationType || 'error';
@@ -187,11 +225,18 @@ export default class Form extends PureComponent<FormComponentProps, any> {
                 this.updateFormItemStatus(id, 'success', successText);
             }
         }
+
+        // 当前item验证通过后，进入分组验证
+        // 当前Item有设置分组，那么将查询form数据中同组的数据进行验证
+        // submit情况下不需要同组验证
+        if (itemInfo.grounp != null && type != 'submit') {
+            this.grounpValidation(id, itemInfo.grounp);
+        }
     }
 
     // 验证规则
     validationRule(value: any, currRule: rules): boolean {
-        if ( currRule.required && (value == '' || value === null || value == undefined)) {
+        if (currRule.required && (value == '' || value === null || value == undefined)) {
             return false;
         } else if ((isString(value) || isNumber(value)) && currRule.min && value.length < currRule.min) {
             return false;
@@ -201,7 +246,7 @@ export default class Form extends PureComponent<FormComponentProps, any> {
             return false;
         } else if (currRule.pattern && isRegExp(currRule.pattern)) {
             return currRule.pattern.test(value);
-        } else if ( currRule.validationFn && isFunction(currRule.validationFn) ) {
+        } else if (currRule.validationFn && isFunction(currRule.validationFn)) {
             return currRule.validationFn(value);
         }
         return true;
@@ -213,7 +258,7 @@ export default class Form extends PureComponent<FormComponentProps, any> {
         const { formData } = this.state;
         const ids = Object.keys(formData);
         for (let i = 0; i < ids.length; i++) {
-            this.validation(ids[i]);
+            this.validation(ids[i], null, 'submit');
         }
         const formAllData = this.getAllData();
         return formAllData;
