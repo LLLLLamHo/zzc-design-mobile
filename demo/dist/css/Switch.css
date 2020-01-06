@@ -52,26 +52,50 @@ body {
   font-size: .32rem;
   padding: .3rem;
 }
+body,
+#root {
+  background: #fff !important;
+}
+
 .zzc-demo {
-  background: transparent !important;
+  background: transparent;
 }
 
 .zzc-demo .zzc-demo-body {
-  padding: 0;
+  border-bottom: 4px solid #F6F6F6;
 }
 
-.inputItem {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.zzc-demo h5 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  padding: 0 .3rem .3rem;
 }
 
-.inputItem p {
+.zzc-demo p {
   line-height: 1;
-  font-size: 14px;
+  font-size: 18px;
 }
 
-/*# sourceMappingURL=Input.css.map*/
+.zzc-demo .wrapper {
+  padding: 0 .3rem;
+}
+
+.zzc-demo .demo-item {
+  margin-bottom: 10px;
+}
+
+.zzc-demo .desc {
+  padding: .3rem;
+  font-size: 12px;
+}
+
+.zzc-demo .demo-step .zds-step-title,
+.zzc-demo .demo-step .zds-step-description {
+  color: #8592A6;
+}
+
+.zzc-demo .demo-step .zds-step-title {
+  color: #333 !important;
+}
+
+/*# sourceMappingURL=Switch.css.map*/

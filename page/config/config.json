@@ -24,7 +24,8 @@
         "Steps",
         "Tabs",
         "Toast",
-        "TouchFeedback"
+        "TouchFeedback",
+        "Switch"
     ],
     "configData": {
         "Alert": {

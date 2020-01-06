@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "../";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 111);
+/******/ 	return __webpack_require__(__webpack_require__.s = 114);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -23175,7 +23175,10 @@ $export($export.S, 'Object', { create: __webpack_require__(25) });
 /* 108 */,
 /* 109 */,
 /* 110 */,
-/* 111 */
+/* 111 */,
+/* 112 */,
+/* 113 */,
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23189,7 +23192,7 @@ var _reactDom = __webpack_require__(54);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(112);
+var _App = __webpack_require__(115);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -23198,7 +23201,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
 /***/ }),
-/* 112 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23233,11 +23236,11 @@ var _react = __webpack_require__(13);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _zzcDesignMobile = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"zzc-design-mobile\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
-__webpack_require__(113);
+__webpack_require__(116);
 
 __webpack_require__(101);
+
+var _zzcDesignMobile = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"zzc-design-mobile\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23250,24 +23253,21 @@ var App = function (_Component) {
         var _this = (0, _possibleConstructorReturn3.default)(this, (App.__proto__ || (0, _getPrototypeOf2.default)(App)).call(this, props));
 
         _this.state = {
-            radioValue1: 'test1',
-            grounpValue: 'man2'
+            current: 1
         };
         return _this;
     }
 
     (0, _createClass3.default)(App, [{
-        key: 'onChange1',
-        value: function onChange1(data) {
-            this.setState({
-                radioValue1: data.id
-            });
-        }
-    }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
-
+            var description = _react2.default.createElement(
+                'div',
+                null,
+                '\u5F53\u5730\u65F6\u95F4\uFF1A',
+                _react2.default.createElement('br', null),
+                '2019\u5E745\u670813\u65E5 09:00'
+            );
             return _react2.default.createElement(
                 'div',
                 { className: 'zzc-demo' },
@@ -23277,124 +23277,59 @@ var App = function (_Component) {
                     _react2.default.createElement(
                         'h1',
                         { className: 'zzc-demo-title' },
-                        'Radio'
-                    ),
-                    _react2.default.createElement(
-                        'h2',
-                        null,
-                        '\u57FA\u7840\u5355\u9009\u7EC4\u4EF6'
+                        'Steps \u6B65\u9AA4\u6761'
                     )
                 ),
                 _react2.default.createElement(
                     'div',
                     { className: 'zzc-demo-body' },
                     _react2.default.createElement(
-                        _zzcDesignMobile.Card2,
-                        { style: { padding: 0 } },
-                        _react2.default.createElement(
-                            _zzcDesignMobile.Form,
-                            null,
-                            _react2.default.createElement(
-                                _zzcDesignMobile.Form.Item,
-                                {
-                                    label: '\u975E\u53D7\u63A7'
-                                },
-                                _react2.default.createElement(
-                                    _zzcDesignMobile.Radio,
-                                    { onChange: function onChange(data) {
-                                            console.log(data);
-                                        }, defaultChecked: true, name: 'test' },
-                                    '\u5355\u9009\u68461'
-                                ),
-                                _react2.default.createElement(
-                                    _zzcDesignMobile.Radio,
-                                    { onChange: function onChange(data) {
-                                            console.log(data);
-                                        }, name: 'test' },
-                                    '\u5355\u9009\u68462'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                _zzcDesignMobile.Form.Item,
-                                {
-                                    label: '\u53D7\u63A7'
-                                },
-                                _react2.default.createElement(
-                                    _zzcDesignMobile.Radio,
-                                    { onChange: function onChange(data) {
-                                            _this2.onChange1(data);
-                                        }, checked: this.state.radioValue1 == 'test1', id: 'test1', name: 'test2' },
-                                    '\u5355\u9009\u68461'
-                                ),
-                                _react2.default.createElement(
-                                    _zzcDesignMobile.Radio,
-                                    { onChange: function onChange(data) {
-                                            _this2.onChange1(data);
-                                        }, checked: this.state.radioValue1 == 'test2', id: 'test2', name: 'test2' },
-                                    '\u5355\u9009\u68462'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                _zzcDesignMobile.Form.Item,
-                                {
-                                    label: '\u5355\u9009\u6846\u7EC4(\u975E\u53D7\u63A7)',
-                                    htmlFor: 'label1'
-                                },
-                                _react2.default.createElement(
-                                    _zzcDesignMobile.Radio.RadioGrounp,
-                                    {
-                                        name: 'sex',
-                                        defaultValue: 'man',
-                                        radioType: 'sex',
-                                        onChange: function onChange(data) {
-                                            console.log('gounp', data);
-                                        }
-                                    },
-                                    _react2.default.createElement(
-                                        _zzcDesignMobile.Radio,
-                                        { id: 'man' },
-                                        '\u5148\u751F'
-                                    ),
-                                    _react2.default.createElement(
-                                        _zzcDesignMobile.Radio,
-                                        { id: 'women' },
-                                        '\u5973\u58EB'
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                _zzcDesignMobile.Form.Item,
-                                {
-                                    label: '\u5355\u9009\u6846\u7EC4(\u53D7\u63A7)',
-                                    htmlFor: 'label1'
-                                },
-                                _react2.default.createElement(
-                                    _zzcDesignMobile.Radio.RadioGrounp,
-                                    {
-                                        name: 'sex2',
-                                        value: this.state.grounpValue,
-                                        radioType: 'sex',
-                                        onChange: function onChange(data) {
-                                            _this2.setState({
-                                                grounpValue: data.id
-                                            });
-                                        }
-                                    },
-                                    _react2.default.createElement(
-                                        _zzcDesignMobile.Radio,
-                                        { id: 'man2' },
-                                        '\u5148\u751F'
-                                    ),
-                                    _react2.default.createElement(
-                                        _zzcDesignMobile.Radio,
-                                        { id: 'women2' },
-                                        '\u5973\u58EB'
-                                    )
-                                )
-                            )
-                        )
+                        'h5',
+                        null,
+                        '\u5C45\u4E2D\u7684\u6B65\u9AA4\u6761'
+                    ),
+                    _react2.default.createElement(
+                        _zzcDesignMobile.Steps,
+                        { current: this.state.current, alignCenter: true },
+                        _react2.default.createElement(_zzcDesignMobile.Steps.Step, { title: '\u884C\u7A0B\u524D' }),
+                        _react2.default.createElement(_zzcDesignMobile.Steps.Step, { title: '\u884C\u7A0B\u4E2D' }),
+                        _react2.default.createElement(_zzcDesignMobile.Steps.Step, { title: '\u884C\u7A0B\u7ED3\u675F' })
                     )
-                )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'zzc-demo-body' },
+                    _react2.default.createElement(
+                        'h5',
+                        null,
+                        '\u7AD6\u5F0F\u6B65\u9AA4\u6761'
+                    ),
+                    _react2.default.createElement(
+                        _zzcDesignMobile.Steps,
+                        { direction: 'vertical', current: 2 },
+                        _react2.default.createElement(_zzcDesignMobile.Steps.Step, { title: '\u884C\u7A0B\u524D' }),
+                        _react2.default.createElement(_zzcDesignMobile.Steps.Step, { title: '\u884C\u7A0B\u4E2D' }),
+                        _react2.default.createElement(_zzcDesignMobile.Steps.Step, { title: '\u884C\u7A0B\u7ED3\u675F' })
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'zzc-demo-body' },
+                    _react2.default.createElement(
+                        'h5',
+                        null,
+                        '\u5E26\u6807\u7B7E\u6B65\u9AA4\u6761'
+                    ),
+                    _react2.default.createElement(
+                        _zzcDesignMobile.Steps,
+                        { current: 1 },
+                        _react2.default.createElement(_zzcDesignMobile.Steps.Step, { tag: '\u514D\u8D39\u53D6\u6D88', title: '\u8BA2\u5355\u786E\u5B9A' }),
+                        _react2.default.createElement(_zzcDesignMobile.Steps.Step, { tag: '\u6263\u9664\u4E00\u5929\u79DF\u91D1', className: 'demo-step', title: '\u53D6\u8F66\u524D48\u5C0F\u65F6', description: description }),
+                        _react2.default.createElement(_zzcDesignMobile.Steps.Step, { tag: '\u6263\u9664\u5168\u90E8\u79DF\u91D1', className: 'demo-step', title: '\u53D6\u8F66', description: description }),
+                        _react2.default.createElement(_zzcDesignMobile.Steps.Step, { className: 'demo-step', title: '\u884C\u7A0B\u7ED3\u675F' })
+                    )
+                ),
+                _react2.default.createElement('div', { style: { height: 100 + 'px' } })
             );
         }
     }]);
@@ -23404,11 +23339,11 @@ var App = function (_Component) {
 exports.default = App;
 
 /***/ }),
-/* 113 */
+/* 116 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=Radio.js.map
+//# sourceMappingURL=Switch.js.map
