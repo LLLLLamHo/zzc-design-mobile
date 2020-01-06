@@ -81,13 +81,12 @@ class MyForm extends Component {
                                 }
                             }
                         ]
-                    }, <Input
+                    }, <Input.DatePicker
                         datePickerData={{
                             minDate: '1960/1/1',
                             maxDate: new Date()
                         }}
                         timeFormat='YYYY-MM-DD'
-                        inputType='time'
                         placeholder='请选择日期'
                     />
                     )}
@@ -113,7 +112,7 @@ class MyForm extends Component {
                                 }
                             }
                         ]
-                    }, <Input inputType='select' placeholder='请选择驾照类型' />
+                    }, <Input.Select placeholder='请选择驾照类型' />
                     )}
                 </Form.Item>
                 <Form.Item

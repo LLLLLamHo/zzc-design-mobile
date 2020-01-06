@@ -13,7 +13,6 @@ export interface InputProps {
     prefixCls: string,
     className: string,
     style: React.CSSProperties,
-    selectBodyStyle: React.CSSProperties,
     id?: string
     name: string
     value?: any,
@@ -23,11 +22,8 @@ export interface InputProps {
     disabled?: boolean
     showPhonePrefix?: boolean
     phonePrefix?: string
-    selectData?: SelectProps
     lang?: 'cn' | 'hk'
-    inputType?: 'text' | 'phone' | 'select' | 'time'
-    datePickerData?: DatePickerProps
-    timeFormat?: string
+    inputType?: 'text' | 'phone'
     phonePrefixList_cn?: Array<any>
     phonePrefixList_hk?: Array<any>
     onChange?: Function
@@ -44,7 +40,57 @@ export interface InputProps {
 
 export interface InputState {
     phonePrefix: string
+}
+export interface InputSelectProps {
+    prefixCls: string,
+    className: string,
+    style: React.CSSProperties,
+    selectBodyStyle: React.CSSProperties,
+    id?: string
+    name: string
+    value?: any,
+    defaultValue?: any
+    placeholder?: string
+    htmlType?: string
+    disabled?: boolean
+    selectData?: SelectProps
+    onChange?: Function
+    onBlur?: Function
+    onFocus?: Function
+    formInputOnChange?: Function
+    formInputOnBlur?: Function
+    formInputOnFocus?: Function
+    _zds_form_initValue?: Function
+    setFormItemId?: Function
+    formOpt?: getFieldDecoratorOption
+}
+export interface InputSelectState {
     isShowSelect: boolean
+}
+export interface InputDatePickerProps {
+    prefixCls: string,
+    className: string,
+    style: React.CSSProperties,
+    id?: string
+    name: string
+    value?: any,
+    defaultValue?: any
+    placeholder?: string
+    disabled?: boolean
+    lang?: 'cn' | 'hk'
+    datePickerData?: DatePickerProps
+    timeFormat?: string
+    onChange?: Function
+    onBlur?: Function
+    onFocus?: Function
+    formInputOnChange?: Function
+    formInputOnBlur?: Function
+    formInputOnFocus?: Function
+    _zds_form_initValue?: Function
+    setFormItemId?: Function
+    formOpt?: getFieldDecoratorOption
+}
+export interface InputDatePickerState {
     isShowDatePicker: boolean
 }
 

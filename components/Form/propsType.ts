@@ -24,12 +24,15 @@ export interface FormItemProps {
 
 export interface FormContext {
     itemStatus: any,
+    formData: any,
     updateFormItemStatus: Function
     validation: Function
+    setValue: Function
 }
 
 export interface FormItemState {
     status: string
+    clearBtnStatus: boolean
 }
 
 export interface getFieldDecoratorOption {

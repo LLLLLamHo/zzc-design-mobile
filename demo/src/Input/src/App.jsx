@@ -15,7 +15,7 @@ export default class App extends Component {
             description: '',
             born: '1993/9/17',
             getCat: new Date(),
-            selectIndex: 0,
+            selectIndex: 'code1',
             selectData: {
                 title: '驾照类型',
                 data: [
@@ -90,7 +90,7 @@ export default class App extends Component {
 
         this.setState( {
             selectData,
-            selectIndex: item.key
+            selectIndex: item.value
         } );
     }
 
@@ -147,20 +147,19 @@ export default class App extends Component {
                                 label='驾照类型'
                                 extra={<Icon type='arrows' />}
                             >
-                                <Input value={this.state.selectIndex} selectData={this.state.selectData} inputType='select' placeholder='请选择驾照类型' id='car' onChange={( item ) => { this.onChangeSelect( item ) }} />
+                                <Input.Select value={this.state.selectIndex} selectData={this.state.selectData} placeholder='请选择驾照类型' id='car' onChange={( item ) => { this.onChangeSelect( item ) }} />
                             </Form.Item>
                             <Form.Item
                                 label='生日日期'
                                 extra={<Icon type='arrows' />}
                             >
-                                <Input
+                                <Input.DatePicker
                                     datePickerData={{
                                         minDate: '1960/1/1',
                                         maxDate: new Date()
                                     }}
                                     timeFormat='YYYY-MM-DD'
                                     value={this.state.born}
-                                    inputType='time'
                                     placeholder='请选择生日日期'
                                     id='born'
                                     onChange={( item ) => { console.log(item); this.setState( { born: item.currDate } ) }}
@@ -171,13 +170,12 @@ export default class App extends Component {
                                 extra={<Icon type='arrows' />}
                                 htmlFor='getCat'
                             >
-                                <Input
+                                <Input.DatePicker
                                     datePickerData={{
                                         mode: 'datetime'
                                     }}
                                     timeFormat='YYYY-MM-DD HH:mm'
                                     value={this.state.getCat}
-                                    inputType='time'
                                     placeholder='租车日期'
                                     id='getCat'
                                     onChange={( item ) => { this.setState( { getCat: item.currDate } ) }}

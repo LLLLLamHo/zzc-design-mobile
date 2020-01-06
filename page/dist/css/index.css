@@ -4065,6 +4065,7 @@ mark {
 .ant-select-selection {
   outline: none;
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   box-sizing: border-box;
@@ -4950,6 +4951,7 @@ textarea.ant-input {
   border-radius: 4px;
   height: 32px;
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -7066,6 +7068,7 @@ span.ant-radio + * {
 }
 .ant-card-loading .ant-card-body {
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
 }
@@ -7312,6 +7315,7 @@ span.ant-radio + * {
 .ant-tabs-tab-prev,
 .ant-tabs-tab-next {
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   z-index: 2;
@@ -11984,6 +11988,7 @@ span.ant-radio + * {
   -webkit-transition: all .3s;
   transition: all .3s;
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
 }
@@ -12066,6 +12071,7 @@ span.ant-radio + * {
   line-height: 40px;
   text-align: center;
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   border-bottom: 1px solid #e8e8e8;
@@ -12327,6 +12333,7 @@ span.ant-radio + * {
   padding: 0 15px;
   height: 32px;
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -12851,6 +12858,7 @@ div.ant-calendar-range-quick-selector > a {
   line-height: 24px;
   cursor: pointer;
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   -webkit-transition: background 0.3s ease;
@@ -12922,6 +12930,7 @@ li.ant-calendar-time-picker-select-option-disabled:hover {
   line-height: 40px;
   text-align: center;
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   border-bottom: 1px solid #e8e8e8;
@@ -13059,6 +13068,7 @@ li.ant-calendar-time-picker-select-option-disabled:hover {
   line-height: 40px;
   text-align: center;
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   border-bottom: 1px solid #e8e8e8;
@@ -13171,6 +13181,7 @@ li.ant-calendar-time-picker-select-option-disabled:hover {
 .ant-calendar-year-panel-last-decade-cell .ant-calendar-year-panel-year,
 .ant-calendar-year-panel-next-decade-cell .ant-calendar-year-panel-year {
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   color: rgba(0, 0, 0, 0.25);
@@ -13194,6 +13205,7 @@ li.ant-calendar-time-picker-select-option-disabled:hover {
   line-height: 40px;
   text-align: center;
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   border-bottom: 1px solid #e8e8e8;
@@ -13307,6 +13319,7 @@ li.ant-calendar-time-picker-select-option-disabled:hover {
 .ant-calendar-decade-panel-last-century-cell .ant-calendar-decade-panel-decade,
 .ant-calendar-decade-panel-next-century-cell .ant-calendar-decade-panel-decade {
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   color: rgba(0, 0, 0, 0.25);
@@ -13469,6 +13482,7 @@ li.ant-calendar-time-picker-select-option-disabled:hover {
   text-align: left;
   cursor: pointer;
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   -webkit-transition: background 0.3s;
@@ -13625,6 +13639,7 @@ textarea.ant-time-picker-input {
 .ant-time-picker-icon {
   position: absolute;
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -14880,6 +14895,7 @@ textarea.ant-input-number {
   -moz-osx-font-smoothing: grayscale;
   line-height: 12px;
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   position: absolute;
@@ -15701,6 +15717,7 @@ textarea.ant-input-number {
   cursor: pointer;
   border-radius: 4px;
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   min-width: 32px;
@@ -15819,6 +15836,7 @@ textarea.ant-input-number {
 .ant-pagination-next a {
   color: rgba(0, 0, 0, 0.65);
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
 }
@@ -17612,6 +17630,7 @@ a.ant-notification-notice-close:focus {
   z-index: 1030;
   cursor: auto;
   -webkit-user-select: text;
+     -moz-user-select: text;
       -ms-user-select: text;
           user-select: text;
   white-space: normal;
@@ -17975,6 +17994,7 @@ a.ant-notification-notice-close:focus {
 .ant-rate-star-first,
 .ant-rate-star-second {
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   -webkit-transition: all .3s;
@@ -18677,6 +18697,7 @@ a.ant-notification-notice-close:focus {
   -webkit-transition: all 0.36s;
   transition: all 0.36s;
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
 }
@@ -19237,6 +19258,7 @@ a.ant-notification-notice-close:focus {
   line-height: 14px;
   border: 1px solid #e8e8e8;
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   background: #fff;
@@ -20611,6 +20633,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .ant-tree li span[draggable],
 .ant-tree li span[draggable="true"] {
   -webkit-user-select: none;
+     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   border-top: 2px transparent solid;

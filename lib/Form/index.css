@@ -347,7 +347,11 @@
 .zds-form-item .zds-form-item-extra-box svg {
   width: 18px;
   height: 18px;
-  color: #696E7C; }
+  color: #9EA1B0; }
+
+.zds-form-item .zds-form-item-extra-box svg.clear-input-btn {
+  width: 16px;
+  height: 16px; }
 
 .zds-form-item .zds-button {
   width: 100%; }
