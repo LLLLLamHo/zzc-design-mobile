@@ -17,6 +17,13 @@ class Form1 extends Component {
                 >
                     <Input placeholder='请输入姓名' id='label2' />
                 </Form.Item>
+                <Form.Item
+                    label='自我介绍'
+                    style={{ alignItems: 'self-end' }}
+                >
+                    <Input.Textarea placeholder='自我介绍' style={{ height: '84px' }} />
+                </Form.Item>
+                
             </Form> );
     }
 }

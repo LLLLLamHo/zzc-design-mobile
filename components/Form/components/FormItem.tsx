@@ -107,8 +107,7 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
     }
 
     // 获取当前formItem的状态
-    getCurrFormItemClassName(statusData: { isSuccess: boolean, isWarning: boolean, isError: boolean, message: string }): string {
-        debugger;
+    getCurrFormItemClassName(statusData: { isSuccess: boolean, isWarning: boolean, isError: boolean, message: string }): string {        
         const { prefixCls } = this.props;
         const { isError, isSuccess, isWarning } = statusData;
         const { status } = this.state;

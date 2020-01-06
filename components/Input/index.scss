@@ -1,6 +1,7 @@
 @import '../style/base.scss';
 $cls: '.zds-input';
 $cls2: '.zds-input-phone';
+
 #{$cls} {
     background: transparent;
     color: $input_color;
@@ -9,10 +10,11 @@ $cls2: '.zds-input-phone';
     flex: 1;
     width: 100%;
     line-height: $fs_h2;
-    &::placeholder{
+
+    &::placeholder {
         line-height: 16px;
         vertical-align: middle;
-        color:rgba(51,51,51,.2);
+        color: rgba(51, 51, 51, .2);
         font-size: 14px;
         line-height: 14px;
     }
@@ -23,55 +25,64 @@ $cls2: '.zds-input-phone';
     flex: 1;
     display: flex;
     align-items: center;
-    #{$cls2}-prefix{
+
+    #{$cls2}-prefix {
         color: $title_black;
         font-size: $fs14px;
         margin-right: 10px;
         display: flex;
         align-items: center;
-        svg{
+
+        svg {
             margin-left: 2px;
             transform: rotate(90deg);
         }
     }
 }
 
-#{$cls2}-popup-header{
+#{$cls2}-popup-header {
     font-size: 17px;
     font-weight: 600;
     text-align: center;
     justify-content: center;
     color: #333333;
 }
-#{$cls2}-popup-prefix-item{
+
+#{$cls2}-popup-prefix-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 18px 0;
-    &.active{
-        svg{
+
+    &.active {
+        svg {
             color: $main;
         }
-        p{
+
+        p {
             color: $main;
         }
     }
-    p{
+
+    p {
         flex: 1;
         font-size: $fs14px;
         padding-right: 10px;
     }
-    svg{
+
+    svg {
         width: 18px;
         height: 18px;
     }
 }
-#{$cls2}-code-input-box{
+
+#{$cls2}-code-input-box {
     width: 80%;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    &-add{
+
+    &-add {
         width: 40px;
         height: 40px;
         line-height: 35px;
@@ -81,7 +92,8 @@ $cls2: '.zds-input-phone';
         box-sizing: border-box;
         background: #EEEEEE;
     }
-    &-input{
+
+    &-input {
         flex: 1;
         box-sizing: border-box;
         height: 40px;
@@ -93,4 +105,52 @@ $cls2: '.zds-input-phone';
         background: no-repeat;
         caret-color: $main;
     }
+}
+
+#{$cls}-textarea {
+    color: red;
+    display: block;
+    flex: 1;
+    width: 100%;
+
+    &-count {
+        text-align: right;
+        color: #9EA1B0;
+        font-size: $fs11px;
+        line-height: $fs11px;
+        margin-top: 25px;
+    }
+
+    textarea {
+        overflow: visible;
+        word-break: break-word;
+        word-wrap: break-word;
+        color: $c_333;
+        font-size: $fs14px;
+        //width: 345px;      
+        width: 100%;
+        line-height: 21px;
+        display: block;
+
+        &:disabled {
+            color: $button_border_disabled;
+        }
+
+        &::placeholder {
+            color: rgba(51, 51, 51, .2);
+            line-height: 21px;
+        }
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &-auto-height {
+        textarea {
+            overflow: hidden;
+            min-height: 11px;
+        }
+    }
+
 }

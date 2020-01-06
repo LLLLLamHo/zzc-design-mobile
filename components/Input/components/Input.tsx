@@ -5,6 +5,7 @@ import { InputProps, InputState, ChangePhonePrefixHandleProps, GetValueReturnObj
 import { SelectOnChangeProps } from '../../Select/propsType';
 import { DatePickerChangeProps } from '../../DatePicker/propsType';
 import { isFunction } from '../../_util/typeof';
+import Textarea from "./Textarea"
 import PhoneNumberPrefix from './phoneNumberPrefix';
 import Select from '../../Select';
 import DatePicker from '../../DatePicker';
@@ -36,6 +37,7 @@ export default class Input extends PureComponent<InputProps, InputState> {
         title: null,
         warningText: null
     }
+    static Textarea = Textarea;
 
     static defaultProps = {
         prefixCls: `${config.cls}-input`,
