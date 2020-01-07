@@ -10,6 +10,7 @@ export interface CascaderProps {
     options: Array<any>,
     onChange: Function,
     onClose: Function,
+    title?: string
     // [prop: string]: any
 }
 

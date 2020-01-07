@@ -10,8 +10,9 @@
     border: 0 solid $color;
 }
 
+$cls: '.cascader-select';
 
-.cascader-select {
+#{$cls} {
     &-item {
         display: flex;
         align-items: center;
@@ -34,10 +35,10 @@
             background: #F9FBFE
         }
         &.is-active {
-            .el-select-text {
+            #{$cls}-text {
                 color: #2871f7
             }
-            .el-select-icon-check {
+            #{$cls}-icon-check {
                 transform: scale(1);
             }
         }
