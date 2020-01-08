@@ -5,7 +5,9 @@ export type Prop = {
 }
 
 export interface CascaderProps {
-    prop: Prop,
+    value?: Array<any>,
+    defaultValue?: Array<any>,
+    prop?: Prop,
     visible: boolean,
     options: Array<any>,
     onChange: Function,
@@ -15,8 +17,9 @@ export interface CascaderProps {
 }
 
 export interface CascaderState {
-    value: Array<any>,
-    selected: Array<any>,
-    tabsIndex: number,
+    value: Array<any>
+    selectedLabel: Array<any>
+    selectedOptions: Array<any>
+    tabsIndex: number
     pickerData: Array<any>
 }

@@ -25,7 +25,7 @@ export default class Radio extends React.Component {
         if (select) {
             isActive = select.value === value;
         }
-        prefixCls = prefixCls ? prefixCls : 'cascader-select';
+        prefixCls = prefixCls ? prefixCls : 'zds-cascader-select';
         return (
             <div className={classnames(`${prefixCls}-item`, {
                 'is-disabled': disabled,

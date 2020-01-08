@@ -217,6 +217,7 @@ export default class App extends Component {
     }
 
     onChange = (val, labels) => {
+      console.log('val: ', val);
         console.log('labels: ', labels);
         this.setState({
             labels
@@ -237,7 +238,7 @@ export default class App extends Component {
                     <h1 className="zzc-demo-title">基本使用</h1>
                 </div>
                 <div className="zzc-demo-body">
-                    <div className="desc">已选择：{this.state.labels.length ? this.state.labels.join('-') : '请选择'}</div>
+                    <div className="desc">已选择：{this.state.labels.length ? this.state.labels.map(item => item.label).join('-') : '请选择'}</div>
                     <Button onClick={this.toggleCascader}>点击选择</Button>
                     <Cascader 
                         visible={visible}

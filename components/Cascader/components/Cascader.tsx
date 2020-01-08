@@ -12,17 +12,25 @@ interface Cascader {
 
 type GetOptionsByValue = {
     pickerData: Array<any>,
-    selected: Array<string>
+    selectedLabel: Array<string>,
+    selectedOptions: Array<any>,
+}
+
+const defaultProp = {
+    value: 'value',
+    label: 'label',
+    children: 'children'
 }
 function getOptionsByValue(props, selectValue: Array<any> = []): GetOptionsByValue {
     const prop = props.prop;
     const options = props.options;
     let pickerData: Array<any> = [], option;
-    let selected: Array<string> = ['请选择'];
-    if (!Array.isArray(options)) return { pickerData, selected };
+    let selectedLabel: Array<string> = ['请选择'];
+    let selectedOptions: Array<any> = [];
+    if (!Array.isArray(options)) return { pickerData, selectedLabel, selectedOptions };
     if (!selectValue.length) {
         pickerData.push(options);
-        return { pickerData, selected };
+        return { pickerData, selectedLabel, selectedOptions };
     }
     option = options;
     pickerData.push(options);
@@ -30,7 +38,8 @@ function getOptionsByValue(props, selectValue: Array<any> = []): GetOptionsByVal
         if (option) {
             const fItem = option.find(item => item[prop.value] === value);
             if (fItem) {
-                selected[index] = fItem[prop.label];
+                selectedLabel[index] = fItem[prop.label];
+                selectedOptions[index] = fItem;
                 const children = fItem[prop.children];
                 if (children) {
                     pickerData.push(children);
@@ -39,7 +48,7 @@ function getOptionsByValue(props, selectValue: Array<any> = []): GetOptionsByVal
             }
         };
     });
-    return { pickerData, selected };
+    return { pickerData, selectedLabel, selectedOptions };
 }
 
 class Cascader extends Component<CascaderProps> {
@@ -51,22 +60,19 @@ class Cascader extends Component<CascaderProps> {
         } else {
             value = props.defaultValue || [];
         }
-        let { pickerData, selected } = getOptionsByValue(props, value);
+        let { pickerData, selectedLabel, selectedOptions } = getOptionsByValue(props, value);
         this.state = {
             tabsIndex: pickerData.length - 1,
             value,
             pickerData,
-            selected
+            selectedLabel,
+            selectedOptions
         };
     }
 
     static defaultProps = {
         title: '所在地区',
-        prop: {
-            value: 'value',
-            label: 'label',
-            children: 'children'
-        }
+        prop: defaultProp
     }
 
     static getDerivedStateFromProps(nextProps, state) {
@@ -79,9 +85,10 @@ class Cascader extends Component<CascaderProps> {
         }
         if (('options' in nextProps) && !state.pickerData[0].length) {
             // state.pickerData[0] 默认为 options
-            let { pickerData, selected } = getOptionsByValue(nextProps, state.value);
+            let { pickerData, selectedLabel, selectedOptions } = getOptionsByValue(nextProps, state.value);
             data.pickerData = pickerData;
-            data.selected = selected;
+            data.selectedLabel = selectedLabel;
+            data.selectedOptions = selectedOptions;
             data.tabsIndex = pickerData.length - 1;
         }
         return Object.keys(data).length ? data : null;
@@ -93,18 +100,8 @@ class Cascader extends Component<CascaderProps> {
         });
     }
 
-    getCityList = (options, province) => {
-        const prop = this.props.prop;
-        if (!province) return [];
-        const index = options.findIndex(item => item[prop.value] === province);
-        if (index > -1) {
-            return options[index][prop.children]
-        }
-        return []
-    }
-
     onChange(val, props, index) {
-        let { value, selected, tabsIndex } = this.state
+        let { value, selectedLabel, tabsIndex, selectedOptions } = this.state
         value[index] = val;
         value = value.splice(0, index + 1);
         if (!('value' in this.props)) {
@@ -112,29 +109,31 @@ class Cascader extends Component<CascaderProps> {
                 value,
             });
         }
-        selected[index] = props.label;
+        selectedLabel[index] = props.label;
+        selectedOptions[index] = props;
         const { pickerData } = getOptionsByValue(this.props, value);
         let next = ++index;
         if (pickerData[next] && pickerData[next].length) {
             tabsIndex = next;
-            selected[next] = '请选择'
+            selectedLabel[next] = '请选择';
             this.setState({
                 tabsIndex,
                 pickerData,
-                selected: selected.splice(0, next + 1)
+                selectedOptions: selectedOptions.splice(0, next + 1),
+                selectedLabel: selectedLabel.splice(0, next + 1)
             });
             return
         }
-        (typeof this.props.onChange === 'function') && this.props.onChange(value.slice(), selected.slice());
+        (typeof this.props.onChange === 'function') && this.props.onChange(value.slice(), selectedOptions.slice());
         this.props.onClose();
     }
 
     renderTabbar() {
-        const { tabsIndex, selected } = this.state;
+        const { tabsIndex, selectedLabel } = this.state;
         return (
             <div className="zds-cascader-tabbar">
                 {
-                    selected.map((item, index) => {
+                    selectedLabel.map((item, index) => {
                         return (
                             <div 
                                 className={classnames('zds-cascader-tabbar-item', {
@@ -152,10 +151,11 @@ class Cascader extends Component<CascaderProps> {
     }
 
     renderOptionItem(options) {
-        const prop = this.props.prop;
+        const prop = this.props.prop || defaultProp;
         return options.map((item) => {
             return (
                 <Select.Option
+                    option={item}
                     value={item[prop.value]}
                     label={item[prop.label]}
                     key={item[prop.value]}></Select.Option>
@@ -165,7 +165,7 @@ class Cascader extends Component<CascaderProps> {
 
     render(): JSX.Element | null {
         const { visible, options, title } = this.props;
-        const {  value, pickerData, selected } = this.state;
+        const {  value, pickerData, selectedLabel } = this.state;
         let _options: Array<any> = pickerData;
         if (!pickerData.length) {
             _options = options;
@@ -195,7 +195,7 @@ class Cascader extends Component<CascaderProps> {
                         </header>
                         { this.renderTabbar() }
                         <Tabs
-                            tabs={selected}
+                            tabs={selectedLabel}
                             defaultIndex={0}
                             className="zds-cascader-body"
                             maxTabLength={3}

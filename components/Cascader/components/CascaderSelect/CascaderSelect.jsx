@@ -57,7 +57,7 @@ export default class ElSelect extends React.Component {
     render() {
         const { children, className, style } = this.props;
         return (
-            <div className={classnames('cascader-select', { className: !!className })} style={style}>
+            <div className={classnames('zds-cascader-select', { className: !!className })} style={style}>
                 { children }
             </div>
         )

@@ -1,7 +1,7 @@
 {
-    "title": "Radio",
-    "key": "Radio",
-    "subTitle": "单选框",
+    "title": "Cascader",
+    "key": "Cascader",
+    "subTitle": "级联选择器",
     "category": "DataEntry",
     "categoryName": "Data Entry"
 }
