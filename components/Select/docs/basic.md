@@ -11,6 +11,7 @@
 | prefixCls | 组件的公用className前序               | string                                       | zzc-card |
 | className | 样式类名                              | string                                       | 无       |
 | style     | 自定义样式                            | object                                       | {}       |
+| bodyStyle | 自定义popup的body样式                 | object                                       | {}       |
 | title     | title内容                             | string                        \| JSX.Element | null     |
 | isShow    | 是否显示                              | boolean                                      | false    |
 | maskClose | 遮罩层是否点击关闭                    | boolean                                      | true     |
@@ -20,11 +21,25 @@
 
 ## data
 
-| 属性  | 说明     | 类型                               | 默认值 |
-| ----- | -------- | ---------------------------------- | ------ |
-| text  | 显示字段 | string \| JSX.Element              |        |
-| type  | 类型     | 'normal' \| 'active' \| 'disabled' |        |
-| value | 值       | any                             |        |
+| 属性  | 说明         | 类型                               | 默认值 |
+| ----- | ------------ | ---------------------------------- | ------ |
+| text  | 显示字段     | string \| JSX.Element              |        |
+| type  | 类型         | 'normal' \| 'active' \| 'disabled' |        |
+| value | 值           | any                                |        |
+| click | 点击回调函数 | function                           | null   |
+
+### 回调函数
+
+回调函数主要用于对于select组件中某个item的点击事件做特殊处理，例如`其他`，点击后打开输入框等。
+最后必须执行next函数，将选中的`value`传入next函数当中，继续执行。
+
+```jsx
+click: (item, key, next) => {
+    next('xxxx国驾照');
+}
+```
+
+### demo代码
 
 ```jsx
 export default class App extends PureComponent {

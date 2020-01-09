@@ -44,6 +44,14 @@ export default class App extends PureComponent {
                     text: '中国驾照+车行翻译件 (不支持)',
                     type: 'disabled',
                     value: 'code7'
+                },
+                {
+                    text: '其他',
+                    type: 'normal',
+                    value: 'code8',
+                    click: (item, key, next) => {
+                        next('xxxx国驾照');
+                    }
                 }
             ],
             showSelect2: false,
@@ -162,6 +170,7 @@ export default class App extends PureComponent {
                         isShow={showSelect1}
                         title='驾照类型'
                         onChange={(item) => {
+                            console.log(item);
                             this.changeData1( item );
                         }}
                         data={data1}

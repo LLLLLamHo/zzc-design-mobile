@@ -125,7 +125,7 @@ class Cascader extends Component<CascaderProps> {
         return (
             <div className="zds-cascader-tabbar">
                 {
-                    pickerData.map((item, index) => {
+                    pickerData.map((_item, index) => {
                         const option = selectedOptions[index];
                         return (
                             <div 

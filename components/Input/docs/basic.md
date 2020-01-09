@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-11-05 17:56:38
+ * @LastEditTime : 2020-01-06 13:41:52
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /zzc-design-mobile/components/Input/docs/basic.md
+ -->
 输入框布局
 
 ## API
@@ -8,24 +16,24 @@
 
 最基本的输入框组件
 
-| 属性         | 说明                    | 类型     | 默认值   |
-| ------------ | ----------------------- | -------- | -------- |
-| prefixCls    | 组件的公用className前序 | string   | zzc-card |
-| className    | 样式类名                | string   | 无       |
-| style        | 自定义样式              | object   | {}       |
-| id           | input的id属性           | string   | null     |
-| name         | input的name属性         | string   | null     |
-| value        | input的值（受控组件）   | any      | null     |
-| defaultValue | input的值（非受控）     | any      | null     |
-| lang         | 语言 cn或hk             | string   | cn       |
-| placeholder  | input的placeholder值    | string   | ''       |
-| htmlType     | input的type值           | string   | 'text'   |
-| disabled     | input是否禁止输入       | boolean  | false    |
-| maxLength    | input的最大值           | number   | null     |
-| onChange     | onChange事件            | Function | null     |
-| onBlur       | onBlur事件              | Function | null     |
-| onFocus      | onFocus事件             | Function | null     |
-| lang         | 'cn'或者'hk'            | string   | cn       |
+| 属性         | 说明                    | 类型     | 默认值    |
+| ------------ | ----------------------- | -------- | --------- |
+| prefixCls    | 组件的公用className前序 | string   | zzc-input |
+| className    | 样式类名                | string   | 无        |
+| style        | 自定义样式              | object   | {}        |
+| id           | input的id属性           | string   | null      |
+| name         | input的name属性         | string   | null      |
+| value        | input的值（受控组件）   | any      | null      |
+| defaultValue | input的值（非受控）     | any      | null      |
+| lang         | 语言 cn或hk             | string   | cn        |
+| placeholder  | input的placeholder值    | string   | ''        |
+| htmlType     | input的type值           | string   | 'text'    |
+| disabled     | input是否禁止输入       | boolean  | false     |
+| maxLength    | input的最大值           | number   | null      |
+| onChange     | onChange事件            | Function | null      |
+| onBlur       | onBlur事件              | Function | null      |
+| onFocus      | onFocus事件             | Function | null      |
+| lang         | 'cn'或者'hk'            | string   | cn        |
 
 
 ```jsx
@@ -37,11 +45,10 @@
 
 ## 带有手机号码前缀的input
 
-需要以下额外属性
-
+需要以下额外属
 | 属性               | 说明                                             | 类型                  | 默认值 |
 | ------------------ | ------------------------------------------------ | --------------------- | ------ |
-| inputType          | 'phone','select','time'                          | string                | null   |
+| inputType          | 'phone'                                          | string                | null   |
 | showPhonePrefix    | 是否显示号码前缀选择器(inputType等于phone才生效) | boolean               | false  |
 | phonePrefix        | 默认选中的号码前缀                               | string                | +86    |
 | phonePrefixList_cn | 可选前缀列表（简体），受lang参数影响             | array<PrefixListItem> | null   |
@@ -78,14 +85,14 @@
 }
 ```
 
-### 弹出选择框Input
+### 弹出选择框Input.Select
 
 需要以下额外属性
 
-| 属性       | 说明                   | 类型        | 默认值 |
-| ---------- | ---------------------- | ----------- | ------ |
-| inputType  | 'select'               | string      | null   |
-| selectData | 提供给Select组件的参数 | SelectProps | null   |
+| 属性            | 说明                   | 类型        | 默认值 |
+| --------------- | ---------------------- | ----------- | ------ |
+| selectData      | 提供给Select组件的参数 | SelectProps | null   |
+| selectBodyStyle | Select组件的bodyStyle  | object      | null   |
 
 参考Select的组件说明`selectData`调用。建议只修改title和data两个属性
 
@@ -130,10 +137,9 @@ onChangeSelect ( item ) {
     label='驾照类型'
     extra={<Icon type='arrows' />}
 >
-    <Input 
+    <Input.Select 
         value={this.state.selectIndex} 
         selectData={this.state.selectData} 
-        inputType='select'
         placeholder='请选择驾照类型' 
         onChange={( item ) => { this.onChangeSelect( item ) }}
     />
@@ -141,13 +147,13 @@ onChangeSelect ( item ) {
 
 ```
 
-### 时间选择框Input
+### 时间选择框Input.DatePicker
 
 可选以下额外属性
 
-| 属性           | 说明                                           | 类型        | 默认值 |
-| -------------- | ---------------------------------------------- | ----------- | ------ |
-| datePickerData | 传递给DatePicker组件的参数，查看DatePicker文档 | object      | null   |
+| 属性           | 说明                                           | 类型   | 默认值 |
+| -------------- | ---------------------------------------------- | ------ | ------ |
+| datePickerData | 传递给DatePicker组件的参数，查看DatePicker文档 | object | null   |
 | timeFormat     | 显示的格式化格式，查看moment.js文档            | string | null   |
 
 参考DatePicker的组件说明设置`datePickerData`。只能修改以下参数：
@@ -174,7 +180,7 @@ warningText: null
     label='生日日期'
     extra={<Icon type='arrows' />}
 >
-    <Input
+    <Input.DatePicker
         datePickerData={{
             minDate: '1960/1/1',
             maxDate: new Date()
@@ -192,7 +198,7 @@ warningText: null
     extra={<Icon type='arrows' />}
     htmlFor='getCat'
 >
-    <Input
+    <Input.DatePicker
         datePickerData={{
             mode: 'datetime'
         }}
@@ -204,4 +210,31 @@ warningText: null
         onChange={( item ) => { this.setState( { getCat: item.currDate } ) }}
     />
 </Form.Item>
+```
+
+## Input.Textarea
+
+最基本的多行文本输入框组件
+
+| 属性         | 说明                                    | 类型    | 默认值             |
+| ------------ | --------------------------------------- | ------- | ------------------ |
+| prefixCls    | 组件的公用className前序                 | string  | zzc-input-textarea |
+| className    | 样式类名                                | string  | 无                 |
+| style        | 自定义样式                              | object  | {}                 |
+| id           | Textarea的id属性                        | string  | null               |
+| value        | Textarea的值（受控组件）                | any     | null               |
+| defaultValue | Textarea的值（非受控）                  | any     | null               |
+| placeholder  | placeholder值                           | string  | ''                 |
+| autoHeight   | 高度自适应, autoHeight                  | boolean | false              |
+| disabled     | textarea是否禁止输入                    | boolean | false              |
+| count        | 计数功能,剩余可以输入长度,兼具最大长度, | number  | null               |
+| maxLength    | textarea的最大值 (已输入count,不传)     | number  | Infinity           |
+
+
+```jsx
+<Input.Textarea autoHeight placeholder='请输入姓名' defaultValue="姓名" />
+<Input.Textarea onChange={( e ) => { this.onChange( 'name', e ); }} value={name} placeholder='请输入姓名' />
+<Input.Textarea disabled placeholder='请输入姓名' />
+<Input.Textarea maxLength={20} placeholder='请输入姓名' />
+<Input.Textarea count={20} placeholder='请输入姓名' />
 ```

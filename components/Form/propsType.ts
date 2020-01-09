@@ -17,20 +17,22 @@ export interface FormItemProps {
     htmlFor?: string
     label?: string
     colon?: boolean
+    clearBtn?: boolean
     extra?: JSX.Element | string | null
     formContext: FormContext
 }
 
 export interface FormContext {
     itemStatus: any,
+    formData: any,
     updateFormItemStatus: Function
     validation: Function
+    setValue: Function
 }
 
 export interface FormItemState {
-    formInputOnChange: Function
-    formInputOnBlur: Function
-    formInputOnFocus: Function
+    status: string
+    clearBtnStatus: boolean
 }
 
 export interface getFieldDecoratorOption {

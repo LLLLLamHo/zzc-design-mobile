@@ -236,6 +236,20 @@
   padding: 0 15px;
   background: #fff; }
 
+.zds-form .zds-form-item-box .zds-form-item-line {
+  position: relative; }
+
+.zds-form .zds-form-item-box .zds-form-item-line::after {
+  content: "";
+  position: absolute;
+  display: block;
+  z-index: 11;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(105, 110, 124, 0.15);
+  transform: scaleY(0.5) translateY(50%); }
+
 .zds-form .zds-form-item-box .zds-form-item {
   position: relative; }
 
@@ -247,8 +261,29 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  border-bottom: 1px solid rgba(105, 110, 124, 0.15);
+  border-bottom: 1px solid #2871F7;
   transform: scaleY(0.5) translateY(50%); }
+
+.zds-form .zds-form-item-box .zds-form-item::after {
+  transform: scale(0, 0.5) translateY(50%);
+  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), background 0.35s cubic-bezier(0.23, 1, 0.32, 1); }
+
+.zds-form .zds-form-item-box-focus .zds-form-item {
+  position: relative; }
+
+.zds-form .zds-form-item-box-focus .zds-form-item::after {
+  content: "";
+  position: absolute;
+  display: block;
+  z-index: 11;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #2871F7;
+  transform: scaleY(0.5) translateY(50%); }
+
+.zds-form .zds-form-item-box-focus .zds-form-item::after {
+  transform: scale(1, 0.5) translateY(50%); }
 
 .zds-form .zds-form-item-box-success .zds-form-item {
   position: relative; }
@@ -312,7 +347,11 @@
 .zds-form-item .zds-form-item-extra-box svg {
   width: 18px;
   height: 18px;
-  color: #696E7C; }
+  color: #9EA1B0; }
+
+.zds-form-item .zds-form-item-extra-box svg.clear-input-btn {
+  width: 16px;
+  height: 16px; }
 
 .zds-form-item .zds-button {
   width: 100%; }

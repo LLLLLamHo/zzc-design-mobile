@@ -1,0 +1,118 @@
+@import '../style/base.scss';
+$cls: '.zds-switch';
+
+$mainThemeColor: #2871F7;
+$mainThemeColorDisabled: #c6d7f7;
+
+$closeColor:#C4CFEA;
+
+$duration: .3s;
+
+#{$cls} {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 46px;
+    height: 24px;
+    line-height: 22px;
+    padding: 0;
+    vertical-align: middle;
+    border-radius: 22px 22px;
+    border: 1px solid $closeColor;
+    background-color: $closeColor;
+    cursor: pointer;
+    transition: all $duration cubic-bezier(0.35, 0, 0.25, 1);
+
+   
+    &::after {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        left: 3px;
+        top: 2px;
+        border-radius: 50% 50%;
+        background-color: #fff;
+        content: " ";
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+        transform: scale(1);
+        transition: all $duration cubic-bezier(.78, .14, .15, .86);
+        animation-timing-function: cubic-bezier(0.35, 0, 0.25, 1);
+        animation-duration: $duration;
+        animation-name: SwitchOff;
+    }
+
+    &:active::after {
+        transform: scale(1.1);
+        animation-name: SwitchOn;
+    }
+
+    &-inner {
+        color: #fff;
+        font-size: 12px;
+        position: absolute;
+        left: 24px;
+        top: 0;
+    }
+
+    &-checked {
+        border: 1px solid $mainThemeColor;
+        background-color: $mainThemeColor;
+
+        .zds-switch-inner {
+            left: 6px;
+        }
+
+        &::after {
+            left: 23px;
+        }
+       
+    }
+
+    &-disabled {
+        cursor: no-drop;
+        background: #E2E4EA;
+        border-color: #E2E4EA;
+        
+
+        &:after {
+            // background: #9e9e9e;
+            animation-name: none;
+            cursor: no-drop;
+        }
+
+        &:active::after {
+            transform: scale(1);
+            animation-name: none;
+        }
+
+        &.zds-switch-checked{
+            background: $mainThemeColorDisabled;
+            border-color: $mainThemeColorDisabled;
+        }
+    }
+}
+
+@keyframes SwitchOn {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes SwitchOff {
+    0% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

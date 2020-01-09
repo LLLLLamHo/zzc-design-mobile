@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import { Input, Form, Card2, Icon } from 'zzc-design-mobile';
+import { Input, Form, List, Card2, Icon } from 'zzc-design-mobile';
 import './index.scss';
 import '../../../style/style.scss';
 
+const { ListItem } = List;
+const { Textarea } = Input
+
 export default class App extends Component {
-    constructor( props ) {
-        super( props );
+    constructor(props) {
+        super(props);
         this.state = {
             name: '',
             age: '',
+            description: '',
             born: '1993/9/17',
             getCat: new Date(),
-            selectIndex: 0,
+            selectIndex: 'code1',
             selectData: {
                 title: '驾照类型',
                 data: [
@@ -60,7 +64,13 @@ export default class App extends Component {
             this.setState( {
                 name: value
             } );
-        } else {
+        } 
+        else if (type == 'description') {
+            this.setState({
+                description: value
+            });
+        }
+        else {
             this.setState( {
                 age: value
             } );
@@ -80,12 +90,12 @@ export default class App extends Component {
 
         this.setState( {
             selectData,
-            selectIndex: item.key
+            selectIndex: item.value
         } );
     }
 
     render () {
-        const { name, age } = this.state;
+        const { name, age, description } = this.state;
 
         return (
             <div className='zzc-demo'>
@@ -129,6 +139,7 @@ export default class App extends Component {
                             <Form.Item
                                 label='年龄'
                                 htmlFor='label4'
+                                style={{ border: 0 }}
                             >
                                 <Input placeholder='请输入年龄' id='label4' value={age} onChange={( value ) => { this.onChange( 'age', value ); }} />
                             </Form.Item>
@@ -136,20 +147,19 @@ export default class App extends Component {
                                 label='驾照类型'
                                 extra={<Icon type='arrows' />}
                             >
-                                <Input value={this.state.selectIndex} selectData={this.state.selectData} inputType='select' placeholder='请选择驾照类型' id='car' onChange={( item ) => { this.onChangeSelect( item ) }} />
+                                <Input.Select value={this.state.selectIndex} selectData={this.state.selectData} placeholder='请选择驾照类型' id='car' onChange={( item ) => { this.onChangeSelect( item ) }} />
                             </Form.Item>
                             <Form.Item
                                 label='生日日期'
                                 extra={<Icon type='arrows' />}
                             >
-                                <Input
+                                <Input.DatePicker
                                     datePickerData={{
                                         minDate: '1960/1/1',
                                         maxDate: new Date()
                                     }}
                                     timeFormat='YYYY-MM-DD'
                                     value={this.state.born}
-                                    inputType='time'
                                     placeholder='请选择生日日期'
                                     id='born'
                                     onChange={( item ) => { console.log(item); this.setState( { born: item.currDate } ) }}
@@ -160,13 +170,12 @@ export default class App extends Component {
                                 extra={<Icon type='arrows' />}
                                 htmlFor='getCat'
                             >
-                                <Input
+                                <Input.DatePicker
                                     datePickerData={{
                                         mode: 'datetime'
                                     }}
                                     timeFormat='YYYY-MM-DD HH:mm'
                                     value={this.state.getCat}
-                                    inputType='time'
                                     placeholder='租车日期'
                                     id='getCat'
                                     onChange={( item ) => { this.setState( { getCat: item.currDate } ) }}
@@ -174,6 +183,43 @@ export default class App extends Component {
                             </Form.Item>
                         </Form>
                     </Card2>
+                </div>
+
+                <div className='zzc-demo-body'>
+                    <Card2 style={{ padding: 0, paddingBottom: '15px' }}>
+                        <Card2.Header style={{ paddingLeft: '15px', paddingRight: '15px', paddingBottom: '12px' }} title='非受控Textarea' />
+                        <Form>
+                            <Form.Item style={{ paddingTop: 0 }} >
+                                <Textarea style={{ height: '84px' }} placeholder='固定高度' defaultValue="这是一段默认文案" />
+                            </Form.Item>
+                        </Form>
+                        <Form>
+                            <Form.Item>
+                                <Textarea autoHeight placeholder='高度自适应' />
+                            </Form.Item>
+                        </Form>
+                    </Card2>
+                </div>
+                <div className='zzc-demo-body'>
+                    <Card2 style={{ padding: 0, paddingBottom: '15px' }}>
+                        <Card2.Header style={{ paddingLeft: '15px', paddingRight: '15px', paddingBottom: '12px' }} title='受控Textarea' />
+                        <Form>
+                            <Form.Item
+                                label='自我介绍'
+                                htmlFor='label5'
+                                style={{ paddingTop: 0, alignItems: 'self-end' }}
+                            >
+                                <Textarea autoHeight placeholder='自适应高度' value={description} onChange={(value) => { this.onChange('description', value); }} />
+                            </Form.Item>
+                            <Form.Item
+                                label='自我介绍'
+                                htmlFor='label5'
+                                style={{ alignItems: 'self-end' }}
+                            >
+                                <Textarea style={{ height: '84px' }} placeholder='固定高度' value={description} onChange={(value) => { this.onChange('description', value); }} />
+                            </Form.Item>
+                        </Form>
+                    </Card2>                                     
                 </div>
                 <div className='zzc-demo-body'>
                     <Card2 style={{ padding: 0 }}>
@@ -191,9 +237,31 @@ export default class App extends Component {
                             >
                                 <Input placeholder='请输入年龄' id='label6' maxLength={20} />
                             </Form.Item>
+                            <Form.Item
+                                label='自我介绍'
+                                htmlFor='label6'
+                                style={{ alignItems: 'self-end' }}
+                            >
+                                <Textarea style={{ height: '42px' }} disabled placeholder='禁用' />
+                            </Form.Item>
+                            <Form.Item
+                                label='固定多行文本'
+                                htmlFor='label6'
+                                style={{ alignItems: 'self-end' }}
+                            >
+                                <Textarea style={{ height: '42px' }} value='这是一段固定的文案 这是一段固定的文案 这是一段固定的文案' />
+                            </Form.Item>
+                            <Form.Item
+                                label='限制文本长度'
+                                htmlFor='label6'
+                                style={{ alignItems: 'self-end' }}
+                            >
+                                <Textarea style={{ height: '42px' }} count='10' placeholder='请输入' />
+                            </Form.Item>
                         </Form>
                     </Card2>
                 </div>
+
             </div>
         );
     }
