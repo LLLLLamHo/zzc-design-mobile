@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './index.scss';
 import '../../../style/style.scss';
-import { Cascader, Button, Form, Input } from 'zzc-design-mobile';
+import { Cascader, Button, Toast } from 'zzc-design-mobile';
 
 export default class App extends Component {
 
@@ -10,8 +10,22 @@ export default class App extends Component {
         this.state = {
             current: 1,
             visible: false,
+            asyncVisible: false,
             options: [],
-            labels: []
+            asyncOptions: [
+              {
+                value: 'zhinan',
+                label: '指南',
+                isLeaf: false
+              },
+              {
+                value: 'zujian',
+                label: '组件',
+                isLeaf: false
+              }
+            ],
+            labels: [],
+            asyncLabels: []
         }
     }
 
@@ -224,9 +238,42 @@ export default class App extends Component {
         })
     }
 
+    onAsyncChange = (val, labels) => {
+        this.setState({
+            asyncLabels: labels
+        })
+    }
+
     toggleCascader = () => {
         this.setState({
             visible: true
+        })
+    }
+
+    loadData = (targetOption) => {
+      Toast.loading('加载中...', 0);
+      // load options lazily
+      setTimeout(() => {
+        Toast.hideToast();
+        targetOption.children = [
+          {
+            label: `${targetOption.label} Dynamic 1`,
+            value: 'dynamic1',
+          },
+          {
+            label: `${targetOption.label} Dynamic 2`,
+            value: 'dynamic2',
+          },
+        ];
+        this.setState({
+          asyncOptions: [ ...this.state.asyncOptions ],
+        });
+      }, 1000);
+    }
+
+    toggleAsyncCascader = () => {
+        this.setState({
+            asyncVisible: true
         })
     }
 
@@ -240,16 +287,24 @@ export default class App extends Component {
                 <div className="zzc-demo-body">
                     <div className="desc">已选择：{this.state.labels.length ? this.state.labels.map(item => item.label).join('-') : '请选择'}</div>
                     <Button onClick={this.toggleCascader}>点击选择</Button>
-                    <Cascader 
+                    <Cascader
                         visible={visible}
                         options={this.state.options}
                         onClose={() => this.setState({visible: false})}
                         onChange={this.onChange} />
                 </div>
                 <div className="zzc-demo-header">
-                    <h1 className="zzc-demo-title">结合表单使用</h1>
+                    <h1 className="zzc-demo-title">动态加载</h1>
                 </div>
                 <div className="zzc-demo-body">
+                    <div className="desc">已选择：{this.state.asyncLabels.length ? this.state.asyncLabels.map(item => item.label).join('-') : '请选择'}</div>
+                    <Button onClick={this.toggleAsyncCascader}>点击选择</Button>
+                    <Cascader 
+                        visible={this.state.asyncVisible}
+                        options={this.state.asyncOptions}
+                        onClose={() => this.setState({asyncVisible: false})}
+                        onChange={this.onAsyncChange}
+                        loadData={this.loadData} />
                 </div>
             </div>
 

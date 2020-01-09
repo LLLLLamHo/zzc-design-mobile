@@ -1,8 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import * as PropTypes from 'prop-types';
+import { SelectOptionProps } from './propsType';
+
 import Icon from '../../../Icon';
-export default class Radio extends React.Component {
+export default class Radio extends React.Component<SelectOptionProps> {
     constructor(props) {
         super(props);
     }
@@ -21,7 +23,7 @@ export default class Radio extends React.Component {
 
     render() {
         const { select } = this.context;
-        let { disabled, label, value, children, prefixCls, style } = this.props, isActive = false;
+        let { disabled, label, value, children, prefixCls } = this.props, isActive = false;
         if (select) {
             isActive = select.value === value;
         }

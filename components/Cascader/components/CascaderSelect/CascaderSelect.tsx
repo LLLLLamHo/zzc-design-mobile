@@ -2,16 +2,17 @@ import React from 'react';
 import * as PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Option from './Option';
+import { SelectState, SelectProps } from './propsType';
 import './index.scss';
 
-export default class ElSelect extends React.Component {
+export default class CascaderSelect extends React.Component<SelectProps, SelectState> {
     constructor(props) {
         super(props);
         let value;
         if ('value' in props) {
             value = props.value;
         } else if('defaultValue' in props) {
-            value = props.defaultValue;
+            value = props.defaultValue || [];
         }
         this.state = {
             value

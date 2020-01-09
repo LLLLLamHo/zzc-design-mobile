@@ -12,13 +12,12 @@ export interface CascaderProps {
     options: Array<any>,
     onChange: Function,
     onClose: Function,
-    title?: string
-    // [prop: string]: any
+    title?: string,
+    loadData?: Function
 }
 
 export interface CascaderState {
     value: Array<any>
-    selectedLabel: Array<any>
     selectedOptions: Array<any>
     tabsIndex: number
     pickerData: Array<any>
