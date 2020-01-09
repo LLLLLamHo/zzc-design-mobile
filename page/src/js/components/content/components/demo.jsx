@@ -1,6 +1,7 @@
 import React, {
     Component
 } from 'react';
+import { Button } from 'antd';
 
 export default class DemoBox extends Component {
     static DemoBox = null;
@@ -27,8 +28,7 @@ export default class DemoBox extends Component {
     }
 
     render () {
-        const { index } = this.props;
-
+        const { index, data } = this.props;
         return (
             <div className='zzc-demo-box'>
                 <div className='markdown-body'>
@@ -50,6 +50,10 @@ export default class DemoBox extends Component {
                     <div className='zzc-demo-code-img'>
                         <h2>扫一下</h2>
                         <img alt='在线二维码' src={`http://qr.liantu.com/api.php?w=200&m=10&text=https://lllllamho.github.io/zzc-design-mobile/demo/dist/html/${index}.html`} />
+                        {data && data.codepen && <form action='https://codepen.io/pen/define' method='POST' target='_blank'>
+                            <input type='hidden' name='data' value={JSON.stringify( data.codepen )} />
+                            <Button type='primary' htmlType='submit'>在线编辑</Button>
+                        </form>}
                     </div>
                 </div>
             </div>
