@@ -10,16 +10,16 @@ const config = {
         library: 'zds'
     },
     externals: [
-        function ( context, request, callback ) {
-            if ( context !== ROOT_PATH ) {
-                if ( /^react-dom$/.test( request ) ) {
-                    return callback( null, 'root ReactDOM' );
-                } else if ( /^react$/.test( request ) && /react\-dom\/umd$/.test( context ) === false ) {
-                    return callback( null, 'root React' );
-                }
-            }
-            callback();
-        }
+        // function ( context, request, callback ) {
+        //     if ( context !== ROOT_PATH ) {
+        //         if ( /^react-dom$/.test( request ) ) {
+        //             return callback( null, 'root ReactDOM' );
+        //         } else if ( /^react$/.test( request ) && /react\-dom\/umd$/.test( context ) === false ) {
+        //             return callback( null, 'root React' );
+        //         }
+        //     }
+        //     callback();
+        // }
     ],
     
 };

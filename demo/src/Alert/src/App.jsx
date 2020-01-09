@@ -5,8 +5,6 @@ import './index.scss';
 import '../../../style/style.scss';
 import { Alert, Button, Toast } from 'zzc-design-mobile';
 
-let isClose = false;
-
 export default class App extends Component {
 
     constructor( props ) {
