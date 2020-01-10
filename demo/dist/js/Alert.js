@@ -48042,8 +48042,6 @@ var _zzcDesignMobile = __webpack_require__(208);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var isClose = false;
-
 var App = function (_Component) {
     (0, _inherits3.default)(App, _Component);
 
