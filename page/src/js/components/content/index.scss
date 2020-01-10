@@ -135,3 +135,35 @@
 
     }
 }
+
+.zzc-demo-online-box{
+    position: fixed;
+    top: 250px;
+    right: 20px;
+    width: 75px;
+    height: 75px;
+    border-radius: 10px;
+    border: 1px solid #e1e1e1;
+    background: rgba(255, 255, 255,.6);
+    box-shadow: 3px 2px 5px #e1e1e1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .2s;
+    &:hover{
+        border: 1px solid #4E7CDD;
+        background: rgba(255, 255, 255, 1);
+        svg {
+            transform: rotateY(360deg);
+        }
+    }
+    svg {
+        transition: all .5s;
+    }
+    p{
+        margin: 10px 0 0 0;
+        font-size: 12px;
+    }
+}
