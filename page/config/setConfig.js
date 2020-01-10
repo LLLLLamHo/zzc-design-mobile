@@ -9,6 +9,7 @@ const codepenDefaultConfig = {
     js: '',
     css: '',
     editors: '001',
+    layout: 'right',
     css_external: 'https://lllllamho.github.io/zzc-design-mobile/demo/dist/css/Alert.css',
     js_external: 'https://cdnjs.cloudflare.com/ajax/libs/react/16.5.0/umd/react.production.min.js;https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.5.0/umd/react-dom.production.min.js;https://lllllamho.github.io/zzc-design-mobile/codepen/zds/js/zds.umd.js',
     js_pre_processor: 'babel'
