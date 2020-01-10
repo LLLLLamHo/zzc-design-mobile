@@ -11,13 +11,13 @@ export default class Docs extends Component {
     }
 
     render() {
-        const { index } = this.props;
+        const { index, data } = this.props;
         return (
             <div className='zzc-demo-docs'>
                 <div className='markdown-body'>
                     { this.getContent()}
                 </div>
-                { ( index != 'index' && index != 'change' && index != 'pull' ) && <DemoBox index={index} />}
+                { ( index != 'index' && index != 'change' && index != 'pull' ) && <DemoBox data={data.configData[index]} index={index} />}
                 <BackTop />
             </div>
         );
