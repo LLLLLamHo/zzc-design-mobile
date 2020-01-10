@@ -4,7 +4,8 @@
 <img alt='npm' src='https://img.shields.io/npm/v/zzc-design-mobile'/>
 <img alt='npm' src='https://img.shields.io/npm/dw/zzc-design-mobile'/>
 <img alt='NPM' src='https://img.shields.io/npm/l/zzc-design-mobile'/>
-<img alt='zzc' src='https://img.shields.io/badge/zuzuche-fe-blue'/>
+<img alt='zzc' src='https://img.shields.io/badge/company-%E7%A7%9F%E7%A7%9F%E8%BD%A6-blue'/>
+<img alt='team' src='https://img.shields.io/badge/team-IRC--FE-yellow'/>
 </p>
 
 这是一个基于React实现的UI组件框架。
