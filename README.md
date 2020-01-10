@@ -1,5 +1,5 @@
 <h1 align="center">zzc-design-mobile</h1>
-<p align="center">屌炸天的UI库</p>
+<p align="center">租租车-移动端UI组件库</p>
 <p align='center'>
 <img alt='npm' src='https://img.shields.io/npm/v/zzc-design-mobile'/>
 <img alt='npm' src='https://img.shields.io/npm/dw/zzc-design-mobile'/>
