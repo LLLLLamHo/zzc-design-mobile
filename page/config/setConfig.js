@@ -59,7 +59,11 @@ async function setComponentConfig ( componentList ) {
             currData.mdContent = marked( fs.readFileSync( mdPath, 'utf8' ), mdOptions );
             currData.config = JSON.parse( fs.readFileSync( configPath, 'utf8' ) );
             if ( fs.existsSync( codepenPath ) ) {
-                currData.codepen = { ...codepenDefaultConfig, js: fs.readFileSync( codepenPath, 'utf8' ) };
+                currData.codepen = {
+                    ...codepenDefaultConfig,
+                    js: fs.readFileSync( codepenPath, 'utf8' ),
+                    css_external: `https://lllllamho.github.io/zzc-design-mobile/demo/dist/css/${componentList[i]}.css`
+                };
             }
             categoryData[currData.config.category] = categoryData[currData.config.category] ? categoryData[currData.config.category] : [];
             categoryData[currData.config.category].push( currData.config );
