@@ -55,11 +55,10 @@ UI组件每一个的调用和报错都会提交统计。如果不是十分必要
 如果必须关闭组件的统计功能的话，可以在window作用域下注入变量：`ZDS_STOP_TJ = true`,即可禁用统计。
 
 #### 开发者
-
-<img style="width: 75px;border-radius: 50%;" alt='user' src='https://avatars2.githubusercontent.com/u/19260349?s=460&v=4'/>
+<!-- <img style="width: 75px;border-radius: 50%;" alt='user' src='https://avatars2.githubusercontent.com/u/19260349?s=460&v=4'/>
 <img style="width: 75px;border-radius: 50%;" alt='user' src='https://avatars1.githubusercontent.com/u/16171643?s=64&v=4'/>
 <img style="width: 75px;border-radius: 50%;" alt='user' src='https://avatars3.githubusercontent.com/u/19368190?s=64&v=4'/>
 <img style="width: 75px;border-radius: 50%;" alt='user' src='https://avatars0.githubusercontent.com/u/20843521?s=64&v=4'/>
-<img style="width: 75px;border-radius: 50%;" alt='user' src='https://avatars2.githubusercontent.com/u/22267575?s=64&v=4'/>
+<img style="width: 75px;border-radius: 50%;" alt='user' src='https://avatars2.githubusercontent.com/u/22267575?s=64&v=4'/> -->
 
 
