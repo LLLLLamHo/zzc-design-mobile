@@ -38,8 +38,8 @@ export function initMaxDate( defaultDate ): DateData {
         year,
         month,
         day,
-        hour: 0,
-        minute: 0
+        hour: 23,
+        minute: 59
     };
 }
 

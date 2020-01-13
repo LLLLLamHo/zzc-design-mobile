@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { FormItemProps, FormItemState, getFieldDecoratorOption } from '../propsType';
 import { FormContext, FormItemContext } from './context';
 import Icon from '../../Icon';
+import { isFunction } from '../../_util/typeof';
 
 class FormItem extends PureComponent<FormItemProps, FormItemState> {
     constructor(props) {
@@ -35,6 +36,10 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
         if (formOpt.validateTrigger == 'onChange') {
             this.validationData(id);
         }
+        // 单独触发formOnBlur
+        if ( formOpt.formOnChange && isFunction(formOpt.formOnChange) ) {
+            formOpt.formOnChange(value);
+        }
         noticeFormFn(id, value);
     }
 
@@ -42,12 +47,20 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
         if (formOpt.validateTrigger == 'onBlur') {
             this.validationData(id);
         }
+        // 单独触发formOnBlur
+        if ( formOpt.formOnBlur && isFunction(formOpt.formOnBlur) ) {
+            formOpt.formOnBlur();
+        }
         this.changeItemStatus('blur');
     }
 
     inputFocus(id: string, formOpt: getFieldDecoratorOption): void {
         if (formOpt.validateTrigger == 'onFocus') {
             this.validationData(id);
+        }
+        // 单独触发formOnFocus
+        if ( formOpt.formOnFocus && isFunction(formOpt.formOnFocus) ) {
+            formOpt.formOnFocus();
         }
         this.changeItemStatus('focus');
     }

@@ -6,27 +6,27 @@ export function createDateListData( obj, calcMinDate, calcMaxDate, calcCurrDate,
     obj.dayList = setDayListData( calcCurrDate, calcMinDate, calcMaxDate, langData );
 }
 
-export function createDateTimeListData( obj, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData ) {
+export function createDateTimeListData( obj, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, hourRange ) {
     obj.yearList = setYearListData( calcMinDate.year, calcMaxDate.year, calcCurrDate.year, langData );
     obj.monthList = setMonthListData( calcCurrDate, calcMinDate, calcMaxDate, langData );
     obj.dayList = setDayListData( calcCurrDate, calcMinDate, calcMaxDate, langData );
-    obj.hourList = setHoursListData( calcCurrDate, use12hour, calcMinDate, calcMaxDate );
+    obj.hourList = setHoursListData( calcCurrDate, use12hour, calcMinDate, calcMaxDate, hourRange );
     obj.minuteList = setMinuteListData( calcCurrDate, minuteStep, calcMinDate, calcMaxDate, langData );
     if ( use12hour ) {
         createHour12ListData( obj, calcMinDate, calcMaxDate, calcCurrDate, langData );
     }
 }
 
-export function createTimeListData( obj, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData ) {
-    obj.hourList = setHoursListData( calcCurrDate, use12hour, calcMinDate, calcMaxDate );
+export function createTimeListData( obj, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, hourRange ) {
+    obj.hourList = setHoursListData( calcCurrDate, use12hour, calcMinDate, calcMaxDate, hourRange );
     obj.minuteList = setMinuteListData( calcCurrDate, minuteStep, calcMinDate, calcMaxDate, langData );
     if ( use12hour ) {
         createHour12ListData( obj, calcMinDate, calcMaxDate, calcCurrDate, langData );
     }
 }
 
-export function createHourListData( obj, calcMinDate, calcMaxDate, calcCurrDate, use12hour, langData ) {
-    obj.hourList = setHoursListData( calcCurrDate, use12hour, calcMinDate, calcMaxDate );
+export function createHourListData( obj, calcMinDate, calcMaxDate, calcCurrDate, use12hour, langData, hourRange ) {
+    obj.hourList = setHoursListData( calcCurrDate, use12hour, calcMinDate, calcMaxDate, hourRange );
     if ( use12hour ) {
         createHour12ListData( obj, calcMinDate, calcMaxDate, calcCurrDate, langData );
     }

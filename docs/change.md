@@ -11,6 +11,17 @@
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+#### 3.1.3
+`2020-01-13`
+
+- 🌟 新增Form组件的三个触发事件
+  - formOnChange
+  - formOnBlur
+  - formOnFocus
+- 🌟 DatePicker组件添加hourRange参数[#48](https://github.com/LLLLLamHo/zzc-design-mobile/issues/48)
+- 🌟 Toast支持传入React Element[#49](https://github.com/LLLLLamHo/zzc-design-mobile/issues/49)
+
+
 #### 3.1.2
 `2020-01-10`
 

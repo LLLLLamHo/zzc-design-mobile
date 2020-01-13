@@ -194,6 +194,7 @@ export default class App extends Component {
                         onValueChange={( date ) => { this.onValueChange( date ); }}
                         onClose={() => { this.close( 3 ); }}
                         onSubmit={( data ) => { this.submit( data, 3 ); }}
+                        hourRange={[10, 20]}
                     />
                 </div>
                 <div className='zzc-demo-body full'>

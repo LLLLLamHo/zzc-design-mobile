@@ -20,6 +20,7 @@ export interface DatePickerProps {
     visible: boolean
     maskClose?: boolean
     reverse?: boolean
+    hourRange?: [number, number]
 }
 
 export interface DatePickerState {

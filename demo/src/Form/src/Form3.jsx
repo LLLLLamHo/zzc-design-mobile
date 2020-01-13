@@ -38,8 +38,8 @@ class MyForm extends Component {
                         text: '其他驾照',
                         type: 'normal',
                         value: 'code6',
-                        click: (item, key, next) => {
-                            next('日本驾照');
+                        click: ( item, key, next ) => {
+                            next( '日本驾照' );
                         }
                     },
                     {
@@ -202,7 +202,10 @@ class MyForm extends Component {
                                 required: true,
                                 message: '姓拼音不能为空'
                             }
-                        ]
+                        ],
+                        formOnChange: ( value ) => {
+                            console.log('formOnChange', value );
+                        }
                     }, <Input placeholder='姓拼音' /> )}
                     {this.props.form.getFieldDecorator( 'name_2', {
                         isShowSuccess: true,

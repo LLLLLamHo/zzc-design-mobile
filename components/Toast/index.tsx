@@ -22,81 +22,81 @@ let _onClose: any = () => { };
 let _parentNode: any = null;
 
 function closeToast(): void {
-    addClass( _toastElem, `${config.cls}-fade-leave` );
-    addClass( _toastElem, `${config.cls}-fade-leave-active` );
+    addClass(_toastElem, `${config.cls}-fade-leave`);
+    addClass(_toastElem, `${config.cls}-fade-leave-active`);
     _closeTimer = null;
 }
 
 function countdown(): void {
-    _closeTimer = setTimeout( () => {
+    _closeTimer = setTimeout(() => {
         closeToast();
-    }, _duration * 1000 );
+    }, _duration * 1000);
 }
 
 function reset(): void {
-    animationEvents.removeEndEventListener( _toastElem, addAnimationEnd );
+    animationEvents.removeEndEventListener(_toastElem, addAnimationEnd);
     _parentNode = null;
     _toastElem = null;
     _duration = 2;
 }
 
 function addAnimationEnd(): void {
-    if ( hasClass( this, `${config.cls}-fade-leave` ) ) {
-        _parentNode && _parentNode.parentNode.removeChild( _parentNode );
-        _parentNode && ReactDOM.unmountComponentAtNode( _parentNode );
+    if (hasClass(this, `${config.cls}-fade-leave`)) {
+        _parentNode && _parentNode.parentNode.removeChild(_parentNode);
+        _parentNode && ReactDOM.unmountComponentAtNode(_parentNode);
         _duration !== 0 && _onClose();
         reset();
     } else {
-        removeClass( this, `${config.cls}-fade-enter-active` );
-        removeClass( this, `${config.cls}-fade-enter` );
+        removeClass(this, `${config.cls}-fade-enter-active`);
+        removeClass(this, `${config.cls}-fade-enter`);
         _duration !== 0 && countdown();
     }
 }
 
 function toggleShow(): void {
-    if ( _closeTimer != null ) {
-        clearTimeout( _closeTimer );
+    if (_closeTimer != null) {
+        clearTimeout(_closeTimer);
     }
-    _parentNode && _parentNode.parentNode.removeChild( _parentNode );
-    _parentNode && ReactDOM.unmountComponentAtNode( _parentNode );
+    _parentNode && _parentNode.parentNode.removeChild(_parentNode);
+    _parentNode && ReactDOM.unmountComponentAtNode(_parentNode);
     reset();
     _onClose();
-    const item: { type: string, content: any, duration: number, onClose: any, parnetNode: any, mask: boolean } = alignment.get( 'first' );
-    getToast( item.type, item.content, item.duration, item.onClose, item.parnetNode, item.mask );
+    const item: { type: string, content: any, duration: number, onClose: any, parnetNode: any, mask: boolean } = alignment.get('first');
+    getToast(item.type, item.content, item.duration, item.onClose, item.parnetNode, item.mask);
 }
 
-function createParentNode( specifiedpParnet: any ): Element {
-    const parentNode: any = document.createElement( 'div' );
-    if ( isDOM( specifiedpParnet ) ) {
-        specifiedpParnet.appendChild( parentNode );
+function createParentNode(specifiedpParnet: any): Element {
+    const parentNode: any = document.createElement('div');
+    if (isDOM(specifiedpParnet)) {
+        specifiedpParnet.appendChild(parentNode);
     } else {
-        document.body.appendChild( parentNode );
+        document.body.appendChild(parentNode);
     }
     return parentNode;
 }
 
-function getToast( type: string, content: any, duration: number = 2, onClose: any = () => { }, parnetNode: any = null, mask: boolean = true ): void {
+function getToast(type: string, content: any, duration: number = 2, onClose: any = () => { }, parnetNode: any = null, mask: boolean = true): void {
     // only one toast to page
-    if ( _toastElem != null ) {
-        alignment.save( {
+    if (_toastElem != null) {
+        alignment.save({
             type,
             content,
             duration,
             parnetNode,
             onClose,
             mask
-        } );
+        });
         toggleShow();
     } else {
         _duration = duration;
-        _parentNode = createParentNode( parnetNode );
+        _parentNode = createParentNode(parnetNode);
         _onClose = onClose;
 
         const zzcToastCls = classNames(
             PREFIXCLS,
             {
                 [`${PREFIXCLS}-nomask`]: !mask,
-                [`${PREFIXCLS}-nofixed`]: isDOM( parnetNode )
+                [`${PREFIXCLS}-nofixed`]: isDOM(parnetNode)
             },
             {
                 [`${PREFIXCLS}-icon`]: type === 'loading' || type === 'success' || type === 'error' || type === 'waring'
@@ -104,16 +104,16 @@ function getToast( type: string, content: any, duration: number = 2, onClose: an
         );
 
         let isIconToast = false;
-        if ( type === 'success' || type === 'error' || type === 'waring' || type === 'loading' ) {
+        if (type === 'success' || type === 'error' || type === 'waring' || type === 'loading') {
             isIconToast = true;
         }
 
         ReactDOM.render(
             <div className={zzcToastCls}>
-                <div className={classNames( `${PREFIXCLS}-notice-content`, isIconToast ? 'logo-box' : '' )}>
-                    <div className={classNames( `${PREFIXCLS}-text` )}>
+                <div className={classNames(`${PREFIXCLS}-notice-content`, isIconToast ? 'logo-box' : '')}>
+                    <div className={classNames(`${PREFIXCLS}-text`)}>
                         {
-                            ( type === 'success' || type === 'error' || type === 'waring' || type === 'loading' ) && <Icon type={(() => {
+                            (type === 'success' || type === 'error' || type === 'waring' || type === 'loading') && <Icon type={(() => {
                                 switch (type) {
                                     case 'success': return 'success_outline';
                                     case 'error': return 'error_outline';
@@ -122,11 +122,15 @@ function getToast( type: string, content: any, duration: number = 2, onClose: an
                                 }
                             })()} />
                         }
-                        <div className={classNames( `${PREFIXCLS}-text-content` )}
-                            dangerouslySetInnerHTML={{
-                                __html: content
-                            }}
-                        />
+                        {
+                            React.isValidElement(content) ? <div className={classNames(`${PREFIXCLS}-text-content`)}>
+                                {content}
+                            </div> : <div className={classNames(`${PREFIXCLS}-text-content`)}
+                                dangerouslySetInnerHTML={{
+                                    __html: content
+                                }}
+                                />
+                        }
                     </div>
                 </div>
             </div>,
@@ -137,33 +141,33 @@ function getToast( type: string, content: any, duration: number = 2, onClose: an
 }
 
 function addAnimationEvent(): void {
-    _toastElem = document.querySelector( `.${PREFIXCLS}-notice-content` );
-    if ( _toastElem ) {
-        animationEvents.addEndEventListener( _toastElem, addAnimationEnd );
-        addClass( _toastElem, `${config.cls}-fade-enter` );
-        addClass( _toastElem, `${config.cls}-fade-enter-active` );
+    _toastElem = document.querySelector(`.${PREFIXCLS}-notice-content`);
+    if (_toastElem) {
+        animationEvents.addEndEventListener(_toastElem, addAnimationEnd);
+        addClass(_toastElem, `${config.cls}-fade-enter`);
+        addClass(_toastElem, `${config.cls}-fade-enter-active`);
     } else {
-        requestAnimationFrame( () => {
+        requestAnimationFrame(() => {
             addAnimationEvent();
-        } );
+        });
     }
 }
 
 export default class Toast extends Component {
-    static info( ...props: Array<any> ) {
-        getToast( 'info', props[0], props[1], props[2], props[3], props[4] );
+    static info(...props: Array<any>) {
+        getToast('info', props[0], props[1], props[2], props[3], props[4]);
     }
-    static success( ...props: Array<any> ) {
-        getToast( 'success', props[0], props[1], props[2], props[3], props[4] );
+    static success(...props: Array<any>) {
+        getToast('success', props[0], props[1], props[2], props[3], props[4]);
     }
-    static error( ...props: Array<any> ) {
-        getToast( 'error', props[0], props[1], props[2], props[3], props[4] );
+    static error(...props: Array<any>) {
+        getToast('error', props[0], props[1], props[2], props[3], props[4]);
     }
-    static waring( ...props: Array<any> ) {
-        getToast( 'waring', props[0], props[1], props[2], props[3], props[4] );
+    static waring(...props: Array<any>) {
+        getToast('waring', props[0], props[1], props[2], props[3], props[4]);
     }
-    static loading( ...props: Array<any> ) {
-        getToast( 'loading', props[0], props[1], props[2], props[3], props[4] );
+    static loading(...props: Array<any>) {
+        getToast('loading', props[0], props[1], props[2], props[3], props[4]);
     }
     static hideToast() { closeToast(); }
 }

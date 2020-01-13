@@ -41,6 +41,9 @@ export interface getFieldDecoratorOption {
     successText?: String
     initialValue?: any
     rules?: Array<rules>
+    formOnChange?: Function
+    formOnBlur?: Function
+    formOnFocus?: Function
     validateTrigger?: 'onChange' | 'onFocus' | 'onBlur',
 }
 

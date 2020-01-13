@@ -38,7 +38,7 @@ export default class App extends Component {
     }
 
     error () {
-        Toast.error( '失败提示', 2 );
+        Toast.error( <p>失败提示</p>, 2 );
     }
 
     waring () {

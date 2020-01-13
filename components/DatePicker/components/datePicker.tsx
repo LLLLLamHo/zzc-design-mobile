@@ -68,13 +68,13 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         if (isDate(time)) {
             calcTime = time;
         } else if (mode == 'hour') {
-            calcTime = new Date(`1993/09/17 ${selectTime}`);
+            calcTime = new Date(`${minDate.year}/${minDate.month}/${minDate.day} ${selectTime}`);
         } else if (mode == 'time') {
-            calcTime = new Date(`1993/09/17 ${selectTime}`);
+            calcTime = new Date(`${minDate.year}/${minDate.month}/${minDate.day} ${selectTime}`);
         } else if (mode == 'year') {
-            calcTime = new Date(`${selectTime}/01/01`);
+            calcTime = new Date(`${selectTime}/${minDate.month}/${minDate.day}`);
         } else if (mode == 'month') {
-            calcTime = new Date(`1993/${selectTime}/01`);
+            calcTime = new Date(`${minDate.year}/${selectTime}/${minDate.day}`);
         } else if (selectTime == '') {
             calcTime = new Date();
         } else {
@@ -99,7 +99,12 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
     }
 
     initDate(time: Date | null): void {
-        const { minDate, maxDate, selectTime, lang, mode, minuteStep, use12hour } = this.props;
+        const { minDate, maxDate, selectTime, lang, mode, minuteStep, hourRange } = this.props;
+        let { use12hour } = this.props;
+        // 如果设置了小时的范围那么use2hour将失效
+        if (hourRange) {
+            use12hour = false;
+        }
         const calcMinDate = initMinDate(minDate);
         const calcMaxDate = initMaxDate(maxDate);
         const calcTime = this.initDateObject(time, selectTime, mode, calcMinDate, calcMaxDate);
@@ -124,11 +129,11 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         switch (mode) {
             case 'date': createDateListData(listData, calcMinDate, calcMaxDate, calcCurrDate, langData);
                 break;
-            case 'datetime': createDateTimeListData(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData);
+            case 'datetime': createDateTimeListData(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, hourRange);
                 break;
-            case 'time': createTimeListData(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData);
+            case 'time': createTimeListData(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, hourRange);
                 break;
-            case 'hour': createHourListData(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, langData);
+            case 'hour': createHourListData(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, langData, hourRange);
                 break;
             case 'year': createYearListData(listData, calcMinDate, calcMaxDate, calcCurrDate, langData);
                 break;
@@ -188,7 +193,13 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
     }
 
     getCurrDate(scrollKey = 'all'): any {
-        const { mode } = this.props;
+        const { mode, hourRange } = this.props;
+        let { use12hour } = this.props;
+        // 如果有传入hourRange，那么use12hour将失效
+        if ( hourRange ) {
+            use12hour = false;
+        }
+
         const resultData: { scrollKey: string, currDate: string } = {
             scrollKey,
             currDate: ''
@@ -196,11 +207,11 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         switch (mode) {
             case 'date': resultData.currDate = getModeDateData(this.BScrollList, this.state);
                 break;
-            case 'time': resultData.currDate = getModeTimeData(this.BScrollList, this.state, this.props.use12hour);
+            case 'time': resultData.currDate = getModeTimeData(this.BScrollList, this.state, use12hour);
                 break;
-            case 'hour': resultData.currDate = getModeHourData(this.BScrollList, this.state, this.props.use12hour);
+            case 'hour': resultData.currDate = getModeHourData(this.BScrollList, this.state, use12hour);
                 break;
-            case 'datetime': resultData.currDate = getModeDateTimeData(this.BScrollList, this.state, this.props.use12hour);
+            case 'datetime': resultData.currDate = getModeDateTimeData(this.BScrollList, this.state, use12hour);
                 break;
             case 'year': resultData.currDate = getModeYearData(this.BScrollList, this.state);
                 break;
@@ -251,7 +262,7 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
                         />
                     </div>
                     <div className={`${cls}-footer`}>
-                        {warningText && <div className={`${cls}-warning`}><Icon type="warning_outline" style={{ color: '#696E7C', width: '11px', height: '11px' }}/><p>{warningText}</p></div>}
+                        {warningText && <div className={`${cls}-warning`}><Icon type="warning_outline" style={{ color: '#696E7C', width: '11px', height: '11px' }} /><p>{warningText}</p></div>}
                         <Button onClick={this.submit}>{buttonText ? buttonText : langData.datePickerButtomText}</Button>
                     </div>
                 </div>
