@@ -51,8 +51,8 @@
 | inputType          | 'phone'                                          | string                | null   |
 | showPhonePrefix    | 是否显示号码前缀选择器(inputType等于phone才生效) | boolean               | false  |
 | phonePrefix        | 默认选中的号码前缀                               | string                | +86    |
-| phonePrefixList_cn | 可选前缀列表（简体），受lang参数影响             | array<PrefixListItem> | null   |
-| phonePrefixList_hk | 可选前缀列表（繁体），受lang参数影响             | array<PrefixListItem> | null   |
+| phonePrefixList_cn | 可选前缀列表（简体），受lang参数影响             | array\<PrefixListItem\> | null   |
+| phonePrefixList_hk | 可选前缀列表（繁体），受lang参数影响             | array\<PrefixListItem\> | null   |
 
 ### PrefixListItem
 | 属性   | 说明     | 类型   | 默认值 |
