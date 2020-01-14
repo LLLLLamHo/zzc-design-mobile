@@ -33,6 +33,8 @@ class FormComponent extends Component {
     }
 }
 
+const MyForm = Form.create( FormComponent );
+
 class App extends Component {
     constructor( props ) {
         super( props );
@@ -49,7 +51,7 @@ class App extends Component {
                     <h2>Form表单，组合Input和各种输入组件使用</h2>
                 </div>
                 <div className='zzc-demo-body'>
-                    {Form.create( FormComponent )}
+                    <MyForm/>
                 </div>
             </div>
         );
