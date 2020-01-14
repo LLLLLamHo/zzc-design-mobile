@@ -43603,7 +43603,8 @@ var FormItem = function (_PureComponent) {
                 colon = _props.colon,
                 children = _props.children,
                 extra = _props.extra,
-                clearBtn = _props.clearBtn;
+                clearBtn = _props.clearBtn,
+                _onClick = _props.onClick;
             var clearBtnStatus = this.state.clearBtnStatus;
 
             var classname = (0, _classnames3.default)(prefixCls, className);
@@ -43618,7 +43619,9 @@ var FormItem = function (_PureComponent) {
                     formInputOnBlur: this.inputBlur,
                     formInputOnFocus: this.inputFocus,
                     setFormItemId: this.setFormItemId
-                } }, _react2.default.createElement('div', { className: itemBoxClassName }, _react2.default.createElement('div', { className: _config2.default.cls + '-form-item-line' }, _react2.default.createElement('div', { className: classname, style: style }, label && _react2.default.createElement('label', { htmlFor: htmlFor }, label, colon && ':'), children, clearBtn && isShowClearBtn && clearBtnStatus && _react2.default.createElement('div', { onClick: this.clearTextInputValue, className: prefixCls + '-extra-box' }, _react2.default.createElement(_Icon2.default, { className: 'clear-input-btn', type: 'error_fill' })), extra && _react2.default.createElement('div', { className: prefixCls + '-extra-box' }, extra))), currFormItemStatusData && currFormItemStatusData.isError && _react2.default.createElement('div', { className: prefixCls + '-error-box' }, _react2.default.createElement(_Icon2.default, { type: 'warning_outline' }), _react2.default.createElement('p', null, currFormItemStatusData.message)), currFormItemStatusData && currFormItemStatusData.isWarning && _react2.default.createElement('div', { className: prefixCls + '-warning-box' }, _react2.default.createElement(_Icon2.default, { type: 'warning_outline' }), _react2.default.createElement('p', null, currFormItemStatusData.message)), currFormItemStatusData && currFormItemStatusData.isSuccess && _react2.default.createElement('div', { className: prefixCls + '-success-box' }, _react2.default.createElement(_Icon2.default, { type: 'success_outline' }), _react2.default.createElement('p', null, currFormItemStatusData.message))));
+                } }, _react2.default.createElement('div', { className: itemBoxClassName, onClick: function onClick() {
+                    _onClick && (0, _typeof.isFunction)(_onClick) && _onClick();
+                } }, _react2.default.createElement('div', { className: _config2.default.cls + '-form-item-line' }, _react2.default.createElement('div', { className: classname, style: style }, label && _react2.default.createElement('label', { htmlFor: htmlFor }, label, colon && ':'), children, clearBtn && isShowClearBtn && clearBtnStatus && _react2.default.createElement('div', { onClick: this.clearTextInputValue, className: prefixCls + '-extra-box' }, _react2.default.createElement(_Icon2.default, { className: 'clear-input-btn', type: 'error_fill' })), extra && _react2.default.createElement('div', { className: prefixCls + '-extra-box' }, extra))), currFormItemStatusData && currFormItemStatusData.isError && _react2.default.createElement('div', { className: prefixCls + '-error-box' }, _react2.default.createElement(_Icon2.default, { type: 'warning_outline' }), _react2.default.createElement('p', null, currFormItemStatusData.message)), currFormItemStatusData && currFormItemStatusData.isWarning && _react2.default.createElement('div', { className: prefixCls + '-warning-box' }, _react2.default.createElement(_Icon2.default, { type: 'warning_outline' }), _react2.default.createElement('p', null, currFormItemStatusData.message)), currFormItemStatusData && currFormItemStatusData.isSuccess && _react2.default.createElement('div', { className: prefixCls + '-success-box' }, _react2.default.createElement(_Icon2.default, { type: 'success_outline' }), _react2.default.createElement('p', null, currFormItemStatusData.message))));
         }
     }]);
     return FormItem;

@@ -28,7 +28,7 @@ for ( let i = 0; i < dirs.length; i++ ) {
     // if ( dirs[i] == 'Radio' ) {
     //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     // }
-    // if ( dirs[i] == 'Cascader' ) {
+    // if ( dirs[i] == 'Calendar' ) {
     //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     // }
     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;

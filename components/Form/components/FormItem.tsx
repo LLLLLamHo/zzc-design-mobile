@@ -170,7 +170,7 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
     }
 
     render(): JSX.Element {
-        const { prefixCls, className, style, htmlFor, label, colon, children, extra, clearBtn } = this.props;
+        const { prefixCls, className, style, htmlFor, label, colon, children, extra, clearBtn, onClick } = this.props;
         const { clearBtnStatus } = this.state;
         let classname = classnames(prefixCls, className);
         // 错误样式
@@ -187,7 +187,7 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
                 formInputOnFocus: this.inputFocus,
                 setFormItemId: this.setFormItemId
             }}>
-                <div className={itemBoxClassName}>
+                <div className={itemBoxClassName} onClick={() => {onClick && isFunction(onClick) && onClick()}}>
                     <div className={`${config.cls}-form-item-line`}>
                         <div className={classname} style={style}>
                             {label && <label htmlFor={htmlFor}>{label}{colon && ':'}</label>}

@@ -20,6 +20,7 @@ export interface FormItemProps {
     clearBtn?: boolean
     extra?: JSX.Element | string | null
     formContext: FormContext
+    onClick?: Function
 }
 
 export interface FormContext {

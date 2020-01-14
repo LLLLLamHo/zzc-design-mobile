@@ -1,0 +1,237 @@
+@import '../style/base.scss';
+$cls: '.zds-calendar';
+
+#{$cls} {
+    background: #F5F6F8;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+
+    &-close-box {
+        height: 44.5px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        #{$cls}-close-btn {
+            height: 100%;
+            padding: 0 15px;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &-result-box {
+        height: 85.5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px 16px;
+        box-sizing: border-box;
+
+        .left,
+        .right {
+            flex: 1;
+
+            .title {
+                font-size: 13px;
+                color: #696E7C;
+                line-height: 1;
+            }
+
+            .time {
+                font-size: 23px;
+                color: #333;
+                font-weight: 600;
+                line-height: 1;
+                margin-top: 5px;
+            }
+
+            .week {
+                font-size: 16px;
+                color: #333;
+                line-height: 1;
+                margin-top: 9px;
+            }
+
+            .placeholder{
+                color: #9EA1B0;
+                font-size: 18px;
+                line-height: 27px;
+            }
+        }
+
+        .left {
+
+            .title,
+            .time,
+            .week,
+            .placeholder {
+                text-align: left;
+            }
+        }
+
+        .right {
+
+            .title,
+            .time,
+            .week,
+            .placeholder {
+                text-align: right;
+            }
+        }
+
+        .center {
+            margin: 0 5px;
+            width: 74px;
+            height: 29px;
+            @include halfPXBorder(#9EA1B0, 33px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #F5F6F8;
+
+            .day {
+                text-align: center;
+                color: #696E7C;
+                font-size: 16px;
+                font-weight: 500;
+                width: 100%;
+                height: 100%;
+                line-height: 31px;
+                z-index: 1;
+                background: #F5F6F8;
+            }
+
+            &::after {
+                z-index: 2;
+            }
+
+            &::before {
+                content: '';
+                background: #9EA1B0;
+                width: 1px;
+                height: 68px;
+                position: absolute;
+                z-index: 0;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%) rotate(15deg);
+            }
+        }
+    }
+
+    &-week-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 44.5px;
+        @include halfPXLine('bottom',rgba(105,110,124, .15));
+
+        .item {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+
+            p {
+                font-size: 14px;
+                color: #333;
+            }
+        }
+    }
+
+    &-list-box {
+        background: #fff;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        .item {
+            .title {
+                padding: 20.5px 13px;
+                font-size: 18px;
+                color: #333;
+                line-height: 1;
+            }
+
+            .list-item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                li {
+                    flex: 1;
+                    height: 54.5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    position: relative;
+
+                    &.gone {
+                        p {
+                            color: #9EA1B0;
+
+                            &.sub {
+                                color: #9EA1B0;
+                            }
+                        }
+                    }
+
+                    &.start,
+                    &.end {
+                        background: #2871F7;
+                        overflow: hidden;
+
+                        p {
+                            color: #fff;
+
+                            &.sub {
+                                color: #fff;
+                            }
+                        }
+                    }
+
+                    &.start {
+                        border-radius: 4px 0 0 4px;
+                        &.only {
+                            border-radius: 4px;
+                        }
+                    }
+
+                    &.end {
+                        border-radius: 0 4px 4px 0;
+                    }
+
+                    &.active {
+                        background: #E6EEFE;
+                    }
+
+                    p {
+                        font-size: 16px;
+                        text-align: center;
+                        color: #333;
+
+                        &.sub {
+                            font-size: 12px;
+                            color: #696E7C;
+                            position: absolute;
+                            bottom: 2px;
+                            width: 100%;
+                            line-height: 14px;
+                            transform: scale(0.833);
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
