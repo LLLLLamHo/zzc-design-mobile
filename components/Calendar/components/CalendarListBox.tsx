@@ -31,7 +31,7 @@ export default class CalendarListBox extends PureComponent<any, any> {
                                                 }}
                                             >
                                                 <p>{dayInfo.d}</p>
-                                                {dayInfo.sub && <p className='sub'>{dayInfo.sub}</p>}
+                                                {dayInfo._sub ? <p className='sub'>{dayInfo._sub}</p> : dayInfo.sub ? <p className='sub'>{dayInfo.sub}</p> : null}
                                             </li>
                                         );
                                     })
@@ -45,7 +45,7 @@ export default class CalendarListBox extends PureComponent<any, any> {
     }
 
     setItemClass(dayInfo) {
-        const { gone, empty, startOnly, start, end } = dayInfo;
+        const { gone, empty, startOnly, start, end, active } = dayInfo;
         if (gone) {
             return 'gone';
         } else if (empty) {
@@ -56,6 +56,8 @@ export default class CalendarListBox extends PureComponent<any, any> {
             return 'start';
         } else if (end) {
             return 'end';
+        } else if (active) {
+            return 'active';
         } else {
             return '';
         }

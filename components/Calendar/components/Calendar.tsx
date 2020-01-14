@@ -6,6 +6,7 @@ import CalendarCloseBox from './CalendarCloseBox';
 import CalendarResult from './CalendarResult';
 import CalendarWeek from './CalendarWeek';
 import CalendarListBox from './CalendarListBox';
+import CalendarFooter from './CalendarFooter';
 import createCalendarMap from '../util/createCalendarMap';
 import calendar_i18n from '../util/i18n';
 import updateCalendarMap from '../util/updateCalendarMap';
@@ -29,6 +30,7 @@ export default class Calendar extends PureComponent<CalendarProps, any> {
         className: '',
         style: {},
         lang: 'cn',
+        calendarMode: 'default',
         // startTime: new Date(),
         // endTime: new Date('2020/1/27')
     };
@@ -49,7 +51,6 @@ export default class Calendar extends PureComponent<CalendarProps, any> {
 
     // 因为react设计大量循环计算，所以点击选择的规则通过操作DOM来渲染
     selectItem(monthKey, rowKey, itemKey, dayInfo) {
-
         const { _startTime, _endTime } = this.state;
         if ((!_startTime && !_endTime) || (_startTime && _endTime)) {
             this.updateStartTime(_startTime, _endTime, monthKey, rowKey, itemKey);
@@ -73,7 +74,9 @@ export default class Calendar extends PureComponent<CalendarProps, any> {
             _startIndexInfo: this.state._startIndexInfo,
             _endIndexInfo: this.state._endIndexInfo,
             map: this.state.calendarMap,
-            monthKey, rowKey, itemKey
+            monthKey, rowKey, itemKey,
+            i18n: this.state.i18n,
+            calendarMode: this.props.calendarMode
         });
         this.setState({
             _startIndexInfo: { monthKey, rowKey, itemKey },
@@ -91,7 +94,9 @@ export default class Calendar extends PureComponent<CalendarProps, any> {
             _startTime,
             _endTime,
             map: this.state.calendarMap,
-            monthKey, rowKey, itemKey
+            monthKey, rowKey, itemKey,
+            i18n: this.state.i18n,
+            calendarMode: this.props.calendarMode
         });
         this.setState({
             _endIndexInfo: { monthKey, rowKey, itemKey },
@@ -107,13 +112,13 @@ export default class Calendar extends PureComponent<CalendarProps, any> {
             prefixCls,
             className
         );
-        console.log(calendarMap)
         return (
             <div style={style} className={cardClassName}>
                 <CalendarCloseBox />
                 <CalendarResult lang={lang} i18n={i18n} startTime={_startTime} endTime={_endTime} />
                 <CalendarWeek weekList={i18n.weekList} />
                 <CalendarListBox selectItem={this.selectItem} list={calendarMap} />
+                <CalendarFooter />
             </div>
         );
     }

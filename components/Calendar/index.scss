@@ -172,6 +172,7 @@ $cls: '.zds-calendar';
                     justify-content: center;
                     flex-direction: column;
                     position: relative;
+                    font-weight: bold;
 
                     &.gone {
                         p {
@@ -219,6 +220,7 @@ $cls: '.zds-calendar';
 
                         &.sub {
                             font-size: 12px;
+                            font-weight: 400;
                             color: #696E7C;
                             position: absolute;
                             bottom: 2px;
@@ -233,5 +235,9 @@ $cls: '.zds-calendar';
                 }
             }
         }
+    }
+
+    &-footer{
+        @include halfPXBorder('top', rgba(105,110,124, .15))
     }
 }

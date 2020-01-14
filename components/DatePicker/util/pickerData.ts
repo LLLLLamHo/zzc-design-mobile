@@ -198,8 +198,6 @@ console.log(curHour);
         hourListData.selectIndex = curHour < start || curHour > end ? 0 : curHour - start;
     }
 
-    debugger
-
     if ( currYear <= minYear && currMonth <= minMonth && currDay <= minDay ) {
         let startHour = minHour;
         if ( use12hour ) {

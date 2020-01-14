@@ -18,7 +18,7 @@ export default class App extends PureComponent {
                 </div>
                 <div className='zzc-demo-body full'>
                     <div style={{ height: '100%', width: '100%', position: 'fixed', top: 0, left: 0, background: 'blue' }}>
-                        <Calendar />
+                        <Calendar calendarMode='car' />
                     </div>
                 </div>
             </div>
