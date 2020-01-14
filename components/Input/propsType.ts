@@ -36,6 +36,7 @@ export interface InputProps {
     _zds_form_initValue?: Function
     setFormItemId?: Function
     formOpt?: getFieldDecoratorOption
+    readOnly?: boolean
 }
 
 export interface InputState {

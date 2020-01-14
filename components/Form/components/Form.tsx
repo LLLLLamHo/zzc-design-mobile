@@ -73,8 +73,8 @@ export default class Form extends PureComponent<FormComponentProps, any> {
             this.initFormItemValue(id, value, formOpt);
         },
         // 外部设置form的值
-        setFormAssignValue: (id: string, value: any): void => {
-            this.setValue(id, value);
+        setFormAssignValue: (id: string, value: any, isValidation: boolean = false): void => {
+            this.setValue(id, value, isValidation);
         },
         getFormAllData: () => {
             return this.getAllData()
@@ -147,12 +147,12 @@ export default class Form extends PureComponent<FormComponentProps, any> {
     }
 
     // 同步数据给表单
-    setValue(id: string, value: any = ''): void {
+    setValue(id: string, value: any = '', isValidation?: boolean): void {
         const { formData, itemStatus } = this.state;
         formData[id]['value'] = value;
 
         // 当前item如果是错误状态需要进行验证
-        if (itemStatus[id]['status'] == 'error') {
+        if (isValidation || itemStatus[id]['status'] == 'error') {
             this.validation(id, value);
         }
 

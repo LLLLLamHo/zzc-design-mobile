@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import config from '../../_util/config';
 import { InputProps, InputState, ChangePhonePrefixHandleProps, GetValueReturnObject } from '../propsType';
@@ -8,7 +8,7 @@ import InputSelect from './Select';
 import InputDatePicker from './DatePicker';
 import PhoneNumberPrefix from './phoneNumberPrefix';
 
-export default class Input extends PureComponent<InputProps, InputState> {
+export default class Input extends Component<InputProps, InputState> {
     constructor(props) {
         super(props);
         this.state = {
@@ -30,6 +30,7 @@ export default class Input extends PureComponent<InputProps, InputState> {
         lang: 'cn',
         phonePrefix: '+86',
         showPhonePrefix: false,
+        readOnly: false,
         phonePrefixList_cn: [
             { id: '+86', detail: '中国大陆 +(86)' },
             { id: '+852', detail: '香港（中国） +(852)' },
@@ -51,6 +52,12 @@ export default class Input extends PureComponent<InputProps, InputState> {
         placeholder: '',
         disabled: false,
     };
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if ( JSON.stringify(nextProps) != JSON.stringify(this.props) ) return true;
+        if ( JSON.stringify(nextState) != JSON.stringify(this.state) ) return true;
+        return false;
+    }
 
     componentDidMount(): void {
         // 渲染完成后，需要通知form组件记录value，完成数据绑定
@@ -88,6 +95,15 @@ export default class Input extends PureComponent<InputProps, InputState> {
         delete newProps.phonePrefixList_hk;
         delete newProps.inputType;
 
+        // 传入valueTranslate的时候将触发valueTranslate函数来转换值和显示
+        const { formOpt } = newProps;
+        if ( formOpt ) {
+            const { valueTranslate } = formOpt;
+            if ( valueTranslate && isFunction(valueTranslate) ) {
+                newProps.value = valueTranslate(newProps.value);
+            }
+        }
+
         // 清除一些托管到form中传入的的props
         delete newProps._zds_form_initValue;
         delete newProps.formOpt;
@@ -95,11 +111,12 @@ export default class Input extends PureComponent<InputProps, InputState> {
         delete newProps.formInputOnBlur;
         delete newProps.formInputOnFocus;
         delete newProps.setFormItemId;
+
         return newProps;
     }
 
     createInput() {
-        const { prefixCls, className, htmlType, onChange, onBlur, onFocus, formInputOnChange, formInputOnBlur, formInputOnFocus, formOpt } = this.props;
+        const { prefixCls, className, htmlType, onChange, onBlur, onFocus, formInputOnChange, formInputOnBlur, formInputOnFocus, formOpt, readOnly } = this.props;
         const inputClassName: string = classNames(
             prefixCls,
             className
@@ -116,6 +133,7 @@ export default class Input extends PureComponent<InputProps, InputState> {
                 }
             }}
             onBlur={(e) => {
+                if (readOnly) return;
                 if (formInputOnBlur && isFunction(formInputOnBlur)) {
                     formInputOnBlur(formOpt || null);
                 } else if (onBlur && isFunction(onBlur)) {
@@ -123,6 +141,7 @@ export default class Input extends PureComponent<InputProps, InputState> {
                 }
             }}
             onFocus={(e) => {
+                if (readOnly) return;
                 if (formInputOnFocus && isFunction(formInputOnFocus)) {
                     formInputOnFocus(formOpt || null);
                 } else if (onFocus && isFunction(onFocus)) {

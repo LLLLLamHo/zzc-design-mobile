@@ -67,49 +67,13 @@ class MyForm extends Component {
     constructor( props ) {
         super( props );
         this.state = {
-            selectData: {
-                title: '驾照类型',
-                data: [
-                    {
-                        text: '中国驾照',
-                        type: 'active',
-                        value: 'code1'
-                    },
-                    {
-                        text: '中国驾照+国际驾照翻译认证件',
-                        type: 'normal',
-                        value: 'code2'
-                    },
-                    {
-                        text: '中国驾照+英文公证件',
-                        type: 'normal',
-                        value: 'code3'
-                    },
-                    {
-                        text: '香港驾照',
-                        type: 'normal',
-                        value: 'code4'
-                    },
-                    {
-                        text: '台湾驾照',
-                        type: 'normal',
-                        value: 'code5'
-                    },
-                    {
-                        text: '其他驾照',
-                        type: 'normal',
-                        value: 'code6',
-                        click: (item, key, next) => {
-                            next('日本驾照');
-                        }
-                    },
-                    {
-                        text: '中国驾照+车行翻译件 (不支持)',
-                        type: 'disabled',
-                        value: 'code7'
-                    }
+            options: [{
+                value: 'zhinan',
+                label: '指南',
+                children: [
+                    ...
                 ]
-            }
+            }]
         };
     }
 
@@ -117,9 +81,51 @@ class MyForm extends Component {
         console.log( data );
     }
 
+    onChangeCascader = ( val ) => {
+        this.props.form.setFormAssignValue( 'cascader', val, true );
+    }
+
+    onChangeSwitch ( value ) {
+        this.props.form.setFormAssignValue( 'switch', value ? 1 : 0 );
+    }
+
     render () {
         return (
             <Form onSubmit={this.onSubmit}>
+                <Form.Item
+                    label='switch组件使用'
+                    htmlFor='text'
+                    clearBtn
+                    extra={<Switch onChange={( value ) => { this.onChangeSwitch( value ); }} />}
+                >
+                    {this.props.form.getFieldDecorator( 'switch', {}, <Input placeholder='请输入普通文本' htmlType='hidden' readOnly /> )}
+                    <p className='wechat_text'>关注微信有好礼</p>
+                </Form.Item>
+                <Form.Item
+                    label='联动选中'
+                    htmlFor='text'
+                    clearBtn
+                    extra={<Icon type='arrows' />}
+                    onClick={() => this.setState( { visible: true } )}
+                >
+                    {this.props.form.getFieldDecorator( 'cascader', {
+                        valueTranslate: ( value ) => {
+                            return value ? '经过转换的值' : value;
+                        },
+                        rules: [
+                            {
+                                required: true,
+                                message: '信息不能为空'
+                            }
+                        ]
+                    }, <Input placeholder='请输入普通文本' readOnly /> )}
+                </Form.Item>
+                <Cascader
+                    visible={this.state.visible}
+                    options={this.state.options}
+                    onClose={() => this.setState( { visible: false } )}
+                    onChange={this.onChangeCascader}
+                />
                 <Form.Item
                     label='生日日期'
                     extra={<Icon type='arrows' />}
@@ -263,7 +269,10 @@ class MyForm extends Component {
                                 required: true,
                                 message: '姓拼音不能为空'
                             }
-                        ]
+                        ],
+                        formOnChange: ( value ) => {
+                            console.log( 'formOnChange', value );
+                        }
                     }, <Input placeholder='姓拼音' /> )}
                     {this.props.form.getFieldDecorator( 'name_2', {
                         isShowSuccess: true,
@@ -305,7 +314,6 @@ class MyForm extends Component {
 }
 export default Form.create( MyForm );
 
-
 ```
 
 首先使用`Form.create`传入你的Form组件，然后会为你额外传入一个`form`对象。
@@ -314,13 +322,13 @@ form对象会额外提供一些api给你去扩展你的input组件
 
 ### props.form
 
-| 属性               | 说明                            | 类型                                                                           | 返回值          |
-| ------------------ | ------------------------------- | ------------------------------------------------------------------------------ | --------------- |
-| getFormComponent   | 获取form元素对象                | getFormComponent()                                                             | HTMLFormElement |
-| getFieldDecorator  | 将Input托管给Form               | getFieldDecorator(id: string, opt: getFieldDecoratorOption, item: JSX.Element) | JSX.Element     |
-| setFormAssignValue | 通知Form组件，更新指定input的值 | setFormAssignValue(id: string, value: any)                                     | void            |
-| getFormAllData     | 获取Form下所有托管的Input数据   | getFormAllData()                                                               | Object          |
-| onValuesChange     | 任一表单域的值发生改变时的回调  | onValuesChange( function )                                                     | id, value       |
+| 属性               | 说明                                                                                                                                                | 类型                                                                           | 返回值          |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | --------------- |
+| getFormComponent   | 获取form元素对象                                                                                                                                    | getFormComponent()                                                             | HTMLFormElement |
+| getFieldDecorator  | 将Input托管给Form                                                                                                                                   | getFieldDecorator(id: string, opt: getFieldDecoratorOption, item: JSX.Element) | JSX.Element     |
+| setFormAssignValue | 通知Form组件，更新指定input的值, 第三个参数用于强制进行校验，遇到readyOnly类型的input时，不能触发onchange事件，所以可以通过配置第三位参数来强制校验 | setFormAssignValue(id: string, value: any, isValidation: boolean)              | void            |
+| getFormAllData     | 获取Form下所有托管的Input数据                                                                                                                       | getFormAllData()                                                               | Object          |
+| onValuesChange     | 任一表单域的值发生改变时的回调                                                                                                                      | onValuesChange( function )                                                     | id, value       |
 
 ## getFieldDecorator
 
@@ -358,6 +366,7 @@ form对象会额外提供一些api给你去扩展你的input组件
 | formOnChange    | 当前input触发onChange的时候会单独触发，可以使用`onValuesChange` | function(value) {}                   | null     |
 | formOnBlur      | 当前input触发onBlur的时候会单独触发，可以使用`onValuesChange`   | function() {}                        | null     |
 | formOnFocus     | 当前input触发onFocus的时候会单独触发，可以使用`onValuesChange`  | function() {}                        | null     |
+| valueTranslate  | 用于转换form中实际存储的值与界面存储的值                        | function(value: any): string {}                        | null     |
 
 举个例子：如果你的组件里用到了前缀的电话号码组件，那么本来Input组件中就支持传入`value`和`phonePrefix`这两个值来控制默认的前缀和手机号码。那么也可以直接通过`initialValue`来控制。
 
