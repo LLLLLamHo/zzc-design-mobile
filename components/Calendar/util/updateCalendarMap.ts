@@ -1,6 +1,5 @@
 export default function updateCalendarMap(data): any {
     const { type, _startIndexInfo, _endIndexInfo, _startTime, _endTime, map, monthKey, rowKey, itemKey } = data;
-    debugger;
     if (type == 'start') {
         return _updateStartTime(map, monthKey, rowKey, itemKey, _startIndexInfo, _endIndexInfo);
     } else if (type == 'end') {

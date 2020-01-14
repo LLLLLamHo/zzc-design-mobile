@@ -13473,4 +13473,13 @@ button {
   font-size: 14px;
 }
 
+.wechat_text {
+  font-size: 14px;
+  text-align: left;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #999;
+}
+
 /*# sourceMappingURL=Form.css.map*/
