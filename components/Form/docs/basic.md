@@ -23,6 +23,7 @@ Form表单
 | label     | 用label标签的展示          | string                | null     |
 | colon     | label标签文案后是否添加":" | boolean               | false    |
 | extra     | input后是否添加额外元素    | JSX.Element \| string | null     |
+| onClick   | 点击事件                   | Function              | null     |
 
 ### 普通的使用方式
 
