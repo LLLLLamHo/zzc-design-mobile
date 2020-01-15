@@ -10,6 +10,16 @@ export default class App extends PureComponent {
 
         };
     }
+
+    calcTime ( type, value ) {
+        const { start, end } = value;
+        if ( !start || !end ) return;
+        if ( end.t - start.t < 0 ) {
+            return '不足一天按一天计算';
+        }
+        return;
+    }
+
     render () {
         return (
             <div className='zzc-demo'>
@@ -18,7 +28,14 @@ export default class App extends PureComponent {
                 </div>
                 <div className='zzc-demo-body full'>
                     <div style={{ height: '100%', width: '100%', position: 'fixed', top: 0, left: 0, background: 'blue' }}>
-                        <Calendar calendarMode='car' />
+                        <Calendar
+                            yesterday
+                            defaultCalendarTips='建议取车时间为航班到达后1小时，租车当天未满24小时算1天'
+                            timeChange={( value ) => this.calcTime( 'timeChange', value )}
+                            dayChange={( value ) => this.calcTime( 'dayChange', value )}
+                            calendarMode='car'
+                            mode='day*time'
+                        />
                     </div>
                 </div>
             </div>

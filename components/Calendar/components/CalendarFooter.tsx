@@ -1,22 +1,92 @@
 import React, { PureComponent } from 'react';
 import config from '../../_util/config';
+import Button from '../../Button';
+import Picker from '../../Picker';
+import Icon from '../../Icon';
+import createPickerData from '../util/createPickerData';
 import { CalendarProps } from '../propsType';
 
 export default class CalendarFooter extends PureComponent<any, any> {
     constructor(props) {
         super(props);
+        this.state = {
+            pickerList: createPickerData(props.timeRange, props.minutesInterval, props.currStartTime, props.currEndTime, props.defaultStartTime, props.defaultEndTime)
+        };
     }
     static defaultProps = {
         prefixCls: `${config.cls}-calendar`,
     };
 
+    footerItem;
+
+    componentDidMount() {
+        this.props.renderCallback(this.footerItem.offsetHeight);
+    }
+
+    createTimePicker() {
+        const { i18n } = this.props;
+        return (
+            <div className='time-picker-box'>
+                <div className='title-box'>
+                    <div className='title'>
+                        <p>{i18n.time_picker_title}</p>
+                    </div>
+                    <div className='title'>
+                        <p>{i18n.time_return_title}</p>
+                    </div>
+                </div>
+                <div className='picker-box'>
+                    <Picker
+                        height={117.5}
+                        onTouchEnd={(scrollIndex, itemIndex) => { this.changeTime(scrollIndex, itemIndex); }}
+                        pickerData={this.state.pickerList}
+                    />
+                </div>
+            </div>
+        );
+    }
+
+    changeTime(scrollIndex, itemIndex) {
+        const index = scrollIndex == 'start-time' ? 0 : 1;
+        const selectItem = this.state.pickerList[index].listData[itemIndex];
+        if (selectItem) {
+            this.props.selectTimePicker(scrollIndex, selectItem);
+        }
+    }
+
+    createTips() {
+        const { calendarTips, defaultCalendarTips, mode } = this.props;
+        const className = mode == 'day' ? 'calendar-tips-box mode-day' : 'calendar-tips-box';
+        if ( calendarTips != null && calendarTips != '' ) {
+            return (
+                <div className={className}>
+                    <Icon type='info_outline' />
+                    <p>{calendarTips}</p>
+                </div>
+            );
+        } else if ( defaultCalendarTips != null && defaultCalendarTips != '' ) {
+            return (
+                <div className={className}>
+                    <Icon type='info_outline' />
+                    <p>{defaultCalendarTips}</p>
+                </div>
+            );
+        } else {
+            return null;
+        }
+
+    }
+
     render() {
-        const { prefixCls } = this.props;
+        const { prefixCls, i18n, reset, submit, mode } = this.props;
 
         return (
-            <div className={`${prefixCls}-footer`}>
-                <div className={`${prefixCls}-footer`}>
-                    
+            <div className={`${prefixCls}-footer`} ref={(div) => {this.footerItem = div}}>
+                {mode == 'day*time' && this.createTimePicker()}
+                {this.createTips()}
+                <div className='btn-box'>
+                    <Button className='reset-btn' type='special' onClick={reset}>{i18n.reset_btn_text}</Button>
+                    <Button className='submit-btn' onClick={submit}>{i18n.submit_btn_text}</Button>
                 </div>
             </div>
         );

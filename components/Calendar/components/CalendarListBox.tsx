@@ -6,14 +6,38 @@ export default class CalendarListBox extends PureComponent<any, any> {
     constructor(props) {
         super(props);
     }
+
+    listBox;
+
     static defaultProps = {
         prefixCls: `${config.cls}-calendar`,
     };
 
+    componentDidMount() {
+        requestAnimationFrame(() => {
+            this.scrollToTop()
+        });
+    }
+
+    componentDidUpdate() {
+        requestAnimationFrame(() => {
+            this.scrollToTop()
+        });
+    }
+
+    scrollToTop() {
+        const {startTime, endTime} = this.props;
+        if ( !startTime || !endTime ) return;
+        const targetItem = document.querySelector(`[data-c-y="${startTime.Y}"][data-c-m="${startTime.M}"] [data-c-d="${startTime.D}"]`);
+        if (!this.listBox || !targetItem) return;
+        this.listBox.scrollTop = targetItem.offsetTop;
+    }
+
     createMonthItem(monthData, key) {
-        const currYear = new Date().getFullYear()
+        const currYear = new Date().getFullYear();
+        const yearsGap = (monthData.y - currYear) * 12;// 跨年需要减12个月
         return (
-            <div key={key} className='item' data-c-y={monthData.y} data-c-m={key}>
+            <div key={key} className='item' data-c-y={monthData.y} data-c-m={+(key) - yearsGap}>
                 <p className='title'>{monthData.y != currYear ? `${monthData.y}年` : ''}{monthData.title}</p>
                 {
                     monthData.list.map((row, rowKey) => {
@@ -64,10 +88,9 @@ export default class CalendarListBox extends PureComponent<any, any> {
     }
 
     render() {
-        const { prefixCls, list } = this.props;
-        console.log(list)
+        const { prefixCls, list, paddingBottom } = this.props;
         return (
-            <div className={`${prefixCls}-list-box`}>
+            <div ref={(list) => { this.listBox = list }} className={`${prefixCls}-list-box`} style={{paddingBottom: `${paddingBottom}px`}}>
                 {
                     list.map((item, key) => {
                         return this.createMonthItem(item, key)

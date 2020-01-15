@@ -55,7 +55,14 @@ $cls: '.zds-calendar';
                 margin-top: 9px;
             }
 
-            .placeholder{
+            .hour {
+                font-size: 16px;
+                color: #333;
+                line-height: 1;
+                margin-top: 9px;
+            }
+
+            .placeholder {
                 color: #9EA1B0;
                 font-size: 18px;
                 line-height: 27px;
@@ -67,6 +74,7 @@ $cls: '.zds-calendar';
             .title,
             .time,
             .week,
+            .hour,
             .placeholder {
                 text-align: left;
             }
@@ -77,6 +85,7 @@ $cls: '.zds-calendar';
             .title,
             .time,
             .week,
+            .hour,
             .placeholder {
                 text-align: right;
             }
@@ -127,7 +136,7 @@ $cls: '.zds-calendar';
         align-items: center;
         justify-content: space-between;
         height: 44.5px;
-        @include halfPXLine('bottom',rgba(105,110,124, .15));
+        @include halfPXLine('bottom', rgba(105, 110, 124, .15));
 
         .item {
             height: 100%;
@@ -150,6 +159,7 @@ $cls: '.zds-calendar';
         flex-direction: column;
         overflow-x: hidden;
         overflow-y: auto;
+        position: relative;
 
         .item {
             .title {
@@ -200,6 +210,7 @@ $cls: '.zds-calendar';
 
                     &.start {
                         border-radius: 4px 0 0 4px;
+
                         &.only {
                             border-radius: 4px;
                         }
@@ -237,7 +248,78 @@ $cls: '.zds-calendar';
         }
     }
 
-    &-footer{
-        @include halfPXBorder('top', rgba(105,110,124, .15))
+    &-footer {
+        background: #fff;
+        border-top: 1px solid rgba(105, 110, 124, .15);
+        z-index: 1;
+        box-shadow: 0px -5.5px 10px 0px rgba(0, 0, 0, 0.06);
+
+        .time-picker-box {
+            .title-box {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                @include halfPXLine('bottom', rgba(105, 110, 124, .15));
+                height: 55px;
+
+                .title {
+                    width: 50%;
+
+                    p {
+                        width: 100%;
+                        font-weight: bold;
+                        font-size: 17px;
+                        color: #282828;
+                        text-align: center;
+                        vertical-align: middle;
+                        line-height: 55px;
+                    }
+                }
+            }
+
+            .picker-box {
+                padding: 23px 0 20px;
+            }
+        }
+
+        .calendar-tips-box {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 2px 15px 2px;
+            &.mode-day{
+                padding-top: 10px;
+            }
+            svg {
+                width: 11px;
+                height: 11px;
+                margin-right: 4px;
+                fill: #696E7C;
+            }
+
+            p {
+                flex:1;
+                font-size: 11px;
+                font-weight: 400;
+                color: rgba(105, 110, 124, 1);
+                line-height: 1.2727;
+            }
+        }
+
+        .btn-box {
+            padding: 9px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .reset-btn {
+                width: 111px;
+                margin-right: 9px;
+            }
+
+            .submit-btn {
+                flex: 1;
+            }
+        }
     }
 }

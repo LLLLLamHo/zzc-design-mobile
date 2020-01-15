@@ -1,5 +1,5 @@
 
-export default function createCalendarMap(lang) {
+export default function createCalendarMap(lang, startInfo, endInfo, yesterday) {
     const date = new Date();
     let year = date.getFullYear();
     let month = date.getMonth();
@@ -10,14 +10,22 @@ export default function createCalendarMap(lang) {
     const nowMonth = now.getMonth();
     const nowYear = now.getFullYear();
     const nowDay = now.getDate();
+    let startIndexInfo = null
+    let endIndexInfo = null;
 
     const step = 13;
     for (let i = 0; i < step; i++) {
-        calendarMap.push(_createMonthMap({
+
+        const {monthData, startIndex, endIndex} = _createMonthMap({
             n_y: nowYear,
             n_m: nowMonth,
             n_d: nowDay,
-        }, year, month, lang));
+        }, year, month, lang, startInfo, endInfo, startIndexInfo, endIndexInfo, yesterday);
+
+        startIndexInfo = startIndex;
+        endIndexInfo = endIndex;
+
+        calendarMap.push(monthData);
         if (month >= 11) {
             month = 0;
             year += 1;
@@ -26,13 +34,25 @@ export default function createCalendarMap(lang) {
         }
     }
 
-    return calendarMap;
+    // 必须要同时找到start和end的下标，否则返回null
+    if ( !startIndexInfo || !endIndexInfo ) {
+        startIndexInfo = null
+        endIndexInfo = null; 
+    }
+
+    return {
+        startIndexInfo,
+        endIndexInfo,
+        calendarMap
+    };
 }
 
-function _createMonthMap(now, year, month, lang) {
+function _createMonthMap(now, year, month, lang, startInfo, endInfo, startIndexInfo, endIndexInfo, yesterday) {
+
     const startDay = 0;
     const lastDay = new Date(year, month + 1, 0).getDate();
     const monthList: Array<any> = [];
+
     // 过去日期
     let effectiveDate;
     if (year <= now.n_y && month <= now.n_m) {
@@ -42,15 +62,17 @@ function _createMonthMap(now, year, month, lang) {
     let rowList: Array<any> = [];
     // 第一天补位，如果不是星期1，那么将需要补位
     rowList = _setStartEmptyItem(year, month, startDay + 1);
-
     for (let i = startDay; i < lastDay; i++) {
+        let col;
         const currData = i + 1;
+
         if (effectiveDate && currData < effectiveDate) {
-            rowList.push(_getDayItemInfo({
+
+            col = rowList.push(_getDayItemInfo({
                 day: currData,
                 month,
                 year,
-                gone: true,
+                gone: yesterday && year == now.n_y && month == now.n_m && currData == now.n_d - 1 ? false : true,// 如果允许选择前一天，那么需要判断今天的前一天不置灰
                 sub: _createDayInfoSubText({
                     ...now,
                     c_y: year,
@@ -59,7 +81,7 @@ function _createMonthMap(now, year, month, lang) {
                 })
             }));
         } else {
-            rowList.push(_getDayItemInfo({
+            col = rowList.push(_getDayItemInfo({
                 day: currData,
                 month,
                 year,
@@ -72,20 +94,37 @@ function _createMonthMap(now, year, month, lang) {
                 })
             }));
         }
+
         // 7列为1行
         if (rowList.length % 7 == 0) {
             monthList.push(rowList.splice(0, 7));
         }
+
+        // 如果传入有已经选中的时间，那么将在创建时查找命中的日期
+        if ( startInfo && endInfo && (startIndexInfo == null || endIndexInfo == null) ) {
+            if ( year == startInfo.Y && month == startInfo.M && currData == startInfo.D ) {
+                startIndexInfo = { monthKey: month, rowKey: monthList.length, itemKey: col - 1 };
+            }
+            if ( year == endInfo.Y && month == endInfo.M && currData == endInfo.D ) {
+                endIndexInfo = { monthKey: month, rowKey: monthList.length, itemKey: col - 1 };
+            }
+        }
     }
 
     // 如果最后一天不是星期日，那么需要对日期补位
-    rowList = rowList.concat(_setEndEmptyItem(rowList.length));
+    // 当当前rowList的length为0，代表这个月最后一天是星期日，所以不需要进行额外补位
+    rowList = rowList.length == 0 ? rowList : rowList.concat(_setEndEmptyItem(rowList.length));
     monthList.push(rowList.splice(0, 7));
+   
     return {
-        title: _createMonthTitle(month, lang),
-        m: month,
-        y: year,
-        list: monthList
+        monthData: {
+            title: _createMonthTitle(month, lang),
+            m: month,
+            y: year,
+            list: monthList,
+        },
+        endIndex: endIndexInfo,
+        startIndex: startIndexInfo
     };
 }
 
@@ -101,9 +140,9 @@ function _setStartEmptyItem(year, month, day) {
     return emptyList;
 }
 
-function _setEndEmptyItem(legnth) {
+function _setEndEmptyItem(length) {
     const emptyList: Array<any> = [];
-    for (let i = 7; i > legnth; i--) {
+    for (let i = 7; i > length; i--) {
         emptyList.push(_getDayItemInfo({
             empty: true
         }));
