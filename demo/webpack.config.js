@@ -25,7 +25,7 @@ for ( let i = 0; i < dirs.length; i++ ) {
     // if ( dirs[i] == 'Input' ) {
     //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     // }
-    // if ( dirs[i] == 'Radio' ) {
+    // if ( dirs[i] == 'Calendar' ) {
     //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     // }
     // if ( dirs[i] == 'DatePicker' ) {

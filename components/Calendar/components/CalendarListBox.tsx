@@ -74,6 +74,8 @@ export default class CalendarListBox extends PureComponent<CalendarListBoxProps,
             return 'gone';
         } else if (empty) {
             return 'empty';
+        } else if (start && end) {
+            return 'start end';
         } else if (startOnly) {
             return 'start only';
         } else if (start) {

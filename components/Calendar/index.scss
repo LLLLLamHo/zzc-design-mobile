@@ -220,6 +220,10 @@ $cls: '.zds-calendar';
                         border-radius: 0 4px 4px 0;
                     }
 
+                    &.start.end{
+                        border-radius: 4px!important;
+                    }
+
                     &.active {
                         background: #E6EEFE;
                     }

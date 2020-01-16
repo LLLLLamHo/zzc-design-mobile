@@ -9504,6 +9504,9 @@ button {
 .zds-calendar-list-box .item .list-item li.end {
   border-radius: 0 4px 4px 0; }
 
+.zds-calendar-list-box .item .list-item li.start.end {
+  border-radius: 4px !important; }
+
 .zds-calendar-list-box .item .list-item li.active {
   background: #E6EEFE; }
 
