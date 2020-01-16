@@ -11,7 +11,7 @@ export function createDateTimeListData( obj, calcMinDate, calcMaxDate, calcCurrD
     obj.monthList = setMonthListData( calcCurrDate, calcMinDate, calcMaxDate, langData );
     obj.dayList = setDayListData( calcCurrDate, calcMinDate, calcMaxDate, langData );
     obj.hourList = setHoursListData( calcCurrDate, use12hour, calcMinDate, calcMaxDate, hourRange );
-    obj.minuteList = setMinuteListData( calcCurrDate, minuteStep, calcMinDate, calcMaxDate, langData );
+    obj.minuteList = setMinuteListData( calcCurrDate, minuteStep, calcMinDate, calcMaxDate, langData, hourRange );
     if ( use12hour ) {
         createHour12ListData( obj, calcMinDate, calcMaxDate, calcCurrDate, langData );
     }
@@ -19,7 +19,7 @@ export function createDateTimeListData( obj, calcMinDate, calcMaxDate, calcCurrD
 
 export function createTimeListData( obj, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, hourRange ) {
     obj.hourList = setHoursListData( calcCurrDate, use12hour, calcMinDate, calcMaxDate, hourRange );
-    obj.minuteList = setMinuteListData( calcCurrDate, minuteStep, calcMinDate, calcMaxDate, langData );
+    obj.minuteList = setMinuteListData( calcCurrDate, minuteStep, calcMinDate, calcMaxDate, langData, hourRange );
     if ( use12hour ) {
         createHour12ListData( obj, calcMinDate, calcMaxDate, calcCurrDate, langData );
     }

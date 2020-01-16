@@ -81,6 +81,7 @@ export function initSelectDate ( selectDate, minDate, maxDate ): DateData {
         const day = selectDate.getDate();
         const hour = selectDate.getHours();
         const minute = selectDate.getMinutes();
+
         return {
             year,
             month,

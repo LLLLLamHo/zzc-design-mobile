@@ -177,8 +177,6 @@ export function setHoursListData ( currDateData, use12hour, calcMinDate, calcMax
     const { year: minYear, month: minMonth, day: minDay, hour: minHour } = calcMinDate;
     const { year: maxYear, month: maxMonth, day: maxDay, hour: maxHour } = calcMaxDate;
 
-console.log(curHour);
-
     const hourListData: ListItem = {
         className: 'hour-list',
         itemClassName: 'hour-item',
@@ -193,7 +191,7 @@ console.log(curHour);
     // 根据传入的范围初始化数据
     if ( hourRange ) {
         const [start, end] = hourRange;
-        step = end - start + 1;
+        step = (end - start) + start + 1;
         hourText = +start;
         hourListData.selectIndex = curHour < start || curHour > end ? 0 : curHour - start;
     }
@@ -211,7 +209,16 @@ console.log(curHour);
 
         if ( hourRange ) {
             const [start, end] = hourRange;
-            hourText = +start;
+            // 当限制的最小小时小于小时范围，那么取小时范围的start作为开始的第一个小时
+            // 当限制的最小小时大于小时范围的start，那么将取minHour作为第一个小时
+            if ( minHour < start ) {
+                startHour = start;
+                hourText = +start;
+            } else {
+                startHour = minHour;
+                step = (end - minHour) + minHour + 1;
+                hourText = +startHour;
+            }
             hourListData.selectIndex = curHour < start || curHour > end ? 0 : curHour - start;
         } else {
             hourText = startHour;
@@ -229,13 +236,14 @@ console.log(curHour);
             hourText++;
         }
     } else if ( currYear >= maxYear && currMonth >= maxMonth && currDay >= maxDay ) {
-        const startHour = 0;
+        let startHour = 0;
         let endHour = maxHour;
         if ( use12hour ) {
             endHour = maxHour >= 12 ? ( curHour < 12 ? 12 : maxHour - 12 ) : maxHour;
         }
         if ( hourRange ) {
             const [start, end] = hourRange;
+            startHour = start;
             hourListData.selectIndex = curHour < start || curHour > end ? 0 : curHour - start;
         } else {
             // 默认为最后一个
@@ -244,7 +252,7 @@ console.log(curHour);
         for ( let i = startHour; i < step; i++ ) {
             if ( hourText <= endHour ) {
                 if ( curHour <= maxHour && ( use12hour && curHour >= 12 ? curHour - 12 : curHour ) == i ) {
-                    hourListData.selectIndex = i;
+                    hourListData.selectIndex = i - startHour;
                 }
                 hourListData.listData.push( {
                     text: `${hourText}:00`,
@@ -254,7 +262,12 @@ console.log(curHour);
             hourText++;
         }
     } else {
-        for ( let i = 0; i < step; i++ ) {
+        let startHour = 0;
+        if ( hourRange ) {
+            const [start] = hourRange;
+            startHour = start;
+        }
+        for ( let i = startHour; i < step; i++ ) {
             hourListData.listData.push( {
                 text: `${use12hour && hourText >= 12 ? hourText - 12 : hourText}:00`,
                 dataKey: hourText
@@ -266,7 +279,7 @@ console.log(curHour);
     return hourListData;
 }
 
-export function setMinuteListData ( currDateData, minuteStep, calcMinDate, calcMaxDate, langData ): ListItem {
+export function setMinuteListData ( currDateData, minuteStep, calcMinDate, calcMaxDate, langData, hourRange ): ListItem {
     const { year: currYear, month: currMonth, day: currDay, hour: curHour, minute: curMinute } = currDateData;
     const { year: minYear, month: minMonth, day: minDay, hour: minHour, minute: minMinute } = calcMinDate;
     const { year: maxYear, month: maxMonth, day: maxDay, hour: maxHour, minute: maxMinute } = calcMaxDate;
@@ -279,6 +292,14 @@ export function setMinuteListData ( currDateData, minuteStep, calcMinDate, calcM
     };
     let step = 60 / minuteStep;
     let minuteText: number = 0;
+
+    // 当有小时范围的时候，如果当前小时等于小时范围的最大小时，那么将只创建0分选项
+    if ( hourRange ) {
+        const end = hourRange[1];
+        if ( curHour == end ) {
+            step = 1;
+        }
+    }
 
     if ( currYear <= minYear && currMonth <= minMonth && currDay <= minDay && curHour <= minHour ) {
         const startMinute = Math.floor( minMinute / minuteStep );
