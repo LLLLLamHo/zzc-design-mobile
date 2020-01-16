@@ -16,10 +16,9 @@ import { isFunction } from '../../_util/typeof';
 export default class Calendar extends PureComponent<CalendarProps, CalendarState> {
     constructor(props) {
         super(props);
-
         const _startTime = props.startTime ? this.conversionSelectTime(props.startTime) : null;
         const _endTime = props.endTime ? this.conversionSelectTime(props.endTime) : null;
-        const i18n = calendar_i18n(props.lang);
+        const i18n = props.i18n || calendar_i18n(props.lang);
         let { startIndexInfo, endIndexInfo, calendarMap } = createCalendarMap(props.lang, props.dateExtension, _startTime, _endTime, props.yesterday);
 
         if (startIndexInfo && endIndexInfo) {
@@ -201,15 +200,17 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
 
     echoSelectData(type: string, start: selectTimeInterface | null, end: selectTimeInterface | null): EchoSelectDataReturn | null {
         // 输出日期格式
-        if (start && end && this.props.mode == 'day') {
-            delete start.h;
-            delete start.m;
+        if ( this.props.mode == 'day') {
+            if ( start) {
+                delete start.h;
+                delete start.m;
+            }
             return {
                 type,
                 start,
                 end
             };
-        } else if (start && end && this.props.mode == 'day*time') {
+        } else if (this.props.mode == 'day*time') {
             return {
                 type,
                 start,
@@ -250,7 +251,14 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         const { _startTime, _endTime } = this.state;
         if (!_startTime || !_endTime) return;
         const { onChange } = this.props;
-        onChange && isFunction(onChange) && onChange(this.formatSubmitEchoData());
+        if (onChange && isFunction(onChange)) {
+            const tips = onChange(this.formatSubmitEchoData());
+            if (this.state._calendar_tips != tips) {
+                this.setState({
+                    _calendar_tips: tips || ''
+                });
+            }
+        }
     }
 
     footerRenderCallback(footerHeight: number): void {

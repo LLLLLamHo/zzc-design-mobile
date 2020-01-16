@@ -8,6 +8,7 @@ export interface CalendarCloseBoxProps {
 export interface CalendarProps {
     prefixCls?: string
     className?: string
+    i18n?: i18n
     style?: React.CSSProperties
     lang?: 'cn' | 'hk',
     calendarMode?: 'car' | 'defult'
@@ -105,8 +106,8 @@ export interface CalendarMapItemRow {
 
 export interface EchoSelectDataReturn {
     type: string,
-    start: selectTimeInterface,
-    end: selectTimeInterface,
+    start: selectTimeInterface | null,
+    end: selectTimeInterface | null,
 }
 
 export interface FormatSubmitEchoData {

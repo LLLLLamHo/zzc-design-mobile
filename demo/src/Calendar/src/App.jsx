@@ -52,6 +52,7 @@ export default class App extends PureComponent {
     }
 
     set ( number, value ) {
+        console.log(value);
         if ( number == 1 ) {
             this.setState( {
                 car_start: value.start,
