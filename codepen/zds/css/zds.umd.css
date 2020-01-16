@@ -9215,6 +9215,825 @@ button {
     -webkit-transform: scale(0.3);
             transform: scale(0.3); } }
 
+.zds-calendar {
+  background: #F5F6F8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.zds-calendar-close-box {
+  height: 44.5px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end; }
+
+.zds-calendar-close-box .zds-calendar-close-btn {
+  height: 100%;
+  padding: 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.zds-calendar-result-box {
+  height: 85.5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 20px 16px;
+  box-sizing: border-box; }
+
+.zds-calendar-result-box .left,
+.zds-calendar-result-box .right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
+
+.zds-calendar-result-box .left .title,
+.zds-calendar-result-box .right .title {
+  font-size: 13px;
+  color: #696E7C;
+  line-height: 1; }
+
+.zds-calendar-result-box .left .time,
+.zds-calendar-result-box .right .time {
+  font-size: 23px;
+  color: #333;
+  font-weight: 600;
+  line-height: 1;
+  margin-top: 5px; }
+
+.zds-calendar-result-box .left .week,
+.zds-calendar-result-box .right .week {
+  font-size: 16px;
+  color: #333;
+  line-height: 1;
+  margin-top: 9px; }
+
+.zds-calendar-result-box .left .hour,
+.zds-calendar-result-box .right .hour {
+  font-size: 16px;
+  color: #333;
+  line-height: 1;
+  margin-top: 9px; }
+
+.zds-calendar-result-box .left .placeholder,
+.zds-calendar-result-box .right .placeholder {
+  color: #9EA1B0;
+  font-size: 18px;
+  line-height: 27px; }
+
+.zds-calendar-result-box .left .title,
+.zds-calendar-result-box .left .time,
+.zds-calendar-result-box .left .week,
+.zds-calendar-result-box .left .hour,
+.zds-calendar-result-box .left .placeholder {
+  text-align: left; }
+
+.zds-calendar-result-box .right .title,
+.zds-calendar-result-box .right .time,
+.zds-calendar-result-box .right .week,
+.zds-calendar-result-box .right .hour,
+.zds-calendar-result-box .right .placeholder {
+  text-align: right; }
+
+.zds-calendar-result-box .center {
+  margin: 0 5px;
+  width: 74px;
+  height: 29px;
+  border: none;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #F5F6F8; }
+
+.zds-calendar-result-box .center::after {
+  display: block;
+  border-radius: 33px;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  height: 200%;
+  border: 1px solid #9EA1B0;
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+      transform-origin: 0 0;
+  -webkit-transform: scale(0.5, 0.5);
+  -ms-transform: scale(0.5, 0.5);
+      transform: scale(0.5, 0.5);
+  box-sizing: border-box;
+  background: transparent; }
+
+.zds-calendar-result-box .center .day {
+  text-align: center;
+  color: #696E7C;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  height: 100%;
+  line-height: 31px;
+  z-index: 1;
+  background: #F5F6F8; }
+
+.zds-calendar-result-box .center::after {
+  z-index: 2; }
+
+.zds-calendar-result-box .center::before {
+  content: '';
+  background: #9EA1B0;
+  width: 1px;
+  height: 68px;
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(15deg);
+      -ms-transform: translateX(-50%) translateY(-50%) rotate(15deg);
+          transform: translateX(-50%) translateY(-50%) rotate(15deg); }
+
+.zds-calendar-week-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 44.5px;
+  position: relative; }
+
+.zds-calendar-week-box::after {
+  content: "";
+  position: absolute;
+  display: block;
+  z-index: 11;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(105, 110, 124, 0.15);
+  -webkit-transform: scaleY(0.5) translateY(50%);
+      -ms-transform: scaleY(0.5) translateY(50%);
+          transform: scaleY(0.5) translateY(50%); }
+
+.zds-calendar-week-box .item {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
+
+.zds-calendar-week-box .item p {
+  font-size: 14px;
+  color: #333; }
+
+.zds-calendar-list-box {
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative; }
+
+.zds-calendar-list-box .item .title {
+  padding: 20.5px 13px;
+  font-size: 18px;
+  color: #333;
+  line-height: 1; }
+
+.zds-calendar-list-box .item .list-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.zds-calendar-list-box .item .list-item li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 54.5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  font-weight: bold; }
+
+.zds-calendar-list-box .item .list-item li.gone p {
+  color: #9EA1B0; }
+
+.zds-calendar-list-box .item .list-item li.gone p.sub {
+  color: #9EA1B0; }
+
+.zds-calendar-list-box .item .list-item li.start, .zds-calendar-list-box .item .list-item li.end {
+  background: #2871F7;
+  overflow: hidden; }
+
+.zds-calendar-list-box .item .list-item li.start p, .zds-calendar-list-box .item .list-item li.end p {
+  color: #fff; }
+
+.zds-calendar-list-box .item .list-item li.start p.sub, .zds-calendar-list-box .item .list-item li.end p.sub {
+  color: #fff; }
+
+.zds-calendar-list-box .item .list-item li.start {
+  border-radius: 4px 0 0 4px; }
+
+.zds-calendar-list-box .item .list-item li.start.only {
+  border-radius: 4px; }
+
+.zds-calendar-list-box .item .list-item li.end {
+  border-radius: 0 4px 4px 0; }
+
+.zds-calendar-list-box .item .list-item li.active {
+  background: #E6EEFE; }
+
+.zds-calendar-list-box .item .list-item li p {
+  font-size: 16px;
+  text-align: center;
+  color: #333; }
+
+.zds-calendar-list-box .item .list-item li p.sub {
+  font-size: 12px;
+  font-weight: 400;
+  color: #696E7C;
+  position: absolute;
+  bottom: 2px;
+  width: 100%;
+  line-height: 14px;
+  -webkit-transform: scale(0.833);
+      -ms-transform: scale(0.833);
+          transform: scale(0.833);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.zds-calendar-footer {
+  background: #fff;
+  border-top: 1px solid rgba(105, 110, 124, 0.15);
+  z-index: 1;
+  box-shadow: 0px -5.5px 10px 0px rgba(0, 0, 0, 0.06); }
+
+.zds-calendar-footer .time-picker-box .title-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  height: 55px; }
+
+.zds-calendar-footer .time-picker-box .title-box::after {
+  content: "";
+  position: absolute;
+  display: block;
+  z-index: 11;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(105, 110, 124, 0.15);
+  -webkit-transform: scaleY(0.5) translateY(50%);
+      -ms-transform: scaleY(0.5) translateY(50%);
+          transform: scaleY(0.5) translateY(50%); }
+
+.zds-calendar-footer .time-picker-box .title-box .title {
+  width: 50%; }
+
+.zds-calendar-footer .time-picker-box .title-box .title p {
+  width: 100%;
+  font-weight: bold;
+  font-size: 17px;
+  color: #282828;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 55px; }
+
+.zds-calendar-footer .time-picker-box .picker-box {
+  padding: 23px 0 20px; }
+
+.zds-calendar-footer .calendar-tips-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 2px 15px 2px; }
+
+.zds-calendar-footer .calendar-tips-box.mode-day {
+  padding-top: 10px; }
+
+.zds-calendar-footer .calendar-tips-box svg {
+  width: 11px;
+  height: 11px;
+  margin-right: 4px;
+  fill: #696E7C; }
+
+.zds-calendar-footer .calendar-tips-box p {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 11px;
+  font-weight: 400;
+  color: #696e7c;
+  line-height: 1.2727; }
+
+.zds-calendar-footer .btn-box {
+  padding: 9px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.zds-calendar-footer .btn-box .reset-btn {
+  width: 111px;
+  margin-right: 9px; }
+
+.zds-calendar-footer .btn-box .submit-btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
+.zds-slide-bottom-enter {
+  position: absolute;
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+          animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+
+.zds-slide-bottom-enter.zds-slide-bottom-enter-active {
+  -webkit-animation-name: zdsSlideBottomEnter;
+  animation-name: zdsSlideBottomEnter;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+.zds-slide-bottom-leave {
+  position: absolute;
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+
+.zds-slide-bottom-leave.zds-slide-bottom-leave-active {
+  -webkit-animation-name: zdsSlideBottomLeave;
+  animation-name: zdsSlideBottomLeave;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+@-webkit-keyframes zdsSlideBottomEnter {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@keyframes zdsSlideBottomEnter {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@-webkit-keyframes zdsSlideBottomLeave {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  100% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%); } }
+
+@keyframes zdsSlideBottomLeave {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  100% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%); } }
+
+.zds-slide-top-enter {
+  position: absolute;
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+          animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+
+.zds-slide-top-enter.zds-slide-top-enter-active {
+  -webkit-animation-name: zdsSlideTopEnter;
+  animation-name: zdsSlideTopEnter;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+.zds-slide-top-leave {
+  position: absolute;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+
+.zds-slide-top-leave.zds-slide-top-leave-active {
+  -webkit-animation-name: zdsSlideTopLeave;
+  animation-name: zdsSlideTopLeave;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+@-webkit-keyframes zdsSlideTopEnter {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@keyframes zdsSlideTopEnter {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@-webkit-keyframes zdsSlideTopLeave {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  100% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%); } }
+
+@keyframes zdsSlideTopLeave {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  100% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%); } }
+
+.zds-slide-left-enter {
+  position: absolute;
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+          animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+
+.zds-slide-left-enter.zds-slide-left-enter-active {
+  -webkit-animation-name: zdsSlideLeftEnter;
+  animation-name: zdsSlideLeftEnter;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+.zds-slide-left-leave {
+  position: absolute;
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+
+.zds-slide-left-leave.zds-slide-left-leave-active {
+  -webkit-animation-name: zdsSlideLeftLeave;
+  animation-name: zdsSlideLeftLeave;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+@-webkit-keyframes zdsSlideLeftEnter {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%); }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@keyframes zdsSlideLeftEnter {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%); }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@-webkit-keyframes zdsSlideLeftLeave {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%); } }
+
+@keyframes zdsSlideLeftLeave {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%); } }
+
+.zds-slide-right-enter {
+  position: absolute;
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+          animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+
+.zds-slide-right-enter.zds-slide-right-enter-active {
+  -webkit-animation-name: zdsSlideRightEnter;
+  animation-name: zdsSlideRightEnter;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+.zds-slide-right-leave {
+  position: absolute;
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+
+.zds-slide-right-leave.zds-slide-right-leave-active {
+  -webkit-animation-name: zdsSlideRightLeave;
+  animation-name: zdsSlideRightLeave;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+@-webkit-keyframes zdsSlideRightEnter {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@keyframes zdsSlideRightEnter {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@-webkit-keyframes zdsSlideRightLeave {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  100% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); } }
+
+@keyframes zdsSlideRightLeave {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  100% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); } }
+
+.zds-fade-enter {
+  opacity: 0;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+
+.zds-fade-enter.zds-fade-enter-active {
+  -webkit-animation-name: zdsFadeIn;
+  animation-name: zdsFadeIn;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+.zds-fade-leave {
+  opacity: 0;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+
+.zds-fade-leave.zds-fade-leave-active {
+  -webkit-animation-name: zdsFadeOut;
+  animation-name: zdsFadeOut;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+@-webkit-keyframes zdsFadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes zdsFadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes zdsFadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes zdsFadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+.zds-zoom-enter {
+  opacity: 0;
+  -webkit-transform: scale(0.3);
+      -ms-transform: scale(0.3);
+          transform: scale(0.3);
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+
+.zds-zoom-enter.zds-zoom-enter-active {
+  -webkit-animation-name: zdsZoomIn;
+  animation-name: zdsZoomIn;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+.zds-zoom-leave {
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+
+.zds-zoom-leave.zds-zoom-leave-active {
+  -webkit-animation-name: zdsZoomOut;
+  animation-name: zdsZoomOut;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+@-webkit-keyframes zdsZoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes zdsZoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@-webkit-keyframes zdsZoomOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); } }
+
+@keyframes zdsZoomOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); } }
+
 .zds-calculator {
   position: relative;
   display: inline-block;

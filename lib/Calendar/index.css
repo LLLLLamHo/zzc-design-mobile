@@ -284,6 +284,13 @@
   line-height: 1;
   margin-top: 9px; }
 
+.zds-calendar-result-box .left .hour,
+.zds-calendar-result-box .right .hour {
+  font-size: 16px;
+  color: #333;
+  line-height: 1;
+  margin-top: 9px; }
+
 .zds-calendar-result-box .left .placeholder,
 .zds-calendar-result-box .right .placeholder {
   color: #9EA1B0;
@@ -293,12 +300,14 @@
 .zds-calendar-result-box .left .title,
 .zds-calendar-result-box .left .time,
 .zds-calendar-result-box .left .week,
+.zds-calendar-result-box .left .hour,
 .zds-calendar-result-box .left .placeholder {
   text-align: left; }
 
 .zds-calendar-result-box .right .title,
 .zds-calendar-result-box .right .time,
 .zds-calendar-result-box .right .week,
+.zds-calendar-result-box .right .hour,
 .zds-calendar-result-box .right .placeholder {
   text-align: right; }
 
@@ -390,7 +399,8 @@
   flex: 1;
   flex-direction: column;
   overflow-x: hidden;
-  overflow-y: auto; }
+  overflow-y: auto;
+  position: relative; }
 
 .zds-calendar-list-box .item .title {
   padding: 20.5px 13px;
@@ -410,7 +420,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  position: relative; }
+  position: relative;
+  font-weight: bold; }
 
 .zds-calendar-list-box .item .list-item li.gone p {
   color: #9EA1B0; }
@@ -447,6 +458,7 @@
 
 .zds-calendar-list-box .item .list-item li p.sub {
   font-size: 12px;
+  font-weight: 400;
   color: #696E7C;
   position: absolute;
   bottom: 2px;
@@ -456,3 +468,77 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
+
+.zds-calendar-footer {
+  background: #fff;
+  border-top: 1px solid rgba(105, 110, 124, 0.15);
+  z-index: 1;
+  box-shadow: 0px -5.5px 10px 0px rgba(0, 0, 0, 0.06); }
+
+.zds-calendar-footer .time-picker-box .title-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  height: 55px; }
+
+.zds-calendar-footer .time-picker-box .title-box::after {
+  content: "";
+  position: absolute;
+  display: block;
+  z-index: 11;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(105, 110, 124, 0.15);
+  transform: scaleY(0.5) translateY(50%); }
+
+.zds-calendar-footer .time-picker-box .title-box .title {
+  width: 50%; }
+
+.zds-calendar-footer .time-picker-box .title-box .title p {
+  width: 100%;
+  font-weight: bold;
+  font-size: 17px;
+  color: #282828;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 55px; }
+
+.zds-calendar-footer .time-picker-box .picker-box {
+  padding: 23px 0 20px; }
+
+.zds-calendar-footer .calendar-tips-box {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 2px 15px 2px; }
+
+.zds-calendar-footer .calendar-tips-box.mode-day {
+  padding-top: 10px; }
+
+.zds-calendar-footer .calendar-tips-box svg {
+  width: 11px;
+  height: 11px;
+  margin-right: 4px;
+  fill: #696E7C; }
+
+.zds-calendar-footer .calendar-tips-box p {
+  flex: 1;
+  font-size: 11px;
+  font-weight: 400;
+  color: #696e7c;
+  line-height: 1.2727; }
+
+.zds-calendar-footer .btn-box {
+  padding: 9px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.zds-calendar-footer .btn-box .reset-btn {
+  width: 111px;
+  margin-right: 9px; }
+
+.zds-calendar-footer .btn-box .submit-btn {
+  flex: 1; }
