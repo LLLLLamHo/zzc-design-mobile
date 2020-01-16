@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import config from '../../_util/config';
 import getWeek from '../util/getWeek';
-import { CalendarProps } from '../propsType';
+import { CalendarResultProps } from '../propsType';
 
-export default class CalendarResult extends PureComponent<any, any> {
+export default class CalendarResult extends PureComponent<CalendarResultProps, any> {
     constructor(props) {
         super(props);
     }
@@ -67,7 +67,7 @@ export default class CalendarResult extends PureComponent<any, any> {
         if (startTime && endTime) {
             return (
                 <div className='center'>
-                    <p className='day'>{Math.ceil((endTime.t - startTime.t) / 86400000)}天</p>
+                    <p className='day'>{Math.ceil((endTime.t - startTime.t) / 86400000) || 1}天</p>
                 </div>
             );
         }

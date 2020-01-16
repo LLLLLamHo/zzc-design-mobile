@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import config from '../../_util/config';
 import Popup from '../../Popup';
-import { CalendarProps } from '../propsType';
+import { CalendarProps, CalendarState, selectTimeInterface, EchoSelectDataReturn, FormatSubmitEchoData } from '../propsType';
 import CalendarCloseBox from './CalendarCloseBox';
 import CalendarResult from './CalendarResult';
 import CalendarWeek from './CalendarWeek';
@@ -13,20 +13,20 @@ import calendar_i18n from '../util/i18n';
 import updateCalendarMap from '../util/updateCalendarMap';
 import { isFunction } from '../../_util/typeof';
 
-export default class Calendar extends PureComponent<CalendarProps, any> {
+export default class Calendar extends PureComponent<CalendarProps, CalendarState> {
     constructor(props) {
         super(props);
+
         const _startTime = props.startTime ? this.conversionSelectTime(props.startTime) : null;
         const _endTime = props.endTime ? this.conversionSelectTime(props.endTime) : null;
         const i18n = calendar_i18n(props.lang);
-        let { startIndexInfo, endIndexInfo, calendarMap } = createCalendarMap(props.lang, _startTime, _endTime, props.yesterday);
+        let { startIndexInfo, endIndexInfo, calendarMap } = createCalendarMap(props.lang, props.dateExtension, _startTime, _endTime, props.yesterday);
 
         if (startIndexInfo && endIndexInfo) {
             const { newMap } = updateCalendarMap({
                 type: 'end',
                 _startIndexInfo: startIndexInfo,
-                _startTime,
-                _endTime,
+                _endIndexInfo: endIndexInfo,
                 map: calendarMap,
                 i18n,
                 calendarMode: props.calendarMode,
@@ -43,12 +43,14 @@ export default class Calendar extends PureComponent<CalendarProps, any> {
             _endIndexInfo: endIndexInfo,
             _default_calendar_tips: props.defaultCalendarTips,
             _calendar_tips: '',
-            _listBoxPaddingBottom: 30
+            _listBoxPaddingBottom: 30,
         };
+
         this.selectItem = this.selectItem.bind(this);
         this.resetSelectDay = this.resetSelectDay.bind(this);
         this.selectTimePicker = this.selectTimePicker.bind(this);
         this.submit = this.submit.bind(this);
+        this.closeCalendar = this.closeCalendar.bind(this);
         this.footerRenderCallback = this.footerRenderCallback.bind(this);
     }
     static defaultProps = {
@@ -62,15 +64,16 @@ export default class Calendar extends PureComponent<CalendarProps, any> {
         minutesInterval: 30,
         defaultStartTime: '9:00',
         defaultEndTime: '9:00',
-        // startTime: new Date('2020/12/2 10:00:00'),
-        // endTime: new Date('2020/12/17 10:00:00'),
         dayChange: null,
         timeChange: null,
         defaultCalendarTips: '',
-        yesterday: false
+        yesterday: false,
+        onChange: null,
+        onClose: null,
+        visible: false
     };
 
-    conversionSelectTime(time) {
+    conversionSelectTime(time): selectTimeInterface | null {
         if (!time) return null;
         let newTime = new Date(time);
         if (newTime.toString() == 'Invalid Date') return null;
@@ -86,7 +89,7 @@ export default class Calendar extends PureComponent<CalendarProps, any> {
     }
 
     // 因为react设计大量循环计算，所以点击选择的规则通过操作DOM来渲染
-    selectItem(monthKey, rowKey, itemKey, dayInfo) {
+    selectItem(monthKey: number, rowKey: number, itemKey: number, dayInfo): void {
         const { _startTime, _endTime } = this.state;
         if ((!_startTime && !_endTime) || (_startTime && _endTime)) {
             this.updateStartTime(_startTime, _endTime, monthKey, rowKey, itemKey);
@@ -102,18 +105,16 @@ export default class Calendar extends PureComponent<CalendarProps, any> {
         }
     }
 
-    updateStartTime(_startTime, _endTime, monthKey, rowKey, itemKey) {
-        const { defaultStartTime } = this.props;
+    updateStartTime(_startTime: selectTimeInterface | null, _endTime: selectTimeInterface | null, monthKey: number, rowKey: number, itemKey: number): void {
+        const { defaultStartTime, calendarMode } = this.props;
         const { newMap, select } = updateCalendarMap({
             type: 'start',
-            _startTime,
-            _endTime,
             _startIndexInfo: this.state._startIndexInfo,
             _endIndexInfo: this.state._endIndexInfo,
             map: this.state.calendarMap,
             monthKey, rowKey, itemKey,
             i18n: this.state.i18n,
-            calendarMode: this.props.calendarMode
+            calendarMode: calendarMode || 'default'
         });
         this.setState({
             _startIndexInfo: { monthKey, rowKey, itemKey },
@@ -127,17 +128,15 @@ export default class Calendar extends PureComponent<CalendarProps, any> {
         });
     }
 
-    updateEndTime(_startTime, _endTime, monthKey, rowKey, itemKey) {
+    updateEndTime(_startTime: selectTimeInterface, _endTime: selectTimeInterface | null, monthKey: number, rowKey: number, itemKey: number): void {
         const { defaultEndTime } = this.props;
         const { newMap, select } = updateCalendarMap({
             type: 'end',
             _startIndexInfo: this.state._startIndexInfo,
-            _startTime,
-            _endTime,
             map: this.state.calendarMap,
             monthKey, rowKey, itemKey,
             i18n: this.state.i18n,
-            calendarMode: this.props.calendarMode
+            calendarMode: this.props.calendarMode || 'default'
         });
         this.setState({
             _endIndexInfo: { monthKey, rowKey, itemKey },
@@ -148,13 +147,14 @@ export default class Calendar extends PureComponent<CalendarProps, any> {
         });
     }
 
-    resetSelectDay() {
+    resetSelectDay(): void {
         const { newMap } = updateCalendarMap({
             type: 'reset',
             _startIndexInfo: this.state._startIndexInfo,
             _endIndexInfo: this.state._endIndexInfo,
             map: this.state.calendarMap,
-            i18n: this.state.i18n
+            i18n: this.state.i18n,
+            calendarMode: this.props.calendarMode || 'default'
         });
         this.setState({
             _startIndexInfo: null,
@@ -165,16 +165,16 @@ export default class Calendar extends PureComponent<CalendarProps, any> {
         });
     }
 
-    selectTimePicker(type, selectItem) {
+    selectTimePicker(type: string, selectItem): void {
         const { dataKey } = selectItem;
         const { _startTime, _endTime } = this.state;
-        if (type == 'start-time') {
+        if (type == 'start-time' && _startTime) {
             this.setState({
                 _startTime: this.conversionSelectTime(new Date(`${_startTime.Y}/${_startTime.M + 1}/${_startTime.D} ${dataKey}`)),
             }, () => {
                 this.onChangeEvent('time', 'start');
             });
-        } else {
+        } else if (_endTime) {
             this.setState({
                 _endTime: this.conversionSelectTime(new Date(`${_endTime.Y}/${_endTime.M + 1}/${_endTime.D} ${dataKey}`)),
             }, () => {
@@ -183,7 +183,7 @@ export default class Calendar extends PureComponent<CalendarProps, any> {
         }
     }
 
-    onChangeEvent(eventType, type) {
+    onChangeEvent(eventType: string, type: string): void {
         const { timeChange, dayChange } = this.props;
         let tips = '';
         if (eventType == 'day' && dayChange && isFunction(dayChange)) {
@@ -199,9 +199,9 @@ export default class Calendar extends PureComponent<CalendarProps, any> {
 
     }
 
-    echoSelectData(type, start, end) {
+    echoSelectData(type: string, start: selectTimeInterface | null, end: selectTimeInterface | null): EchoSelectDataReturn | null {
         // 输出日期格式
-        if (this.props.mode == 'day') {
+        if (start && end && this.props.mode == 'day') {
             delete start.h;
             delete start.m;
             return {
@@ -209,87 +209,100 @@ export default class Calendar extends PureComponent<CalendarProps, any> {
                 start,
                 end
             };
-        } else if (this.props.mode == 'day*time') {
+        } else if (start && end && this.props.mode == 'day*time') {
             return {
                 type,
                 start,
                 end
             };
+        } else {
+            return null;
         }
     }
 
-    submit() {
+    formatSubmitEchoData(): FormatSubmitEchoData {
         const { _startTime, _endTime } = this.state;
-        console.log(_startTime);
-        console.log(_endTime);
+        const { mode } = this.props;
+        if (mode == 'day' && _startTime && _endTime) {
+            return {
+                start: `${_startTime.Y}/${_startTime.M + 1}/${_startTime.D}`,
+                end: `${_endTime.Y}/${_endTime.M + 1}/${_endTime.D}`
+            }
+        } else if (mode == 'day*time' && _startTime && _endTime) {
+            return {
+                start: `${_startTime.Y}/${_startTime.M + 1}/${_startTime.D} ${_startTime.h < 10 ? `0${_startTime.h}` : _startTime.h}:${_startTime.m < 10 ? `0${_startTime.m}` : _startTime.m}`,
+                end: `${_endTime.Y}/${_endTime.M + 1}/${_endTime.D} ${_endTime.h < 10 ? `0${_endTime.h}` : _endTime.h}:${_endTime.m < 10 ? `0${_endTime.m}` : _endTime.m}`
+            }
+        } else {
+            return {
+                start: null,
+                end: null
+            }
+        }
     }
 
-    footerRenderCallback(footerHeight) {
+    closeCalendar(): void {
+        const { onClose } = this.props;
+        onClose && isFunction(onClose) && onClose();
+    }
+
+    submit(): void {
+        const { _startTime, _endTime } = this.state;
+        if (!_startTime || !_endTime) return;
+        const { onChange } = this.props;
+        onChange && isFunction(onChange) && onChange(this.formatSubmitEchoData());
+    }
+
+    footerRenderCallback(footerHeight: number): void {
         this.setState({
             _listBoxPaddingBottom: footerHeight + 30
         });
     }
 
     render() {
-        const { style, prefixCls, className, lang, mode, timeRange, minutesInterval, defaultStartTime, defaultEndTime } = this.props;
+        const { style, prefixCls, className, lang, mode, timeRange, minutesInterval, defaultStartTime, defaultEndTime, visible } = this.props;
         const { calendarMap, i18n, _startTime, _endTime, _default_calendar_tips, _calendar_tips, _listBoxPaddingBottom } = this.state;
         const cardClassName: string = classNames(
             prefixCls,
             className
         );
         return (
-            <div style={style} className={cardClassName}>
-                <CalendarCloseBox />
-                <CalendarResult lang={lang} i18n={i18n} mode={mode} startTime={_startTime} endTime={_endTime} />
-                <CalendarWeek weekList={i18n.weekList} />
-                <CalendarListBox
-                    paddingBottom={_listBoxPaddingBottom}
-                    selectItem={this.selectItem}
-                    list={calendarMap}
-                    startTime={_startTime}
-                    endTime={_endTime}
-                />
-                <Popup
-                    style={{ bottom: 0, top: 'unset', height: 'auto' }}
-                    transparent={true}
-                    visible={_startTime && _endTime}
-                >
-                    <CalendarFooter
-                        renderCallback={this.footerRenderCallback}
-                        timeRange={timeRange}
-                        minutesInterval={minutesInterval}
-                        i18n={i18n}
-                        reset={this.resetSelectDay}
-                        submit={this.submit}
-                        mode={mode}
-                        currStartTime={_startTime}
-                        currEndTime={_endTime}
-                        defaultStartTime={defaultStartTime}
-                        defaultEndTime={defaultEndTime}
-                        selectTimePicker={this.selectTimePicker}
-                        defaultCalendarTips={_default_calendar_tips}
-                        calendarTips={_calendar_tips}
+            <Popup visible={!!visible} bodyStyle={{ height: '100%' }}>
+                <div style={style} className={cardClassName}>
+                    <CalendarCloseBox onClose={this.closeCalendar}/>
+                    <CalendarResult lang={lang || 'cn'} i18n={i18n} mode={mode || 'day'} startTime={_startTime} endTime={_endTime} />
+                    <CalendarWeek weekList={i18n.weekList} />
+                    <CalendarListBox
+                        paddingBottom={_listBoxPaddingBottom}
+                        selectItem={this.selectItem}
+                        list={calendarMap}
+                        startTime={_startTime}
+                        endTime={_endTime}
                     />
-                </Popup>
-                {false && _startTime && _endTime &&
-                    <CalendarFooter
-                        renderCallback={this.footerRenderCallback}
-                        timeRange={timeRange}
-                        minutesInterval={minutesInterval}
-                        i18n={i18n}
-                        reset={this.resetSelectDay}
-                        submit={this.submit}
-                        mode={mode}
-                        currStartTime={_startTime}
-                        currEndTime={_endTime}
-                        defaultStartTime={defaultStartTime}
-                        defaultEndTime={defaultEndTime}
-                        selectTimePicker={this.selectTimePicker}
-                        defaultCalendarTips={_default_calendar_tips}
-                        calendarTips={_calendar_tips}
-                    />
-                }
-            </div>
+                    <Popup
+                        style={{ bottom: 0, top: 'unset', height: 'auto' }}
+                        transparent={true}
+                        visible={!!_startTime && !!_endTime}
+                    >
+                        <CalendarFooter
+                            renderCallback={this.footerRenderCallback}
+                            timeRange={timeRange || [0, 23]}
+                            minutesInterval={minutesInterval || 30}
+                            i18n={i18n}
+                            reset={this.resetSelectDay}
+                            submit={this.submit}
+                            mode={mode || 'day'}
+                            currStartTime={_startTime}
+                            currEndTime={_endTime}
+                            defaultStartTime={defaultStartTime}
+                            defaultEndTime={defaultEndTime}
+                            selectTimePicker={this.selectTimePicker}
+                            defaultCalendarTips={_default_calendar_tips}
+                            calendarTips={_calendar_tips}
+                        />
+                    </Popup>
+                </div>
+            </Popup>
         );
     }
 }

@@ -1,10 +1,11 @@
-export default function updateCalendarMap(data): any {
-    const { type, _startIndexInfo, _endIndexInfo, _startTime, _endTime, map, monthKey, rowKey, itemKey, calendarMode, i18n } = data;
-    if (type == 'start') {
+import { updateCalendarMapProps, CalendarMapItem, updateCalendarMapRetrun, selectTimeIndex, i18n, CalendarMapItemRow } from '../propsType';
+export default function updateCalendarMap(data: updateCalendarMapProps): any {
+    const { type, _startIndexInfo = null, _endIndexInfo = null, map, monthKey, rowKey, itemKey, calendarMode, i18n } = data;
+    if (type == 'start' && monthKey != null && rowKey != null && itemKey != null) {
         return _updateStartTime(map, monthKey, rowKey, itemKey, _startIndexInfo, _endIndexInfo, calendarMode, i18n);
-    } else if (type == 'end') {
+    } else if (_startIndexInfo && type == 'end' && monthKey != null && rowKey != null && itemKey != null) {
         return _updateEndTime(map, _startIndexInfo, monthKey, rowKey, itemKey, calendarMode, i18n);
-    } else if (type == 'reset') {
+    } else if (_startIndexInfo && _endIndexInfo && type == 'reset') {
         return _updateResetCalendar(map, _startIndexInfo, _endIndexInfo);
     }
     return {
@@ -13,9 +14,9 @@ export default function updateCalendarMap(data): any {
     }
 }
 
-function _updateStartTime(map, monthKey, rowKey, itemKey, _startIndexInfo, _endIndexInfo, calendarMode, i18n) {
+function _updateStartTime(map: Array<CalendarMapItem>, monthKey: number, rowKey: number, itemKey: number, _startIndexInfo: selectTimeIndex | null, _endIndexInfo: selectTimeIndex | null, calendarMode: string, i18n: i18n): updateCalendarMapRetrun {
     // 如果存在之前选择，需要将之前选择的内容清空
-    if (_endIndexInfo) {
+    if (_startIndexInfo && _endIndexInfo) {
         map = _updateActiveTime(map, _startIndexInfo, _endIndexInfo, false);
         map[_endIndexInfo.monthKey].list[_endIndexInfo.rowKey][_endIndexInfo.itemKey]['end'] = false;
         map[_endIndexInfo.monthKey].list[_endIndexInfo.rowKey][_endIndexInfo.itemKey]['_sub'] = false;
@@ -37,12 +38,12 @@ function _updateStartTime(map, monthKey, rowKey, itemKey, _startIndexInfo, _endI
     }
 
     return {
-        newMap: [].concat(map),
+        newMap: map.concat([]),
         select: item
     };
 }
 
-function _updateEndTime(map, startTimeInfo, monthKey, rowKey, itemKey, calendarMode, i18n) {
+function _updateEndTime(map: Array<CalendarMapItem>, startTimeInfo: selectTimeIndex, monthKey: number, rowKey: number, itemKey: number, calendarMode: string, i18n: i18n) {
     const item = map[monthKey].list[rowKey][itemKey];
     const startItem = map[startTimeInfo.monthKey].list[startTimeInfo.rowKey][startTimeInfo.itemKey];
     startItem['startOnly'] = false;
@@ -63,12 +64,12 @@ function _updateEndTime(map, startTimeInfo, monthKey, rowKey, itemKey, calendarM
     }
     map = _updateActiveTime(map, startTimeInfo, { monthKey, rowKey, itemKey }, true);
     return {
-        newMap: [].concat(map),
+        newMap: map.concat([]),
         select: item
     };
 }
 
-function _updateResetCalendar(map, startIndexInfo, endIndexInfo) {
+function _updateResetCalendar(map: Array<CalendarMapItem>, startIndexInfo:selectTimeIndex, endIndexInfo:selectTimeIndex): updateCalendarMapRetrun {
     const startDayItem = map[startIndexInfo.monthKey].list[startIndexInfo.rowKey][startIndexInfo.itemKey];
     const endDayItem = map[endIndexInfo.monthKey].list[endIndexInfo.rowKey][endIndexInfo.itemKey];
 
@@ -78,26 +79,26 @@ function _updateResetCalendar(map, startIndexInfo, endIndexInfo) {
 
     map = _updateActiveTime(map, startIndexInfo, endIndexInfo, false);
     return {
-        newMap: [].concat(map),
+        newMap: map.concat([]),
         select: null
     };
 }
 
-function _updateActiveTime(map, startTimeInfo, endTimeInfo, isActive) {
+function _updateActiveTime(map: Array<CalendarMapItem>, startTimeInfo: selectTimeIndex, endTimeInfo: selectTimeIndex, isActive: boolean): Array<CalendarMapItem> {
     const { monthKey: s_m_k, rowKey: s_r_k, itemKey: s_i_k } = startTimeInfo;
     const { monthKey: e_m_k, rowKey: e_r_k, itemKey: e_i_k } = endTimeInfo;
     for (let i = s_m_k; i <= e_m_k; i++) {
-        const monthData = map[i];
+        const monthData: CalendarMapItem = map[i];
 
         // 当start那一行进行更新时，才默认开始下标未当前start的index，否则为0
         const rowStartIndex = s_m_k == i ? s_r_k : 0;
         for (let n = rowStartIndex; n < monthData.list.length; n++) {
-            const rowItem = monthData.list[n];
-
+            // @ts-ignore
+            const rowItem: Array<CalendarMapItemRow> = monthData.list[n];
             // 当start那一行进行更新时，才默认开始下标未当前start的index，否则为0
             const itmeStartIndex = s_m_k == i && s_r_k == n ? s_i_k : 0;
             for (let k = itmeStartIndex; k < rowItem.length; k++) {
-                if (rowItem[k].gone || rowItem.empty || !rowItem || rowItem.d == '') continue;
+                if (rowItem[k].gone || rowItem[k].empty || !rowItem[k] || !rowItem[k].d) continue;
 
                 if (!rowItem[k].start || !rowItem[k].end || !rowItem[k].startOnly) {
 

@@ -1,13 +1,14 @@
-export default function createPickerData(timeRange, minutesInterval, currStartTime, currEndTime, defaultStartTime, defaultEndTime) {
-
+import {selectTimeInterface} from '../propsType';
+import { PickerData, ListData } from '../../Picker/propsType';
+export default function createPickerData(timeRange: [number, number], minutesInterval: number, currStartTime: selectTimeInterface, currEndTime: selectTimeInterface, defaultStartTime: string, defaultEndTime: string): Array<PickerData> {
     const [start, end] = timeRange;
-    const pickerIime: Array<any> = [];
+    const pickerIime: Array<ListData> = [];
 
     let startIndex = 0;
     let endIndex = 0;
 
     let selectStartTime = currStartTime ? `${currStartTime.h}:${currStartTime.m}` : defaultStartTime;
-    let selectEndTime = currEndTime ? `${currEndTime.h}:${currEndTime.m}` : defaultStartTime;
+    let selectEndTime = currEndTime ? `${currEndTime.h}:${currEndTime.m}` : defaultEndTime;
 
 
     for (let i = start; i <= end; i++) {

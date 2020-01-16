@@ -4,9 +4,9 @@ import Button from '../../Button';
 import Picker from '../../Picker';
 import Icon from '../../Icon';
 import createPickerData from '../util/createPickerData';
-import { CalendarProps } from '../propsType';
+import { CalendarFooterProps, CalendarFooterState } from '../propsType';
 
-export default class CalendarFooter extends PureComponent<any, any> {
+export default class CalendarFooter extends PureComponent<CalendarFooterProps, CalendarFooterState> {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,11 +19,11 @@ export default class CalendarFooter extends PureComponent<any, any> {
 
     footerItem;
 
-    componentDidMount() {
+    componentDidMount(): void {
         this.props.renderCallback(this.footerItem.offsetHeight);
     }
 
-    createTimePicker() {
+    createTimePicker(): JSX.Element {
         const { i18n } = this.props;
         return (
             <div className='time-picker-box'>
@@ -46,15 +46,17 @@ export default class CalendarFooter extends PureComponent<any, any> {
         );
     }
 
-    changeTime(scrollIndex, itemIndex) {
+    changeTime(scrollIndex: string, itemIndex: number): void {
+        const { pickerList } = this.state;
         const index = scrollIndex == 'start-time' ? 0 : 1;
-        const selectItem = this.state.pickerList[index].listData[itemIndex];
+        const {listData} = pickerList[index];
+        const selectItem = listData ? listData[itemIndex] : null;
         if (selectItem) {
             this.props.selectTimePicker(scrollIndex, selectItem);
         }
     }
 
-    createTips() {
+    createTips(): JSX.Element | null {
         const { calendarTips, defaultCalendarTips, mode } = this.props;
         const className = mode == 'day' ? 'calendar-tips-box mode-day' : 'calendar-tips-box';
         if ( calendarTips != null && calendarTips != '' ) {
@@ -77,7 +79,7 @@ export default class CalendarFooter extends PureComponent<any, any> {
 
     }
 
-    render() {
+    render(): JSX.Element {
         const { prefixCls, i18n, reset, submit, mode } = this.props;
 
         return (

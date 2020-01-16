@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import config from '../../_util/config';
-import { CalendarProps } from '../propsType';
+import { CalendarWeekProps } from '../propsType';
 
-export default class CalendarWeek extends PureComponent<any, any> {
+export default class CalendarWeek extends PureComponent<CalendarWeekProps, any> {
     constructor(props) {
         super(props);
     }

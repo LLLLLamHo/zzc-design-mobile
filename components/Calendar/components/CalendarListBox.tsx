@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import config from '../../_util/config';
-import { CalendarProps } from '../propsType';
+import { CalendarListBoxProps } from '../propsType';
 
-export default class CalendarListBox extends PureComponent<any, any> {
+export default class CalendarListBox extends PureComponent<CalendarListBoxProps, any> {
     constructor(props) {
         super(props);
     }
@@ -28,7 +28,7 @@ export default class CalendarListBox extends PureComponent<any, any> {
     scrollToTop() {
         const {startTime, endTime} = this.props;
         if ( !startTime || !endTime ) return;
-        const targetItem = document.querySelector(`[data-c-y="${startTime.Y}"][data-c-m="${startTime.M}"] [data-c-d="${startTime.D}"]`);
+        const targetItem: HTMLDivElement | null = document.querySelector(`[data-c-y="${startTime.Y}"][data-c-m="${startTime.M}"] [data-c-d="${startTime.D}"]`);
         if (!this.listBox || !targetItem) return;
         this.listBox.scrollTop = targetItem.offsetTop;
     }
@@ -54,8 +54,8 @@ export default class CalendarListBox extends PureComponent<any, any> {
                                                     !dayInfo.gone && !dayInfo.empty && this.props.selectItem(key, rowKey, dayKey, dayInfo);
                                                 }}
                                             >
-                                                <p>{dayInfo.d}</p>
-                                                {dayInfo._sub ? <p className='sub'>{dayInfo._sub}</p> : dayInfo.sub ? <p className='sub'>{dayInfo.sub}</p> : null}
+                                                {dayInfo.main != null && <p>{dayInfo.main}</p>}
+                                                {dayInfo._sub != null ? <p className='sub'>{dayInfo._sub}</p> : dayInfo.sub != null ? <p className='sub'>{dayInfo.sub}</p> : null}
                                             </li>
                                         );
                                     })

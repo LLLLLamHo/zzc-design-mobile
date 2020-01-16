@@ -28,7 +28,6 @@ export default class Popup extends React.PureComponent<PopupProps> {
         animationTypeList: animateConfig
     }
 
-    private maskShowed: boolean = false;
     private boxShowed: boolean = false;
     private rendered: boolean = false;
 
@@ -60,8 +59,7 @@ export default class Popup extends React.PureComponent<PopupProps> {
             this.renderCallback();
         }
     }
-    maskAnimated( type: string ): void {
-        this.maskShowed = type == 'enter';
+    maskAnimated(): void {
         if ( this.boxShowed  ) {
             this.renderCallback();
         }
@@ -85,7 +83,7 @@ export default class Popup extends React.PureComponent<PopupProps> {
                     boxClassName={`${prefixCls}-${direction}`}
                     visible={visible}
                     boxAnimated={( type ) => { this.boxAnimated( type ); }}
-                    maskAnimated={( type ) => { this.maskAnimated( type ); }}
+                    maskAnimated={() => { this.maskAnimated(); }}
                     closeCallback={() => {
                         this.setState( { showPopup: false } );
                         onClose && onClose();
