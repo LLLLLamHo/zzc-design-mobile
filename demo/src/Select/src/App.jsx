@@ -173,6 +173,12 @@ export default class App extends PureComponent {
                             console.log(item);
                             this.changeData1( item );
                         }}
+                        onClose={() => {
+                            console.log('onClose')
+                            this.setState({
+                                showSelect1: false
+                            })
+                        }}
                         data={data1}
                     />
                 </div>

@@ -44645,9 +44645,9 @@ var PhoneNumberPrefix = function (_PureComponent) {
                     _this3.setState({
                         openMorePhonePrefix: false
                     });
-                } }, _react2.default.createElement(_Card2.default, null, _react2.default.createElement(_Card2.default.Header, { className: this.prefixClass + '-popup-header', title: lang == 'cn' ? '请选择' : '請選擇' }), _react2.default.createElement('div', { className: this.prefixClass + '-popup-box-list' }, phonePrefixList && phonePrefixList.map(function (item) {
+                } }, _react2.default.createElement(_Card2.default, null, _react2.default.createElement(_Card2.default.Header, { className: this.prefixClass + '-popup-header', title: lang == 'cn' ? '请选择' : '請選擇' }), _react2.default.createElement('div', { className: this.prefixClass + '-popup-box-list' }, phonePrefixList && phonePrefixList.map(function (item, key) {
                 var className = (0, _classnames2.default)(_this3.prefixClass + '-popup-prefix-item', { 'active': item.id == currPrefix });
-                return _react2.default.createElement(_Card2.default.Body, { key: item.id }, _react2.default.createElement('div', { className: className, onClick: function onClick() {
+                return _react2.default.createElement(_Card2.default.Body, { key: item.id + '-' + key }, _react2.default.createElement('div', { className: className, onClick: function onClick() {
                         _this3.selectPrefix(item);
                     } }, _react2.default.createElement('p', null, item.detail), item.id == currPrefix && _react2.default.createElement(_Icon2.default, { size: 'sm', type: 'success_fill' })));
             })))));
@@ -44944,7 +44944,11 @@ var Form = function (_PureComponent) {
                     }, onSubmit: function onSubmit(e) {
                         if (_onSubmit && (0, _typeof.isFunction)(_onSubmit)) {
                             if (data && (0, _typeof.isFunction)(data.formOnSubmit)) {
-                                _onSubmit(data.formOnSubmit());
+                                var _data$formOnSubmit = data.formOnSubmit(),
+                                    errList = _data$formOnSubmit.errList,
+                                    outputData = _data$formOnSubmit.outputData;
+
+                                _onSubmit(errList, outputData);
                             }
                             e.preventDefault();
                         }
@@ -45431,16 +45435,26 @@ var Form = function (_PureComponent) {
 
             var ids = (0, _keys2.default)(formData);
             var outputData = {};
+            var errList = null;
             for (var i = 0; i < ids.length; i++) {
                 var value = formData[ids[i]].value;
+                var status = itemStatus[ids[i]].status;
 
+                if (status == 'error') {
+                    errList = errList ? errList : {};
+                    if (!errList[ids[i]]) {
+                        errList[ids[i]] = {};
+                    }
+                    errList[ids[i]] = (0, _assign2.default)({}, itemStatus[ids[i]]);
+                    errList[ids[i]].value = value;
+                }
                 if (!outputData[ids[i]]) {
                     outputData[ids[i]] = {};
                 }
                 outputData[ids[i]] = (0, _assign2.default)({}, itemStatus[ids[i]]);
                 outputData[ids[i]].value = value;
             }
-            return outputData;
+            return { errList: errList, outputData: outputData };
         }
         // 获取表单数据中的值
 

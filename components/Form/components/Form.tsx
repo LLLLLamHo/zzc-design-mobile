@@ -95,15 +95,26 @@ export default class Form extends PureComponent<FormComponentProps, any> {
         const { formData, itemStatus } = this.state;
         const ids = Object.keys(formData);
         const outputData = {};
+        let errList: any = null;
         for (let i = 0; i < ids.length; i++) {
             const { value } = formData[ids[i]];
+            const { status } = itemStatus[ids[i]];
+            if (status == 'error') {
+                errList = errList ? errList : {};
+                if (!errList[ids[i]]) {
+                    errList[ids[i]] = {};
+                }
+                errList[ids[i]] = { ...itemStatus[ids[i]] };
+                errList[ids[i]].value = value;
+            }
+
             if (!outputData[ids[i]]) {
                 outputData[ids[i]] = {};
             }
             outputData[ids[i]] = { ...itemStatus[ids[i]] };
             outputData[ids[i]].value = value;
         }
-        return outputData;
+        return { errList, outputData };
     }
 
     // 获取表单数据中的值

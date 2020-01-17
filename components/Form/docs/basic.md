@@ -10,7 +10,7 @@ Form表单
 | --------- | ----------------------- | -------- | -------- |
 | prefixCls | 组件的公用className前序 | string   | zzc-card |
 | className | 样式类名                | string   | 无       |
-| onSubmit  | onSubmit事件            | Function | null     |
+| onSubmit  | onSubmit事件            | Function(err, data) | null     |
 
 ## Form.Item
 
@@ -77,7 +77,8 @@ class MyForm extends Component {
         };
     }
 
-    onSubmit ( data ) {
+    onSubmit ( err, data ) {
+        console.log( err );
         console.log( data );
     }
 

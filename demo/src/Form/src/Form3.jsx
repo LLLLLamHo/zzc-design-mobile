@@ -248,7 +248,8 @@ class MyForm extends Component {
         };
     }
 
-    onSubmit ( data ) {
+    onSubmit ( err, data ) {
+        console.log( err );
         console.log( data );
     }
 

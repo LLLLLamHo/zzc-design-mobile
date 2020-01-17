@@ -104,10 +104,10 @@ export default class PhoneNumberPrefix extends PureComponent<PhoneNumberPrefixPr
                         <Card.Header className={`${this.prefixClass}-popup-header`} title={lang == 'cn' ? '请选择' : '請選擇'} />
                         <div className={`${this.prefixClass}-popup-box-list`}>
                             {
-                                phonePrefixList && phonePrefixList.map((item) => {
+                                phonePrefixList && phonePrefixList.map((item, key) => {
                                     const className = classnames(`${this.prefixClass}-popup-prefix-item`, { 'active': item.id == currPrefix })
                                     return (
-                                        <Card.Body key={item.id}>
+                                        <Card.Body key={`${item.id}-${key}`}>
                                             <div className={className} onClick={() => { this.selectPrefix(item) }}>
                                                 <p>{item.detail}</p>
                                                 {item.id == currPrefix && <Icon size='sm' type='success_fill' />}

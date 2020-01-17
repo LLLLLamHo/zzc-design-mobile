@@ -41,7 +41,8 @@ export default class Form extends PureComponent<FormProps, any> {
                         onSubmit={(e) => {
                             if ( onSubmit && isFunction(onSubmit) ) {
                                 if (data && isFunction(data.formOnSubmit)) {
-                                    onSubmit(data.formOnSubmit());
+                                    const {errList, outputData} = data.formOnSubmit();
+                                    onSubmit(errList, outputData);
                                 }
                                 e.preventDefault();
                             }

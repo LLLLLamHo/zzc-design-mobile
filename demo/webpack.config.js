@@ -25,7 +25,7 @@ for ( let i = 0; i < dirs.length; i++ ) {
     // if ( dirs[i] == 'Input' ) {
     //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     // }
-    // if ( dirs[i] == 'Calendar' ) {
+    // if ( dirs[i] == 'Form' ) {
     //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     // }
     // if ( dirs[i] == 'Input' ) {
