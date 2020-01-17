@@ -25,33 +25,33 @@ export default class PhoneNumberPrefix extends PureComponent<PhoneNumberPrefixPr
     }
 
     selectPrefix(item: ChangePhonePrefixHandleProps) {
-        if ( item.id == this.props.currPrefix ) return;
+        if (item.id == this.props.currPrefix) return;
         this.setState({
             openMorePhonePrefix: false
         });
-        if ( item.id !== 'other' ) {
+        if (item.id !== 'other') {
             this.props.onChange(item);
         } else {
             this.showAlert();
         }
     }
 
-    showAlert () {
+    showAlert() {
         const { lang } = this.props;
         let codeInput;
-        Alert( {
+        Alert({
             title: lang == 'cn' ? '输入其它国家区号' : '輸入其它國家區號',
-            content:(
+            content: (
                 <div className={`${this.prefixClass}-code-input-box`}>
-                        <span className={`${this.prefixClass}-code-input-box-add`}>+</span>
-                        <input
-                            className={`${this.prefixClass}-code-input-box-input`}
-                            pattern='\\d*'
-                            onKeyUp={(e) => { 
-                                codeInput.value = e.currentTarget.value.replace(/[+]/g, '') 
-                            }}
-                            ref={el => codeInput = el} />
-                    </div>
+                    <span className={`${this.prefixClass}-code-input-box-add`}>+</span>
+                    <input
+                        className={`${this.prefixClass}-code-input-box-input`}
+                        pattern='\\d*'
+                        onKeyUp={(e) => {
+                            codeInput.value = e.currentTarget.value.replace(/[+]/g, '')
+                        }}
+                        ref={el => codeInput = el} />
+                </div>
             ),
             buttons: [
                 {
@@ -78,7 +78,7 @@ export default class PhoneNumberPrefix extends PureComponent<PhoneNumberPrefixPr
 
                 }
             ]
-        } );
+        });
     }
 
     render() {
@@ -102,19 +102,21 @@ export default class PhoneNumberPrefix extends PureComponent<PhoneNumberPrefixPr
                 >
                     <Card>
                         <Card.Header className={`${this.prefixClass}-popup-header`} title={lang == 'cn' ? '请选择' : '請選擇'} />
-                        {
-                            phonePrefixList && phonePrefixList.map((item) => {
-                                const className = classnames(`${this.prefixClass}-popup-prefix-item`, { 'active': item.id == currPrefix })
-                                return (
-                                    <Card.Body key={item.id}>
-                                        <div className={className} onClick={() => {this.selectPrefix(item)}}>
-                                            <p>{item.detail}</p>
-                                            {item.id == currPrefix && <Icon size='sm' type='success_fill' />}
-                                        </div>
-                                    </Card.Body>
-                                );
-                            })
-                        }
+                        <div className={`${this.prefixClass}-popup-box-list`}>
+                            {
+                                phonePrefixList && phonePrefixList.map((item) => {
+                                    const className = classnames(`${this.prefixClass}-popup-prefix-item`, { 'active': item.id == currPrefix })
+                                    return (
+                                        <Card.Body key={item.id}>
+                                            <div className={className} onClick={() => { this.selectPrefix(item) }}>
+                                                <p>{item.detail}</p>
+                                                {item.id == currPrefix && <Icon size='sm' type='success_fill' />}
+                                            </div>
+                                        </Card.Body>
+                                    );
+                                })
+                            }
+                        </div>
                     </Card>
                 </Popup>
             </div>

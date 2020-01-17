@@ -48,6 +48,11 @@ $cls2: '.zds-input-phone';
     color: #333333;
 }
 
+#{$cls2}-popup-box-list {
+    max-height: 345px;
+    overflow: auto;
+}
+
 #{$cls2}-popup-prefix-item {
     display: flex;
     align-items: center;

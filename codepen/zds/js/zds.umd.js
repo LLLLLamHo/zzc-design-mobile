@@ -44645,12 +44645,12 @@ var PhoneNumberPrefix = function (_PureComponent) {
                     _this3.setState({
                         openMorePhonePrefix: false
                     });
-                } }, _react2.default.createElement(_Card2.default, null, _react2.default.createElement(_Card2.default.Header, { className: this.prefixClass + '-popup-header', title: lang == 'cn' ? '请选择' : '請選擇' }), phonePrefixList && phonePrefixList.map(function (item) {
+                } }, _react2.default.createElement(_Card2.default, null, _react2.default.createElement(_Card2.default.Header, { className: this.prefixClass + '-popup-header', title: lang == 'cn' ? '请选择' : '請選擇' }), _react2.default.createElement('div', { className: this.prefixClass + '-popup-box-list' }, phonePrefixList && phonePrefixList.map(function (item) {
                 var className = (0, _classnames2.default)(_this3.prefixClass + '-popup-prefix-item', { 'active': item.id == currPrefix });
                 return _react2.default.createElement(_Card2.default.Body, { key: item.id }, _react2.default.createElement('div', { className: className, onClick: function onClick() {
                         _this3.selectPrefix(item);
                     } }, _react2.default.createElement('p', null, item.detail), item.id == currPrefix && _react2.default.createElement(_Icon2.default, { size: 'sm', type: 'success_fill' })));
-            }))));
+            })))));
         }
     }]);
     return PhoneNumberPrefix;
