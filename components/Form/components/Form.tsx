@@ -97,7 +97,7 @@ export default class Form extends PureComponent<FormComponentProps, any> {
         const outputData = {};
         let errList: any = null;
         for (let i = 0; i < ids.length; i++) {
-            const { value } = formData[ids[i]];
+            const { value, submitFormat } = formData[ids[i]];
             const { status } = itemStatus[ids[i]];
             if (status == 'error') {
                 errList = errList ? errList : {};
@@ -112,7 +112,13 @@ export default class Form extends PureComponent<FormComponentProps, any> {
                 outputData[ids[i]] = {};
             }
             outputData[ids[i]] = { ...itemStatus[ids[i]] };
-            outputData[ids[i]].value = value;
+            
+            // 当配置submitFormat的时候，会根据submitFormat返回设置value
+            if ( submitFormat && isFunction(submitFormat) ) {
+                outputData[ids[i]].value = submitFormat(value)
+            } else {
+                outputData[ids[i]].value = value;
+            }
         }
         return { errList, outputData };
     }

@@ -6,10 +6,10 @@ Form表单
 
 ## Form
 
-| 属性      | 说明                    | 类型     | 默认值   |
-| --------- | ----------------------- | -------- | -------- |
-| prefixCls | 组件的公用className前序 | string   | zzc-card |
-| className | 样式类名                | string   | 无       |
+| 属性      | 说明                    | 类型                | 默认值   |
+| --------- | ----------------------- | ------------------- | -------- |
+| prefixCls | 组件的公用className前序 | string              | zzc-card |
+| className | 样式类名                | string              | 无       |
 | onSubmit  | onSubmit事件            | Function(err, data) | null     |
 
 ## Form.Item
@@ -356,18 +356,19 @@ form对象会额外提供一些api给你去扩展你的input组件
 
 ### getFieldDecoratorOption
 
-| 属性            | 说明                                                            | 类型                                 | 默认值   |
-| --------------- | --------------------------------------------------------------- | ------------------------------------ | -------- |
-| initialValue    | Input初始化值                                                   | any                                  | ''       |
-| grounp          | 分组（验证分组，同组Item每次验证都会验证所有同组的item）        | string                               | null     |
-| isShowSuccess   | 是否显示验证成功提示                                            | boolean                              | false    |
-| successText     | 验证通过文案提示                                                | String                               | null     |
-| rules           | 验证规则                                                        | Array<rules>                         | null     |
-| validateTrigger | 验证时机                                                        | 'onChange'  \| 'onFocus' \| 'onBlur' | 'onBlur' |
-| formOnChange    | 当前input触发onChange的时候会单独触发，可以使用`onValuesChange` | function(value) {}                   | null     |
-| formOnBlur      | 当前input触发onBlur的时候会单独触发，可以使用`onValuesChange`   | function() {}                        | null     |
-| formOnFocus     | 当前input触发onFocus的时候会单独触发，可以使用`onValuesChange`  | function() {}                        | null     |
-| valueTranslate  | 用于转换form中实际存储的值与界面存储的值                        | function(value: any): string {}                        | null     |
+| 属性            | 说明                                                                     | 类型                                 | 默认值   |
+| --------------- | ------------------------------------------------------------------------ | ------------------------------------ | -------- |
+| initialValue    | Input初始化值                                                            | any                                  | ''       |
+| grounp          | 分组（验证分组，同组Item每次验证都会验证所有同组的item）                 | string                               | null     |
+| isShowSuccess   | 是否显示验证成功提示                                                     | boolean                              | false    |
+| successText     | 验证通过文案提示                                                         | String                               | null     |
+| rules           | 验证规则                                                                 | Array<rules>                         | null     |
+| validateTrigger | 验证时机                                                                 | 'onChange'  \| 'onFocus' \| 'onBlur' | 'onBlur' |
+| formOnChange    | 当前input触发onChange的时候会单独触发，可以使用`onValuesChange`          | function(value) {}                   | null     |
+| formOnBlur      | 当前input触发onBlur的时候会单独触发，可以使用`onValuesChange`            | function() {}                        | null     |
+| formOnFocus     | 当前input触发onFocus的时候会单独触发，可以使用`onValuesChange`           | function() {}                        | null     |
+| valueTranslate  | 用于转换form中实际存储的值与界面存储的值                                 | function(value: any): string {}      | null     |
+| submitFormat    | 格式化组件输出的value值，必须返回一个值给Form组件，用于submit时填充value | function(value: any): any {}      | null     |
 
 举个例子：如果你的组件里用到了前缀的电话号码组件，那么本来Input组件中就支持传入`value`和`phonePrefix`这两个值来控制默认的前缀和手机号码。那么也可以直接通过`initialValue`来控制。
 

@@ -46278,7 +46278,9 @@ var Form = function (_PureComponent) {
             var outputData = {};
             var errList = null;
             for (var i = 0; i < ids.length; i++) {
-                var value = formData[ids[i]].value;
+                var _formData$ids$i = formData[ids[i]],
+                    value = _formData$ids$i.value,
+                    submitFormat = _formData$ids$i.submitFormat;
                 var status = itemStatus[ids[i]].status;
 
                 if (status == 'error') {
@@ -46293,7 +46295,12 @@ var Form = function (_PureComponent) {
                     outputData[ids[i]] = {};
                 }
                 outputData[ids[i]] = (0, _assign2.default)({}, itemStatus[ids[i]]);
-                outputData[ids[i]].value = value;
+                // 当配置submitFormat的时候，会根据submitFormat返回设置value
+                if (submitFormat && (0, _typeof.isFunction)(submitFormat)) {
+                    outputData[ids[i]].value = submitFormat(value);
+                } else {
+                    outputData[ids[i]].value = value;
+                }
             }
             return { errList: errList, outputData: outputData };
         }

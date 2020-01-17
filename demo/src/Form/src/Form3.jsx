@@ -338,6 +338,10 @@ class MyForm extends Component {
                         isShowSuccess: true,
                         successText: '验证成功',
                         validateTrigger: 'onChange',
+                        submitFormat: (data) => {
+                            const { value } = data;
+                            return value;
+                        },
                         initialValue: {
                             selectData: this.state.selectData,
                             value: null

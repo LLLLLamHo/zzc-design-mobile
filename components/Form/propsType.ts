@@ -47,6 +47,7 @@ export interface getFieldDecoratorOption {
     formOnFocus?: Function
     validateTrigger?: 'onChange' | 'onFocus' | 'onBlur',
     valueTranslate?: Function
+    submitFormat?: Function
 }
 
 export interface rules{
