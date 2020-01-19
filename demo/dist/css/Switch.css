@@ -13117,7 +13117,8 @@ button {
          appearance: none;
     -webkit-appearance: none;
     outline: none;
-    vertical-align: text-bottom; }
+    vertical-align: text-bottom;
+    display: none; }
 
 .zds-radio-grounp {
   display: -webkit-box;
