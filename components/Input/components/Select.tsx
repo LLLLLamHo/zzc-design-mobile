@@ -37,6 +37,12 @@ export default class Input extends PureComponent<InputSelectProps, InputSelectSt
         }
     }
 
+    componentWillUnmount(): void {
+        if ( this.props.formDeleteId && isFunction(this.props.formDeleteId) ) {
+            this.props.formDeleteId(this.props.id);
+        }
+    }
+
     toggleShowSelect(isShow: boolean): void {
         this.setState({
             isShowSelect: isShow
@@ -109,6 +115,7 @@ export default class Input extends PureComponent<InputSelectProps, InputSelectSt
         delete newProps.formInputOnChange;
         delete newProps.formInputOnBlur;
         delete newProps.formInputOnFocus;
+        delete newProps.formDeleteId;
         delete newProps.setFormItemId;
         delete newProps.selectBodyStyle;
 

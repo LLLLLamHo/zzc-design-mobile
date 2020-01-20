@@ -42,6 +42,12 @@ class Textarea extends PureComponent<TextareaProps, TextareaState> {
               });
         }
     }
+
+    componentWillUnmount(): void {
+        if ( this.props.formDeleteId && isFunction(this.props.formDeleteId) ) {
+            this.props.formDeleteId(this.props.id);
+        }
+    }
     
 
     onFocus = (e): void => {
@@ -144,6 +150,7 @@ class Textarea extends PureComponent<TextareaProps, TextareaState> {
         delete newProps._zds_form_initValue;
         delete newProps.formInputOnChange;
         delete newProps.formInputOnBlur;
+        delete newProps.formDeleteId;
         delete newProps.formInputOnFocus;
         delete newProps.formOpt;
         delete newProps.setFormItemId;                  

@@ -42523,6 +42523,13 @@ var Input = function (_Component) {
             }
         }
     }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            if (this.props.formDeleteId && (0, _typeof.isFunction)(this.props.formDeleteId)) {
+                this.props.formDeleteId(this.props.id);
+            }
+        }
+    }, {
         key: 'getValue',
         value: function getValue(e) {
             var _props2 = this.props,
@@ -42565,6 +42572,7 @@ var Input = function (_Component) {
             delete newProps.formOpt;
             delete newProps.formInputOnChange;
             delete newProps.formInputOnBlur;
+            delete newProps.formDeleteId;
             delete newProps.formInputOnFocus;
             delete newProps.setFormItemId;
             return newProps;
@@ -42824,6 +42832,13 @@ var Textarea = function (_PureComponent) {
             }
         }
     }, {
+        key: "componentWillUnmount",
+        value: function componentWillUnmount() {
+            if (this.props.formDeleteId && (0, _typeof.isFunction)(this.props.formDeleteId)) {
+                this.props.formDeleteId(this.props.id);
+            }
+        }
+    }, {
         key: "reAlignHeight",
         value: function reAlignHeight() {
             var textareaDom = this.textareaRef;
@@ -42886,6 +42901,7 @@ var Textarea = function (_PureComponent) {
             delete newProps._zds_form_initValue;
             delete newProps.formInputOnChange;
             delete newProps.formInputOnBlur;
+            delete newProps.formDeleteId;
             delete newProps.formInputOnFocus;
             delete newProps.formOpt;
             delete newProps.setFormItemId;
@@ -43030,6 +43046,13 @@ var Input = function (_PureComponent) {
             }
         }
     }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            if (this.props.formDeleteId && (0, _typeof.isFunction)(this.props.formDeleteId)) {
+                this.props.formDeleteId(this.props.id);
+            }
+        }
+    }, {
         key: 'toggleShowSelect',
         value: function toggleShowSelect(isShow) {
             this.setState({
@@ -43113,6 +43136,7 @@ var Input = function (_PureComponent) {
             delete newProps.formInputOnChange;
             delete newProps.formInputOnBlur;
             delete newProps.formInputOnFocus;
+            delete newProps.formDeleteId;
             delete newProps.setFormItemId;
             delete newProps.selectBodyStyle;
             newProps = this.transformSelectValue(newProps);
@@ -43307,6 +43331,13 @@ var Input = function (_PureComponent) {
             }
         }
     }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            if (this.props.formDeleteId && (0, _typeof.isFunction)(this.props.formDeleteId)) {
+                this.props.formDeleteId(this.props.id);
+            }
+        }
+    }, {
         key: 'toggleShowDatePicker',
         value: function toggleShowDatePicker(isShow) {
             this.setState({
@@ -43356,6 +43387,7 @@ var Input = function (_PureComponent) {
             delete newProps.formOpt;
             delete newProps.formInputOnChange;
             delete newProps.formInputOnBlur;
+            delete newProps.formDeleteId;
             delete newProps.formInputOnFocus;
             delete newProps.setFormItemId;
             newProps = this.transformDatePickerValue(newProps);
@@ -46236,7 +46268,7 @@ var Form = function (_PureComponent) {
                         };
                         var value = formData[id] != null ? _this.getFormInputData(id) : newOpt.initialValue || '';
                         var consumerValue = (0, _typeof.isObject)(value) ? (0, _assign2.default)({}, value) : { value: value };
-                        return _react2.default.cloneElement(item, (0, _assign2.default)({}, state, { id: id, formInputOnChange: changeFun, formInputOnBlur: blurFun, formInputOnFocus: focusFun, _zds_form_initValue: _this.initFormItemValue, formOpt: newOpt }, consumerValue));
+                        return _react2.default.cloneElement(item, (0, _assign2.default)({}, state, { id: id, formDeleteId: _this.deleteFormStateId, formInputOnChange: changeFun, formInputOnBlur: blurFun, formInputOnFocus: focusFun, _zds_form_initValue: _this.initFormItemValue, formOpt: newOpt }, consumerValue));
                     }
                 );
             },
@@ -46268,12 +46300,28 @@ var Form = function (_PureComponent) {
         _this.getAllData = _this.getAllData.bind(_this);
         _this.formOnSubmit = _this.formOnSubmit.bind(_this);
         _this.getFormComponent = _this.getFormComponent.bind(_this);
+        _this.deleteFormStateId = _this.deleteFormStateId.bind(_this);
         return _this;
     }
-    // 获取form原生对象
+    // 删除对应form内部状态
 
 
     (0, _createClass3.default)(Form, [{
+        key: 'deleteFormStateId',
+        value: function deleteFormStateId(id) {
+            var _state = this.state,
+                formData = _state.formData,
+                itemStatus = _state.itemStatus;
+
+            delete formData[id];
+            delete itemStatus[id];
+            this.setState({
+                formData: formData, itemStatus: itemStatus
+            });
+        }
+        // 获取form原生对象
+
+    }, {
         key: 'getFormComponent',
         value: function getFormComponent(component) {
             this.formComponent = component;
@@ -46283,9 +46331,9 @@ var Form = function (_PureComponent) {
     }, {
         key: 'getAllData',
         value: function getAllData() {
-            var _state = this.state,
-                formData = _state.formData,
-                itemStatus = _state.itemStatus;
+            var _state2 = this.state,
+                formData = _state2.formData,
+                itemStatus = _state2.itemStatus;
 
             var ids = (0, _keys2.default)(formData);
             var outputData = {};
@@ -46331,9 +46379,9 @@ var Form = function (_PureComponent) {
     }, {
         key: 'initFormItemValue',
         value: function initFormItemValue(id, value, formOpt) {
-            var _state2 = this.state,
-                itemStatus = _state2.itemStatus,
-                formData = _state2.formData;
+            var _state3 = this.state,
+                itemStatus = _state3.itemStatus,
+                formData = _state3.formData;
 
             itemStatus[id] = {
                 status: 'normal',
@@ -46374,9 +46422,9 @@ var Form = function (_PureComponent) {
 
             var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
             var isValidation = arguments[2];
-            var _state3 = this.state,
-                formData = _state3.formData,
-                itemStatus = _state3.itemStatus;
+            var _state4 = this.state,
+                formData = _state4.formData,
+                itemStatus = _state4.itemStatus;
 
             formData[id]['value'] = value;
             // 当前item如果是错误状态需要进行验证
@@ -46475,16 +46523,20 @@ var Form = function (_PureComponent) {
         value: function validationRule(value, currRule) {
             if (currRule.required && (value == '' || value === null || value == undefined)) {
                 return false;
-            } else if (((0, _typeof.isString)(value) || (0, _typeof.isNumber)(value)) && currRule.min && value.length < currRule.min) {
-                return false;
-            } else if (((0, _typeof.isString)(value) || (0, _typeof.isNumber)(value)) && currRule.max && value.length > currRule.max) {
-                return false;
-            } else if (((0, _typeof.isString)(value) || (0, _typeof.isNumber)(value)) && currRule.len && value.length != currRule.len) {
-                return false;
-            } else if (currRule.pattern && (0, _typeof.isRegExp)(currRule.pattern)) {
-                return currRule.pattern.test(value);
-            } else if (currRule.validationFn && (0, _typeof.isFunction)(currRule.validationFn)) {
-                return currRule.validationFn(value);
+            } else {
+                // 除了required之外，其他验证规则只有value在非空的情况下才进行验证
+                if (value == '' || value === null || value == undefined) return true;
+                if (((0, _typeof.isString)(value) || (0, _typeof.isNumber)(value)) && currRule.min && value.length < currRule.min) {
+                    return false;
+                } else if (((0, _typeof.isString)(value) || (0, _typeof.isNumber)(value)) && currRule.max && value.length > currRule.max) {
+                    return false;
+                } else if (((0, _typeof.isString)(value) || (0, _typeof.isNumber)(value)) && currRule.len && value.length != currRule.len) {
+                    return false;
+                } else if (currRule.pattern && (0, _typeof.isRegExp)(currRule.pattern)) {
+                    return currRule.pattern.test(value);
+                } else if (currRule.validationFn && (0, _typeof.isFunction)(currRule.validationFn)) {
+                    return currRule.validationFn(value);
+                }
             }
             return true;
         }

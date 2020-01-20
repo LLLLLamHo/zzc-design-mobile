@@ -398,8 +398,8 @@ class MyForm extends Component {
                         grounp: 'sex',
                         rules: [
                             {
-                                required: true,
-                                message: '性别文案不能为空'
+                                len: 3,
+                                message: '性别文案长度必须大于等于3'
                             }
                         ]
                     }, <Input placeholder='性别文案' /> )}

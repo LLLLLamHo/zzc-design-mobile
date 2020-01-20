@@ -70,6 +70,12 @@ export default class Input extends Component<InputProps, InputState> {
         }
     }
 
+    componentWillUnmount(): void {
+        if ( this.props.formDeleteId && isFunction(this.props.formDeleteId) ) {
+            this.props.formDeleteId(this.props.id);
+        }
+    }
+
     getValue(e?: React.ChangeEvent<any>): string | GetValueReturnObject {
         const { showPhonePrefix, inputType } = this.props;
         if (inputType == 'phone' && showPhonePrefix) {
@@ -109,6 +115,7 @@ export default class Input extends Component<InputProps, InputState> {
         delete newProps.formOpt;
         delete newProps.formInputOnChange;
         delete newProps.formInputOnBlur;
+        delete newProps.formDeleteId;
         delete newProps.formInputOnFocus;
         delete newProps.setFormItemId;
 

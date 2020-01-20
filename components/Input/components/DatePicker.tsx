@@ -52,6 +52,12 @@ export default class Input extends PureComponent<InputDatePickerProps, InputDate
         }
     }
 
+    componentWillUnmount(): void {
+        if ( this.props.formDeleteId && isFunction(this.props.formDeleteId) ) {
+            this.props.formDeleteId(this.props.id);
+        }
+    }
+
     toggleShowDatePicker(isShow: boolean): void {
         this.setState({
             isShowDatePicker: isShow
@@ -93,6 +99,7 @@ export default class Input extends PureComponent<InputDatePickerProps, InputDate
         delete newProps.formOpt;
         delete newProps.formInputOnChange;
         delete newProps.formInputOnBlur;
+        delete newProps.formDeleteId;
         delete newProps.formInputOnFocus;
         delete newProps.setFormItemId;
 

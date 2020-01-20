@@ -17,6 +17,7 @@ export default class Form extends PureComponent<FormComponentProps, any> {
         this.getAllData = this.getAllData.bind(this);
         this.formOnSubmit = this.formOnSubmit.bind(this);
         this.getFormComponent = this.getFormComponent.bind(this);
+        this.deleteFormStateId = this.deleteFormStateId.bind(this);
     }
 
     formComponent: HTMLFormElement | null = null;
@@ -58,6 +59,7 @@ export default class Form extends PureComponent<FormComponentProps, any> {
                         return React.cloneElement(item, {
                             ...state,
                             id,
+                            formDeleteId: this.deleteFormStateId,
                             formInputOnChange: changeFun,
                             formInputOnBlur: blurFun,
                             formInputOnFocus: focusFun,
@@ -83,6 +85,16 @@ export default class Form extends PureComponent<FormComponentProps, any> {
         onValuesChange: (fn: Function): void => {
             this.onValuesChange = fn;
         }
+    }
+
+    // 删除对应form内部状态
+    deleteFormStateId(id: string): void {
+        const { formData, itemStatus } = this.state;
+        delete formData[id];
+        delete itemStatus[id];
+        this.setState({
+            formData, itemStatus
+        });
     }
 
     // 获取form原生对象
@@ -255,16 +267,21 @@ export default class Form extends PureComponent<FormComponentProps, any> {
     validationRule(value: any, currRule: rules): boolean {
         if (currRule.required && (value == '' || value === null || value == undefined)) {
             return false;
-        } else if ((isString(value) || isNumber(value)) && currRule.min && value.length < currRule.min) {
-            return false;
-        } else if ((isString(value) || isNumber(value)) && currRule.max && value.length > currRule.max) {
-            return false;
-        } else if ((isString(value) || isNumber(value)) && currRule.len && value.length != currRule.len) {
-            return false;
-        } else if (currRule.pattern && isRegExp(currRule.pattern)) {
-            return currRule.pattern.test(value);
-        } else if (currRule.validationFn && isFunction(currRule.validationFn)) {
-            return currRule.validationFn(value);
+        } else {
+            // 除了required之外，其他验证规则只有value在非空的情况下才进行验证
+            if ( value == '' || value === null || value == undefined ) return true;
+
+            if ((isString(value) || isNumber(value)) && currRule.min && value.length < currRule.min) {
+                return false;
+            } else if ((isString(value) || isNumber(value)) && currRule.max && value.length > currRule.max) {
+                return false;
+            } else if ((isString(value) || isNumber(value)) && currRule.len && value.length != currRule.len) {
+                return false;
+            } else if (currRule.pattern && isRegExp(currRule.pattern)) {
+                return currRule.pattern.test(value);
+            } else if (currRule.validationFn && isFunction(currRule.validationFn)) {
+                return currRule.validationFn(value);
+            }
         }
         return true;
     }

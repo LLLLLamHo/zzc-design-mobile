@@ -30,6 +30,7 @@ export interface InputProps {
     onBlur?: Function
     onFocus?: Function
     formInputOnChange?: Function
+    formDeleteId?: Function
     formInputOnBlur?: Function
     formInputOnFocus?: Function
     maxLength?: number
@@ -60,6 +61,7 @@ export interface InputSelectProps {
     onFocus?: Function
     formInputOnChange?: Function
     formInputOnBlur?: Function
+    formDeleteId?: Function
     formInputOnFocus?: Function
     _zds_form_initValue?: Function
     setFormItemId?: Function
@@ -86,6 +88,7 @@ export interface InputDatePickerProps {
     onFocus?: Function
     formInputOnChange?: Function
     formInputOnBlur?: Function
+    formDeleteId?: Function
     formInputOnFocus?: Function
     _zds_form_initValue?: Function
     setFormItemId?: Function
@@ -139,6 +142,7 @@ export interface TextareaProps {
     
     _zds_form_initValue?: Function
     formOpt?: getFieldDecoratorOption
+    formDeleteId?: Function
     formInputOnChange?: Function
     formInputOnBlur?: Function
     formInputOnFocus?: Function
