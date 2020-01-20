@@ -2,10 +2,10 @@ import React from 'react';
 import FormComponent from './Form';
 
 export default function create(FormElement: any) {
-    return function () {
+    return function (props) {
         return (
             <FormComponent>
-                <FormElement />
+                <FormElement {...props}/>
             </FormComponent>
         )
     }

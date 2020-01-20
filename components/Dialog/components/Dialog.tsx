@@ -11,6 +11,7 @@ import { DialogProps } from '../propsType';
 export default class Dialog extends PureComponent<DialogProps, any> {
     constructor(props) {
         super(props);
+        this.maskTouchMove = this.maskTouchMove.bind(this);
     }
     static defaultProps = {
         prefixCls: `${config.cls}-dialog`,
@@ -42,8 +43,18 @@ export default class Dialog extends PureComponent<DialogProps, any> {
     private isShowedBox: boolean = false;
 
     componentDidMount() {
+        
         // 当没有动画效果的时候，创建完毕后需要为mask添加点击关闭事件
         !this.props.transparent && this.props.maskClose && this.addMarkCloseEvent();
+        if (this.mask) {
+            this.mask.addEventListener('touchmove', this.maskTouchMove, { passive: false });
+        }
+    }
+
+    componentWillUnmount() {
+        if (this.mask) {
+            this.mask.removeEventListener('touchmove', this.maskTouchMove);
+        }
     }
 
     // mask关闭事件
@@ -105,13 +116,18 @@ export default class Dialog extends PureComponent<DialogProps, any> {
                             type === 'leave' && closeCallback && closeCallback();
                         }}
                     >
-                        <div style={maskStyle} ref={(ref) => { this.mask = ref; }} className={newMaskClassName} onTouchMove={(e) => { e.preventDefault(); }} />
+                        <div style={maskStyle} ref={(ref) => { this.mask = ref; }} className={newMaskClassName} />
                     </Animate>
                 );
             }
-            return (<div style={maskStyle} ref={(ref) => { this.mask = ref; }} className={newMaskClassName} onTouchMove={(e) => { e.preventDefault(); }} />);
+            return (<div style={maskStyle} ref={(ref) => { this.mask = ref; }} className={newMaskClassName} />);
         }
         return null;
+    }
+
+    maskTouchMove(event) {
+        event.preventDefault();
+        event.stopPropagation();
     }
 
     // dialog主题是否加入动画

@@ -20,7 +20,7 @@ export default class App extends Component {
                 </div>}
                 <div className='zzc-demo-body'>
                     <h4>多种input</h4>
-                    <Form3 />
+                    <Form3 wtf='3333333'/>
                 </div>
                 {false && <div className='zzc-demo-body'>
                     <h4>托管到form进行管理</h4>

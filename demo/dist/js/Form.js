@@ -33962,6 +33962,7 @@ var Dialog = function (_PureComponent) {
         };
         _this.isShowedMask = false;
         _this.isShowedBox = false;
+        _this.maskTouchMove = _this.maskTouchMove.bind(_this);
         return _this;
     }
 
@@ -33970,6 +33971,16 @@ var Dialog = function (_PureComponent) {
         value: function componentDidMount() {
             // 当没有动画效果的时候，创建完毕后需要为mask添加点击关闭事件
             !this.props.transparent && this.props.maskClose && this.addMarkCloseEvent();
+            if (this.mask) {
+                this.mask.addEventListener('touchmove', this.maskTouchMove, { passive: false });
+            }
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            if (this.mask) {
+                this.mask.removeEventListener('touchmove', this.maskTouchMove);
+            }
         }
         // mask关闭事件
 
@@ -34046,18 +34057,20 @@ var Dialog = function (_PureComponent) {
                             } },
                         _react2.default.createElement('div', { style: maskStyle, ref: function ref(_ref) {
                                 _this2.mask = _ref;
-                            }, className: newMaskClassName, onTouchMove: function onTouchMove(e) {
-                                e.preventDefault();
-                            } })
+                            }, className: newMaskClassName })
                     );
                 }
                 return _react2.default.createElement('div', { style: maskStyle, ref: function ref(_ref2) {
                         _this2.mask = _ref2;
-                    }, className: newMaskClassName, onTouchMove: function onTouchMove(e) {
-                        e.preventDefault();
-                    } });
+                    }, className: newMaskClassName });
             }
             return null;
+        }
+    }, {
+        key: 'maskTouchMove',
+        value: function maskTouchMove(event) {
+            event.preventDefault();
+            event.stopPropagation();
         }
         // dialog主题是否加入动画
 
@@ -46122,11 +46135,11 @@ var _Form2 = _interopRequireDefault(_Form);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function create(FormElement) {
-    return function () {
+    return function (props) {
         return _react2.default.createElement(
             _Form2.default,
             null,
-            _react2.default.createElement(FormElement, null)
+            _react2.default.createElement(FormElement, props)
         );
     };
 }
@@ -49438,7 +49451,7 @@ var App = function (_Component) {
                         null,
                         '\u591A\u79CDinput'
                     ),
-                    _react2.default.createElement(_Form6.default, null)
+                    _react2.default.createElement(_Form6.default, { wtf: '3333333' })
                 ),
                 false && _react2.default.createElement(
                     'div',
@@ -49771,6 +49784,7 @@ var MyForm = function (_Component) {
             _this.props.form.setFormAssignValue('cascader', val, true);
         };
 
+        console.log('form3:', props);
         _this.state = {
             options: [{
                 value: 'zhinan',
@@ -50058,6 +50072,7 @@ var MyForm = function (_Component) {
                         valueTranslate: function valueTranslate(value) {
                             return value ? '经过转换的值' : value;
                         },
+                        initialValue: 'c_1',
                         rules: [{
                             required: true,
                             message: '信息不能为空'

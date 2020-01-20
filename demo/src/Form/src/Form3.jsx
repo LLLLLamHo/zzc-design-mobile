@@ -5,6 +5,7 @@ class MyForm extends Component {
 
     constructor( props ) {
         super( props );
+        console.log( 'form3:', props );
         this.state = {
             options: [{
                 value: 'zhinan',
@@ -284,6 +285,7 @@ class MyForm extends Component {
                         valueTranslate: ( value ) => {
                             return value ? '经过转换的值' : value;
                         },
+                        initialValue: 'c_1',
                         rules: [
                             {
                                 required: true,
@@ -338,7 +340,7 @@ class MyForm extends Component {
                         isShowSuccess: true,
                         successText: '验证成功',
                         validateTrigger: 'onChange',
-                        submitFormat: (data) => {
+                        submitFormat: ( data ) => {
                             const { value } = data;
                             return value;
                         },
