@@ -12,7 +12,7 @@
 | --------------- | ----------------------------------------------------- | -------- | ---------- |
 | prefixCls       | 组件的公用className前序                               | string   | zds-button |
 | type            | 按钮类型，可选值为`default`、`sub`、`special`或者不设 | string   | `default`  |
-| size            | 按钮大小，可选值为`lg`、`ms`、`xs`                    | string   | 无         |
+| size            | 按钮大小，可选值为`default`、`middle`、`small`        | string   | 'default'  |
 | htmlType        | 按钮类别，例如：submit                                | string   | 无         |
 | activeStyle     | 点击反馈的自定义样式                                  | {}       | {}         |
 | activeClassName | 点击反馈的自定义类名                                  | string   |            |

@@ -31,22 +31,22 @@ export default class Button extends PureComponent<ButtonProps, any> {
         const activeClassNameIsNone: boolean = activeClassName === '';
         const className = classNames({
             [`${this.props.prefixCls}-active-${type}`]: activeClassNameIsNone,
-            [`${this.props.prefixCls}-active-${activeClassName}`]: !activeClassNameIsNone
+            [`${activeClassName}`]: !activeClassNameIsNone
         });
         return className;
     }
 
     render() {                
         const { inactive, children, className, prefixCls, type, size, inline, disabled, style, activeStyle, activeClassName, onClick, htmlType } = this.props;
-        let btnClassNames: string = '';        
-        if (inline) {
-            interface classType { [propName: string]: any };
+        let btnClassNames: string = ''; 
+        interface classType { [propName: string]: any };
             let classes: classType = {
                 [`${prefixCls}-${size}`]: size,
                 [`${prefixCls}-${type}`]: type !== '',                
                 [`${prefixCls}-disabled`]: disabled,
                 [`${prefixCls}-inactive`]: inactive
-            };
+            };       
+        if (inline) {
             btnClassNames = classNames(
                 prefixCls,
                 `${prefixCls}-inline`,                
@@ -57,11 +57,7 @@ export default class Button extends PureComponent<ButtonProps, any> {
             btnClassNames = classNames(
                 prefixCls,
                 className,
-                {
-                    [`${prefixCls}-${type}`]: type !== '',                    
-                    [`${prefixCls}-disabled`]: disabled,
-                    [`${prefixCls}-inactive`]: inactive
-                }
+                classes
             );                        
         }
         return (

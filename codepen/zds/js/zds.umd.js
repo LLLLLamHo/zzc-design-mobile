@@ -34377,12 +34377,14 @@ var Button = function (_PureComponent) {
             var _classNames;
 
             var activeClassNameIsNone = activeClassName === '';
-            var className = (0, _classnames2.default)((_classNames = {}, (0, _defineProperty3.default)(_classNames, this.props.prefixCls + '-active-' + type, activeClassNameIsNone), (0, _defineProperty3.default)(_classNames, this.props.prefixCls + '-active-' + activeClassName, !activeClassNameIsNone), _classNames));
+            var className = (0, _classnames2.default)((_classNames = {}, (0, _defineProperty3.default)(_classNames, this.props.prefixCls + '-active-' + type, activeClassNameIsNone), (0, _defineProperty3.default)(_classNames, '' + activeClassName, !activeClassNameIsNone), _classNames));
             return className;
         }
     }, {
         key: 'render',
         value: function render() {
+            var _classes;
+
             var _props = this.props,
                 inactive = _props.inactive,
                 children = _props.children,
@@ -34399,16 +34401,12 @@ var Button = function (_PureComponent) {
                 htmlType = _props.htmlType;
 
             var btnClassNames = '';
+            ;
+            var classes = (_classes = {}, (0, _defineProperty3.default)(_classes, prefixCls + '-' + size, size), (0, _defineProperty3.default)(_classes, prefixCls + '-' + type, type !== ''), (0, _defineProperty3.default)(_classes, prefixCls + '-disabled', disabled), (0, _defineProperty3.default)(_classes, prefixCls + '-inactive', inactive), _classes);
             if (inline) {
-                var _classes;
-
-                ;
-                var classes = (_classes = {}, (0, _defineProperty3.default)(_classes, prefixCls + '-' + size, size), (0, _defineProperty3.default)(_classes, prefixCls + '-' + type, type !== ''), (0, _defineProperty3.default)(_classes, prefixCls + '-disabled', disabled), (0, _defineProperty3.default)(_classes, prefixCls + '-inactive', inactive), _classes);
                 btnClassNames = (0, _classnames2.default)(prefixCls, prefixCls + '-inline', className, classes);
             } else {
-                var _classNames2;
-
-                btnClassNames = (0, _classnames2.default)(prefixCls, className, (_classNames2 = {}, (0, _defineProperty3.default)(_classNames2, prefixCls + '-' + type, type !== ''), (0, _defineProperty3.default)(_classNames2, prefixCls + '-disabled', disabled), (0, _defineProperty3.default)(_classNames2, prefixCls + '-inactive', inactive), _classNames2));
+                btnClassNames = (0, _classnames2.default)(prefixCls, className, classes);
             }
             return _react2.default.createElement(_TouchFeedback2.default, { activeStyle: activeStyle ? activeStyle : {}, activeClassName: this.setActiveClassName(activeClassName, type), disabled: inactive || disabled }, htmlType ? _react2.default.createElement('button', { type: htmlType, className: btnClassNames, style: style, onClick: onClick }, children) : _react2.default.createElement('div', { className: btnClassNames, style: style, onClick: onClick }, children));
         }
