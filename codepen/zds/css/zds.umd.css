@@ -14213,11 +14213,16 @@ button {
   display: inline-block;
   padding: 0 .3rem;
   min-width: .75rem;
+  white-space: nowrap;
+  max-width: 33.333%;
+  text-overflow: ellipsis;
+  overflow: hidden;
   height: .8rem;
   line-height: .8rem;
   font-size: .28rem;
   font-weight: 500;
-  color: #333333; }
+  color: #333333;
+  box-sizing: border-box; }
 
 .zds-cascader-tabbar-item--center {
   text-align: center; }
