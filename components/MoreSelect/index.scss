@@ -1,0 +1,57 @@
+@import '../style/base.scss';
+$cls: '.zds-moreSelect';
+
+#{$cls} {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    #{$cls}-header {
+        text-align: center;
+        padding: 18px 15px;
+        border-bottom: 1px solid $select_header_border_color;
+
+        h5 {
+            color: $select_header_text_color;
+            font-size: $fs_h1;
+            font-weight: 600;
+        }
+    }
+
+    #{$cls}-body {
+        overflow-y: auto;
+        height: 100%;
+        flex: 1;
+
+        #{$cls}-item-title {
+            padding: 5px 15px;
+            box-sizing: border-box;
+            height: 25px;
+            background: rgba(239, 242, 248, 1);
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(51, 51, 51, 1);
+            line-height: 14px;
+        }
+
+        #{$cls}-list-item {
+            padding: 18px 0;
+
+            #{$cls}-item {
+                color: $select_body_item_color;
+                font-size: $fs_h2;
+                font-weight: 400;
+
+                &#{$cls}-item-active {
+                    color: $select_body_active_item_color;
+                }
+
+                &#{$cls}-item-disabled {
+                    color: $select_body_disabled_item_color;
+                }
+            }
+        }
+
+
+    }
+}
