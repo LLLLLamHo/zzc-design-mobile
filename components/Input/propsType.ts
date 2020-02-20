@@ -7,8 +7,8 @@
  * @FilePath: /zzc-design-mobile/components/Input/propsType.ts
  */
 import { getFieldDecoratorOption } from '../Form/propsType';
-import { SelectProps } from '../Select1/propsType';
-import { DatePickerProps } from '../DatePicker1/propsType';
+import { SelectProps } from '../Select/propsType';
+import { DatePickerProps } from '../DatePicker/propsType';
 export interface InputProps {
     prefixCls: string,
     className: string,

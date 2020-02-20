@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import config from '../../_util/config';
 import { InputSelectProps, InputSelectState, GetValueReturnObject } from '../propsType';
-import { SelectOnChangeProps } from '../../Select1/propsType';
+import { SelectOnChangeProps } from '../../Select/propsType';
 import { isFunction } from '../../_util/typeof';
-import Select from '../../Select1';
+import Select from '../../Select';
 
 export default class Input extends PureComponent<InputSelectProps, InputSelectState> {
     constructor(props) {

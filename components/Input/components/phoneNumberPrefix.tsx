@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import Icon from '../../Icon';
 import { PhoneNumberPrefixProps, PhoneNumberPrefixState, ChangePhonePrefixHandleProps } from '../propsType';
 import Card from '../../Card';
-import Popup from '../../Popup1';
+import Popup from '../../Popup';
 import Alert from '../../Alert';
 import classnames from 'classnames';
 

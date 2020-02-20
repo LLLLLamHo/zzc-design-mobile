@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import Modal from '../../Modal1';
+import Modal from '../../Modal';
 import config from '../../_util/config';
 import { LoadingProps, LoadingState } from '../propsType';
 

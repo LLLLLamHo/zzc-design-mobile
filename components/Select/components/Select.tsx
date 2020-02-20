@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import config from '../../_util/config';
-import Popup from '../../Popup1';
+import Popup from '../../Popup';
 import List from '../../List';
 import Icon from '../../Icon';
 import { SelectProps, SelectState, data } from '../propsType';

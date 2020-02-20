@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import config from '../../_util/config';
 import { InputDatePickerProps, InputDatePickerState } from '../propsType';
-import { DatePickerChangeProps } from '../../DatePicker1/propsType';
+import { DatePickerChangeProps } from '../../DatePicker/propsType';
 import { isFunction } from '../../_util/typeof';
-import DatePicker from '../../DatePicker1';
+import DatePicker from '../../DatePicker';
 import moment from 'moment';
 
 export default class Input extends PureComponent<InputDatePickerProps, InputDatePickerState> {

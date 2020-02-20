@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import Modal from '../Modal1';
+import Modal from '../Modal';
 import config from '../_util/config';
 import './index.scss';
 
