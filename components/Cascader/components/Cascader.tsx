@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import Select from './CascaderSelect';
-import Popup from '../../Popup';
-import Tabs from '../../Tabs';
+import Popup from '../../Popup1';
+import Tabs from '../../Tabs1';
 import Icon from '../../Icon';
 import { CascaderProps, CascaderState } from '../propsType';
 

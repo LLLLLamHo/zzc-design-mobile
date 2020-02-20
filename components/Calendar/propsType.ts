@@ -1,4 +1,4 @@
-import {PickerData} from '../Picker/propsType';
+import {PickerData} from '../Picker1/propsType';
 export interface CalendarCloseBoxProps {
     onClose: Function
     prefixCls?: string

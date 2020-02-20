@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import config from '../../_util/config';
-import Popup from '../../Popup';
+import Popup from '../../Popup1';
 import { CalendarProps, CalendarState, selectTimeInterface, EchoSelectDataReturn, FormatSubmitEchoData } from '../propsType';
 import CalendarCloseBox from './CalendarCloseBox';
 import CalendarResult from './CalendarResult';

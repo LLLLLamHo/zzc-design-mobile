@@ -1,5 +1,5 @@
 import {selectTimeInterface} from '../propsType';
-import { PickerData, ListData } from '../../Picker/propsType';
+import { PickerData, ListData } from '../../Picker1/propsType';
 export default function createPickerData(timeRange: [number, number], minutesInterval: number, currStartTime: selectTimeInterface, currEndTime: selectTimeInterface, defaultStartTime: string, defaultEndTime: string): Array<PickerData> {
     const [start, end] = timeRange;
     const pickerIime: Array<ListData> = [];

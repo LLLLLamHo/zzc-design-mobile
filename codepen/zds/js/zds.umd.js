@@ -36386,13 +36386,13 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _tabBar = __webpack_require__(258);
+var _TabBar = __webpack_require__(258);
 
-var _tabBar2 = _interopRequireDefault(_tabBar);
+var _TabBar2 = _interopRequireDefault(_TabBar);
 
-var _tabContent = __webpack_require__(263);
+var _TabContent = __webpack_require__(263);
 
-var _tabContent2 = _interopRequireDefault(_tabContent);
+var _TabContent2 = _interopRequireDefault(_TabContent);
 
 var _typeof = __webpack_require__(8);
 
@@ -36464,7 +36464,7 @@ var Tabs = function (_React$PureComponent) {
 
             var direction = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? 'horizontal' : 'vertical';
             var cls = (0, _classnames2.default)(className, prefixCls + '-box', prefixCls + '-box-' + tabBarPosition);
-            return _react2.default.createElement('div', { className: cls, style: style }, _react2.default.createElement(_tabBar2.default, (0, _extends3.default)({}, this.props, { tabDirection: direction }, this.state, { onChange: this.onChange })), children && _react2.default.createElement(_tabContent2.default, (0, _extends3.default)({}, this.props, this.state, { onChange: this.onChange }), children));
+            return _react2.default.createElement('div', { className: cls, style: style }, _react2.default.createElement(_TabBar2.default, (0, _extends3.default)({}, this.props, { tabDirection: direction }, this.state, { onChange: this.onChange })), children && _react2.default.createElement(_TabContent2.default, (0, _extends3.default)({}, this.props, this.state, { onChange: this.onChange }), children));
         }
     }]);
     return Tabs;
@@ -36537,9 +36537,9 @@ var _Gesture = __webpack_require__(95);
 
 var _Gesture2 = _interopRequireDefault(_Gesture);
 
-var _tabList = __webpack_require__(260);
+var _TabList = __webpack_require__(260);
 
-var _tabList2 = _interopRequireDefault(_tabList);
+var _TabList2 = _interopRequireDefault(_TabList);
 
 var _util = __webpack_require__(96);
 
@@ -36684,7 +36684,7 @@ var TabBar = function (_React$PureComponent) {
             var cls = (0, _classnames3.default)(prefixCls + '-bar-wrap', (0, _defineProperty3.default)({}, prefixCls + '-bar-wrap-am', animated));
             return _react2.default.createElement('div', { className: cls, ref: function ref(refs) {
                     _this2.setLayout(refs);
-                }, style: this.setWrapStyle(wrapStyle) }, _react2.default.createElement(_tabList2.default, { status: status, tabBarUnderlineStyle: tabBarUnderlineStyle, tabBarPosition: tabBarPosition, animated: animated, maxTabLength: maxTabLength, prefixCls: prefixCls, tabs: tabs, currIndex: currIndex, onChange: function onChange(key) {
+                }, style: this.setWrapStyle(wrapStyle) }, _react2.default.createElement(_TabList2.default, { status: status, tabBarUnderlineStyle: tabBarUnderlineStyle, tabBarPosition: tabBarPosition, animated: animated, maxTabLength: maxTabLength, prefixCls: prefixCls, tabs: tabs, currIndex: currIndex, onChange: function onChange(key) {
                     _this2.onChange(key);
                 }, tabItems: this.tabItems, saveTabItem: this.saveTabItem }));
         }
@@ -36900,13 +36900,13 @@ var _classnames3 = __webpack_require__(6);
 
 var _classnames4 = _interopRequireDefault(_classnames3);
 
-var _tabItem = __webpack_require__(261);
+var _TabItem = __webpack_require__(261);
 
-var _tabItem2 = _interopRequireDefault(_tabItem);
+var _TabItem2 = _interopRequireDefault(_TabItem);
 
-var _tabsListUnserline = __webpack_require__(262);
+var _TabsListUnserline = __webpack_require__(262);
 
-var _tabsListUnserline2 = _interopRequireDefault(_tabsListUnserline);
+var _TabsListUnserline2 = _interopRequireDefault(_TabsListUnserline);
 
 var _util = __webpack_require__(96);
 
@@ -36952,7 +36952,7 @@ var TabsList = function (_React$PureComponent) {
 
             var style = tabBarPosition == 'top' || tabBarPosition == 'bottom' ? { width: size + '%' } : { height: size + '%' };
             return tabs && tabs.map(function (item, key) {
-                return _react2.default.createElement(_tabItem2.default, { prefixCls: prefixCls, saveTabItem: saveTabItem, key: _config2.default.cls + '-tabitem-' + key, itemKey: _config2.default.cls + '-tab-' + key, className: _this2.setTabIsActive(prefixCls, currIndex, key), clickEvent: function clickEvent() {
+                return _react2.default.createElement(_TabItem2.default, { prefixCls: prefixCls, saveTabItem: saveTabItem, key: _config2.default.cls + '-tabitem-' + key, itemKey: _config2.default.cls + '-tab-' + key, className: _this2.setTabIsActive(prefixCls, currIndex, key), clickEvent: function clickEvent() {
                         _this2.onChange(key);
                     }, style: style, index: key, item: item });
             });
@@ -36987,7 +36987,7 @@ var TabsList = function (_React$PureComponent) {
                         linePosition = tabItems[currIndex].offsetTop;
                     }
                 }
-                return _react2.default.createElement('div', { className: cls }, this.setTabItem(size), status == 'ready' && _react2.default.createElement(_tabsListUnserline2.default, { tabBarUnderlineStyle: tabBarUnderlineStyle, currIndex: currIndex, tabBarPosition: tabBarPosition, animated: animated, prefixCls: prefixCls, size: lineSize, linePosition: linePosition }));
+                return _react2.default.createElement('div', { className: cls }, this.setTabItem(size), status == 'ready' && _react2.default.createElement(_TabsListUnserline2.default, { tabBarUnderlineStyle: tabBarUnderlineStyle, currIndex: currIndex, tabBarPosition: tabBarPosition, animated: animated, prefixCls: prefixCls, size: lineSize, linePosition: linePosition }));
             }
             return null;
         }
@@ -37130,9 +37130,9 @@ var _classnames2 = __webpack_require__(6);
 
 var _classnames3 = _interopRequireDefault(_classnames2);
 
-var _tabPane = __webpack_require__(264);
+var _TabPane = __webpack_require__(264);
 
-var _tabPane2 = _interopRequireDefault(_tabPane);
+var _TabPane2 = _interopRequireDefault(_TabPane);
 
 var _Gesture = __webpack_require__(95);
 
@@ -37246,7 +37246,7 @@ var TabrContent = function (_React$PureComponent) {
             return _react2.default.createElement('div', { className: warpCls, style: this.setContentWrapStyle(), ref: function ref(refs) {
                     _this2.setLayout(refs);
                 } }, _react2.default.createElement('div', { className: prefixCls + '-content' }, children && children instanceof Array && children.map(function (item, key) {
-                return _react2.default.createElement(_tabPane2.default, { prefixCls: prefixCls, key: 'tabspane-' + key, itemKey: _config2.default.cls + '-tabs-content-item-' + key }, item);
+                return _react2.default.createElement(_TabPane2.default, { prefixCls: prefixCls, key: 'tabspane-' + key, itemKey: _config2.default.cls + '-tabs-content-item-' + key }, item);
             })));
         }
     }, {
@@ -37258,7 +37258,7 @@ var TabrContent = function (_React$PureComponent) {
                 isOpenTabContentScroll = _props3.isOpenTabContentScroll;
 
             if (children && !(0, _typeof.isArray)(children)) {
-                return _react2.default.createElement('div', { className: prefixCls + '-content' }, _react2.default.createElement(_tabPane2.default, { prefixCls: prefixCls }, children));
+                return _react2.default.createElement('div', { className: prefixCls + '-content' }, _react2.default.createElement(_TabPane2.default, { prefixCls: prefixCls }, children));
             }
             if (isOpenTabContentScroll) {
                 return _react2.default.createElement(_Gesture2.default, this.onPan, this.renderContentList());

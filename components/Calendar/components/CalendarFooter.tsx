@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import config from '../../_util/config';
 import Button from '../../Button';
-import Picker from '../../Picker';
+import Picker from '../../Picker1';
 import Icon from '../../Icon';
 import createPickerData from '../util/createPickerData';
 import { CalendarFooterProps, CalendarFooterState } from '../propsType';
