@@ -54,6 +54,7 @@ export default class Form extends PureComponent<FormComponentProps, any> {
                         const focusFun = (formOpt: getFieldDecoratorOption) => {
                             state.formInputOnFocus && state.formInputOnFocus(id, formOpt);
                         };
+                        
                         const value = formData[id] != null ? this.getFormInputData(id) : newOpt.initialValue || '';
                         const consumerValue = isObject(value) ? { ...value } : { value: value };
                         return React.cloneElement(item, {

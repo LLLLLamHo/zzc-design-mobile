@@ -1,0 +1,56 @@
+@import '../style/base.scss';
+$cls: '.zds-actionsheet';
+
+#{$cls} {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #EFF2F8;
+    border-radius:10px 10px 0px 0px;
+    overflow: hidden;
+
+    #{$cls}-header {
+        background: #fff;
+        text-align: center;
+        padding: 18px 0;
+        @include halfPXLine('bottom', $select_header_border_color);
+
+        p {
+            font-size: 17px;
+            color: #333;
+        }
+
+    }
+
+    #{$cls}-body {
+        background: #fff;
+        #{$cls}-item {
+            text-align: center;
+            padding: 18px 0;
+            &:not(:last-child) {
+                @include halfPXLine('bottom', $select_header_border_color);
+            }
+            p{
+                color: #333;
+                &.main{
+                    color: #2871F7;
+                }
+                &.error{
+                    color: #CA0808;
+                }
+            }
+        }
+    }
+
+    #{$cls}-footer {
+        background: #fff;
+        margin-top: 10px;
+        #{$cls}-item {
+            text-align: center;
+            padding: 18px 0;
+            p{
+                color: #333;
+            }
+        }
+    }
+}

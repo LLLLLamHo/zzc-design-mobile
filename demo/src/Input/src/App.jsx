@@ -7,8 +7,8 @@ const { ListItem } = List;
 const { Textarea } = Input
 
 export default class App extends Component {
-    constructor(props) {
-        super(props);
+    constructor( props ) {
+        super( props );
         this.state = {
             name: '',
             age: '',
@@ -16,6 +16,78 @@ export default class App extends Component {
             born: '1993/9/17',
             getCat: new Date(),
             selectIndex: 'code1',
+            morePhoneData: [
+                {
+                    title: '常用区号',
+                    list: [
+                        {
+                            text: '中国大陆+(86)',
+                            type: 'active',
+                            value: '+86'
+                        },
+                        {
+                            text: '香港(中国) +852',
+                            type: 'normal',
+                            value: '+852'
+                        },
+                        {
+                            text: '台湾(中国) +853',
+                            type: 'normal',
+                            value: '+853'
+                        },
+                        {
+                            text: '澳门(中国) +854',
+                            type: 'normal',
+                            value: '+854'
+                        }
+                    ]
+                },
+                {
+                    title: 'A',
+                    list: [
+                        {
+                            text: '爱尔兰 +855',
+                            type: 'normal',
+                            value: '+855'
+                        },
+                        {
+                            text: '阿根廷 +856',
+                            type: 'normal',
+                            value: '+856'
+                        },
+                        {
+                            text: '澳大利亚 +857',
+                            type: 'normal',
+                            value: '+857'
+                        },
+                        {
+                            text: 'A国家 +00',
+                            type: 'normal',
+                            value: '+00'
+                        }
+                    ]
+                },
+                {
+                    title: 'B',
+                    list: [
+                        {
+                            text: 'B国家 +01',
+                            type: 'normal',
+                            value: '+01'
+                        },
+                        {
+                            text: 'B国家 +03',
+                            type: 'normal',
+                            value: '+03'
+                        },
+                        {
+                            text: 'B国家 +02',
+                            type: 'normal',
+                            value: '+02'
+                        }
+                    ]
+                }
+            ],
             selectData: {
                 title: '驾照类型',
                 data: [
@@ -64,11 +136,11 @@ export default class App extends Component {
             this.setState( {
                 name: value
             } );
-        } 
-        else if (type == 'description') {
-            this.setState({
+        }
+        else if ( type == 'description' ) {
+            this.setState( {
                 description: value
-            });
+            } );
         }
         else {
             this.setState( {
@@ -123,6 +195,11 @@ export default class App extends Component {
                             >
                                 <Input inputType='phone' showPhonePrefix placeholder='请输入手机号' id='phone' onChange={( value ) => { console.log( value ) }} />
                             </Form.Item>
+                            <Form.Item
+                                label='更多手机号'
+                            >
+                                <Input morePhoneTitle='请选择' morePhoneData={this.state.morePhoneData} inputType='more*phone' showPhonePrefix placeholder='请输入手机号' id='phone' onChange={( value ) => { console.log( value ) }} />
+                            </Form.Item>
                         </Form>
                     </Card2>
                 </div>
@@ -162,7 +239,7 @@ export default class App extends Component {
                                     value={this.state.born}
                                     placeholder='请选择生日日期'
                                     id='born'
-                                    onChange={( item ) => { console.log(item); this.setState( { born: item.currDate } ) }}
+                                    onChange={( item ) => { console.log( item ); this.setState( { born: item.currDate } ) }}
                                 />
                             </Form.Item>
                             <Form.Item
@@ -209,17 +286,17 @@ export default class App extends Component {
                                 htmlFor='label5'
                                 style={{ paddingTop: 0, alignItems: 'self-end' }}
                             >
-                                <Textarea autoHeight placeholder='自适应高度' value={description} onChange={(value) => { this.onChange('description', value); }} />
+                                <Textarea autoHeight placeholder='自适应高度' value={description} onChange={( value ) => { this.onChange( 'description', value ); }} />
                             </Form.Item>
                             <Form.Item
                                 label='自我介绍'
                                 htmlFor='label5'
                                 style={{ alignItems: 'self-end' }}
                             >
-                                <Textarea style={{ height: '84px' }} placeholder='固定高度' value={description} onChange={(value) => { this.onChange('description', value); }} />
+                                <Textarea style={{ height: '84px' }} placeholder='固定高度' value={description} onChange={( value ) => { this.onChange( 'description', value ); }} />
                             </Form.Item>
                         </Form>
-                    </Card2>                                     
+                    </Card2>
                 </div>
                 <div className='zzc-demo-body'>
                     <Card2 style={{ padding: 0 }}>

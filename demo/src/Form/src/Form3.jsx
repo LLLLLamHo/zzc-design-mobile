@@ -245,7 +245,79 @@ class MyForm extends Component {
                         value: 'code7'
                     }
                 ]
-            }
+            },
+            morePhoneData: [
+                {
+                    title: '常用区号',
+                    list: [
+                        {
+                            text: '中国大陆+(86)',
+                            type: 'active',
+                            value: '+86'
+                        },
+                        {
+                            text: '香港(中国) +852',
+                            type: 'normal',
+                            value: '+852'
+                        },
+                        {
+                            text: '台湾(中国) +853',
+                            type: 'normal',
+                            value: '+853'
+                        },
+                        {
+                            text: '澳门(中国) +854',
+                            type: 'normal',
+                            value: '+854'
+                        }
+                    ]
+                },
+                {
+                    title: 'A',
+                    list: [
+                        {
+                            text: '爱尔兰 +855',
+                            type: 'normal',
+                            value: '+855'
+                        },
+                        {
+                            text: '阿根廷 +856',
+                            type: 'normal',
+                            value: '+856'
+                        },
+                        {
+                            text: '澳大利亚 +857',
+                            type: 'normal',
+                            value: '+857'
+                        },
+                        {
+                            text: 'A国家 +00',
+                            type: 'normal',
+                            value: '+00'
+                        }
+                    ]
+                },
+                {
+                    title: 'B',
+                    list: [
+                        {
+                            text: 'B国家 +01',
+                            type: 'normal',
+                            value: '+01'
+                        },
+                        {
+                            text: 'B国家 +03',
+                            type: 'normal',
+                            value: '+03'
+                        },
+                        {
+                            text: 'B国家 +02',
+                            type: 'normal',
+                            value: '+02'
+                        }
+                    ]
+                }
+            ],
         };
     }
 
@@ -387,6 +459,35 @@ class MyForm extends Component {
                             }
                         ]
                     }, <Input showPhonePrefix inputType='phone' placeholder='请输入手机号' /> )}
+                </Form.Item>
+                <Form.Item
+                    label='更多手机号码'
+                >
+                    {this.props.form.getFieldDecorator( 'morePhoneNum', {
+                        isShowSuccess: true,
+                        successText: '验证成功',
+                        initialValue: {
+                            morePhoneTitle: '请选择',
+                            morePhoneData: this.state.morePhoneData,
+                            value: ''
+                        },
+                        rules: [
+                            {
+                                message: '手机前缀不能为空',
+                                validationFn: ( data ) => {
+                                    if ( !data.phonePrefix || data.phonePrefix == '' ) return false;
+                                    return true;
+                                }
+                            },
+                            {
+                                message: '手机号不能为空',
+                                validationFn: ( data ) => {
+                                    if ( !data.value || data.value == '' ) return false;
+                                    return true;
+                                }
+                            }
+                        ]
+                    }, <Input showPhonePrefix inputType='more*phone' placeholder='请输入手机号' /> )}
                 </Form.Item>
                 <Form.Item
                     label='单选'

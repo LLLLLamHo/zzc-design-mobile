@@ -9,6 +9,7 @@
 import { getFieldDecoratorOption } from '../Form/propsType';
 import { SelectProps } from '../Select/propsType';
 import { DatePickerProps } from '../DatePicker/propsType';
+import {moreData} from '../MoreSelect/propsType';
 export interface InputProps {
     prefixCls: string,
     className: string,
@@ -23,9 +24,11 @@ export interface InputProps {
     showPhonePrefix?: boolean
     phonePrefix?: string
     lang?: 'cn' | 'hk'
-    inputType?: 'text' | 'phone'
+    inputType?: 'text' | 'phone' | 'more*phone'
     phonePrefixList_cn?: Array<any>
     phonePrefixList_hk?: Array<any>
+    morePhoneTitle: string
+    morePhoneData: Array<moreData>
     onChange?: Function
     onBlur?: Function
     onFocus?: Function
@@ -42,6 +45,9 @@ export interface InputProps {
 
 export interface InputState {
     phonePrefix: string
+    morePhonePrefix: CurrMorePhoneSelectItemInfo | null
+    morePhoneData: Array<moreData>
+    morePhoneTitle: string
 }
 export interface InputSelectProps {
     prefixCls: string,
@@ -114,8 +120,24 @@ export interface ChangePhonePrefixHandleProps {
 }
 
 export interface GetValueReturnObject {
-    phonePrefix?: string
+    phonePrefix?: string | null
     selectData?: SelectProps
+    value: string
+}
+export interface MorePhoneNumberPrefixState {
+    openMorePhonePrefix: boolean
+}
+export interface MorePhoneNumberPrefixProps {
+    currPrefix: CurrMorePhoneSelectItemInfo | null
+    onChange: Function
+    title: string
+    data: Array<moreData>
+}
+export interface CurrMorePhoneSelectItemInfo {
+    key: number
+    subKey: number
+    text: string
+    type: string
     value: string
 }
 

@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import config from '../../_util/config';
-import { InputProps, InputState, ChangePhonePrefixHandleProps, GetValueReturnObject } from '../propsType';
+import { InputProps, InputState, ChangePhonePrefixHandleProps, GetValueReturnObject, CurrMorePhoneSelectItemInfo } from '../propsType';
+import { moreData } from '../../MoreSelect/propsType';
 import { isFunction } from '../../_util/typeof';
 import Textarea from "./Textarea"
 import InputSelect from './Select';
 import InputDatePicker from './DatePicker';
 import PhoneNumberPrefix from './phoneNumberPrefix';
+import MorePhoneNumberPrefix from './MorePhoneNumberPrefix';
 
 export default class Input extends Component<InputProps, InputState> {
     constructor(props) {
         super(props);
         this.state = {
             phonePrefix: props.phonePrefix,
+            morePhonePrefix: props.inputType == 'more*phone' ? this.initMorePhoneCurrSelectPhonePrefix(props.morePhoneData || []) : null,
+            morePhoneTitle: props.morePhoneTitle,
+            morePhoneData: props.morePhoneData
         }
         this.changePhonePrefixHandle = this.changePhonePrefixHandle.bind(this);
+        this.changeMorePhonePrefixHandle = this.changeMorePhonePrefixHandle.bind(this);
     }
     private input: HTMLInputElement | null;
     static Textarea = Textarea;
@@ -47,6 +53,8 @@ export default class Input extends Component<InputProps, InputState> {
             { id: '+1', detail: '美國 +(1)' },
             { id: 'other', detail: '其他' }
         ],
+        morePhoneTitle: '',
+        morePhoneData: [],
         name: null,
         id: null,
         placeholder: '',
@@ -54,8 +62,8 @@ export default class Input extends Component<InputProps, InputState> {
     };
 
     shouldComponentUpdate(nextProps, nextState) {
-        if ( JSON.stringify(nextProps) != JSON.stringify(this.props) ) return true;
-        if ( JSON.stringify(nextState) != JSON.stringify(this.state) ) return true;
+        if (JSON.stringify(nextProps) != JSON.stringify(this.props)) return true;
+        if (JSON.stringify(nextState) != JSON.stringify(this.state)) return true;
         return false;
     }
 
@@ -71,14 +79,19 @@ export default class Input extends Component<InputProps, InputState> {
     }
 
     componentWillUnmount(): void {
-        if ( this.props.formDeleteId && isFunction(this.props.formDeleteId) ) {
+        if (this.props.formDeleteId && isFunction(this.props.formDeleteId)) {
             this.props.formDeleteId(this.props.id);
         }
     }
 
     getValue(e?: React.ChangeEvent<any>): string | GetValueReturnObject {
         const { showPhonePrefix, inputType } = this.props;
-        if (inputType == 'phone' && showPhonePrefix) {
+        if (inputType == 'more*phone' && showPhonePrefix) {
+            return {
+                phonePrefix: this.state.morePhonePrefix ? this.state.morePhonePrefix.value : null,
+                value: e ? e.target.value : this.input ? this.input.value : ''
+            }
+        } else if (inputType == 'phone' && showPhonePrefix) {
             return {
                 phonePrefix: this.state.phonePrefix,
                 value: e ? e.target.value : this.input ? this.input.value : ''
@@ -101,11 +114,14 @@ export default class Input extends Component<InputProps, InputState> {
         delete newProps.phonePrefixList_hk;
         delete newProps.inputType;
 
+        delete newProps.morePhoneTitle;
+        delete newProps.morePhoneData;
+
         // 传入valueTranslate的时候将触发valueTranslate函数来转换值和显示
         const { formOpt } = newProps;
-        if ( formOpt ) {
+        if (formOpt) {
             const { valueTranslate } = formOpt;
-            if ( valueTranslate && isFunction(valueTranslate) ) {
+            if (valueTranslate && isFunction(valueTranslate)) {
                 newProps.value = valueTranslate(newProps.value);
             }
         }
@@ -178,9 +194,52 @@ export default class Input extends Component<InputProps, InputState> {
         });
     }
 
+    // 初始化当前morePhone的数据中的选中当前value
+    initMorePhoneCurrSelectPhonePrefix(data: Array<moreData>): CurrMorePhoneSelectItemInfo {
+        let curr: any = null;
+        for (let i = 0; i < data.length; i++) {
+            const { list } = data[i];
+            for (let n = 0; n < list.length; n++) {
+                if (list[n].type == 'active') {
+                    curr = {
+                        key: i,
+                        subKey: n,
+                        ...list[n]
+                    }
+                    break;
+                }
+            }
+        }
+        return curr;
+    }
+
+    // 手机号码前缀修改需要触发onchang通知
+    changeMorePhonePrefixHandle(item: CurrMorePhoneSelectItemInfo): void {
+        const { formInputOnChange, formOpt, onChange } = this.props;
+        const { morePhoneData, morePhonePrefix } = this.state;
+        if ( morePhoneData && morePhonePrefix ) {
+            morePhoneData[morePhonePrefix['key']]['list'][morePhonePrefix['subKey']].type = 'normal';
+            morePhoneData[item['key']]['list'][item['subKey']].type = 'active';
+        }
+        this.setState({
+            morePhonePrefix: item,
+            morePhoneData
+        }, () => {
+            // 触发onChange的回调通知
+            // 开启前缀选择返回特殊值
+            if (this.input) {
+                if (formInputOnChange && isFunction(formInputOnChange)) {
+                    formInputOnChange(this.getValue(), formOpt || null);
+                } else if (onChange && isFunction(onChange)) {
+                    onChange(this.getValue());
+                }
+            }
+        });
+    }
+
     render(): JSX.Element {
         const { inputType, showPhonePrefix, phonePrefixList_cn, phonePrefixList_hk, lang } = this.props;
-        const { phonePrefix } = this.state;
+        const { phonePrefix, morePhonePrefix, morePhoneData, morePhoneTitle } = this.state;
         if (inputType == 'phone' && showPhonePrefix) {
             return (
                 <PhoneNumberPrefix
@@ -191,6 +250,17 @@ export default class Input extends Component<InputProps, InputState> {
                 >
                     {this.createInput()}
                 </PhoneNumberPrefix>
+            );
+        } else if (inputType == 'more*phone' && showPhonePrefix) {
+            return (
+                <MorePhoneNumberPrefix
+                    onChange={this.changeMorePhonePrefixHandle}
+                    currPrefix={morePhonePrefix}
+                    title={morePhoneTitle}
+                    data={morePhoneData}
+                >
+                    {this.createInput()}
+                </MorePhoneNumberPrefix>
             );
         }
         return this.createInput()

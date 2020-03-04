@@ -1,57 +1,3 @@
-body {
-  background: #DDE0E6;
-  font-family: -apple-system,Helvetica,Hiragino Sans GB W3,arial,sans-serif;
-}
-
-#root {
-  height: 100%;
-  background: #EFF2F8;
-}
-
-.zzc-demo {
-  background: #fff;
-}
-
-.zzc-demo .zzc-demo-header {
-  padding: .3rem .3rem 0;
-}
-
-.zzc-demo .zzc-demo-header .zzc-demo-title {
-  font-size: .32rem;
-  color: #666;
-}
-
-.zzc-demo .zzc-demo-header h2 {
-  font-size: .24rem;
-  color: #666;
-  padding-top: .2rem;
-}
-
-.zzc-demo .zzc-demo-body {
-  margin-top: .2rem;
-  padding: 0 .3rem .3rem;
-  box-sizing: border-box;
-}
-
-.zzc-demo .zzc-demo-body > h5 {
-  font-size: .28rem;
-  color: #666;
-  padding: .2rem 0;
-}
-
-.zzc-demo .zzc-demo-body.full {
-  padding: 0;
-}
-
-.zzc-demo .zzc-demo-body.full > h5 {
-  padding: .2rem .3rem;
-}
-
-.zzc-demo .zzc-component-title {
-  color: #333;
-  font-size: .32rem;
-  padding: .3rem;
-}
 .zds-icon {
   fill: currentColor;
   background-size: cover; }
@@ -10555,6 +10501,469 @@ button {
     -webkit-transform: scale(0.3);
             transform: scale(0.3); } }
 
+.zds-actionsheet {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  background: #EFF2F8;
+  border-radius: 10px 10px 0px 0px;
+  overflow: hidden; }
+  .zds-actionsheet .zds-actionsheet-header {
+    background: #fff;
+    text-align: center;
+    padding: 18px 0;
+    position: relative; }
+    .zds-actionsheet .zds-actionsheet-header::after {
+      content: "";
+      position: absolute;
+      display: block;
+      z-index: 11;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px solid #E7EBF0;
+      -webkit-transform: scaleY(0.5) translateY(50%);
+          -ms-transform: scaleY(0.5) translateY(50%);
+              transform: scaleY(0.5) translateY(50%); }
+    .zds-actionsheet .zds-actionsheet-header p {
+      font-size: 17px;
+      color: #333; }
+  .zds-actionsheet .zds-actionsheet-body {
+    background: #fff; }
+    .zds-actionsheet .zds-actionsheet-body .zds-actionsheet-item {
+      text-align: center;
+      padding: 18px 0; }
+      .zds-actionsheet .zds-actionsheet-body .zds-actionsheet-item:not(:last-child) {
+        position: relative; }
+        .zds-actionsheet .zds-actionsheet-body .zds-actionsheet-item:not(:last-child)::after {
+          content: "";
+          position: absolute;
+          display: block;
+          z-index: 11;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          border-bottom: 1px solid #E7EBF0;
+          -webkit-transform: scaleY(0.5) translateY(50%);
+              -ms-transform: scaleY(0.5) translateY(50%);
+                  transform: scaleY(0.5) translateY(50%); }
+      .zds-actionsheet .zds-actionsheet-body .zds-actionsheet-item p {
+        color: #333; }
+        .zds-actionsheet .zds-actionsheet-body .zds-actionsheet-item p.main {
+          color: #2871F7; }
+        .zds-actionsheet .zds-actionsheet-body .zds-actionsheet-item p.error {
+          color: #CA0808; }
+  .zds-actionsheet .zds-actionsheet-footer {
+    background: #fff;
+    margin-top: 10px; }
+    .zds-actionsheet .zds-actionsheet-footer .zds-actionsheet-item {
+      text-align: center;
+      padding: 18px 0; }
+      .zds-actionsheet .zds-actionsheet-footer .zds-actionsheet-item p {
+        color: #333; }
+.zds-slide-bottom-enter {
+  position: absolute;
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+          animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+  .zds-slide-bottom-enter.zds-slide-bottom-enter-active {
+    -webkit-animation-name: zdsSlideBottomEnter;
+    animation-name: zdsSlideBottomEnter;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
+
+.zds-slide-bottom-leave {
+  position: absolute;
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+  .zds-slide-bottom-leave.zds-slide-bottom-leave-active {
+    -webkit-animation-name: zdsSlideBottomLeave;
+    animation-name: zdsSlideBottomLeave;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
+
+@-webkit-keyframes zdsSlideBottomEnter {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@keyframes zdsSlideBottomEnter {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@-webkit-keyframes zdsSlideBottomLeave {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  100% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%); } }
+
+@keyframes zdsSlideBottomLeave {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  100% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%); } }
+
+.zds-slide-top-enter {
+  position: absolute;
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+          animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+  .zds-slide-top-enter.zds-slide-top-enter-active {
+    -webkit-animation-name: zdsSlideTopEnter;
+    animation-name: zdsSlideTopEnter;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
+
+.zds-slide-top-leave {
+  position: absolute;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+  .zds-slide-top-leave.zds-slide-top-leave-active {
+    -webkit-animation-name: zdsSlideTopLeave;
+    animation-name: zdsSlideTopLeave;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
+
+@-webkit-keyframes zdsSlideTopEnter {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@keyframes zdsSlideTopEnter {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@-webkit-keyframes zdsSlideTopLeave {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  100% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%); } }
+
+@keyframes zdsSlideTopLeave {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  100% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%); } }
+
+.zds-slide-left-enter {
+  position: absolute;
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+          animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+  .zds-slide-left-enter.zds-slide-left-enter-active {
+    -webkit-animation-name: zdsSlideLeftEnter;
+    animation-name: zdsSlideLeftEnter;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
+
+.zds-slide-left-leave {
+  position: absolute;
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+  .zds-slide-left-leave.zds-slide-left-leave-active {
+    -webkit-animation-name: zdsSlideLeftLeave;
+    animation-name: zdsSlideLeftLeave;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
+
+@-webkit-keyframes zdsSlideLeftEnter {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%); }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@keyframes zdsSlideLeftEnter {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%); }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@-webkit-keyframes zdsSlideLeftLeave {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%); } }
+
+@keyframes zdsSlideLeftLeave {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%); } }
+
+.zds-slide-right-enter {
+  position: absolute;
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+          animation-timing-function: cubic-bezier(0.47, 0.65, 0.61, 0.9);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+  .zds-slide-right-enter.zds-slide-right-enter-active {
+    -webkit-animation-name: zdsSlideRightEnter;
+    animation-name: zdsSlideRightEnter;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
+
+.zds-slide-right-leave {
+  position: absolute;
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+  .zds-slide-right-leave.zds-slide-right-leave-active {
+    -webkit-animation-name: zdsSlideRightLeave;
+    animation-name: zdsSlideRightLeave;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
+
+@-webkit-keyframes zdsSlideRightEnter {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@keyframes zdsSlideRightEnter {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@-webkit-keyframes zdsSlideRightLeave {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  100% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); } }
+
+@keyframes zdsSlideRightLeave {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  100% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); } }
+
+.zds-fade-enter {
+  opacity: 0;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+  .zds-fade-enter.zds-fade-enter-active {
+    -webkit-animation-name: zdsFadeIn;
+    animation-name: zdsFadeIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
+
+.zds-fade-leave {
+  opacity: 0;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+  .zds-fade-leave.zds-fade-leave-active {
+    -webkit-animation-name: zdsFadeOut;
+    animation-name: zdsFadeOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
+
+@-webkit-keyframes zdsFadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes zdsFadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes zdsFadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes zdsFadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+.zds-zoom-enter {
+  opacity: 0;
+  -webkit-transform: scale(0.3);
+      -ms-transform: scale(0.3);
+          transform: scale(0.3);
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+  .zds-zoom-enter.zds-zoom-enter-active {
+    -webkit-animation-name: zdsZoomIn;
+    animation-name: zdsZoomIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
+
+.zds-zoom-leave {
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+  .zds-zoom-leave.zds-zoom-leave-active {
+    -webkit-animation-name: zdsZoomOut;
+    animation-name: zdsZoomOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running; }
+
+@-webkit-keyframes zdsZoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes zdsZoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@-webkit-keyframes zdsZoomOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); } }
+
+@keyframes zdsZoomOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); } }
+
 .zds-select {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14657,6 +15066,60 @@ button {
   100% {
     -webkit-transform: scale(1);
             transform: scale(1); } }
+body {
+  background: #DDE0E6;
+  font-family: -apple-system,Helvetica,Hiragino Sans GB W3,arial,sans-serif;
+}
+
+#root {
+  height: 100%;
+  background: #EFF2F8;
+}
+
+.zzc-demo {
+  background: #fff;
+}
+
+.zzc-demo .zzc-demo-header {
+  padding: .3rem .3rem 0;
+}
+
+.zzc-demo .zzc-demo-header .zzc-demo-title {
+  font-size: .32rem;
+  color: #666;
+}
+
+.zzc-demo .zzc-demo-header h2 {
+  font-size: .24rem;
+  color: #666;
+  padding-top: .2rem;
+}
+
+.zzc-demo .zzc-demo-body {
+  margin-top: .2rem;
+  padding: 0 .3rem .3rem;
+  box-sizing: border-box;
+}
+
+.zzc-demo .zzc-demo-body > h5 {
+  font-size: .28rem;
+  color: #666;
+  padding: .2rem 0;
+}
+
+.zzc-demo .zzc-demo-body.full {
+  padding: 0;
+}
+
+.zzc-demo .zzc-demo-body.full > h5 {
+  padding: .2rem .3rem;
+}
+
+.zzc-demo .zzc-component-title {
+  color: #333;
+  font-size: .32rem;
+  padding: .3rem;
+}
 .zzc-demo {
   background: #fff;
 }
