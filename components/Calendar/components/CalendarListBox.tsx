@@ -33,12 +33,16 @@ export default class CalendarListBox extends PureComponent<CalendarListBoxProps,
         this.listBox.scrollTop = targetItem.offsetTop;
     }
 
-    createMonthItem(monthData, key) {
+    renderI18nMonthText(monthData, currYear, monthList, listAcrossTheYearText): string {
+        return `${monthData.y != currYear ? `${monthData.y}${listAcrossTheYearText}` : ''}${monthList[monthData.m]}`
+    }
+
+    createMonthItem(monthData, key, monthList: null | Array<string>, listAcrossTheYearText: string): JSX.Element {
         const currYear = new Date().getFullYear();
         const yearsGap = (monthData.y - currYear) * 12;// 跨年需要减12个月
         return (
             <div key={key} className='item' data-c-y={monthData.y} data-c-m={+(key) - yearsGap}>
-                <p className='title'>{monthData.y != currYear ? `${monthData.y}年` : ''}{monthData.title}</p>
+                <p className='title'>{this.renderI18nMonthText(monthData, currYear, monthList, listAcrossTheYearText)}</p>
                 {
                     monthData.list.map((row, rowKey) => {
                         return (
@@ -69,33 +73,34 @@ export default class CalendarListBox extends PureComponent<CalendarListBoxProps,
     }
 
     setItemClass(dayInfo) {
-        const { gone, empty, startOnly, start, end, active } = dayInfo;
+        const { gone, empty, startOnly, start, end, active, extensionMain } = dayInfo;
+        // 名字扩展，需要将字号缩小
+        let className = extensionMain ? 'extension ' : '';
         if (gone) {
-            return 'gone';
+            className += 'gone';
         } else if (empty) {
-            return 'empty';
+            className +=  'empty';
         } else if (start && end) {
-            return 'start end';
+            className +=  'start end';
         } else if (startOnly) {
-            return 'start only';
+            className +=  'start only';
         } else if (start) {
-            return 'start';
+            className +=  'start';
         } else if (end) {
-            return 'end';
+            className +=  'end';
         } else if (active) {
-            return 'active';
-        } else {
-            return '';
+            className +=  'active';
         }
+        return className;
     }
 
     render() {
-        const { prefixCls, list, paddingBottom } = this.props;
+        const { prefixCls, list, paddingBottom, monthList, listAcrossTheYearText } = this.props;
         return (
             <div ref={(list) => { this.listBox = list }} className={`${prefixCls}-list-box`} style={{paddingBottom: `${paddingBottom}px`}}>
                 {
                     list.map((item, key) => {
-                        return this.createMonthItem(item, key)
+                        return this.createMonthItem(item, key, monthList, listAcrossTheYearText)
                     })
                 }
             </div>

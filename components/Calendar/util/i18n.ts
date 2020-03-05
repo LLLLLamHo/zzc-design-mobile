@@ -4,6 +4,7 @@ export default function i18n(lang) {
         left_placeholder: '选择当地取车日期',
         right_title: '当地时间',
         right_placeholder: '选择当地取车日期',
+        monthList: ['一月', '二月', '三月', '四月', '五月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
         weekList: ['一', '二', '三', '四', '五', '六', '日'],
         picker_car: '取车',
         return_car: '还车',
@@ -14,11 +15,13 @@ export default function i18n(lang) {
         submit_btn_text: '确认时间',
         time_picker_title: '取车时间',
         time_return_title: '取车时间',
+        
     } : {
         left_title: '當地時間',
         left_placeholder: '選擇當地取車日期',
         right_title: '當地時間',
         right_placeholder: '選擇當地取車日期',
+        monthList: ['壹月', '二月', '三月', '四月', '五月', '七月', '八月', '九月', '十月', '十壹月', '十二月'],
         weekList: ['壹', '二', '三', '四', '五', '六', '日'],
         picker_car: '取車',
         return_car: '還車',
@@ -29,5 +32,6 @@ export default function i18n(lang) {
         submit_btn_text: '確認時間',
         time_picker_title: '取車時間',
         time_return_title: '取車時間',
+        listAcrossTheYearText: '年'
     }
 }

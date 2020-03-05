@@ -9459,6 +9459,7 @@ button {
           justify-content: space-between; }
 
 .zds-calendar-list-box .item .list-item li {
+  width: 14.28%;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -9510,10 +9511,17 @@ button {
 .zds-calendar-list-box .item .list-item li.active {
   background: #E6EEFE; }
 
+.zds-calendar-list-box .item .list-item li.extension p {
+  font-size: 12px; }
+
 .zds-calendar-list-box .item .list-item li p {
   font-size: 16px;
   text-align: center;
-  color: #333; }
+  color: #333;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
 
 .zds-calendar-list-box .item .list-item li p.sub {
   font-size: 12px;

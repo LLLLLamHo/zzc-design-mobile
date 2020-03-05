@@ -39922,7 +39922,8 @@ var Calendar = function (_PureComponent) {
 
         var _startTime = props.startTime ? _this.conversionSelectTime(props.startTime) : null;
         var _endTime = props.endTime ? _this.conversionSelectTime(props.endTime) : null;
-        var i18n = props.i18n || (0, _i18n2.default)(props.lang);
+        // 与外部传入i18n进行合并
+        var i18n = props.i18n ? (0, _assign2.default)((0, _i18n2.default)(props.lang), props.i18n) : (0, _i18n2.default)(props.lang);
 
         var _createCalendarMap = (0, _createCalendarMap3.default)(props.lang, props.dateExtension, _startTime, _endTime, props.yesterday),
             startIndexInfo = _createCalendarMap.startIndexInfo,
@@ -40221,7 +40222,7 @@ var Calendar = function (_PureComponent) {
                 _listBoxPaddingBottom = _state5._listBoxPaddingBottom;
 
             var cardClassName = (0, _classnames2.default)(prefixCls, className);
-            return _react2.default.createElement(_Popup2.default, { visible: !!visible, bodyStyle: { height: '100%' } }, _react2.default.createElement('div', { style: style, className: cardClassName }, _react2.default.createElement(_CalendarCloseBox2.default, { onClose: this.closeCalendar }), _react2.default.createElement(_CalendarResult2.default, { lang: lang || 'cn', i18n: i18n, mode: mode || 'day', startTime: _startTime, endTime: _endTime }), _react2.default.createElement(_CalendarWeek2.default, { weekList: i18n.weekList }), _react2.default.createElement(_CalendarListBox2.default, { paddingBottom: _listBoxPaddingBottom, selectItem: this.selectItem, list: calendarMap, startTime: _startTime, endTime: _endTime }), _react2.default.createElement(_Popup2.default, { style: { bottom: 0, top: 'unset', height: 'auto' }, transparent: true, visible: !!_startTime && !!_endTime }, _react2.default.createElement(_CalendarFooter2.default, { renderCallback: this.footerRenderCallback, timeRange: timeRange || [0, 23], minutesInterval: minutesInterval || 30, i18n: i18n, reset: this.resetSelectDay, submit: this.submit, mode: mode || 'day', currStartTime: _startTime, currEndTime: _endTime, defaultStartTime: defaultStartTime, defaultEndTime: defaultEndTime, selectTimePicker: this.selectTimePicker, defaultCalendarTips: _default_calendar_tips, calendarTips: _calendar_tips }))));
+            return _react2.default.createElement(_Popup2.default, { visible: !!visible, bodyStyle: { height: '100%' } }, _react2.default.createElement('div', { style: style, className: cardClassName }, _react2.default.createElement(_CalendarCloseBox2.default, { onClose: this.closeCalendar }), _react2.default.createElement(_CalendarResult2.default, { lang: lang || 'cn', i18n: i18n, mode: mode || 'day', startTime: _startTime, endTime: _endTime }), _react2.default.createElement(_CalendarWeek2.default, { weekList: i18n.weekList }), _react2.default.createElement(_CalendarListBox2.default, { paddingBottom: _listBoxPaddingBottom, selectItem: this.selectItem, list: calendarMap, startTime: _startTime, endTime: _endTime, monthList: i18n.monthList || null, listAcrossTheYearText: i18n.listAcrossTheYearText }), _react2.default.createElement(_Popup2.default, { style: { bottom: 0, top: 'unset', height: 'auto' }, transparent: true, visible: !!_startTime && !!_endTime }, _react2.default.createElement(_CalendarFooter2.default, { renderCallback: this.footerRenderCallback, timeRange: timeRange || [0, 23], minutesInterval: minutesInterval || 30, i18n: i18n, reset: this.resetSelectDay, submit: this.submit, mode: mode || 'day', currStartTime: _startTime, currEndTime: _endTime, defaultStartTime: defaultStartTime, defaultEndTime: defaultEndTime, selectTimePicker: this.selectTimePicker, defaultCalendarTips: _default_calendar_tips, calendarTips: _calendar_tips }))));
         }
     }]);
     return Calendar;
@@ -40619,13 +40620,18 @@ var CalendarListBox = function (_PureComponent) {
             this.listBox.scrollTop = targetItem.offsetTop;
         }
     }, {
+        key: 'renderI18nMonthText',
+        value: function renderI18nMonthText(monthData, currYear, monthList, listAcrossTheYearText) {
+            return '' + (monthData.y != currYear ? '' + monthData.y + listAcrossTheYearText : '') + monthList[monthData.m];
+        }
+    }, {
         key: 'createMonthItem',
-        value: function createMonthItem(monthData, key) {
+        value: function createMonthItem(monthData, key, monthList, listAcrossTheYearText) {
             var _this4 = this;
 
             var currYear = new Date().getFullYear();
             var yearsGap = (monthData.y - currYear) * 12; // 跨年需要减12个月
-            return _react2.default.createElement('div', { key: key, className: 'item', 'data-c-y': monthData.y, 'data-c-m': +key - yearsGap }, _react2.default.createElement('p', { className: 'title' }, monthData.y != currYear ? monthData.y + '\u5E74' : '', monthData.title), monthData.list.map(function (row, rowKey) {
+            return _react2.default.createElement('div', { key: key, className: 'item', 'data-c-y': monthData.y, 'data-c-m': +key - yearsGap }, _react2.default.createElement('p', { className: 'title' }, this.renderI18nMonthText(monthData, currYear, monthList, listAcrossTheYearText)), monthData.list.map(function (row, rowKey) {
                 return _react2.default.createElement('ul', { className: 'list-item', key: rowKey, 'data-c-r': rowKey }, row.map(function (dayInfo, dayKey) {
                     return _react2.default.createElement('li', { 'data-c-d': dayInfo.d, className: _this4.setItemClass(dayInfo), key: dayKey, onClick: function onClick() {
                             !dayInfo.gone && !dayInfo.empty && _this4.props.selectItem(key, rowKey, dayKey, dayInfo);
@@ -40641,25 +40647,27 @@ var CalendarListBox = function (_PureComponent) {
                 startOnly = dayInfo.startOnly,
                 start = dayInfo.start,
                 end = dayInfo.end,
-                active = dayInfo.active;
+                active = dayInfo.active,
+                extensionMain = dayInfo.extensionMain;
+            // 名字扩展，需要将字号缩小
 
+            var className = extensionMain ? 'extension ' : '';
             if (gone) {
-                return 'gone';
+                className += 'gone';
             } else if (empty) {
-                return 'empty';
+                className += 'empty';
             } else if (start && end) {
-                return 'start end';
+                className += 'start end';
             } else if (startOnly) {
-                return 'start only';
+                className += 'start only';
             } else if (start) {
-                return 'start';
+                className += 'start';
             } else if (end) {
-                return 'end';
+                className += 'end';
             } else if (active) {
-                return 'active';
-            } else {
-                return '';
+                className += 'active';
             }
+            return className;
         }
     }, {
         key: 'render',
@@ -40669,12 +40677,14 @@ var CalendarListBox = function (_PureComponent) {
             var _props2 = this.props,
                 prefixCls = _props2.prefixCls,
                 list = _props2.list,
-                paddingBottom = _props2.paddingBottom;
+                paddingBottom = _props2.paddingBottom,
+                monthList = _props2.monthList,
+                listAcrossTheYearText = _props2.listAcrossTheYearText;
 
             return _react2.default.createElement('div', { ref: function ref(list) {
                     _this5.listBox = list;
                 }, className: prefixCls + '-list-box', style: { paddingBottom: paddingBottom + 'px' } }, list.map(function (item, key) {
-                return _this5.createMonthItem(item, key);
+                return _this5.createMonthItem(item, key, monthList, listAcrossTheYearText);
             }));
         }
     }]);
@@ -41068,6 +41078,9 @@ function _dateExtensionMerge(dataInfo, dateExtension) {
     if (extensionItem) {
         defaultItemInfo.sub = extensionItem.sub || defaultItemInfo.sub;
         defaultItemInfo.main = extensionItem.date || defaultItemInfo.main;
+        if (extensionItem.date) {
+            defaultItemInfo.extensionMain = true;
+        }
     }
     return defaultItemInfo;
 }
@@ -41141,6 +41154,7 @@ function i18n(lang) {
         left_placeholder: '选择当地取车日期',
         right_title: '当地时间',
         right_placeholder: '选择当地取车日期',
+        monthList: ['一月', '二月', '三月', '四月', '五月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
         weekList: ['一', '二', '三', '四', '五', '六', '日'],
         picker_car: '取车',
         return_car: '还车',
@@ -41156,6 +41170,7 @@ function i18n(lang) {
         left_placeholder: '選擇當地取車日期',
         right_title: '當地時間',
         right_placeholder: '選擇當地取車日期',
+        monthList: ['壹月', '二月', '三月', '四月', '五月', '七月', '八月', '九月', '十月', '十壹月', '十二月'],
         weekList: ['壹', '二', '三', '四', '五', '六', '日'],
         picker_car: '取車',
         return_car: '還車',
@@ -41165,7 +41180,8 @@ function i18n(lang) {
         reset_btn_text: '重置',
         submit_btn_text: '確認時間',
         time_picker_title: '取車時間',
-        time_return_title: '取車時間'
+        time_return_title: '取車時間',
+        listAcrossTheYearText: '年'
     };
 }
 

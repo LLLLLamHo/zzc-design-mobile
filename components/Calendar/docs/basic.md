@@ -70,22 +70,25 @@ onChang={(value) => {...todo}}
 
 ### i18n配置
 
-| 属性                                                             | 类型   | 默认值                                     |
-| ---------------------------------------------------------------- | ------ | ------------------------------------------ |
-| left_title                                                       | string | '当地时间'                                 |
-| left_placeholder                                                 | string | '选择当地取车日期'                         |
-| right_title                                                      | string | '当地时间'                                 |
-| right_placeholder                                                | string | '选择当地取车日期'                         |
-| weekList                                                         | Array  | ['一', '二', '三', '四', '五', '六', '日'] |
-| picker_car 当calendarMode为car时，用于选中日期的文字提示         | string | '取车'                                     |
-| return_car 当calendarMode为car时，用于选中日期的文字提示         | string | '当地时间'                                 |
-| inTheDay_car                                                     | string | '取还车'                                   |
-| picker_default 当calendarMode为default时，用于选中日期的文字提示 | string | null                                       |
-| return_default 当calendarMode为default时，用于选中日期的文字提示 | string | null                                       |
-| reset_btn_text                                                   | string | '重置'                                     |
-| submit_btn_text                                                  | string | '确认时间'                                 |
-| time_picker_title                                                | string | '取车时间'                                 |
-| time_return_title                                                | string | '取车时间'                                 |
+| 属性                                                             | 类型   | 默认值                                                                                       |
+| ---------------------------------------------------------------- | ------ | -------------------------------------------------------------------------------------------- |
+| left_title                                                       | string | '当地时间'                                                                                   |
+| left_placeholder                                                 | string | '选择当地取车日期'                                                                           |
+| right_title                                                      | string | '当地时间'                                                                                   |
+| right_placeholder                                                | string | '选择当地取车日期'                                                                           |
+| monthList                                                        | Array  | ['一月', '二月', '三月', '四月', '五月', '七月', '八月', '九月', '十月', '十一月', '十二月'] |
+| weekList                                                         | Array  | ['一', '二', '三', '四', '五', '六', '日']                                                   |
+| picker_car 当calendarMode为car时，用于选中日期的文字提示         | string | '取车'                                                                                       |
+| return_car 当calendarMode为car时，用于选中日期的文字提示         | string | '当地时间'                                                                                   |
+| inTheDay_car                                                     | string | '取还车'                                                                                     |
+| picker_default 当calendarMode为default时，用于选中日期的文字提示 | string | null                                                                                         |
+| return_default 当calendarMode为default时，用于选中日期的文字提示 | string | null                                                                                         |
+| reset_btn_text                                                   | string | '重置'                                                                                       |
+| submit_btn_text                                                  | string | '确认时间'                                                                                   |
+| time_picker_title                                                | string | '取车时间'                                                                                   |
+| time_return_title                                                | string | '取车时间'                                                                                   |
+| monthList                                                        | string | '取车时间'                                                                                   |
+| listAcrossTheYearText                                            | string | '年'(日历中第二年的月份前的跨年标识)                                                         |
 
 
 ### 日历信息扩展 DateExtension

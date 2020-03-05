@@ -18,7 +18,8 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         super(props);
         const _startTime = props.startTime ? this.conversionSelectTime(props.startTime) : null;
         const _endTime = props.endTime ? this.conversionSelectTime(props.endTime) : null;
-        const i18n = props.i18n || calendar_i18n(props.lang);
+        // 与外部传入i18n进行合并
+        const i18n = props.i18n ? Object.assign(calendar_i18n(props.lang), props.i18n) : calendar_i18n(props.lang);
         let { startIndexInfo, endIndexInfo, calendarMap } = createCalendarMap(props.lang, props.dateExtension, _startTime, _endTime, props.yesterday);
 
         if (startIndexInfo && endIndexInfo) {
@@ -286,6 +287,8 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
                         list={calendarMap}
                         startTime={_startTime}
                         endTime={_endTime}
+                        monthList={i18n.monthList || null}
+                        listAcrossTheYearText={i18n.listAcrossTheYearText}
                     />
                     <Popup
                         style={{ bottom: 0, top: 'unset', height: 'auto' }}

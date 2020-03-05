@@ -28,10 +28,10 @@ for ( let i = 0; i < dirs.length; i++ ) {
     // if ( dirs[i] == 'ActionSheet' ) {
     //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     // }
-    // if ( dirs[i] == 'Select' ) {
+    // if ( dirs[i] == 'Calendar' ) {
     //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     // }
-    // if ( dirs[i] == 'MoreSelect' ) {
+    // if ( dirs[i] == 'DatePicker' ) {
     //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     // }
     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;

@@ -56,6 +56,8 @@ export interface i18n {
     submit_btn_text: string
     time_picker_title: string
     time_return_title: string
+    monthList: Array<string>
+    listAcrossTheYearText: string
 }
 
 export interface selectTimeIndex {
@@ -102,6 +104,7 @@ export interface CalendarMapItemRow {
     end?: boolean
     startOnly?: boolean
     active?: boolean
+    extensionMain?: boolean
 }
 
 export interface EchoSelectDataReturn {
@@ -188,6 +191,8 @@ export interface CalendarListBoxProps {
     prefixCls?: string
     list: Array<CalendarMapItem>
     paddingBottom: number
+    listAcrossTheYearText: string
+    monthList: null | Array<string>
     startTime?: selectTimeInterface | null
     endTime?: selectTimeInterface | null
     selectItem: Function

@@ -178,6 +178,9 @@ function _dateExtensionMerge(dataInfo: CreateCalendarMap_dataInfo, dateExtension
     if (extensionItem) {
         defaultItemInfo.sub = extensionItem.sub || defaultItemInfo.sub;
         defaultItemInfo.main = extensionItem.date || defaultItemInfo.main;
+        if (extensionItem.date) {
+            defaultItemInfo.extensionMain = true;
+        }
     }
     return defaultItemInfo;
 

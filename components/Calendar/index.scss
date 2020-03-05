@@ -175,6 +175,7 @@ $cls: '.zds-calendar';
                 justify-content: space-between;
 
                 li {
+                    width: 14.28%;
                     flex: 1;
                     height: 54.5px;
                     display: flex;
@@ -228,10 +229,20 @@ $cls: '.zds-calendar';
                         background: #E6EEFE;
                     }
 
+                    &.extension {
+                        p{
+                            font-size: 12px;
+                        }
+                    }
+
                     p {
                         font-size: 16px;
                         text-align: center;
                         color: #333;
+                        overflow: hidden;
+                        width: 100%;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
 
                         &.sub {
                             font-size: 12px;
