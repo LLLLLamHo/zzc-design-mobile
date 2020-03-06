@@ -87,7 +87,6 @@ onChang={(value) => {...todo}}
 | submit_btn_text                                                  | string | '确认时间'                                                                                   |
 | time_picker_title                                                | string | '取车时间'                                                                                   |
 | time_return_title                                                | string | '取车时间'                                                                                   |
-| monthList                                                        | string | '取车时间'                                                                                   |
 | listAcrossTheYearText                                            | string | '年'(日历中第二年的月份前的跨年标识)                                                         |
 
 
