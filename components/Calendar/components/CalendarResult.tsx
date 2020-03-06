@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import config from '../../_util/config';
 import getWeek from '../util/getWeek';
-import { CalendarResultProps } from '../propsType';
+import {isFunction} from '../../_util/typeof';
+import { CalendarResultProps, selectTimeInterface, dayCalculator } from '../propsType';
 
 export default class CalendarResult extends PureComponent<CalendarResultProps, any> {
     constructor(props) {
@@ -21,7 +22,7 @@ export default class CalendarResult extends PureComponent<CalendarResultProps, a
                     {
                         mode == 'day*time' ? 
                         <p className='hour'>{startTime.h < 10 ? `0${startTime.h}` : startTime.h}:{startTime.m < 10 ? `0${startTime.m}` : startTime.m}</p>:
-                    <p className='week'>{i18n.week}{getWeek(startTime.w, this.props.lang)}</p>
+                    <p className='week'>{i18n.week}{getWeek(startTime.w, i18n.weekList)}</p>
                     }
                 </div>
             );
@@ -50,7 +51,7 @@ export default class CalendarResult extends PureComponent<CalendarResultProps, a
                     {
                         mode == 'day*time' ? 
                         <p className='hour'>{endTime.h < 10 ? `0${endTime.h}` : endTime.h}:{endTime.m < 10 ? `0${endTime.m}` : endTime.m}</p> : 
-                        <p className='week'>{i18n.week}{getWeek(endTime.w, this.props.lang)}</p>
+                        <p className='week'>{i18n.week}{getWeek(endTime.w, i18n.weekList)}</p>
                     }
                 </div>
             );
@@ -65,12 +66,14 @@ export default class CalendarResult extends PureComponent<CalendarResultProps, a
         }
     }
 
-    createCenter(startTime, endTime) {
+    createCenter(startTime: selectTimeInterface | null, endTime: selectTimeInterface | null, dayCalculator: dayCalculator | null): null | JSX.Element {
         const { i18n } = this.props;
         if (startTime && endTime) {
             return (
                 <div className='center'>
-                    <p className='day'>{Math.ceil((endTime.t - startTime.t) / 86400000) || 1}{i18n.day}</p>
+                    <p className='day'>
+                        {dayCalculator && isFunction(dayCalculator) ? dayCalculator(startTime.t, endTime.t) : (`${Math.ceil((endTime.t - startTime.t) / 86400000) || 1}${i18n.day}`)}
+                    </p>
                 </div>
             );
         }
@@ -78,12 +81,12 @@ export default class CalendarResult extends PureComponent<CalendarResultProps, a
     }
 
     render() {
-        const { prefixCls, startTime, endTime, mode } = this.props;
+        const { prefixCls, startTime, endTime, mode, dayCalculator } = this.props;
 
         return (
             <div className={`${prefixCls}-result-box`}>
                 {this.createLeft(startTime, endTime, mode)}
-                {this.createCenter(startTime, endTime)}
+                {this.createCenter(startTime, endTime, dayCalculator || null)}
                 {this.createRight(startTime, endTime, mode)}
             </div>
         );

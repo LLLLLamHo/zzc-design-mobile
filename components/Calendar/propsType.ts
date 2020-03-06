@@ -26,8 +26,10 @@ export interface CalendarProps {
     timeChange?: Function
     onChange?: Function
     onClose?: Function
+    dayCalculator?: dayCalculator | null
     dateExtension?: DateExtension
 }
+
 
 export interface CalendarState {
     i18n: i18n
@@ -204,14 +206,17 @@ export interface CalendarListBoxProps {
 
 export interface CalendarResultProps {
     prefixCls?: string
-    startTime?: selectTimeInterface | null
-    endTime?: selectTimeInterface | null
+    startTime: selectTimeInterface | null
+    endTime: selectTimeInterface | null
     mode: string
     i18n: i18n
     lang: 'cn' | 'hk'
+    dayCalculator?: dayCalculator | null
 }
 
 export interface CalendarWeekProps {
     prefixCls?: string
     weekList: Array<string>
 }
+
+export type dayCalculator = (start: number, end: number) => string

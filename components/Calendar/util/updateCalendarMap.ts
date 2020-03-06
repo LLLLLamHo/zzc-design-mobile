@@ -31,10 +31,10 @@ function _updateStartTime(map: Array<CalendarMapItem>, monthKey: number, rowKey:
         map[_endIndexInfo.monthKey].list[_endIndexInfo.rowKey][_endIndexInfo.itemKey]['_sub'] = false;
     }
     if (_startIndexInfo) {
-        
-        map[_startIndexInfo.monthKey].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['startOnly'] = false;
-        map[_startIndexInfo.monthKey].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['start'] = false;
-        map[_startIndexInfo.monthKey].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['_sub'] = false;
+        const oldStartMonthIndex = _getMapCurrDateItemIndex2(map, _startIndexInfo.monthKey);
+        map[oldStartMonthIndex].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['startOnly'] = false;
+        map[oldStartMonthIndex].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['start'] = false;
+        map[oldStartMonthIndex].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['_sub'] = false;
     }
 
     const startDateIndex = _getMapCurrDateItemIndex2(map, monthKey);

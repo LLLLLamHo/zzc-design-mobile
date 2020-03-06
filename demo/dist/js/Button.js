@@ -40619,7 +40619,8 @@ var Calendar = function (_PureComponent) {
                 minutesInterval = _props3.minutesInterval,
                 defaultStartTime = _props3.defaultStartTime,
                 defaultEndTime = _props3.defaultEndTime,
-                visible = _props3.visible;
+                visible = _props3.visible,
+                dayCalculator = _props3.dayCalculator;
             var _state5 = this.state,
                 calendarMap = _state5.calendarMap,
                 i18n = _state5.i18n,
@@ -40637,7 +40638,7 @@ var Calendar = function (_PureComponent) {
                     'div',
                     { style: style, className: cardClassName },
                     _react2.default.createElement(_CalendarCloseBox2.default, { onClose: this.closeCalendar }),
-                    _react2.default.createElement(_CalendarResult2.default, { lang: lang || 'cn', i18n: i18n, mode: mode || 'day', startTime: _startTime, endTime: _endTime }),
+                    _react2.default.createElement(_CalendarResult2.default, { lang: lang || 'cn', i18n: i18n, mode: mode || 'day', startTime: _startTime, endTime: _endTime, dayCalculator: dayCalculator }),
                     _react2.default.createElement(_CalendarWeek2.default, { weekList: i18n.weekList }),
                     _react2.default.createElement(_CalendarListBox2.default, { paddingBottom: _listBoxPaddingBottom, selectItem: this.selectItem, list: calendarMap, startTime: _startTime, endTime: _endTime, monthList: i18n.monthList || null, listAcrossTheYearText: i18n.listAcrossTheYearText }),
                     _react2.default.createElement(
@@ -40671,7 +40672,8 @@ Calendar.defaultProps = {
     yesterday: false,
     onChange: null,
     onClose: null,
-    visible: false
+    visible: false,
+    dayCalculator: null
 };
 
 /***/ }),
@@ -40801,6 +40803,8 @@ var _getWeek = __webpack_require__(299);
 
 var _getWeek2 = _interopRequireDefault(_getWeek);
 
+var _typeof = __webpack_require__(8);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CalendarResult = function (_PureComponent) {
@@ -40844,7 +40848,7 @@ var CalendarResult = function (_PureComponent) {
                         'p',
                         { className: 'week' },
                         i18n.week,
-                        (0, _getWeek2.default)(startTime.w, this.props.lang)
+                        (0, _getWeek2.default)(startTime.w, i18n.weekList)
                     )
                 );
             } else if (startTime) {
@@ -40904,7 +40908,7 @@ var CalendarResult = function (_PureComponent) {
                         'p',
                         { className: 'week' },
                         i18n.week,
-                        (0, _getWeek2.default)(endTime.w, this.props.lang)
+                        (0, _getWeek2.default)(endTime.w, i18n.weekList)
                     )
                 );
             } else if (startTime) {
@@ -40923,7 +40927,7 @@ var CalendarResult = function (_PureComponent) {
         }
     }, {
         key: 'createCenter',
-        value: function createCenter(startTime, endTime) {
+        value: function createCenter(startTime, endTime, dayCalculator) {
             var i18n = this.props.i18n;
 
             if (startTime && endTime) {
@@ -40933,8 +40937,7 @@ var CalendarResult = function (_PureComponent) {
                     _react2.default.createElement(
                         'p',
                         { className: 'day' },
-                        Math.ceil((endTime.t - startTime.t) / 86400000) || 1,
-                        i18n.day
+                        dayCalculator && (0, _typeof.isFunction)(dayCalculator) ? dayCalculator(startTime.t, endTime.t) : '' + (Math.ceil((endTime.t - startTime.t) / 86400000) || 1) + i18n.day
                     )
                 );
             }
@@ -40947,13 +40950,14 @@ var CalendarResult = function (_PureComponent) {
                 prefixCls = _props3.prefixCls,
                 startTime = _props3.startTime,
                 endTime = _props3.endTime,
-                mode = _props3.mode;
+                mode = _props3.mode,
+                dayCalculator = _props3.dayCalculator;
 
             return _react2.default.createElement(
                 'div',
                 { className: prefixCls + '-result-box' },
                 this.createLeft(startTime, endTime, mode),
-                this.createCenter(startTime, endTime),
+                this.createCenter(startTime, endTime, dayCalculator || null),
                 this.createRight(startTime, endTime, mode)
             );
         }
@@ -40975,30 +40979,14 @@ CalendarResult.defaultProps = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = getWeek;
 /**
  * Created by lamho on 2017/4/7.
  */
-function getWeek(weekCode, lang) {
-    switch (weekCode) {
-        case 0:
-            return "日";
-        case 1:
-            return lang == 'cn' ? "一" : '壹';
-        case 2:
-            return "二";
-        case 3:
-            return "三";
-        case 4:
-            return "四";
-        case 5:
-            return "五";
-        case 6:
-            return "六";
-    }
-    return '';
+function getWeek(weekCode, weekLint) {
+  return weekLint[weekCode];
 }
 
 /***/ }),
@@ -41885,9 +41873,10 @@ function _updateStartTime(map, monthKey, rowKey, itemKey, _startIndexInfo, _endI
         map[_endIndexInfo.monthKey].list[_endIndexInfo.rowKey][_endIndexInfo.itemKey]['_sub'] = false;
     }
     if (_startIndexInfo) {
-        map[_startIndexInfo.monthKey].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['startOnly'] = false;
-        map[_startIndexInfo.monthKey].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['start'] = false;
-        map[_startIndexInfo.monthKey].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['_sub'] = false;
+        var _oldStartMonthIndex = _getMapCurrDateItemIndex2(map, _startIndexInfo.monthKey);
+        map[_oldStartMonthIndex].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['startOnly'] = false;
+        map[_oldStartMonthIndex].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['start'] = false;
+        map[_oldStartMonthIndex].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['_sub'] = false;
     }
     var startDateIndex = _getMapCurrDateItemIndex2(map, monthKey);
     var item = map[startDateIndex].list[rowKey][itemKey];

@@ -6,29 +6,30 @@
 
 ## Calendar
 
-| 属性                | 说明                                                                     | 类型                 | 默认值       |
-| ------------------- | ------------------------------------------------------------------------ | -------------------- | ------------ |
-| prefixCls           | 组件的公用className前序                                                  | string               | zzc-calendar |
-| className           | classname                                                                | string               | ''           |
-| style               | 自定义样式                                                               | string               | 无           |
-| lang                | 语言环境 'cn','hk'                                                       | string               | 'cn'         |
-| i18n                | 语言配置,不配置默认使用内部i18n配置                                      | I18n                 | null         |
-| calendarMode        | 日历模式，暂时内置'car'                                                  | string               | 'default'    |
-| mode                | 日历选择范围模式，'day','day*time'                                       | string               | 'day'        |
-| timeRange           | 小时范围， mode=='day*time才生效'                                        | [number, number]     | [0,23]       |
-| minutesInterval     | 分钟间隔数， mode=='day*time才生效'                                      | number               | 30           |
-| defaultStartTime    | 默认选中的开始小时和分钟                                                 | string               | 9:00         |
-| defaultEndTime      | 默认选中的结束小时和分钟                                                 | string               | 9:00         |
-| startTime           | 默认选中开始的日期                                                       | Date，number，string | null         |
-| endTime             | 默认选中结束的日期                                                       | Date，number，string | null         |
-| defaultCalendarTips | 默认提示文案                                                             | string               | ''           |
-| yesterday           | 前一天是否可点击                                                         | boolean              | false        |
-| visible             | 是否显示日历                                                             | boolean              | false        |
-| dayChange           | 日期改变时触发，函数执行完后return一个字符串，用于动态修改日历的提示信息 | function             | null         |
-| timeChange          | 时间改变时触发，函数执行完后return一个字符串，用于动态修改日历的提示信息 | function             | null         |
-| onChange            | 确认时间时触发，函数执行完后return一个字符串，用于动态修改日历的提示信息 | function             | null         |
-| onClose             | 提供给日历的关闭调用函数                                                 | function             | null         |
-| dateExtension       | 扩展日历显示                                                             | DateExtension        | null         |
+| 属性                | 说明                                                                             | 类型                                   | 默认值       |
+| ------------------- | -------------------------------------------------------------------------------- | -------------------------------------- | ------------ |
+| prefixCls           | 组件的公用className前序                                                          | string                                 | zzc-calendar |
+| className           | classname                                                                        | string                                 | ''           |
+| style               | 自定义样式                                                                       | string                                 | 无           |
+| lang                | 语言环境 'cn','hk'                                                               | string                                 | 'cn'         |
+| i18n                | 语言配置,不配置默认使用内部i18n配置                                              | I18n                                   | null         |
+| calendarMode        | 日历模式，暂时内置'car'                                                          | string                                 | 'default'    |
+| mode                | 日历选择范围模式，'day','day*time'                                               | string                                 | 'day'        |
+| timeRange           | 小时范围， mode=='day*time才生效'                                                | [number, number]                       | [0,23]       |
+| minutesInterval     | 分钟间隔数， mode=='day*time才生效'                                              | number                                 | 30           |
+| defaultStartTime    | 默认选中的开始小时和分钟                                                         | string                                 | 9:00         |
+| defaultEndTime      | 默认选中的结束小时和分钟                                                         | string                                 | 9:00         |
+| startTime           | 默认选中开始的日期                                                               | Date，number，string                   | null         |
+| endTime             | 默认选中结束的日期                                                               | Date，number，string                   | null         |
+| defaultCalendarTips | 默认提示文案                                                                     | string                                 | ''           |
+| yesterday           | 前一天是否可点击                                                                 | boolean                                | false        |
+| visible             | 是否显示日历                                                                     | boolean                                | false        |
+| dayChange           | 日期改变时触发，函数执行完后return一个字符串，用于动态修改日历的提示信息         | function                               | null         |
+| timeChange          | 时间改变时触发，函数执行完后return一个字符串，用于动态修改日历的提示信息         | function                               | null         |
+| onChange            | 确认时间时触发，函数执行完后return一个字符串，用于动态修改日历的提示信息         | function                               | null         |
+| onClose             | 提供给日历的关闭调用函数                                                         | function                               | null         |
+| dayCalculator       | 当开始和结束时间选择完成后，可以通过该函数进行自定义计算并返回给日历内部进行显示 | (start: number, end: number) => string | null         |
+| dateExtension       | 扩展日历显示                                                                     | DateExtension                          | null         |
 
 函数触发说明
 

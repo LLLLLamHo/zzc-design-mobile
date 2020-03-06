@@ -40213,7 +40213,8 @@ var Calendar = function (_PureComponent) {
                 minutesInterval = _props3.minutesInterval,
                 defaultStartTime = _props3.defaultStartTime,
                 defaultEndTime = _props3.defaultEndTime,
-                visible = _props3.visible;
+                visible = _props3.visible,
+                dayCalculator = _props3.dayCalculator;
             var _state5 = this.state,
                 calendarMap = _state5.calendarMap,
                 i18n = _state5.i18n,
@@ -40224,7 +40225,7 @@ var Calendar = function (_PureComponent) {
                 _listBoxPaddingBottom = _state5._listBoxPaddingBottom;
 
             var cardClassName = (0, _classnames2.default)(prefixCls, className);
-            return _react2.default.createElement(_Popup2.default, { visible: !!visible, bodyStyle: { height: '100%' } }, _react2.default.createElement('div', { style: style, className: cardClassName }, _react2.default.createElement(_CalendarCloseBox2.default, { onClose: this.closeCalendar }), _react2.default.createElement(_CalendarResult2.default, { lang: lang || 'cn', i18n: i18n, mode: mode || 'day', startTime: _startTime, endTime: _endTime }), _react2.default.createElement(_CalendarWeek2.default, { weekList: i18n.weekList }), _react2.default.createElement(_CalendarListBox2.default, { paddingBottom: _listBoxPaddingBottom, selectItem: this.selectItem, list: calendarMap, startTime: _startTime, endTime: _endTime, monthList: i18n.monthList || null, listAcrossTheYearText: i18n.listAcrossTheYearText }), _react2.default.createElement(_Popup2.default, { style: { bottom: 0, top: 'unset', height: 'auto' }, transparent: true, visible: !!_startTime && !!_endTime }, _react2.default.createElement(_CalendarFooter2.default, { renderCallback: this.footerRenderCallback, timeRange: timeRange || [0, 23], minutesInterval: minutesInterval || 30, i18n: i18n, reset: this.resetSelectDay, submit: this.submit, mode: mode || 'day', currStartTime: _startTime, currEndTime: _endTime, defaultStartTime: defaultStartTime, defaultEndTime: defaultEndTime, selectTimePicker: this.selectTimePicker, defaultCalendarTips: _default_calendar_tips, calendarTips: _calendar_tips }))));
+            return _react2.default.createElement(_Popup2.default, { visible: !!visible, bodyStyle: { height: '100%' } }, _react2.default.createElement('div', { style: style, className: cardClassName }, _react2.default.createElement(_CalendarCloseBox2.default, { onClose: this.closeCalendar }), _react2.default.createElement(_CalendarResult2.default, { lang: lang || 'cn', i18n: i18n, mode: mode || 'day', startTime: _startTime, endTime: _endTime, dayCalculator: dayCalculator }), _react2.default.createElement(_CalendarWeek2.default, { weekList: i18n.weekList }), _react2.default.createElement(_CalendarListBox2.default, { paddingBottom: _listBoxPaddingBottom, selectItem: this.selectItem, list: calendarMap, startTime: _startTime, endTime: _endTime, monthList: i18n.monthList || null, listAcrossTheYearText: i18n.listAcrossTheYearText }), _react2.default.createElement(_Popup2.default, { style: { bottom: 0, top: 'unset', height: 'auto' }, transparent: true, visible: !!_startTime && !!_endTime }, _react2.default.createElement(_CalendarFooter2.default, { renderCallback: this.footerRenderCallback, timeRange: timeRange || [0, 23], minutesInterval: minutesInterval || 30, i18n: i18n, reset: this.resetSelectDay, submit: this.submit, mode: mode || 'day', currStartTime: _startTime, currEndTime: _endTime, defaultStartTime: defaultStartTime, defaultEndTime: defaultEndTime, selectTimePicker: this.selectTimePicker, defaultCalendarTips: _default_calendar_tips, calendarTips: _calendar_tips }))));
         }
     }]);
     return Calendar;
@@ -40249,7 +40250,8 @@ Calendar.defaultProps = {
     yesterday: false,
     onChange: null,
     onClose: null,
-    visible: false
+    visible: false,
+    dayCalculator: null
 };
 
 /***/ }),
@@ -40371,6 +40373,8 @@ var _getWeek = __webpack_require__(298);
 
 var _getWeek2 = _interopRequireDefault(_getWeek);
 
+var _typeof = __webpack_require__(8);
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -40391,7 +40395,7 @@ var CalendarResult = function (_PureComponent) {
                 i18n = _props.i18n;
 
             if (startTime && endTime) {
-                return _react2.default.createElement('div', { className: prefixCls + '-left' }, _react2.default.createElement('p', { className: 'title' }, i18n.left_title), _react2.default.createElement('p', { className: 'time' }, startTime.M + 1, i18n.month, startTime.D), mode == 'day*time' ? _react2.default.createElement('p', { className: 'hour' }, startTime.h < 10 ? '0' + startTime.h : startTime.h, ':', startTime.m < 10 ? '0' + startTime.m : startTime.m) : _react2.default.createElement('p', { className: 'week' }, i18n.week, (0, _getWeek2.default)(startTime.w, this.props.lang)));
+                return _react2.default.createElement('div', { className: prefixCls + '-left' }, _react2.default.createElement('p', { className: 'title' }, i18n.left_title), _react2.default.createElement('p', { className: 'time' }, startTime.M + 1, i18n.month, startTime.D), mode == 'day*time' ? _react2.default.createElement('p', { className: 'hour' }, startTime.h < 10 ? '0' + startTime.h : startTime.h, ':', startTime.m < 10 ? '0' + startTime.m : startTime.m) : _react2.default.createElement('p', { className: 'week' }, i18n.week, (0, _getWeek2.default)(startTime.w, i18n.weekList)));
             } else if (startTime) {
                 return _react2.default.createElement('div', { className: prefixCls + '-left' }, _react2.default.createElement('p', { className: 'time' }, startTime.M + 1, this.props.i18n.month, startTime.D));
             } else {
@@ -40406,7 +40410,7 @@ var CalendarResult = function (_PureComponent) {
                 i18n = _props2.i18n;
 
             if (startTime && endTime) {
-                return _react2.default.createElement('div', { className: prefixCls + '-right' }, _react2.default.createElement('p', { className: 'title' }, i18n.right_title), _react2.default.createElement('p', { className: 'time' }, endTime.M + 1, i18n.month, endTime.D), mode == 'day*time' ? _react2.default.createElement('p', { className: 'hour' }, endTime.h < 10 ? '0' + endTime.h : endTime.h, ':', endTime.m < 10 ? '0' + endTime.m : endTime.m) : _react2.default.createElement('p', { className: 'week' }, i18n.week, (0, _getWeek2.default)(endTime.w, this.props.lang)));
+                return _react2.default.createElement('div', { className: prefixCls + '-right' }, _react2.default.createElement('p', { className: 'title' }, i18n.right_title), _react2.default.createElement('p', { className: 'time' }, endTime.M + 1, i18n.month, endTime.D), mode == 'day*time' ? _react2.default.createElement('p', { className: 'hour' }, endTime.h < 10 ? '0' + endTime.h : endTime.h, ':', endTime.m < 10 ? '0' + endTime.m : endTime.m) : _react2.default.createElement('p', { className: 'week' }, i18n.week, (0, _getWeek2.default)(endTime.w, i18n.weekList)));
             } else if (startTime) {
                 return _react2.default.createElement('div', { className: prefixCls + '-right' }, _react2.default.createElement('p', { className: 'placeholder' }, this.props.i18n.right_placeholder));
             } else {
@@ -40415,11 +40419,11 @@ var CalendarResult = function (_PureComponent) {
         }
     }, {
         key: 'createCenter',
-        value: function createCenter(startTime, endTime) {
+        value: function createCenter(startTime, endTime, dayCalculator) {
             var i18n = this.props.i18n;
 
             if (startTime && endTime) {
-                return _react2.default.createElement('div', { className: 'center' }, _react2.default.createElement('p', { className: 'day' }, Math.ceil((endTime.t - startTime.t) / 86400000) || 1, i18n.day));
+                return _react2.default.createElement('div', { className: 'center' }, _react2.default.createElement('p', { className: 'day' }, dayCalculator && (0, _typeof.isFunction)(dayCalculator) ? dayCalculator(startTime.t, endTime.t) : '' + (Math.ceil((endTime.t - startTime.t) / 86400000) || 1) + i18n.day));
             }
             return null;
         }
@@ -40430,9 +40434,10 @@ var CalendarResult = function (_PureComponent) {
                 prefixCls = _props3.prefixCls,
                 startTime = _props3.startTime,
                 endTime = _props3.endTime,
-                mode = _props3.mode;
+                mode = _props3.mode,
+                dayCalculator = _props3.dayCalculator;
 
-            return _react2.default.createElement('div', { className: prefixCls + '-result-box' }, this.createLeft(startTime, endTime, mode), this.createCenter(startTime, endTime), this.createRight(startTime, endTime, mode));
+            return _react2.default.createElement('div', { className: prefixCls + '-result-box' }, this.createLeft(startTime, endTime, mode), this.createCenter(startTime, endTime, dayCalculator || null), this.createRight(startTime, endTime, mode));
         }
     }]);
     return CalendarResult;
@@ -40452,30 +40457,14 @@ CalendarResult.defaultProps = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = getWeek;
 /**
  * Created by lamho on 2017/4/7.
  */
-function getWeek(weekCode, lang) {
-    switch (weekCode) {
-        case 0:
-            return "日";
-        case 1:
-            return lang == 'cn' ? "一" : '壹';
-        case 2:
-            return "二";
-        case 3:
-            return "三";
-        case 4:
-            return "四";
-        case 5:
-            return "五";
-        case 6:
-            return "六";
-    }
-    return '';
+function getWeek(weekCode, weekLint) {
+  return weekLint[weekCode];
 }
 
 /***/ }),
@@ -41256,9 +41245,10 @@ function _updateStartTime(map, monthKey, rowKey, itemKey, _startIndexInfo, _endI
         map[_endIndexInfo.monthKey].list[_endIndexInfo.rowKey][_endIndexInfo.itemKey]['_sub'] = false;
     }
     if (_startIndexInfo) {
-        map[_startIndexInfo.monthKey].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['startOnly'] = false;
-        map[_startIndexInfo.monthKey].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['start'] = false;
-        map[_startIndexInfo.monthKey].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['_sub'] = false;
+        var _oldStartMonthIndex = _getMapCurrDateItemIndex2(map, _startIndexInfo.monthKey);
+        map[_oldStartMonthIndex].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['startOnly'] = false;
+        map[_oldStartMonthIndex].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['start'] = false;
+        map[_oldStartMonthIndex].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['_sub'] = false;
     }
     var startDateIndex = _getMapCurrDateItemIndex2(map, monthKey);
     var item = map[startDateIndex].list[rowKey][itemKey];
