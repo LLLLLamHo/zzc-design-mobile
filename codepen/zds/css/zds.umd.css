@@ -9263,58 +9263,58 @@ button {
   padding: 0 20px 16px;
   box-sizing: border-box; }
 
-.zds-calendar-result-box .left,
-.zds-calendar-result-box .right {
+.zds-calendar-result-box .zds-calendar-left,
+.zds-calendar-result-box .zds-calendar-right {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1; }
 
-.zds-calendar-result-box .left .title,
-.zds-calendar-result-box .right .title {
+.zds-calendar-result-box .zds-calendar-left .title,
+.zds-calendar-result-box .zds-calendar-right .title {
   font-size: 13px;
   color: #696E7C;
   line-height: 1; }
 
-.zds-calendar-result-box .left .time,
-.zds-calendar-result-box .right .time {
+.zds-calendar-result-box .zds-calendar-left .time,
+.zds-calendar-result-box .zds-calendar-right .time {
   font-size: 23px;
   color: #333;
   font-weight: 600;
   line-height: 1;
   margin-top: 5px; }
 
-.zds-calendar-result-box .left .week,
-.zds-calendar-result-box .right .week {
+.zds-calendar-result-box .zds-calendar-left .week,
+.zds-calendar-result-box .zds-calendar-right .week {
   font-size: 16px;
   color: #333;
   line-height: 1;
   margin-top: 9px; }
 
-.zds-calendar-result-box .left .hour,
-.zds-calendar-result-box .right .hour {
+.zds-calendar-result-box .zds-calendar-left .hour,
+.zds-calendar-result-box .zds-calendar-right .hour {
   font-size: 16px;
   color: #333;
   line-height: 1;
   margin-top: 9px; }
 
-.zds-calendar-result-box .left .placeholder,
-.zds-calendar-result-box .right .placeholder {
+.zds-calendar-result-box .zds-calendar-left .placeholder,
+.zds-calendar-result-box .zds-calendar-right .placeholder {
   color: #9EA1B0;
   font-size: 18px;
   line-height: 27px; }
 
-.zds-calendar-result-box .left .title,
-.zds-calendar-result-box .left .time,
-.zds-calendar-result-box .left .week,
-.zds-calendar-result-box .left .hour,
-.zds-calendar-result-box .left .placeholder {
+.zds-calendar-result-box .zds-calendar-left .title,
+.zds-calendar-result-box .zds-calendar-left .time,
+.zds-calendar-result-box .zds-calendar-left .week,
+.zds-calendar-result-box .zds-calendar-left .hour,
+.zds-calendar-result-box .zds-calendar-left .placeholder {
   text-align: left; }
 
-.zds-calendar-result-box .right .title,
-.zds-calendar-result-box .right .time,
-.zds-calendar-result-box .right .week,
-.zds-calendar-result-box .right .hour,
-.zds-calendar-result-box .right .placeholder {
+.zds-calendar-result-box .zds-calendar-right .title,
+.zds-calendar-result-box .zds-calendar-right .time,
+.zds-calendar-result-box .zds-calendar-right .week,
+.zds-calendar-result-box .zds-calendar-right .hour,
+.zds-calendar-result-box .zds-calendar-right .placeholder {
   text-align: right; }
 
 .zds-calendar-result-box .center {

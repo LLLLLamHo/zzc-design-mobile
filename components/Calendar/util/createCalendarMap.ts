@@ -6,10 +6,11 @@ import {
     CalendarMapItemRow,
     CreateCalendarMap_dataInfo,
     _createDayInfoSubText_data,
-    createCalendarMapReturn
+    createCalendarMapReturn,
+    i18n
 } from '../propsType';
 
-export default function createCalendarMap(lang: 'cn' | 'hk', dateExtension: DateExtension | null, startInfo: selectTimeInterface | null, endInfo: selectTimeInterface | null, yesterday: boolean): createCalendarMapReturn {
+export default function createCalendarMap(lang: 'cn' | 'hk', dateExtension: DateExtension | null, startInfo: selectTimeInterface | null, endInfo: selectTimeInterface | null, yesterday: boolean, i18n: i18n): createCalendarMapReturn {
     const date = new Date();
     let year = date.getFullYear();
     let month = date.getMonth();
@@ -30,7 +31,7 @@ export default function createCalendarMap(lang: 'cn' | 'hk', dateExtension: Date
             n_y: nowYear,
             n_m: nowMonth,
             n_d: nowDay,
-        }, year, month, lang, dateExtension, startInfo, endInfo, startIndexInfo, endIndexInfo, yesterday);
+        }, year, month, lang, dateExtension, startInfo, endInfo, startIndexInfo, endIndexInfo, yesterday, i18n);
 
         startIndexInfo = startIndex;
         endIndexInfo = endIndex;
@@ -57,7 +58,7 @@ export default function createCalendarMap(lang: 'cn' | 'hk', dateExtension: Date
     };
 }
 
-function _createMonthMap(now: _createMonthMap_now, year: number, month: number, lang: 'cn' | 'hk', dateExtension: DateExtension | null, startInfo: selectTimeInterface | null, endInfo: selectTimeInterface | null, startIndexInfo: selectTimeIndex | null, endIndexInfo: selectTimeIndex | null, yesterday: boolean) {
+function _createMonthMap(now: _createMonthMap_now, year: number, month: number, lang: 'cn' | 'hk', dateExtension: DateExtension | null, startInfo: selectTimeInterface | null, endInfo: selectTimeInterface | null, startIndexInfo: selectTimeIndex | null, endIndexInfo: selectTimeIndex | null, yesterday: boolean, i18n: i18n) {
     const startDay = 0;
     const lastDay = new Date(year, month + 1, 0).getDate();
     const monthList: Array<any> = [];
@@ -87,7 +88,7 @@ function _createMonthMap(now: _createMonthMap_now, year: number, month: number, 
                     c_y: year,
                     c_m: month,
                     c_d: currData
-                })
+                }, i18n)
             }, dateExtension));
         } else {
             col = rowList.push(_getDayItemInfo({
@@ -100,7 +101,7 @@ function _createMonthMap(now: _createMonthMap_now, year: number, month: number, 
                     c_y: year,
                     c_m: month,
                     c_d: currData
-                })
+                }, i18n)
             }, dateExtension));
         }
 
@@ -220,9 +221,9 @@ function _createMonthTitle(month: number, lang: 'cn' | 'hk'): string {
     return '';
 }
 
-function _createDayInfoSubText(data: _createDayInfoSubText_data): string | null {
+function _createDayInfoSubText(data: _createDayInfoSubText_data, i18n: i18n): string | null {
     if (data.n_y == data.c_y && data.n_m == data.c_m && data.n_d == data.c_d) {
-        return '今天';
+        return i18n.today;
     }
     return null;
 }

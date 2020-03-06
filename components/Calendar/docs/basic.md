@@ -88,6 +88,10 @@ onChang={(value) => {...todo}}
 | time_picker_title                                                | string | '取车时间'                                                                                   |
 | time_return_title                                                | string | '取车时间'                                                                                   |
 | listAcrossTheYearText                                            | string | '年'(日历中第二年的月份前的跨年标识)                                                         |
+| month                                                            | string | 月                                                                                           |
+| week                                                             | string | 周                                                                                           |
+| day                                                              | string | 天                                                                                           |
+| today                                                            | string | 今天                                                                                         |
 
 
 ### 日历信息扩展 DateExtension
@@ -257,4 +261,29 @@ export default class App extends PureComponent {
         );
     }
 }
+```
+
+英文版，对i18n参数完全重写
+
+```jsx
+i18n={{
+    left_title: 'Local date',
+    right_title: 'Local date',
+    left_placeholder: 'Pick-up date',
+    right_placeholder: 'Drop-off date',
+    monthList: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    weekList: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    reset_btn_text: 'Reset',
+    submit_btn_text: 'Confirm',
+    time_picker_title: 'Pick Time',
+    time_return_title: 'Drop Time',
+    picker_car: 'Pick',
+    return_car: 'Drop',
+    inTheDay_car: 'Pick Drop',
+    month: '.',
+    week: '',
+    day: 'Day',
+    listAcrossTheYearText: '.',
+    today: 'today'
+}}
 ```

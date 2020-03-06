@@ -15,7 +15,11 @@ export default function i18n(lang) {
         submit_btn_text: '确认时间',
         time_picker_title: '取车时间',
         time_return_title: '取车时间',
-        
+        listAcrossTheYearText: '年',
+        month: '月',
+        week: '周',
+        day: '天',
+        today: '今天'
     } : {
         left_title: '當地時間',
         left_placeholder: '選擇當地取車日期',
@@ -32,6 +36,10 @@ export default function i18n(lang) {
         submit_btn_text: '確認時間',
         time_picker_title: '取車時間',
         time_return_title: '取車時間',
-        listAcrossTheYearText: '年'
+        listAcrossTheYearText: '年',
+        month: '月',
+        week: '周',
+        day: '天',
+        today: '今天'
     }
 }

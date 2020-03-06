@@ -21,6 +21,23 @@ export interface DatePickerProps {
     maskClose?: boolean
     reverse?: boolean
     hourRange?: [number, number]
+    i18n: i18n
+}
+
+export interface i18n {
+    year: string
+    month: string
+    day: string
+    hour: string
+    minutes: string
+    am: string
+    pm: string
+    confirm: string
+    cancel: string
+    close: string
+    open: string
+    datePickerTitle: string
+    datePickerButtomText: string
 }
 
 export interface DatePickerState {

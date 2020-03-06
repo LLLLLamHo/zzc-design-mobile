@@ -20,8 +20,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         const _endTime = props.endTime ? this.conversionSelectTime(props.endTime) : null;
         // 与外部传入i18n进行合并
         const i18n = props.i18n ? Object.assign(calendar_i18n(props.lang), props.i18n) : calendar_i18n(props.lang);
-        let { startIndexInfo, endIndexInfo, calendarMap } = createCalendarMap(props.lang, props.dateExtension, _startTime, _endTime, props.yesterday);
-
+        let { startIndexInfo, endIndexInfo, calendarMap } = createCalendarMap(props.lang, props.dateExtension, _startTime, _endTime, props.yesterday, i18n);
         if (startIndexInfo && endIndexInfo) {
             const { newMap } = updateCalendarMap({
                 type: 'end',

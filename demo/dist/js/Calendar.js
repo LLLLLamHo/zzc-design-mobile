@@ -38253,7 +38253,8 @@ var DatePicker = function (_React$Component) {
                 lang = _props2.lang,
                 mode = _props2.mode,
                 minuteStep = _props2.minuteStep,
-                hourRange = _props2.hourRange;
+                hourRange = _props2.hourRange,
+                i18n = _props2.i18n;
             var use12hour = this.props.use12hour;
             // 如果设置了小时的范围那么use2hour将失效
 
@@ -38263,7 +38264,7 @@ var DatePicker = function (_React$Component) {
             var calcMinDate = (0, _date.initMinDate)(minDate);
             var calcMaxDate = (0, _date.initMaxDate)(maxDate);
             var calcTime = this.initDateObject(time, selectTime, mode, calcMinDate, calcMaxDate, hourRange);
-            var langData = _i18n2.default[lang];
+            var langData = i18n ? (0, _assign2.default)(_i18n2.default[lang], i18n) : _i18n2.default[lang];
             var calcCurrDate = (0, _date.initSelectDate)(calcTime, calcMinDate, calcMaxDate);
             var listData = {
                 yearList: null,
@@ -38418,6 +38419,7 @@ var DatePicker = function (_React$Component) {
                 warningText = _props5.warningText;
 
             var cls = (0, _classnames2.default)(className, '' + prefixCls);
+            console.log(this.state.yearList);
             var langData = _i18n2.default[lang];
             return _react2.default.createElement(
                 _Popup2.default,
@@ -40331,7 +40333,7 @@ var Calendar = function (_PureComponent) {
         // 与外部传入i18n进行合并
         var i18n = props.i18n ? (0, _assign2.default)((0, _i18n2.default)(props.lang), props.i18n) : (0, _i18n2.default)(props.lang);
 
-        var _createCalendarMap = (0, _createCalendarMap3.default)(props.lang, props.dateExtension, _startTime, _endTime, props.yesterday),
+        var _createCalendarMap = (0, _createCalendarMap3.default)(props.lang, props.dateExtension, _startTime, _endTime, props.yesterday, i18n),
             startIndexInfo = _createCalendarMap.startIndexInfo,
             endIndexInfo = _createCalendarMap.endIndexInfo,
             calendarMap = _createCalendarMap.calendarMap;
@@ -40812,20 +40814,24 @@ var CalendarResult = function (_PureComponent) {
     (0, _createClass3.default)(CalendarResult, [{
         key: 'createLeft',
         value: function createLeft(startTime, endTime, mode) {
+            var _props = this.props,
+                prefixCls = _props.prefixCls,
+                i18n = _props.i18n;
+
             if (startTime && endTime) {
                 return _react2.default.createElement(
                     'div',
-                    { className: 'left' },
+                    { className: prefixCls + '-left' },
                     _react2.default.createElement(
                         'p',
                         { className: 'title' },
-                        this.props.i18n.left_title
+                        i18n.left_title
                     ),
                     _react2.default.createElement(
                         'p',
                         { className: 'time' },
                         startTime.M + 1,
-                        '\u6708',
+                        i18n.month,
                         startTime.D
                     ),
                     mode == 'day*time' ? _react2.default.createElement(
@@ -40837,26 +40843,26 @@ var CalendarResult = function (_PureComponent) {
                     ) : _react2.default.createElement(
                         'p',
                         { className: 'week' },
-                        '\u5468',
+                        i18n.week,
                         (0, _getWeek2.default)(startTime.w, this.props.lang)
                     )
                 );
             } else if (startTime) {
                 return _react2.default.createElement(
                     'div',
-                    { className: 'left' },
+                    { className: prefixCls + '-left' },
                     _react2.default.createElement(
                         'p',
                         { className: 'time' },
                         startTime.M + 1,
-                        '\u6708',
+                        this.props.i18n.month,
                         startTime.D
                     )
                 );
             } else {
                 return _react2.default.createElement(
                     'div',
-                    { className: 'left' },
+                    { className: prefixCls + '-left' },
                     _react2.default.createElement(
                         'p',
                         { className: 'placeholder' },
@@ -40868,20 +40874,24 @@ var CalendarResult = function (_PureComponent) {
     }, {
         key: 'createRight',
         value: function createRight(startTime, endTime, mode) {
+            var _props2 = this.props,
+                prefixCls = _props2.prefixCls,
+                i18n = _props2.i18n;
+
             if (startTime && endTime) {
                 return _react2.default.createElement(
                     'div',
-                    { className: 'right' },
+                    { className: prefixCls + '-right' },
                     _react2.default.createElement(
                         'p',
                         { className: 'title' },
-                        this.props.i18n.right_title
+                        i18n.right_title
                     ),
                     _react2.default.createElement(
                         'p',
                         { className: 'time' },
                         endTime.M + 1,
-                        '\u6708',
+                        i18n.month,
                         endTime.D
                     ),
                     mode == 'day*time' ? _react2.default.createElement(
@@ -40893,14 +40903,14 @@ var CalendarResult = function (_PureComponent) {
                     ) : _react2.default.createElement(
                         'p',
                         { className: 'week' },
-                        '\u5468',
+                        i18n.week,
                         (0, _getWeek2.default)(endTime.w, this.props.lang)
                     )
                 );
             } else if (startTime) {
                 return _react2.default.createElement(
                     'div',
-                    { className: 'right' },
+                    { className: prefixCls + '-right' },
                     _react2.default.createElement(
                         'p',
                         { className: 'placeholder' },
@@ -40914,6 +40924,8 @@ var CalendarResult = function (_PureComponent) {
     }, {
         key: 'createCenter',
         value: function createCenter(startTime, endTime) {
+            var i18n = this.props.i18n;
+
             if (startTime && endTime) {
                 return _react2.default.createElement(
                     'div',
@@ -40922,7 +40934,7 @@ var CalendarResult = function (_PureComponent) {
                         'p',
                         { className: 'day' },
                         Math.ceil((endTime.t - startTime.t) / 86400000) || 1,
-                        '\u5929'
+                        i18n.day
                     )
                 );
             }
@@ -40931,11 +40943,11 @@ var CalendarResult = function (_PureComponent) {
     }, {
         key: 'render',
         value: function render() {
-            var _props = this.props,
-                prefixCls = _props.prefixCls,
-                startTime = _props.startTime,
-                endTime = _props.endTime,
-                mode = _props.mode;
+            var _props3 = this.props,
+                prefixCls = _props3.prefixCls,
+                startTime = _props3.startTime,
+                endTime = _props3.endTime,
+                mode = _props3.mode;
 
             return _react2.default.createElement(
                 'div',
@@ -41163,10 +41175,9 @@ var CalendarListBox = function (_PureComponent) {
             var _this4 = this;
 
             var currYear = new Date().getFullYear();
-            var yearsGap = (monthData.y - currYear) * 12; // 跨年需要减12个月
             return _react2.default.createElement(
                 'div',
-                { key: key, className: 'item', 'data-c-y': monthData.y, 'data-c-m': +key - yearsGap },
+                { key: key, className: 'item', 'data-c-y': monthData.y, 'data-c-m': monthData.m },
                 _react2.default.createElement(
                     'p',
                     { className: 'title' },
@@ -41180,7 +41191,7 @@ var CalendarListBox = function (_PureComponent) {
                             return _react2.default.createElement(
                                 'li',
                                 { 'data-c-d': dayInfo.d, className: _this4.setItemClass(dayInfo), key: dayKey, onClick: function onClick() {
-                                        !dayInfo.gone && !dayInfo.empty && _this4.props.selectItem(key, rowKey, dayKey, dayInfo);
+                                        !dayInfo.gone && !dayInfo.empty && _this4.props.selectItem(dayInfo.m, rowKey, dayKey, dayInfo);
                                     } },
                                 dayInfo.main != null && _react2.default.createElement(
                                     'p',
@@ -41564,7 +41575,7 @@ exports.default = createCalendarMap;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function createCalendarMap(lang, dateExtension, startInfo, endInfo, yesterday) {
+function createCalendarMap(lang, dateExtension, startInfo, endInfo, yesterday, i18n) {
     var date = new Date();
     var year = date.getFullYear();
     var month = date.getMonth();
@@ -41582,7 +41593,7 @@ function createCalendarMap(lang, dateExtension, startInfo, endInfo, yesterday) {
             n_y: nowYear,
             n_m: nowMonth,
             n_d: nowDay
-        }, year, month, lang, dateExtension, startInfo, endInfo, startIndexInfo, endIndexInfo, yesterday),
+        }, year, month, lang, dateExtension, startInfo, endInfo, startIndexInfo, endIndexInfo, yesterday, i18n),
             monthData = _createMonthMap2.monthData,
             startIndex = _createMonthMap2.startIndex,
             endIndex = _createMonthMap2.endIndex;
@@ -41608,7 +41619,7 @@ function createCalendarMap(lang, dateExtension, startInfo, endInfo, yesterday) {
         calendarMap: calendarMap
     };
 }
-function _createMonthMap(now, year, month, lang, dateExtension, startInfo, endInfo, startIndexInfo, endIndexInfo, yesterday) {
+function _createMonthMap(now, year, month, lang, dateExtension, startInfo, endInfo, startIndexInfo, endIndexInfo, yesterday, i18n) {
     var startDay = 0;
     var lastDay = new Date(year, month + 1, 0).getDate();
     var monthList = [];
@@ -41629,7 +41640,7 @@ function _createMonthMap(now, year, month, lang, dateExtension, startInfo, endIn
                 month: month,
                 year: year,
                 gone: yesterday && year == now.n_y && month == now.n_m && currData == now.n_d - 1 ? false : true,
-                sub: _createDayInfoSubText((0, _assign2.default)({}, now, { c_y: year, c_m: month, c_d: currData }))
+                sub: _createDayInfoSubText((0, _assign2.default)({}, now, { c_y: year, c_m: month, c_d: currData }), i18n)
             }, dateExtension));
         } else {
             col = rowList.push(_getDayItemInfo({
@@ -41637,7 +41648,7 @@ function _createMonthMap(now, year, month, lang, dateExtension, startInfo, endIn
                 month: month,
                 year: year,
                 gone: false,
-                sub: _createDayInfoSubText((0, _assign2.default)({}, now, { c_y: year, c_m: month, c_d: currData }))
+                sub: _createDayInfoSubText((0, _assign2.default)({}, now, { c_y: year, c_m: month, c_d: currData }), i18n)
             }, dateExtension));
         }
         // 7列为1行
@@ -41759,9 +41770,9 @@ function _createMonthTitle(month, lang) {
     }
     return '';
 }
-function _createDayInfoSubText(data) {
+function _createDayInfoSubText(data, i18n) {
     if (data.n_y == data.c_y && data.n_m == data.c_m && data.n_d == data.c_d) {
-        return '今天';
+        return i18n.today;
     }
     return null;
 }
@@ -41793,7 +41804,12 @@ function i18n(lang) {
         reset_btn_text: '重置',
         submit_btn_text: '确认时间',
         time_picker_title: '取车时间',
-        time_return_title: '取车时间'
+        time_return_title: '取车时间',
+        listAcrossTheYearText: '年',
+        month: '月',
+        week: '周',
+        day: '天',
+        today: '今天'
     } : {
         left_title: '當地時間',
         left_placeholder: '選擇當地取車日期',
@@ -41810,7 +41826,11 @@ function i18n(lang) {
         submit_btn_text: '確認時間',
         time_picker_title: '取車時間',
         time_return_title: '取車時間',
-        listAcrossTheYearText: '年'
+        listAcrossTheYearText: '年',
+        month: '月',
+        week: '周',
+        day: '天',
+        today: '今天'
     };
 }
 
@@ -41853,6 +41873,13 @@ function updateCalendarMap(data) {
 function _updateStartTime(map, monthKey, rowKey, itemKey, _startIndexInfo, _endIndexInfo, calendarMode, i18n) {
     // 如果存在之前选择，需要将之前选择的内容清空
     if (_startIndexInfo && _endIndexInfo) {
+        var oldStartMonthIndex = _getMapCurrDateItemIndex2(map, _startIndexInfo.monthKey);
+        var oldEndMonthIndex = _getMapCurrDateItemIndex2(map, _endIndexInfo.monthKey);
+        map[oldStartMonthIndex].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['start'] = false;
+        map[oldStartMonthIndex].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['startOnly'] = false;
+        map[oldStartMonthIndex].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['_sub'] = false;
+        map[oldEndMonthIndex].list[_endIndexInfo.rowKey][_endIndexInfo.itemKey]['end'] = false;
+        map[oldEndMonthIndex].list[_endIndexInfo.rowKey][_endIndexInfo.itemKey]['_sub'] = false;
         map = _updateActiveTime(map, _startIndexInfo, _endIndexInfo, false);
         map[_endIndexInfo.monthKey].list[_endIndexInfo.rowKey][_endIndexInfo.itemKey]['end'] = false;
         map[_endIndexInfo.monthKey].list[_endIndexInfo.rowKey][_endIndexInfo.itemKey]['_sub'] = false;
@@ -41862,7 +41889,8 @@ function _updateStartTime(map, monthKey, rowKey, itemKey, _startIndexInfo, _endI
         map[_startIndexInfo.monthKey].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['start'] = false;
         map[_startIndexInfo.monthKey].list[_startIndexInfo.rowKey][_startIndexInfo.itemKey]['_sub'] = false;
     }
-    var item = map[monthKey].list[rowKey][itemKey];
+    var startDateIndex = _getMapCurrDateItemIndex2(map, monthKey);
+    var item = map[startDateIndex].list[rowKey][itemKey];
     item['startOnly'] = true;
     // 设置选中文案
     if (calendarMode == 'car') {
@@ -41876,8 +41904,10 @@ function _updateStartTime(map, monthKey, rowKey, itemKey, _startIndexInfo, _endI
     };
 }
 function _updateEndTime(map, startTimeInfo, monthKey, rowKey, itemKey, calendarMode, i18n) {
-    var item = map[monthKey].list[rowKey][itemKey];
-    var startItem = map[startTimeInfo.monthKey].list[startTimeInfo.rowKey][startTimeInfo.itemKey];
+    var startDateIndex = _getMapCurrDateItemIndex(map, startTimeInfo);
+    var endDateIndex = _getMapCurrDateItemIndex2(map, monthKey);
+    var startItem = map[startDateIndex].list[startTimeInfo.rowKey][startTimeInfo.itemKey];
+    var item = map[endDateIndex].list[rowKey][itemKey];
     startItem['startOnly'] = false;
     startItem['start'] = true;
     item['end'] = true;
@@ -41901,8 +41931,10 @@ function _updateEndTime(map, startTimeInfo, monthKey, rowKey, itemKey, calendarM
     };
 }
 function _updateResetCalendar(map, startIndexInfo, endIndexInfo) {
-    var startDayItem = map[startIndexInfo.monthKey].list[startIndexInfo.rowKey][startIndexInfo.itemKey];
-    var endDayItem = map[endIndexInfo.monthKey].list[endIndexInfo.rowKey][endIndexInfo.itemKey];
+    var startDateIndex = _getMapCurrDateItemIndex(map, startIndexInfo);
+    var endDateIndex = _getMapCurrDateItemIndex(map, endIndexInfo);
+    var startDayItem = map[startDateIndex].list[startIndexInfo.rowKey][startIndexInfo.itemKey];
+    var endDayItem = map[endDateIndex].list[endIndexInfo.rowKey][endIndexInfo.itemKey];
     startDayItem['start'] = false;
     startDayItem['startOnly'] = false;
     endDayItem['end'] = false;
@@ -41912,14 +41944,24 @@ function _updateResetCalendar(map, startIndexInfo, endIndexInfo) {
         select: null
     };
 }
-function _updateActiveTime(map, startTimeInfo, endTimeInfo, isActive) {
-    var s_m_k = startTimeInfo.monthKey,
-        s_r_k = startTimeInfo.rowKey,
-        s_i_k = startTimeInfo.itemKey;
-    var e_m_k = endTimeInfo.monthKey,
-        e_r_k = endTimeInfo.rowKey,
-        e_i_k = endTimeInfo.itemKey;
+function _getMapCurrDateItemIndex(map, info) {
+    var monthKey = info.monthKey;
 
+    return monthKey - map[0].m;
+}
+function _getMapCurrDateItemIndex2(map, number) {
+    return number - map[0].m;
+}
+function _updateActiveTime(map, startTimeInfo, endTimeInfo, isActive) {
+    var s_r_k = startTimeInfo.rowKey,
+        s_i_k = startTimeInfo.itemKey;
+    var e_r_k = endTimeInfo.rowKey,
+        e_i_k = endTimeInfo.itemKey;
+    // 快速定位开始位置，当前渲染的月份列表中第一位是第几个月，然后和当前选中日期的月份相减，得出具体下标
+    // 假设当前渲染月份是三月到明年三月，12个月份，如果当前选中的日期是3月份，那么需要将当前monthKey - map中的第一个itm的m，获取当前选中的月份具体在数组中的第几个
+
+    var s_m_k = _getMapCurrDateItemIndex(map, startTimeInfo);
+    var e_m_k = _getMapCurrDateItemIndex(map, endTimeInfo);
     for (var i = s_m_k; i <= e_m_k; i++) {
         var monthData = map[i];
         // 当start那一行进行更新时，才默认开始下标未当前start的index，否则为0
@@ -50182,11 +50224,14 @@ var App = function (_PureComponent) {
 
         _this.state = {
             visible1: false,
-            car_start: null,
-            car_end: null,
+            car_start: new Date().toString(),
+            car_end: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 3),
             visible2: false,
             hotel_start: null,
-            hotel_end: null
+            hotel_end: null,
+            visible3: false,
+            start: null,
+            end: null
         };
         return _this;
     }
@@ -50211,9 +50256,13 @@ var App = function (_PureComponent) {
                 this.setState({
                     visible1: true
                 });
-            } else {
+            } else if (number == 2) {
                 this.setState({
                     visible2: true
+                });
+            } else {
+                this.setState({
+                    visible3: true
                 });
             }
         }
@@ -50224,29 +50273,47 @@ var App = function (_PureComponent) {
                 this.setState({
                     visible1: false
                 });
-            } else {
+            } else if (number == 2) {
                 this.setState({
                     visible2: false
+                });
+            } else {
+                this.setState({
+                    visible3: false
                 });
             }
         }
     }, {
         key: 'set',
         value: function set(number, value) {
-            console.log(value);
+            console.log(number, value);
             if (number == 1) {
                 this.setState({
                     car_start: value.start,
                     car_end: value.end,
                     visible1: false
                 });
-            } else {
+            } else if (number == 2) {
                 this.setState({
                     hotel_start: value.start,
                     hotel_end: value.end,
                     visible2: false
                 });
+            } else {
+                this.setState({
+                    start: value.start,
+                    end: value.end,
+                    visible3: false
+                });
             }
+        }
+    }, {
+        key: 'resetTime',
+        value: function resetTime(date) {
+            var year = new Date(date).getFullYear();
+            var month = new Date(date).getMonth();
+            var day = new Date(date).getDate();
+            return year + '-' + (month + 1) + '-' + day;
         }
     }, {
         key: 'render',
@@ -50291,9 +50358,9 @@ var App = function (_PureComponent) {
                                 _react2.default.createElement(
                                     'p',
                                     { className: 'text' },
-                                    this.state.car_start,
+                                    this.resetTime(this.state.car_start),
                                     ' - ',
-                                    this.state.car_end
+                                    this.resetTime(this.state.car_end)
                                 )
                             )
                         )
@@ -50372,6 +50439,81 @@ var App = function (_PureComponent) {
                             },
                             mode: 'day',
                             dateExtension: _hotel2.default
+                        })
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'zzc-demo-body full' },
+                    _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement(
+                            _zzcDesignMobile.Card,
+                            { full: true },
+                            _react2.default.createElement(
+                                _zzcDesignMobile.Card.Body,
+                                { borderDirection: 'left' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'card-box2', onClick: function onClick() {
+                                            _this2.show(3);
+                                        } },
+                                    _react2.default.createElement(
+                                        'p',
+                                        null,
+                                        '\u591A\u8BED\u8A00\u7248\u672C:'
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    { className: 'text' },
+                                    this.state.start,
+                                    ' - ',
+                                    this.state.end
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(_zzcDesignMobile.Calendar, {
+                            visible: this.state.visible3,
+                            yesterday: true,
+                            defaultCalendarTips: 'this is english tips text',
+                            timeChange: function timeChange(value) {
+                                return _this2.calcTime('timeChange', value);
+                            },
+                            dayChange: function dayChange(value) {
+                                return _this2.calcTime('dayChange', value);
+                            },
+                            onChange: function onChange(value) {
+                                _this2.set(3, value);
+                            },
+                            startTime: this.state.start,
+                            endTime: this.state.end,
+                            calendarMode: 'car',
+                            mode: 'day*time',
+                            onClose: function onClose() {
+                                _this2.hide(3);
+                            },
+                            i18n: {
+                                left_title: 'Local date',
+                                right_title: 'Local date',
+                                left_placeholder: 'Pick-up date',
+                                right_placeholder: 'Drop-off date',
+                                monthList: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                                weekList: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                                reset_btn_text: 'Reset',
+                                submit_btn_text: 'Confirm',
+                                time_picker_title: 'Pick Time',
+                                time_return_title: 'Drop Time',
+                                picker_car: 'Pick',
+                                return_car: 'Drop',
+                                inTheDay_car: 'Pick Drop',
+                                month: '.',
+                                week: '',
+                                day: 'Day',
+                                listAcrossTheYearText: '.',
+                                today: 'today'
+                            }
                         })
                     )
                 )

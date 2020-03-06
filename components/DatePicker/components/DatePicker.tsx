@@ -106,7 +106,7 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
     }
 
     initDate(time: Date | null): void {
-        const { minDate, maxDate, selectTime, lang, mode, minuteStep, hourRange } = this.props;
+        const { minDate, maxDate, selectTime, lang, mode, minuteStep, hourRange, i18n } = this.props;
         let { use12hour } = this.props;
         // 如果设置了小时的范围那么use2hour将失效
         if (hourRange) {
@@ -115,7 +115,7 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         const calcMinDate = initMinDate(minDate);
         const calcMaxDate = initMaxDate(maxDate);
         const calcTime = this.initDateObject(time, selectTime, mode, calcMinDate, calcMaxDate, hourRange);
-        const langData = langTextObject[lang];
+        const langData = i18n ? Object.assign(langTextObject[lang], i18n) : langTextObject[lang];
         const calcCurrDate = initSelectDate(calcTime, calcMinDate, calcMaxDate);
         const listData: {
             yearList: null | ListItem
@@ -244,6 +244,7 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
             className,
             `${prefixCls}`
         );
+        console.log(this.state.yearList)
         const langData = langTextObject[lang];
         return (
             <Popup

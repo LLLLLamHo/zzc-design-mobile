@@ -30,8 +30,8 @@ $cls: '.zds-calendar';
         padding: 0 20px 16px;
         box-sizing: border-box;
 
-        .left,
-        .right {
+        #{$cls}-left,
+        #{$cls}-right {
             flex: 1;
 
             .title {
@@ -69,7 +69,7 @@ $cls: '.zds-calendar';
             }
         }
 
-        .left {
+        #{$cls}-left {
 
             .title,
             .time,
@@ -80,7 +80,7 @@ $cls: '.zds-calendar';
             }
         }
 
-        .right {
+        #{$cls}-right {
 
             .title,
             .time,

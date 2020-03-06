@@ -39,9 +39,8 @@ export default class CalendarListBox extends PureComponent<CalendarListBoxProps,
 
     createMonthItem(monthData, key, monthList: null | Array<string>, listAcrossTheYearText: string): JSX.Element {
         const currYear = new Date().getFullYear();
-        const yearsGap = (monthData.y - currYear) * 12;// 跨年需要减12个月
         return (
-            <div key={key} className='item' data-c-y={monthData.y} data-c-m={+(key) - yearsGap}>
+            <div key={key} className='item' data-c-y={monthData.y} data-c-m={monthData.m}>
                 <p className='title'>{this.renderI18nMonthText(monthData, currYear, monthList, listAcrossTheYearText)}</p>
                 {
                     monthData.list.map((row, rowKey) => {
@@ -55,7 +54,7 @@ export default class CalendarListBox extends PureComponent<CalendarListBoxProps,
                                                 className={this.setItemClass(dayInfo)}
                                                 key={dayKey}
                                                 onClick={() => {
-                                                    !dayInfo.gone && !dayInfo.empty && this.props.selectItem(key, rowKey, dayKey, dayInfo);
+                                                    !dayInfo.gone && !dayInfo.empty && this.props.selectItem(dayInfo.m, rowKey, dayKey, dayInfo);
                                                 }}
                                             >
                                                 {dayInfo.main != null && <p>{dayInfo.main}</p>}

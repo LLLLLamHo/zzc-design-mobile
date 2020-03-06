@@ -25,11 +25,32 @@
 | selectTime    | 默认选中日期时间                                                                                                                                                           | string/Date                  | string（2018/01/01 12:10） |  |
 | minuteStep    | 分钟的间隔数                                                                                                                                                               | number                       | 1                          |
 | use12hour     | 是否使用12小时制                                                                                                                                                           | boolearn                     | false                      |
-| hourRange     | 小时范围(`use12hour将会失效`)                                                                                                                                                                   | [start: number, end: number] | false                      |
+| hourRange     | 小时范围(`use12hour将会失效`)                                                                                                                                              | [start: number, end: number] | false                      |
 | onValueChange | 更改选中项的时候触发，返回当前选中的时间                                                                                                                                   | Function                     |                            |
 | reverse       | 反转模式，默认情况下当前上一个选中的月份的天数超过当前月份的天数，会自动重置为当前月份最后一天，如果反转模式为true的话，那么将重置为当前月份的第一天。（28号和31号的问题） | boolearn                     | false                      |
 | maskClose     | 点击mask关闭时间选择框                                                                                                                                                     | boolean                      | true                       |
 | lang          | 语言版本                                                                                                                                                                   | string('cn'、'hk'、'en')     | cn                         |
+| i18n          | 多语言                                                                                                                                                                     | i18n                         | null                       |
+
+### i18n配置
+
+| 属性                 | 类型   | 默认值     |
+| -------------------- | ------ | ---------- |
+| year                 | string | '年'       |
+| month                | string | '月'       |
+| day                  | string | '日'       |
+| hour                 | string | '时'       |
+| minutes              | string | '分'       |
+| am                   | string | '上午'     |
+| pm                   | string | '下午'     |
+| confirm              | string | '确认'     |
+| cancel               | string | '取消'     |
+| close                | string | '关闭'     |
+| open                 | string | '打开'     |
+| datePickerTitle      | string | '选择时间' |
+| datePickerButtomText | string | '确认日期' |
+
+>默认使用lang中内置的cn，hk和en的文案，如果需要使用如日文，法文等，可以无视lang，直接传入完成的i18n进行重写
 
 ## 使用方式
 

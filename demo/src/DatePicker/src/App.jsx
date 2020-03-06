@@ -75,7 +75,7 @@ export default class App extends Component {
                     <h1 className='zzc-demo-title'>DatePicker 日期选择框</h1>
                     <h2>提供各种时间维度的滑动选择框</h2>
                 </div>
-                
+
                 <div className='zzc-demo-body full'>
                     <Card full>
                         <Card.Body borderDirection='left'>
@@ -268,12 +268,27 @@ export default class App extends Component {
                         visible={this.state.isShow6}
                         maskClose={false}
                         use12hour
-                        lang='hk'
+                        lang='en'
                         mode='datetime'
                         selectTime={this.state.time6}
                         onValueChange={( date ) => { this.onValueChange( date ); }}
                         onClose={() => { this.close( 6 ); }}
                         onSubmit={( data ) => { this.submit( data, 6 ); }}
+                        i18n={{
+                            year: '年',
+                            month: '月',
+                            day: '日',
+                            hour: '時',
+                            minutes: '分',
+                            am: '午前',
+                            pm: '午後',
+                            confirm: '確認',
+                            cancel: 'キャンセル',
+                            close: 'クローズ',
+                            open: '開く',
+                            datePickerTitle: '選択時間',
+                            datePickerButtomText: '日付を確認する'
+                        }}
                     />
                 </div>
             </div>

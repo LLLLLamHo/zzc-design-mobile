@@ -12,27 +12,28 @@ export default class CalendarResult extends PureComponent<CalendarResultProps, a
     };
 
     createLeft(startTime, endTime, mode) {
+        const { prefixCls, i18n } = this.props;
         if (startTime && endTime) {
             return (
-                <div className='left'>
-                    <p className='title'>{this.props.i18n.left_title}</p>
-                    <p className='time'>{startTime.M + 1}月{startTime.D}</p>
+                <div className={`${prefixCls}-left`}>
+                    <p className='title'>{i18n.left_title}</p>
+                    <p className='time'>{startTime.M + 1}{i18n.month}{startTime.D}</p>
                     {
                         mode == 'day*time' ? 
                         <p className='hour'>{startTime.h < 10 ? `0${startTime.h}` : startTime.h}:{startTime.m < 10 ? `0${startTime.m}` : startTime.m}</p>:
-                        <p className='week'>周{getWeek(startTime.w, this.props.lang)}</p>
+                    <p className='week'>{i18n.week}{getWeek(startTime.w, this.props.lang)}</p>
                     }
                 </div>
             );
         } else if (startTime) {
             return (
-                <div className='left'>
-                    <p className='time'>{startTime.M + 1}月{startTime.D}</p>
+                <div className={`${prefixCls}-left`}>
+                    <p className='time'>{startTime.M + 1}{this.props.i18n.month}{startTime.D}</p>
                 </div>
             );
         } else {
             return (
-                <div className='left'>
+                <div className={`${prefixCls}-left`}>
                     <p className='placeholder'>{this.props.i18n.left_placeholder}</p>
                 </div>
             );
@@ -40,21 +41,22 @@ export default class CalendarResult extends PureComponent<CalendarResultProps, a
     }
 
     createRight(startTime, endTime, mode) {
+        const { prefixCls, i18n } = this.props;
         if (startTime && endTime) {
             return (
-                <div className='right'>
-                    <p className='title'>{this.props.i18n.right_title}</p>
-                    <p className='time'>{endTime.M + 1}月{endTime.D}</p>
+                <div className={`${prefixCls}-right`}>
+                    <p className='title'>{i18n.right_title}</p>
+                    <p className='time'>{endTime.M + 1}{i18n.month}{endTime.D}</p>
                     {
                         mode == 'day*time' ? 
                         <p className='hour'>{endTime.h < 10 ? `0${endTime.h}` : endTime.h}:{endTime.m < 10 ? `0${endTime.m}` : endTime.m}</p> : 
-                        <p className='week'>周{getWeek(endTime.w, this.props.lang)}</p>
+                        <p className='week'>{i18n.week}{getWeek(endTime.w, this.props.lang)}</p>
                     }
                 </div>
             );
         } else if (startTime) {
             return (
-                <div className='right'>
+                <div className={`${prefixCls}-right`}>
                     <p className='placeholder'>{this.props.i18n.right_placeholder}</p>
                 </div>
             );
@@ -64,10 +66,11 @@ export default class CalendarResult extends PureComponent<CalendarResultProps, a
     }
 
     createCenter(startTime, endTime) {
+        const { i18n } = this.props;
         if (startTime && endTime) {
             return (
                 <div className='center'>
-                    <p className='day'>{Math.ceil((endTime.t - startTime.t) / 86400000) || 1}天</p>
+                    <p className='day'>{Math.ceil((endTime.t - startTime.t) / 86400000) || 1}{i18n.day}</p>
                 </div>
             );
         }

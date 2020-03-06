@@ -58,6 +58,10 @@ export interface i18n {
     time_return_title: string
     monthList: Array<string>
     listAcrossTheYearText: string
+    month: string
+    week: string
+    day: string
+    today: string
 }
 
 export interface selectTimeIndex {
