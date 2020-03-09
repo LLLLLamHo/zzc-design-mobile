@@ -22,6 +22,7 @@ export interface DatePickerProps {
     reverse?: boolean
     hourRange?: [number, number]
     i18n: i18n
+    monthList?: Array<String>
 }
 
 export interface i18n {

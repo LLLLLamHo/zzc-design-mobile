@@ -37963,7 +37963,8 @@ var DatePicker = function (_React$Component) {
                 mode = _props2.mode,
                 minuteStep = _props2.minuteStep,
                 hourRange = _props2.hourRange,
-                i18n = _props2.i18n;
+                i18n = _props2.i18n,
+                monthList = _props2.monthList;
             var use12hour = this.props.use12hour;
             // 如果设置了小时的范围那么use2hour将失效
 
@@ -37986,10 +37987,10 @@ var DatePicker = function (_React$Component) {
             // 根据模式初始化数据
             switch (mode) {
                 case 'date':
-                    (0, _setListData.createDateListData)(listData, calcMinDate, calcMaxDate, calcCurrDate, langData);
+                    (0, _setListData.createDateListData)(listData, calcMinDate, calcMaxDate, calcCurrDate, langData, monthList);
                     break;
                 case 'datetime':
-                    (0, _setListData.createDateTimeListData)(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, hourRange);
+                    (0, _setListData.createDateTimeListData)(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, monthList, hourRange);
                     break;
                 case 'time':
                     (0, _setListData.createTimeListData)(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, hourRange);
@@ -38001,7 +38002,7 @@ var DatePicker = function (_React$Component) {
                     (0, _setListData.createYearListData)(listData, calcMinDate, calcMaxDate, calcCurrDate, langData);
                     break;
                 case 'month':
-                    (0, _setListData.createMonthListData)(listData, calcMinDate, calcMaxDate, calcCurrDate, langData);
+                    (0, _setListData.createMonthListData)(listData, calcMinDate, calcMaxDate, calcCurrDate, langData, monthList);
                     break;
             }
             this.state = (0, _assign2.default)({}, listData, { langData: langData });
@@ -38156,7 +38157,8 @@ DatePicker.defaultProps = {
     use12hour: false,
     visible: false,
     maskClose: true,
-    reverse: false
+    reverse: false,
+    monthList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 };
 
 /***/ }),
@@ -38390,14 +38392,14 @@ exports.createHour12ListData = createHour12ListData;
 
 var _pickerData = __webpack_require__(281);
 
-function createDateListData(obj, calcMinDate, calcMaxDate, calcCurrDate, langData) {
+function createDateListData(obj, calcMinDate, calcMaxDate, calcCurrDate, langData, monthList) {
     obj.yearList = (0, _pickerData.setYearListData)(calcMinDate.year, calcMaxDate.year, calcCurrDate.year, langData);
-    obj.monthList = (0, _pickerData.setMonthListData)(calcCurrDate, calcMinDate, calcMaxDate, langData);
+    obj.monthList = (0, _pickerData.setMonthListData)(calcCurrDate, calcMinDate, calcMaxDate, langData, monthList);
     obj.dayList = (0, _pickerData.setDayListData)(calcCurrDate, calcMinDate, calcMaxDate, langData);
 }
-function createDateTimeListData(obj, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, hourRange) {
+function createDateTimeListData(obj, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, monthList, hourRange) {
     obj.yearList = (0, _pickerData.setYearListData)(calcMinDate.year, calcMaxDate.year, calcCurrDate.year, langData);
-    obj.monthList = (0, _pickerData.setMonthListData)(calcCurrDate, calcMinDate, calcMaxDate, langData);
+    obj.monthList = (0, _pickerData.setMonthListData)(calcCurrDate, calcMinDate, calcMaxDate, langData, monthList);
     obj.dayList = (0, _pickerData.setDayListData)(calcCurrDate, calcMinDate, calcMaxDate, langData);
     obj.hourList = (0, _pickerData.setHoursListData)(calcCurrDate, use12hour, calcMinDate, calcMaxDate, hourRange);
     obj.minuteList = (0, _pickerData.setMinuteListData)(calcCurrDate, minuteStep, calcMinDate, calcMaxDate, langData, hourRange);
@@ -38421,8 +38423,8 @@ function createHourListData(obj, calcMinDate, calcMaxDate, calcCurrDate, use12ho
 function createYearListData(obj, calcMinDate, calcMaxDate, calcCurrDate, langData) {
     obj.yearList = (0, _pickerData.setYearListData)(calcMinDate.year, calcMaxDate.year, calcCurrDate.year, langData);
 }
-function createMonthListData(obj, calcMinDate, calcMaxDate, calcCurrDate, langData) {
-    obj.monthList = (0, _pickerData.setMonthListData)(calcCurrDate, calcMinDate, calcMaxDate, langData);
+function createMonthListData(obj, calcMinDate, calcMaxDate, calcCurrDate, langData, monthList) {
+    obj.monthList = (0, _pickerData.setMonthListData)(calcCurrDate, calcMinDate, calcMaxDate, langData, monthList);
 }
 function createHour12ListData(obj, calcMinDate, calcMaxDate, calcCurrDate, langData) {
     obj.hour12List = (0, _pickerData.setHour12ListData)(calcCurrDate, calcMinDate, calcMaxDate, langData);
@@ -38478,7 +38480,7 @@ function setYearListData(minYear, maxYear, currYear, langData) {
     }
     return yearListData;
 }
-function setMonthListData(calcCurrDate, calcMinDate, calcMaxDate, langData) {
+function setMonthListData(calcCurrDate, calcMinDate, calcMaxDate, langData, monthList) {
     var currYear = calcCurrDate.year,
         currMonth = calcCurrDate.month;
     var minYear = calcMinDate.year,
@@ -38501,7 +38503,7 @@ function setMonthListData(calcCurrDate, calcMinDate, calcMaxDate, langData) {
                 monthListData.selectIndex = i;
             }
             monthListData.listData.push({
-                text: '' + monthText + langData.month,
+                text: '' + monthList[monthText - 1] + langData.month,
                 dataKey: monthText
             });
             monthText++;
@@ -38519,7 +38521,7 @@ function setMonthListData(calcCurrDate, calcMinDate, calcMaxDate, langData) {
                 monthListData.selectIndex = _i - startMonth;
             }
             monthListData.listData.push({
-                text: '' + monthText + langData.month,
+                text: '' + monthList[monthText - 1] + langData.month,
                 dataKey: monthText
             });
             monthText++;
@@ -38537,7 +38539,7 @@ function setMonthListData(calcCurrDate, calcMinDate, calcMaxDate, langData) {
                     monthListData.selectIndex = _i2;
                 }
                 monthListData.listData.push({
-                    text: '' + monthText + langData.month,
+                    text: '' + monthList[monthText - 1] + langData.month,
                     dataKey: monthText
                 });
             }

@@ -29,7 +29,8 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         use12hour: false,
         visible: false,
         maskClose: true,
-        reverse: false
+        reverse: false,
+        monthList: [1,2,3,4,5,6,7,8,9,10,11,12]
     }
 
     private BScrollList: BScrollArray = {};
@@ -106,7 +107,7 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
     }
 
     initDate(time: Date | null): void {
-        const { minDate, maxDate, selectTime, lang, mode, minuteStep, hourRange, i18n } = this.props;
+        const { minDate, maxDate, selectTime, lang, mode, minuteStep, hourRange, i18n, monthList } = this.props;
         let { use12hour } = this.props;
         // 如果设置了小时的范围那么use2hour将失效
         if (hourRange) {
@@ -134,9 +135,9 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         };
         // 根据模式初始化数据
         switch (mode) {
-            case 'date': createDateListData(listData, calcMinDate, calcMaxDate, calcCurrDate, langData);
+            case 'date': createDateListData(listData, calcMinDate, calcMaxDate, calcCurrDate, langData, monthList);
                 break;
-            case 'datetime': createDateTimeListData(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, hourRange);
+            case 'datetime': createDateTimeListData(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, monthList, hourRange);
                 break;
             case 'time': createTimeListData(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, hourRange);
                 break;
@@ -144,7 +145,7 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
                 break;
             case 'year': createYearListData(listData, calcMinDate, calcMaxDate, calcCurrDate, langData);
                 break;
-            case 'month': createMonthListData(listData, calcMinDate, calcMaxDate, calcCurrDate, langData);
+            case 'month': createMonthListData(listData, calcMinDate, calcMaxDate, calcCurrDate, langData, monthList);
                 break;
         }
         this.state = Object.assign({}, listData, { langData });

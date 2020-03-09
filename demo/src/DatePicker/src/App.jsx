@@ -274,6 +274,7 @@ export default class App extends Component {
                         onValueChange={( date ) => { this.onValueChange( date ); }}
                         onClose={() => { this.close( 6 ); }}
                         onSubmit={( data ) => { this.submit( data, 6 ); }}
+                        monthList={['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二']}
                         i18n={{
                             year: '年',
                             month: '月',

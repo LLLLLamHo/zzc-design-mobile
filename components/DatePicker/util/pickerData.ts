@@ -25,7 +25,7 @@ export function setYearListData( minYear, maxYear, currYear, langData ): ListIte
     return yearListData;
 }
 
-export function setMonthListData ( calcCurrDate, calcMinDate, calcMaxDate, langData ): ListItem {
+export function setMonthListData ( calcCurrDate, calcMinDate, calcMaxDate, langData, monthList ): ListItem {
     const { year: currYear, month: currMonth } = calcCurrDate;
     const { year: minYear, month: minMonth } = calcMinDate;
     const { year: maxYear, month: maxMonth } = calcMaxDate;
@@ -44,7 +44,7 @@ export function setMonthListData ( calcCurrDate, calcMinDate, calcMaxDate, langD
                 monthListData.selectIndex = i;
             }
             monthListData.listData.push( {
-                text: `${monthText}${langData.month}`,
+                text: `${monthList[monthText - 1]}${langData.month}`,
                 dataKey: monthText
             } );
             monthText++;
@@ -62,7 +62,7 @@ export function setMonthListData ( calcCurrDate, calcMinDate, calcMaxDate, langD
                 monthListData.selectIndex = i - startMonth;
             }
             monthListData.listData.push( {
-                text: `${monthText}${langData.month}`,
+                text: `${monthList[monthText - 1]}${langData.month}`,
                 dataKey: monthText
             } );
             monthText++;
@@ -81,7 +81,7 @@ export function setMonthListData ( calcCurrDate, calcMinDate, calcMaxDate, langD
                     monthListData.selectIndex = i;
                 }
                 monthListData.listData.push( {
-                    text: `${monthText}${langData.month}`,
+                    text: `${monthList[monthText - 1]}${langData.month}`,
                     dataKey: monthText
                 } );
             }
