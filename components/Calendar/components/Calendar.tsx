@@ -16,8 +16,8 @@ import { isFunction } from '../../_util/typeof';
 export default class Calendar extends PureComponent<CalendarProps, CalendarState> {
     constructor(props) {
         super(props);
-        const _startTime = props.startTime ? this.conversionSelectTime(props.startTime) : null;
-        const _endTime = props.endTime ? this.conversionSelectTime(props.endTime) : null;
+        const _startTime = props.startTime ? this.conversionSelectTime(props.startTime, props.defaultStartTime) : null;
+        const _endTime = props.endTime ? this.conversionSelectTime(props.endTime, props.defaultEndTime) : null;
         // 与外部传入i18n进行合并
         const i18n = props.i18n ? Object.assign(calendar_i18n(props.lang), props.i18n) : calendar_i18n(props.lang);
         let { startIndexInfo, endIndexInfo, calendarMap } = createCalendarMap(props.lang, props.dateExtension, _startTime, _endTime, props.yesterday, i18n);
@@ -73,16 +73,23 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         dayCalculator: null
     };
 
-    conversionSelectTime(time): selectTimeInterface | null {
+    conversionSelectTime(time, hours): selectTimeInterface | null {
         if (!time) return null;
         let newTime = new Date(time);
+        let h, m;
+        if ( hours ) {
+            [h, m] = hours.split(':');
+        } else {
+            h = newTime.getHours();
+            m = newTime.getMinutes();
+        }
         if (newTime.toString() == 'Invalid Date') return null;
         return {
             Y: newTime.getFullYear(),
             M: newTime.getMonth(),
             D: newTime.getDate(),
-            h: newTime.getHours(),
-            m: newTime.getMinutes(),
+            h: +h,
+            m: +m,
             w: newTime.getDay(),
             t: newTime.getTime()
         }
@@ -116,6 +123,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
             i18n: this.state.i18n,
             calendarMode: calendarMode || 'default'
         });
+        console.log(select)
         this.setState({
             _startIndexInfo: { monthKey, rowKey, itemKey },
             _endIndexInfo: null,
@@ -167,6 +175,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
 
     selectTimePicker(type: string, selectItem): void {
         const { dataKey } = selectItem;
+        console.log(dataKey);
         const { _startTime, _endTime } = this.state;
         if (type == 'start-time' && _startTime) {
             this.setState({

@@ -10,7 +10,6 @@ export default function createPickerData(timeRange: [number, number], minutesInt
     let selectStartTime = currStartTime ? `${currStartTime.h}:${currStartTime.m}` : defaultStartTime;
     let selectEndTime = currEndTime ? `${currEndTime.h}:${currEndTime.m}` : defaultEndTime;
 
-
     for (let i = start; i <= end; i++) {
         let step;
         if (60 % minutesInterval == 0) {
