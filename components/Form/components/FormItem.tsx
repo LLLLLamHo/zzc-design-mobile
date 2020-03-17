@@ -147,16 +147,16 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
         });
     }
 
-    private checkIsShowClearBtn(): boolean {
-        const { formContext } = this.props;
-        const { formData } = formContext;
-        for (let i = 0; i < this.inputId.length; i++) {
-            if (this.inputId[i].inputType == 'text' && formData[this.inputId[i].id].value != null && formData[this.inputId[i].id].value != '') {
-                return true;
-            }
-        }
-        return false;
-    }
+    // private checkIsShowClearBtn(): boolean {
+    //     const { formContext } = this.props;
+    //     const { formData } = formContext;
+    //     for (let i = 0; i < this.inputId.length; i++) {
+    //         if (this.inputId[i].inputType == 'text' && formData[this.inputId[i].id].value != null && formData[this.inputId[i].id].value != '') {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
 
     private clearTextInputValue() {
         const { formContext } = this.props;

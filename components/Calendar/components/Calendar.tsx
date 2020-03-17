@@ -59,7 +59,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         lang: 'cn',
         calendarMode: 'default',
         mode: 'day',
-        timeRange: [0, 23],
+        timeRange: [0, 24],
         minutesInterval: 30,
         defaultStartTime: '9:00',
         defaultEndTime: '9:00',
@@ -73,11 +73,11 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         dayCalculator: null
     };
 
-    conversionSelectTime(time, hours): selectTimeInterface | null {
+    conversionSelectTime(time, hours?: string): selectTimeInterface | null {
         if (!time) return null;
         let newTime = new Date(time);
         let h, m;
-        if ( hours ) {
+        if (hours) {
             [h, m] = hours.split(':');
         } else {
             h = newTime.getHours();
@@ -96,36 +96,39 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
     }
 
     // 因为react设计大量循环计算，所以点击选择的规则通过操作DOM来渲染
-    selectItem(monthKey: number, rowKey: number, itemKey: number, dayInfo): void {
+    selectItem(year, monthKey: number, rowKey: number, itemKey: number, dayInfo): void {
+        // 当前点击的日期如果是下一年的情况下，需要对monthKey + 12;
+        // monthKey = new Date().getFullYear() != dayInfo.y ? monthKey + 12 : monthKey;
+
         const { _startTime, _endTime } = this.state;
         if ((!_startTime && !_endTime) || (_startTime && _endTime)) {
-            this.updateStartTime(_startTime, _endTime, monthKey, rowKey, itemKey);
+            this.updateStartTime(_startTime, _endTime, year, monthKey, rowKey, itemKey);
         } else if (_startTime && !_endTime) {
             // 需要对end时间做判断，如果小于start时间，那么将这次操作进行更新start
             const start_timestamp = new Date(`${_startTime.Y}/${_startTime.M + 1}/${_startTime.D}`);
             const end_timestamp = new Date(`${dayInfo.y}/${dayInfo.m + 1}/${dayInfo.d}`);
             if (end_timestamp < start_timestamp) {
-                this.updateStartTime(_startTime, _endTime, monthKey, rowKey, itemKey);
+                this.updateStartTime(_startTime, _endTime, year, monthKey, rowKey, itemKey);
             } else {
-                this.updateEndTime(_startTime, _endTime, monthKey, rowKey, itemKey);
+                this.updateEndTime(_startTime, _endTime, year, monthKey, rowKey, itemKey);
             }
         }
     }
 
-    updateStartTime(_startTime: selectTimeInterface | null, _endTime: selectTimeInterface | null, monthKey: number, rowKey: number, itemKey: number): void {
+    updateStartTime(_startTime: selectTimeInterface | null, _endTime: selectTimeInterface | null, year: number, monthKey: number, rowKey: number, itemKey: number): void {
         const { defaultStartTime, calendarMode } = this.props;
         const { newMap, select } = updateCalendarMap({
             type: 'start',
             _startIndexInfo: this.state._startIndexInfo,
             _endIndexInfo: this.state._endIndexInfo,
             map: this.state.calendarMap,
+            year,
             monthKey, rowKey, itemKey,
             i18n: this.state.i18n,
             calendarMode: calendarMode || 'default'
         });
-        console.log(select)
         this.setState({
-            _startIndexInfo: { monthKey, rowKey, itemKey },
+            _startIndexInfo: { monthKey, rowKey, itemKey, year },
             _endIndexInfo: null,
             _endTime: null,
             _startTime: this.conversionSelectTime(new Date(`${select.y}/${select.m + 1}/${select.d} ${defaultStartTime}`)),
@@ -136,18 +139,19 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         });
     }
 
-    updateEndTime(_startTime: selectTimeInterface, _endTime: selectTimeInterface | null, monthKey: number, rowKey: number, itemKey: number): void {
+    updateEndTime(_startTime: selectTimeInterface, _endTime: selectTimeInterface | null, year: number, monthKey: number, rowKey: number, itemKey: number): void {
         const { defaultEndTime } = this.props;
         const { newMap, select } = updateCalendarMap({
             type: 'end',
             _startIndexInfo: this.state._startIndexInfo,
             map: this.state.calendarMap,
+            year,
             monthKey, rowKey, itemKey,
             i18n: this.state.i18n,
             calendarMode: this.props.calendarMode || 'default'
         });
         this.setState({
-            _endIndexInfo: { monthKey, rowKey, itemKey },
+            _endIndexInfo: { monthKey, rowKey, itemKey, year },
             _endTime: this.conversionSelectTime(new Date(`${select.y}/${select.m + 1}/${select.d} ${defaultEndTime}`)),
             calendarMap: newMap
         }, () => {
@@ -210,8 +214,8 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
 
     echoSelectData(type: string, start: selectTimeInterface | null, end: selectTimeInterface | null): EchoSelectDataReturn | null {
         // 输出日期格式
-        if ( this.props.mode == 'day') {
-            if ( start) {
+        if (this.props.mode == 'day') {
+            if (start) {
                 delete start.h;
                 delete start.m;
             }
@@ -287,8 +291,8 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         return (
             <Popup visible={!!visible} bodyStyle={{ height: '100%' }}>
                 <div style={style} className={cardClassName}>
-                    <CalendarCloseBox onClose={this.closeCalendar}/>
-                    <CalendarResult lang={lang || 'cn'} i18n={i18n} mode={mode || 'day'} startTime={_startTime} endTime={_endTime} dayCalculator={dayCalculator}/>
+                    <CalendarCloseBox onClose={this.closeCalendar} />
+                    <CalendarResult lang={lang || 'cn'} i18n={i18n} mode={mode || 'day'} startTime={_startTime} endTime={_endTime} dayCalculator={dayCalculator} />
                     <CalendarWeek weekList={i18n.weekList} />
                     <CalendarListBox
                         paddingBottom={_listBoxPaddingBottom}
@@ -306,7 +310,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
                     >
                         <CalendarFooter
                             renderCallback={this.footerRenderCallback}
-                            timeRange={timeRange || [0, 23]}
+                            timeRange={timeRange || [0, 24]}
                             minutesInterval={minutesInterval || 30}
                             i18n={i18n}
                             reset={this.resetSelectDay}

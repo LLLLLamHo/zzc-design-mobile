@@ -67,6 +67,7 @@ export interface i18n {
 }
 
 export interface selectTimeIndex {
+    year: number
     monthKey: number
     rowKey: number
     itemKey: number
@@ -160,6 +161,7 @@ export interface updateCalendarMapProps {
     _startIndexInfo?: selectTimeIndex | null
     _endIndexInfo?: selectTimeIndex | null
     map: Array<CalendarMapItem>
+    year?: number 
     monthKey?: number 
     rowKey?: number 
     itemKey?: number 

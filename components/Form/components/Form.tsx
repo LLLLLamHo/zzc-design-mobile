@@ -55,7 +55,7 @@ export default class Form extends PureComponent<FormComponentProps, any> {
                             state.formInputOnFocus && state.formInputOnFocus(id, formOpt);
                         };
                         
-                        const value = formData[id] != null ? this.getFormInputData(id) : newOpt.initialValue || '';
+                        const value = formData[id] != null ? this.getFormInputData(id) : newOpt.initialValue != null ? newOpt.initialValue : '';
                         const consumerValue = isObject(value) ? { ...value } : { value: value };
                         return React.cloneElement(item, {
                             ...state,

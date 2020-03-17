@@ -113,10 +113,10 @@ function _createMonthMap(now: _createMonthMap_now, year: number, month: number, 
         // 如果传入有已经选中的时间，那么将在创建时查找命中的日期
         if (startInfo && endInfo && (startIndexInfo == null || endIndexInfo == null)) {
             if (year == startInfo.Y && month == startInfo.M && currData == startInfo.D) {
-                startIndexInfo = { monthKey: month, rowKey: monthList.length, itemKey: col - 1 };
+                startIndexInfo = { year, monthKey: month, rowKey: monthList.length, itemKey: col - 1 };
             }
             if (year == endInfo.Y && month == endInfo.M && currData == endInfo.D) {
-                endIndexInfo = { monthKey: month, rowKey: monthList.length, itemKey: col - 1 };
+                endIndexInfo = { year, monthKey: month, rowKey: monthList.length, itemKey: col - 1 };
             }
         }
     }
