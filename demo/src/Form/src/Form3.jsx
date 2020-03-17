@@ -462,6 +462,7 @@ class MyForm extends Component {
                 </Form.Item>
                 <Form.Item
                     label='更多手机号码'
+                    clearBtn
                 >
                     {this.props.form.getFieldDecorator( 'morePhoneNum', {
                         isShowSuccess: true,
@@ -500,7 +501,7 @@ class MyForm extends Component {
                         rules: [
                             {
                                 len: 3,
-                                message: '性别文案长度必须大于等于3'
+                                message: '性别文案长度必须等于3'
                             }
                         ]
                     }, <Input placeholder='性别文案' /> )}
@@ -526,6 +527,7 @@ class MyForm extends Component {
                     clearBtn
                 >
                     {this.props.form.getFieldDecorator( 'text_1', {
+                        initialValue: false,
                         rules: [
                             {
                                 required: true,

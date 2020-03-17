@@ -10,6 +10,12 @@
 * 次版本号：每月发布一个带有新特性的向下兼容的版本。
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
+#### 3.5.6
+`2020-03-17`
+
+- 🐞 修复Calendar日历时间问题 [#55](https://github.com/LLLLLamHo/zzc-design-mobile/issues/55) [#54](https://github.com/LLLLLamHo/zzc-design-mobile/issues/54)
+- 🐞 修复Form的清空内容按钮问题 [#53](https://github.com/LLLLLamHo/zzc-design-mobile/issues/53)
+
 #### 3.5.4 ~ 3.5.5
 `2020-03-9`
 

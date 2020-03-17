@@ -54,7 +54,7 @@ export default class CalendarListBox extends PureComponent<CalendarListBoxProps,
                                                 className={this.setItemClass(dayInfo)}
                                                 key={dayKey}
                                                 onClick={() => {
-                                                    !dayInfo.gone && !dayInfo.empty && this.props.selectItem(dayInfo.m, rowKey, dayKey, dayInfo);
+                                                    !dayInfo.gone && !dayInfo.empty && this.props.selectItem(monthData.y, dayInfo.m, rowKey, dayKey, dayInfo);
                                                 }}
                                             >
                                                 {dayInfo.main != null && <p>{dayInfo.main}</p>}

@@ -3,7 +3,7 @@ import { PickerData, ListData } from '../../Picker/propsType';
 export default function createPickerData(timeRange: [number, number], minutesInterval: number, currStartTime: selectTimeInterface, currEndTime: selectTimeInterface, defaultStartTime: string, defaultEndTime: string): Array<PickerData> {
     const [start, end] = timeRange;
     const pickerIime: Array<ListData> = [];
-
+    const MAX = 23;
     let startIndex = 0;
     let endIndex = 0;
 
@@ -11,6 +11,11 @@ export default function createPickerData(timeRange: [number, number], minutesInt
     let selectEndTime = currEndTime ? `${currEndTime.h}:${currEndTime.m}` : defaultEndTime;
 
     for (let i = start; i <= end; i++) {
+
+        if ( i > MAX) {
+            break;
+        }
+
         let step;
         if (60 % minutesInterval == 0) {
             step = 60 / minutesInterval;
@@ -20,6 +25,11 @@ export default function createPickerData(timeRange: [number, number], minutesInt
         for (let n = 0; n < step; n++) {
             const h = i < 10 ? `0${i}` : i;
             const m = n * minutesInterval;
+
+            if ( i == end && n > 0) {
+                break;
+            }
+
             const minutes = m < 10 ? `0${m}`: m;
 
             const c_t = `${i}:${m}`;

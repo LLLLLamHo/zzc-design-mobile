@@ -15,7 +15,7 @@
 | i18n                | 语言配置,不配置默认使用内部i18n配置                                              | I18n                                   | null         |
 | calendarMode        | 日历模式，暂时内置'car'                                                          | string                                 | 'default'    |
 | mode                | 日历选择范围模式，'day','day*time'                                               | string                                 | 'day'        |
-| timeRange           | 小时范围， mode=='day*time才生效'                                                | [number, number]                       | [0,23]       |
+| timeRange           | 小时范围， mode=='day*time才生效'                                                | [number, number]                       | [0,24]       |
 | minutesInterval     | 分钟间隔数， mode=='day*time才生效'                                              | number                                 | 30           |
 | defaultStartTime    | 默认选中的开始小时和分钟                                                         | string                                 | 9:00         |
 | defaultEndTime      | 默认选中的结束小时和分钟                                                         | string                                 | 9:00         |
@@ -30,6 +30,9 @@
 | onClose             | 提供给日历的关闭调用函数                                                         | function                               | null         |
 | dayCalculator       | 当开始和结束时间选择完成后，可以通过该函数进行自定义计算并返回给日历内部进行显示 | (start: number, end: number) => string | null         |
 | dateExtension       | 扩展日历显示                                                                     | DateExtension                          | null         |
+
+> 注意，如果timeRange设置为[0, 23],minutesInterval设置为30, 那么时间范围只能选择到0:00 ~ 23:00。
+> 如果想选择范围是0:00 ~ 23:30，那么使用默认即可
 
 函数触发说明
 
