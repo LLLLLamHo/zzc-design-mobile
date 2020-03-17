@@ -85,6 +85,9 @@ export default class Form extends PureComponent<FormComponentProps, any> {
         // 绑定form表单值变更是回调函数
         onValuesChange: (fn: Function): void => {
             this.onValuesChange = fn;
+        },
+        validateField: (id: string, cb: Function) => {
+            this.validateField(id, cb);
         }
     }
 
@@ -261,6 +264,21 @@ export default class Form extends PureComponent<FormComponentProps, any> {
         // submit情况下不需要同组验证
         if (itemInfo.grounp != null && type != 'submit') {
             this.grounpValidation(id, itemInfo.grounp);
+        }
+    }
+
+    validateField(id: string, callback: Function) {
+        const { formData } = this.state;
+        const itemInfo = formData[id];
+        const { successText } = itemInfo;
+        if (typeof callback === 'function') {
+            const error = callback(itemInfo);
+            if (error) {
+                this.updateFormItemStatus(id, 'error', error);
+            }
+            else {
+                this.updateFormItemStatus(id, 'success', successText);
+            }
         }
     }
 

@@ -462,6 +462,7 @@ class MyForm extends Component {
                 </Form.Item>
                 <Form.Item
                     label='更多手机号码'
+                    clearBtn
                 >
                     {this.props.form.getFieldDecorator( 'morePhoneNum', {
                         isShowSuccess: true,

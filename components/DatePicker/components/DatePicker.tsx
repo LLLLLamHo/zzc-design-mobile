@@ -245,7 +245,6 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
             className,
             `${prefixCls}`
         );
-        console.log(this.state.yearList)
         const langData = langTextObject[lang];
         return (
             <Popup

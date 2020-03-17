@@ -162,10 +162,15 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
         const { formContext } = this.props;
         const { formData, setValue } = formContext;
         for (let i = 0; i < this.inputId.length; i++) {
-            if (this.inputId[i].inputType == 'text' && formData[this.inputId[i].id].value != null && formData[this.inputId[i].id].value != '') {
+            // if (this.inputId[i].inputType == 'text' && formData[this.inputId[i].id].value != null && formData[this.inputId[i].id].value != '') {
+            // }
+            const { value } = formData[this.inputId[i].id];
+            if (typeof value === 'object') {
+                setValue(this.inputId[i].id, { ...value, value: '' });
+            } else {
                 setValue(this.inputId[i].id, '');
-                this.validationData(this.inputId[i].id);
             }
+            this.validationData(this.inputId[i].id);
         }
     }
 
@@ -178,7 +183,7 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
         const currFormItemStatusData = this.getCurrFormItemStatus(itemStatus);
         const itemBoxClassName = this.getCurrFormItemClassName(currFormItemStatusData);
 
-        const isShowClearBtn = clearBtn ? this.checkIsShowClearBtn() : false;
+        // const isShowClearBtn = clearBtn ? this.checkIsShowClearBtn() : false;
 
         return (
             <FormItemContext.Provider value={{
@@ -192,7 +197,7 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
                         <div className={classname} style={style}>
                             {label && <label htmlFor={htmlFor}>{label}{colon && ':'}</label>}
                             {children}
-                            {clearBtn && isShowClearBtn && clearBtnStatus && <div onClick={this.clearTextInputValue} className={`${prefixCls}-extra-box`}><Icon className='clear-input-btn' type='error_fill' /></div>}
+                            {clearBtn && clearBtnStatus && <div onClick={this.clearTextInputValue} className={`${prefixCls}-extra-box`}><Icon className='clear-input-btn' type='error_fill' /></div>}
                             {extra && <div className={`${prefixCls}-extra-box`}>{extra}</div>}
                         </div>
                     </div>
