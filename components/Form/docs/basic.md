@@ -329,7 +329,8 @@ form对象会额外提供一些api给你去扩展你的input组件
 | getFieldDecorator  | 将Input托管给Form                                                                                                                                   | getFieldDecorator(id: string, opt: getFieldDecoratorOption, item: JSX.Element) | JSX.Element     |
 | setFormAssignValue | 通知Form组件，更新指定input的值, 第三个参数用于强制进行校验，遇到readyOnly类型的input时，不能触发onchange事件，所以可以通过配置第三位参数来强制校验 | setFormAssignValue(id: string, value: any, isValidation: boolean)              | void            |
 | getFormAllData     | 获取Form下所有托管的Input数据                                                                                                                       | getFormAllData()                                                               | Object          |
-| onValuesChange     | 任一表单域的值发生改变时的回调                                                                                                                      | onValuesChange( function )                                                     | id, value       |
+| onValuesChange     | 任一表单域的值发生改变时的回调                                                                                                                      |onValuesChange( function )                                                     | id, value       |
+| setFieldStatus | 设置表单项状态 |  setFieldStatus(id: string, { status: 'normal' \| 'error' \| 'success', message: string, errorRuleIndex?: number }) | void |
 
 ## getFieldDecorator
 

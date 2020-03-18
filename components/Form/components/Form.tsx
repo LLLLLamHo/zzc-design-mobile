@@ -86,8 +86,8 @@ export default class Form extends PureComponent<FormComponentProps, any> {
         onValuesChange: (fn: Function): void => {
             this.onValuesChange = fn;
         },
-        validateField: (id: string, cb: Function) => {
-            this.validateField(id, cb);
+        setFieldStatus: (id: string, fieldStatus: { status: 'normal' | 'error' | 'success', message: string, errorRuleIndex?: number }) => {
+            this.setFieldStatus(id, fieldStatus);
         }
     }
 
@@ -267,19 +267,8 @@ export default class Form extends PureComponent<FormComponentProps, any> {
         }
     }
 
-    validateField(id: string, callback: Function) {
-        const { formData } = this.state;
-        const itemInfo = formData[id];
-        const { successText } = itemInfo;
-        if (typeof callback === 'function') {
-            const error = callback(itemInfo);
-            if (error) {
-                this.updateFormItemStatus(id, 'error', error);
-            }
-            else {
-                this.updateFormItemStatus(id, 'success', successText);
-            }
-        }
+    setFieldStatus(id: string, fieldStatus: { status: 'normal' | 'error' | 'success', message: string, errorRuleIndex?: number }) {
+        this.updateFormItemStatus(id, fieldStatus.status, fieldStatus.message);
     }
 
     // 验证规则
