@@ -15077,41 +15077,6 @@ button {
   100% {
     -webkit-transform: scale(1);
             transform: scale(1); } }
-.zzc-demo {
-  background: transparent !important;
-}
-
-.zzc-demo .zzc-demo-body {
-  padding: 0 !important;
-}
-
-.zzc-demo .zzc-demo-body h4 {
-  font-size: 17px;
-  padding: 20px 15px !important;
-}
-
-.inputItem {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.inputItem p {
-  line-height: 1;
-  font-size: 14px;
-}
-
-.wechat_text {
-  font-size: 14px;
-  text-align: left;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  color: #999;
-}
 body {
   background: #DDE0E6;
   font-family: -apple-system,Helvetica,Hiragino Sans GB W3,arial,sans-serif;
@@ -15165,6 +15130,41 @@ body {
   color: #333;
   font-size: .32rem;
   padding: .3rem;
+}
+.zzc-demo {
+  background: transparent !important;
+}
+
+.zzc-demo .zzc-demo-body {
+  padding: 0 !important;
+}
+
+.zzc-demo .zzc-demo-body h4 {
+  font-size: 17px;
+  padding: 20px 15px !important;
+}
+
+.inputItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.inputItem p {
+  line-height: 1;
+  font-size: 14px;
+}
+
+.wechat_text {
+  font-size: 14px;
+  text-align: left;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #999;
 }
 
 /*# sourceMappingURL=Form.css.map*/

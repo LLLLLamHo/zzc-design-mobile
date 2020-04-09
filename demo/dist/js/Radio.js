@@ -47105,8 +47105,8 @@ var Form = function (_PureComponent) {
             onValuesChange: function onValuesChange(fn) {
                 _this.onValuesChange = fn;
             },
-            validateField: function validateField(id, cb) {
-                _this.validateField(id, cb);
+            setFieldStatus: function setFieldStatus(id, fieldStatus) {
+                _this.setFieldStatus(id, fieldStatus);
             }
         };
         _this.state = {
@@ -47337,21 +47337,9 @@ var Form = function (_PureComponent) {
             }
         }
     }, {
-        key: 'validateField',
-        value: function validateField(id, callback) {
-            var formData = this.state.formData;
-
-            var itemInfo = formData[id];
-            var successText = itemInfo.successText;
-
-            if (typeof callback === 'function') {
-                var error = callback(itemInfo);
-                if (error) {
-                    this.updateFormItemStatus(id, 'error', error);
-                } else {
-                    this.updateFormItemStatus(id, 'success', successText);
-                }
-            }
+        key: 'setFieldStatus',
+        value: function setFieldStatus(id, fieldStatus) {
+            this.updateFormItemStatus(id, fieldStatus.status, fieldStatus.message);
         }
         // 验证规则
 
@@ -48562,9 +48550,10 @@ function getOptionsByValue(props) {
     pickerData.push(options);
     selectValue.forEach(function (value, index) {
         if (option) {
-            var fItem = option.find(function (item) {
+            var fIndex = option.findIndex(function (item) {
                 return item[prop.value] === value;
             });
+            var fItem = option[fIndex];
             if (fItem) {
                 var children = fItem[prop.children];
                 selectedOptions[index] = fItem;

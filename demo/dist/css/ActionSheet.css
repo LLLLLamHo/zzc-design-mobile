@@ -88,8 +88,9 @@ textarea {
   border-radius: 0;
   outline: medium none;
   -webkit-user-select: auto;
-  -ms-user-select: auto;
-      user-select: auto; }
+  -moz-user-select: auto;
+   -ms-user-select: auto;
+       user-select: auto; }
 
 input:disabled,
 textarea:disabled {
@@ -1442,6 +1443,7 @@ button {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
   -webkit-user-select: none;
+  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
   .zds-button.zds-button-active-default {
@@ -1496,6 +1498,7 @@ button {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
   -webkit-user-select: none;
+  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   font-size: 14px;
@@ -10090,7 +10093,8 @@ button {
     height: 100%;
     -webkit-box-flex: 1;
         -ms-flex: 1;
-            flex: 1; }
+            flex: 1;
+    -webkit-overflow-scrolling: touch; }
     .zds-moreSelect .zds-moreSelect-body .zds-moreSelect-item-title {
       padding: 5px 15px;
       box-sizing: border-box;
