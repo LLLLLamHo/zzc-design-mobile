@@ -22,6 +22,7 @@ $cls: '.zds-moreSelect';
         overflow-y: auto;
         height: 100%;
         flex: 1;
+        -webkit-overflow-scrolling: touch;
 
         #{$cls}-item-title {
             padding: 5px 15px;

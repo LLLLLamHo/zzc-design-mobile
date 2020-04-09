@@ -30,7 +30,8 @@ function getOptionsByValue(props, selectValue: Array<any> = []): GetOptionsByVal
     pickerData.push(options);
     selectValue.forEach((value, index) => {
         if (option) {
-            const fItem = option.find(item => item[prop.value] === value);
+            const fIndex = option.findIndex(item => item[prop.value] === value);
+            const fItem = option[fIndex];
             if (fItem) {
                 const children = fItem[prop.children];
                 selectedOptions[index] = fItem;
