@@ -88,9 +88,8 @@ textarea {
   border-radius: 0;
   outline: medium none;
   -webkit-user-select: auto;
-  -moz-user-select: auto;
-   -ms-user-select: auto;
-       user-select: auto; }
+  -ms-user-select: auto;
+      user-select: auto; }
 
 input:disabled,
 textarea:disabled {
@@ -1443,7 +1442,6 @@ button {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
   .zds-button.zds-button-active-default {
@@ -1498,7 +1496,6 @@ button {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   font-size: 14px;

@@ -43239,13 +43239,22 @@ var Input = function (_Component) {
                         _onBlur(_this2.getValue(e));
                     }
                 }, onFocus: function onFocus(e) {
-                    if (readOnly) return;
+                    if (readOnly) {
+                        // safari 的bug 不支持input标签的readonly属性
+                        _this2.defaultFocus();
+                        return;
+                    }
                     if (formInputOnFocus && (0, _typeof.isFunction)(formInputOnFocus)) {
                         formInputOnFocus(formOpt || null);
                     } else if (_onFocus && (0, _typeof.isFunction)(_onFocus)) {
                         _onFocus(_this2.getValue(e));
                     }
                 }, type: htmlType, className: inputClassName }));
+        }
+    }, {
+        key: 'defaultFocus',
+        value: function defaultFocus() {
+            this.input && this.input.blur();
         }
         // 手机号码前缀修改需要触发onchang通知
 
@@ -43850,7 +43859,9 @@ var Input = function (_PureComponent) {
 
             var inputClassName = (0, _classnames2.default)(prefixCls, className);
             var newProps = this.createNewProps();
-            return _react2.default.createElement('input', (0, _extends3.default)({}, newProps, { readOnly: true, onClick: function onClick() {
+            return _react2.default.createElement('input', (0, _extends3.default)({}, newProps, { ref: function ref(item) {
+                    _this2.input = item;
+                }, readOnly: true, onClick: function onClick() {
                     _this2.toggleShowSelect(true);
                 }, onChange: function onChange() {
                     if (formInputOnChange && (0, _typeof.isFunction)(formInputOnChange)) {
@@ -43865,12 +43876,19 @@ var Input = function (_PureComponent) {
                         _onBlur(_this2.getValue());
                     }
                 }, onFocus: function onFocus() {
+                    // safari 的bug 不支持input标签的readonly属性
+                    _this2.defaultFocus();
                     if (formInputOnFocus && (0, _typeof.isFunction)(formInputOnFocus)) {
                         formInputOnFocus(formOpt || null);
                     } else if (_onFocus && (0, _typeof.isFunction)(_onFocus)) {
                         _onFocus(_this2.getValue());
                     }
                 }, type: 'text', className: inputClassName }));
+        }
+    }, {
+        key: 'defaultFocus',
+        value: function defaultFocus() {
+            this.input && this.input.blur();
         }
     }, {
         key: 'render',
@@ -44102,7 +44120,9 @@ var Input = function (_PureComponent) {
 
             var inputClassName = (0, _classnames2.default)(prefixCls, className);
             var newProps = this.createNewProps();
-            return _react2.default.createElement('input', (0, _extends3.default)({}, newProps, { readOnly: true, onClick: function onClick() {
+            return _react2.default.createElement('input', (0, _extends3.default)({}, newProps, { ref: function ref(item) {
+                    _this2.input = item;
+                }, readOnly: true, onClick: function onClick() {
                     _this2.toggleShowDatePicker(true);
                 }, onChange: function onChange() {
                     if (formInputOnChange && (0, _typeof.isFunction)(formInputOnChange)) {
@@ -44117,12 +44137,19 @@ var Input = function (_PureComponent) {
                         _onBlur(_this2.getValue());
                     }
                 }, onFocus: function onFocus() {
+                    // safari 的bug 不支持input标签的readonly属性
+                    _this2.defaultFocus();
                     if (formInputOnFocus && (0, _typeof.isFunction)(formInputOnFocus)) {
                         formInputOnFocus(formOpt || null);
                     } else if (_onFocus && (0, _typeof.isFunction)(_onFocus)) {
                         _onFocus(_this2.getValue());
                     }
                 }, type: 'text', className: inputClassName }));
+        }
+    }, {
+        key: 'defaultFocus',
+        value: function defaultFocus() {
+            this.input && this.input.blur();
         }
     }, {
         key: 'render',
