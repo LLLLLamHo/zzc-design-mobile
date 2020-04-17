@@ -15,6 +15,7 @@ export default class Input extends PureComponent<InputDatePickerProps, InputDate
         }
         this.toggleShowDatePicker = this.toggleShowDatePicker.bind(this);
     }
+    private input: HTMLInputElement | null;
     private defaultDatePcikerConfig = {
         lang: 'cn',
         reverse: false,
@@ -118,6 +119,7 @@ export default class Input extends PureComponent<InputDatePickerProps, InputDate
         const newProps = this.createNewProps();
         return (<input
             {...newProps}
+            ref={(item) => { this.input = item; }}
             readOnly={true}
             onClick={() => {
                 this.toggleShowDatePicker(true);
@@ -136,7 +138,9 @@ export default class Input extends PureComponent<InputDatePickerProps, InputDate
                     onBlur(this.getValue());
                 }
             }}
-            onFocus={() => {
+            onFocus={() => {            
+                // safari 的bug 不支持input标签的readonly属性
+                this.defaultFocus();
                 if (formInputOnFocus && isFunction(formInputOnFocus)) {
                     formInputOnFocus(formOpt || null);
                 } else if (onFocus && isFunction(onFocus)) {
@@ -147,7 +151,9 @@ export default class Input extends PureComponent<InputDatePickerProps, InputDate
             className={inputClassName}
         />)
     }
-
+    defaultFocus(){
+      this.input&&this.input.blur();
+    }
     render(): JSX.Element {
         const { datePickerData, value } = this.props;
         const { isShowDatePicker } = this.state;

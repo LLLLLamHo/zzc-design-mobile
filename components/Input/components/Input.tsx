@@ -164,7 +164,11 @@ export default class Input extends Component<InputProps, InputState> {
                 }
             }}
             onFocus={(e) => {
-                if (readOnly) return;
+                if (readOnly){
+                  // safari 的bug 不支持input标签的readonly属性
+                  this.defaultFocus();
+                  return;
+                } 
                 if (formInputOnFocus && isFunction(formInputOnFocus)) {
                     formInputOnFocus(formOpt || null);
                 } else if (onFocus && isFunction(onFocus)) {
@@ -175,7 +179,9 @@ export default class Input extends Component<InputProps, InputState> {
             className={inputClassName}
         />)
     }
-
+    defaultFocus(){
+      this.input&&this.input.blur();
+    }
     // 手机号码前缀修改需要触发onchang通知
     changePhonePrefixHandle(item: ChangePhonePrefixHandleProps): void {
         const { formInputOnChange, formOpt, onChange } = this.props;

@@ -14,7 +14,8 @@ export default class Input extends PureComponent<InputSelectProps, InputSelectSt
         }
         this.toggleShowSelect = this.toggleShowSelect.bind(this);
     }
-
+    private input: HTMLInputElement | null;
+    
     static defaultProps = {
         prefixCls: `${config.cls}-input`,
         className: '',
@@ -132,6 +133,7 @@ export default class Input extends PureComponent<InputSelectProps, InputSelectSt
         const newProps = this.createNewProps();
         return (<input
             {...newProps}
+            ref={(item) => { this.input = item; }}
             readOnly={true}
             onClick={() => {
                 this.toggleShowSelect(true);
@@ -151,6 +153,8 @@ export default class Input extends PureComponent<InputSelectProps, InputSelectSt
                 }
             }}
             onFocus={() => {
+                // safari 的bug 不支持input标签的readonly属性
+                this.defaultFocus();
                 if (formInputOnFocus && isFunction(formInputOnFocus)) {
                     formInputOnFocus(formOpt || null);
                 } else if (onFocus && isFunction(onFocus)) {
@@ -161,7 +165,9 @@ export default class Input extends PureComponent<InputSelectProps, InputSelectSt
             className={inputClassName}
         />)
     }
-
+    defaultFocus(){
+      this.input&&this.input.blur();
+    }
     render(): JSX.Element {
         const { selectData, selectBodyStyle } = this.props;
         const { isShowSelect } = this.state;
