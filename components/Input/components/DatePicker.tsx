@@ -138,14 +138,14 @@ export default class Input extends PureComponent<InputDatePickerProps, InputDate
                     onBlur(this.getValue());
                 }
             }}
-            onFocus={() => {            
-                // safari 的bug 不支持input标签的readonly属性
-                this.defaultFocus();
+            onFocus={() => {                         
                 if (formInputOnFocus && isFunction(formInputOnFocus)) {
                     formInputOnFocus(formOpt || null);
                 } else if (onFocus && isFunction(onFocus)) {
                     onFocus(this.getValue());
                 }
+                // safari 的bug 不支持input标签的readonly属性
+                this.defaultFocus();
             }}
             type='text'
             className={inputClassName}
