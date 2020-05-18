@@ -13,7 +13,7 @@
 
 - 🐞 修复Input在ios真机中placehold文字没有和label文字对齐 [#62](https://github.com/LLLLLamHo/zzc-design-mobile/issues/62)
 - 🐞 修复Input在readonly时失去焦点没有将input状态复位 [#63](https://github.com/LLLLLamHo/zzc-design-mobile/issues/63)
-- 🌟 新增Tabs样式来扩大 Tabs Item可点击热区 [#64](https://github.com/LLLLLamHo/zzc-design-mobile/issues/64)
+- 🐞 新增Tabs样式来扩大 Tabs Item可点击热区 [#64](https://github.com/LLLLLamHo/zzc-design-mobile/issues/64)
 
 #### 3.5.8
 

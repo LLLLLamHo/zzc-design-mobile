@@ -302,6 +302,9 @@
 .zds-tabs-box .zds-tabs-bar-box .zds-tabs-ls-vertical .zds-tabs-ls-item {
   padding: 0 5px; }
 
+.zds-tabs-box .zds-tabs-bar-box .zds-tabs-ls-horizontal .zds-tabs-ls-item {
+  height: 100%; }
+
 .zds-tabs-box .zds-tabs-bar-box .zds-tabs-ls-item {
   box-sizing: border-box;
   padding: 0 16px;

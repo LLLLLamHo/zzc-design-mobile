@@ -6317,6 +6317,9 @@ button {
 .zds-tabs-box .zds-tabs-bar-box .zds-tabs-ls-vertical .zds-tabs-ls-item {
   padding: 0 5px; }
 
+.zds-tabs-box .zds-tabs-bar-box .zds-tabs-ls-horizontal .zds-tabs-ls-item {
+  height: 100%; }
+
 .zds-tabs-box .zds-tabs-bar-box .zds-tabs-ls-item {
   box-sizing: border-box;
   padding: 0 16px;
@@ -11951,25 +11954,22 @@ button {
   line-height: 14px; }
 
 .zds-input::-webkit-input-placeholder {
-  line-height: 16px;
+  line-height: 21px;
   vertical-align: middle;
   color: rgba(51, 51, 51, 0.2);
-  font-size: 14px;
-  line-height: 14px; }
+  font-size: 14px; }
 
 .zds-input::-ms-input-placeholder {
-  line-height: 16px;
+  line-height: 21px;
   vertical-align: middle;
   color: rgba(51, 51, 51, 0.2);
-  font-size: 14px;
-  line-height: 14px; }
+  font-size: 14px; }
 
 .zds-input::placeholder {
-  line-height: 16px;
+  line-height: 21px;
   vertical-align: middle;
   color: rgba(51, 51, 51, 0.2);
-  font-size: 14px;
-  line-height: 14px; }
+  font-size: 14px; }
 
 .zds-input-phone-box {
   width: 100%;
