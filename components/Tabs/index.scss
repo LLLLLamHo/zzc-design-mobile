@@ -87,7 +87,11 @@ $cls: '.zds-tabs';
                         padding: 0 5px;
                     }
                 }
-
+                &-horizontal{
+                  #{$cls}-ls-item {
+                    height: 100%;
+                  }
+                }
                 &-item {
                     box-sizing: border-box;
                     padding: 0 16px;
