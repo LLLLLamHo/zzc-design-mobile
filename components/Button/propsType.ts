@@ -11,6 +11,7 @@ export interface ButtonProps {
     activeStyle?: React.CSSProperties,
     activeClassName?: string
     htmlType?: string
+    loading?: boolean
 }
 
 export interface ButtonGroupProps {

@@ -20,6 +20,7 @@ export default class App extends PureComponent {
                     <h5>全局按钮基础样式</h5>
                     <Button>默认按钮</Button>
                     <Button><Icon style={{ marginRight: '5px', width: '18px', height: '18px' }} type='success_outline' />默认按钮</Button>
+                    <Button loading>加载中</Button>
                     <Button inactive>未激活按钮</Button>
                     <Button disabled>禁用按钮</Button>
                     <h5>全局次级按钮</h5>

@@ -22,15 +22,16 @@ $cls4: '.zds-form-item-line';
             }
         }
 
-        &-focus {
-            #{$cls3} {
-                @include halfPXLine('bottom', $form_focus_box_color);
+        // 暂时去掉获取焦点时的蓝色下划线
+        // &-focus {
+        //     #{$cls3} {
+        //         @include halfPXLine('bottom', $form_focus_box_color);
 
-                &::after {
-                    transform: scale(1, .5) translateY(50%);
-                }
-            }
-        }
+        //         &::after {
+        //             transform: scale(1, .5) translateY(50%);
+        //         }
+        //     }
+        // }
 
         &-success {
             #{$cls3} {

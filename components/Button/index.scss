@@ -78,10 +78,16 @@ $cls-group: #{$cls}-group;
         background-color: $button_background_disabled;
         border: 1px solid $button_border_disabled;
     }
+
+    #{$cls}-loading-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 6px;
+    }
 }
 
 @mixin btnSize() {
-    font-size: $fs_h2;    
+    font-size: $fs_h2;
     font-weight: 500;
     padding: 7.5px 34.5px;
     line-height: 20px;
@@ -95,7 +101,7 @@ $cls-group: #{$cls}-group;
     }
 
     &#{$cls}-small {
-        font-size: $fs_text;        
+        font-size: $fs_text;
         font-weight: 500;
         padding: 1px 18px;
         line-height: 20px;
@@ -161,24 +167,30 @@ $cls-group: #{$cls}-group;
 #{$cls-group} {
     display: flex;
     align-items: center;
-    &#{$cls-group}-center{
+
+    &#{$cls-group}-center {
         justify-content: space-between;
     }
-    &#{$cls-group}-left{
+
+    &#{$cls-group}-left {
         justify-content: flex-start;
     }
-    &#{$cls-group}-right{
+
+    &#{$cls-group}-right {
         justify-content: flex-end;
     }
+
     #{$cls} {
         flex: 1;
+
         &:not(:first-child) {
             margin-left: 12px;
         }
+
         &#{$cls}-inline {
             width: auto;
-            flex: 0!important;
+            flex: 0 !important;
         }
     }
-    
+
 }

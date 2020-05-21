@@ -18,10 +18,13 @@
 | activeClassName | 点击反馈的自定义类名                                  | string   |            |
 | disabled        | 设置禁用                                              | boolean  | false      |
 | inactive        | 未激活                                                | boolean  | false      |
+| loading         | 加载中                                                | boolean  | false      |
 | onClick         | 点击按钮的点击回调函数                                | function | 无         |
 | style           | 自定义样式                                            | Object   | 无         |
 | inline          | 是否设置为行内按钮                                    | boolean  | false      |
 | className       | 样式类名                                              | string   | 无         |
+
+> 按钮配置了loading，inactive，disabled后，点击事件将会失效。
 
 ```jsx
 <Button>默认按钮</Button>

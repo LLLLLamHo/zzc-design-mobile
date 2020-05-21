@@ -23,9 +23,15 @@ for ( let i = 0; i < dirs.length; i++ ) {
     // if ( dirs[i] == 'Form' ) {
     //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     // }
-    // if ( dirs[i] == 'Input' ) {
-    //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-    // }
+    if ( dirs[i] == 'Input' ) {
+        entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+    }
+    if ( dirs[i] == 'Form' ) {
+        entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+    }
+    if ( dirs[i] == 'Button' ) {
+        entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+    }
     // if ( dirs[i] == 'ActionSheet' ) {
     //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     // }
@@ -35,7 +41,7 @@ for ( let i = 0; i < dirs.length; i++ ) {
     // if ( dirs[i] == 'DatePicker' ) {
     //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
     // }
-    entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+    // entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
 }
 let config = {
     devtool: 'source-map',

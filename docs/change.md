@@ -9,6 +9,11 @@
 * 修订版本号：每周末会进行日常 bugfix 更新。（如果有紧急的 bugfix，则任何时候都可发布）
 * 次版本号：每月发布一个带有新特性的向下兼容的版本。
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
+#### 3.5.10
+- 🌟 Button组件添加laoding属性
+- 🌟 Input组件修改光标颜色
+- 🌟 FormItem组件移除获取焦点时的蓝色下划线
+
 #### 3.5.9
 
 - 🐞 修复Input在ios真机中placehold文字没有和label文字对齐 [#62](https://github.com/LLLLLamHo/zzc-design-mobile/issues/62)
