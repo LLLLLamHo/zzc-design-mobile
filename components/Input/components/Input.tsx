@@ -9,6 +9,7 @@ import InputSelect from './Select';
 import InputDatePicker from './DatePicker';
 import PhoneNumberPrefix from './phoneNumberPrefix';
 import MorePhoneNumberPrefix from './MorePhoneNumberPrefix';
+import SendCode from './SendCode';
 
 export default class Input extends Component<InputProps, InputState> {
     constructor(props) {
@@ -26,6 +27,7 @@ export default class Input extends Component<InputProps, InputState> {
     static Textarea = Textarea;
     static Select = InputSelect;
     static DatePicker = InputDatePicker;
+    static SendCode = SendCode;
 
     static defaultProps = {
         prefixCls: `${config.cls}-input`,

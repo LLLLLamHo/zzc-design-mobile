@@ -333,10 +333,39 @@ class MyForm extends Component {
     onChangeSwitch ( value ) {
         this.props.form.setFormAssignValue( 'switch', value ? 1 : 0 );
     }
-
+    onSendcode(){
+      return new Promise((resolve,reject)=>{
+            // 模拟调用发送接口
+            setTimeout(()=>{
+              resolve({
+                time:30,
+                start:true
+              })
+            },2000)
+      })
+    }
     render () {
         return (
             <Form onSubmit={this.onSubmit}>
+                <Form.Item
+                    label='验证码'
+                    htmlFor='code'
+                    // clearBtn
+                >
+                    {
+                    this.props.form.getFieldDecorator( 'code', {
+                      rules: [
+                          {
+                              required: true,
+                              message: '验证码不能为空'
+                          }
+                      ]
+                    }, <Input.SendCode 
+                        handlerSendCode={this.onSendcode} 
+                        placeholder='请输入普通文本' 
+                    /> 
+                    )}
+                </Form.Item>
                 <Form.Item
                     label='switch组件使用'
                     htmlFor='text'
@@ -493,6 +522,7 @@ class MyForm extends Component {
                 <Form.Item
                     label='单选'
                     htmlFor='sex'
+                    // clearBtn
                 >
                     {this.props.form.getFieldDecorator( 'sex_text', {
                         isShowSuccess: true,

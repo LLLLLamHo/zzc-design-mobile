@@ -175,3 +175,31 @@ export interface TextareaState {
     focus?: boolean
     value?: string
 }
+export interface InputCode {
+    prefixCls?: string
+    className?: string   
+    style: React.CSSProperties,
+    id?: string
+    name: string
+    value?: any,
+    defaultValue?: any
+    placeholder?: string
+    disabled?: boolean
+    lang?: 'cn' | 'hk'
+    onChange?: Function
+    onBlur?: Function
+    onFocus?: Function
+    formInputOnChange?: Function
+    formInputOnBlur?: Function
+    formDeleteId?: Function
+    formInputOnFocus?: Function
+    _zds_form_initValue?: Function
+    setFormItemId?: Function
+    formOpt?: getFieldDecoratorOption
+    sendText?:string
+    handlerSendCode?:Function
+}
+export interface InputCodeState {
+  sendText:string,
+  isSend:boolean
+}

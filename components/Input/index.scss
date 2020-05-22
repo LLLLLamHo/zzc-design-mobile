@@ -167,3 +167,21 @@ $cls2: '.zds-input-phone';
     }
 
 }
+
+#{$cls}-send {
+    &-code {
+        font-size: $fs14px;
+        color: $main;
+        display: flex;
+        align-items: center;
+        margin-left: 0.1rem;
+        &:before {
+          content: "";
+          width: 1px;
+          height: .6rem;
+          transform: scale(.5);
+          background-color: #9ea1b0;
+          margin-right: .15rem;
+        }
+    }
+}
