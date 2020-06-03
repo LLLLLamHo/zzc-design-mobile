@@ -279,6 +279,25 @@ warningText: null
 </Form.Item>
 ```
 
+## Input.SendCode
+
+带有发送验证码交互的input组件，参数与Input组件相同，有一些特殊参数
+| 属性            | 说明             | 类型     | 默认值       |
+| --------------- | ---------------- | -------- | ------------ |
+| sendText        | 发送按钮文案     | string   | '发送验证码' |
+| handlerSendCode | 点击时的调用函数 | Function | null         |
+
+handlerSendCode函数可以返回一个Promise，用于点击后成功调用接口后返回等待时间等参数。
+
+> function handlerSendCode(): Promise<CountDackwards> | CountDackwards {}
+
+### CountDackwards
+
+| 属性  | 说明           | 类型    | 默认值 |
+| ----- | -------------- | ------- | ------ |
+| start | 是否开始倒计时 | boolean | false  |
+| time  | 倒数时间（秒） | Number  | 必填   |
+
 ## Input.Textarea
 
 最基本的多行文本输入框组件

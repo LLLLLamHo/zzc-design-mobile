@@ -169,12 +169,14 @@ $cls2: '.zds-input-phone';
 }
 
 #{$cls}-send {
+
     &-code {
         font-size: $fs14px;
         color: $main;
         display: flex;
         align-items: center;
         margin-left: 0.1rem;
+        line-height: 1;
         &:before {
           content: "";
           width: 1px;
@@ -182,6 +184,10 @@ $cls2: '.zds-input-phone';
           transform: scale(.5);
           background-color: #9ea1b0;
           margin-right: .15rem;
+        }
+
+        &.disabled{
+            color: $button_border_disabled;
         }
     }
 }

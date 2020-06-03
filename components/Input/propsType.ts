@@ -196,9 +196,13 @@ export interface InputCode {
     _zds_form_initValue?: Function
     setFormItemId?: Function
     formOpt?: getFieldDecoratorOption
+}
+
+export interface InputCodeProps extends InputCode{
     sendText?:string
     handlerSendCode?:Function
 }
+
 export interface InputCodeState {
   sendText:string,
   isSend:boolean
