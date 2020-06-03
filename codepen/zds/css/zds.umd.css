@@ -1533,6 +1533,11 @@ button {
   background-color: #696E7C;
   border: 1px solid #696E7C; }
 
+.zds-button .zds-button-loading-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px; }
+
 .zds-button-inline {
   cursor: pointer;
   background-color: #2871F7;
@@ -11953,6 +11958,9 @@ button {
   width: 100%;
   line-height: 14px; }
 
+.zds-input input {
+  caret-color: #2871F7; }
+
 .zds-input::-webkit-input-placeholder {
   line-height: 21px;
   vertical-align: middle;
@@ -11982,6 +11990,9 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
+
+.zds-input-phone-box input {
+  caret-color: #2871F7; }
 
 .zds-input-phone-box .zds-input-phone-prefix {
   color: #333333;
@@ -12122,6 +12133,31 @@ button {
 .zds-input-textarea-auto-height textarea {
   overflow: hidden;
   min-height: 11px; }
+
+.zds-input-send-code {
+  font-size: 14px;
+  color: #2871F7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 0.1rem;
+  line-height: 1; }
+
+.zds-input-send-code:before {
+  content: "";
+  width: 1px;
+  height: .6rem;
+  -webkit-transform: scale(0.5);
+      -ms-transform: scale(0.5);
+          transform: scale(0.5);
+  background-color: #9ea1b0;
+  margin-right: .15rem; }
+
+.zds-input-send-code.disabled {
+  color: #696E7C; }
 .zds-slide-bottom-enter {
   position: absolute;
   -webkit-transform: translateY(100%);
@@ -13046,27 +13082,6 @@ button {
   transition: background 0.35s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
   transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), background 0.35s cubic-bezier(0.23, 1, 0.32, 1);
   transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), background 0.35s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.35s cubic-bezier(0.23, 1, 0.32, 1); }
-
-.zds-form .zds-form-item-box-focus .zds-form-item {
-  position: relative; }
-
-.zds-form .zds-form-item-box-focus .zds-form-item::after {
-  content: "";
-  position: absolute;
-  display: block;
-  z-index: 11;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  border-bottom: 1px solid #2871F7;
-  -webkit-transform: scaleY(0.5) translateY(50%);
-      -ms-transform: scaleY(0.5) translateY(50%);
-          transform: scaleY(0.5) translateY(50%); }
-
-.zds-form .zds-form-item-box-focus .zds-form-item::after {
-  -webkit-transform: scale(1, 0.5) translateY(50%);
-      -ms-transform: scale(1, 0.5) translateY(50%);
-          transform: scale(1, 0.5) translateY(50%); }
 
 .zds-form .zds-form-item-box-success .zds-form-item {
   position: relative; }

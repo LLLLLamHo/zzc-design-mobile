@@ -13,6 +13,7 @@
 - 🌟 Button组件添加laoding属性
 - 🌟 Input组件修改光标颜色
 - 🌟 FormItem组件移除获取焦点时的蓝色下划线
+- 🌟 新增Input.SendCode组件
 
 #### 3.5.9
 

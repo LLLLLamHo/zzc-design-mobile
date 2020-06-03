@@ -293,6 +293,11 @@
   background-color: #696E7C;
   border: 1px solid #696E7C; }
 
+.zds-button .zds-button-loading-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px; }
+
 .zds-button-inline {
   cursor: pointer;
   background-color: #2871F7;

@@ -241,6 +241,9 @@
   width: 100%;
   line-height: 14px; }
 
+.zds-input input {
+  caret-color: #2871F7; }
+
 .zds-input::placeholder {
   line-height: 21px;
   vertical-align: middle;
@@ -252,6 +255,9 @@
   flex: 1;
   display: flex;
   align-items: center; }
+
+.zds-input-phone-box input {
+  caret-color: #2871F7; }
 
 .zds-input-phone-box .zds-input-phone-prefix {
   color: #333333;
@@ -360,3 +366,22 @@
 .zds-input-textarea-auto-height textarea {
   overflow: hidden;
   min-height: 11px; }
+
+.zds-input-send-code {
+  font-size: 14px;
+  color: #2871F7;
+  display: flex;
+  align-items: center;
+  margin-left: 0.1rem;
+  line-height: 1; }
+
+.zds-input-send-code:before {
+  content: "";
+  width: 1px;
+  height: .6rem;
+  transform: scale(0.5);
+  background-color: #9ea1b0;
+  margin-right: .15rem; }
+
+.zds-input-send-code.disabled {
+  color: #696E7C; }

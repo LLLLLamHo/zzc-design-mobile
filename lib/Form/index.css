@@ -268,23 +268,6 @@
   transform: scale(0, 0.5) translateY(50%);
   transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), background 0.35s cubic-bezier(0.23, 1, 0.32, 1); }
 
-.zds-form .zds-form-item-box-focus .zds-form-item {
-  position: relative; }
-
-.zds-form .zds-form-item-box-focus .zds-form-item::after {
-  content: "";
-  position: absolute;
-  display: block;
-  z-index: 11;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  border-bottom: 1px solid #2871F7;
-  transform: scaleY(0.5) translateY(50%); }
-
-.zds-form .zds-form-item-box-focus .zds-form-item::after {
-  transform: scale(1, 0.5) translateY(50%); }
-
 .zds-form .zds-form-item-box-success .zds-form-item {
   position: relative; }
 
