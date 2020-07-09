@@ -25,6 +25,10 @@ export default class Form extends PureComponent<FormComponentProps, any> {
 
     // 扩展给业务组件调用的函数
     form = {
+        // 输出表达校验
+        formOnSubmit: (): any => {
+            return this.formOnSubmit();
+        },
         // 获取原生form表单对象
         getFormComponent: (): HTMLFormElement | null => {
             return this.formComponent;

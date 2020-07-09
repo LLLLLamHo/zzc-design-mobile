@@ -48027,6 +48027,10 @@ var Form = function (_PureComponent) {
         _this.formComponent = null;
         // 扩展给业务组件调用的函数
         _this.form = {
+            // 输出表达校验
+            formOnSubmit: function formOnSubmit() {
+                return _this.formOnSubmit();
+            },
             // 获取原生form表单对象
             getFormComponent: function getFormComponent() {
                 return _this.formComponent;
