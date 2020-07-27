@@ -21,7 +21,7 @@ class MyForm extends Component {
                                 required: true,
                                 message: '信息不能为空'
                             }
-                        ]
+                        ],
                     }, <Input placeholder='请输入' /> )}
                 </Form.Item>
                 <Form.Item

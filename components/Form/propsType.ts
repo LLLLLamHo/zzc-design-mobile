@@ -48,6 +48,9 @@ export interface getFieldDecoratorOption {
     validateTrigger?: 'onChange' | 'onFocus' | 'onBlur',
     valueTranslate?: Function
     submitFormat?: Function
+    trim?: Boolean
+    trimStart?:  Boolean
+    trimEnd?: Boolean
 }
 
 export interface rules{

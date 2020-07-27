@@ -105,7 +105,7 @@ export default class Modal extends PureComponent<ModalProps, any> {
                 if (!transparent && maskTransitionName && maskTransitionName !== '' && !this.maskShowed) {
                     return false;
                 }
-                event.stopPropagation();
+                event && event.stopPropagation && event.stopPropagation();
                 const res = onPress();
                 if (res && res.then) {
                     res.then(() => {

@@ -363,7 +363,8 @@ class MyForm extends Component {
                                     required: true,
                                     message: '验证码不能为空'
                                 }
-                            ]
+                            ],
+                            trim: true
                         }, <Input.SendCode
                             handlerSendCode={this.onSendcode}
                             placeholder='请输入普通文本'

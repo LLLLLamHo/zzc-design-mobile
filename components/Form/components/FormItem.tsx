@@ -4,7 +4,8 @@ import classnames from 'classnames';
 import { FormItemProps, FormItemState, getFieldDecoratorOption } from '../propsType';
 import { FormContext, FormItemContext } from './context';
 import Icon from '../../Icon';
-import { isFunction } from '../../_util/typeof';
+import { isFunction, isString } from '../../_util/typeof';
+import trim from '../../_util/trim';
 
 class FormItem extends PureComponent<FormItemProps, FormItemState> {
     constructor(props) {
@@ -40,6 +41,21 @@ class FormItem extends PureComponent<FormItemProps, FormItemState> {
         if ( formOpt.formOnChange && isFunction(formOpt.formOnChange) ) {
             formOpt.formOnChange(value);
         }
+        // 传入参数trim，则触发trim
+        if (isString(value) ) {
+
+            if ( formOpt.trim ) {
+                value = trim('all', value);
+            }
+            else if ( formOpt.trimStart ) {
+                value = trim('start', value);
+            }
+            else if ( formOpt.trimEnd ) {
+                value = trim('end', value);
+            }
+
+        }
+
         noticeFormFn(id, value);
     }
 

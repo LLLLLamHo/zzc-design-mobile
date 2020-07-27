@@ -323,15 +323,15 @@ form对象会额外提供一些api给你去扩展你的input组件
 
 ### props.form
 
-| 属性               | 说明                                                                                                                                                | 类型                                                                                                               | 返回值          |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | --------------- |
-| getFormComponent   | 获取form元素对象                                                                                                                                    | getFormComponent()                                                                                                 | HTMLFormElement |
-| getFieldDecorator  | 将Input托管给Form                                                                                                                                   | getFieldDecorator(id: string, opt: getFieldDecoratorOption, item: JSX.Element)                                     | JSX.Element     |
-| setFormAssignValue | 通知Form组件，更新指定input的值, 第三个参数用于强制进行校验，遇到readyOnly类型的input时，不能触发onchange事件，所以可以通过配置第三位参数来强制校验 | setFormAssignValue(id: string, value: any, isValidation: boolean)                                                  | void            |
-| getFormAllData     | 获取Form下所有托管的Input数据                                                                                                                       | getFormAllData()                                                                                                   | Object          |
-| onValuesChange     | 任一表单域的值发生改变时的回调                                                                                                                      | onValuesChange( function )                                                                                         | id, value       |
-| setFieldStatus     | 设置表单项状态                                                                                                                                      | setFieldStatus(id: string, { status: 'normal' \| 'error' \| 'success', message: string, errorRuleIndex?: number }) | void            |
-| formOnSubmit     | 触发表单验证    | formOnSubmit() | {errList, outputData}         |
+| 属性               | 说明                                                                                                                                                | 类型                                                                                                               | 返回值                |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | --------------------- |
+| getFormComponent   | 获取form元素对象                                                                                                                                    | getFormComponent()                                                                                                 | HTMLFormElement       |
+| getFieldDecorator  | 将Input托管给Form                                                                                                                                   | getFieldDecorator(id: string, opt: getFieldDecoratorOption, item: JSX.Element)                                     | JSX.Element           |
+| setFormAssignValue | 通知Form组件，更新指定input的值, 第三个参数用于强制进行校验，遇到readyOnly类型的input时，不能触发onchange事件，所以可以通过配置第三位参数来强制校验 | setFormAssignValue(id: string, value: any, isValidation: boolean)                                                  | void                  |
+| getFormAllData     | 获取Form下所有托管的Input数据                                                                                                                       | getFormAllData()                                                                                                   | Object                |
+| onValuesChange     | 任一表单域的值发生改变时的回调                                                                                                                      | onValuesChange( function )                                                                                         | id, value             |
+| setFieldStatus     | 设置表单项状态                                                                                                                                      | setFieldStatus(id: string, { status: 'normal' \| 'error' \| 'success', message: string, errorRuleIndex?: number }) | void                  |
+| formOnSubmit       | 触发表单验证                                                                                                                                        | formOnSubmit()                                                                                                     | {errList, outputData} |
 
 ## getFieldDecorator
 
@@ -371,6 +371,9 @@ form对象会额外提供一些api给你去扩展你的input组件
 | formOnFocus     | 当前input触发onFocus的时候会单独触发，可以使用`onValuesChange`           | function() {}                        | null     |
 | valueTranslate  | 用于转换form中实际存储的值与界面存储的值                                 | function(value: any): string {}      | null     |
 | submitFormat    | 格式化组件输出的value值，必须返回一个值给Form组件，用于submit时填充value | function(value: any): any {}         | null     |
+| trim            | 格式化前后空格（只对String类型的value生效）                              | boolean                              | false    |
+| trimStart       | 格式化前空格（只对String类型的value生效）                                | boolean                              | false    |
+| trimEnd         | 格式化后空格（只对String类型的value生效）                                | boolean                              | false    |
 
 举个例子：如果你的组件里用到了前缀的电话号码组件，那么本来Input组件中就支持传入`value`和`phonePrefix`这两个值来控制默认的前缀和手机号码。那么也可以直接通过`initialValue`来控制。
 

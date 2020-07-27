@@ -41,10 +41,12 @@ export default class Form extends PureComponent<FormComponentProps, any> {
                 rules: [],
                 trigger: 'onChange',
                 validateTrigger: 'onBlur',
+                trim: false,
+                trimStart: false,
+                trimEnd: false
             };
 
             const newOpt = Object.assign(defaultOpt, opt);
-
             return (
                 <FormItemContext.Consumer>
                     {(state) => {
