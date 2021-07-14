@@ -88,6 +88,8 @@ export default class Animate extends React.PureComponent<AnimateProps> {
         const { enter, enterActive, leave, leaveActive } = animationName;
         try {
             const node = ReactDOM.findDOMNode( this );
+            // 当子元素也存在动画时，会影响父级动画，只有目标元素是当前node节点才进行修改状态
+            if ( event.target !== node ) return;
             if ( isDOM( node ) ) {
                 let animationType = 'enter';
                 // 当传入object会清除enter钩子，如果只是传入一个字符串，会保留class直至关闭才去掉class

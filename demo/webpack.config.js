@@ -38,19 +38,13 @@ for (let i = 0; i < dirs.length; i++) {
   // if (dirs[i] == 'Cascader') {
   //   entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
   // }
-  // if (dirs[i] == 'Switch') {
-  //   entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-  // }
-  // if ( dirs[i] == 'ActionSheet' ) {
-  //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-  // }
-  // if ( dirs[i] == 'Calendar' ) {
-  //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-  // }
-  // if ( dirs[i] == 'DatePicker' ) {
-  //     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-  // }
-  entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+  if (dirs[i] == 'Switch') {
+    entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+  }
+  if (dirs[i] == 'Popup') {
+    entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+  }
+  // entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
 }
 let config = {
   devtool: 'source-map',

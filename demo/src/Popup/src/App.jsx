@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Popup, Button, Card, Icon} from 'zzc-design-mobile';
+import {Popup, Button, Card, Icon, Switch} from 'zzc-design-mobile';
 import './index.scss';
 import '../../../style/style.scss';
 
@@ -34,8 +34,15 @@ export default class App extends Component {
             visible5: false,
             visible6: false,
             visible7: false,
-            countryList: ['美国', '英国', '法国', '德国', '巴西', '中国', '韩国', '朝鲜', '日本', '俄罗斯', '新西兰', '澳大利亚', '印度', '泰国', '缅甸', '老挝']
+            countryList: ['美国', '英国', '法国', '德国', '巴西', '中国', '韩国', '朝鲜', '日本', '俄罗斯', '新西兰', '澳大利亚', '印度', '泰国', '缅甸', '老挝'],
+            status1: false
         };
+    }
+
+    changeState1(value) {
+        this.setState( {
+            status1: value
+        } );
     }
 
     openButtomPopup() {
@@ -140,6 +147,8 @@ export default class App extends Component {
                                 <Card.Body>
                                     <div className='card-box2'>
                                         <p>两边留空</p>
+                                        <Switch checked={this.state.status1} onChange={(value) => { this.changeState1(value); }} />
+
                                         <Icon size='sm' type='success_outline' />
                                     </div>
                                 </Card.Body>
