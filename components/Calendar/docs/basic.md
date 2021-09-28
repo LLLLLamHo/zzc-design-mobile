@@ -23,6 +23,7 @@
 | endTime             | 默认选中结束的日期                                                               | Date，number，string                   | null         |
 | defaultCalendarTips | 默认提示文案                                                                     | string                                 | ''           |
 | yesterday           | 前一天是否可点击                                                                 | boolean                                | false        |
+| dropOffMaxDays      | 最大在租期限制                                                                  | number                                 | 0            |
 | visible             | 是否显示日历                                                                     | boolean                                | false        |
 | dayChange           | 日期改变时触发，函数执行完后return一个字符串，用于动态修改日历的提示信息         | function                               | null         |
 | timeChange          | 时间改变时触发，函数执行完后return一个字符串，用于动态修改日历的提示信息         | function                               | null         |

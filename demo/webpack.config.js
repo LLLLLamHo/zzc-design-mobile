@@ -35,9 +35,9 @@ for (let i = 0; i < dirs.length; i++) {
   // if (dirs[i] == 'Radio') {
   //   entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
   // }
-  // if (dirs[i] == 'Cascader') {
-  //   entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
-  // }
+  if (dirs[i] == 'Calendar') {
+    entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+  }
   if (dirs[i] == 'Switch') {
     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
   }
@@ -46,6 +46,7 @@ for (let i = 0; i < dirs.length; i++) {
   }
   // entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
 }
+console.log('entry',entry)
 let config = {
   devtool: 'source-map',
   entry: entry,

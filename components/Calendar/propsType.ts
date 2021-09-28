@@ -22,6 +22,7 @@ export interface CalendarProps {
     defaultCalendarTips?: string
     yesterday?: boolean
     visible?: boolean
+    dropOffMaxDays?: number | string
     dayChange?: Function
     timeChange?: Function
     onChange?: Function
@@ -129,6 +130,12 @@ export interface _createMonthMap_now {
     n_y: number
     n_m: number
     n_d: number
+}
+
+export interface _lastDateMap {
+    l_y: number
+    l_m: number
+    l_d: number
 }
 
 export interface createCalendarMapReturn {
