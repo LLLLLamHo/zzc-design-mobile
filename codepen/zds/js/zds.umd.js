@@ -40111,19 +40111,48 @@ var Calendar = function (_PureComponent) {
 
         var _this = (0, _possibleConstructorReturn3.default)(this, (Calendar.__proto__ || (0, _getPrototypeOf2.default)(Calendar)).call(this, props));
 
+        _this.updateStartTime = function (_startTime, _endTime, year, monthKey, rowKey, itemKey) {
+            var _this$props = _this.props,
+                defaultStartTime = _this$props.defaultStartTime,
+                calendarMode = _this$props.calendarMode;
+
+            var _updateCalendarMap = (0, _updateCalendarMap6.default)({
+                type: 'start',
+                _startIndexInfo: _this.state._startIndexInfo,
+                _endIndexInfo: _this.state._endIndexInfo,
+                map: _this.state.calendarMap,
+                year: year,
+                monthKey: monthKey, rowKey: rowKey, itemKey: itemKey,
+                i18n: _this.state.i18n,
+                calendarMode: calendarMode || 'default'
+            }),
+                newMap = _updateCalendarMap.newMap,
+                select = _updateCalendarMap.select;
+
+            _this.setState({
+                _startIndexInfo: { monthKey: monthKey, rowKey: rowKey, itemKey: itemKey, year: year },
+                _endIndexInfo: null,
+                _endTime: null,
+                _startTime: _this.conversionSelectTime(new Date(select.y + '/' + (select.m + 1) + '/' + select.d + ' ' + defaultStartTime)),
+                calendarMap: newMap,
+                _listBoxPaddingBottom: 30
+            }, function () {
+                _this.onChangeEvent('day', 'start');
+            });
+        };
         var _startTime = props.startTime ? _this.conversionSelectTime(props.startTime, props.defaultStartTime) : null;
         var _endTime = props.endTime ? _this.conversionSelectTime(props.endTime, props.defaultEndTime) : null;
         // 与外部传入i18n进行合并
         var i18n = props.i18n ? (0, _assign2.default)((0, _i18n2.default)(props.lang), props.i18n) : (0, _i18n2.default)(props.lang);
 
-        var _createCalendarMap = (0, _createCalendarMap3.default)(props.lang, props.dateExtension, _startTime, _endTime, props.yesterday, i18n),
+        var _createCalendarMap = (0, _createCalendarMap3.default)(props.lang, props.dropOffMaxDays, props.dateExtension, _startTime, _endTime, props.yesterday, i18n),
             startIndexInfo = _createCalendarMap.startIndexInfo,
             endIndexInfo = _createCalendarMap.endIndexInfo,
             calendarMap = _createCalendarMap.calendarMap;
 
         if (startIndexInfo && endIndexInfo) {
-            var _updateCalendarMap = (0, _updateCalendarMap6.default)((0, _assign2.default)({ type: 'end', _startIndexInfo: startIndexInfo, _endIndexInfo: endIndexInfo, map: calendarMap, i18n: i18n, calendarMode: props.calendarMode }, endIndexInfo)),
-                newMap = _updateCalendarMap.newMap;
+            var _updateCalendarMap2 = (0, _updateCalendarMap6.default)((0, _assign2.default)({ type: 'end', _startIndexInfo: startIndexInfo, _endIndexInfo: endIndexInfo, map: calendarMap, i18n: i18n, calendarMode: props.calendarMode }, endIndexInfo)),
+                newMap = _updateCalendarMap2.newMap;
 
             calendarMap = newMap;
         }
@@ -40201,42 +40230,9 @@ var Calendar = function (_PureComponent) {
             }
         }
     }, {
-        key: 'updateStartTime',
-        value: function updateStartTime(_startTime, _endTime, year, monthKey, rowKey, itemKey) {
-            var _this2 = this;
-
-            var _props = this.props,
-                defaultStartTime = _props.defaultStartTime,
-                calendarMode = _props.calendarMode;
-
-            var _updateCalendarMap2 = (0, _updateCalendarMap6.default)({
-                type: 'start',
-                _startIndexInfo: this.state._startIndexInfo,
-                _endIndexInfo: this.state._endIndexInfo,
-                map: this.state.calendarMap,
-                year: year,
-                monthKey: monthKey, rowKey: rowKey, itemKey: itemKey,
-                i18n: this.state.i18n,
-                calendarMode: calendarMode || 'default'
-            }),
-                newMap = _updateCalendarMap2.newMap,
-                select = _updateCalendarMap2.select;
-
-            this.setState({
-                _startIndexInfo: { monthKey: monthKey, rowKey: rowKey, itemKey: itemKey, year: year },
-                _endIndexInfo: null,
-                _endTime: null,
-                _startTime: this.conversionSelectTime(new Date(select.y + '/' + (select.m + 1) + '/' + select.d + ' ' + defaultStartTime)),
-                calendarMap: newMap,
-                _listBoxPaddingBottom: 30
-            }, function () {
-                _this2.onChangeEvent('day', 'start');
-            });
-        }
-    }, {
         key: 'updateEndTime',
         value: function updateEndTime(_startTime, _endTime, year, monthKey, rowKey, itemKey) {
-            var _this3 = this;
+            var _this2 = this;
 
             var defaultEndTime = this.props.defaultEndTime;
 
@@ -40257,7 +40253,7 @@ var Calendar = function (_PureComponent) {
                 _endTime: this.conversionSelectTime(new Date(select.y + '/' + (select.m + 1) + '/' + select.d + ' ' + defaultEndTime)),
                 calendarMap: newMap
             }, function () {
-                _this3.onChangeEvent('day', 'end');
+                _this2.onChangeEvent('day', 'end');
             });
         }
     }, {
@@ -40284,7 +40280,7 @@ var Calendar = function (_PureComponent) {
     }, {
         key: 'selectTimePicker',
         value: function selectTimePicker(type, selectItem) {
-            var _this4 = this;
+            var _this3 = this;
 
             var dataKey = selectItem.dataKey;
 
@@ -40297,22 +40293,22 @@ var Calendar = function (_PureComponent) {
                 this.setState({
                     _startTime: this.conversionSelectTime(new Date(_startTime.Y + '/' + (_startTime.M + 1) + '/' + _startTime.D + ' ' + dataKey))
                 }, function () {
-                    _this4.onChangeEvent('time', 'start');
+                    _this3.onChangeEvent('time', 'start');
                 });
             } else if (_endTime) {
                 this.setState({
                     _endTime: this.conversionSelectTime(new Date(_endTime.Y + '/' + (_endTime.M + 1) + '/' + _endTime.D + ' ' + dataKey))
                 }, function () {
-                    _this4.onChangeEvent('time', 'end');
+                    _this3.onChangeEvent('time', 'end');
                 });
             }
         }
     }, {
         key: 'onChangeEvent',
         value: function onChangeEvent(eventType, type) {
-            var _props2 = this.props,
-                timeChange = _props2.timeChange,
-                dayChange = _props2.dayChange;
+            var _props = this.props,
+                timeChange = _props.timeChange,
+                dayChange = _props.dayChange;
 
             var tips = '';
             if (eventType == 'day' && dayChange && (0, _typeof.isFunction)(dayChange)) {
@@ -40411,18 +40407,18 @@ var Calendar = function (_PureComponent) {
     }, {
         key: 'render',
         value: function render() {
-            var _props3 = this.props,
-                style = _props3.style,
-                prefixCls = _props3.prefixCls,
-                className = _props3.className,
-                lang = _props3.lang,
-                mode = _props3.mode,
-                timeRange = _props3.timeRange,
-                minutesInterval = _props3.minutesInterval,
-                defaultStartTime = _props3.defaultStartTime,
-                defaultEndTime = _props3.defaultEndTime,
-                visible = _props3.visible,
-                dayCalculator = _props3.dayCalculator;
+            var _props2 = this.props,
+                style = _props2.style,
+                prefixCls = _props2.prefixCls,
+                className = _props2.className,
+                lang = _props2.lang,
+                mode = _props2.mode,
+                timeRange = _props2.timeRange,
+                minutesInterval = _props2.minutesInterval,
+                defaultStartTime = _props2.defaultStartTime,
+                defaultEndTime = _props2.defaultEndTime,
+                visible = _props2.visible,
+                dayCalculator = _props2.dayCalculator;
             var _state5 = this.state,
                 calendarMap = _state5.calendarMap,
                 i18n = _state5.i18n,
@@ -40455,6 +40451,7 @@ Calendar.defaultProps = {
     dayChange: null,
     timeChange: null,
     defaultCalendarTips: '',
+    dropOffMaxDays: 0,
     yesterday: false,
     onChange: null,
     onClose: null,
@@ -41150,7 +41147,7 @@ function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
 
-function createCalendarMap(lang, dateExtension, startInfo, endInfo, yesterday, i18n) {
+function createCalendarMap(lang, dropOffMaxDays, dateExtension, startInfo, endInfo, yesterday, i18n) {
     var date = new Date();
     var year = date.getFullYear();
     var month = date.getMonth();
@@ -41160,6 +41157,7 @@ function createCalendarMap(lang, dateExtension, startInfo, endInfo, yesterday, i
     var nowMonth = now.getMonth();
     var nowYear = now.getFullYear();
     var nowDay = now.getDate();
+    var lastDateMap = dropOffMaxDays > 0 ? _getLastDateMap(Number(dropOffMaxDays)) : null;
     var startIndexInfo = null;
     var endIndexInfo = null;
     var step = 13;
@@ -41168,7 +41166,7 @@ function createCalendarMap(lang, dateExtension, startInfo, endInfo, yesterday, i
             n_y: nowYear,
             n_m: nowMonth,
             n_d: nowDay
-        }, year, month, lang, dateExtension, startInfo, endInfo, startIndexInfo, endIndexInfo, yesterday, i18n),
+        }, lastDateMap, year, month, lang, dateExtension, startInfo, endInfo, startIndexInfo, endIndexInfo, yesterday, i18n),
             monthData = _createMonthMap2.monthData,
             startIndex = _createMonthMap2.startIndex,
             endIndex = _createMonthMap2.endIndex;
@@ -41194,14 +41192,34 @@ function createCalendarMap(lang, dateExtension, startInfo, endInfo, yesterday, i
         calendarMap: calendarMap
     };
 }
-function _createMonthMap(now, year, month, lang, dateExtension, startInfo, endInfo, startIndexInfo, endIndexInfo, yesterday, i18n) {
+function _getLastDateMap(AddDayCount) {
+    var last = new Date();
+    last.setDate(last.getDate() + AddDayCount);
+    var lastYear = last.getFullYear();
+    var lastMonth = last.getMonth();
+    var lastDay = last.getDate();
+    return {
+        l_y: lastYear,
+        l_m: lastMonth,
+        l_d: lastDay
+    };
+}
+function _createMonthMap(now, lastDateMap, year, month, lang, dateExtension, startInfo, endInfo, startIndexInfo, endIndexInfo, yesterday, i18n) {
     var startDay = 0;
     var lastDay = new Date(year, month + 1, 0).getDate();
     var monthList = [];
     // 过去日期
-    var effectiveDate = void 0;
+    var effectiveDate = void 0; // 起始定点
+    var lastEffectiveEnd = void 0; // 结尾定点
+    var effectiveRang = false; // 默认限制区间（针对月份级别）
     if (year <= now.n_y && month <= now.n_m) {
         effectiveDate = now.n_d;
+    }
+    if (lastDateMap && year == lastDateMap.l_y && month == lastDateMap.l_m) {
+        lastEffectiveEnd = lastDateMap.l_d;
+    }
+    if (lastDateMap && (year == now.n_y && month > now.n_m || year > now.n_y) && (year < lastDateMap.l_y && month > lastDateMap.l_m || year == lastDateMap.l_y && month < lastDateMap.l_m)) {
+        effectiveRang = true;
     }
     var rowList = [];
     // 第一天补位，如果不是星期1，那么将需要补位
@@ -41209,22 +41227,43 @@ function _createMonthMap(now, year, month, lang, dateExtension, startInfo, endIn
     for (var i = startDay; i < lastDay; i++) {
         var col = void 0;
         var currData = i + 1;
-        if (effectiveDate && currData < effectiveDate) {
-            col = rowList.push(_getDayItemInfo({
-                day: currData,
-                month: month,
-                year: year,
-                gone: yesterday && year == now.n_y && month == now.n_m && currData == now.n_d - 1 ? false : true,
-                sub: _createDayInfoSubText((0, _assign2.default)({}, now, { c_y: year, c_m: month, c_d: currData }), i18n)
-            }, dateExtension));
+        if (lastDateMap) {
+            if (lastEffectiveEnd && currData <= lastEffectiveEnd || effectiveDate && currData >= effectiveDate || effectiveRang) {
+                col = rowList.push(_getDayItemInfo({
+                    day: currData,
+                    month: month,
+                    year: year,
+                    gone: false,
+                    sub: _createDayInfoSubText((0, _assign2.default)({}, now, { c_y: year, c_m: month, c_d: currData }), i18n)
+                }, dateExtension));
+            } else {
+                col = rowList.push(_getDayItemInfo({
+                    day: currData,
+                    month: month,
+                    year: year,
+                    gone: yesterday && year == now.n_y && month == now.n_m && currData == now.n_d - 1 ? false : true,
+                    sub: _createDayInfoSubText((0, _assign2.default)({}, now, { c_y: year, c_m: month, c_d: currData }), i18n)
+                }, dateExtension));
+            }
         } else {
-            col = rowList.push(_getDayItemInfo({
-                day: currData,
-                month: month,
-                year: year,
-                gone: false,
-                sub: _createDayInfoSubText((0, _assign2.default)({}, now, { c_y: year, c_m: month, c_d: currData }), i18n)
-            }, dateExtension));
+            // 无限制区间
+            if (effectiveDate && currData < effectiveDate) {
+                col = rowList.push(_getDayItemInfo({
+                    day: currData,
+                    month: month,
+                    year: year,
+                    gone: yesterday && year == now.n_y && month == now.n_m && currData == now.n_d - 1 ? false : true,
+                    sub: _createDayInfoSubText((0, _assign2.default)({}, now, { c_y: year, c_m: month, c_d: currData }), i18n)
+                }, dateExtension));
+            } else {
+                col = rowList.push(_getDayItemInfo({
+                    day: currData,
+                    month: month,
+                    year: year,
+                    gone: false,
+                    sub: _createDayInfoSubText((0, _assign2.default)({}, now, { c_y: year, c_m: month, c_d: currData }), i18n)
+                }, dateExtension));
+            }
         }
         // 7列为1行
         if (rowList.length % 7 == 0) {
@@ -41514,8 +41553,10 @@ function _updateResetCalendar(map, startIndexInfo, endIndexInfo) {
     var startDayItem = map[startDateIndex].list[startIndexInfo.rowKey][startIndexInfo.itemKey];
     var endDayItem = map[endDateIndex].list[endIndexInfo.rowKey][endIndexInfo.itemKey];
     startDayItem['start'] = false;
+    startDayItem['_sub'] = false;
     startDayItem['startOnly'] = false;
     endDayItem['end'] = false;
+    endDayItem['_sub'] = false;
     map = _updateActiveTime(map, startIndexInfo, endIndexInfo, false);
     return {
         newMap: map.concat([]),
