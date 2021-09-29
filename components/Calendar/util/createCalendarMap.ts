@@ -2,6 +2,7 @@ import {
     DateExtension,
     selectTimeInterface,
     _createMonthMap_now,
+    _lastDateMap,
     selectTimeIndex,
     CalendarMapItemRow,
     CreateCalendarMap_dataInfo,
@@ -10,7 +11,7 @@ import {
     i18n
 } from '../propsType';
 
-export default function createCalendarMap(lang: 'cn' | 'hk', dateExtension: DateExtension | null, startInfo: selectTimeInterface | null, endInfo: selectTimeInterface | null, yesterday: boolean, i18n: i18n): createCalendarMapReturn {
+export default function createCalendarMap(lang: 'cn' | 'hk', dropOffMaxDays: number , dateExtension: DateExtension | null, startInfo: selectTimeInterface | null, endInfo: selectTimeInterface | null, yesterday: boolean, i18n: i18n): createCalendarMapReturn {
     const date = new Date();
     let year = date.getFullYear();
     let month = date.getMonth();
@@ -21,9 +22,9 @@ export default function createCalendarMap(lang: 'cn' | 'hk', dateExtension: Date
     const nowMonth = now.getMonth();
     const nowYear = now.getFullYear();
     const nowDay = now.getDate();
+    const lastDateMap = dropOffMaxDays > 0 ? _getLastDateMap(Number(dropOffMaxDays)) : null;
     let startIndexInfo: selectTimeIndex | null = null
     let endIndexInfo: selectTimeIndex | null = null;
-
     const step = 13;
     for (let i = 0; i < step; i++) {
 
@@ -31,7 +32,7 @@ export default function createCalendarMap(lang: 'cn' | 'hk', dateExtension: Date
             n_y: nowYear,
             n_m: nowMonth,
             n_d: nowDay,
-        }, year, month, lang, dateExtension, startInfo, endInfo, startIndexInfo, endIndexInfo, yesterday, i18n);
+        },lastDateMap, year, month, lang, dateExtension, startInfo, endInfo, startIndexInfo, endIndexInfo, yesterday, i18n);
 
         startIndexInfo = startIndex;
         endIndexInfo = endIndex;
@@ -58,17 +59,41 @@ export default function createCalendarMap(lang: 'cn' | 'hk', dateExtension: Date
     };
 }
 
-function _createMonthMap(now: _createMonthMap_now, year: number, month: number, lang: 'cn' | 'hk', dateExtension: DateExtension | null, startInfo: selectTimeInterface | null, endInfo: selectTimeInterface | null, startIndexInfo: selectTimeIndex | null, endIndexInfo: selectTimeIndex | null, yesterday: boolean, i18n: i18n) {
+function _getLastDateMap (AddDayCount: number ) {
+    const last = new Date();
+    last.setDate(last.getDate() + AddDayCount);
+    const lastYear = last.getFullYear();
+    const lastMonth = last.getMonth();
+    const lastDay = last.getDate();
+    return {
+        l_y: lastYear,
+        l_m: lastMonth,
+        l_d: lastDay,
+    }
+}
+
+function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | null,  year: number, month: number, lang: 'cn' | 'hk', dateExtension: DateExtension | null, startInfo: selectTimeInterface | null, endInfo: selectTimeInterface | null, startIndexInfo: selectTimeIndex | null, endIndexInfo: selectTimeIndex | null, yesterday: boolean, i18n: i18n) {
     const startDay = 0;
     const lastDay = new Date(year, month + 1, 0).getDate();
     const monthList: Array<any> = [];
 
     // 过去日期
-    let effectiveDate;
+    let effectiveDate; // 起始定点
+    let lastEffectiveEnd; // 结尾定点
+    let effectiveRang = false; // 默认限制区间（针对月份级别）
     if (year <= now.n_y && month <= now.n_m) {
         effectiveDate = now.n_d;
     }
-
+    if( lastDateMap && year == lastDateMap.l_y && month == lastDateMap.l_m ) {
+        lastEffectiveEnd = lastDateMap.l_d;
+    }
+    if( lastDateMap && ( 
+            ( ( year == now.n_y && month > now.n_m ) || year > now.n_y ) && 
+            ( ( year < lastDateMap.l_y && month > lastDateMap.l_m )  ||  (year == lastDateMap.l_y  && month < lastDateMap.l_m) ) 
+        )
+    ) {
+        effectiveRang = true;
+    }
     let rowList: Array<any> = [];
     // 第一天补位，如果不是星期1，那么将需要补位
     rowList = _setStartEmptyItem(year, month, startDay + 1);
@@ -76,33 +101,63 @@ function _createMonthMap(now: _createMonthMap_now, year: number, month: number, 
         let col;
         const currData = i + 1;
 
-        if (effectiveDate && currData < effectiveDate) {
-
-            col = rowList.push(_getDayItemInfo({
-                day: currData,
-                month,
-                year,
-                gone: yesterday && year == now.n_y && month == now.n_m && currData == now.n_d - 1 ? false : true,// 如果允许选择前一天，那么需要判断今天的前一天不置灰
-                sub: _createDayInfoSubText({
-                    ...now,
-                    c_y: year,
-                    c_m: month,
-                    c_d: currData
-                }, i18n)
-            }, dateExtension));
+        if(lastDateMap ){ // 限制区间
+            if( (lastEffectiveEnd && currData <= lastEffectiveEnd) || (effectiveDate && currData >= effectiveDate ) || effectiveRang){
+                col = rowList.push(_getDayItemInfo({
+                    day: currData,
+                    month,
+                    year,
+                    gone: false,
+                    sub: _createDayInfoSubText({
+                        ...now,
+                        c_y: year,
+                        c_m: month,
+                        c_d: currData
+                    }, i18n)
+                }, dateExtension));
+            } else {
+                col = rowList.push(_getDayItemInfo({
+                    day: currData,
+                    month,
+                    year,
+                    gone: yesterday && year == now.n_y && month == now.n_m && currData == now.n_d - 1 ? false : true,
+                    sub: _createDayInfoSubText({
+                        ...now,
+                        c_y: year,
+                        c_m: month,
+                        c_d: currData
+                    }, i18n)
+                }, dateExtension));
+            }
         } else {
-            col = rowList.push(_getDayItemInfo({
-                day: currData,
-                month,
-                year,
-                gone: false,
-                sub: _createDayInfoSubText({
-                    ...now,
-                    c_y: year,
-                    c_m: month,
-                    c_d: currData
-                }, i18n)
-            }, dateExtension));
+            // 无限制区间
+            if (effectiveDate && currData < effectiveDate) {
+                col = rowList.push(_getDayItemInfo({
+                    day: currData,
+                    month,
+                    year,
+                    gone: yesterday && year == now.n_y && month == now.n_m && currData == now.n_d - 1 ? false : true,// 如果允许选择前一天，那么需要判断今天的前一天不置灰
+                    sub: _createDayInfoSubText({
+                        ...now,
+                        c_y: year,
+                        c_m: month,
+                        c_d: currData
+                    }, i18n)
+                }, dateExtension));
+            } else {
+                col = rowList.push(_getDayItemInfo({
+                    day: currData,
+                    month,
+                    year,
+                    gone: false,
+                    sub: _createDayInfoSubText({
+                        ...now,
+                        c_y: year,
+                        c_m: month,
+                        c_d: currData
+                    }, i18n)
+                }, dateExtension));
+            }
         }
 
         // 7列为1行

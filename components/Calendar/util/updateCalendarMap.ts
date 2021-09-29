@@ -93,8 +93,10 @@ function _updateResetCalendar(map: Array<CalendarMapItem>, startIndexInfo: selec
     const endDayItem = map[endDateIndex].list[endIndexInfo.rowKey][endIndexInfo.itemKey];
 
     startDayItem['start'] = false;
+    startDayItem['_sub'] = false;
     startDayItem['startOnly'] = false;
     endDayItem['end'] = false;
+    endDayItem['_sub'] = false;
 
     map = _updateActiveTime(map, startIndexInfo, endIndexInfo, false);
     return {

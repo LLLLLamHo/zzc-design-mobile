@@ -20,7 +20,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         const _endTime = props.endTime ? this.conversionSelectTime(props.endTime, props.defaultEndTime) : null;
         // 与外部传入i18n进行合并
         const i18n = props.i18n ? Object.assign(calendar_i18n(props.lang), props.i18n) : calendar_i18n(props.lang);
-        let { startIndexInfo, endIndexInfo, calendarMap } = createCalendarMap(props.lang, props.dateExtension, _startTime, _endTime, props.yesterday, i18n);
+        let { startIndexInfo, endIndexInfo, calendarMap } = createCalendarMap(props.lang, props.dropOffMaxDays, props.dateExtension, _startTime, _endTime, props.yesterday, i18n);
         if (startIndexInfo && endIndexInfo) {
             const { newMap } = updateCalendarMap({
                 type: 'end',
@@ -66,6 +66,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         dayChange: null,
         timeChange: null,
         defaultCalendarTips: '',
+        dropOffMaxDays: 0,
         yesterday: false,
         onChange: null,
         onClose: null,
@@ -115,7 +116,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         }
     }
 
-    updateStartTime(_startTime: selectTimeInterface | null, _endTime: selectTimeInterface | null, year: number, monthKey: number, rowKey: number, itemKey: number): void {
+    updateStartTime = (_startTime: selectTimeInterface | null, _endTime: selectTimeInterface | null, year: number, monthKey: number, rowKey: number, itemKey: number): void =>{
         const { defaultStartTime, calendarMode } = this.props;
         const { newMap, select } = updateCalendarMap({
             type: 'start',
