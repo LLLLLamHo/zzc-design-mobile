@@ -167,11 +167,12 @@ function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | nul
 
         // 如果传入有已经选中的时间，那么将在创建时查找命中的日期
         if (startInfo && endInfo && (startIndexInfo == null || endIndexInfo == null)) {
+            let monthLength = (col == 7) && monthList.length > 0 ? monthList.length - 1 : monthList.length; // 周最后一天 后退一行
             if (year == startInfo.Y && month == startInfo.M && currData == startInfo.D) {
-                startIndexInfo = { year, monthKey: month, rowKey: monthList.length, itemKey: col - 1 };
+                startIndexInfo = { year, monthKey: month, rowKey: monthLength, itemKey: col - 1 };
             }
             if (year == endInfo.Y && month == endInfo.M && currData == endInfo.D) {
-                endIndexInfo = { year, monthKey: month, rowKey: monthList.length, itemKey: col - 1 };
+                endIndexInfo = { year, monthKey: month, rowKey: monthLength, itemKey: col - 1 };
             }
         }
     }

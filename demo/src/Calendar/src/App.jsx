@@ -120,6 +120,11 @@ export default class App extends PureComponent {
                     onChange={( value ) => { this.set( 1, value ); }}
                     startTime={this.state.car_start}
                     endTime={this.state.car_end}
+                    // timeRange={[10,23]}
+                    timeRange={{
+                        left: [12,23],
+                        right: [15,23],
+                    }}
                     calendarMode='car'
                     mode='day*time'
                     dateExtension={holiday}

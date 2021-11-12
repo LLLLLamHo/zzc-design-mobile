@@ -15,7 +15,7 @@
 | i18n                | 语言配置,不配置默认使用内部i18n配置                                              | I18n                                   | null         |
 | calendarMode        | 日历模式，暂时内置'car'                                                          | string                                 | 'default'    |
 | mode                | 日历选择范围模式，'day','day*time'                                               | string                                 | 'day'        |
-| timeRange           | 小时范围， mode=='day*time才生效'                                                | [number, number]                       | [0,24]       |
+| timeRange           | 小时范围， mode=='day*time才生效'                                                | [number, number],  rangObject: { left: [number, number], right:[number, number] }                    | [0,24]       |
 | minutesInterval     | 分钟间隔数， mode=='day*time才生效'                                              | number                                 | 30           |
 | defaultStartTime    | 默认选中的开始小时和分钟                                                         | string                                 | 9:00         |
 | defaultEndTime      | 默认选中的结束小时和分钟                                                         | string                                 | 9:00         |
@@ -91,7 +91,7 @@ onChang={(value) => {...todo}}
 | reset_btn_text                                                   | string | '重置'                                                                                       |
 | submit_btn_text                                                  | string | '确认时间'                                                                                   |
 | time_picker_title                                                | string | '取车时间'                                                                                   |
-| time_return_title                                                | string | '取车时间'                                                                                   |
+| time_return_title                                                | string | '还车时间'                                                                                   |
 | listAcrossTheYearText                                            | string | '年'(日历中第二年的月份前的跨年标识)                                                         |
 | month                                                            | string | 月                                                                                           |
 | week                                                             | string | 周                                                                                           |

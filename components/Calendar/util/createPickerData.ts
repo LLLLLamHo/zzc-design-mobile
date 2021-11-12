@@ -1,14 +1,38 @@
 import {selectTimeInterface} from '../propsType';
 import { PickerData, ListData } from '../../Picker/propsType';
-export default function createPickerData(timeRange: [number, number], minutesInterval: number, currStartTime: selectTimeInterface, currEndTime: selectTimeInterface, defaultStartTime: string, defaultEndTime: string): Array<PickerData> {
+import { isArray } from '../../_util/typeof';
+
+export default function createPickerData(timeRange, minutesInterval: number, currStartTime: selectTimeInterface, currEndTime: selectTimeInterface, defaultStartTime: string, defaultEndTime: string): Array<PickerData> {
+    
+    const startTimeRange = isArray(timeRange) ? timeRange : (timeRange.left || [0,24]);
+    const endTimeRange = isArray(timeRange) ? timeRange : (timeRange.right || [0,24]);
+
+    const startPickerInfo = _renderPickerData( startTimeRange ,minutesInterval,currStartTime,defaultStartTime);
+    const endPickerInfo = _renderPickerData( endTimeRange ,minutesInterval,currEndTime,defaultEndTime);
+    const pickerInfo = [
+        {
+            className: 'zds-calendar-t-p-s',
+            itemClassName: 'zds-calendar-t-p-s-i',
+            scrollType: 'start-time',
+            ...startPickerInfo
+        },
+        {
+            className: 'zds-calendar-t-r-s',
+            itemClassName: 'zds-calendar-t-r-s-i',
+            scrollType: 'end-time',
+            ...endPickerInfo
+        },
+    ];
+    return pickerInfo;
+}
+
+export function _renderPickerData(timeRange: [number, number],minutesInterval: number, currTime: selectTimeInterface, defaultTime: string,): Object {
     const [start, end] = timeRange;
     const pickerIime: Array<ListData> = [];
     const MAX = 23;
-    let startIndex = 0;
-    let endIndex = 0;
+    let Index = 0;
 
-    let selectStartTime = currStartTime ? `${currStartTime.h}:${currStartTime.m}` : defaultStartTime;
-    let selectEndTime = currEndTime ? `${currEndTime.h}:${currEndTime.m}` : defaultEndTime;
+    let selectTime = currTime ? `${currTime.h}:${currTime.m}` : defaultTime;
 
     for (let i = start; i <= end; i++) {
 
@@ -35,34 +59,18 @@ export default function createPickerData(timeRange: [number, number], minutesInt
             const c_t = `${i}:${m}`;
 
             const time = `${h}:${minutes}`;
-            if ( c_t == selectStartTime) {
-                startIndex = pickerIime.length;
+            if ( c_t == selectTime) {
+                Index = pickerIime.length;
             }
-            if ( c_t == selectEndTime) {
-                endIndex = pickerIime.length;
-            }
+           
             pickerIime.push({
                 text: time,
                 dataKey: time
             });
         }
     }
-
-    const pickerInfo = [
-        {
-            className: 'zds-calendar-t-p-s',
-            itemClassName: 'zds-calendar-t-p-s-i',
-            scrollType: 'start-time',
-            selectIndex: startIndex,
-            listData: pickerIime
-        },
-        {
-            className: 'zds-calendar-t-r-s',
-            itemClassName: 'zds-calendar-t-r-s-i',
-            scrollType: 'end-time',
-            selectIndex: endIndex,
-            listData: pickerIime
-        },
-    ];
-    return pickerInfo;
+    return {
+        selectIndex: Index,
+        listData: pickerIime
+    } 
 }
