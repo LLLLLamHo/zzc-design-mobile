@@ -194,6 +194,7 @@ export interface CalendarFooterProps{
     calendarTips: string
     defaultCalendarTips: string
     selectTimePicker: Function
+    changeSelectTime: Function
     reset: Function
     submit: Function
     renderCallback: Function

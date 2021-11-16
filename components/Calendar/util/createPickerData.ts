@@ -1,14 +1,15 @@
 import {selectTimeInterface} from '../propsType';
 import { PickerData, ListData } from '../../Picker/propsType';
-import { isArray } from '../../_util/typeof';
+import { isString } from '../../_util/typeof';
 
 export default function createPickerData(timeRange, minutesInterval: number, currStartTime: selectTimeInterface, currEndTime: selectTimeInterface, defaultStartTime: string, defaultEndTime: string): Array<PickerData> {
     
-    const startTimeRange = isArray(timeRange) ? timeRange : (timeRange.left || [0,24]);
-    const endTimeRange = isArray(timeRange) ? timeRange : (timeRange.right || [0,24]);
+    const startTimeRange = isString(timeRange) ? ( JSON.parse(timeRange).left || [0,24]) : timeRange ; 
+    const endTimeRange = isString(timeRange) ? ( JSON.parse(timeRange).right || [0,24]) : timeRange ;
 
     const startPickerInfo = _renderPickerData( startTimeRange ,minutesInterval,currStartTime,defaultStartTime);
     const endPickerInfo = _renderPickerData( endTimeRange ,minutesInterval,currEndTime,defaultEndTime);
+
     const pickerInfo = [
         {
             className: 'zds-calendar-t-p-s',
@@ -33,7 +34,7 @@ export function _renderPickerData(timeRange: [number, number],minutesInterval: n
     let Index = 0;
 
     let selectTime = currTime ? `${currTime.h}:${currTime.m}` : defaultTime;
-
+    
     for (let i = start; i <= end; i++) {
 
         if ( i > MAX) {

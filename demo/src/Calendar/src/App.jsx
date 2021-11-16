@@ -17,7 +17,11 @@ export default class App extends PureComponent {
             hotel_end: null,
             visible3: false,
             start: null,
-            end: null
+            end: null,
+            defaultStartTime: '13:00',
+            defaultEndTime: "11:00",
+            pickupTimeRange:0,
+            returnTimeRange:0,
         };
     }
 
@@ -92,7 +96,36 @@ export default class App extends PureComponent {
         return `${year}-${month + 1}-${day}`;
     }
 
+    changeSelectDay = (value) =>{
+        if ( !value ) return;
+        const { start, end } = value;
+        if ( !start || !end ) return;
+        
+        this.setState({
+            pickupTimeRange: start.D == 16 ? 17:0,
+            returnTimeRange: end.D == 16? 20:0,
+            defaultStartTime: start.D == 16?'18:00':'11:00',
+            defaultEndTime: end.D == 16?'21:00':'13:00',
+        })
+    }
+
+    getRange = () => {
+        const {
+            pickupTimeRange,
+            returnTimeRange,
+        } = this.state;
+        const left = [ pickupTimeRange,24 ];
+        const right = [ returnTimeRange,24 ];
+        // console.log('getTimeRange', left,pickupTimeRange,returnTimeRange)
+        return JSON.stringify({
+            left,
+            right
+        })
+    }
+
     render () {
+        const range = this.getRange();
+        const {defaultStartTime,defaultEndTime} = this.state;
         return (
             <div className='zzc-demo'>
                 <div className='zzc-demo-header'>
@@ -116,15 +149,14 @@ export default class App extends PureComponent {
                     yesterday
                     defaultCalendarTips='建议取车时间为航班到达后1小时，租车当天未满24小时算1天'
                     timeChange={( value ) => this.calcTime( 'timeChange', value )}
-                    dayChange={( value ) => this.calcTime( 'dayChange', value )}
+                    dayChange={( value ) => this.changeSelectDay( value )}
                     onChange={( value ) => { this.set( 1, value ); }}
                     startTime={this.state.car_start}
                     endTime={this.state.car_end}
                     // timeRange={[10,23]}
-                    timeRange={{
-                        left: [12,23],
-                        right: [15,23],
-                    }}
+                    defaultStartTime={defaultStartTime}
+                    defaultEndTime={defaultEndTime}
+                    timeRange={range}
                     calendarMode='car'
                     mode='day*time'
                     dateExtension={holiday}
