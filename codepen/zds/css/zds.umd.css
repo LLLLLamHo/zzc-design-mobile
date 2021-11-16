@@ -14662,8 +14662,7 @@ button {
   margin-right: 4px; }
 
 .zds-radio input[type='radio'] {
-  -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   -webkit-appearance: none;
   outline: none;
   vertical-align: text-bottom;

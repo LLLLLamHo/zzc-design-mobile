@@ -8,5 +8,6 @@ npm-debug.log
 .history
 npm-debug.log*
 /es/
+/codepen/.*
 package-lock.json
 demo/.guido-cache
