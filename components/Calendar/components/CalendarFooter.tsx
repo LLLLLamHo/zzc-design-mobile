@@ -23,6 +23,15 @@ export default class CalendarFooter extends PureComponent<CalendarFooterProps, C
         this.props.renderCallback(this.footerItem.offsetHeight);
     }
 
+    componentWillReceiveProps(nextProps){
+        if (this.props.timeRange != nextProps.timeRange) {
+            this.props.changeSelectTime(nextProps)
+            this.setState({
+                pickerList: createPickerData(nextProps.timeRange, nextProps.minutesInterval, nextProps.currStartTime, nextProps.currEndTime, nextProps.defaultStartTime, nextProps.defaultEndTime)
+            })
+        }
+    }
+
     createTimePicker(): JSX.Element {
         const { i18n } = this.props;
         return (

@@ -74,6 +74,19 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         dayCalculator: null
     };
 
+
+    // timeRange改变同步更新 selectTime 
+    updateSelectTime = (props) => {
+        const {_startTime,_endTime} = this.state;
+        const newStartTime = _startTime ? this.conversionSelectTime(new Date(`${_startTime.Y}/${_startTime.M + 1}/${_startTime.D} ${props.defaultStartTime}`)):null;
+        const newEndTime =  _endTime ? this.conversionSelectTime(new Date(`${_endTime.Y}/${_endTime.M + 1}/${_endTime.D} ${props.defaultEndTime}`)):null;
+        this.setState({
+            _startTime: newStartTime,
+            _endTime: newEndTime
+        })
+    }
+
+
     conversionSelectTime(time, hours?: string): selectTimeInterface | null {
         if (!time) return null;
         let newTime = new Date(time);
@@ -180,7 +193,6 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
 
     selectTimePicker(type: string, selectItem): void {
         const { dataKey } = selectItem;
-        console.log(dataKey);
         const { _startTime, _endTime } = this.state;
         if (type == 'start-time' && _startTime) {
             this.setState({
@@ -319,6 +331,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
                             mode={mode || 'day'}
                             currStartTime={_startTime}
                             currEndTime={_endTime}
+                            changeSelectTime={this.updateSelectTime}
                             defaultStartTime={defaultStartTime}
                             defaultEndTime={defaultEndTime}
                             selectTimePicker={this.selectTimePicker}

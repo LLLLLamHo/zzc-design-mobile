@@ -55125,8 +55125,27 @@ var Calendar = function (_PureComponent) {
     function Calendar(props) {
         (0, _classCallCheck3.default)(this, Calendar);
 
+        // componentWillReceiveProps(nextProps){
+        //     if (this.props.timeRange != nextProps.timeRange) {
+        //         this.updateSelectTime(nextProps)
+        //     }
+        // }
+        // timeRange改变同步更新 selectTime 
         var _this = (0, _possibleConstructorReturn3.default)(this, (Calendar.__proto__ || (0, _getPrototypeOf2.default)(Calendar)).call(this, props));
 
+        _this.updateSelectTime = function (props) {
+            var _this$state = _this.state,
+                _startTime = _this$state._startTime,
+                _endTime = _this$state._endTime;
+
+            var newStartTime = _startTime ? _this.conversionSelectTime(new Date(_startTime.Y + '/' + (_startTime.M + 1) + '/' + _startTime.D + ' ' + props.defaultStartTime)) : null;
+            var newEndTime = _endTime ? _this.conversionSelectTime(new Date(_endTime.Y + '/' + (_endTime.M + 1) + '/' + _endTime.D + ' ' + props.defaultEndTime)) : null;
+            console.log('updateSelectTime', newStartTime, newEndTime);
+            _this.setState({
+                _startTime: newStartTime,
+                _endTime: newEndTime
+            });
+        };
         _this.updateStartTime = function (_startTime, _endTime, year, monthKey, rowKey, itemKey) {
             var _this$props = _this.props,
                 defaultStartTime = _this$props.defaultStartTime,
@@ -55300,7 +55319,7 @@ var Calendar = function (_PureComponent) {
 
             var dataKey = selectItem.dataKey;
 
-            console.log(dataKey);
+            console.log('selectTimePicker', dataKey, selectItem);
             var _state2 = this.state,
                 _startTime = _state2._startTime,
                 _endTime = _state2._endTime;
@@ -55445,7 +55464,8 @@ var Calendar = function (_PureComponent) {
                 _listBoxPaddingBottom = _state5._listBoxPaddingBottom;
 
             var cardClassName = (0, _classnames2.default)(prefixCls, className);
-            return _react2.default.createElement(_Popup2.default, { visible: !!visible, bodyStyle: { height: '100%' } }, _react2.default.createElement('div', { style: style, className: cardClassName }, _react2.default.createElement(_CalendarCloseBox2.default, { onClose: this.closeCalendar }), _react2.default.createElement(_CalendarResult2.default, { lang: lang || 'cn', i18n: i18n, mode: mode || 'day', startTime: _startTime, endTime: _endTime, dayCalculator: dayCalculator }), _react2.default.createElement(_CalendarWeek2.default, { weekList: i18n.weekList }), _react2.default.createElement(_CalendarListBox2.default, { paddingBottom: _listBoxPaddingBottom, selectItem: this.selectItem, list: calendarMap, startTime: _startTime, endTime: _endTime, monthList: i18n.monthList || null, listAcrossTheYearText: i18n.listAcrossTheYearText }), _react2.default.createElement(_Popup2.default, { style: { bottom: 0, top: 'unset', height: 'auto' }, transparent: true, visible: !!_startTime && !!_endTime }, _react2.default.createElement(_CalendarFooter2.default, { renderCallback: this.footerRenderCallback, timeRange: timeRange || [0, 24], minutesInterval: minutesInterval || 30, i18n: i18n, reset: this.resetSelectDay, submit: this.submit, mode: mode || 'day', currStartTime: _startTime, currEndTime: _endTime, defaultStartTime: defaultStartTime, defaultEndTime: defaultEndTime, selectTimePicker: this.selectTimePicker, defaultCalendarTips: _default_calendar_tips, calendarTips: _calendar_tips }))));
+            console.log('!!_startTime && !!_endTime', _startTime, _endTime);
+            return _react2.default.createElement(_Popup2.default, { visible: !!visible, bodyStyle: { height: '100%' } }, _react2.default.createElement('div', { style: style, className: cardClassName }, _react2.default.createElement(_CalendarCloseBox2.default, { onClose: this.closeCalendar }), _react2.default.createElement(_CalendarResult2.default, { lang: lang || 'cn', i18n: i18n, mode: mode || 'day', startTime: _startTime, endTime: _endTime, dayCalculator: dayCalculator }), _react2.default.createElement(_CalendarWeek2.default, { weekList: i18n.weekList }), _react2.default.createElement(_CalendarListBox2.default, { paddingBottom: _listBoxPaddingBottom, selectItem: this.selectItem, list: calendarMap, startTime: _startTime, endTime: _endTime, monthList: i18n.monthList || null, listAcrossTheYearText: i18n.listAcrossTheYearText }), _react2.default.createElement(_Popup2.default, { style: { bottom: 0, top: 'unset', height: 'auto' }, transparent: true, visible: !!_startTime && !!_endTime }, _react2.default.createElement(_CalendarFooter2.default, { renderCallback: this.footerRenderCallback, timeRange: timeRange || [0, 24], minutesInterval: minutesInterval || 30, i18n: i18n, reset: this.resetSelectDay, submit: this.submit, mode: mode || 'day', currStartTime: _startTime, currEndTime: _endTime, changeSelectTime: this.updateSelectTime, defaultStartTime: defaultStartTime, defaultEndTime: defaultEndTime, selectTimePicker: this.selectTimePicker, defaultCalendarTips: _default_calendar_tips, calendarTips: _calendar_tips }))));
         }
     }]);
     return Calendar;
@@ -55997,6 +56017,16 @@ var CalendarFooter = function (_PureComponent) {
             this.props.renderCallback(this.footerItem.offsetHeight);
         }
     }, {
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            if (this.props.timeRange != nextProps.timeRange) {
+                this.props.changeSelectTime(nextProps);
+                this.setState({
+                    pickerList: (0, _createPickerData2.default)(nextProps.timeRange, nextProps.minutesInterval, nextProps.currStartTime, nextProps.currEndTime, nextProps.defaultStartTime, nextProps.defaultEndTime)
+                });
+            }
+        }
+    }, {
         key: 'createTimePicker',
         value: function createTimePicker() {
             var _this2 = this;
@@ -56015,6 +56045,7 @@ var CalendarFooter = function (_PureComponent) {
             var index = scrollIndex == 'start-time' ? 0 : 1;
             var listData = pickerList[index].listData;
 
+            console.log('scrollIndex', scrollIndex, itemIndex);
             var selectItem = listData ? listData[itemIndex] : null;
             if (selectItem) {
                 this.props.selectTimePicker(scrollIndex, selectItem);
@@ -56092,10 +56123,11 @@ function _interopRequireDefault(obj) {
 }
 
 function createPickerData(timeRange, minutesInterval, currStartTime, currEndTime, defaultStartTime, defaultEndTime) {
-    var startTimeRange = (0, _typeof.isArray)(timeRange) ? timeRange : timeRange.left || [0, 24];
-    var endTimeRange = (0, _typeof.isArray)(timeRange) ? timeRange : timeRange.right || [0, 24];
+    var startTimeRange = (0, _typeof.isString)(timeRange) ? JSON.parse(timeRange).left || [0, 24] : timeRange;
+    var endTimeRange = (0, _typeof.isString)(timeRange) ? JSON.parse(timeRange).right || [0, 24] : timeRange;
     var startPickerInfo = _renderPickerData(startTimeRange, minutesInterval, currStartTime, defaultStartTime);
     var endPickerInfo = _renderPickerData(endTimeRange, minutesInterval, currEndTime, defaultEndTime);
+    console.log('createPickerData', timeRange);
     var pickerInfo = [(0, _assign2.default)({ className: 'zds-calendar-t-p-s', itemClassName: 'zds-calendar-t-p-s-i', scrollType: 'start-time' }, startPickerInfo), (0, _assign2.default)({ className: 'zds-calendar-t-r-s', itemClassName: 'zds-calendar-t-r-s-i', scrollType: 'end-time' }, endPickerInfo)];
     return pickerInfo;
 }
