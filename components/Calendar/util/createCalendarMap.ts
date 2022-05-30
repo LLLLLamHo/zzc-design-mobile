@@ -181,7 +181,7 @@ function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | nul
     // 当当前rowList的length为0，代表这个月最后一天是星期日，所以不需要进行额外补位
     rowList = rowList.length == 0 ? rowList : rowList.concat(_setEndEmptyItem(year, month, rowList.length));
     monthList.push(rowList.splice(0, 7));
-
+    
     return {
         monthData: {
             title: _createMonthTitle(month, lang),
@@ -196,7 +196,8 @@ function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | nul
 
 function _setStartEmptyItem(year: number, month: number, day: number) {
     const date = new Date(`${year}/${month + 1}/${day} 00:00:00`);
-    const week = date.getDay() - 1;// 因为星期天是放最后，所以需要减一来计算
+    // const week = date.getDay();// 因为星期天是放最后，所以需要减一来计算
+    const week = date.getDay();// 因为星期天是放最后，所以需要减一来计算
     const emptyList: Array<any> = [];
     for (let i = 0; i < week; i++) {
         emptyList.push(_getDayItemInfo({
