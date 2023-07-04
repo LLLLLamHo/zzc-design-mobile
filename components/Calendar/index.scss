@@ -7,23 +7,32 @@ $cls: '.zds-calendar';
     height: 100%;
     flex-direction: column;
 
+    
+
     &-close-box {
         height: 44.5px;
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
+        position: relative;
 
         #{$cls}-close-btn {
             height: 100%;
             padding: 0 15px;
+            position: absolute;
+            top: 0;
+            right: 0;
             display: flex;
             align-items: center;
+        }
+        #{$cls}-close-box-title{
+            font-size: 18px;
+            text-align: center;
+            height: 45px;
+            line-height: 45px;
         }
     }
 
     &-result-box {
-        height: 85.5px;
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -59,12 +68,12 @@ $cls: '.zds-calendar';
                 font-size: 16px;
                 color: #333;
                 line-height: 1;
-                margin-top: 9px;
+                // margin-top: 9px;
             }
 
             .placeholder {
                 color: #9EA1B0;
-                font-size: 18px;
+                font-size: 16px;
                 line-height: 27px;
             }
         }
@@ -93,8 +102,8 @@ $cls: '.zds-calendar';
 
         .center {
             margin: 0 5px;
-            width: 74px;
-            height: 29px;
+            width: 50px;
+            height: 26px;
             @include halfPXBorder(#9EA1B0, 33px);
             display: flex;
             align-items: center;
@@ -117,17 +126,17 @@ $cls: '.zds-calendar';
                 z-index: 2;
             }
 
-            &::before {
-                content: '';
-                background: #9EA1B0;
-                width: 1px;
-                height: 68px;
-                position: absolute;
-                z-index: 0;
-                top: 50%;
-                left: 50%;
-                transform: translateX(-50%) translateY(-50%) rotate(15deg);
-            }
+            // &::before {
+            //     content: '';
+            //     background: #9EA1B0;
+            //     width: 1px;
+            //     height: 68px;
+            //     position: absolute;
+            //     z-index: 0;
+            //     top: 50%;
+            //     left: 50%;
+            //     transform: translateX(-50%) translateY(-50%) rotate(15deg);
+            // }
         }
     }
 
@@ -275,25 +284,23 @@ $cls: '.zds-calendar';
                 align-items: center;
                 justify-content: space-between;
                 @include halfPXLine('bottom', rgba(105, 110, 124, .15));
-                height: 55px;
-
+                height: 40px;
+                padding: 0 20px;
                 .title {
                     width: 50%;
-
                     p {
                         width: 100%;
-                        font-weight: bold;
-                        font-size: 17px;
+                        font-size: 14px;
                         color: #282828;
                         text-align: center;
                         vertical-align: middle;
-                        line-height: 55px;
+                        line-height: 40px;
                     }
                 }
             }
 
             .picker-box {
-                padding: 23px 0 20px;
+                padding: 10px 20px;
             }
         }
 

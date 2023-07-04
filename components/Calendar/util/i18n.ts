@@ -19,6 +19,7 @@ export default function i18n(lang) {
         month: '月',
         week: '周',
         day: '天',
+        days: '日',
         today: '今天'
     } : {
         left_title: '當地時間',
@@ -40,6 +41,7 @@ export default function i18n(lang) {
         month: '月',
         week: '周',
         day: '天',
+        days: '日',
         today: '今天'
     }
 }

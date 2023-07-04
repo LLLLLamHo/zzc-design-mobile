@@ -241,18 +241,25 @@
 .zds-calendar-close-box {
   height: 44.5px;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; }
+  position: relative; }
 
 .zds-calendar-close-box .zds-calendar-close-btn {
   height: 100%;
   padding: 0 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
   display: flex;
   align-items: center; }
 
+.zds-calendar-close-box .zds-calendar-close-box-title {
+  font-size: 18px;
+  text-align: center;
+  height: 45px;
+  line-height: 45px; }
+
 .zds-calendar-result-box {
-  height: 85.5px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -288,13 +295,12 @@
 .zds-calendar-result-box .zds-calendar-right .hour {
   font-size: 16px;
   color: #333;
-  line-height: 1;
-  margin-top: 9px; }
+  line-height: 1; }
 
 .zds-calendar-result-box .zds-calendar-left .placeholder,
 .zds-calendar-result-box .zds-calendar-right .placeholder {
   color: #9EA1B0;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 27px; }
 
 .zds-calendar-result-box .zds-calendar-left .title,
@@ -313,8 +319,8 @@
 
 .zds-calendar-result-box .center {
   margin: 0 5px;
-  width: 74px;
-  height: 29px;
+  width: 50px;
+  height: 26px;
   border: none;
   position: relative;
   display: flex;
@@ -352,17 +358,6 @@
 
 .zds-calendar-result-box .center::after {
   z-index: 2; }
-
-.zds-calendar-result-box .center::before {
-  content: '';
-  background: #9EA1B0;
-  width: 1px;
-  height: 68px;
-  position: absolute;
-  z-index: 0;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%) rotate(15deg); }
 
 .zds-calendar-week-box {
   display: flex;
@@ -491,7 +486,8 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  height: 55px; }
+  height: 40px;
+  padding: 0 20px; }
 
 .zds-calendar-footer .time-picker-box .title-box::after {
   content: "";
@@ -509,15 +505,14 @@
 
 .zds-calendar-footer .time-picker-box .title-box .title p {
   width: 100%;
-  font-weight: bold;
-  font-size: 17px;
+  font-size: 14px;
   color: #282828;
   text-align: center;
   vertical-align: middle;
-  line-height: 55px; }
+  line-height: 40px; }
 
 .zds-calendar-footer .time-picker-box .picker-box {
-  padding: 23px 0 20px; }
+  padding: 10px 20px; }
 
 .zds-calendar-footer .calendar-tips-box {
   display: flex;

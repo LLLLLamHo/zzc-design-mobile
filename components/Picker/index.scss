@@ -13,7 +13,7 @@ $cls: '.zds-picker';
         background: $c_fff;
         position: relative;
 
-        &:not(:first-child) {
+        &:nth-of-type(3n) {
             &::before {
                 content: '';
                 position: absolute;
@@ -44,7 +44,7 @@ $cls: '.zds-picker';
                 @include flex();
                 font-size: 18px;
                 color: #9EA1B0;
-                height: 50px;
+                height: 40px;
                 box-sizing: border-box;
                 overflow: hidden;
                 text-overflow: ellipsis;

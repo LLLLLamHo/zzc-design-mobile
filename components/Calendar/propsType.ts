@@ -2,10 +2,13 @@ import {PickerData} from '../Picker/propsType';
 export interface CalendarCloseBoxProps {
     onClose: Function
     prefixCls?: string
+    popupTitle?: string
 }
 
 
 export interface CalendarProps {
+    popupTitle?: string
+    maskClose?: boolean
     prefixCls?: string
     className?: string
     i18n?: i18n
@@ -64,6 +67,7 @@ export interface i18n {
     month: string
     week: string
     day: string
+    days: string
     today: string
 }
 
@@ -201,6 +205,7 @@ export interface CalendarFooterProps{
 }
 export interface CalendarFooterState{
     pickerList: Array<PickerData>
+    time: Array<string>
 }
 
 export interface CalendarListBoxProps {

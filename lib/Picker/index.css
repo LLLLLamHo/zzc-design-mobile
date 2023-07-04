@@ -246,7 +246,7 @@
   background: #fff;
   position: relative; }
 
-.zds-picker .zds-picker-wrapper:not(:first-child)::before {
+.zds-picker .zds-picker-wrapper:nth-of-type(3n)::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -273,7 +273,7 @@
   align-items: center;
   font-size: 18px;
   color: #9EA1B0;
-  height: 50px;
+  height: 40px;
   box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;

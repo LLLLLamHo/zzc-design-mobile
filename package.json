@@ -5,9 +5,9 @@
   "description": "",
   "main": "./lib/index.js",
   "scripts": {
-    "svgo": "./node_modules/.bin/svgo -f ./components/icon/svg && node build_svg_to_json.js",
+    "svgo": "./node_modules/.bin/svgo -f ./components/Icon/svg && node build_svg_to_json.js",
     "build": "npm run svgo && rm -rf ./es && gulp build",
-    "watch": "npm run svgo && rm -rf ./es && gulp watch",
+    "watch": "npm run svgo && rm -rf ./es && gulp watch --max-old-space-size=8192",
     "compile": "rm -rf ./lib && gulp compile && node ./config/copy.js && cd ./codepen && npm run build",
     "run:compile": "rm -rf ./lib && gulp compile",
     "test": "BABEL_ENV=test ./node_modules/.bin/jest -u --config .jest.js",

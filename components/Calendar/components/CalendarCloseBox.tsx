@@ -12,10 +12,11 @@ export default class CalendarCloseBox extends PureComponent<CalendarCloseBoxProp
     };
 
     render(): JSX.Element {
-        const { prefixCls, onClose } = this.props;
+        const { prefixCls, popupTitle, onClose } = this.props;
 
         return (
             <div className={`${prefixCls}-close-box`}>
+                <div className={`${prefixCls}-close-box-title`}>{popupTitle}</div>
                 <div 
                     className={`${prefixCls}-close-btn`} 
                     onClick={() => {onClose()}}

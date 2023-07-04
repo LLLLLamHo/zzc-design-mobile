@@ -10,6 +10,7 @@ export default class CalendarFooter extends PureComponent<CalendarFooterProps, C
     constructor(props) {
         super(props);
         this.state = {
+            time: [props.currStartTime.h, props.currStartTime.m, props.currEndTime.h, props.currEndTime.m],
             pickerList: createPickerData(props.timeRange, props.minutesInterval, props.currStartTime, props.currEndTime, props.defaultStartTime, props.defaultEndTime)
         };
     }
@@ -34,6 +35,7 @@ export default class CalendarFooter extends PureComponent<CalendarFooterProps, C
 
     createTimePicker(): JSX.Element {
         const { i18n } = this.props;
+
         return (
             <div className='time-picker-box'>
                 <div className='title-box'>
@@ -57,12 +59,25 @@ export default class CalendarFooter extends PureComponent<CalendarFooterProps, C
 
     changeTime(scrollIndex: string, itemIndex: number): void {
         const { pickerList } = this.state;
-        const index = scrollIndex == 'start-time' ? 0 : 1;
-        const {listData} = pickerList[index];
-        const selectItem = listData ? listData[itemIndex] : null;
-        if (selectItem) {
-            this.props.selectTimePicker(scrollIndex, selectItem);
-        }
+        const {listData} = pickerList[scrollIndex];
+        this.state.time[scrollIndex] = listData[itemIndex].dataKey || null
+        let scrollType = 'start-time';
+        let selectItem = { dataKey: `${this.state.time[0]}:${this.state.time[1]}` };
+
+        if(+scrollIndex > 1){
+            scrollType = 'end-time';
+            selectItem.dataKey =  `${this.state.time[2]}:${this.state.time[3]}`
+        };
+
+        this.props.selectTimePicker(scrollType, selectItem);
+        // const index = scrollIndex == 'start-time' ? 0 : 1;
+        // const {listData} = pickerList[index];
+        // const selectItem = listData ? listData[itemIndex] : null;
+        // if (selectItem) {
+        //     console.log(scrollIndex, selectItem)
+
+        //     this.props.selectTimePicker(scrollIndex, selectItem);
+        // }
     }
 
     createTips(): JSX.Element | null {

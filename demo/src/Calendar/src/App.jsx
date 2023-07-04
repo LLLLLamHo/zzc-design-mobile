@@ -10,16 +10,16 @@ export default class App extends PureComponent {
         super( props );
         this.state = {
             visible1: false,
-            car_start: new Date().toString(),
-            car_end: new Date( new Date().getTime() + ( 1000 * 60 * 60 * 24 * 3 ) ),
+            car_start: new Date('2023/8/25').toString(),
+            car_end: new Date('2023/9/5').toString(),
             visible2: false,
             hotel_start: null,
             hotel_end: null,
             visible3: false,
             start: null,
             end: null,
-            defaultStartTime: '13:00',
-            defaultEndTime: "11:00",
+            defaultStartTime: '03:10',
+            defaultEndTime: "21:50",
             pickupTimeRange:0,
             returnTimeRange:0,
         };
@@ -112,7 +112,7 @@ export default class App extends PureComponent {
     getRange = () => {
         const {
             pickupTimeRange,
-            returnTimeRange,
+            returnTimeRange
         } = this.state;
         const left = [ pickupTimeRange,24 ];
         const right = [ returnTimeRange,24 ];
@@ -125,7 +125,7 @@ export default class App extends PureComponent {
 
     render () {
         const range = this.getRange();
-        const {defaultStartTime,defaultEndTime} = this.state;
+        const { defaultStartTime, defaultEndTime } = this.state;
         return (
             <div className='zzc-demo'>
                 <div className='zzc-demo-header'>
@@ -145,7 +145,10 @@ export default class App extends PureComponent {
                     </div>
                 </div>
                 <Calendar
+                    calendarMode='car'
+                    mode='day*time'
                     visible={this.state.visible1}
+                    minutesInterval={10}
                     yesterday
                     defaultCalendarTips='建议取车时间为航班到达后1小时，租车当天未满24小时算1天'
                     timeChange={( value ) => this.calcTime( 'timeChange', value )}
@@ -157,8 +160,7 @@ export default class App extends PureComponent {
                     defaultStartTime={defaultStartTime}
                     defaultEndTime={defaultEndTime}
                     timeRange={range}
-                    calendarMode='car'
-                    mode='day*time'
+                    popupTitle="请选择取还车时间"
                     dateExtension={holiday}
                     onClose={() => { this.hide( 1 ) }}
                 />

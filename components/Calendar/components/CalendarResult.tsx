@@ -17,11 +17,11 @@ export default class CalendarResult extends PureComponent<CalendarResultProps, a
         if (startTime && endTime) {
             return (
                 <div className={`${prefixCls}-left`}>
-                    <p className='title'>{i18n.left_title}</p>
-                    <p className='time'>{startTime.M + 1}{i18n.month}{startTime.D}</p>
+                    {/* <p className='title'>{i18n.left_title}</p> */}
+                    {/* <p className='time'>{startTime.M + 1}{i18n.month}{startTime.D}</p> */}
                     {
                         mode == 'day*time' ? 
-                        <p className='hour'>{startTime.h < 10 ? `0${startTime.h}` : startTime.h}:{startTime.m < 10 ? `0${startTime.m}` : startTime.m}</p>:
+                        <p className='hour'>{startTime.M + 1}{i18n.month}{startTime.D}{i18n.days} {startTime.h < 10 ? `0${startTime.h}` : startTime.h}:{startTime.m < 10 ? `0${startTime.m}` : startTime.m}</p>:
                     <p className='week'>{i18n.week}{getWeek(startTime.w, i18n.weekList)}</p>
                     }
                 </div>
@@ -29,7 +29,7 @@ export default class CalendarResult extends PureComponent<CalendarResultProps, a
         } else if (startTime) {
             return (
                 <div className={`${prefixCls}-left`}>
-                    <p className='time'>{startTime.M + 1}{this.props.i18n.month}{startTime.D}</p>
+                    <p className='hour'>{startTime.M + 1}{this.props.i18n.month}{startTime.D}</p>
                 </div>
             );
         } else {
@@ -46,11 +46,11 @@ export default class CalendarResult extends PureComponent<CalendarResultProps, a
         if (startTime && endTime) {
             return (
                 <div className={`${prefixCls}-right`}>
-                    <p className='title'>{i18n.right_title}</p>
-                    <p className='time'>{endTime.M + 1}{i18n.month}{endTime.D}</p>
+                    {/* <p className='title'>{i18n.right_title}</p> */}
+                    {/* <p className='time'>{endTime.M + 1}{i18n.month}{endTime.D}</p> */}
                     {
                         mode == 'day*time' ? 
-                        <p className='hour'>{endTime.h < 10 ? `0${endTime.h}` : endTime.h}:{endTime.m < 10 ? `0${endTime.m}` : endTime.m}</p> : 
+                        <p className='hour'>{endTime.M + 1}{i18n.month}{endTime.D}{i18n.days} {endTime.h < 10 ? `0${endTime.h}` : endTime.h}:{endTime.m < 10 ? `0${endTime.m}` : endTime.m}</p> : 
                         <p className='week'>{i18n.week}{getWeek(endTime.w, i18n.weekList)}</p>
                     }
                 </div>
