@@ -296,14 +296,14 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
     }
 
     render() {
-        const { style, prefixCls, popupTitle, className, lang, mode, timeRange, minutesInterval, defaultStartTime, defaultEndTime, visible, maskClose, dayCalculator } = this.props;
+        const { style, prefixCls, popupTitle, className, lang, mode, timeRange, minutesInterval, defaultStartTime, defaultEndTime, visible, maskClose, dayCalculator, height = '85vh' } = this.props;
         const { calendarMap, i18n, _startTime, _endTime, _default_calendar_tips, _calendar_tips, _listBoxPaddingBottom } = this.state;
         const cardClassName: string = classNames(
             prefixCls,
             className
         );
         return (
-            <Popup visible={!!visible} bodyStyle={{ height: '90vh' }} maskClose={maskClose}>
+            <Popup visible={!!visible} bodyStyle={{ height }} maskClose={maskClose}>
                 <div style={style} className={cardClassName}>
                     <CalendarCloseBox popupTitle={popupTitle} onClose={this.closeCalendar} />
                     <CalendarResult lang={lang || 'cn'} i18n={i18n} mode={mode || 'day'} startTime={_startTime} endTime={_endTime} dayCalculator={dayCalculator} />

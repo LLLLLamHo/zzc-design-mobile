@@ -7,6 +7,7 @@ export interface CalendarCloseBoxProps {
 
 
 export interface CalendarProps {
+    height?: string
     popupTitle?: string
     maskClose?: boolean
     prefixCls?: string
