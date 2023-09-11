@@ -303,7 +303,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
             className
         );
         return (
-            <Popup visible={!!visible} bodyStyle={{ height }} maskClose={maskClose}>
+            <Popup visible={!!visible} bodyStyle={{ height }} maskClose={maskClose} onClose={this.closeCalendar}>
                 <div style={style} className={cardClassName}>
                     <CalendarCloseBox popupTitle={popupTitle} onClose={this.closeCalendar} />
                     <CalendarResult lang={lang || 'cn'} i18n={i18n} mode={mode || 'day'} startTime={_startTime} endTime={_endTime} dayCalculator={dayCalculator} />

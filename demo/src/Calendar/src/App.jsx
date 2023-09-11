@@ -145,6 +145,7 @@ export default class App extends PureComponent {
                     </div>
                 </div>
                 <Calendar
+                    maskClose
                     calendarMode='car'
                     mode='day*time'
                     visible={this.state.visible1}
