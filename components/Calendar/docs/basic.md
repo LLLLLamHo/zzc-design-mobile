@@ -31,6 +31,7 @@
 | onClose             | 提供给日历的关闭调用函数                                                         | function                               | null         |
 | dayCalculator       | 当开始和结束时间选择完成后，可以通过该函数进行自定义计算并返回给日历内部进行显示 | (start: number, end: number) => string | null         |
 | dateExtension       | 扩展日历显示                                                                     | DateExtension                          | null         |
+rangeInView             |   可选择区域                |   [Date\|string, Date\|string]            |   null
 
 > 注意，如果timeRange设置为[0, 23],minutesInterval设置为30, 那么时间范围只能选择到0:00 ~ 23:00。
 > 如果想选择范围是0:00 ~ 23:30，那么使用默认即可

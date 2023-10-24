@@ -8,30 +8,32 @@ import {
     CreateCalendarMap_dataInfo,
     _createDayInfoSubText_data,
     createCalendarMapReturn,
-    i18n
+    i18n,
+    IRangeInViewDate
 } from '../propsType';
 
-export default function createCalendarMap(lang: 'cn' | 'hk', dropOffMaxDays: number , dateExtension: DateExtension | null, startInfo: selectTimeInterface | null, endInfo: selectTimeInterface | null, yesterday: boolean, i18n: i18n): createCalendarMapReturn {
-    const date = new Date();
-    let year = date.getFullYear();
-    let month = date.getMonth();
+export default function createCalendarMap(lang: 'cn' | 'hk', dropOffMaxDays: number , dateExtension: DateExtension | null, startInfo: selectTimeInterface | null, endInfo: selectTimeInterface | null, yesterday: boolean, i18n: i18n, rangeInViewDate: IRangeInViewDate): createCalendarMapReturn {
     const now = new Date();
+    const startDateInView = rangeInViewDate.start && rangeInViewDate.start > now ? rangeInViewDate.start : new Date(now);
+    const endDateInView = rangeInViewDate.end;
+    let year = startDateInView.getFullYear();
+    let month = startDateInView.getMonth();
     const calendarMap: Array<any> = [];
 
     // 今天
-    const nowMonth = now.getMonth();
-    const nowYear = now.getFullYear();
-    const nowDay = now.getDate();
-    const lastDateMap = dropOffMaxDays > 0 ? _getLastDateMap(Number(dropOffMaxDays)) : null;
+    // const nowMonth = now.getMonth();
+    // const nowYear = now.getFullYear();
+    // const nowDay = now.getDate();
+    const lastDateMap = _getLastDateMap(Number(dropOffMaxDays), startDateInView, endDateInView);
     let startIndexInfo: selectTimeIndex | null = null
     let endIndexInfo: selectTimeIndex | null = null;
-    const step = 13;
+    const step = getStep(startDateInView, endDateInView);
     for (let i = 0; i < step; i++) {
 
         const { monthData, startIndex, endIndex } = _createMonthMap({
-            n_y: nowYear,
-            n_m: nowMonth,
-            n_d: nowDay,
+            n_y: startDateInView.getFullYear(),
+            n_m: startDateInView.getMonth(),
+            n_d: startDateInView.getDate(),
         },lastDateMap, year, month, lang, dateExtension, startInfo, endInfo, startIndexInfo, endIndexInfo, yesterday, i18n);
 
         startIndexInfo = startIndex;
@@ -59,17 +61,49 @@ export default function createCalendarMap(lang: 'cn' | 'hk', dropOffMaxDays: num
     };
 }
 
-function _getLastDateMap (AddDayCount: number ) {
-    const last = new Date();
-    last.setDate(last.getDate() + AddDayCount);
-    const lastYear = last.getFullYear();
-    const lastMonth = last.getMonth();
-    const lastDay = last.getDate();
-    return {
-        l_y: lastYear,
-        l_m: lastMonth,
-        l_d: lastDay,
+function getStep(start: Date, end: Date | null): number {
+    if (end) {
+        const s_y = start.getFullYear();
+        const s_m = start.getMonth();
+        const e_m = end.getMonth();
+        const e_y = end.getFullYear();
+        return e_m + (e_y - s_y) * 12 - s_m + 1;
     }
+    return 13; // 12 + 1
+}
+
+function getDateInfo(date: Date) {
+    return {
+        Y: date.getFullYear(),
+        M: date.getMonth(),
+        D: date.getDate(),
+    }
+}
+function _getLastDateMap (AddDayCount: number, startDateInView: Date, endDateInView: Date | null ) {
+    function getEndDateInfo(endDateInView) {
+        const info = getDateInfo(endDateInView);
+        return {
+            l_y: info.Y,
+            l_m: info.M,
+            l_d: info.D,
+        }
+    }
+    if (AddDayCount > 0) {
+        const last = new Date(startDateInView)
+        last.setDate(last.getDate() + AddDayCount);
+        const lastYear = last.getFullYear();
+        const lastMonth = last.getMonth();
+        const lastDay = last.getDate();
+        if (endDateInView && endDateInView < last) {
+            return getEndDateInfo(endDateInView);
+        }
+        return {
+            l_y: lastYear,
+            l_m: lastMonth,
+            l_d: lastDay,
+        }
+    }
+    return endDateInView ? getEndDateInfo(endDateInView) : null;
 }
 
 function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | null,  year: number, month: number, lang: 'cn' | 'hk', dateExtension: DateExtension | null, startInfo: selectTimeInterface | null, endInfo: selectTimeInterface | null, startIndexInfo: selectTimeIndex | null, endIndexInfo: selectTimeIndex | null, yesterday: boolean, i18n: i18n) {
@@ -95,6 +129,12 @@ function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | nul
         effectiveRang = true;
     }
     let rowList: Array<any> = [];
+    const nowToday = getDateInfo(new Date());
+    const nowTodayInfo = {
+        n_y: nowToday.Y,
+        n_m: nowToday.M,
+        n_d: nowToday.D,
+    }
     // 第一天补位，如果不是星期1，那么将需要补位
     rowList = _setStartEmptyItem(year, month, startDay + 1);
     for (let i = startDay; i < lastDay; i++) {
@@ -109,7 +149,7 @@ function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | nul
                     year,
                     gone: false,
                     sub: _createDayInfoSubText({
-                        ...now,
+                        ...nowTodayInfo,
                         c_y: year,
                         c_m: month,
                         c_d: currData
@@ -122,7 +162,7 @@ function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | nul
                     year,
                     gone: yesterday && year == now.n_y && month == now.n_m && currData == now.n_d - 1 ? false : true,
                     sub: _createDayInfoSubText({
-                        ...now,
+                        ...nowTodayInfo,
                         c_y: year,
                         c_m: month,
                         c_d: currData
@@ -138,7 +178,7 @@ function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | nul
                     year,
                     gone: yesterday && year == now.n_y && month == now.n_m && currData == now.n_d - 1 ? false : true,// 如果允许选择前一天，那么需要判断今天的前一天不置灰
                     sub: _createDayInfoSubText({
-                        ...now,
+                        ...nowTodayInfo,
                         c_y: year,
                         c_m: month,
                         c_d: currData
@@ -151,7 +191,7 @@ function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | nul
                     year,
                     gone: false,
                     sub: _createDayInfoSubText({
-                        ...now,
+                        ...nowTodayInfo,
                         c_y: year,
                         c_m: month,
                         c_d: currData

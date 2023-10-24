@@ -33,8 +33,11 @@ export interface CalendarProps {
     onClose?: Function
     dayCalculator?: dayCalculator | null
     dateExtension?: DateExtension
+    rangeInView?: IRangeInView
 }
 
+export type IRangeInView = [string | Date | null, string | Date | null]
+export type IRangeInViewDate = { start: Date | null; end: Date | null }
 
 export interface CalendarState {
     i18n: i18n
@@ -46,6 +49,7 @@ export interface CalendarState {
     _default_calendar_tips: string
     _calendar_tips: string
     _listBoxPaddingBottom: number
+    rangeInViewDate: IRangeInViewDate
 }
 
 export interface i18n {
