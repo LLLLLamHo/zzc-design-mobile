@@ -1,4 +1,4 @@
-import {selectTimeInterface} from '../propsType';
+import { selectTimeInterface} from '../propsType';
 import { PickerData, ListData } from '../../Picker/propsType';
 import { isString } from '../../_util/typeof';
 
@@ -91,7 +91,7 @@ export function _renderPickerData(timeRange: [number, number],minutesInterval: n
     } 
 }
 
-export function _renderPickerDataHour(timeRange: [number, number], currTime: selectTimeInterface, defaultTime: string,): Object {
+export function _renderPickerDataHour(timeRange: [number, number], currTime: selectTimeInterface, defaultTime: string): Object {
     const [start, end] = timeRange;
     const pickerIime: Array<ListData> = [];
     const MAX = 23;
@@ -117,7 +117,7 @@ export function _renderPickerDataHour(timeRange: [number, number], currTime: sel
 }
 
 
-export function _renderPickerDataMinute(minutesInterval: number, currTime: selectTimeInterface, defaultTime: string,): Object {
+export function _renderPickerDataMinute(minutesInterval: number, currTime: selectTimeInterface, defaultTime: string): Object {
     const pickerIime: Array<ListData> = [];
     let Index = 0;
     let selectTime = currTime ? `${currTime.m}` : defaultTime.split(":")[1];

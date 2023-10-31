@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import config from '../../_util/config';
 import Popup from '../../Popup';
-import { CalendarProps, CalendarState, selectTimeInterface, EchoSelectDataReturn, FormatSubmitEchoData } from '../propsType';
+import { CalendarProps, CalendarState, selectTimeInterface, EchoSelectDataReturn, FormatSubmitEchoData, IRangeInView } from '../propsType';
 import CalendarCloseBox from './CalendarCloseBox';
 import CalendarResult from './CalendarResult';
 import CalendarWeek from './CalendarWeek';
@@ -18,9 +18,10 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         super(props);
         const _startTime = props.startTime ? this.conversionSelectTime(props.startTime, props.defaultStartTime) : null;
         const _endTime = props.endTime ? this.conversionSelectTime(props.endTime, props.defaultEndTime) : null;
+        const rangeInViewDate = this.getRangeInViewDate(props.rangeInView);
         // 与外部传入i18n进行合并
         const i18n = props.i18n ? Object.assign(calendar_i18n(props.lang), props.i18n) : calendar_i18n(props.lang);
-        let { startIndexInfo, endIndexInfo, calendarMap } = createCalendarMap(props.lang, props.dropOffMaxDays, props.dateExtension, _startTime, _endTime, props.yesterday, i18n);
+        let { startIndexInfo, endIndexInfo, calendarMap } = createCalendarMap(props.lang, props.dropOffMaxDays, props.dateExtension, _startTime, _endTime, props.yesterday, i18n, rangeInViewDate);
         if (startIndexInfo && endIndexInfo) {
             const { newMap } = updateCalendarMap({
                 type: 'end',
@@ -43,6 +44,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
             _default_calendar_tips: props.defaultCalendarTips,
             _calendar_tips: '',
             _listBoxPaddingBottom: 30,
+            rangeInViewDate,
         };
 
         this.selectItem = this.selectItem.bind(this);
@@ -87,6 +89,12 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         })
     }
 
+    getRangeInViewDate(rangeInView: IRangeInView) {
+        return {
+            start: rangeInView && rangeInView[0] ? new Date(rangeInView[0] as string) : null,
+            end: rangeInView && rangeInView[1] ? new Date(rangeInView[1] as string) : null,
+        }
+    }
 
     conversionSelectTime(time, hours?: string): selectTimeInterface | null {
         if (!time) return null;
