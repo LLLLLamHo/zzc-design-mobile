@@ -123,7 +123,7 @@ function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | nul
     }
     if( lastDateMap && ( 
             ( ( year == now.n_y && month > now.n_m ) || year > now.n_y ) && 
-            ( ( year < lastDateMap.l_y && month > lastDateMap.l_m )  ||  (year == lastDateMap.l_y  && month < lastDateMap.l_m) ) 
+            ( year < lastDateMap.l_y ||  (year == lastDateMap.l_y  && month < lastDateMap.l_m) ) 
         )
     ) {
         effectiveRang = true;
