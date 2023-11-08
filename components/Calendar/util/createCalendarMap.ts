@@ -115,6 +115,7 @@ function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | nul
     let effectiveDate; // 起始定点
     let lastEffectiveEnd; // 结尾定点
     let effectiveRang = false; // 默认限制区间（针对月份级别）
+    let startAndEndIsSameMonth = false; // 开始和结束限制是否同一个月
     if (year <= now.n_y && month <= now.n_m) {
         effectiveDate = now.n_d;
     }
@@ -123,10 +124,13 @@ function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | nul
     }
     if( lastDateMap && ( 
             ( ( year == now.n_y && month > now.n_m ) || year > now.n_y ) && 
-            ( ( year < lastDateMap.l_y && month > lastDateMap.l_m )  ||  (year == lastDateMap.l_y  && month < lastDateMap.l_m) ) 
+            ( year < lastDateMap.l_y ||  (year == lastDateMap.l_y  && month < lastDateMap.l_m) ) 
         )
     ) {
         effectiveRang = true;
+    }
+    if (lastDateMap && now.n_y == lastDateMap.l_y && now.n_m == lastDateMap.l_m) {
+        startAndEndIsSameMonth = true;
     }
     let rowList: Array<any> = [];
     const nowToday = getDateInfo(new Date());
@@ -142,7 +146,11 @@ function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | nul
         const currData = i + 1;
 
         if(lastDateMap ){ // 限制区间
-            if( (lastEffectiveEnd && currData <= lastEffectiveEnd) || (effectiveDate && currData >= effectiveDate ) || effectiveRang){
+            if(
+                (startAndEndIsSameMonth && currData <= lastEffectiveEnd && currData >= effectiveDate) || 
+                (!startAndEndIsSameMonth && ((lastEffectiveEnd && currData <= lastEffectiveEnd) || (effectiveDate && currData >= effectiveDate ))) || 
+                effectiveRang
+            ) {
                 col = rowList.push(_getDayItemInfo({
                     day: currData,
                     month,
