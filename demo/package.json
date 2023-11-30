@@ -17,7 +17,7 @@
     "guido": "3.6.6"
   },
   "devDependencies": {
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "react": "16.5.0",
     "react-dom": "16.5.0"
   }
