@@ -51,6 +51,7 @@ export interface getFieldDecoratorOption {
     trim?: Boolean
     trimStart?:  Boolean
     trimEnd?: Boolean
+    normalize?: Function
 }
 
 export interface rules{
