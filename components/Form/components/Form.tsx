@@ -52,6 +52,9 @@ export default class Form extends PureComponent<FormComponentProps, any> {
                     {(state) => {
                         const { formData } = this.state;
                         const changeFun = (value: any, formOpt: getFieldDecoratorOption) => {
+                            if (formOpt && formOpt.normalize) {
+                                value = formOpt.normalize(value);
+                            }
                             state.formInputOnChange && state.formInputOnChange(id, value, this.setValue, formOpt);
                         };
                         const blurFun = (formOpt: getFieldDecoratorOption) => {
