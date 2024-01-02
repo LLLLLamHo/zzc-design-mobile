@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import { Calendar, Card } from 'zzc-design-mobile';
+// import { Calendar, Card } from 'zc-design-mobile';
+import { Calendar, Card } from '../../../../es';
 import './index.scss';
 import '../../../style/style.scss';
 import holiday from './holiday';
@@ -151,7 +152,7 @@ export default class App extends PureComponent {
                     visible={this.state.visible1}
                     minutesInterval={10}
                     yesterday
-                    defaultCalendarTips='建议取车时间为航班到达后1小时，租车当天未满24小时算1天'
+                    defaultCalendarTips='租期按24h制计算，不满24h按1天算'
                     timeChange={( value ) => this.calcTime( 'timeChange', value )}
                     dayChange={( value ) => this.changeSelectDay( value )}
                     onChange={( value ) => { this.set( 1, value ); }}

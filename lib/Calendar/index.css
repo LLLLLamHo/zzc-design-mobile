@@ -233,13 +233,12 @@
     transform: scale(0.3); } }
 
 .zds-calendar {
-  background: #F5F6F8;
   display: flex;
   height: 100%;
   flex-direction: column; }
 
 .zds-calendar-close-box {
-  height: 44.5px;
+  height: 55px;
   width: 100%;
   position: relative; }
 
@@ -254,9 +253,17 @@
 
 .zds-calendar-close-box .zds-calendar-close-box-title {
   font-size: 18px;
-  text-align: center;
-  height: 45px;
-  line-height: 45px; }
+  text-indent: 15px;
+  height: 55px;
+  line-height: 55px;
+  font-weight: 500; }
+
+.zds-calendar .now-text {
+  font-weight: 500;
+  color: #333333;
+  font-size: 16px;
+  line-height: 40px;
+  text-align: center; }
 
 .zds-calendar-result-box {
   height: 50px;
@@ -364,6 +371,7 @@
   align-items: center;
   justify-content: space-between;
   height: 44.5px;
+  background: #F9FBFE;
   position: relative; }
 
 .zds-calendar-week-box::after {
@@ -389,7 +397,7 @@
   color: #333; }
 
 .zds-calendar-list-box {
-  background: #fff;
+  background: #F9FBFE;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -512,7 +520,20 @@
   line-height: 40px; }
 
 .zds-calendar-footer .time-picker-box .picker-box {
-  padding: 10px 20px; }
+  padding: 10px 25px; }
+
+.zds-calendar-footer .time-picker-box .picker-box .zds-picker-wrapper:nth-of-type(2) {
+  margin-right: 30px; }
+
+.zds-calendar-footer .time-picker-box .picker-box .zds-calendar-t-p-s-d-bg .block,
+.zds-calendar-footer .time-picker-box .picker-box .zds-calendar-t-r-s-d-bg .block {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0; }
+
+.zds-calendar-footer .time-picker-box .picker-box .zds-calendar-t-p-s-t-bg .block,
+.zds-calendar-footer .time-picker-box .picker-box .zds-calendar-t-r-s-t-bg .block {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0; }
 
 .zds-calendar-footer .calendar-tips-box {
   display: flex;
@@ -546,5 +567,28 @@
   width: 111px;
   margin-right: 9px; }
 
+.zds-calendar-footer .btn-box .pickup-return-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: #333333;
+  line-height: 1; }
+
+.zds-calendar-footer .btn-box .pickup-return-text .return-text {
+  margin: 9px 0 0 0; }
+
+.zds-calendar-footer .btn-box .pickup-return-text .extra-text {
+  font-size: 11px;
+  font-weight: 400;
+  color: #696E7C;
+  margin: 7px 0 0 0;
+  display: flex;
+  align-items: center; }
+
+.zds-calendar-footer .btn-box .pickup-return-text .extra-text .icon {
+  width: 11px;
+  height: 11px;
+  margin: 0 2px 0 0; }
+
 .zds-calendar-footer .btn-box .submit-btn {
-  flex: 1; }
+  width: 127px;
+  height: 50px; }

@@ -3,8 +3,10 @@ import config from '../../_util/config';
 import Button from '../../Button';
 import Picker from '../../Picker';
 import Icon from '../../Icon';
+import {isFunction} from '../../_util/typeof';
 import createPickerData from '../util/createPickerData';
 import { CalendarFooterProps, CalendarFooterState } from '../propsType';
+import moment from 'moment'
 
 export default class CalendarFooter extends PureComponent<CalendarFooterProps, CalendarFooterState> {
     constructor(props) {
@@ -104,15 +106,23 @@ export default class CalendarFooter extends PureComponent<CalendarFooterProps, C
     }
 
     render(): JSX.Element {
-        const { prefixCls, i18n, reset, submit, mode } = this.props;
+        const { prefixCls, i18n, defaultCalendarTips, submit, mode, currStartTime, currEndTime, dayCalculator } = this.props;
 
         return (
             <div className={`${prefixCls}-footer`} ref={(div) => {this.footerItem = div}}>
                 {mode == 'day*time' && this.createTimePicker()}
-                {this.createTips()}
+                {/* {this.createTips()} */}
                 <div className='btn-box'>
-                    <Button className='reset-btn' type='special' onClick={reset}>{i18n.reset_btn_text}</Button>
-                    <Button className='submit-btn' onClick={submit}>{i18n.submit_btn_text}</Button>
+                    {/* <Button className='reset-btn' type='special' onClick={reset}>{i18n.reset_btn_text}</Button> */}
+                    <div className='pickup-return-text'>
+                        <div className='pickup-text'>取车：{currStartTime ? moment(currStartTime.t).format(moment().isSame(currStartTime.t, 'year') ? 'MM月DD日 hh:mm' : 'YYYY年MM月DD日 hh:mm') : '未设置'}</div>
+                        <div className='return-text'>还车：{currEndTime ? moment(currEndTime.t).format(moment().isSame(currEndTime.t, 'year') ? 'MM月DD日 hh:mm' : 'YYYY年MM月DD日 hh:mm') : '未设置'}</div>
+                        {
+                            defaultCalendarTips && currEndTime && currStartTime && currEndTime.t - currStartTime.t < 8640000 &&<div className='extra-text'><Icon type='info_outline' className='icon' />{defaultCalendarTips}</div>
+                        }
+                        
+                    </div>
+                    <Button className='submit-btn' onClick={submit}>{i18n.submit_btn_text_1}{currStartTime && currEndTime && (dayCalculator && isFunction(dayCalculator) ? dayCalculator(currStartTime.t, currEndTime.t) : (`${Math.ceil((currEndTime.t - currStartTime.t) / 86400000) || 1}`))}{i18n.submit_btn_text_2}</Button>
                 </div>
             </div>
         );

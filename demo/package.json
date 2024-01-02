@@ -14,7 +14,8 @@
   "dependencies": {
     "better-scroll": "1.11.1",
     "classnames": "2.2.5",
-    "guido": "3.6.6"
+    "guido": "3.6.6",
+    "moment": "^2.30.1"
   },
   "devDependencies": {
     "moment": "^2.24.0",

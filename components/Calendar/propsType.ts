@@ -49,7 +49,8 @@ export interface CalendarState {
     _default_calendar_tips: string
     _calendar_tips: string
     _listBoxPaddingBottom: number
-    rangeInViewDate: IRangeInViewDate
+    rangeInViewDate: IRangeInViewDate,
+    timeText: string | null
 }
 
 export interface i18n {
@@ -65,6 +66,8 @@ export interface i18n {
     return_default: string | null
     reset_btn_text: string
     submit_btn_text: string
+    submit_btn_text_1: string
+    submit_btn_text_2: string
     time_picker_title: string
     time_return_title: string
     monthList: Array<string>
@@ -207,6 +210,7 @@ export interface CalendarFooterProps{
     reset: Function
     submit: Function
     renderCallback: Function
+    dayCalculator?: dayCalculator | null
 }
 export interface CalendarFooterState{
     pickerList: Array<PickerData>
@@ -222,6 +226,7 @@ export interface CalendarListBoxProps {
     startTime?: selectTimeInterface | null
     endTime?: selectTimeInterface | null
     selectItem: Function
+    setTimeText: Function
 }
 
 export interface CalendarResultProps {

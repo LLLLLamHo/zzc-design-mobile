@@ -244,7 +244,8 @@
   height: 100%;
   width: 100%;
   background: #fff;
-  position: relative; }
+  position: relative;
+  margin: 0 1px; }
 
 .zds-picker .zds-picker-wrapper:nth-of-type(3n)::before {
   content: '';
@@ -265,13 +266,27 @@
   margin: 0 auto;
   background-position: top, bottom;
   background-size: 100% 102px;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  z-index: 1; }
+
+.zds-picker .zds-picker-wrapper-bg .block {
+  width: 100%;
+  height: 35px;
+  background: #E6EEFE;
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-22px); }
+
+.zds-picker .zds-picker-wrapper .zds-picker-ws {
+  position: relative;
+  z-index: 2; }
 
 .zds-picker .zds-picker-wrapper .zds-picker-ws .zds-picker-wi {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
   color: #9EA1B0;
   height: 40px;
   box-sizing: border-box;
@@ -280,6 +295,6 @@
   white-space: nowrap; }
 
 .zds-picker .zds-picker-wrapper .zds-picker-ws .zds-picker-wi-active {
-  color: #333;
-  font-size: 21px;
-  font-weight: bold; }
+  color: #282828;
+  font-size: 16px;
+  font-weight: 500; }

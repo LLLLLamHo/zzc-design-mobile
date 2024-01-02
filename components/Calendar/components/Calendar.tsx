@@ -4,7 +4,7 @@ import config from '../../_util/config';
 import Popup from '../../Popup';
 import { CalendarProps, CalendarState, selectTimeInterface, EchoSelectDataReturn, FormatSubmitEchoData, IRangeInView } from '../propsType';
 import CalendarCloseBox from './CalendarCloseBox';
-import CalendarResult from './CalendarResult';
+// import CalendarResult from './CalendarResult';
 import CalendarWeek from './CalendarWeek';
 import CalendarListBox from './CalendarListBox';
 import CalendarFooter from './CalendarFooter';
@@ -45,6 +45,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
             _calendar_tips: '',
             _listBoxPaddingBottom: 30,
             rangeInViewDate,
+            timeText: null
         };
 
         this.selectItem = this.selectItem.bind(this);
@@ -53,6 +54,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         this.submit = this.submit.bind(this);
         this.closeCalendar = this.closeCalendar.bind(this);
         this.footerRenderCallback = this.footerRenderCallback.bind(this);
+        this.setTimeText = this.setTimeText.bind(this);
     }
     static defaultProps = {
         prefixCls: `${config.cls}-calendar`,
@@ -297,6 +299,12 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         }
     }
 
+    setTimeText(t){
+        this.setState({
+            timeText: t
+        })
+    }
+
     footerRenderCallback(footerHeight: number): void {
         this.setState({
             _listBoxPaddingBottom: footerHeight + 30
@@ -304,8 +312,8 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
     }
 
     render() {
-        const { style, prefixCls, popupTitle, className, lang, mode, timeRange, minutesInterval, defaultStartTime, defaultEndTime, visible, maskClose, dayCalculator, height = '85vh' } = this.props;
-        const { calendarMap, i18n, _startTime, _endTime, _default_calendar_tips, _calendar_tips, _listBoxPaddingBottom } = this.state;
+        const { style, prefixCls, popupTitle, className, mode, timeRange, minutesInterval, defaultStartTime, defaultEndTime, visible, maskClose, height = '85vh', dayCalculator } = this.props;
+        const { calendarMap, i18n, _startTime, _endTime, _default_calendar_tips, _calendar_tips, _listBoxPaddingBottom, timeText } = this.state;
         const cardClassName: string = classNames(
             prefixCls,
             className
@@ -314,7 +322,8 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
             <Popup visible={!!visible} bodyStyle={{ height }} maskClose={maskClose} onClose={this.closeCalendar}>
                 <div style={style} className={cardClassName}>
                     <CalendarCloseBox popupTitle={popupTitle} onClose={this.closeCalendar} />
-                    <CalendarResult lang={lang || 'cn'} i18n={i18n} mode={mode || 'day'} startTime={_startTime} endTime={_endTime} dayCalculator={dayCalculator} />
+                    {/* <CalendarResult lang={lang || 'cn'} i18n={i18n} mode={mode || 'day'} startTime={_startTime} endTime={_endTime} dayCalculator={dayCalculator} /> */}
+                    <div className='now-text'>{timeText}</div>
                     <CalendarWeek weekList={i18n.weekList} />
                     <CalendarListBox
                         paddingBottom={_listBoxPaddingBottom}
@@ -324,6 +333,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
                         endTime={_endTime}
                         monthList={i18n.monthList || null}
                         listAcrossTheYearText={i18n.listAcrossTheYearText}
+                        setTimeText={this.setTimeText}
                     />
                     <Popup
                         style={{ bottom: 0, top: 'unset', height: 'auto' }}
@@ -346,6 +356,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
                             selectTimePicker={this.selectTimePicker}
                             defaultCalendarTips={_default_calendar_tips}
                             calendarTips={_calendar_tips}
+                            dayCalculator={dayCalculator}
                         />
                     </Popup>
                 </div>

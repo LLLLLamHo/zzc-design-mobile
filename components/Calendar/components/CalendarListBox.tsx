@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
 import config from '../../_util/config';
 import { CalendarListBoxProps } from '../propsType';
-
+let observer: any = {}
 export default class CalendarListBox extends PureComponent<CalendarListBoxProps, any> {
     constructor(props) {
         super(props);
     }
+
 
     listBox;
 
@@ -14,14 +15,40 @@ export default class CalendarListBox extends PureComponent<CalendarListBoxProps,
     };
 
     componentDidMount() {
+        const setTimeText = this.props.setTimeText;
         requestAnimationFrame(() => {
             this.scrollToTop()
+            // 创建 IntersectionObserver 实例
+            observer = new IntersectionObserver((entries: any) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // 目标元素进入视口
+                        setTimeText(entry.target.innerText)
+                    } else {
+                        // 目标元素离开视口
+                    }
+                    });
+                }, {
+                // 选项配置
+                root: document.querySelector('.zds-calendar-list-box'), // 相对的根元素
+                rootMargin: '0px 0px -98% 0px', // 可以在这里设置相对根元素的 margin
+                threshold: 0 // 阈值，表示目标元素的多少可见时触发回调
+            });
+            this.onScroll()
         });
     }
 
     componentDidUpdate() {
         requestAnimationFrame(() => {
             this.scrollToTop()
+        });
+    }
+
+    onScroll(){
+        // 监听目标元素
+        document.querySelectorAll('.zds-calendar-list-box .item .title').forEach(item => {
+            // console.log(observer)
+            observer.observe(item);
         });
     }
 
@@ -33,14 +60,19 @@ export default class CalendarListBox extends PureComponent<CalendarListBoxProps,
         this.listBox.scrollTop = targetItem.offsetTop;
     }
 
-    renderI18nMonthText(monthData, currYear, monthList, listAcrossTheYearText): string {
-        return `${monthData.y != currYear ? `${monthData.y}${listAcrossTheYearText}` : ''}${monthList[monthData.m]}`
+    // renderI18nMonthText(monthData, currYear, monthList, listAcrossTheYearText): string {
+    //     return `${monthData.y != currYear ? `${monthData.y}${listAcrossTheYearText}` : ''}${monthList[monthData.m]}`
+    // }
+
+    renderI18nMonthText(monthData, _currYear, _monthList, listAcrossTheYearText): string {
+        return `${monthData.y}${listAcrossTheYearText}${monthData.m + 1}月`
     }
 
     createMonthItem(monthData, key, monthList: null | Array<string>, listAcrossTheYearText: string): JSX.Element {
         const currYear = new Date().getFullYear();
         return (
             <div key={key} className='item' data-c-y={monthData.y} data-c-m={monthData.m}>
+                {/* <p className='title'>{this.renderI18nMonthText(monthData, currYear, monthList, listAcrossTheYearText)}</p> */}
                 <p className='title'>{this.renderI18nMonthText(monthData, currYear, monthList, listAcrossTheYearText)}</p>
                 {
                     monthData.list.map((row, rowKey) => {
@@ -96,7 +128,7 @@ export default class CalendarListBox extends PureComponent<CalendarListBoxProps,
     render() {
         const { prefixCls, list, paddingBottom, monthList, listAcrossTheYearText } = this.props;
         return (
-            <div ref={(list) => { this.listBox = list }} className={`${prefixCls}-list-box`} style={{paddingBottom: `${paddingBottom}px`}}>
+            <div ref={(list) => { this.listBox = list }} className={`${prefixCls}-list-box`} style={{paddingBottom: `${paddingBottom}px`}} onScroll={this.onScroll}>
                 {
                     list.map((item, key) => {
                         return this.createMonthItem(item, key, monthList, listAcrossTheYearText)

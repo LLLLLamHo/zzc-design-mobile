@@ -152,7 +152,7 @@ export default class PickerWrapper extends React.PureComponent<PickerWrapperProp
                 >
                     {this.renderItem()}
                 </ul>
-                <div className={`${prefixCls}-wrapper-bg`} />
+                <div className={`${prefixCls}-wrapper-bg ${data.className}-bg`}><div className='block' /></div>
             </div>
         );
     }
