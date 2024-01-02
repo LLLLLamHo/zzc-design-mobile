@@ -23,7 +23,7 @@ export default class CalendarListBox extends PureComponent<CalendarListBoxProps,
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         // 目标元素进入视口
-                        setTimeText(entry.target.innerText)
+                        setTimeText(entry.target.firstChild.innerText)
                     } else {
                         // 目标元素离开视口
                     }
@@ -46,7 +46,7 @@ export default class CalendarListBox extends PureComponent<CalendarListBoxProps,
 
     onScroll(){
         // 监听目标元素
-        document.querySelectorAll('.zds-calendar-list-box .item .title').forEach(item => {
+        document.querySelectorAll('.zds-calendar-list-box .item').forEach(item => {
             // console.log(observer)
             observer.observe(item);
         });
