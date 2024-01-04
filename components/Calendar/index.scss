@@ -273,6 +273,20 @@ $cls: '.zds-calendar';
                             overflow: hidden;
                             text-overflow: ellipsis;
                         }
+
+                        &.sub_top{
+                            font-size: 12px;
+                            font-weight: 400;
+                            color: #fff;
+                            position: absolute;
+                            top: 2px;
+                            width: 100%;
+                            line-height: 14px;
+                            transform: scale(0.833);
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
                     }
                 }
             }

@@ -483,6 +483,19 @@
   overflow: hidden;
   text-overflow: ellipsis; }
 
+.zds-calendar-list-box .item .list-item li p.sub_top {
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  position: absolute;
+  top: 2px;
+  width: 100%;
+  line-height: 14px;
+  transform: scale(0.833);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
 .zds-calendar-footer {
   background: #fff;
   border-top: 1px solid rgba(105, 110, 124, 0.15);

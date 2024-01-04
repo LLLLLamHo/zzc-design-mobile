@@ -89,8 +89,9 @@ export default class CalendarListBox extends PureComponent<CalendarListBoxProps,
                                                     !dayInfo.gone && !dayInfo.empty && this.props.selectItem(monthData.y, dayInfo.m, rowKey, dayKey, dayInfo);
                                                 }}
                                             >
+                                                {dayInfo._sub != null && <p className='sub_top'>{dayInfo._sub}</p>}
                                                 {dayInfo.main != null && <p>{dayInfo.main}</p>}
-                                                {dayInfo._sub != null ? <p className='sub'>{dayInfo._sub}</p> : dayInfo.sub != null ? <p className='sub'>{dayInfo.sub}</p> : null}
+                                                {dayInfo.sub != null && <p className='sub'>{dayInfo.sub}</p>}
                                             </li>
                                         );
                                     })
