@@ -440,6 +440,9 @@
 .zds-calendar-list-box .item .list-item li.start p, .zds-calendar-list-box .item .list-item li.end p {
   color: #fff; }
 
+.zds-calendar-list-box .item .list-item li.start p span, .zds-calendar-list-box .item .list-item li.end p span {
+  color: #fff; }
+
 .zds-calendar-list-box .item .list-item li.start p.sub, .zds-calendar-list-box .item .list-item li.end p.sub {
   color: #fff; }
 
@@ -470,10 +473,15 @@
   white-space: nowrap;
   text-overflow: ellipsis; }
 
+.zds-calendar-list-box .item .list-item li p span {
+  font-size: 16px;
+  color: #2871F7;
+  font-weight: 500; }
+
 .zds-calendar-list-box .item .list-item li p.sub {
   font-size: 12px;
   font-weight: 400;
-  color: #696E7C;
+  color: #2871F7;
   position: absolute;
   bottom: 2px;
   width: 100%;

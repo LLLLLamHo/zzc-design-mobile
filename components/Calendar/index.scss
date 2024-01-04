@@ -218,9 +218,13 @@ $cls: '.zds-calendar';
 
                         p {
                             color: #fff;
+                            span{
+                                color: #fff;
+                            }
 
                             &.sub {
                                 color: #fff;
+                            
                             }
                         }
                     }
@@ -259,11 +263,16 @@ $cls: '.zds-calendar';
                         width: 100%;
                         white-space: nowrap;
                         text-overflow: ellipsis;
+                        span{
+                            font-size: 16px;
+                            color: #2871F7;
+                            font-weight: 500;
+                        }
 
                         &.sub {
                             font-size: 12px;
                             font-weight: 400;
-                            color: #696E7C;
+                            color: #2871F7;
                             position: absolute;
                             bottom: 2px;
                             width: 100%;

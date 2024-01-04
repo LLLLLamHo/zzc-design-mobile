@@ -124,6 +124,7 @@ export interface CalendarMapItemRow {
     end?: boolean
     startOnly?: boolean
     active?: boolean
+    isToday?: boolean
     extensionMain?: boolean
 }
 
@@ -164,6 +165,7 @@ export interface CreateCalendarMap_dataInfo {
     sub?: string | null
     main?: string | number | null
     empty?: boolean
+    isToday?: boolean
 }
 
 export interface _createDayInfoSubText_data {

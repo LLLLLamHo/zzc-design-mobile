@@ -90,7 +90,7 @@ export default class CalendarListBox extends PureComponent<CalendarListBoxProps,
                                                 }}
                                             >
                                                 {dayInfo._sub != null && <p className='sub_top'>{dayInfo._sub}</p>}
-                                                {dayInfo.main != null && <p>{dayInfo.main}</p>}
+                                                {dayInfo.main != null && <p>{dayInfo.isToday ? <span>今</span> : dayInfo.main}</p>}
                                                 {dayInfo.sub != null && <p className='sub'>{dayInfo.sub}</p>}
                                             </li>
                                         );

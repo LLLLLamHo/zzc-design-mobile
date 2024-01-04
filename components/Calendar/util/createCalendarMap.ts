@@ -161,7 +161,13 @@ function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | nul
                         c_y: year,
                         c_m: month,
                         c_d: currData
-                    }, i18n)
+                    }, i18n),
+                    isToday: _isTodayFunc({
+                        ...nowTodayInfo,
+                        c_y: year,
+                        c_m: month,
+                        c_d: currData
+                    })
                 }, dateExtension));
             } else {
                 col = rowList.push(_getDayItemInfo({
@@ -174,7 +180,13 @@ function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | nul
                         c_y: year,
                         c_m: month,
                         c_d: currData
-                    }, i18n)
+                    }, i18n),
+                    isToday: _isTodayFunc({
+                        ...nowTodayInfo,
+                        c_y: year,
+                        c_m: month,
+                        c_d: currData
+                    })
                 }, dateExtension));
             }
         } else {
@@ -190,7 +202,13 @@ function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | nul
                         c_y: year,
                         c_m: month,
                         c_d: currData
-                    }, i18n)
+                    }, i18n),
+                    isToday: _isTodayFunc({
+                        ...nowTodayInfo,
+                        c_y: year,
+                        c_m: month,
+                        c_d: currData
+                    })
                 }, dateExtension));
             } else {
                 col = rowList.push(_getDayItemInfo({
@@ -203,7 +221,13 @@ function _createMonthMap(now: _createMonthMap_now,lastDateMap:_lastDateMap | nul
                         c_y: year,
                         c_m: month,
                         c_d: currData
-                    }, i18n)
+                    }, i18n),
+                    isToday: _isTodayFunc({
+                        ...nowTodayInfo,
+                        c_y: year,
+                        c_m: month,
+                        c_d: currData
+                    })
                 }, dateExtension));
             }
         }
@@ -278,7 +302,8 @@ function _dateExtensionMerge(dataInfo: CreateCalendarMap_dataInfo, dateExtension
         m: dataInfo.month,
         d: dataInfo.day,
         main: dataInfo.day,
-        sub: dataInfo.sub || null
+        sub: dataInfo.sub || null,
+        isToday: dataInfo.isToday
     };
     const extensionItem = dateExtension[`${defaultItemInfo.y}/${defaultItemInfo.m + 1}/${defaultItemInfo.d}`];
     if (extensionItem) {
@@ -301,7 +326,8 @@ function _getDayItemInfo(dataInfo: CreateCalendarMap_dataInfo, dateExtension: Da
             m: dataInfo.month,
             d: dataInfo.day,
             main: dataInfo.day,
-            sub: dataInfo.sub
+            sub: dataInfo.sub,
+            isToday: dataInfo.isToday,
         }
     } else {
         return _dateExtensionMerge(dataInfo, dateExtension);
@@ -326,9 +352,15 @@ function _createMonthTitle(month: number, lang: 'cn' | 'hk'): string {
     return '';
 }
 
-function _createDayInfoSubText(data: _createDayInfoSubText_data, i18n: i18n): string | null {
+function _createDayInfoSubText(data: _createDayInfoSubText_data, _i18n: i18n): string | null {
     if (data.n_y == data.c_y && data.n_m == data.c_m && data.n_d == data.c_d) {
-        return i18n.today;
+        // return i18n.today;
+        return null
     }
     return null;
+}
+
+
+function _isTodayFunc(data: _createDayInfoSubText_data){
+    return data.n_y == data.c_y && data.n_m == data.c_m && data.n_d == data.c_d
 }
