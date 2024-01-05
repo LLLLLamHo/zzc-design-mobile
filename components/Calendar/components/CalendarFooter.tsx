@@ -115,8 +115,8 @@ export default class CalendarFooter extends PureComponent<CalendarFooterProps, C
                 <div className='btn-box'>
                     {/* <Button className='reset-btn' type='special' onClick={reset}>{i18n.reset_btn_text}</Button> */}
                     <div className='pickup-return-text'>
-                        <div className='pickup-text'>取车：{currStartTime ? moment(currStartTime.t).format(moment().isSame(currStartTime.t, 'year') ? 'MM月DD日 hh:mm' : 'YYYY年MM月DD日 hh:mm') : '未设置'}</div>
-                        <div className='return-text'>还车：{currEndTime ? moment(currEndTime.t).format(moment().isSame(currEndTime.t, 'year') ? 'MM月DD日 hh:mm' : 'YYYY年MM月DD日 hh:mm') : '未设置'}</div>
+                        <div className='pickup-text'>取车：{currStartTime ? moment(currStartTime.t).format(moment().isSame(currStartTime.t, 'year') ? 'MM月DD日 HH:mm' : 'YYYY年MM月DD日 HH:mm') : '未设置'}</div>
+                        <div className='return-text'>还车：{currEndTime ? moment(currEndTime.t).format(moment().isSame(currEndTime.t, 'year') ? 'MM月DD日 HH:mm' : 'YYYY年MM月DD日 HH:mm') : '未设置'}</div>
                         {
                             defaultCalendarTips && currEndTime && currStartTime && currEndTime.t - currStartTime.t < 86400000 &&<div className='extra-text'><Icon type='info_outline' className='icon' />{defaultCalendarTips}</div>
                         }
