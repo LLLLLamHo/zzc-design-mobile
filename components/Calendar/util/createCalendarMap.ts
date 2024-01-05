@@ -305,7 +305,7 @@ function _dateExtensionMerge(dataInfo: CreateCalendarMap_dataInfo, dateExtension
         sub: dataInfo.sub || null,
         isToday: dataInfo.isToday
     };
-    const extensionItem = dateExtension[`${defaultItemInfo.y}/${defaultItemInfo.m + 1}/${defaultItemInfo.d}`];
+    const extensionItem = dateExtension[`${defaultItemInfo.y}/${defaultItemInfo.m + 1 < 9 ? `0${defaultItemInfo.m + 1}` : defaultItemInfo.m + 1}/${defaultItemInfo.d < 9 ? `0${defaultItemInfo.d}` : defaultItemInfo.d}`];
     if (extensionItem) {
         defaultItemInfo.sub = extensionItem.sub || defaultItemInfo.sub;
         defaultItemInfo.main = extensionItem.date || defaultItemInfo.main;

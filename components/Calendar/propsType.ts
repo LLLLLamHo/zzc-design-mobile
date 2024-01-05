@@ -117,7 +117,7 @@ export interface CalendarMapItemRow {
     gone?: boolean
     y: number
     m: number
-    d?: number
+    d: any
     main?: string | number | null
     sub?: string | null
     start?: boolean
