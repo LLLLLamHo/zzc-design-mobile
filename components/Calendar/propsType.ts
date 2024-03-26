@@ -34,6 +34,7 @@ export interface CalendarProps {
     dayCalculator?: dayCalculator | null
     dateExtension?: DateExtension
     rangeInView?: IRangeInView
+    pickupCityLocalTimeStr?: string
 }
 
 export type IRangeInView = [string | Date | null, string | Date | null]
@@ -66,8 +67,6 @@ export interface i18n {
     return_default: string | null
     reset_btn_text: string
     submit_btn_text: string
-    submit_btn_text_1: string
-    submit_btn_text_2: string
     time_picker_title: string
     time_return_title: string
     monthList: Array<string>
@@ -77,6 +76,9 @@ export interface i18n {
     day: string
     days: string
     today: string
+    pickup: string
+    dropoff: string
+    durationDays: string;
 }
 
 export interface selectTimeIndex {
@@ -103,6 +105,7 @@ export interface DateExtension {
 export interface DateExtensionItem {
     date?: string
     sub?: string
+    class?: string
 }
 
 export interface CalendarMapItem {
@@ -126,6 +129,7 @@ export interface CalendarMapItemRow {
     active?: boolean
     isToday?: boolean
     extensionMain?: boolean
+    extensionClassNames?: string
 }
 
 export interface EchoSelectDataReturn {
@@ -213,6 +217,7 @@ export interface CalendarFooterProps{
     submit: Function
     renderCallback: Function
     dayCalculator?: dayCalculator | null
+    pickupCityLocalTimeStr?: string
 }
 export interface CalendarFooterState{
     pickerList: Array<PickerData>

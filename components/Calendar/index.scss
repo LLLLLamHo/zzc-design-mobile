@@ -150,7 +150,7 @@ $cls: '.zds-calendar';
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 44.5px;
+        height: 40px;
         background: #F9FBFE;
         @include halfPXLine('bottom', rgba(105, 110, 124, .15));
 
@@ -164,6 +164,12 @@ $cls: '.zds-calendar';
             p {
                 font-size: 14px;
                 color: #333;
+            }
+
+            &[data-week="六"], &[data-week="日"] {
+                p {
+                    color: #FF5424;
+                }
             }
         }
     }
@@ -179,10 +185,14 @@ $cls: '.zds-calendar';
 
         .item {
             .title {
-                padding: 20.5px 13px;
-                font-size: 18px;
+                padding: 12px 15px;
+                font-size: 16px;
                 color: #333;
-                line-height: 1;
+                line-height: 16px;
+                position: sticky;
+                top: 0;
+                background: #F9FBFE;
+                z-index: 1;
             }
 
             .list-item {
@@ -193,7 +203,7 @@ $cls: '.zds-calendar';
                 li {
                     width: 14.28%;
                     flex: 1;
-                    height: 54.5px;
+                    height: 41px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -202,15 +212,28 @@ $cls: '.zds-calendar';
                     font-weight: bold;
 
                     &.gone {
-                        p {
-                            color: #9EA1B0;
+                        opacity: .4;
+                        // p {
+                        //     color: #9EA1B0;
 
+                        //     &.sub {
+                        //         color: #9EA1B0;
+                        //     }
+                        // }
+                    }
+
+                    &.holiday {
+                        p {
+                            color: #FF5424;
+                            span {
+                                color: #FF5424;
+                            }
                             &.sub {
-                                color: #9EA1B0;
+                                color: #FF5424;
+                            
                             }
                         }
                     }
-
                     &.start,
                     &.end {
                         background: #2871F7;
@@ -270,28 +293,28 @@ $cls: '.zds-calendar';
                         }
 
                         &.sub {
-                            font-size: 12px;
+                            font-size: 9px;
                             font-weight: 400;
                             color: #2871F7;
                             position: absolute;
                             bottom: 2px;
                             width: 100%;
-                            line-height: 14px;
-                            transform: scale(0.833);
+                            line-height: 9px;
+                            // transform: scale(0.833);
                             white-space: nowrap;
                             overflow: hidden;
                             text-overflow: ellipsis;
                         }
 
                         &.sub_top{
-                            font-size: 12px;
+                            font-size: 9px;
                             font-weight: 400;
                             color: #fff;
                             position: absolute;
                             top: 2px;
                             width: 100%;
-                            line-height: 14px;
-                            transform: scale(0.833);
+                            line-height: 9px;
+                            // transform: scale(0.833);
                             white-space: nowrap;
                             overflow: hidden;
                             text-overflow: ellipsis;
@@ -330,7 +353,7 @@ $cls: '.zds-calendar';
             }
 
             .picker-box {
-                padding: 10px 25px;
+                padding: 0 25px 7px 25px;
                 .zds-picker-wrapper:nth-of-type(2){
                     margin-right: 30px;
                 }
@@ -356,7 +379,8 @@ $cls: '.zds-calendar';
             display: flex;
             align-items: flex-start;
             justify-content: flex-start;
-            padding: 2px 15px 2px;
+            // padding: 2px 15px 2px;
+            padding: 0 15px;
             &.mode-day{
                 padding-top: 10px;
             }
@@ -365,6 +389,7 @@ $cls: '.zds-calendar';
                 height: 11px;
                 margin-right: 4px;
                 fill: #696E7C;
+                margin-top: 1px;
             }
 
             p {
@@ -377,7 +402,7 @@ $cls: '.zds-calendar';
         }
 
         .btn-box {
-            padding: 9px 15px;
+            padding: 7px 15px 9px 15px;
             display: flex;
             align-items: center;
             justify-content: space-between;

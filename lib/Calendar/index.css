@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .zds-slide-bottom-enter {
   position: absolute;
   transform: translateY(100%);
@@ -370,7 +371,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 44.5px;
+  height: 40px;
   background: #F9FBFE;
   position: relative; }
 
@@ -396,6 +397,9 @@
   font-size: 14px;
   color: #333; }
 
+.zds-calendar-week-box .item[data-week="六"] p, .zds-calendar-week-box .item[data-week="日"] p {
+  color: #FF5424; }
+
 .zds-calendar-list-box {
   background: #F9FBFE;
   display: flex;
@@ -406,10 +410,14 @@
   position: relative; }
 
 .zds-calendar-list-box .item .title {
-  padding: 20.5px 13px;
-  font-size: 18px;
+  padding: 12px 15px;
+  font-size: 16px;
   color: #333;
-  line-height: 1; }
+  line-height: 16px;
+  position: sticky;
+  top: 0;
+  background: #F9FBFE;
+  z-index: 1; }
 
 .zds-calendar-list-box .item .list-item {
   display: flex;
@@ -419,7 +427,7 @@
 .zds-calendar-list-box .item .list-item li {
   width: 14.28%;
   flex: 1;
-  height: 54.5px;
+  height: 41px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -427,11 +435,17 @@
   position: relative;
   font-weight: bold; }
 
-.zds-calendar-list-box .item .list-item li.gone p {
-  color: #9EA1B0; }
+.zds-calendar-list-box .item .list-item li.gone {
+  opacity: .4; }
 
-.zds-calendar-list-box .item .list-item li.gone p.sub {
-  color: #9EA1B0; }
+.zds-calendar-list-box .item .list-item li.holiday p {
+  color: #FF5424; }
+
+.zds-calendar-list-box .item .list-item li.holiday p span {
+  color: #FF5424; }
+
+.zds-calendar-list-box .item .list-item li.holiday p.sub {
+  color: #FF5424; }
 
 .zds-calendar-list-box .item .list-item li.start, .zds-calendar-list-box .item .list-item li.end {
   background: #2871F7;
@@ -479,27 +493,25 @@
   font-weight: 500; }
 
 .zds-calendar-list-box .item .list-item li p.sub {
-  font-size: 12px;
+  font-size: 9px;
   font-weight: 400;
   color: #2871F7;
   position: absolute;
   bottom: 2px;
   width: 100%;
-  line-height: 14px;
-  transform: scale(0.833);
+  line-height: 9px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
 
 .zds-calendar-list-box .item .list-item li p.sub_top {
-  font-size: 12px;
+  font-size: 9px;
   font-weight: 400;
   color: #fff;
   position: absolute;
   top: 2px;
   width: 100%;
-  line-height: 14px;
-  transform: scale(0.833);
+  line-height: 9px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
@@ -541,7 +553,7 @@
   line-height: 40px; }
 
 .zds-calendar-footer .time-picker-box .picker-box {
-  padding: 10px 25px; }
+  padding: 0 25px 7px 25px; }
 
 .zds-calendar-footer .time-picker-box .picker-box .zds-picker-wrapper:nth-of-type(2) {
   margin-right: 30px; }
@@ -560,7 +572,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 2px 15px 2px; }
+  padding: 0 15px; }
 
 .zds-calendar-footer .calendar-tips-box.mode-day {
   padding-top: 10px; }
@@ -569,7 +581,8 @@
   width: 11px;
   height: 11px;
   margin-right: 4px;
-  fill: #696E7C; }
+  fill: #696E7C;
+  margin-top: 1px; }
 
 .zds-calendar-footer .calendar-tips-box p {
   flex: 1;
@@ -579,7 +592,7 @@
   line-height: 1.2727; }
 
 .zds-calendar-footer .btn-box {
-  padding: 9px 15px;
+  padding: 7px 15px 9px 15px;
   display: flex;
   align-items: center;
   justify-content: space-between; }

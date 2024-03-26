@@ -17,7 +17,7 @@ export default class CalendarWeek extends PureComponent<CalendarWeekProps, any> 
             <div className={`${prefixCls}-week-box`}>
                 {weekList.map((item, key) => {
                     return (
-                        <div className='item' key={key}>
+                        <div className='item' data-week={item} key={key}>
                             <p>{item}</p>
                         </div>
                     )

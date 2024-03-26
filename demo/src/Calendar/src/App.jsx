@@ -153,6 +153,7 @@ export default class App extends PureComponent {
                     minutesInterval={10}
                     yesterday
                     defaultCalendarTips='租期按24h制计算，不满24h按1天算'
+                    calendarTips='当地门店营业方式为下午办理取车(12:00-16:00)，上午办理还车(9:00-11:00)，请按建议时段选择取还时间。'
                     timeChange={( value ) => this.calcTime( 'timeChange', value )}
                     dayChange={( value ) => this.changeSelectDay( value )}
                     onChange={( value ) => { this.set( 1, value ); }}
@@ -162,9 +163,10 @@ export default class App extends PureComponent {
                     defaultStartTime={defaultStartTime}
                     defaultEndTime={defaultEndTime}
                     timeRange={range}
-                    popupTitle="请选择取还车时间"
+                    popupTitle="取还车时间"
                     dateExtension={holiday}
                     onClose={() => { this.hide( 1 ) }}
+                    pickupCityLocalTimeStr={'2024-04-01 17:27:21'}
                     // rangeInView={['2023-11-22 11:29', '2023-11-25 23:59']}
                 />
                 <div className='zzc-demo-body full'>
