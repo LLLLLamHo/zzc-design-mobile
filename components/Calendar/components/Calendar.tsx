@@ -42,7 +42,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
             _endTime: _endTime,
             _endIndexInfo: endIndexInfo,
             _default_calendar_tips: props.defaultCalendarTips,
-            _calendar_tips: '',
+            _calendar_tips: props.calendarTips,
             _listBoxPaddingBottom: 30,
             rangeInViewDate,
             timeText: null
@@ -222,17 +222,18 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
 
     onChangeEvent(eventType: string, type: string): void {
         const { timeChange, dayChange } = this.props;
-        let tips = '';
+        // let tips = '';
         if (eventType == 'day' && dayChange && isFunction(dayChange)) {
-            tips = dayChange(this.echoSelectData(type, this.state._startTime, this.state._endTime));
+            dayChange(this.echoSelectData(type, this.state._startTime, this.state._endTime));
         } else if (eventType == 'time' && timeChange && isFunction(timeChange)) {
-            tips = timeChange(this.echoSelectData(type, this.state._startTime, this.state._endTime));
+            timeChange(this.echoSelectData(type, this.state._startTime, this.state._endTime));
         }
-        if (this.state._calendar_tips != tips) {
-            this.setState({
-                _calendar_tips: tips || ''
-            });
-        }
+        // 固定了_calendar_tips
+        // if (this.state._calendar_tips != tips) {
+        //     this.setState({
+        //         _calendar_tips: tips || ''
+        //     });
+        // }
 
     }
 
@@ -290,12 +291,14 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
         if (!_startTime || !_endTime) return;
         const { onChange } = this.props;
         if (onChange && isFunction(onChange)) {
-            const tips = onChange(this.formatSubmitEchoData());
-            if (this.state._calendar_tips != tips) {
-                this.setState({
-                    _calendar_tips: tips || ''
-                });
-            }
+            onChange(this.formatSubmitEchoData())
+            // 固定了_calendar_tips
+            // const tips = onChange(this.formatSubmitEchoData());
+            // if (this.state._calendar_tips != tips) {
+            //     this.setState({
+            //         _calendar_tips: tips || ''
+            //     });
+            // }
         }
     }
 
@@ -312,8 +315,8 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
     }
 
     render() {
-        const { style, prefixCls, popupTitle, className, mode, timeRange, minutesInterval, defaultStartTime, defaultEndTime, visible, maskClose, height = '85vh', dayCalculator } = this.props;
-        const { calendarMap, i18n, _startTime, _endTime, _default_calendar_tips, _calendar_tips, _listBoxPaddingBottom, timeText } = this.state;
+        const { style, prefixCls, popupTitle, className, mode, timeRange, minutesInterval, defaultStartTime, defaultEndTime, visible, maskClose, height = '85vh', dayCalculator, pickupCityLocalTimeStr } = this.props;
+        const { calendarMap, i18n, _startTime, _endTime, _default_calendar_tips, _calendar_tips, _listBoxPaddingBottom } = this.state;
         const cardClassName: string = classNames(
             prefixCls,
             className
@@ -323,7 +326,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
                 <div style={style} className={cardClassName}>
                     <CalendarCloseBox popupTitle={popupTitle} onClose={this.closeCalendar} />
                     {/* <CalendarResult lang={lang || 'cn'} i18n={i18n} mode={mode || 'day'} startTime={_startTime} endTime={_endTime} dayCalculator={dayCalculator} /> */}
-                    <div className='now-text'>{timeText}</div>
+                    {/* <div className='now-text'>{timeText}</div> */}
                     <CalendarWeek weekList={i18n.weekList} />
                     <CalendarListBox
                         paddingBottom={_listBoxPaddingBottom}
@@ -357,6 +360,7 @@ export default class Calendar extends PureComponent<CalendarProps, CalendarState
                             defaultCalendarTips={_default_calendar_tips}
                             calendarTips={_calendar_tips}
                             dayCalculator={dayCalculator}
+                            pickupCityLocalTimeStr={pickupCityLocalTimeStr}
                         />
                     </Popup>
                 </div>

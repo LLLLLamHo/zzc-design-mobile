@@ -12,9 +12,7 @@ export default function i18n(lang) {
         picker_default: null,
         return_default: null,
         reset_btn_text: '重置',
-        submit_btn_text: '确认时间',
-        submit_btn_text_1: '确定(共',
-        submit_btn_text_2: '天)',
+        submit_btn_text: '确认',
         time_picker_title: '取车时间',
         time_return_title: '还车时间',
         listAcrossTheYearText: '年',
@@ -22,7 +20,10 @@ export default function i18n(lang) {
         week: '周',
         day: '天',
         days: '日',
-        today: '今天'
+        today: '今天',
+        pickup: '取(当地)',
+        dropoff: '还(当地)',
+        durationDays: '距用车还有',
     } : {
         left_title: '當地時間',
         left_placeholder: '選擇當地取車日期',
@@ -36,9 +37,7 @@ export default function i18n(lang) {
         picker_default: null,
         return_default: null,
         reset_btn_text: '重置',
-        submit_btn_text: '確認時間',
-        submit_btn_text_1: '確定(共',
-        submit_btn_text_2: '天)',
+        submit_btn_text: '確認',
         time_picker_title: '取車時間',
         time_return_title: '还車時間',
         listAcrossTheYearText: '年',
@@ -46,6 +45,9 @@ export default function i18n(lang) {
         week: '周',
         day: '天',
         days: '日',
-        today: '今天'
+        today: '今天',
+        pickup: '取(當地)',
+        dropoff: '还(當地)',
+        durationDays: '距用車還有',
     }
 }

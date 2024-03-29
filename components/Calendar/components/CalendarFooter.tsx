@@ -50,7 +50,7 @@ export default class CalendarFooter extends PureComponent<CalendarFooterProps, C
                 </div>
                 <div className='picker-box'>
                     <Picker
-                        height={117.5}
+                        height={115}
                         onTouchEnd={(scrollIndex, itemIndex) => { this.changeTime(scrollIndex, itemIndex); }}
                         pickerData={this.state.pickerList}
                     />
@@ -83,7 +83,7 @@ export default class CalendarFooter extends PureComponent<CalendarFooterProps, C
     }
 
     createTips(): JSX.Element | null {
-        const { calendarTips, defaultCalendarTips, mode } = this.props;
+        const { calendarTips, mode } = this.props;
         const className = mode == 'day' ? 'calendar-tips-box mode-day' : 'calendar-tips-box';
         if ( calendarTips != null && calendarTips != '' ) {
             return (
@@ -92,37 +92,49 @@ export default class CalendarFooter extends PureComponent<CalendarFooterProps, C
                     <p>{calendarTips}</p>
                 </div>
             );
-        } else if ( defaultCalendarTips != null && defaultCalendarTips != '' ) {
-            return (
-                <div className={className}>
-                    <Icon type='info_outline' />
-                    <p>{defaultCalendarTips}</p>
-                </div>
-            );
-        } else {
-            return null;
-        }
-
+        } 
+        // else if ( defaultCalendarTips != null && defaultCalendarTips != '' ) {
+        //     return (
+        //         <div className={className}>
+        //             <Icon type='info_outline' />
+        //             <p>{defaultCalendarTips}</p>
+        //         </div>
+        //     );
+        // } 
+        return null;
     }
 
     render(): JSX.Element {
-        const { prefixCls, i18n, defaultCalendarTips, submit, mode, currStartTime, currEndTime, dayCalculator } = this.props;
+        const { prefixCls, i18n, submit, mode, currStartTime, currEndTime, dayCalculator, defaultCalendarTips, pickupCityLocalTimeStr } = this.props;
+        let formatText = `MM月DD日`;
+        let formatTextWithYear = `YYYY年${formatText}`;
+        let durationDaysText = '';
+        let allDaysText = '';
+        if (currStartTime && pickupCityLocalTimeStr) {
+            const { Y, M, D} = currStartTime;
+            const days = moment([Y, M, D, 0, 0, 0]).diff(moment(pickupCityLocalTimeStr).startOf('day'), 'days');
+            if (days >= 10) {
+                durationDaysText = ` (${i18n.durationDays}${days}${i18n.day})`;
+            }
+        }
+        if (currStartTime && currEndTime) {
+            allDaysText = ` (共${isFunction(dayCalculator) ? dayCalculator!(currStartTime.t, currEndTime.t) : Math.ceil((currEndTime.t - currStartTime.t) / 86400000) || 1}${i18n.day})`;
+        }
 
         return (
             <div className={`${prefixCls}-footer`} ref={(div) => {this.footerItem = div}}>
                 {mode == 'day*time' && this.createTimePicker()}
-                {/* {this.createTips()} */}
+                {this.createTips()}
                 <div className='btn-box'>
                     {/* <Button className='reset-btn' type='special' onClick={reset}>{i18n.reset_btn_text}</Button> */}
                     <div className='pickup-return-text'>
-                        <div className='pickup-text'>取车：{currStartTime ? moment(currStartTime.t).format(moment().isSame(currStartTime.t, 'year') ? 'MM月DD日 HH:mm' : 'YYYY年MM月DD日 HH:mm') : '未设置'}</div>
-                        <div className='return-text'>还车：{currEndTime ? moment(currEndTime.t).format(moment().isSame(currEndTime.t, 'year') ? 'MM月DD日 HH:mm' : 'YYYY年MM月DD日 HH:mm') : '未设置'}</div>
+                        <div className='pickup-text'>{i18n.pickup}：{currStartTime ? moment(currStartTime.t).format(moment().isSame(currStartTime.t, 'year') ? formatText : formatTextWithYear) + durationDaysText : '未设置'}</div>
+                        <div className='return-text'>{i18n.dropoff}：{currEndTime ? moment(currEndTime.t).format(moment().isSame(currEndTime.t, 'year') ? formatText : formatTextWithYear) + allDaysText: '未设置'}</div>
                         {
                             defaultCalendarTips && currEndTime && currStartTime && currEndTime.t - currStartTime.t < 86400000 &&<div className='extra-text'><Icon type='info_outline' className='icon' />{defaultCalendarTips}</div>
                         }
-                        
                     </div>
-                    <Button className='submit-btn' onClick={submit}>{i18n.submit_btn_text_1}{currStartTime && currEndTime && (dayCalculator && isFunction(dayCalculator) ? dayCalculator(currStartTime.t, currEndTime.t) : (`${Math.ceil((currEndTime.t - currStartTime.t) / 86400000) || 1}`))}{i18n.submit_btn_text_2}</Button>
+                    <Button className='submit-btn' onClick={submit}>{i18n.submit_btn_text}</Button>
                 </div>
             </div>
         );
