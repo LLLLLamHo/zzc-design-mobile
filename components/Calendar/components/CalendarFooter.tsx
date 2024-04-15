@@ -83,29 +83,30 @@ export default class CalendarFooter extends PureComponent<CalendarFooterProps, C
     }
 
     createTips(): JSX.Element | null {
-        const { calendarTips, mode } = this.props;
+        const { mode, currEndTime, currStartTime,defaultCalendarTips } = this.props;
         const className = mode == 'day' ? 'calendar-tips-box mode-day' : 'calendar-tips-box';
-        if ( calendarTips != null && calendarTips != '' ) {
-            return (
-                <div className={className}>
-                    <Icon type='info_outline' />
-                    <p>{calendarTips}</p>
-                </div>
-            );
-        } 
-        // else if ( defaultCalendarTips != null && defaultCalendarTips != '' ) {
+        // if ( calendarTips != null && calendarTips != '' ) {
         //     return (
         //         <div className={className}>
         //             <Icon type='info_outline' />
-        //             <p>{defaultCalendarTips}</p>
+        //             <p>{calendarTips}</p>
         //         </div>
         //     );
         // } 
+         
+        if (defaultCalendarTips && currEndTime && currStartTime && currEndTime.t - currStartTime.t < 86400000 ) {
+            return (
+                <div className={className}>
+                    <Icon type='info_outline' />
+                    <p>{defaultCalendarTips}</p>
+                </div>
+            );
+        } 
         return null;
     }
 
     render(): JSX.Element {
-        const { prefixCls, i18n, submit, mode, currStartTime, currEndTime, dayCalculator, defaultCalendarTips, pickupCityLocalTimeStr } = this.props;
+        const { prefixCls, i18n, submit, mode, currStartTime, currEndTime, dayCalculator, pickupCityLocalTimeStr } = this.props;
         let formatText = `MM月DD日`;
         let formatTextWithYear = `YYYY年${formatText}`;
         let durationDaysText = '';
@@ -130,9 +131,9 @@ export default class CalendarFooter extends PureComponent<CalendarFooterProps, C
                     <div className='pickup-return-text'>
                         <div className='pickup-text'>{i18n.pickup}：{currStartTime ? moment(currStartTime.t).format(moment().isSame(currStartTime.t, 'year') ? formatText : formatTextWithYear) + durationDaysText : '未设置'}</div>
                         <div className='return-text'>{i18n.dropoff}：{currEndTime ? moment(currEndTime.t).format(moment().isSame(currEndTime.t, 'year') ? formatText : formatTextWithYear) + allDaysText: '未设置'}</div>
-                        {
+                        {/* {
                             defaultCalendarTips && currEndTime && currStartTime && currEndTime.t - currStartTime.t < 86400000 &&<div className='extra-text'><Icon type='info_outline' className='icon' />{defaultCalendarTips}</div>
-                        }
+                        } */}
                     </div>
                     <Button className='submit-btn' onClick={submit}>{i18n.submit_btn_text}</Button>
                 </div>

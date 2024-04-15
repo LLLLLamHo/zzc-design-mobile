@@ -372,7 +372,6 @@
   align-items: center;
   justify-content: space-between;
   height: 40px;
-  background: #F9FBFE;
   position: relative; }
 
 .zds-calendar-week-box::after {
@@ -417,7 +416,8 @@
   position: sticky;
   top: 0;
   background: #F9FBFE;
-  z-index: 1; }
+  z-index: 1;
+  font-weight: 500; }
 
 .zds-calendar-list-box .item .list-item {
   display: flex;
@@ -497,7 +497,7 @@
   font-weight: 400;
   color: #2871F7;
   position: absolute;
-  bottom: 2px;
+  bottom: 3px;
   width: 100%;
   line-height: 9px;
   white-space: nowrap;
@@ -509,7 +509,7 @@
   font-weight: 400;
   color: #fff;
   position: absolute;
-  top: 2px;
+  top: 3px;
   width: 100%;
   line-height: 9px;
   white-space: nowrap;
@@ -517,10 +517,7 @@
   text-overflow: ellipsis; }
 
 .zds-calendar-footer {
-  background: #fff;
-  border-top: 1px solid rgba(105, 110, 124, 0.15);
-  z-index: 1;
-  box-shadow: 0px -5.5px 10px 0px rgba(0, 0, 0, 0.06); }
+  z-index: 1; }
 
 .zds-calendar-footer .time-picker-box .title-box {
   display: flex;
@@ -528,7 +525,10 @@
   justify-content: space-between;
   position: relative;
   height: 40px;
-  padding: 0 20px; }
+  padding: 0 20px;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0px -11px 20px 0px rgba(0, 0, 0, 0.06);
+  background: #fff; }
 
 .zds-calendar-footer .time-picker-box .title-box::after {
   content: "";
@@ -550,10 +550,12 @@
   color: #282828;
   text-align: center;
   vertical-align: middle;
-  line-height: 40px; }
+  line-height: 40px;
+  font-weight: 500; }
 
 .zds-calendar-footer .time-picker-box .picker-box {
-  padding: 0 25px 7px 25px; }
+  padding: 5px 25px;
+  background: #fff; }
 
 .zds-calendar-footer .time-picker-box .picker-box .zds-picker-wrapper:nth-of-type(2) {
   margin-right: 30px; }
@@ -572,7 +574,8 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 0 15px; }
+  padding: 0 15px;
+  background: #fff; }
 
 .zds-calendar-footer .calendar-tips-box.mode-day {
   padding-top: 10px; }
@@ -595,7 +598,8 @@
   padding: 7px 15px 9px 15px;
   display: flex;
   align-items: center;
-  justify-content: space-between; }
+  justify-content: space-between;
+  background: #fff; }
 
 .zds-calendar-footer .btn-box .reset-btn {
   width: 111px;
@@ -616,7 +620,7 @@
   color: #696E7C;
   margin: 7px 0 0 0;
   display: flex;
-  align-items: center; }
+  align-items: flex-start; }
 
 .zds-calendar-footer .btn-box .pickup-return-text .extra-text .icon {
   width: 11px;
