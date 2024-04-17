@@ -347,7 +347,7 @@ $cls: '.zds-calendar';
                     width: 50%;
                     p {
                         width: 100%;
-                        font-size: 14px;
+                        font-size: 16px;
                         color: #282828;
                         text-align: center;
                         vertical-align: middle;
@@ -358,7 +358,7 @@ $cls: '.zds-calendar';
             }
 
             .picker-box {
-                padding: 5px 25px;
+                padding: 5px 25px 0;
                 background: #fff;
                 .zds-picker-wrapper:nth-of-type(2){
                     margin-right: 30px;
@@ -386,7 +386,7 @@ $cls: '.zds-calendar';
             align-items: flex-start;
             justify-content: flex-start;
             // padding: 2px 15px 2px;
-            padding: 0 15px;
+            padding: 6px 15px 0;
             background: #fff;
             &.mode-day{
                 padding-top: 10px;
@@ -409,7 +409,7 @@ $cls: '.zds-calendar';
         }
 
         .btn-box {
-            padding: 7px 15px 9px 15px;
+            padding: 10px 15px 10px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -446,6 +446,13 @@ $cls: '.zds-calendar';
             .submit-btn {
                 width: 127px;
                 height: 50px;
+                flex-direction: column;
+                line-height: 29px;
+                padding: 0;
+                .duration-day-text {
+                    font-size: 11px;
+                    line-height: 11px;
+                }
             }
         }
     }

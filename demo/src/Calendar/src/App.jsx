@@ -166,7 +166,7 @@ export default class App extends PureComponent {
                     popupTitle="取还车时间"
                     dateExtension={holiday}
                     onClose={() => { this.hide( 1 ) }}
-                    pickupCityLocalTimeStr={'2024-04-01 17:27:21'}
+                    pickupCityLocalTimeStr={'2024-4-13 17:27:21'}
                     // rangeInView={['2023-11-22 11:29', '2023-11-25 23:59']}
                 />
                 <div className='zzc-demo-body full'>
