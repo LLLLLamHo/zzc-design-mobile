@@ -546,7 +546,7 @@
 
 .zds-calendar-footer .time-picker-box .title-box .title p {
   width: 100%;
-  font-size: 14px;
+  font-size: 16px;
   color: #282828;
   text-align: center;
   vertical-align: middle;
@@ -554,7 +554,7 @@
   font-weight: 500; }
 
 .zds-calendar-footer .time-picker-box .picker-box {
-  padding: 5px 25px;
+  padding: 5px 25px 0;
   background: #fff; }
 
 .zds-calendar-footer .time-picker-box .picker-box .zds-picker-wrapper:nth-of-type(2) {
@@ -574,7 +574,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 0 15px;
+  padding: 6px 15px 0;
   background: #fff; }
 
 .zds-calendar-footer .calendar-tips-box.mode-day {
@@ -595,7 +595,7 @@
   line-height: 1.2727; }
 
 .zds-calendar-footer .btn-box {
-  padding: 7px 15px 9px 15px;
+  padding: 10px 15px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -629,4 +629,11 @@
 
 .zds-calendar-footer .btn-box .submit-btn {
   width: 127px;
-  height: 50px; }
+  height: 50px;
+  flex-direction: column;
+  line-height: 29px;
+  padding: 0; }
+
+.zds-calendar-footer .btn-box .submit-btn .duration-day-text {
+  font-size: 11px;
+  line-height: 11px; }

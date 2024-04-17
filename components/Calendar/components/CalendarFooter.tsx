@@ -115,7 +115,7 @@ export default class CalendarFooter extends PureComponent<CalendarFooterProps, C
             const { Y, M, D} = currStartTime;
             const days = moment([Y, M, D, 0, 0, 0]).diff(moment(pickupCityLocalTimeStr).startOf('day'), 'days');
             if (days >= 10) {
-                durationDaysText = ` (${i18n.durationDays}${days}${i18n.day})`;
+                durationDaysText = `${i18n.durationDays}${days}${i18n.day}`;
             }
         }
         if (currStartTime && currEndTime) {
@@ -129,13 +129,16 @@ export default class CalendarFooter extends PureComponent<CalendarFooterProps, C
                 <div className='btn-box'>
                     {/* <Button className='reset-btn' type='special' onClick={reset}>{i18n.reset_btn_text}</Button> */}
                     <div className='pickup-return-text'>
-                        <div className='pickup-text'>{i18n.pickup}：{currStartTime ? moment(currStartTime.t).format(moment().isSame(currStartTime.t, 'year') ? formatText : formatTextWithYear) + durationDaysText : '未设置'}</div>
+                        <div className='pickup-text'>{i18n.pickup}：{currStartTime ? moment(currStartTime.t).format(moment().isSame(currStartTime.t, 'year') ? formatText : formatTextWithYear) : '未设置'}</div>
                         <div className='return-text'>{i18n.dropoff}：{currEndTime ? moment(currEndTime.t).format(moment().isSame(currEndTime.t, 'year') ? formatText : formatTextWithYear) + allDaysText: '未设置'}</div>
                         {/* {
                             defaultCalendarTips && currEndTime && currStartTime && currEndTime.t - currStartTime.t < 86400000 &&<div className='extra-text'><Icon type='info_outline' className='icon' />{defaultCalendarTips}</div>
                         } */}
                     </div>
-                    <Button className='submit-btn' onClick={submit}>{i18n.submit_btn_text}</Button>
+                    <Button className='submit-btn' onClick={submit}>
+                        {i18n.submit_btn_text}
+                        {durationDaysText && <div className='duration-day-text'>{durationDaysText}</div>}
+                    </Button>
                 </div>
             </div>
         );
