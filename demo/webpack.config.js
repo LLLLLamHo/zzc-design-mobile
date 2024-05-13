@@ -44,6 +44,9 @@ for (let i = 0; i < dirs.length; i++) {
   if (dirs[i] == 'Popup') {
     entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
   }
+  if(dirs[i] == 'DatePicker') {
+    entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
+  }
   // entry[dirs[i]] = `./src/${dirs[i]}/src/index.jsx`;
 }
 console.log('entry',entry)
