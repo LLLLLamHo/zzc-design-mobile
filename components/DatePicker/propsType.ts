@@ -6,7 +6,7 @@ export interface DatePickerProps {
     buttonText?: string,
     warningText?: string,
     onChange?: Function
-    mode?: 'date' | 'time' | 'datetime' | 'year' | 'month' | 'hour'
+    mode?: 'date' | 'time' | 'datetime' | 'year' | 'month' | 'hour' | 'yearAndMonth'
     minDate?: string
     maxDate?: string
     selectTime?: any

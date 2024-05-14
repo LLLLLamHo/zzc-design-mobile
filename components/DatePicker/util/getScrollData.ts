@@ -11,6 +11,15 @@ export function getModeDateData( BScrollList: BScrollArray, state: DatePickerSta
     return `${year}/${resetDate( month )}/${resetDate( day )}`;
 }
 
+export function getModeYearAndMonthData( BScrollList: BScrollArray, state: DatePickerState ): string {
+    const { year: yearBS, month: monthBS } = BScrollList;
+    const { yearList, monthList } = state;
+    const year = yearList.listData[yearBS.getSelectedIndex()].dataKey;
+    const month = monthList.listData[monthBS.getSelectedIndex()].dataKey;
+
+    return `${year}/${resetDate( month )}`;
+}
+
 export function getModeTimeData( BScrollList: BScrollArray, state: DatePickerState, use12hour?:boolean ): string {
     const { hour: hourBS, minute: minuteBS, hour12: hour12BS } = BScrollList;
     const { hourList, minuteList, hour12List } = state;

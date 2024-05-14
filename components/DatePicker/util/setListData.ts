@@ -6,6 +6,11 @@ export function createDateListData( obj, calcMinDate, calcMaxDate, calcCurrDate,
     obj.dayList = setDayListData( calcCurrDate, calcMinDate, calcMaxDate, langData );
 }
 
+export function createYearAndMonthListData( obj, calcMinDate, calcMaxDate, calcCurrDate, langData, monthList ) {
+    obj.yearList = setYearListData( calcMinDate.year, calcMaxDate.year, calcCurrDate.year, langData );
+    obj.monthList = setMonthListData( calcCurrDate, calcMinDate, calcMaxDate, langData, monthList );
+}
+
 export function createDateTimeListData( obj, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, monthList, hourRange ) {
     obj.yearList = setYearListData( calcMinDate.year, calcMaxDate.year, calcCurrDate.year, langData );
     obj.monthList = setMonthListData( calcCurrDate, calcMinDate, calcMaxDate, langData, monthList );

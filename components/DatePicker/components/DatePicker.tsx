@@ -1,8 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
 import { initMinDate, initMaxDate, initSelectDate, getLastDate, getFirstDate } from '../util/date';
-import { createDateListData, createDateTimeListData, createTimeListData, createYearListData, createMonthListData, createHourListData } from '../util/setListData';
-import { getModeDateData, getModeTimeData, getModeDateTimeData, getModeYearData, getModeMonthData, getModeHourData } from '../util/getScrollData';
+import { createDateListData, createYearAndMonthListData, createDateTimeListData, createTimeListData, createYearListData, createMonthListData, createHourListData } from '../util/setListData';
+import { getModeDateData, getModeYearAndMonthData, getModeTimeData, getModeDateTimeData, getModeYearData, getModeMonthData, getModeHourData } from '../util/getScrollData';
 import Picker from '../../Picker';
 import Icon from '../../Icon';
 import Button from '../../Button';
@@ -147,6 +147,8 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
                 break;
             case 'month': createMonthListData(listData, calcMinDate, calcMaxDate, calcCurrDate, langData, monthList);
                 break;
+            case 'yearAndMonth': createYearAndMonthListData(listData, calcMinDate, calcMaxDate, calcCurrDate, langData, monthList);
+                break;
         }
         this.state = Object.assign({}, listData, { langData });
         time && this.setState(this.state);
@@ -224,6 +226,8 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
             case 'year': resultData.currDate = getModeYearData(this.BScrollList, this.state);
                 break;
             case 'month': resultData.currDate = getModeMonthData(this.BScrollList, this.state, mode);
+                break;
+            case 'yearAndMonth': resultData.currDate = getModeYearAndMonthData(this.BScrollList, this.state);
                 break;
         }
         return resultData;

@@ -36,7 +36,9 @@ export default class App extends Component {
             maxDate4: '2020/8/10 11:00:00',
             isShow11: false,
             time11: '12:30',
-            warningText: null
+            warningText: null,
+            isShow12: false,
+            time12: '2024/05',
         };
     }
 
@@ -59,6 +61,7 @@ export default class App extends Component {
     }
 
     submit ( data, index ) {
+        console.log(data)
         this.state[`isShow${index}`] = false;
         this.state[`time${index}`] = data.currDate;
         this.setState( this.state );
@@ -290,6 +293,25 @@ export default class App extends Component {
                             datePickerTitle: '選択時間',
                             datePickerButtomText: '日付を確認する'
                         }}
+                    />
+                </div>
+                <div className='zzc-demo-body full'>
+                    <Card full>
+                        <Card.Body borderDirection='left'>
+                            <div className='card-box2' onClick={() => { this.show( 12 ); }}>
+                                <p>日期选择框,当前日期：{this.state.time12}</p>
+                            </div>
+                        </Card.Body>
+                    </Card>
+                    <DatePicker
+                        reverse
+                        renderCallback={this.renderCallback}
+                        visible={this.state.isShow12}
+                        mode='yearAndMonth'
+                        selectTime={new Date( this.state.time12 )} 
+                        onValueChange={( date ) => { this.onValueChange( date ); }}
+                        onClose={() => { this.close( 12 ); }}
+                        onSubmit={( data ) => { this.submit( data, 12 ); }}
                     />
                 </div>
             </div>
