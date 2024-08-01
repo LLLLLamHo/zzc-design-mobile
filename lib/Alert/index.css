@@ -235,7 +235,7 @@
 .zds-alert-box {
   width: 304px;
   overflow: hidden;
-  border-radius: 4px; }
+  border-radius: 10px; }
 
 .zds-alert-box .zds-alert-header .zds-alert-title-img {
   width: 100%;

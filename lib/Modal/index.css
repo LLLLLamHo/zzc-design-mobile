@@ -235,7 +235,7 @@
 .zds-modal-box {
   width: 304px;
   overflow: hidden;
-  border-radius: 8px; }
+  border-radius: 10px; }
 
 .zds-modal-box .zds-modal-header {
   height: 50px;
