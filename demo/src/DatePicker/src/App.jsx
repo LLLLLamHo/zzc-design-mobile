@@ -137,6 +137,7 @@ export default class App extends Component {
                         maxDate={this.state.maxDate4}
                         // hourRange={[10, 12]}
                         mode='datetime'
+                        hourUnit="时"
                         selectTime={this.state.time9}
                         onValueChange={( date ) => { this.onValueChange( date ); }}
                         onClose={() => { this.close( 9 ); }}

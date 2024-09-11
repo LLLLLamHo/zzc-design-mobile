@@ -30,6 +30,7 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         visible: false,
         maskClose: true,
         reverse: false,
+        hourUnit: ':00',
         monthList: [1,2,3,4,5,6,7,8,9,10,11,12]
     }
 
@@ -107,7 +108,7 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
     }
 
     initDate(time: Date | null): void {
-        const { minDate, maxDate, selectTime, lang, mode, minuteStep, hourRange, i18n, monthList } = this.props;
+        const { minDate, maxDate, selectTime, lang, mode, minuteStep, hourRange, i18n, monthList, hourUnit } = this.props;
         let { use12hour } = this.props;
         // 如果设置了小时的范围那么use2hour将失效
         if (hourRange) {
@@ -137,11 +138,11 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
         switch (mode) {
             case 'date': createDateListData(listData, calcMinDate, calcMaxDate, calcCurrDate, langData, monthList);
                 break;
-            case 'datetime': createDateTimeListData(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, monthList, hourRange);
+            case 'datetime': createDateTimeListData(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, monthList, hourRange, hourUnit);
                 break;
-            case 'time': createTimeListData(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, hourRange);
+            case 'time': createTimeListData(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, minuteStep, langData, hourRange, hourUnit);
                 break;
-            case 'hour': createHourListData(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, langData, hourRange);
+            case 'hour': createHourListData(listData, calcMinDate, calcMaxDate, calcCurrDate, use12hour, langData, hourRange, hourUnit);
                 break;
             case 'year': createYearListData(listData, calcMinDate, calcMaxDate, calcCurrDate, langData);
                 break;
@@ -244,7 +245,7 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
     }
 
     render(): JSX.Element {
-        const { prefixCls, className, style, visible, maskClose, renderCallback, title, buttonText, lang, warningText } = this.props;
+        const { prefixCls, className, style, visible, maskClose, renderCallback, title, buttonText, lang, warningText , hourUnit} = this.props;
         const cls = classnames(
             className,
             `${prefixCls}`
