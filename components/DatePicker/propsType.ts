@@ -23,6 +23,7 @@ export interface DatePickerProps {
     hourRange?: [number, number]
     i18n: i18n
     monthList?: Array<String>
+    hourUnit?: string
 }
 
 export interface i18n {

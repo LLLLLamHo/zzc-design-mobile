@@ -172,7 +172,7 @@ export function setDayListData ( currDateData, calcMinDate, calcMaxDate, langDat
     return dayListData;
 }
 
-export function setHoursListData ( currDateData, use12hour, calcMinDate, calcMaxDate, hourRange ): ListItem {
+export function setHoursListData ( currDateData, use12hour, calcMinDate, calcMaxDate, hourRange, hourUnit ): ListItem {
     const { year: currYear, month: currMonth, day: currDay, hour: curHour } = currDateData;
     const { year: minYear, month: minMonth, day: minDay, hour: minHour } = calcMinDate;
     const { year: maxYear, month: maxMonth, day: maxDay, hour: maxHour } = calcMaxDate;
@@ -230,7 +230,7 @@ export function setHoursListData ( currDateData, use12hour, calcMinDate, calcMax
                 hourListData.selectIndex = i - startHour;
             }
             hourListData.listData.push( {
-                text: `${hourText}:00`,
+                text: `${hourText}${hourUnit}`,
                 dataKey: hourText
             } );
             hourText++;
@@ -255,7 +255,7 @@ export function setHoursListData ( currDateData, use12hour, calcMinDate, calcMax
                     hourListData.selectIndex = i - startHour;
                 }
                 hourListData.listData.push( {
-                    text: `${hourText}:00`,
+                    text: `${hourText}${hourUnit}`,
                     dataKey: hourText
                 } );
             }
@@ -269,13 +269,12 @@ export function setHoursListData ( currDateData, use12hour, calcMinDate, calcMax
         }
         for ( let i = startHour; i < step; i++ ) {
             hourListData.listData.push( {
-                text: `${use12hour && hourText >= 12 ? hourText - 12 : hourText}:00`,
+                text: `${use12hour && hourText >= 12 ? hourText - 12 : hourText}${hourUnit}`,
                 dataKey: hourText
             } );
             hourText++;
         }
     }
-
     return hourListData;
 }
 
@@ -352,7 +351,7 @@ export function setMinuteListData ( currDateData, minuteStep, calcMinDate, calcM
     return minuteListData;
 }
 
-export function setHour12ListData( currDateData, calcMinDate, calcMaxDate, langData ): ListItem {
+export function setHour12ListData( currDateData, calcMinDate, calcMaxDate, langData): ListItem {
     const { year: curYear, month: curMonth, day: currDay, hour: curHour } = currDateData;
     const { year: minYear, month: minMonth, day: minDay, hour: minHour } = calcMinDate;
     const { year: maxYear, month: maxMonth, day: maxDay, hour: maxHour } = calcMaxDate;
