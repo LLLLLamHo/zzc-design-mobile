@@ -324,7 +324,7 @@ export function setMinuteListData ( currDateData, minuteStep, calcMinDate, calcM
         step = maxMinute === 0 ? 1 : Math.ceil( maxMinute / minuteStep );
         // 默认为最后一个
         minuteListData.selectIndex = step - 1;
-        for ( let i = startMinute; i < step; i++ ) {
+        for ( let i = startMinute; i <= step; i++ ) {
             if ( minuteText <= maxMinute ) {
                 if ( curMinute == i + 1 ) {
                     minuteListData.selectIndex = i;
