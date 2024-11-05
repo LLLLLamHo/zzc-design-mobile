@@ -245,6 +245,7 @@ export default class DatePicker extends React.Component<DatePickerProps, DatePic
     }
 
     render(): JSX.Element {
+        // @ts-ignore
         const { prefixCls, className, style, visible, maskClose, renderCallback, title, buttonText, lang, warningText , hourUnit} = this.props;
         const cls = classnames(
             className,
