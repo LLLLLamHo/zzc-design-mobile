@@ -24,6 +24,9 @@ let _parentNode: any = null;
 function closeToast(): void {
     addClass(_toastElem, `${config.cls}-fade-leave`);
     addClass(_toastElem, `${config.cls}-fade-leave-active`);
+    if (_closeTimer != null) {
+        clearTimeout(_closeTimer);
+    }
     _closeTimer = null;
 }
 
