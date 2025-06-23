@@ -28,9 +28,9 @@ export default class ListItem extends PureComponent<ListItemProps, any> {
         return (
             <div className={classname}>
                 <div className={`${prefixCls}-header-title`}>{title}</div>
-                {extra && <div onClick={() => {
+                {extra && <div onClick={(e) => {
                     if (extraClick && isFunction(extraClick)) {
-                        extraClick();
+                        extraClick(e);
                     }
                 }} className={`${prefixCls}-header-extra`}>{extra}</div>}
             </div>
@@ -55,9 +55,9 @@ export default class ListItem extends PureComponent<ListItemProps, any> {
         );
 
         return (
-            <div style={style} className={cardClassName} onClick={() => {
+            <div style={style} className={cardClassName} onClick={(e) => {
                 if (onClick) {
-                    onClick();
+                    onClick(e);
                 }
             }}>
                 {title && this.createHeader(title, extra)}
